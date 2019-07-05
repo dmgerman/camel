@@ -120,7 +120,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Replication slot name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Replication slot name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|slot (String slot)
 specifier|default
 name|PgReplicationSlotEndpointBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * PostgreSQL server host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * PostgreSQL server host.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|PgReplicationSlotEndpointBuilder
@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * PostgreSQL server port.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * PostgreSQL server port.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|PgReplicationSlotEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * PostgreSQL server port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * PostgreSQL server port.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|PgReplicationSlotEndpointBuilder
@@ -204,7 +204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * PostgreSQL database name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * PostgreSQL database name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|PgReplicationSlotEndpointBuilder
@@ -225,7 +225,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Output plugin name (e.g. test_decoding, wal2json).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Output plugin name (e.g. test_decoding, wal2json).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|outputPlugin ( String outputPlugin)
 specifier|default
 name|PgReplicationSlotEndpointBuilder
@@ -246,7 +246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * PostgreSQL password.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * PostgreSQL password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|PgReplicationSlotEndpointBuilder
@@ -267,7 +267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * PostgreSQL username.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * PostgreSQL username.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
 name|PgReplicationSlotEndpointBuilder
@@ -310,7 +310,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Auto create slot if it does not exist.          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
+comment|/**          * Auto create slot if it does not exist.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: advanced          */
 DECL|method|autoCreateSlot ( Boolean autoCreateSlot)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -331,7 +331,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Auto create slot if it does not exist.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
+comment|/**          * Auto create slot if it does not exist.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: advanced          */
 DECL|method|autoCreateSlot ( String autoCreateSlot)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -352,7 +352,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -373,7 +373,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -394,7 +394,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Slot options to be passed to the output plugin.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Slot options to be passed to the output plugin.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|slotOptions ( Map<String, Object> slotOptions)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -420,7 +420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Slot options to be passed to the output plugin.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Slot options to be passed to the output plugin.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|slotOptions ( String slotOptions)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -441,7 +441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the number of seconds between status packets sent back to          * Postgres server.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Specifies the number of seconds between status packets sent back to          * Postgres server.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|statusInterval ( Integer statusInterval)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -462,7 +462,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the number of seconds between status packets sent back to          * Postgres server.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Specifies the number of seconds between status packets sent back to          * Postgres server.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|statusInterval ( String statusInterval)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -483,7 +483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder
@@ -504,7 +504,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedPgReplicationSlotEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Google Cloud Project Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Google Cloud Project Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|projectId (String projectId)
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * BigQuery standard SQL query.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * BigQuery standard SQL query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|query (String query)
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          * The option is a          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          * @group producer          */
+comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          *           * The option is a:          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          *           * Group: producer          */
 DECL|method|connectionFactory ( Object connectionFactory)
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          * The option will be converted to a          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          * @group producer          */
+comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          *           * Group: producer          */
 DECL|method|connectionFactory ( String connectionFactory)
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
@@ -216,7 +216,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder
@@ -237,7 +237,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder
@@ -258,7 +258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder
@@ -279,7 +279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGoogleBigQuerySQLEndpointBuilder

@@ -146,7 +146,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (Olingo2ApiName apiName)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -167,7 +167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -188,7 +188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -209,7 +209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout (int connectTimeout)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -230,7 +230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout ( String connectTimeout)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -251,7 +251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Content-Type header value can be used to specify JSON or XML message          * format, defaults to application/json;charset=utf-8.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Content-Type header value can be used to specify JSON or XML message          * format, defaults to application/json;charset=utf-8.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -272,7 +272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|filterAlreadySeen ( boolean filterAlreadySeen)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -293,7 +293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|filterAlreadySeen ( String filterAlreadySeen)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -314,7 +314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option is a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option is a:          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          *           * Group: common          */
 DECL|method|httpAsyncClientBuilder ( Object httpAsyncClientBuilder)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -335,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option will be converted to a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option will be converted to a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          *           * Group: common          */
 DECL|method|httpAsyncClientBuilder ( String httpAsyncClientBuilder)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -356,7 +356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option is a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          * @group common          */
+comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option is a:          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          *           * Group: common          */
 DECL|method|httpClientBuilder ( Object httpClientBuilder)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -377,7 +377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option will be converted to a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          * @group common          */
+comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option will be converted to a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          *           * Group: common          */
 DECL|method|httpClientBuilder ( String httpClientBuilder)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -398,7 +398,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group common          */
+comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: common          */
 DECL|method|httpHeaders ( Map<String, String> httpHeaders)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -424,7 +424,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: common          */
 DECL|method|httpHeaders (String httpHeaders)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -445,7 +445,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -466,7 +466,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP proxy server configuration.          * The option is a<code>org.apache.http.HttpHost</code> type.          * @group common          */
+comment|/**          * HTTP proxy server configuration.          *           * The option is a:<code>org.apache.http.HttpHost</code> type.          *           * Group: common          */
 DECL|method|proxy (Object proxy)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -487,7 +487,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP proxy server configuration.          * The option will be converted to a          *<code>org.apache.http.HttpHost</code> type.          * @group common          */
+comment|/**          * HTTP proxy server configuration.          *           * The option will be converted to a          *<code>org.apache.http.HttpHost</code> type.          *           * Group: common          */
 DECL|method|proxy (String proxy)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -508,7 +508,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Target OData service base URI, e.g.          * http://services.odata.org/OData/OData.svc.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Target OData service base URI, e.g.          * http://services.odata.org/OData/OData.svc.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serviceUri (String serviceUri)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -529,7 +529,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|socketTimeout (int socketTimeout)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -550,7 +550,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|socketTimeout ( String socketTimeout)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -571,7 +571,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: common          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -592,7 +592,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: common          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -613,7 +613,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -634,7 +634,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|Olingo2EndpointConsumerBuilder
@@ -677,7 +677,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedOlingo2EndpointConsumerBuilder
@@ -698,7 +698,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedOlingo2EndpointConsumerBuilder
@@ -719,7 +719,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedOlingo2EndpointConsumerBuilder
@@ -740,7 +740,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedOlingo2EndpointConsumerBuilder
@@ -761,7 +761,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedOlingo2EndpointConsumerBuilder
@@ -782,7 +782,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedOlingo2EndpointConsumerBuilder
@@ -803,7 +803,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedOlingo2EndpointConsumerBuilder
@@ -824,7 +824,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedOlingo2EndpointConsumerBuilder
@@ -867,7 +867,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (Olingo2ApiName apiName)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -888,7 +888,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -909,7 +909,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -930,7 +930,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout (int connectTimeout)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -951,7 +951,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout ( String connectTimeout)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -972,7 +972,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Content-Type header value can be used to specify JSON or XML message          * format, defaults to application/json;charset=utf-8.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Content-Type header value can be used to specify JSON or XML message          * format, defaults to application/json;charset=utf-8.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -993,7 +993,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|filterAlreadySeen ( boolean filterAlreadySeen)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1014,7 +1014,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|filterAlreadySeen ( String filterAlreadySeen)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1035,7 +1035,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option is a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option is a:          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          *           * Group: common          */
 DECL|method|httpAsyncClientBuilder ( Object httpAsyncClientBuilder)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1056,7 +1056,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option will be converted to a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option will be converted to a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          *           * Group: common          */
 DECL|method|httpAsyncClientBuilder ( String httpAsyncClientBuilder)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1077,7 +1077,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option is a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          * @group common          */
+comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option is a:          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          *           * Group: common          */
 DECL|method|httpClientBuilder ( Object httpClientBuilder)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1098,7 +1098,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option will be converted to a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          * @group common          */
+comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option will be converted to a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          *           * Group: common          */
 DECL|method|httpClientBuilder ( String httpClientBuilder)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1119,7 +1119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group common          */
+comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: common          */
 DECL|method|httpHeaders ( Map<String, String> httpHeaders)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1145,7 +1145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: common          */
 DECL|method|httpHeaders (String httpHeaders)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1166,7 +1166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1187,7 +1187,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP proxy server configuration.          * The option is a<code>org.apache.http.HttpHost</code> type.          * @group common          */
+comment|/**          * HTTP proxy server configuration.          *           * The option is a:<code>org.apache.http.HttpHost</code> type.          *           * Group: common          */
 DECL|method|proxy (Object proxy)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1208,7 +1208,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP proxy server configuration.          * The option will be converted to a          *<code>org.apache.http.HttpHost</code> type.          * @group common          */
+comment|/**          * HTTP proxy server configuration.          *           * The option will be converted to a          *<code>org.apache.http.HttpHost</code> type.          *           * Group: common          */
 DECL|method|proxy (String proxy)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1229,7 +1229,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Target OData service base URI, e.g.          * http://services.odata.org/OData/OData.svc.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Target OData service base URI, e.g.          * http://services.odata.org/OData/OData.svc.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serviceUri (String serviceUri)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1250,7 +1250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|socketTimeout (int socketTimeout)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1271,7 +1271,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|socketTimeout ( String socketTimeout)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1292,7 +1292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: common          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1313,7 +1313,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: common          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1334,7 +1334,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1355,7 +1355,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|Olingo2EndpointProducerBuilder
@@ -1398,7 +1398,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedOlingo2EndpointProducerBuilder
@@ -1419,7 +1419,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedOlingo2EndpointProducerBuilder
@@ -1440,7 +1440,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedOlingo2EndpointProducerBuilder
@@ -1461,7 +1461,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedOlingo2EndpointProducerBuilder
@@ -1506,7 +1506,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (Olingo2ApiName apiName)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1527,7 +1527,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1548,7 +1548,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1569,7 +1569,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout (int connectTimeout)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1590,7 +1590,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout (String connectTimeout)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1611,7 +1611,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Content-Type header value can be used to specify JSON or XML message          * format, defaults to application/json;charset=utf-8.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Content-Type header value can be used to specify JSON or XML message          * format, defaults to application/json;charset=utf-8.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1632,7 +1632,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|filterAlreadySeen ( boolean filterAlreadySeen)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1653,7 +1653,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Set this to true to filter out results that have already been          * communicated by this component.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|filterAlreadySeen ( String filterAlreadySeen)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1674,7 +1674,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option is a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option is a:          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          *           * Group: common          */
 DECL|method|httpAsyncClientBuilder ( Object httpAsyncClientBuilder)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1695,7 +1695,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option will be converted to a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP async client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option will be converted to a          *<code>org.apache.http.impl.nio.client.HttpAsyncClientBuilder</code>          * type.          *           * Group: common          */
 DECL|method|httpAsyncClientBuilder ( String httpAsyncClientBuilder)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1716,7 +1716,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option is a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          * @group common          */
+comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option is a:          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          *           * Group: common          */
 DECL|method|httpClientBuilder ( Object httpClientBuilder)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1737,7 +1737,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          * The option will be converted to a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          * @group common          */
+comment|/**          * Custom HTTP client builder for more complex HTTP client          * configuration, overrides connectionTimeout, socketTimeout, proxy and          * sslContext. Note that a socketTimeout MUST be specified in the          * builder, otherwise OData requests could block indefinitely.          *           * The option will be converted to a          *<code>org.apache.http.impl.client.HttpClientBuilder</code> type.          *           * Group: common          */
 DECL|method|httpClientBuilder ( String httpClientBuilder)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1758,7 +1758,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group common          */
+comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: common          */
 DECL|method|httpHeaders ( Map<String, String> httpHeaders)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1784,7 +1784,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group common          */
+comment|/**          * Custom HTTP headers to inject into every request, this could include          * OAuth tokens, etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: common          */
 DECL|method|httpHeaders (String httpHeaders)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1805,7 +1805,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1826,7 +1826,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP proxy server configuration.          * The option is a<code>org.apache.http.HttpHost</code> type.          * @group common          */
+comment|/**          * HTTP proxy server configuration.          *           * The option is a:<code>org.apache.http.HttpHost</code> type.          *           * Group: common          */
 DECL|method|proxy (Object proxy)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1847,7 +1847,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP proxy server configuration.          * The option will be converted to a          *<code>org.apache.http.HttpHost</code> type.          * @group common          */
+comment|/**          * HTTP proxy server configuration.          *           * The option will be converted to a          *<code>org.apache.http.HttpHost</code> type.          *           * Group: common          */
 DECL|method|proxy (String proxy)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1868,7 +1868,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Target OData service base URI, e.g.          * http://services.odata.org/OData/OData.svc.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Target OData service base URI, e.g.          * http://services.odata.org/OData/OData.svc.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serviceUri (String serviceUri)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1889,7 +1889,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|socketTimeout (int socketTimeout)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1910,7 +1910,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * HTTP request timeout in milliseconds, defaults to 30,000 (30          * seconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|socketTimeout (String socketTimeout)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1931,7 +1931,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: common          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1952,7 +1952,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group common          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: common          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|Olingo2EndpointBuilder
@@ -1997,7 +1997,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedOlingo2EndpointBuilder
@@ -2018,7 +2018,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedOlingo2EndpointBuilder
@@ -2039,7 +2039,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedOlingo2EndpointBuilder
@@ -2060,7 +2060,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedOlingo2EndpointBuilder

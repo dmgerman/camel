@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of either a javax.naming.directory.DirContext, or          * java.util.Hashtable, or Map bean to lookup in the registry. If the          * bean is either a Hashtable or Map then a new          * javax.naming.directory.DirContext instance is created for each use.          * If the bean is a javax.naming.directory.DirContext then the bean is          * used as given. The latter may not be possible in all situations where          * the javax.naming.directory.DirContext must not be shared, and in          * those situations it can be better to use java.util.Hashtable or Map          * instead.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of either a javax.naming.directory.DirContext, or          * java.util.Hashtable, or Map bean to lookup in the registry. If the          * bean is either a Hashtable or Map then a new          * javax.naming.directory.DirContext instance is created for each use.          * If the bean is a javax.naming.directory.DirContext then the bean is          * used as given. The latter may not be possible in all situations where          * the javax.naming.directory.DirContext must not be shared, and in          * those situations it can be better to use java.util.Hashtable or Map          * instead.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|dirContextName (String dirContextName)
 specifier|default
 name|LdapEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The base DN for searches.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The base DN for searches.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|base (String base)
 specifier|default
 name|LdapEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When specified the ldap module uses paging to retrieve all results          * (most LDAP Servers throw an exception when trying to retrieve more          * than 1000 entries in one query). To be able to use this a LdapContext          * (subclass of DirContext) has to be passed in as ldapServerBean          * (otherwise an exception is thrown).          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * When specified the ldap module uses paging to retrieve all results          * (most LDAP Servers throw an exception when trying to retrieve more          * than 1000 entries in one query). To be able to use this a LdapContext          * (subclass of DirContext) has to be passed in as ldapServerBean          * (otherwise an exception is thrown).          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|pageSize (Integer pageSize)
 specifier|default
 name|LdapEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When specified the ldap module uses paging to retrieve all results          * (most LDAP Servers throw an exception when trying to retrieve more          * than 1000 entries in one query). To be able to use this a LdapContext          * (subclass of DirContext) has to be passed in as ldapServerBean          * (otherwise an exception is thrown).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * When specified the ldap module uses paging to retrieve all results          * (most LDAP Servers throw an exception when trying to retrieve more          * than 1000 entries in one query). To be able to use this a LdapContext          * (subclass of DirContext) has to be passed in as ldapServerBean          * (otherwise an exception is thrown).          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|pageSize (String pageSize)
 specifier|default
 name|LdapEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Comma-separated list of attributes that should be set in each entry          * of the result.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Comma-separated list of attributes that should be set in each entry          * of the result.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|returnedAttributes (String returnedAttributes)
 specifier|default
 name|LdapEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies how deeply to search the tree of entries, starting at the          * base DN.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Specifies how deeply to search the tree of entries, starting at the          * base DN.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|scope (String scope)
 specifier|default
 name|LdapEndpointBuilder
@@ -258,7 +258,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedLdapEndpointBuilder
@@ -279,7 +279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedLdapEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLdapEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLdapEndpointBuilder

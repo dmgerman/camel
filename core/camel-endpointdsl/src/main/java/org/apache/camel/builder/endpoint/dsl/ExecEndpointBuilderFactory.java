@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the executable to be executed. The executable must not be empty          * or null.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Sets the executable to be executed. The executable must not be empty          * or null.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|executable (String executable)
 specifier|default
 name|ExecEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The arguments may be one or many whitespace-separated tokens.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The arguments may be one or many whitespace-separated tokens.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|args (String args)
 specifier|default
 name|ExecEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A reference to a org.apache.commons.exec.ExecBinding in the Registry.          * The option is a          *<code>org.apache.camel.component.exec.ExecBinding</code> type.          * @group producer          */
+comment|/**          * A reference to a org.apache.commons.exec.ExecBinding in the Registry.          *           * The option is a:          *<code>org.apache.camel.component.exec.ExecBinding</code> type.          *           * Group: producer          */
 DECL|method|binding (Object binding)
 specifier|default
 name|ExecEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A reference to a org.apache.commons.exec.ExecBinding in the Registry.          * The option will be converted to a          *<code>org.apache.camel.component.exec.ExecBinding</code> type.          * @group producer          */
+comment|/**          * A reference to a org.apache.commons.exec.ExecBinding in the Registry.          *           * The option will be converted to a          *<code>org.apache.camel.component.exec.ExecBinding</code> type.          *           * Group: producer          */
 DECL|method|binding (String binding)
 specifier|default
 name|ExecEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A reference to a org.apache.commons.exec.ExecCommandExecutor in the          * Registry that customizes the command execution. The default command          * executor utilizes the commons-exec library, which adds a shutdown          * hook for every executed command.          * The option is a          *<code>org.apache.camel.component.exec.ExecCommandExecutor</code>          * type.          * @group producer          */
+comment|/**          * A reference to a org.apache.commons.exec.ExecCommandExecutor in the          * Registry that customizes the command execution. The default command          * executor utilizes the commons-exec library, which adds a shutdown          * hook for every executed command.          *           * The option is a:          *<code>org.apache.camel.component.exec.ExecCommandExecutor</code>          * type.          *           * Group: producer          */
 DECL|method|commandExecutor (Object commandExecutor)
 specifier|default
 name|ExecEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A reference to a org.apache.commons.exec.ExecCommandExecutor in the          * Registry that customizes the command execution. The default command          * executor utilizes the commons-exec library, which adds a shutdown          * hook for every executed command.          * The option will be converted to a          *<code>org.apache.camel.component.exec.ExecCommandExecutor</code>          * type.          * @group producer          */
+comment|/**          * A reference to a org.apache.commons.exec.ExecCommandExecutor in the          * Registry that customizes the command execution. The default command          * executor utilizes the commons-exec library, which adds a shutdown          * hook for every executed command.          *           * The option will be converted to a          *<code>org.apache.camel.component.exec.ExecCommandExecutor</code>          * type.          *           * Group: producer          */
 DECL|method|commandExecutor (String commandExecutor)
 specifier|default
 name|ExecEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of a file, created by the executable, that should be          * considered as its output. If no outFile is set, the standard output          * (stdout) of the executable will be used instead.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The name of a file, created by the executable, that should be          * considered as its output. If no outFile is set, the standard output          * (stdout) of the executable will be used instead.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|outFile (String outFile)
 specifier|default
 name|ExecEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout, in milliseconds, after which the executable should be          * terminated. If execution has not completed within the timeout, the          * component will send a termination request.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * The timeout, in milliseconds, after which the executable should be          * terminated. If execution has not completed within the timeout, the          * component will send a termination request.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|timeout (long timeout)
 specifier|default
 name|ExecEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout, in milliseconds, after which the executable should be          * terminated. If execution has not completed within the timeout, the          * component will send a termination request.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * The timeout, in milliseconds, after which the executable should be          * terminated. If execution has not completed within the timeout, the          * component will send a termination request.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|ExecEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A boolean indicating that when stdout is empty, this component will          * populate the Camel Message Body with stderr. This behavior is          * disabled (false) by default.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * A boolean indicating that when stdout is empty, this component will          * populate the Camel Message Body with stderr. This behavior is          * disabled (false) by default.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useStderrOnEmptyStdout ( boolean useStderrOnEmptyStdout)
 specifier|default
 name|ExecEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A boolean indicating that when stdout is empty, this component will          * populate the Camel Message Body with stderr. This behavior is          * disabled (false) by default.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * A boolean indicating that when stdout is empty, this component will          * populate the Camel Message Body with stderr. This behavior is          * disabled (false) by default.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useStderrOnEmptyStdout ( String useStderrOnEmptyStdout)
 specifier|default
 name|ExecEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The directory in which the command should be executed. If null, the          * working directory of the current process will be used.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The directory in which the command should be executed. If null, the          * working directory of the current process will be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|workingDir (String workingDir)
 specifier|default
 name|ExecEndpointBuilder
@@ -384,7 +384,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedExecEndpointBuilder
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedExecEndpointBuilder
@@ -426,7 +426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedExecEndpointBuilder
@@ -447,7 +447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedExecEndpointBuilder

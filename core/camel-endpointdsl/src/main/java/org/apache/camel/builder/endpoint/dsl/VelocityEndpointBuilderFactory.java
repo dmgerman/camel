@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|VelocityEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use resource content cache or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (boolean contentCache)
 specifier|default
 name|VelocityEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use resource content cache or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (String contentCache)
 specifier|default
 name|VelocityEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Character encoding of the resource content.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Character encoding of the resource content.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|encoding (String encoding)
 specifier|default
 name|VelocityEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables / disables the velocity resource loader cache which is          * enabled by default.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Enables / disables the velocity resource loader cache which is          * enabled by default.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|loaderCache (boolean loaderCache)
 specifier|default
 name|VelocityEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables / disables the velocity resource loader cache which is          * enabled by default.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Enables / disables the velocity resource loader cache which is          * enabled by default.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|loaderCache (String loaderCache)
 specifier|default
 name|VelocityEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The URI of the properties file which is used for VelocityEngine          * initialization.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The URI of the properties file which is used for VelocityEngine          * initialization.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|propertiesFile (String propertiesFile)
 specifier|default
 name|VelocityEndpointBuilder
@@ -279,7 +279,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedVelocityEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedVelocityEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedVelocityEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedVelocityEndpointBuilder

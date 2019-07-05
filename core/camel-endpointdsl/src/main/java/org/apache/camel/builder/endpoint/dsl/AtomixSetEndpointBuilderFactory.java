@@ -166,7 +166,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The distributed resource name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The distributed resource name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resourceName ( String resourceName)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -187,7 +187,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix instance to use.          * The option is a<code>io.atomix.AtomixClient</code> type.          * @group common          */
+comment|/**          * The Atomix instance to use.          *           * The option is a:<code>io.atomix.AtomixClient</code> type.          *           * Group: common          */
 DECL|method|atomix (Object atomix)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -208,7 +208,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix instance to use.          * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          * @group common          */
+comment|/**          * The Atomix instance to use.          *           * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          *           * Group: common          */
 DECL|method|atomix (String atomix)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -229,7 +229,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix configuration uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Atomix configuration uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|configurationUri ( String configurationUri)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -250,7 +250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default action.          * The option is a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          * @group common          */
+comment|/**          * The default action.          *           * The option is a:          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          *           * Group: common          */
 DECL|method|defaultAction ( Action defaultAction)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -271,7 +271,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default action.          * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          * @group common          */
+comment|/**          * The default action.          *           * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          *           * Group: common          */
 DECL|method|defaultAction ( String defaultAction)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -292,7 +292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The address of the nodes composing the cluster.          * The option is a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
+comment|/**          * The address of the nodes composing the cluster.          *           * The option is a:          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          *           * Group: common          */
 DECL|method|nodes (List<Object> nodes)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -316,7 +316,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The address of the nodes composing the cluster.          * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
+comment|/**          * The address of the nodes composing the cluster.          *           * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          *           * Group: common          */
 DECL|method|nodes (String nodes)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -337,7 +337,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The header that wil carry the result.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The header that wil carry the result.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resultHeader ( String resultHeader)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -358,7 +358,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          * The option is a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
+comment|/**          * Sets the Atomix transport.          *           * The option is a:          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
 DECL|method|transport ( Class<Object> transport)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -382,7 +382,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
+comment|/**          * Sets the Atomix transport.          *           * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
 DECL|method|transport (String transport)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -403,7 +403,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource ttl.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * The resource ttl.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|ttl (long ttl)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -424,7 +424,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource ttl.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * The resource ttl.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|ttl (String ttl)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -445,7 +445,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -466,7 +466,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|AtomixSetEndpointConsumerBuilder
@@ -509,7 +509,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -530,7 +530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -551,7 +551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -572,7 +572,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -593,7 +593,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -614,7 +614,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -635,7 +635,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cluster wide default resource configuration.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
+comment|/**          * The cluster wide default resource configuration.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: advanced          */
 DECL|method|defaultResourceConfig ( Properties defaultResourceConfig)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -656,7 +656,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cluster wide default resource configuration.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
+comment|/**          * The cluster wide default resource configuration.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: advanced          */
 DECL|method|defaultResourceConfig ( String defaultResourceConfig)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -677,7 +677,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The local default resource options.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
+comment|/**          * The local default resource options.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: advanced          */
 DECL|method|defaultResourceOptions ( Properties defaultResourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -698,7 +698,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The local default resource options.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
+comment|/**          * The local default resource options.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: advanced          */
 DECL|method|defaultResourceOptions ( String defaultResourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -719,7 +719,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|ephemeral ( boolean ephemeral)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -740,7 +740,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|ephemeral ( String ephemeral)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -761,7 +761,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The read consistency level.          * The option is a<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
+comment|/**          * The read consistency level.          *           * The option is a:<code>io.atomix.resource.ReadConsistency</code>          * type.          *           * Group: advanced          */
 DECL|method|readConsistency ( ReadConsistency readConsistency)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -782,7 +782,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The read consistency level.          * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
+comment|/**          * The read consistency level.          *           * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          *           * Group: advanced          */
 DECL|method|readConsistency ( String readConsistency)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -803,7 +803,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Cluster wide resources configuration.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Cluster wide resources configuration.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceConfigs ( Map<String, Properties> resourceConfigs)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -829,7 +829,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Cluster wide resources configuration.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Cluster wide resources configuration.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceConfigs ( String resourceConfigs)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -850,7 +850,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Local resources configurations.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Local resources configurations.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceOptions ( Map<String, Properties> resourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -876,7 +876,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Local resources configurations.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Local resources configurations.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceOptions ( String resourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -897,7 +897,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -918,7 +918,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedAtomixSetEndpointConsumerBuilder
@@ -961,7 +961,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The distributed resource name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The distributed resource name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resourceName ( String resourceName)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -982,7 +982,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix instance to use.          * The option is a<code>io.atomix.AtomixClient</code> type.          * @group common          */
+comment|/**          * The Atomix instance to use.          *           * The option is a:<code>io.atomix.AtomixClient</code> type.          *           * Group: common          */
 DECL|method|atomix (Object atomix)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1003,7 +1003,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix instance to use.          * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          * @group common          */
+comment|/**          * The Atomix instance to use.          *           * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          *           * Group: common          */
 DECL|method|atomix (String atomix)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1024,7 +1024,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix configuration uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Atomix configuration uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|configurationUri ( String configurationUri)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1045,7 +1045,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default action.          * The option is a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          * @group common          */
+comment|/**          * The default action.          *           * The option is a:          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          *           * Group: common          */
 DECL|method|defaultAction ( Action defaultAction)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1066,7 +1066,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default action.          * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          * @group common          */
+comment|/**          * The default action.          *           * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          *           * Group: common          */
 DECL|method|defaultAction ( String defaultAction)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1087,7 +1087,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The address of the nodes composing the cluster.          * The option is a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
+comment|/**          * The address of the nodes composing the cluster.          *           * The option is a:          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          *           * Group: common          */
 DECL|method|nodes (List<Object> nodes)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1111,7 +1111,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The address of the nodes composing the cluster.          * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
+comment|/**          * The address of the nodes composing the cluster.          *           * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          *           * Group: common          */
 DECL|method|nodes (String nodes)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1132,7 +1132,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The header that wil carry the result.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The header that wil carry the result.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resultHeader ( String resultHeader)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1153,7 +1153,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          * The option is a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
+comment|/**          * Sets the Atomix transport.          *           * The option is a:          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
 DECL|method|transport ( Class<Object> transport)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1177,7 +1177,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
+comment|/**          * Sets the Atomix transport.          *           * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
 DECL|method|transport (String transport)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1198,7 +1198,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource ttl.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * The resource ttl.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|ttl (long ttl)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1219,7 +1219,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource ttl.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * The resource ttl.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|ttl (String ttl)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1240,7 +1240,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1261,7 +1261,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|AtomixSetEndpointProducerBuilder
@@ -1304,7 +1304,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1325,7 +1325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1346,7 +1346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cluster wide default resource configuration.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
+comment|/**          * The cluster wide default resource configuration.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: advanced          */
 DECL|method|defaultResourceConfig ( Properties defaultResourceConfig)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1367,7 +1367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cluster wide default resource configuration.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
+comment|/**          * The cluster wide default resource configuration.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: advanced          */
 DECL|method|defaultResourceConfig ( String defaultResourceConfig)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1388,7 +1388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The local default resource options.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
+comment|/**          * The local default resource options.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: advanced          */
 DECL|method|defaultResourceOptions ( Properties defaultResourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1409,7 +1409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The local default resource options.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
+comment|/**          * The local default resource options.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: advanced          */
 DECL|method|defaultResourceOptions ( String defaultResourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1430,7 +1430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|ephemeral ( boolean ephemeral)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1451,7 +1451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|ephemeral ( String ephemeral)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1472,7 +1472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The read consistency level.          * The option is a<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
+comment|/**          * The read consistency level.          *           * The option is a:<code>io.atomix.resource.ReadConsistency</code>          * type.          *           * Group: advanced          */
 DECL|method|readConsistency ( ReadConsistency readConsistency)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1493,7 +1493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The read consistency level.          * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
+comment|/**          * The read consistency level.          *           * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          *           * Group: advanced          */
 DECL|method|readConsistency ( String readConsistency)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1514,7 +1514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Cluster wide resources configuration.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Cluster wide resources configuration.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceConfigs ( Map<String, Properties> resourceConfigs)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1540,7 +1540,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Cluster wide resources configuration.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Cluster wide resources configuration.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceConfigs ( String resourceConfigs)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1561,7 +1561,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Local resources configurations.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Local resources configurations.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceOptions ( Map<String, Properties> resourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1587,7 +1587,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Local resources configurations.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Local resources configurations.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceOptions ( String resourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1608,7 +1608,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1629,7 +1629,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedAtomixSetEndpointProducerBuilder
@@ -1674,7 +1674,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The distributed resource name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The distributed resource name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resourceName (String resourceName)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1695,7 +1695,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix instance to use.          * The option is a<code>io.atomix.AtomixClient</code> type.          * @group common          */
+comment|/**          * The Atomix instance to use.          *           * The option is a:<code>io.atomix.AtomixClient</code> type.          *           * Group: common          */
 DECL|method|atomix (Object atomix)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1716,7 +1716,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix instance to use.          * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          * @group common          */
+comment|/**          * The Atomix instance to use.          *           * The option will be converted to a<code>io.atomix.AtomixClient</code>          * type.          *           * Group: common          */
 DECL|method|atomix (String atomix)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1737,7 +1737,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Atomix configuration uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Atomix configuration uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|configurationUri ( String configurationUri)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1758,7 +1758,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default action.          * The option is a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          * @group common          */
+comment|/**          * The default action.          *           * The option is a:          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          *           * Group: common          */
 DECL|method|defaultAction (Action defaultAction)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1779,7 +1779,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default action.          * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          * @group common          */
+comment|/**          * The default action.          *           * The option will be converted to a          *<code>org.apache.camel.component.atomix.client.set.AtomixSet$Action</code> type.          *           * Group: common          */
 DECL|method|defaultAction (String defaultAction)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1800,7 +1800,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The address of the nodes composing the cluster.          * The option is a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
+comment|/**          * The address of the nodes composing the cluster.          *           * The option is a:          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          *           * Group: common          */
 DECL|method|nodes (List<Object> nodes)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1824,7 +1824,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The address of the nodes composing the cluster.          * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          * @group common          */
+comment|/**          * The address of the nodes composing the cluster.          *           * The option will be converted to a          *<code>java.util.List&lt;io.atomix.catalyst.transport.Address&gt;</code> type.          *           * Group: common          */
 DECL|method|nodes (String nodes)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1845,7 +1845,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The header that wil carry the result.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The header that wil carry the result.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resultHeader (String resultHeader)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1866,7 +1866,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          * The option is a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
+comment|/**          * Sets the Atomix transport.          *           * The option is a:          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
 DECL|method|transport (Class<Object> transport)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1890,7 +1890,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          * @group common          */
+comment|/**          * Sets the Atomix transport.          *           * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
 DECL|method|transport (String transport)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1911,7 +1911,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource ttl.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * The resource ttl.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|ttl (long ttl)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1932,7 +1932,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource ttl.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * The resource ttl.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|ttl (String ttl)
 specifier|default
 name|AtomixSetEndpointBuilder
@@ -1977,7 +1977,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -1998,7 +1998,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2019,7 +2019,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cluster wide default resource configuration.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
+comment|/**          * The cluster wide default resource configuration.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: advanced          */
 DECL|method|defaultResourceConfig ( Properties defaultResourceConfig)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2040,7 +2040,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cluster wide default resource configuration.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
+comment|/**          * The cluster wide default resource configuration.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: advanced          */
 DECL|method|defaultResourceConfig ( String defaultResourceConfig)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2061,7 +2061,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The local default resource options.          * The option is a<code>java.util.Properties</code> type.          * @group advanced          */
+comment|/**          * The local default resource options.          *           * The option is a:<code>java.util.Properties</code> type.          *           * Group: advanced          */
 DECL|method|defaultResourceOptions ( Properties defaultResourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2082,7 +2082,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The local default resource options.          * The option will be converted to a<code>java.util.Properties</code>          * type.          * @group advanced          */
+comment|/**          * The local default resource options.          *           * The option will be converted to a<code>java.util.Properties</code>          * type.          *           * Group: advanced          */
 DECL|method|defaultResourceOptions ( String defaultResourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2103,7 +2103,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|ephemeral (boolean ephemeral)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2124,7 +2124,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets if the local member should join groups as PersistentMember or          * not. If set to ephemeral the local member will receive an auto          * generated ID thus the local one is ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|ephemeral (String ephemeral)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2145,7 +2145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The read consistency level.          * The option is a<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
+comment|/**          * The read consistency level.          *           * The option is a:<code>io.atomix.resource.ReadConsistency</code>          * type.          *           * Group: advanced          */
 DECL|method|readConsistency ( ReadConsistency readConsistency)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2166,7 +2166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The read consistency level.          * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          * @group advanced          */
+comment|/**          * The read consistency level.          *           * The option will be converted to a          *<code>io.atomix.resource.ReadConsistency</code> type.          *           * Group: advanced          */
 DECL|method|readConsistency ( String readConsistency)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2187,7 +2187,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Cluster wide resources configuration.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Cluster wide resources configuration.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceConfigs ( Map<String, Properties> resourceConfigs)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2213,7 +2213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Cluster wide resources configuration.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Cluster wide resources configuration.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceConfigs ( String resourceConfigs)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2234,7 +2234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Local resources configurations.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Local resources configurations.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceOptions ( Map<String, Properties> resourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2260,7 +2260,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Local resources configurations.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          * @group advanced          */
+comment|/**          * Local resources configurations.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.util.Properties&gt;</code> type.          *           * Group: advanced          */
 DECL|method|resourceOptions ( String resourceOptions)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2281,7 +2281,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder
@@ -2302,7 +2302,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedAtomixSetEndpointBuilder

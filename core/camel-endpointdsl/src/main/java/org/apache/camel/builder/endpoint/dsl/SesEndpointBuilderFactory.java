@@ -120,7 +120,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The sender's email address.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The sender's email address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|from (String from)
 specifier|default
 name|SesEndpointBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use the AmazonSimpleEmailService as the client.          * The option is a          *<code>com.amazonaws.services.simpleemail.AmazonSimpleEmailService</code> type.          * @group producer          */
+comment|/**          * To use the AmazonSimpleEmailService as the client.          *           * The option is a:          *<code>com.amazonaws.services.simpleemail.AmazonSimpleEmailService</code> type.          *           * Group: producer          */
 DECL|method|amazonSESClient (Object amazonSESClient)
 specifier|default
 name|SesEndpointBuilder
@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use the AmazonSimpleEmailService as the client.          * The option will be converted to a          *<code>com.amazonaws.services.simpleemail.AmazonSimpleEmailService</code> type.          * @group producer          */
+comment|/**          * To use the AmazonSimpleEmailService as the client.          *           * The option will be converted to a          *<code>com.amazonaws.services.simpleemail.AmazonSimpleEmailService</code> type.          *           * Group: producer          */
 DECL|method|amazonSESClient (String amazonSESClient)
 specifier|default
 name|SesEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy host when instantiating the SES client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * To define a proxy host when instantiating the SES client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|SesEndpointBuilder
@@ -204,7 +204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the SES client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * To define a proxy port when instantiating the SES client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|SesEndpointBuilder
@@ -225,7 +225,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the SES client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * To define a proxy port when instantiating the SES client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|SesEndpointBuilder
@@ -246,7 +246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which SES client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The region in which SES client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
 name|SesEndpointBuilder
@@ -267,7 +267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of reply-to email address(es) for the message, override it using          * 'CamelAwsSesReplyToAddresses' header.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group producer          */
+comment|/**          * List of reply-to email address(es) for the message, override it using          * 'CamelAwsSesReplyToAddresses' header.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: producer          */
 DECL|method|replyToAddresses ( List<String> replyToAddresses)
 specifier|default
 name|SesEndpointBuilder
@@ -291,7 +291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of reply-to email address(es) for the message, override it using          * 'CamelAwsSesReplyToAddresses' header.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group producer          */
+comment|/**          * List of reply-to email address(es) for the message, override it using          * 'CamelAwsSesReplyToAddresses' header.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: producer          */
 DECL|method|replyToAddresses (String replyToAddresses)
 specifier|default
 name|SesEndpointBuilder
@@ -312,7 +312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The email address to which bounce notifications are to be forwarded,          * override it using 'CamelAwsSesReturnPath' header.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The email address to which bounce notifications are to be forwarded,          * override it using 'CamelAwsSesReturnPath' header.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|returnPath (String returnPath)
 specifier|default
 name|SesEndpointBuilder
@@ -333,7 +333,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The subject which is used if the message header 'CamelAwsSesSubject'          * is not present.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The subject which is used if the message header 'CamelAwsSesSubject'          * is not present.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|subject (String subject)
 specifier|default
 name|SesEndpointBuilder
@@ -354,7 +354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of destination email address. Can be overriden with          * 'CamelAwsSesTo' header.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group producer          */
+comment|/**          * List of destination email address. Can be overriden with          * 'CamelAwsSesTo' header.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: producer          */
 DECL|method|to (List<String> to)
 specifier|default
 name|SesEndpointBuilder
@@ -378,7 +378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of destination email address. Can be overriden with          * 'CamelAwsSesTo' header.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group producer          */
+comment|/**          * List of destination email address. Can be overriden with          * 'CamelAwsSesTo' header.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: producer          */
 DECL|method|to (String to)
 specifier|default
 name|SesEndpointBuilder
@@ -399,7 +399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Amazon AWS Access Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|accessKey (String accessKey)
 specifier|default
 name|SesEndpointBuilder
@@ -420,7 +420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Amazon AWS Secret Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|secretKey (String secretKey)
 specifier|default
 name|SesEndpointBuilder
@@ -463,7 +463,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSesEndpointBuilder
@@ -484,7 +484,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSesEndpointBuilder
@@ -505,7 +505,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSesEndpointBuilder
@@ -526,7 +526,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSesEndpointBuilder

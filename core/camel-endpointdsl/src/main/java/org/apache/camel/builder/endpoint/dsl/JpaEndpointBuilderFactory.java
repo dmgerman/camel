@@ -210,7 +210,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The JPA annotated class to use as entity.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * The JPA annotated class to use as entity.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|entityType (Class<Object> entityType)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -234,7 +234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The JPA annotated class to use as entity.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * The JPA annotated class to use as entity.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|entityType (String entityType)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -255,7 +255,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|joinTransaction ( boolean joinTransaction)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -276,7 +276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|joinTransaction ( String joinTransaction)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -297,7 +297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the maximum number of results to retrieve on the Query.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the maximum number of results to retrieve on the Query.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maximumResults (int maximumResults)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -318,7 +318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the maximum number of results to retrieve on the Query.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the maximum number of results to retrieve on the Query.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maximumResults (String maximumResults)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -339,7 +339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a named query.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a named query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|namedQuery (String namedQuery)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -360,7 +360,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom native query. You may want to use the option          * resultClass also when using native queries.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a custom native query. You may want to use the option          * resultClass also when using native queries.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nativeQuery (String nativeQuery)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -381,7 +381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|parameters ( Map<String, Object> parameters)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -407,7 +407,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|parameters (String parameters)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -428,7 +428,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The JPA persistence unit used by default.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The JPA persistence unit used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|persistenceUnit ( String persistenceUnit)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -449,7 +449,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom query.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a custom query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|query (String query)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -470,7 +470,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|resultClass (Class<Object> resultClass)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -494,7 +494,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|resultClass (String resultClass)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -515,7 +515,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|sharedEntityManager ( boolean sharedEntityManager)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -536,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|sharedEntityManager ( String sharedEntityManager)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -599,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the entity is deleted after it is consumed; if false, the          * entity is not deleted.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the entity is deleted after it is consumed; if false, the          * entity is not deleted.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|consumeDelete (boolean consumeDelete)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the entity is deleted after it is consumed; if false, the          * entity is not deleted.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the entity is deleted after it is consumed; if false, the          * entity is not deleted.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|consumeDelete (String consumeDelete)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether or not to set an exclusive lock on each entity bean          * while processing the results from polling.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Specifies whether or not to set an exclusive lock on each entity bean          * while processing the results from polling.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|consumeLockEntity ( boolean consumeLockEntity)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether or not to set an exclusive lock on each entity bean          * while processing the results from polling.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Specifies whether or not to set an exclusive lock on each entity bean          * while processing the results from polling.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|consumeLockEntity ( String consumeLockEntity)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom DeleteHandler to delete the row after the consumer is          * done processing the exchange.          * The option is a          *<code>org.apache.camel.component.jpa.DeleteHandler&lt;java.lang.Object&gt;</code> type.          * @group consumer          */
+comment|/**          * To use a custom DeleteHandler to delete the row after the consumer is          * done processing the exchange.          *           * The option is a:          *<code>org.apache.camel.component.jpa.DeleteHandler&lt;java.lang.Object&gt;</code> type.          *           * Group: consumer          */
 DECL|method|deleteHandler (Object deleteHandler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom DeleteHandler to delete the row after the consumer is          * done processing the exchange.          * The option will be converted to a          *<code>org.apache.camel.component.jpa.DeleteHandler&lt;java.lang.Object&gt;</code> type.          * @group consumer          */
+comment|/**          * To use a custom DeleteHandler to delete the row after the consumer is          * done processing the exchange.          *           * The option will be converted to a          *<code>org.apache.camel.component.jpa.DeleteHandler&lt;java.lang.Object&gt;</code> type.          *           * Group: consumer          */
 DECL|method|deleteHandler (String deleteHandler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -725,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the lock mode on the consumer.          * The option is a<code>javax.persistence.LockModeType</code> type.          * @group consumer          */
+comment|/**          * To configure the lock mode on the consumer.          *           * The option is a:<code>javax.persistence.LockModeType</code> type.          *           * Group: consumer          */
 DECL|method|lockModeType ( LockModeType lockModeType)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -746,7 +746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the lock mode on the consumer.          * The option will be converted to a          *<code>javax.persistence.LockModeType</code> type.          * @group consumer          */
+comment|/**          * To configure the lock mode on the consumer.          *           * The option will be converted to a          *<code>javax.persistence.LockModeType</code> type.          *           * Group: consumer          */
 DECL|method|lockModeType (String lockModeType)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -767,7 +767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An integer value to define the maximum number of messages to gather          * per poll. By default, no maximum is set. Can be used to avoid polling          * many thousands of messages when starting up the server. Set a value          * of 0 or negative to disable.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * An integer value to define the maximum number of messages to gather          * per poll. By default, no maximum is set. Can be used to avoid polling          * many thousands of messages when starting up the server. Set a value          * of 0 or negative to disable.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -788,7 +788,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An integer value to define the maximum number of messages to gather          * per poll. By default, no maximum is set. Can be used to avoid polling          * many thousands of messages when starting up the server. Set a value          * of 0 or negative to disable.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * An integer value to define the maximum number of messages to gather          * per poll. By default, no maximum is set. Can be used to avoid polling          * many thousands of messages when starting up the server. Set a value          * of 0 or negative to disable.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -809,7 +809,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom Pre-DeleteHandler to delete the row after the          * consumer has read the entity.          * The option is a          *<code>org.apache.camel.component.jpa.DeleteHandler&lt;java.lang.Object&gt;</code> type.          * @group consumer          */
+comment|/**          * To use a custom Pre-DeleteHandler to delete the row after the          * consumer has read the entity.          *           * The option is a:          *<code>org.apache.camel.component.jpa.DeleteHandler&lt;java.lang.Object&gt;</code> type.          *           * Group: consumer          */
 DECL|method|preDeleteHandler ( Object preDeleteHandler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -830,7 +830,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom Pre-DeleteHandler to delete the row after the          * consumer has read the entity.          * The option will be converted to a          *<code>org.apache.camel.component.jpa.DeleteHandler&lt;java.lang.Object&gt;</code> type.          * @group consumer          */
+comment|/**          * To use a custom Pre-DeleteHandler to delete the row after the          * consumer has read the entity.          *           * The option will be converted to a          *<code>org.apache.camel.component.jpa.DeleteHandler&lt;java.lang.Object&gt;</code> type.          *           * Group: consumer          */
 DECL|method|preDeleteHandler ( String preDeleteHandler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -851,7 +851,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -872,7 +872,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -893,7 +893,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure whether to use NOWAIT on lock and silently skip the          * entity.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * To configure whether to use NOWAIT on lock and silently skip the          * entity.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|skipLockedEntity ( boolean skipLockedEntity)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -914,7 +914,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure whether to use NOWAIT on lock and silently skip the          * entity.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * To configure whether to use NOWAIT on lock and silently skip the          * entity.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|skipLockedEntity ( String skipLockedEntity)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -935,7 +935,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to run the consumer in transacted mode, by which all messages          * will either commit or rollback, when the entire batch has been          * processed. The default behavior (false) is to commit all the          * previously successfully processed messages, and only rollback the          * last failed message.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether to run the consumer in transacted mode, by which all messages          * will either commit or rollback, when the entire batch has been          * processed. The default behavior (false) is to commit all the          * previously successfully processed messages, and only rollback the          * last failed message.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|transacted (boolean transacted)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -956,7 +956,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to run the consumer in transacted mode, by which all messages          * will either commit or rollback, when the entire batch has been          * processed. The default behavior (false) is to commit all the          * previously successfully processed messages, and only rollback the          * last failed message.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether to run the consumer in transacted mode, by which all messages          * will either commit or rollback, when the entire batch has been          * processed. The default behavior (false) is to commit all the          * previously successfully processed messages, and only rollback the          * last failed message.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|transacted (String transacted)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -977,7 +977,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -998,7 +998,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1019,7 +1019,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1040,7 +1040,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1061,7 +1061,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1082,7 +1082,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1103,7 +1103,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (long delay)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1124,7 +1124,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (String delay)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1145,7 +1145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|greedy (boolean greedy)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1166,7 +1166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|greedy (String greedy)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1187,7 +1187,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1208,7 +1208,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1229,7 +1229,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
+comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1250,7 +1250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
+comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1271,7 +1271,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
+comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          *           * The option is a:          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          *           * Group: scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1292,7 +1292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
+comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          *           * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          *           * Group: scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1313,7 +1313,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option is a:          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1334,7 +1334,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler (String scheduler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1355,7 +1355,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1381,7 +1381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Whether the scheduler should be auto started.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|startScheduler (boolean startScheduler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Whether the scheduler should be auto started.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|startScheduler (String startScheduler)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1444,7 +1444,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
+comment|/**          * Time unit for initialDelay and delay options.          *           * The option is a:<code>java.util.concurrent.TimeUnit</code> type.          *           * Group: scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1465,7 +1465,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
+comment|/**          * Time unit for initialDelay and delay options.          *           * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          *           * Group: scheduler          */
 DECL|method|timeUnit (String timeUnit)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1486,7 +1486,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1507,7 +1507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|JpaEndpointConsumerBuilder
@@ -1550,7 +1550,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1571,7 +1571,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1592,7 +1592,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1613,7 +1613,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1634,7 +1634,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option is a:          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1655,7 +1655,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1676,7 +1676,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1697,7 +1697,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1718,7 +1718,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Additional properties for the entity manager to use.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Additional properties for the entity manager to use.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|entityManagerProperties ( Map<String, Object> entityManagerProperties)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1744,7 +1744,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Additional properties for the entity manager to use.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Additional properties for the entity manager to use.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|entityManagerProperties ( String entityManagerProperties)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1765,7 +1765,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1786,7 +1786,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedJpaEndpointConsumerBuilder
@@ -1829,7 +1829,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The JPA annotated class to use as entity.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * The JPA annotated class to use as entity.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|entityType (Class<Object> entityType)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -1853,7 +1853,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The JPA annotated class to use as entity.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * The JPA annotated class to use as entity.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|entityType (String entityType)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -1874,7 +1874,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|joinTransaction ( boolean joinTransaction)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -1895,7 +1895,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|joinTransaction ( String joinTransaction)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -1916,7 +1916,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the maximum number of results to retrieve on the Query.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the maximum number of results to retrieve on the Query.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maximumResults (int maximumResults)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -1937,7 +1937,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the maximum number of results to retrieve on the Query.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the maximum number of results to retrieve on the Query.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maximumResults (String maximumResults)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -1958,7 +1958,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a named query.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a named query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|namedQuery (String namedQuery)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -1979,7 +1979,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom native query. You may want to use the option          * resultClass also when using native queries.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a custom native query. You may want to use the option          * resultClass also when using native queries.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nativeQuery (String nativeQuery)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2000,7 +2000,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|parameters ( Map<String, Object> parameters)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2026,7 +2026,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|parameters (String parameters)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2047,7 +2047,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The JPA persistence unit used by default.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The JPA persistence unit used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|persistenceUnit ( String persistenceUnit)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2068,7 +2068,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom query.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a custom query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|query (String query)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2089,7 +2089,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|resultClass (Class<Object> resultClass)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2113,7 +2113,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|resultClass (String resultClass)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2134,7 +2134,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|sharedEntityManager ( boolean sharedEntityManager)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2155,7 +2155,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|sharedEntityManager ( String sharedEntityManager)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2176,7 +2176,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Flushes the EntityManager after the entity bean has been persisted.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Flushes the EntityManager after the entity bean has been persisted.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flushOnSend (boolean flushOnSend)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2197,7 +2197,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Flushes the EntityManager after the entity bean has been persisted.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Flushes the EntityManager after the entity bean has been persisted.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flushOnSend (String flushOnSend)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2218,7 +2218,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2239,7 +2239,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2260,7 +2260,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates to use entityManager.remove(entity).          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Indicates to use entityManager.remove(entity).          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|remove (boolean remove)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2281,7 +2281,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates to use entityManager.remove(entity).          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Indicates to use entityManager.remove(entity).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|remove (String remove)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2302,7 +2302,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure whether to use executeUpdate() when producer executes a          * query. When you use INSERT, UPDATE or DELETE statement as a named          * query, you need to specify this option to 'true'.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * To configure whether to use executeUpdate() when producer executes a          * query. When you use INSERT, UPDATE or DELETE statement as a named          * query, you need to specify this option to 'true'.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|useExecuteUpdate ( Boolean useExecuteUpdate)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2323,7 +2323,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure whether to use executeUpdate() when producer executes a          * query. When you use INSERT, UPDATE or DELETE statement as a named          * query, you need to specify this option to 'true'.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * To configure whether to use executeUpdate() when producer executes a          * query. When you use INSERT, UPDATE or DELETE statement as a named          * query, you need to specify this option to 'true'.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|useExecuteUpdate ( String useExecuteUpdate)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2344,7 +2344,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to true, then Camel will use the EntityManager from the header          * JpaConstants.ENTITY_MANAGER instead of the configured entity manager          * on the component/endpoint. This allows end users to control which          * entity manager will be in use.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If set to true, then Camel will use the EntityManager from the header          * JpaConstants.ENTITY_MANAGER instead of the configured entity manager          * on the component/endpoint. This allows end users to control which          * entity manager will be in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|usePassedInEntityManager ( boolean usePassedInEntityManager)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2365,7 +2365,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to true, then Camel will use the EntityManager from the header          * JpaConstants.ENTITY_MANAGER instead of the configured entity manager          * on the component/endpoint. This allows end users to control which          * entity manager will be in use.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If set to true, then Camel will use the EntityManager from the header          * JpaConstants.ENTITY_MANAGER instead of the configured entity manager          * on the component/endpoint. This allows end users to control which          * entity manager will be in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|usePassedInEntityManager ( String usePassedInEntityManager)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2386,7 +2386,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates to use entityManager.persist(entity) instead of          * entityManager.merge(entity). Note: entityManager.persist(entity)          * doesn't work for detached entities (where the EntityManager has to          * execute an UPDATE instead of an INSERT query)!.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Indicates to use entityManager.persist(entity) instead of          * entityManager.merge(entity). Note: entityManager.persist(entity)          * doesn't work for detached entities (where the EntityManager has to          * execute an UPDATE instead of an INSERT query)!.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|usePersist (boolean usePersist)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2407,7 +2407,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates to use entityManager.persist(entity) instead of          * entityManager.merge(entity). Note: entityManager.persist(entity)          * doesn't work for detached entities (where the EntityManager has to          * execute an UPDATE instead of an INSERT query)!.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Indicates to use entityManager.persist(entity) instead of          * entityManager.merge(entity). Note: entityManager.persist(entity)          * doesn't work for detached entities (where the EntityManager has to          * execute an UPDATE instead of an INSERT query)!.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|usePersist (String usePersist)
 specifier|default
 name|JpaEndpointProducerBuilder
@@ -2450,7 +2450,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJpaEndpointProducerBuilder
@@ -2471,7 +2471,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJpaEndpointProducerBuilder
@@ -2492,7 +2492,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Additional properties for the entity manager to use.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Additional properties for the entity manager to use.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|entityManagerProperties ( Map<String, Object> entityManagerProperties)
 specifier|default
 name|AdvancedJpaEndpointProducerBuilder
@@ -2518,7 +2518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Additional properties for the entity manager to use.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Additional properties for the entity manager to use.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|entityManagerProperties ( String entityManagerProperties)
 specifier|default
 name|AdvancedJpaEndpointProducerBuilder
@@ -2539,7 +2539,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedJpaEndpointProducerBuilder
@@ -2560,7 +2560,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedJpaEndpointProducerBuilder
@@ -2605,7 +2605,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The JPA annotated class to use as entity.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * The JPA annotated class to use as entity.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|entityType (Class<Object> entityType)
 specifier|default
 name|JpaEndpointBuilder
@@ -2629,7 +2629,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The JPA annotated class to use as entity.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * The JPA annotated class to use as entity.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|entityType (String entityType)
 specifier|default
 name|JpaEndpointBuilder
@@ -2650,7 +2650,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|joinTransaction (boolean joinTransaction)
 specifier|default
 name|JpaEndpointBuilder
@@ -2671,7 +2671,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|joinTransaction (String joinTransaction)
 specifier|default
 name|JpaEndpointBuilder
@@ -2692,7 +2692,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the maximum number of results to retrieve on the Query.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the maximum number of results to retrieve on the Query.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maximumResults (int maximumResults)
 specifier|default
 name|JpaEndpointBuilder
@@ -2713,7 +2713,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the maximum number of results to retrieve on the Query.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the maximum number of results to retrieve on the Query.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maximumResults (String maximumResults)
 specifier|default
 name|JpaEndpointBuilder
@@ -2734,7 +2734,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a named query.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a named query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|namedQuery (String namedQuery)
 specifier|default
 name|JpaEndpointBuilder
@@ -2755,7 +2755,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom native query. You may want to use the option          * resultClass also when using native queries.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a custom native query. You may want to use the option          * resultClass also when using native queries.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nativeQuery (String nativeQuery)
 specifier|default
 name|JpaEndpointBuilder
@@ -2776,7 +2776,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|parameters (Map<String, Object> parameters)
 specifier|default
 name|JpaEndpointBuilder
@@ -2802,7 +2802,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|parameters (String parameters)
 specifier|default
 name|JpaEndpointBuilder
@@ -2823,7 +2823,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The JPA persistence unit used by default.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The JPA persistence unit used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|persistenceUnit (String persistenceUnit)
 specifier|default
 name|JpaEndpointBuilder
@@ -2844,7 +2844,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom query.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To use a custom query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|query (String query)
 specifier|default
 name|JpaEndpointBuilder
@@ -2865,7 +2865,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|resultClass (Class<Object> resultClass)
 specifier|default
 name|JpaEndpointBuilder
@@ -2889,7 +2889,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * Defines the type of the returned payload (we will call          * entityManager.createNativeQuery(nativeQuery, resultClass) instead of          * entityManager.createNativeQuery(nativeQuery)). Without this option,          * we will return an object array. Only has an affect when using in          * conjunction with native query when consuming data.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|resultClass (String resultClass)
 specifier|default
 name|JpaEndpointBuilder
@@ -2910,7 +2910,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|sharedEntityManager ( boolean sharedEntityManager)
 specifier|default
 name|JpaEndpointBuilder
@@ -2931,7 +2931,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|sharedEntityManager ( String sharedEntityManager)
 specifier|default
 name|JpaEndpointBuilder
@@ -2976,7 +2976,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJpaEndpointBuilder
@@ -2997,7 +2997,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJpaEndpointBuilder
@@ -3018,7 +3018,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Additional properties for the entity manager to use.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Additional properties for the entity manager to use.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|entityManagerProperties ( Map<String, Object> entityManagerProperties)
 specifier|default
 name|AdvancedJpaEndpointBuilder
@@ -3044,7 +3044,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Additional properties for the entity manager to use.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Additional properties for the entity manager to use.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|entityManagerProperties ( String entityManagerProperties)
 specifier|default
 name|AdvancedJpaEndpointBuilder
@@ -3065,7 +3065,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJpaEndpointBuilder
@@ -3086,7 +3086,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJpaEndpointBuilder

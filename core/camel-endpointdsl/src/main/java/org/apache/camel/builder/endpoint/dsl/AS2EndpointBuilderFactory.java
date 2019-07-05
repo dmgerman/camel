@@ -158,7 +158,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (AS2ApiName apiName)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -179,7 +179,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -200,7 +200,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -221,7 +221,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the AS2From header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the AS2From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2From (String as2From)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -242,7 +242,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          * @group common          */
+comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          *           * Group: common          */
 DECL|method|as2MessageStructure ( AS2MessageStructure as2MessageStructure)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -263,7 +263,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          * @group common          */
+comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          *           * Group: common          */
 DECL|method|as2MessageStructure ( String as2MessageStructure)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -284,7 +284,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the AS2To header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the AS2To header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2To (String as2To)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -305,7 +305,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The version of the AS2 protocol.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The version of the AS2 protocol.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2Version (String as2Version)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -326,7 +326,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Client Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Client Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientFqdn (String clientFqdn)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -347,7 +347,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to compress EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to compress EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|compressionAlgorithm ( AS2CompressionAlgorithm compressionAlgorithm)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -368,7 +368,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to compress EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to compress EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|compressionAlgorithm ( String compressionAlgorithm)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -389,7 +389,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to encrypt the EDI message.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to encrypt the EDI message.          *           * The option is a:<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|decryptingPrivateKey ( PrivateKey decryptingPrivateKey)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -410,7 +410,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to encrypt the EDI message.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to encrypt the EDI message.          *           * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|decryptingPrivateKey ( String decryptingPrivateKey)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -431,7 +431,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the Disposition-Notification-To header. Assigning a          * value to this parameter requests a message disposition notification          * (MDN) for the AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the Disposition-Notification-To header. Assigning a          * value to this parameter requests a message disposition notification          * (MDN) for the AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dispositionNotificationTo ( String dispositionNotificationTo)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -452,7 +452,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The transfer encoding of EDI message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The transfer encoding of EDI message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|ediMessageTransferEncoding ( String ediMessageTransferEncoding)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -473,7 +473,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          * The option is a<code>org.apache.http.entity.ContentType</code> type.          * @group common          */
+comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          *           * The option is a:<code>org.apache.http.entity.ContentType</code>          * type.          *           * Group: common          */
 DECL|method|ediMessageType (Object ediMessageType)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -494,7 +494,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          * The option will be converted to a          *<code>org.apache.http.entity.ContentType</code> type.          * @group common          */
+comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          *           * The option will be converted to a          *<code>org.apache.http.entity.ContentType</code> type.          *           * Group: common          */
 DECL|method|ediMessageType (String ediMessageType)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -515,7 +515,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to encrypt EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to encrypt EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|encryptingAlgorithm ( AS2EncryptionAlgorithm encryptingAlgorithm)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -536,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to encrypt EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to encrypt EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|encryptingAlgorithm ( String encryptingAlgorithm)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to encrypt EDI message.          * The option is a<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to encrypt EDI message.          *           * The option is a:<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|encryptingCertificateChain ( Certificate[] encryptingCertificateChain)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -579,7 +579,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to encrypt EDI message.          * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to encrypt EDI message.          *           * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|encryptingCertificateChain ( String encryptingCertificateChain)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -600,7 +600,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the From header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|from (String from)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -621,7 +621,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -642,7 +642,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The template used to format MDN message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The template used to format MDN message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mdnMessageTemplate ( String mdnMessageTemplate)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -663,7 +663,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The request URI of EDI message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The request URI of EDI message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|requestUri (String requestUri)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -684,7 +684,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value included in the Server message header identifying the AS2          * Server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value included in the Server message header identifying the AS2          * Server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|server (String server)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -705,7 +705,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Server Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Server Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverFqdn (String serverFqdn)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -726,7 +726,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of server.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The port number of server.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|serverPortNumber ( Integer serverPortNumber)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -747,7 +747,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of server.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The port number of server.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|serverPortNumber ( String serverPortNumber)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -768,7 +768,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          * The option is a<code>java.lang.String[]</code> type.          * @group common          */
+comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          *           * The option is a:<code>java.lang.String[]</code> type.          *           * Group: common          */
 DECL|method|signedReceiptMicAlgorithms ( String[] signedReceiptMicAlgorithms)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -790,7 +790,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          * The option will be converted to a<code>java.lang.String[]</code>          * type.          * @group common          */
+comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          *           * The option will be converted to a<code>java.lang.String[]</code>          * type.          *           * Group: common          */
 DECL|method|signedReceiptMicAlgorithms ( String signedReceiptMicAlgorithms)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -811,7 +811,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to sign EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          * @group common          */
+comment|/**          * The algorithm used to sign EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          *           * Group: common          */
 DECL|method|signingAlgorithm ( AS2SignatureAlgorithm signingAlgorithm)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -832,7 +832,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to sign EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          * @group common          */
+comment|/**          * The algorithm used to sign EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          *           * Group: common          */
 DECL|method|signingAlgorithm ( String signingAlgorithm)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -853,7 +853,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to sign EDI message.          * The option is a<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to sign EDI message.          *           * The option is a:<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|signingCertificateChain ( Certificate[] signingCertificateChain)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -875,7 +875,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to sign EDI message.          * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to sign EDI message.          *           * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|signingCertificateChain ( String signingCertificateChain)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -896,7 +896,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to sign the EDI message.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to sign the EDI message.          *           * The option is a:<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|signingPrivateKey ( PrivateKey signingPrivateKey)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -917,7 +917,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to sign the EDI message.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to sign the EDI message.          *           * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|signingPrivateKey ( String signingPrivateKey)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -938,7 +938,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of Subject header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of Subject header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|subject (String subject)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -959,7 +959,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The host name (IP or DNS name) of target host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The host name (IP or DNS name) of target host.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|targetHostname (String targetHostname)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -980,7 +980,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of target host. -1 indicates the scheme default port.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The port number of target host. -1 indicates the scheme default port.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|targetPortNumber ( Integer targetPortNumber)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -1001,7 +1001,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of target host. -1 indicates the scheme default port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The port number of target host. -1 indicates the scheme default port.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|targetPortNumber ( String targetPortNumber)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -1022,7 +1022,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value included in the User-Agent message header identifying the          * AS2 user agent.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value included in the User-Agent message header identifying the          * AS2 user agent.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userAgent (String userAgent)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -1043,7 +1043,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -1064,7 +1064,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|AS2EndpointConsumerBuilder
@@ -1107,7 +1107,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedAS2EndpointConsumerBuilder
@@ -1128,7 +1128,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedAS2EndpointConsumerBuilder
@@ -1149,7 +1149,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedAS2EndpointConsumerBuilder
@@ -1170,7 +1170,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedAS2EndpointConsumerBuilder
@@ -1191,7 +1191,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedAS2EndpointConsumerBuilder
@@ -1212,7 +1212,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedAS2EndpointConsumerBuilder
@@ -1233,7 +1233,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedAS2EndpointConsumerBuilder
@@ -1254,7 +1254,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedAS2EndpointConsumerBuilder
@@ -1297,7 +1297,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (AS2ApiName apiName)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1318,7 +1318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1360,7 +1360,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the AS2From header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the AS2From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2From (String as2From)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1381,7 +1381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          * @group common          */
+comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          *           * Group: common          */
 DECL|method|as2MessageStructure ( AS2MessageStructure as2MessageStructure)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          * @group common          */
+comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          *           * Group: common          */
 DECL|method|as2MessageStructure ( String as2MessageStructure)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the AS2To header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the AS2To header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2To (String as2To)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1444,7 +1444,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The version of the AS2 protocol.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The version of the AS2 protocol.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2Version (String as2Version)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1465,7 +1465,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Client Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Client Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientFqdn (String clientFqdn)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1486,7 +1486,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to compress EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to compress EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|compressionAlgorithm ( AS2CompressionAlgorithm compressionAlgorithm)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1507,7 +1507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to compress EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to compress EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|compressionAlgorithm ( String compressionAlgorithm)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1528,7 +1528,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to encrypt the EDI message.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to encrypt the EDI message.          *           * The option is a:<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|decryptingPrivateKey ( PrivateKey decryptingPrivateKey)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1549,7 +1549,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to encrypt the EDI message.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to encrypt the EDI message.          *           * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|decryptingPrivateKey ( String decryptingPrivateKey)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1570,7 +1570,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the Disposition-Notification-To header. Assigning a          * value to this parameter requests a message disposition notification          * (MDN) for the AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the Disposition-Notification-To header. Assigning a          * value to this parameter requests a message disposition notification          * (MDN) for the AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dispositionNotificationTo ( String dispositionNotificationTo)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1591,7 +1591,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The transfer encoding of EDI message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The transfer encoding of EDI message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|ediMessageTransferEncoding ( String ediMessageTransferEncoding)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1612,7 +1612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          * The option is a<code>org.apache.http.entity.ContentType</code> type.          * @group common          */
+comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          *           * The option is a:<code>org.apache.http.entity.ContentType</code>          * type.          *           * Group: common          */
 DECL|method|ediMessageType (Object ediMessageType)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1633,7 +1633,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          * The option will be converted to a          *<code>org.apache.http.entity.ContentType</code> type.          * @group common          */
+comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          *           * The option will be converted to a          *<code>org.apache.http.entity.ContentType</code> type.          *           * Group: common          */
 DECL|method|ediMessageType (String ediMessageType)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1654,7 +1654,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to encrypt EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to encrypt EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|encryptingAlgorithm ( AS2EncryptionAlgorithm encryptingAlgorithm)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1675,7 +1675,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to encrypt EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to encrypt EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|encryptingAlgorithm ( String encryptingAlgorithm)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1696,7 +1696,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to encrypt EDI message.          * The option is a<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to encrypt EDI message.          *           * The option is a:<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|encryptingCertificateChain ( Certificate[] encryptingCertificateChain)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1718,7 +1718,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to encrypt EDI message.          * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to encrypt EDI message.          *           * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|encryptingCertificateChain ( String encryptingCertificateChain)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1739,7 +1739,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the From header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|from (String from)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1760,7 +1760,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1781,7 +1781,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The template used to format MDN message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The template used to format MDN message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mdnMessageTemplate ( String mdnMessageTemplate)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1802,7 +1802,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The request URI of EDI message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The request URI of EDI message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|requestUri (String requestUri)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1823,7 +1823,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value included in the Server message header identifying the AS2          * Server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value included in the Server message header identifying the AS2          * Server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|server (String server)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1844,7 +1844,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Server Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Server Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverFqdn (String serverFqdn)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1865,7 +1865,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of server.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The port number of server.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|serverPortNumber ( Integer serverPortNumber)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1886,7 +1886,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of server.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The port number of server.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|serverPortNumber ( String serverPortNumber)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1907,7 +1907,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          * The option is a<code>java.lang.String[]</code> type.          * @group common          */
+comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          *           * The option is a:<code>java.lang.String[]</code> type.          *           * Group: common          */
 DECL|method|signedReceiptMicAlgorithms ( String[] signedReceiptMicAlgorithms)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1929,7 +1929,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          * The option will be converted to a<code>java.lang.String[]</code>          * type.          * @group common          */
+comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          *           * The option will be converted to a<code>java.lang.String[]</code>          * type.          *           * Group: common          */
 DECL|method|signedReceiptMicAlgorithms ( String signedReceiptMicAlgorithms)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1950,7 +1950,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to sign EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          * @group common          */
+comment|/**          * The algorithm used to sign EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          *           * Group: common          */
 DECL|method|signingAlgorithm ( AS2SignatureAlgorithm signingAlgorithm)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1971,7 +1971,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to sign EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          * @group common          */
+comment|/**          * The algorithm used to sign EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          *           * Group: common          */
 DECL|method|signingAlgorithm ( String signingAlgorithm)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -1992,7 +1992,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to sign EDI message.          * The option is a<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to sign EDI message.          *           * The option is a:<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|signingCertificateChain ( Certificate[] signingCertificateChain)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2014,7 +2014,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to sign EDI message.          * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to sign EDI message.          *           * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|signingCertificateChain ( String signingCertificateChain)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2035,7 +2035,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to sign the EDI message.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to sign the EDI message.          *           * The option is a:<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|signingPrivateKey ( PrivateKey signingPrivateKey)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2056,7 +2056,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to sign the EDI message.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to sign the EDI message.          *           * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|signingPrivateKey ( String signingPrivateKey)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2077,7 +2077,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of Subject header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of Subject header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|subject (String subject)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2098,7 +2098,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The host name (IP or DNS name) of target host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The host name (IP or DNS name) of target host.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|targetHostname (String targetHostname)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2119,7 +2119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of target host. -1 indicates the scheme default port.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The port number of target host. -1 indicates the scheme default port.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|targetPortNumber ( Integer targetPortNumber)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2140,7 +2140,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of target host. -1 indicates the scheme default port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The port number of target host. -1 indicates the scheme default port.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|targetPortNumber ( String targetPortNumber)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2161,7 +2161,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value included in the User-Agent message header identifying the          * AS2 user agent.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value included in the User-Agent message header identifying the          * AS2 user agent.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userAgent (String userAgent)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2182,7 +2182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2203,7 +2203,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|AS2EndpointProducerBuilder
@@ -2246,7 +2246,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedAS2EndpointProducerBuilder
@@ -2267,7 +2267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedAS2EndpointProducerBuilder
@@ -2288,7 +2288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedAS2EndpointProducerBuilder
@@ -2309,7 +2309,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedAS2EndpointProducerBuilder
@@ -2354,7 +2354,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (AS2ApiName apiName)
 specifier|default
 name|AS2EndpointBuilder
@@ -2375,7 +2375,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|AS2EndpointBuilder
@@ -2396,7 +2396,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|AS2EndpointBuilder
@@ -2417,7 +2417,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the AS2From header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the AS2From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2From (String as2From)
 specifier|default
 name|AS2EndpointBuilder
@@ -2438,7 +2438,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          * @group common          */
+comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          *           * Group: common          */
 DECL|method|as2MessageStructure ( AS2MessageStructure as2MessageStructure)
 specifier|default
 name|AS2EndpointBuilder
@@ -2459,7 +2459,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          * @group common          */
+comment|/**          * The structure of AS2 Message. One of: PLAIN - No encryption, no          * signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption,          * no signature, ENCRYPTED_SIGNED - Encryption, signature.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code>          * type.          *           * Group: common          */
 DECL|method|as2MessageStructure ( String as2MessageStructure)
 specifier|default
 name|AS2EndpointBuilder
@@ -2480,7 +2480,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the AS2To header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the AS2To header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2To (String as2To)
 specifier|default
 name|AS2EndpointBuilder
@@ -2501,7 +2501,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The version of the AS2 protocol.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The version of the AS2 protocol.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2Version (String as2Version)
 specifier|default
 name|AS2EndpointBuilder
@@ -2522,7 +2522,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Client Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Client Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientFqdn (String clientFqdn)
 specifier|default
 name|AS2EndpointBuilder
@@ -2543,7 +2543,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to compress EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to compress EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|compressionAlgorithm ( AS2CompressionAlgorithm compressionAlgorithm)
 specifier|default
 name|AS2EndpointBuilder
@@ -2564,7 +2564,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to compress EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to compress EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2CompressionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|compressionAlgorithm ( String compressionAlgorithm)
 specifier|default
 name|AS2EndpointBuilder
@@ -2585,7 +2585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to encrypt the EDI message.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to encrypt the EDI message.          *           * The option is a:<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|decryptingPrivateKey ( PrivateKey decryptingPrivateKey)
 specifier|default
 name|AS2EndpointBuilder
@@ -2606,7 +2606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to encrypt the EDI message.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to encrypt the EDI message.          *           * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|decryptingPrivateKey ( String decryptingPrivateKey)
 specifier|default
 name|AS2EndpointBuilder
@@ -2627,7 +2627,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the Disposition-Notification-To header. Assigning a          * value to this parameter requests a message disposition notification          * (MDN) for the AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the Disposition-Notification-To header. Assigning a          * value to this parameter requests a message disposition notification          * (MDN) for the AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dispositionNotificationTo ( String dispositionNotificationTo)
 specifier|default
 name|AS2EndpointBuilder
@@ -2648,7 +2648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The transfer encoding of EDI message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The transfer encoding of EDI message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|ediMessageTransferEncoding ( String ediMessageTransferEncoding)
 specifier|default
 name|AS2EndpointBuilder
@@ -2669,7 +2669,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          * The option is a<code>org.apache.http.entity.ContentType</code> type.          * @group common          */
+comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          *           * The option is a:<code>org.apache.http.entity.ContentType</code>          * type.          *           * Group: common          */
 DECL|method|ediMessageType (Object ediMessageType)
 specifier|default
 name|AS2EndpointBuilder
@@ -2690,7 +2690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          * The option will be converted to a          *<code>org.apache.http.entity.ContentType</code> type.          * @group common          */
+comment|/**          * The content type of EDI message. One of application/edifact,          * application/edi-x12, application/edi-consent.          *           * The option will be converted to a          *<code>org.apache.http.entity.ContentType</code> type.          *           * Group: common          */
 DECL|method|ediMessageType (String ediMessageType)
 specifier|default
 name|AS2EndpointBuilder
@@ -2711,7 +2711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to encrypt EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to encrypt EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|encryptingAlgorithm ( AS2EncryptionAlgorithm encryptingAlgorithm)
 specifier|default
 name|AS2EndpointBuilder
@@ -2732,7 +2732,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to encrypt EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          * @group common          */
+comment|/**          * The algorithm used to encrypt EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2EncryptionAlgorithm</code> type.          *           * Group: common          */
 DECL|method|encryptingAlgorithm ( String encryptingAlgorithm)
 specifier|default
 name|AS2EndpointBuilder
@@ -2753,7 +2753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to encrypt EDI message.          * The option is a<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to encrypt EDI message.          *           * The option is a:<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|encryptingCertificateChain ( Certificate[] encryptingCertificateChain)
 specifier|default
 name|AS2EndpointBuilder
@@ -2775,7 +2775,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to encrypt EDI message.          * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to encrypt EDI message.          *           * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|encryptingCertificateChain ( String encryptingCertificateChain)
 specifier|default
 name|AS2EndpointBuilder
@@ -2796,7 +2796,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of the From header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of the From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|from (String from)
 specifier|default
 name|AS2EndpointBuilder
@@ -2817,7 +2817,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|AS2EndpointBuilder
@@ -2838,7 +2838,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The template used to format MDN message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The template used to format MDN message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mdnMessageTemplate (String mdnMessageTemplate)
 specifier|default
 name|AS2EndpointBuilder
@@ -2859,7 +2859,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The request URI of EDI message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The request URI of EDI message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|requestUri (String requestUri)
 specifier|default
 name|AS2EndpointBuilder
@@ -2880,7 +2880,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value included in the Server message header identifying the AS2          * Server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value included in the Server message header identifying the AS2          * Server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|server (String server)
 specifier|default
 name|AS2EndpointBuilder
@@ -2901,7 +2901,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Server Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Server Fully Qualified Domain Name (FQDN). Used in message ids          * sent by endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverFqdn (String serverFqdn)
 specifier|default
 name|AS2EndpointBuilder
@@ -2922,7 +2922,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of server.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The port number of server.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|serverPortNumber (Integer serverPortNumber)
 specifier|default
 name|AS2EndpointBuilder
@@ -2943,7 +2943,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of server.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The port number of server.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|serverPortNumber (String serverPortNumber)
 specifier|default
 name|AS2EndpointBuilder
@@ -2964,7 +2964,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          * The option is a<code>java.lang.String[]</code> type.          * @group common          */
+comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          *           * The option is a:<code>java.lang.String[]</code> type.          *           * Group: common          */
 DECL|method|signedReceiptMicAlgorithms ( String[] signedReceiptMicAlgorithms)
 specifier|default
 name|AS2EndpointBuilder
@@ -2986,7 +2986,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          * The option will be converted to a<code>java.lang.String[]</code>          * type.          * @group common          */
+comment|/**          * The list of algorithms, in order of preference, requested to generate          * a message integrity check (MIC) returned in message dispostion          * notification (MDN).          *           * The option will be converted to a<code>java.lang.String[]</code>          * type.          *           * Group: common          */
 DECL|method|signedReceiptMicAlgorithms ( String signedReceiptMicAlgorithms)
 specifier|default
 name|AS2EndpointBuilder
@@ -3007,7 +3007,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to sign EDI message.          * The option is a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          * @group common          */
+comment|/**          * The algorithm used to sign EDI message.          *           * The option is a:          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          *           * Group: common          */
 DECL|method|signingAlgorithm ( AS2SignatureAlgorithm signingAlgorithm)
 specifier|default
 name|AS2EndpointBuilder
@@ -3028,7 +3028,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used to sign EDI message.          * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          * @group common          */
+comment|/**          * The algorithm used to sign EDI message.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.api.AS2SignatureAlgorithm</code>          * type.          *           * Group: common          */
 DECL|method|signingAlgorithm (String signingAlgorithm)
 specifier|default
 name|AS2EndpointBuilder
@@ -3049,7 +3049,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to sign EDI message.          * The option is a<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to sign EDI message.          *           * The option is a:<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|signingCertificateChain ( Certificate[] signingCertificateChain)
 specifier|default
 name|AS2EndpointBuilder
@@ -3071,7 +3071,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The chain of certificates used to sign EDI message.          * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          * @group common          */
+comment|/**          * The chain of certificates used to sign EDI message.          *           * The option will be converted to a          *<code>java.security.cert.Certificate[]</code> type.          *           * Group: common          */
 DECL|method|signingCertificateChain ( String signingCertificateChain)
 specifier|default
 name|AS2EndpointBuilder
@@ -3092,7 +3092,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to sign the EDI message.          * The option is a<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to sign the EDI message.          *           * The option is a:<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|signingPrivateKey ( PrivateKey signingPrivateKey)
 specifier|default
 name|AS2EndpointBuilder
@@ -3113,7 +3113,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The key used to sign the EDI message.          * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          * @group common          */
+comment|/**          * The key used to sign the EDI message.          *           * The option will be converted to a          *<code>java.security.PrivateKey</code> type.          *           * Group: common          */
 DECL|method|signingPrivateKey (String signingPrivateKey)
 specifier|default
 name|AS2EndpointBuilder
@@ -3134,7 +3134,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value of Subject header of AS2 message.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value of Subject header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|subject (String subject)
 specifier|default
 name|AS2EndpointBuilder
@@ -3155,7 +3155,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The host name (IP or DNS name) of target host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The host name (IP or DNS name) of target host.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|targetHostname (String targetHostname)
 specifier|default
 name|AS2EndpointBuilder
@@ -3176,7 +3176,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of target host. -1 indicates the scheme default port.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The port number of target host. -1 indicates the scheme default port.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|targetPortNumber (Integer targetPortNumber)
 specifier|default
 name|AS2EndpointBuilder
@@ -3197,7 +3197,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of target host. -1 indicates the scheme default port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The port number of target host. -1 indicates the scheme default port.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|targetPortNumber (String targetPortNumber)
 specifier|default
 name|AS2EndpointBuilder
@@ -3218,7 +3218,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The value included in the User-Agent message header identifying the          * AS2 user agent.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The value included in the User-Agent message header identifying the          * AS2 user agent.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userAgent (String userAgent)
 specifier|default
 name|AS2EndpointBuilder
@@ -3263,7 +3263,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedAS2EndpointBuilder
@@ -3284,7 +3284,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedAS2EndpointBuilder
@@ -3305,7 +3305,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedAS2EndpointBuilder
@@ -3326,7 +3326,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedAS2EndpointBuilder

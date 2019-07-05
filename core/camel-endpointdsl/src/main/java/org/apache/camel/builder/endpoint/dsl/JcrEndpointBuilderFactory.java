@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Get the base node when accessing the repository.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Get the base node when accessing the repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|base (String base)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|deep (boolean deep)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|deep (String deep)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|eventTypes (int eventTypes)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|eventTypes (String eventTypes)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When a comma separated nodeTypeName list string is set, only events          * whose associated parent node has one of the node types (or a subtype          * of one of the node types) in this list will be received.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * When a comma separated nodeTypeName list string is set, only events          * whose associated parent node has one of the node types (or a subtype          * of one of the node types) in this list will be received.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nodeTypeNames (String nodeTypeNames)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noLocal (boolean noLocal)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noLocal (String noLocal)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for login.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckInterval ( long sessionLiveCheckInterval)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckInterval ( String sessionLiveCheckInterval)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckIntervalOnStart ( long sessionLiveCheckIntervalOnStart)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckIntervalOnStart ( String sessionLiveCheckIntervalOnStart)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username for login.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|username (String username)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When a comma separated uuid list string is set, only events whose          * associated parent node has one of the identifiers in the comma          * separated uuid list will be received.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * When a comma separated uuid list string is set, only events whose          * associated parent node has one of the identifiers in the comma          * separated uuid list will be received.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uuids (String uuids)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The workspace to access. If it's not specified then the default one          * will be used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The workspace to access. If it's not specified then the default one          * will be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|workspaceName (String workspaceName)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|JcrEndpointConsumerBuilder
@@ -557,7 +557,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedJcrEndpointConsumerBuilder
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedJcrEndpointConsumerBuilder
@@ -599,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedJcrEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedJcrEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJcrEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJcrEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedJcrEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedJcrEndpointConsumerBuilder
@@ -747,7 +747,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -768,7 +768,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Get the base node when accessing the repository.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Get the base node when accessing the repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|base (String base)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -789,7 +789,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|deep (boolean deep)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|deep (String deep)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|eventTypes (int eventTypes)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|eventTypes (String eventTypes)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When a comma separated nodeTypeName list string is set, only events          * whose associated parent node has one of the node types (or a subtype          * of one of the node types) in this list will be received.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * When a comma separated nodeTypeName list string is set, only events          * whose associated parent node has one of the node types (or a subtype          * of one of the node types) in this list will be received.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nodeTypeNames (String nodeTypeNames)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noLocal (boolean noLocal)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noLocal (String noLocal)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for login.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckInterval ( long sessionLiveCheckInterval)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckInterval ( String sessionLiveCheckInterval)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -999,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckIntervalOnStart ( long sessionLiveCheckIntervalOnStart)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -1020,7 +1020,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckIntervalOnStart ( String sessionLiveCheckIntervalOnStart)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -1041,7 +1041,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username for login.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|username (String username)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -1062,7 +1062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When a comma separated uuid list string is set, only events whose          * associated parent node has one of the identifiers in the comma          * separated uuid list will be received.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * When a comma separated uuid list string is set, only events whose          * associated parent node has one of the identifiers in the comma          * separated uuid list will be received.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uuids (String uuids)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The workspace to access. If it's not specified then the default one          * will be used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The workspace to access. If it's not specified then the default one          * will be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|workspaceName (String workspaceName)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -1125,7 +1125,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|JcrEndpointProducerBuilder
@@ -1168,7 +1168,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJcrEndpointProducerBuilder
@@ -1189,7 +1189,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJcrEndpointProducerBuilder
@@ -1210,7 +1210,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedJcrEndpointProducerBuilder
@@ -1231,7 +1231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedJcrEndpointProducerBuilder
@@ -1276,7 +1276,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|JcrEndpointBuilder
@@ -1297,7 +1297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Get the base node when accessing the repository.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Get the base node when accessing the repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|base (String base)
 specifier|default
 name|JcrEndpointBuilder
@@ -1318,7 +1318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|deep (boolean deep)
 specifier|default
 name|JcrEndpointBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|deep (String deep)
 specifier|default
 name|JcrEndpointBuilder
@@ -1360,7 +1360,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|eventTypes (int eventTypes)
 specifier|default
 name|JcrEndpointBuilder
@@ -1381,7 +1381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * eventTypes (a combination of one or more event types encoded as a bit          * mask value such as javax.jcr.observation.Event.NODE_ADDED,          * javax.jcr.observation.Event.NODE_REMOVED, etc.).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|eventTypes (String eventTypes)
 specifier|default
 name|JcrEndpointBuilder
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When a comma separated nodeTypeName list string is set, only events          * whose associated parent node has one of the node types (or a subtype          * of one of the node types) in this list will be received.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * When a comma separated nodeTypeName list string is set, only events          * whose associated parent node has one of the node types (or a subtype          * of one of the node types) in this list will be received.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nodeTypeNames (String nodeTypeNames)
 specifier|default
 name|JcrEndpointBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noLocal (boolean noLocal)
 specifier|default
 name|JcrEndpointBuilder
@@ -1444,7 +1444,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If noLocal is true, then events generated by the session through          * which the listener was registered are ignored. Otherwise, they are          * not ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noLocal (String noLocal)
 specifier|default
 name|JcrEndpointBuilder
@@ -1465,7 +1465,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for login.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|JcrEndpointBuilder
@@ -1486,7 +1486,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckInterval ( long sessionLiveCheckInterval)
 specifier|default
 name|JcrEndpointBuilder
@@ -1507,7 +1507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before each session live checking          * The default value is 60000 ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckInterval ( String sessionLiveCheckInterval)
 specifier|default
 name|JcrEndpointBuilder
@@ -1528,7 +1528,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckIntervalOnStart ( long sessionLiveCheckIntervalOnStart)
 specifier|default
 name|JcrEndpointBuilder
@@ -1549,7 +1549,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Interval in milliseconds to wait before the first session live          * checking. The default value is 3000 ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|sessionLiveCheckIntervalOnStart ( String sessionLiveCheckIntervalOnStart)
 specifier|default
 name|JcrEndpointBuilder
@@ -1570,7 +1570,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username for login.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|username (String username)
 specifier|default
 name|JcrEndpointBuilder
@@ -1591,7 +1591,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When a comma separated uuid list string is set, only events whose          * associated parent node has one of the identifiers in the comma          * separated uuid list will be received.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * When a comma separated uuid list string is set, only events whose          * associated parent node has one of the identifiers in the comma          * separated uuid list will be received.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uuids (String uuids)
 specifier|default
 name|JcrEndpointBuilder
@@ -1612,7 +1612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The workspace to access. If it's not specified then the default one          * will be used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The workspace to access. If it's not specified then the default one          * will be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|workspaceName (String workspaceName)
 specifier|default
 name|JcrEndpointBuilder
@@ -1657,7 +1657,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJcrEndpointBuilder
@@ -1678,7 +1678,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJcrEndpointBuilder
@@ -1699,7 +1699,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJcrEndpointBuilder
@@ -1720,7 +1720,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJcrEndpointBuilder

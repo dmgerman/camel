@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The protocol to use for communicating with the database.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The protocol to use for communicating with the database.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|protocol (String protocol)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the running couchdb instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the running couchdb instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hostname (String hostname)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the running couchdb instance.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the running couchdb instance.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the running couchdb instance.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the running couchdb instance.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the database to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the database to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Creates the database if it does not already exist.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Creates the database if it does not already exist.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createDatabase ( boolean createDatabase)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Creates the database if it does not already exist.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Creates the database if it does not already exist.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createDatabase ( String createDatabase)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Document deletes are published as events.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Document deletes are published as events.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|deletes (boolean deletes)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Document deletes are published as events.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Document deletes are published as events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|deletes (String deletes)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * How often to send an empty message to keep socket alive in millis.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * How often to send an empty message to keep socket alive in millis.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|heartbeat (long heartbeat)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * How often to send an empty message to keep socket alive in millis.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * How often to send an empty message to keep socket alive in millis.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|heartbeat (String heartbeat)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Start tracking changes immediately after the given update sequence.          * The default, null, will start monitoring from the latest sequence.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Start tracking changes immediately after the given update sequence.          * The default, null, will start monitoring from the latest sequence.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|since (String since)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies how many revisions are returned in the changes array. The          * default, main_only, will only return the current winning revision;          * all_docs will return all leaf revisions (including conflicts and          * deleted former conflicts.).          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Specifies how many revisions are returned in the changes array. The          * default, main_only, will only return the current winning revision;          * all_docs will return all leaf revisions (including conflicts and          * deleted former conflicts.).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|style (String style)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Document inserts/updates are published as events.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Document inserts/updates are published as events.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|updates (boolean updates)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Document inserts/updates are published as events.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Document inserts/updates are published as events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|updates (String updates)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for authenticated databases.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password for authenticated databases.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username in case of authenticated databases.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Username in case of authenticated databases.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|CouchDbEndpointConsumerBuilder
@@ -557,7 +557,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedCouchDbEndpointConsumerBuilder
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedCouchDbEndpointConsumerBuilder
@@ -599,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedCouchDbEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedCouchDbEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedCouchDbEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedCouchDbEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedCouchDbEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedCouchDbEndpointConsumerBuilder
@@ -747,7 +747,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The protocol to use for communicating with the database.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The protocol to use for communicating with the database.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|protocol (String protocol)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -768,7 +768,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the running couchdb instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the running couchdb instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hostname (String hostname)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -789,7 +789,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the running couchdb instance.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the running couchdb instance.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the running couchdb instance.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the running couchdb instance.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the database to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the database to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Creates the database if it does not already exist.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Creates the database if it does not already exist.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createDatabase ( boolean createDatabase)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Creates the database if it does not already exist.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Creates the database if it does not already exist.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createDatabase ( String createDatabase)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for authenticated databases.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password for authenticated databases.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username in case of authenticated databases.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Username in case of authenticated databases.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|CouchDbEndpointProducerBuilder
@@ -1000,7 +1000,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedCouchDbEndpointProducerBuilder
@@ -1021,7 +1021,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedCouchDbEndpointProducerBuilder
@@ -1042,7 +1042,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedCouchDbEndpointProducerBuilder
@@ -1063,7 +1063,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedCouchDbEndpointProducerBuilder
@@ -1108,7 +1108,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The protocol to use for communicating with the database.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The protocol to use for communicating with the database.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|protocol (String protocol)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1129,7 +1129,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the running couchdb instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the running couchdb instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hostname (String hostname)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1150,7 +1150,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the running couchdb instance.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the running couchdb instance.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1171,7 +1171,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the running couchdb instance.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the running couchdb instance.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1192,7 +1192,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the database to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the database to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1213,7 +1213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Creates the database if it does not already exist.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Creates the database if it does not already exist.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createDatabase (boolean createDatabase)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1234,7 +1234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Creates the database if it does not already exist.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Creates the database if it does not already exist.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createDatabase (String createDatabase)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1255,7 +1255,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for authenticated databases.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password for authenticated databases.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1276,7 +1276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username in case of authenticated databases.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Username in case of authenticated databases.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|CouchDbEndpointBuilder
@@ -1321,7 +1321,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedCouchDbEndpointBuilder
@@ -1342,7 +1342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedCouchDbEndpointBuilder
@@ -1363,7 +1363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCouchDbEndpointBuilder
@@ -1384,7 +1384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCouchDbEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The delegate uri. Must belong to a component that supports webhooks.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The delegate uri. Must belong to a component that supports webhooks.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|endpointUri (String endpointUri)
 specifier|default
 name|WebhookEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically register the webhook at startup and unregister it on          * shutdown.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Automatically register the webhook at startup and unregister it on          * shutdown.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|webhookAutoRegister ( boolean webhookAutoRegister)
 specifier|default
 name|WebhookEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically register the webhook at startup and unregister it on          * shutdown.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Automatically register the webhook at startup and unregister it on          * shutdown.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|webhookAutoRegister ( String webhookAutoRegister)
 specifier|default
 name|WebhookEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The first (base) path element where the webhook will be exposed. It's          * a good practice to set it to a random string, so that it cannot be          * guessed by unauthorized parties.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The first (base) path element where the webhook will be exposed. It's          * a good practice to set it to a random string, so that it cannot be          * guessed by unauthorized parties.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|webhookBasePath (String webhookBasePath)
 specifier|default
 name|WebhookEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Camel Rest component to use for the REST transport, such as          * netty4-http.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Camel Rest component to use for the REST transport, such as          * netty4-http.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|webhookComponentName ( String webhookComponentName)
 specifier|default
 name|WebhookEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The URL of the current service as seen by the webhook provider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The URL of the current service as seen by the webhook provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|webhookExternalUrl ( String webhookExternalUrl)
 specifier|default
 name|WebhookEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The path where the webhook endpoint will be exposed (relative to          * basePath, if any).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The path where the webhook endpoint will be exposed (relative to          * basePath, if any).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|webhookPath (String webhookPath)
 specifier|default
 name|WebhookEndpointBuilder
@@ -279,7 +279,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedWebhookEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedWebhookEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedWebhookEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedWebhookEndpointBuilder

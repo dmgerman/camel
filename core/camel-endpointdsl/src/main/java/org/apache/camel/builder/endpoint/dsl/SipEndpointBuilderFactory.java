@@ -156,7 +156,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          * The option is a<code>java.net.URI</code> type.          * @group common          */
+comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
 DECL|method|uri (URI uri)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -177,7 +177,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
+comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
 DECL|method|uri (String uri)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -198,7 +198,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|cacheConnections ( boolean cacheConnections)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -219,7 +219,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|cacheConnections ( String cacheConnections)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -240,7 +240,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for contentSubType can be set to any valid MimeSubType.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for contentSubType can be set to any valid MimeSubType.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentSubType (String contentSubType)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -261,7 +261,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for contentType can be set to any valid MimeType.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for contentType can be set to any valid MimeType.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -282,7 +282,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for a String based event type.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for a String based event type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|eventHeaderName ( String eventHeaderName)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -303,7 +303,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for a String based event Id. Mandatory setting unless a          * registry based FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for a String based event Id. Mandatory setting unless a          * registry based FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|eventId (String eventId)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -324,7 +324,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the message originator. Mandatory setting unless a          * registry based FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the message originator. Mandatory setting unless a          * registry based FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromHost (String fromHost)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -345,7 +345,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|fromPort (int fromPort)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -366,7 +366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|fromPort (String fromPort)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -387,7 +387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username of the message originator. Mandatory setting unless a          * registry based custom FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username of the message originator. Mandatory setting unless a          * registry based custom FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromUser (String fromUser)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -408,7 +408,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|msgExpiration (int msgExpiration)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -429,7 +429,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|msgExpiration (String msgExpiration)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -450,7 +450,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|receiveTimeoutMillis ( long receiveTimeoutMillis)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -471,7 +471,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|receiveTimeoutMillis ( String receiveTimeoutMillis)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -492,7 +492,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the SIP Stack instance associated with an SIP Endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the SIP Stack instance associated with an SIP Endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|stackName (String stackName)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -513,7 +513,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toHost (String toHost)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -534,7 +534,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|toPort (int toPort)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -555,7 +555,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|toPort (String toPort)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -576,7 +576,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username of the message receiver. Mandatory setting unless a registry          * based custom ToHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username of the message receiver. Mandatory setting unless a registry          * based custom ToHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toUser (String toUser)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -597,7 +597,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for choice of transport protocol. Valid choices are tcp or          * udp.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for choice of transport protocol. Valid choices are tcp or          * udp.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|transport (String transport)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -618,7 +618,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -639,7 +639,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -660,7 +660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used to determine whether the kind of header          * (FromHeader,ToHeader etc) that needs to be created for this endpoint.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * This setting is used to determine whether the kind of header          * (FromHeader,ToHeader etc) that needs to be created for this endpoint.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|consumer (boolean consumer)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -681,7 +681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used to determine whether the kind of header          * (FromHeader,ToHeader etc) that needs to be created for this endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * This setting is used to determine whether the kind of header          * (FromHeader,ToHeader etc) that needs to be created for this endpoint.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|consumer (String consumer)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -702,7 +702,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used to distinguish between a Presence Agent& a          * consumer. This is due to the fact that the SIP Camel component ships          * with a basic Presence Agent (for testing purposes only). Consumers          * have to set this flag to true.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * This setting is used to distinguish between a Presence Agent& a          * consumer. This is due to the fact that the SIP Camel component ships          * with a basic Presence Agent (for testing purposes only). Consumers          * have to set this flag to true.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|presenceAgent (boolean presenceAgent)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -723,7 +723,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used to distinguish between a Presence Agent& a          * consumer. This is due to the fact that the SIP Camel component ships          * with a basic Presence Agent (for testing purposes only). Consumers          * have to set this flag to true.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * This setting is used to distinguish between a Presence Agent& a          * consumer. This is due to the fact that the SIP Camel component ships          * with a basic Presence Agent (for testing purposes only). Consumers          * have to set this flag to true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|presenceAgent (String presenceAgent)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -744,7 +744,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of client debug log file to use for logging.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Name of client debug log file to use for logging.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationDebugLogFile ( String implementationDebugLogFile)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -765,7 +765,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of server log file to use for logging.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Name of server log file to use for logging.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationServerLogFile ( String implementationServerLogFile)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -786,7 +786,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level for tracing.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Logging level for tracing.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationTraceLevel ( String implementationTraceLevel)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -807,7 +807,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of maximum proxy forwards.          * The option is a<code>int</code> type.          * @group proxy          */
+comment|/**          * Number of maximum proxy forwards.          *           * The option is a:<code>int</code> type.          *           * Group: proxy          */
 DECL|method|maxForwards (int maxForwards)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -828,7 +828,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of maximum proxy forwards.          * The option will be converted to a<code>int</code> type.          * @group proxy          */
+comment|/**          * Number of maximum proxy forwards.          *           * The option will be converted to a<code>int</code> type.          *           * Group: proxy          */
 DECL|method|maxForwards (String maxForwards)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -849,7 +849,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          * The option is a<code>boolean</code> type.          * @group proxy          */
+comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          *           * The option is a:<code>boolean</code> type.          *           * Group: proxy          */
 DECL|method|useRouterForAllUris ( boolean useRouterForAllUris)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -870,7 +870,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          * The option will be converted to a<code>boolean</code> type.          * @group proxy          */
+comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: proxy          */
 DECL|method|useRouterForAllUris ( String useRouterForAllUris)
 specifier|default
 name|SipEndpointConsumerBuilder
@@ -913,7 +913,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -934,7 +934,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -955,7 +955,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -976,7 +976,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -997,7 +997,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom AddressFactory.          * The option is a<code>javax.sip.address.AddressFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom AddressFactory.          *           * The option is a:<code>javax.sip.address.AddressFactory</code> type.          *           * Group: advanced          */
 DECL|method|addressFactory ( Object addressFactory)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1018,7 +1018,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom AddressFactory.          * The option will be converted to a          *<code>javax.sip.address.AddressFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom AddressFactory.          *           * The option will be converted to a          *<code>javax.sip.address.AddressFactory</code> type.          *           * Group: advanced          */
 DECL|method|addressFactory ( String addressFactory)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1039,7 +1039,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1060,7 +1060,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1081,7 +1081,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          * The option is a<code>javax.sip.header.CallIdHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          *           * The option is a:<code>javax.sip.header.CallIdHeader</code> type.          *           * Group: advanced          */
 DECL|method|callIdHeader ( Object callIdHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1102,7 +1102,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          * The option will be converted to a          *<code>javax.sip.header.CallIdHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          *           * The option will be converted to a          *<code>javax.sip.header.CallIdHeader</code> type.          *           * Group: advanced          */
 DECL|method|callIdHeader ( String callIdHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1123,7 +1123,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          * The option is a<code>javax.sip.header.ContactHeader</code> type.          * @group advanced          */
+comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          *           * The option is a:<code>javax.sip.header.ContactHeader</code> type.          *           * Group: advanced          */
 DECL|method|contactHeader ( Object contactHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1144,7 +1144,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          * The option will be converted to a          *<code>javax.sip.header.ContactHeader</code> type.          * @group advanced          */
+comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ContactHeader</code> type.          *           * Group: advanced          */
 DECL|method|contactHeader ( String contactHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1165,7 +1165,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          * The option is a<code>javax.sip.header.ContentTypeHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          *           * The option is a:<code>javax.sip.header.ContentTypeHeader</code>          * type.          *           * Group: advanced          */
 DECL|method|contentTypeHeader ( Object contentTypeHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1186,7 +1186,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          * The option will be converted to a          *<code>javax.sip.header.ContentTypeHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ContentTypeHeader</code> type.          *           * Group: advanced          */
 DECL|method|contentTypeHeader ( String contentTypeHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1207,7 +1207,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          * The option is a<code>javax.sip.header.EventHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          *           * The option is a:<code>javax.sip.header.EventHeader</code> type.          *           * Group: advanced          */
 DECL|method|eventHeader ( Object eventHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1228,7 +1228,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          * The option will be converted to a          *<code>javax.sip.header.EventHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          *           * The option will be converted to a          *<code>javax.sip.header.EventHeader</code> type.          *           * Group: advanced          */
 DECL|method|eventHeader ( String eventHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1249,7 +1249,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          * The option is a<code>javax.sip.header.ExpiresHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          *           * The option is a:<code>javax.sip.header.ExpiresHeader</code> type.          *           * Group: advanced          */
 DECL|method|expiresHeader ( Object expiresHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1270,7 +1270,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          * The option will be converted to a          *<code>javax.sip.header.ExpiresHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ExpiresHeader</code> type.          *           * Group: advanced          */
 DECL|method|expiresHeader ( String expiresHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1291,7 +1291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          * The option is a<code>javax.sip.header.ExtensionHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          *           * The option is a:<code>javax.sip.header.ExtensionHeader</code> type.          *           * Group: advanced          */
 DECL|method|extensionHeader ( Object extensionHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1312,7 +1312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          * The option will be converted to a          *<code>javax.sip.header.ExtensionHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ExtensionHeader</code> type.          *           * Group: advanced          */
 DECL|method|extensionHeader ( String extensionHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1333,7 +1333,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          * The option is a<code>javax.sip.header.FromHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          *           * The option is a:<code>javax.sip.header.FromHeader</code> type.          *           * Group: advanced          */
 DECL|method|fromHeader (Object fromHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1354,7 +1354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          * The option will be converted to a          *<code>javax.sip.header.FromHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          *           * The option will be converted to a          *<code>javax.sip.header.FromHeader</code> type.          *           * Group: advanced          */
 DECL|method|fromHeader (String fromHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1375,7 +1375,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFactory.          * The option is a<code>javax.sip.header.HeaderFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFactory.          *           * The option is a:<code>javax.sip.header.HeaderFactory</code> type.          *           * Group: advanced          */
 DECL|method|headerFactory ( Object headerFactory)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1396,7 +1396,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFactory.          * The option will be converted to a          *<code>javax.sip.header.HeaderFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFactory.          *           * The option will be converted to a          *<code>javax.sip.header.HeaderFactory</code> type.          *           * Group: advanced          */
 DECL|method|headerFactory ( String headerFactory)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1417,7 +1417,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ListeningPoint implementation.          * The option is a<code>javax.sip.ListeningPoint</code> type.          * @group advanced          */
+comment|/**          * To use a custom ListeningPoint implementation.          *           * The option is a:<code>javax.sip.ListeningPoint</code> type.          *           * Group: advanced          */
 DECL|method|listeningPoint ( Object listeningPoint)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1438,7 +1438,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ListeningPoint implementation.          * The option will be converted to a          *<code>javax.sip.ListeningPoint</code> type.          * @group advanced          */
+comment|/**          * To use a custom ListeningPoint implementation.          *           * The option will be converted to a          *<code>javax.sip.ListeningPoint</code> type.          *           * Group: advanced          */
 DECL|method|listeningPoint ( String listeningPoint)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1459,7 +1459,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          * The option is a<code>javax.sip.header.MaxForwardsHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          *           * The option is a:<code>javax.sip.header.MaxForwardsHeader</code>          * type.          *           * Group: advanced          */
 DECL|method|maxForwardsHeader ( Object maxForwardsHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1480,7 +1480,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          * The option will be converted to a          *<code>javax.sip.header.MaxForwardsHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          *           * The option will be converted to a          *<code>javax.sip.header.MaxForwardsHeader</code> type.          *           * Group: advanced          */
 DECL|method|maxForwardsHeader ( String maxForwardsHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1501,7 +1501,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for maximum allowed Message size in bytes.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Setting for maximum allowed Message size in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maxMessageSize ( int maxMessageSize)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1522,7 +1522,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for maximum allowed Message size in bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Setting for maximum allowed Message size in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maxMessageSize ( String maxMessageSize)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1543,7 +1543,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom MessageFactory.          * The option is a<code>javax.sip.message.MessageFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom MessageFactory.          *           * The option is a:<code>javax.sip.message.MessageFactory</code> type.          *           * Group: advanced          */
 DECL|method|messageFactory ( Object messageFactory)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1564,7 +1564,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom MessageFactory.          * The option will be converted to a          *<code>javax.sip.message.MessageFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom MessageFactory.          *           * The option will be converted to a          *<code>javax.sip.message.MessageFactory</code> type.          *           * Group: advanced          */
 DECL|method|messageFactory ( String messageFactory)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1585,7 +1585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipFactory to create the SipStack to be used.          * The option is a<code>javax.sip.SipFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipFactory to create the SipStack to be used.          *           * The option is a:<code>javax.sip.SipFactory</code> type.          *           * Group: advanced          */
 DECL|method|sipFactory (Object sipFactory)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1606,7 +1606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipFactory to create the SipStack to be used.          * The option will be converted to a<code>javax.sip.SipFactory</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom SipFactory to create the SipStack to be used.          *           * The option will be converted to a<code>javax.sip.SipFactory</code>          * type.          *           * Group: advanced          */
 DECL|method|sipFactory (String sipFactory)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1627,7 +1627,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipStack.          * The option is a<code>javax.sip.SipStack</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipStack.          *           * The option is a:<code>javax.sip.SipStack</code> type.          *           * Group: advanced          */
 DECL|method|sipStack (Object sipStack)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1648,7 +1648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipStack.          * The option will be converted to a<code>javax.sip.SipStack</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom SipStack.          *           * The option will be converted to a<code>javax.sip.SipStack</code>          * type.          *           * Group: advanced          */
 DECL|method|sipStack (String sipStack)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1669,7 +1669,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          * The option is a<code>javax.sip.address.SipURI</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          *           * The option is a:<code>javax.sip.address.SipURI</code> type.          *           * Group: advanced          */
 DECL|method|sipUri (Object sipUri)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1690,7 +1690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          * The option will be converted to a          *<code>javax.sip.address.SipURI</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          *           * The option will be converted to a          *<code>javax.sip.address.SipURI</code> type.          *           * Group: advanced          */
 DECL|method|sipUri (String sipUri)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1711,7 +1711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1732,7 +1732,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1753,7 +1753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          * The option is a<code>javax.sip.header.ToHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          *           * The option is a:<code>javax.sip.header.ToHeader</code> type.          *           * Group: advanced          */
 DECL|method|toHeader (Object toHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1774,7 +1774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          * The option will be converted to a          *<code>javax.sip.header.ToHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ToHeader</code> type.          *           * Group: advanced          */
 DECL|method|toHeader (String toHeader)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1795,7 +1795,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          * The option is a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          * @group advanced          */
+comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          *           * The option is a:          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          *           * Group: advanced          */
 DECL|method|viaHeaders ( List<Object> viaHeaders)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1819,7 +1819,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          * The option will be converted to a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          * @group advanced          */
+comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          *           * The option will be converted to a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          *           * Group: advanced          */
 DECL|method|viaHeaders (String viaHeaders)
 specifier|default
 name|AdvancedSipEndpointConsumerBuilder
@@ -1862,7 +1862,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          * The option is a<code>java.net.URI</code> type.          * @group common          */
+comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
 DECL|method|uri (URI uri)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -1883,7 +1883,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
+comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
 DECL|method|uri (String uri)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -1904,7 +1904,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|cacheConnections ( boolean cacheConnections)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -1925,7 +1925,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|cacheConnections ( String cacheConnections)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -1946,7 +1946,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for contentSubType can be set to any valid MimeSubType.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for contentSubType can be set to any valid MimeSubType.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentSubType (String contentSubType)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -1967,7 +1967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for contentType can be set to any valid MimeType.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for contentType can be set to any valid MimeType.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -1988,7 +1988,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for a String based event type.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for a String based event type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|eventHeaderName ( String eventHeaderName)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2009,7 +2009,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for a String based event Id. Mandatory setting unless a          * registry based FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for a String based event Id. Mandatory setting unless a          * registry based FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|eventId (String eventId)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2030,7 +2030,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the message originator. Mandatory setting unless a          * registry based FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the message originator. Mandatory setting unless a          * registry based FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromHost (String fromHost)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2051,7 +2051,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|fromPort (int fromPort)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2072,7 +2072,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|fromPort (String fromPort)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2093,7 +2093,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username of the message originator. Mandatory setting unless a          * registry based custom FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username of the message originator. Mandatory setting unless a          * registry based custom FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromUser (String fromUser)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2114,7 +2114,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|msgExpiration (int msgExpiration)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2135,7 +2135,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|msgExpiration (String msgExpiration)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2156,7 +2156,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|receiveTimeoutMillis ( long receiveTimeoutMillis)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2177,7 +2177,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|receiveTimeoutMillis ( String receiveTimeoutMillis)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2198,7 +2198,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the SIP Stack instance associated with an SIP Endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the SIP Stack instance associated with an SIP Endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|stackName (String stackName)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2219,7 +2219,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toHost (String toHost)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2240,7 +2240,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|toPort (int toPort)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2261,7 +2261,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|toPort (String toPort)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2282,7 +2282,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username of the message receiver. Mandatory setting unless a registry          * based custom ToHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username of the message receiver. Mandatory setting unless a registry          * based custom ToHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toUser (String toUser)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2303,7 +2303,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for choice of transport protocol. Valid choices are tcp or          * udp.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for choice of transport protocol. Valid choices are tcp or          * udp.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|transport (String transport)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2324,7 +2324,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2345,7 +2345,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2366,7 +2366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of client debug log file to use for logging.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Name of client debug log file to use for logging.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationDebugLogFile ( String implementationDebugLogFile)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2387,7 +2387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of server log file to use for logging.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Name of server log file to use for logging.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationServerLogFile ( String implementationServerLogFile)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2408,7 +2408,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level for tracing.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Logging level for tracing.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationTraceLevel ( String implementationTraceLevel)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2429,7 +2429,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of maximum proxy forwards.          * The option is a<code>int</code> type.          * @group proxy          */
+comment|/**          * Number of maximum proxy forwards.          *           * The option is a:<code>int</code> type.          *           * Group: proxy          */
 DECL|method|maxForwards (int maxForwards)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2450,7 +2450,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of maximum proxy forwards.          * The option will be converted to a<code>int</code> type.          * @group proxy          */
+comment|/**          * Number of maximum proxy forwards.          *           * The option will be converted to a<code>int</code> type.          *           * Group: proxy          */
 DECL|method|maxForwards (String maxForwards)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2471,7 +2471,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          * The option is a<code>boolean</code> type.          * @group proxy          */
+comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          *           * The option is a:<code>boolean</code> type.          *           * Group: proxy          */
 DECL|method|useRouterForAllUris ( boolean useRouterForAllUris)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2492,7 +2492,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          * The option will be converted to a<code>boolean</code> type.          * @group proxy          */
+comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: proxy          */
 DECL|method|useRouterForAllUris ( String useRouterForAllUris)
 specifier|default
 name|SipEndpointProducerBuilder
@@ -2535,7 +2535,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To use a custom AddressFactory.          * The option is a<code>javax.sip.address.AddressFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom AddressFactory.          *           * The option is a:<code>javax.sip.address.AddressFactory</code> type.          *           * Group: advanced          */
 DECL|method|addressFactory ( Object addressFactory)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2556,7 +2556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom AddressFactory.          * The option will be converted to a          *<code>javax.sip.address.AddressFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom AddressFactory.          *           * The option will be converted to a          *<code>javax.sip.address.AddressFactory</code> type.          *           * Group: advanced          */
 DECL|method|addressFactory ( String addressFactory)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2577,7 +2577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2598,7 +2598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2619,7 +2619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          * The option is a<code>javax.sip.header.CallIdHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          *           * The option is a:<code>javax.sip.header.CallIdHeader</code> type.          *           * Group: advanced          */
 DECL|method|callIdHeader ( Object callIdHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2640,7 +2640,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          * The option will be converted to a          *<code>javax.sip.header.CallIdHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          *           * The option will be converted to a          *<code>javax.sip.header.CallIdHeader</code> type.          *           * Group: advanced          */
 DECL|method|callIdHeader ( String callIdHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2661,7 +2661,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          * The option is a<code>javax.sip.header.ContactHeader</code> type.          * @group advanced          */
+comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          *           * The option is a:<code>javax.sip.header.ContactHeader</code> type.          *           * Group: advanced          */
 DECL|method|contactHeader ( Object contactHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2682,7 +2682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          * The option will be converted to a          *<code>javax.sip.header.ContactHeader</code> type.          * @group advanced          */
+comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ContactHeader</code> type.          *           * Group: advanced          */
 DECL|method|contactHeader ( String contactHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2703,7 +2703,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          * The option is a<code>javax.sip.header.ContentTypeHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          *           * The option is a:<code>javax.sip.header.ContentTypeHeader</code>          * type.          *           * Group: advanced          */
 DECL|method|contentTypeHeader ( Object contentTypeHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2724,7 +2724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          * The option will be converted to a          *<code>javax.sip.header.ContentTypeHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ContentTypeHeader</code> type.          *           * Group: advanced          */
 DECL|method|contentTypeHeader ( String contentTypeHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2745,7 +2745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          * The option is a<code>javax.sip.header.EventHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          *           * The option is a:<code>javax.sip.header.EventHeader</code> type.          *           * Group: advanced          */
 DECL|method|eventHeader ( Object eventHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2766,7 +2766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          * The option will be converted to a          *<code>javax.sip.header.EventHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          *           * The option will be converted to a          *<code>javax.sip.header.EventHeader</code> type.          *           * Group: advanced          */
 DECL|method|eventHeader ( String eventHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2787,7 +2787,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          * The option is a<code>javax.sip.header.ExpiresHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          *           * The option is a:<code>javax.sip.header.ExpiresHeader</code> type.          *           * Group: advanced          */
 DECL|method|expiresHeader ( Object expiresHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2808,7 +2808,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          * The option will be converted to a          *<code>javax.sip.header.ExpiresHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ExpiresHeader</code> type.          *           * Group: advanced          */
 DECL|method|expiresHeader ( String expiresHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2829,7 +2829,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          * The option is a<code>javax.sip.header.ExtensionHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          *           * The option is a:<code>javax.sip.header.ExtensionHeader</code> type.          *           * Group: advanced          */
 DECL|method|extensionHeader ( Object extensionHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2850,7 +2850,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          * The option will be converted to a          *<code>javax.sip.header.ExtensionHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ExtensionHeader</code> type.          *           * Group: advanced          */
 DECL|method|extensionHeader ( String extensionHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2871,7 +2871,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          * The option is a<code>javax.sip.header.FromHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          *           * The option is a:<code>javax.sip.header.FromHeader</code> type.          *           * Group: advanced          */
 DECL|method|fromHeader (Object fromHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2892,7 +2892,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          * The option will be converted to a          *<code>javax.sip.header.FromHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          *           * The option will be converted to a          *<code>javax.sip.header.FromHeader</code> type.          *           * Group: advanced          */
 DECL|method|fromHeader (String fromHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2913,7 +2913,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFactory.          * The option is a<code>javax.sip.header.HeaderFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFactory.          *           * The option is a:<code>javax.sip.header.HeaderFactory</code> type.          *           * Group: advanced          */
 DECL|method|headerFactory ( Object headerFactory)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2934,7 +2934,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFactory.          * The option will be converted to a          *<code>javax.sip.header.HeaderFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFactory.          *           * The option will be converted to a          *<code>javax.sip.header.HeaderFactory</code> type.          *           * Group: advanced          */
 DECL|method|headerFactory ( String headerFactory)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2955,7 +2955,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ListeningPoint implementation.          * The option is a<code>javax.sip.ListeningPoint</code> type.          * @group advanced          */
+comment|/**          * To use a custom ListeningPoint implementation.          *           * The option is a:<code>javax.sip.ListeningPoint</code> type.          *           * Group: advanced          */
 DECL|method|listeningPoint ( Object listeningPoint)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2976,7 +2976,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ListeningPoint implementation.          * The option will be converted to a          *<code>javax.sip.ListeningPoint</code> type.          * @group advanced          */
+comment|/**          * To use a custom ListeningPoint implementation.          *           * The option will be converted to a          *<code>javax.sip.ListeningPoint</code> type.          *           * Group: advanced          */
 DECL|method|listeningPoint ( String listeningPoint)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -2997,7 +2997,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          * The option is a<code>javax.sip.header.MaxForwardsHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          *           * The option is a:<code>javax.sip.header.MaxForwardsHeader</code>          * type.          *           * Group: advanced          */
 DECL|method|maxForwardsHeader ( Object maxForwardsHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3018,7 +3018,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          * The option will be converted to a          *<code>javax.sip.header.MaxForwardsHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          *           * The option will be converted to a          *<code>javax.sip.header.MaxForwardsHeader</code> type.          *           * Group: advanced          */
 DECL|method|maxForwardsHeader ( String maxForwardsHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3039,7 +3039,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for maximum allowed Message size in bytes.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Setting for maximum allowed Message size in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maxMessageSize ( int maxMessageSize)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3060,7 +3060,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for maximum allowed Message size in bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Setting for maximum allowed Message size in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maxMessageSize ( String maxMessageSize)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3081,7 +3081,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom MessageFactory.          * The option is a<code>javax.sip.message.MessageFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom MessageFactory.          *           * The option is a:<code>javax.sip.message.MessageFactory</code> type.          *           * Group: advanced          */
 DECL|method|messageFactory ( Object messageFactory)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3102,7 +3102,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom MessageFactory.          * The option will be converted to a          *<code>javax.sip.message.MessageFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom MessageFactory.          *           * The option will be converted to a          *<code>javax.sip.message.MessageFactory</code> type.          *           * Group: advanced          */
 DECL|method|messageFactory ( String messageFactory)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3123,7 +3123,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipFactory to create the SipStack to be used.          * The option is a<code>javax.sip.SipFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipFactory to create the SipStack to be used.          *           * The option is a:<code>javax.sip.SipFactory</code> type.          *           * Group: advanced          */
 DECL|method|sipFactory (Object sipFactory)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3144,7 +3144,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipFactory to create the SipStack to be used.          * The option will be converted to a<code>javax.sip.SipFactory</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom SipFactory to create the SipStack to be used.          *           * The option will be converted to a<code>javax.sip.SipFactory</code>          * type.          *           * Group: advanced          */
 DECL|method|sipFactory (String sipFactory)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3165,7 +3165,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipStack.          * The option is a<code>javax.sip.SipStack</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipStack.          *           * The option is a:<code>javax.sip.SipStack</code> type.          *           * Group: advanced          */
 DECL|method|sipStack (Object sipStack)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3186,7 +3186,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipStack.          * The option will be converted to a<code>javax.sip.SipStack</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom SipStack.          *           * The option will be converted to a<code>javax.sip.SipStack</code>          * type.          *           * Group: advanced          */
 DECL|method|sipStack (String sipStack)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3207,7 +3207,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          * The option is a<code>javax.sip.address.SipURI</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          *           * The option is a:<code>javax.sip.address.SipURI</code> type.          *           * Group: advanced          */
 DECL|method|sipUri (Object sipUri)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3228,7 +3228,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          * The option will be converted to a          *<code>javax.sip.address.SipURI</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          *           * The option will be converted to a          *<code>javax.sip.address.SipURI</code> type.          *           * Group: advanced          */
 DECL|method|sipUri (String sipUri)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3249,7 +3249,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3270,7 +3270,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3291,7 +3291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          * The option is a<code>javax.sip.header.ToHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          *           * The option is a:<code>javax.sip.header.ToHeader</code> type.          *           * Group: advanced          */
 DECL|method|toHeader (Object toHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3312,7 +3312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          * The option will be converted to a          *<code>javax.sip.header.ToHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ToHeader</code> type.          *           * Group: advanced          */
 DECL|method|toHeader (String toHeader)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3333,7 +3333,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          * The option is a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          * @group advanced          */
+comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          *           * The option is a:          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          *           * Group: advanced          */
 DECL|method|viaHeaders ( List<Object> viaHeaders)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3357,7 +3357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          * The option will be converted to a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          * @group advanced          */
+comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          *           * The option will be converted to a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          *           * Group: advanced          */
 DECL|method|viaHeaders (String viaHeaders)
 specifier|default
 name|AdvancedSipEndpointProducerBuilder
@@ -3402,7 +3402,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          * The option is a<code>java.net.URI</code> type.          * @group common          */
+comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
 DECL|method|uri (URI uri)
 specifier|default
 name|SipEndpointBuilder
@@ -3423,7 +3423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          * The option will be converted to a<code>java.net.URI</code> type.          * @group common          */
+comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
 DECL|method|uri (String uri)
 specifier|default
 name|SipEndpointBuilder
@@ -3444,7 +3444,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|cacheConnections (boolean cacheConnections)
 specifier|default
 name|SipEndpointBuilder
@@ -3465,7 +3465,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|cacheConnections (String cacheConnections)
 specifier|default
 name|SipEndpointBuilder
@@ -3486,7 +3486,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for contentSubType can be set to any valid MimeSubType.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for contentSubType can be set to any valid MimeSubType.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentSubType (String contentSubType)
 specifier|default
 name|SipEndpointBuilder
@@ -3507,7 +3507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for contentType can be set to any valid MimeType.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for contentType can be set to any valid MimeType.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|SipEndpointBuilder
@@ -3528,7 +3528,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for a String based event type.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for a String based event type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|eventHeaderName (String eventHeaderName)
 specifier|default
 name|SipEndpointBuilder
@@ -3549,7 +3549,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for a String based event Id. Mandatory setting unless a          * registry based FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for a String based event Id. Mandatory setting unless a          * registry based FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|eventId (String eventId)
 specifier|default
 name|SipEndpointBuilder
@@ -3570,7 +3570,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the message originator. Mandatory setting unless a          * registry based FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the message originator. Mandatory setting unless a          * registry based FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromHost (String fromHost)
 specifier|default
 name|SipEndpointBuilder
@@ -3591,7 +3591,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|fromPort (int fromPort)
 specifier|default
 name|SipEndpointBuilder
@@ -3612,7 +3612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the message originator. Mandatory setting unless a registry          * based FromHeader is specified.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|fromPort (String fromPort)
 specifier|default
 name|SipEndpointBuilder
@@ -3633,7 +3633,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username of the message originator. Mandatory setting unless a          * registry based custom FromHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username of the message originator. Mandatory setting unless a          * registry based custom FromHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fromUser (String fromUser)
 specifier|default
 name|SipEndpointBuilder
@@ -3654,7 +3654,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|msgExpiration (int msgExpiration)
 specifier|default
 name|SipEndpointBuilder
@@ -3675,7 +3675,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The amount of time a message received at an endpoint is considered          * valid.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|msgExpiration (String msgExpiration)
 specifier|default
 name|SipEndpointBuilder
@@ -3696,7 +3696,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|receiveTimeoutMillis ( long receiveTimeoutMillis)
 specifier|default
 name|SipEndpointBuilder
@@ -3717,7 +3717,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Setting for specifying amount of time to wait for a Response and/or          * Acknowledgement can be received from another SIP stack.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|receiveTimeoutMillis ( String receiveTimeoutMillis)
 specifier|default
 name|SipEndpointBuilder
@@ -3738,7 +3738,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the SIP Stack instance associated with an SIP Endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the SIP Stack instance associated with an SIP Endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|stackName (String stackName)
 specifier|default
 name|SipEndpointBuilder
@@ -3759,7 +3759,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toHost (String toHost)
 specifier|default
 name|SipEndpointBuilder
@@ -3780,7 +3780,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|toPort (int toPort)
 specifier|default
 name|SipEndpointBuilder
@@ -3801,7 +3801,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Portname of the message receiver. Mandatory setting unless a registry          * based ToHeader is specified.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|toPort (String toPort)
 specifier|default
 name|SipEndpointBuilder
@@ -3822,7 +3822,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username of the message receiver. Mandatory setting unless a registry          * based custom ToHeader is specified.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username of the message receiver. Mandatory setting unless a registry          * based custom ToHeader is specified.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|toUser (String toUser)
 specifier|default
 name|SipEndpointBuilder
@@ -3843,7 +3843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for choice of transport protocol. Valid choices are tcp or          * udp.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Setting for choice of transport protocol. Valid choices are tcp or          * udp.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|transport (String transport)
 specifier|default
 name|SipEndpointBuilder
@@ -3864,7 +3864,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of client debug log file to use for logging.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Name of client debug log file to use for logging.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationDebugLogFile ( String implementationDebugLogFile)
 specifier|default
 name|SipEndpointBuilder
@@ -3885,7 +3885,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of server log file to use for logging.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Name of server log file to use for logging.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationServerLogFile ( String implementationServerLogFile)
 specifier|default
 name|SipEndpointBuilder
@@ -3906,7 +3906,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level for tracing.          * The option is a<code>java.lang.String</code> type.          * @group logging          */
+comment|/**          * Logging level for tracing.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: logging          */
 DECL|method|implementationTraceLevel ( String implementationTraceLevel)
 specifier|default
 name|SipEndpointBuilder
@@ -3927,7 +3927,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of maximum proxy forwards.          * The option is a<code>int</code> type.          * @group proxy          */
+comment|/**          * Number of maximum proxy forwards.          *           * The option is a:<code>int</code> type.          *           * Group: proxy          */
 DECL|method|maxForwards (int maxForwards)
 specifier|default
 name|SipEndpointBuilder
@@ -3948,7 +3948,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of maximum proxy forwards.          * The option will be converted to a<code>int</code> type.          * @group proxy          */
+comment|/**          * Number of maximum proxy forwards.          *           * The option will be converted to a<code>int</code> type.          *           * Group: proxy          */
 DECL|method|maxForwards (String maxForwards)
 specifier|default
 name|SipEndpointBuilder
@@ -3969,7 +3969,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          * The option is a<code>boolean</code> type.          * @group proxy          */
+comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          *           * The option is a:<code>boolean</code> type.          *           * Group: proxy          */
 DECL|method|useRouterForAllUris ( boolean useRouterForAllUris)
 specifier|default
 name|SipEndpointBuilder
@@ -3990,7 +3990,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          * The option will be converted to a<code>boolean</code> type.          * @group proxy          */
+comment|/**          * This setting is used when requests are sent to the Presence Agent via          * a proxy.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: proxy          */
 DECL|method|useRouterForAllUris ( String useRouterForAllUris)
 specifier|default
 name|SipEndpointBuilder
@@ -4035,7 +4035,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To use a custom AddressFactory.          * The option is a<code>javax.sip.address.AddressFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom AddressFactory.          *           * The option is a:<code>javax.sip.address.AddressFactory</code> type.          *           * Group: advanced          */
 DECL|method|addressFactory (Object addressFactory)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4056,7 +4056,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom AddressFactory.          * The option will be converted to a          *<code>javax.sip.address.AddressFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom AddressFactory.          *           * The option will be converted to a          *<code>javax.sip.address.AddressFactory</code> type.          *           * Group: advanced          */
 DECL|method|addressFactory (String addressFactory)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4077,7 +4077,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4098,7 +4098,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4119,7 +4119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          * The option is a<code>javax.sip.header.CallIdHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          *           * The option is a:<code>javax.sip.header.CallIdHeader</code> type.          *           * Group: advanced          */
 DECL|method|callIdHeader (Object callIdHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4140,7 +4140,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          * The option will be converted to a          *<code>javax.sip.header.CallIdHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing call details. Must implement the          * type javax.sip.header.CallIdHeader.          *           * The option will be converted to a          *<code>javax.sip.header.CallIdHeader</code> type.          *           * Group: advanced          */
 DECL|method|callIdHeader (String callIdHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4161,7 +4161,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          * The option is a<code>javax.sip.header.ContactHeader</code> type.          * @group advanced          */
+comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          *           * The option is a:<code>javax.sip.header.ContactHeader</code> type.          *           * Group: advanced          */
 DECL|method|contactHeader (Object contactHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4182,7 +4182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          * The option will be converted to a          *<code>javax.sip.header.ContactHeader</code> type.          * @group advanced          */
+comment|/**          * An optional custom Header object containing verbose contact details          * (email, phone number etc). Must implement the type          * javax.sip.header.ContactHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ContactHeader</code> type.          *           * Group: advanced          */
 DECL|method|contactHeader (String contactHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4203,7 +4203,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          * The option is a<code>javax.sip.header.ContentTypeHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          *           * The option is a:<code>javax.sip.header.ContentTypeHeader</code>          * type.          *           * Group: advanced          */
 DECL|method|contentTypeHeader ( Object contentTypeHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4224,7 +4224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          * The option will be converted to a          *<code>javax.sip.header.ContentTypeHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message content details. Must          * implement the type javax.sip.header.ContentTypeHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ContentTypeHeader</code> type.          *           * Group: advanced          */
 DECL|method|contentTypeHeader ( String contentTypeHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4245,7 +4245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          * The option is a<code>javax.sip.header.EventHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          *           * The option is a:<code>javax.sip.header.EventHeader</code> type.          *           * Group: advanced          */
 DECL|method|eventHeader (Object eventHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4266,7 +4266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          * The option will be converted to a          *<code>javax.sip.header.EventHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing event details. Must implement the          * type javax.sip.header.EventHeader.          *           * The option will be converted to a          *<code>javax.sip.header.EventHeader</code> type.          *           * Group: advanced          */
 DECL|method|eventHeader (String eventHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4287,7 +4287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          * The option is a<code>javax.sip.header.ExpiresHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          *           * The option is a:<code>javax.sip.header.ExpiresHeader</code> type.          *           * Group: advanced          */
 DECL|method|expiresHeader (Object expiresHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4308,7 +4308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          * The option will be converted to a          *<code>javax.sip.header.ExpiresHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message expiration details. Must          * implement the type javax.sip.header.ExpiresHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ExpiresHeader</code> type.          *           * Group: advanced          */
 DECL|method|expiresHeader (String expiresHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4329,7 +4329,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          * The option is a<code>javax.sip.header.ExtensionHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          *           * The option is a:<code>javax.sip.header.ExtensionHeader</code> type.          *           * Group: advanced          */
 DECL|method|extensionHeader ( Object extensionHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4350,7 +4350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          * The option will be converted to a          *<code>javax.sip.header.ExtensionHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing user/application specific details.          * Must implement the type javax.sip.header.ExtensionHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ExtensionHeader</code> type.          *           * Group: advanced          */
 DECL|method|extensionHeader ( String extensionHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4371,7 +4371,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          * The option is a<code>javax.sip.header.FromHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          *           * The option is a:<code>javax.sip.header.FromHeader</code> type.          *           * Group: advanced          */
 DECL|method|fromHeader (Object fromHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4392,7 +4392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          * The option will be converted to a          *<code>javax.sip.header.FromHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message originator settings. Must          * implement the type javax.sip.header.FromHeader.          *           * The option will be converted to a          *<code>javax.sip.header.FromHeader</code> type.          *           * Group: advanced          */
 DECL|method|fromHeader (String fromHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4413,7 +4413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFactory.          * The option is a<code>javax.sip.header.HeaderFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFactory.          *           * The option is a:<code>javax.sip.header.HeaderFactory</code> type.          *           * Group: advanced          */
 DECL|method|headerFactory (Object headerFactory)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4434,7 +4434,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFactory.          * The option will be converted to a          *<code>javax.sip.header.HeaderFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFactory.          *           * The option will be converted to a          *<code>javax.sip.header.HeaderFactory</code> type.          *           * Group: advanced          */
 DECL|method|headerFactory (String headerFactory)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4455,7 +4455,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ListeningPoint implementation.          * The option is a<code>javax.sip.ListeningPoint</code> type.          * @group advanced          */
+comment|/**          * To use a custom ListeningPoint implementation.          *           * The option is a:<code>javax.sip.ListeningPoint</code> type.          *           * Group: advanced          */
 DECL|method|listeningPoint (Object listeningPoint)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4476,7 +4476,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ListeningPoint implementation.          * The option will be converted to a          *<code>javax.sip.ListeningPoint</code> type.          * @group advanced          */
+comment|/**          * To use a custom ListeningPoint implementation.          *           * The option will be converted to a          *<code>javax.sip.ListeningPoint</code> type.          *           * Group: advanced          */
 DECL|method|listeningPoint (String listeningPoint)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4497,7 +4497,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          * The option is a<code>javax.sip.header.MaxForwardsHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          *           * The option is a:<code>javax.sip.header.MaxForwardsHeader</code>          * type.          *           * Group: advanced          */
 DECL|method|maxForwardsHeader ( Object maxForwardsHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4518,7 +4518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          * The option will be converted to a          *<code>javax.sip.header.MaxForwardsHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing details on maximum proxy forwards.          * This header places a limit on the viaHeaders possible. Must implement          * the type javax.sip.header.MaxForwardsHeader.          *           * The option will be converted to a          *<code>javax.sip.header.MaxForwardsHeader</code> type.          *           * Group: advanced          */
 DECL|method|maxForwardsHeader ( String maxForwardsHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4539,7 +4539,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for maximum allowed Message size in bytes.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Setting for maximum allowed Message size in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maxMessageSize (int maxMessageSize)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4560,7 +4560,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting for maximum allowed Message size in bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Setting for maximum allowed Message size in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maxMessageSize (String maxMessageSize)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4581,7 +4581,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom MessageFactory.          * The option is a<code>javax.sip.message.MessageFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom MessageFactory.          *           * The option is a:<code>javax.sip.message.MessageFactory</code> type.          *           * Group: advanced          */
 DECL|method|messageFactory (Object messageFactory)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4602,7 +4602,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom MessageFactory.          * The option will be converted to a          *<code>javax.sip.message.MessageFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom MessageFactory.          *           * The option will be converted to a          *<code>javax.sip.message.MessageFactory</code> type.          *           * Group: advanced          */
 DECL|method|messageFactory (String messageFactory)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4623,7 +4623,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipFactory to create the SipStack to be used.          * The option is a<code>javax.sip.SipFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipFactory to create the SipStack to be used.          *           * The option is a:<code>javax.sip.SipFactory</code> type.          *           * Group: advanced          */
 DECL|method|sipFactory (Object sipFactory)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4644,7 +4644,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipFactory to create the SipStack to be used.          * The option will be converted to a<code>javax.sip.SipFactory</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom SipFactory to create the SipStack to be used.          *           * The option will be converted to a<code>javax.sip.SipFactory</code>          * type.          *           * Group: advanced          */
 DECL|method|sipFactory (String sipFactory)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4665,7 +4665,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipStack.          * The option is a<code>javax.sip.SipStack</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipStack.          *           * The option is a:<code>javax.sip.SipStack</code> type.          *           * Group: advanced          */
 DECL|method|sipStack (Object sipStack)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4686,7 +4686,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipStack.          * The option will be converted to a<code>javax.sip.SipStack</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom SipStack.          *           * The option will be converted to a<code>javax.sip.SipStack</code>          * type.          *           * Group: advanced          */
 DECL|method|sipStack (String sipStack)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4707,7 +4707,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          * The option is a<code>javax.sip.address.SipURI</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          *           * The option is a:<code>javax.sip.address.SipURI</code> type.          *           * Group: advanced          */
 DECL|method|sipUri (Object sipUri)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4728,7 +4728,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          * The option will be converted to a          *<code>javax.sip.address.SipURI</code> type.          * @group advanced          */
+comment|/**          * To use a custom SipURI. If none configured, then the SipUri fallback          * to use the options toUser toHost:toPort.          *           * The option will be converted to a          *<code>javax.sip.address.SipURI</code> type.          *           * Group: advanced          */
 DECL|method|sipUri (String sipUri)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4749,7 +4749,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4770,7 +4770,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4791,7 +4791,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          * The option is a<code>javax.sip.header.ToHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          *           * The option is a:<code>javax.sip.header.ToHeader</code> type.          *           * Group: advanced          */
 DECL|method|toHeader (Object toHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4812,7 +4812,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          * The option will be converted to a          *<code>javax.sip.header.ToHeader</code> type.          * @group advanced          */
+comment|/**          * A custom Header object containing message receiver settings. Must          * implement the type javax.sip.header.ToHeader.          *           * The option will be converted to a          *<code>javax.sip.header.ToHeader</code> type.          *           * Group: advanced          */
 DECL|method|toHeader (String toHeader)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4833,7 +4833,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          * The option is a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          * @group advanced          */
+comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          *           * The option is a:          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          *           * Group: advanced          */
 DECL|method|viaHeaders (List<Object> viaHeaders)
 specifier|default
 name|AdvancedSipEndpointBuilder
@@ -4857,7 +4857,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          * The option will be converted to a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          * @group advanced          */
+comment|/**          * List of custom Header objects of the type javax.sip.header.ViaHeader.          * Each ViaHeader containing a proxy address for request forwarding.          * (Note this header is automatically updated by each proxy when the          * request arrives at its listener).          *           * The option will be converted to a          *<code>java.util.List&lt;javax.sip.header.ViaHeader&gt;</code> type.          *           * Group: advanced          */
 DECL|method|viaHeaders (String viaHeaders)
 specifier|default
 name|AdvancedSipEndpointBuilder

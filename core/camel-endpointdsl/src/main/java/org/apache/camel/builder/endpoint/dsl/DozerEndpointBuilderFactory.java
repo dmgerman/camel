@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * A human readable name of the mapping.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * A human readable name of the mapping.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|name (String name)
 specifier|default
 name|DozerEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of a DozerBeanMapperConfiguration bean in the Camel registry          * which should be used for configuring the Dozer mapping. This is an          * alternative to the mappingFile option that can be used for          * fine-grained control over how Dozer is configured. Remember to use a          * # prefix in the value to indicate that the bean is in the Camel          * registry (e.g. #myDozerConfig).          * The option is a          *<code>org.apache.camel.converter.dozer.DozerBeanMapperConfiguration</code> type.          * @group producer          */
+comment|/**          * The name of a DozerBeanMapperConfiguration bean in the Camel registry          * which should be used for configuring the Dozer mapping. This is an          * alternative to the mappingFile option that can be used for          * fine-grained control over how Dozer is configured. Remember to use a          * # prefix in the value to indicate that the bean is in the Camel          * registry (e.g. #myDozerConfig).          *           * The option is a:          *<code>org.apache.camel.converter.dozer.DozerBeanMapperConfiguration</code> type.          *           * Group: producer          */
 DECL|method|mappingConfiguration ( Object mappingConfiguration)
 specifier|default
 name|DozerEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of a DozerBeanMapperConfiguration bean in the Camel registry          * which should be used for configuring the Dozer mapping. This is an          * alternative to the mappingFile option that can be used for          * fine-grained control over how Dozer is configured. Remember to use a          * # prefix in the value to indicate that the bean is in the Camel          * registry (e.g. #myDozerConfig).          * The option will be converted to a          *<code>org.apache.camel.converter.dozer.DozerBeanMapperConfiguration</code> type.          * @group producer          */
+comment|/**          * The name of a DozerBeanMapperConfiguration bean in the Camel registry          * which should be used for configuring the Dozer mapping. This is an          * alternative to the mappingFile option that can be used for          * fine-grained control over how Dozer is configured. Remember to use a          * # prefix in the value to indicate that the bean is in the Camel          * registry (e.g. #myDozerConfig).          *           * The option will be converted to a          *<code>org.apache.camel.converter.dozer.DozerBeanMapperConfiguration</code> type.          *           * Group: producer          */
 DECL|method|mappingConfiguration ( String mappingConfiguration)
 specifier|default
 name|DozerEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of a Dozer configuration file. The file is loaded from          * the classpath by default, but you can use file:, classpath:, or http:          * to load the configuration from a specific location.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The location of a Dozer configuration file. The file is loaded from          * the classpath by default, but you can use file:, classpath:, or http:          * to load the configuration from a specific location.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|mappingFile (String mappingFile)
 specifier|default
 name|DozerEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The id of a dataFormat defined within the Camel Context to use for          * marshalling the mapping output to a non-Java type.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The id of a dataFormat defined within the Camel Context to use for          * marshalling the mapping output to a non-Java type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|marshalId (String marshalId)
 specifier|default
 name|DozerEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Fully-qualified class name for the source type used in the mapping.          * If specified, the input to the mapping is converted to the specified          * type before being mapped with Dozer.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Fully-qualified class name for the source type used in the mapping.          * If specified, the input to the mapping is converted to the specified          * type before being mapped with Dozer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|sourceModel (String sourceModel)
 specifier|default
 name|DozerEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Fully-qualified class name for the target type used in the mapping.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Fully-qualified class name for the target type used in the mapping.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|targetModel (String targetModel)
 specifier|default
 name|DozerEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The id of a dataFormat defined within the Camel Context to use for          * unmarshalling the mapping input from a non-Java type.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The id of a dataFormat defined within the Camel Context to use for          * unmarshalling the mapping input from a non-Java type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|unmarshalId (String unmarshalId)
 specifier|default
 name|DozerEndpointBuilder
@@ -300,7 +300,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDozerEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDozerEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDozerEndpointBuilder
@@ -363,7 +363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDozerEndpointBuilder

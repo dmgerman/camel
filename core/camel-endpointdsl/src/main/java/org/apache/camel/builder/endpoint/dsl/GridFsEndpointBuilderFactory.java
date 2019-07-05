@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|connectionBean ( String connectionBean)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the GridFS bucket within the database. Default is          * fs.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the GridFS bucket within the database. Default is          * fs.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|bucket (String bucket)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB database to target.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB database to target.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          * The option is a<code>com.mongodb.ReadPreference</code> type.          * @group common          */
+comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          *           * The option is a:<code>com.mongodb.ReadPreference</code> type.          *           * Group: common          */
 DECL|method|readPreference ( Object readPreference)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          * The option will be converted to a          *<code>com.mongodb.ReadPreference</code> type.          * @group common          */
+comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          *           * The option will be converted to a          *<code>com.mongodb.ReadPreference</code> type.          *           * Group: common          */
 DECL|method|readPreference ( String readPreference)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          * The option is a<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcern (Object writeConcern)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcern (String writeConcern)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          * The option is a<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcernRef ( Object writeConcernRef)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcernRef ( String writeConcernRef)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the delay between polls within the Consumer. Default is 500ms.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * Sets the delay between polls within the Consumer. Default is 500ms.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|delay (long delay)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the delay between polls within the Consumer. Default is 500ms.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * Sets the delay between polls within the Consumer. Default is 500ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|delay (String delay)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the QueryType uses a FileAttribute, this sets the name of the          * attribute that is used. Default is camel-processed.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * If the QueryType uses a FileAttribute, this sets the name of the          * attribute that is used. Default is camel-processed.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|fileAttributeName ( String fileAttributeName)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the initialDelay before the consumer will start polling. Default          * is 1000ms.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * Sets the initialDelay before the consumer will start polling. Default          * is 1000ms.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the initialDelay before the consumer will start polling. Default          * is 1000ms.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * Sets the initialDelay before the consumer will start polling. Default          * is 1000ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the QueryType uses a persistent timestamp, this sets the name of          * the collection within the DB to store the timestamp.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * If the QueryType uses a persistent timestamp, this sets the name of          * the collection within the DB to store the timestamp.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|persistentTSCollection ( String persistentTSCollection)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the QueryType uses a persistent timestamp, this is the ID of the          * object in the collection to store the timestamp.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * If the QueryType uses a persistent timestamp, this is the ID of the          * object in the collection to store the timestamp.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|persistentTSObject ( String persistentTSObject)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Additional query parameters (in JSON) that are used to configure the          * query used for finding files in the GridFsConsumer.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Additional query parameters (in JSON) that are used to configure the          * query used for finding files in the GridFsConsumer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|query (String query)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the QueryStrategy that is used for polling for new files.          * Default is Timestamp.          * The option is a          *<code>org.apache.camel.component.mongodb.gridfs.QueryStrategy</code>          * type.          * @group consumer          */
+comment|/**          * Sets the QueryStrategy that is used for polling for new files.          * Default is Timestamp.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.gridfs.QueryStrategy</code>          * type.          *           * Group: consumer          */
 DECL|method|queryStrategy ( QueryStrategy queryStrategy)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -556,7 +556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the QueryStrategy that is used for polling for new files.          * Default is Timestamp.          * The option will be converted to a          *<code>org.apache.camel.component.mongodb.gridfs.QueryStrategy</code>          * type.          * @group consumer          */
+comment|/**          * Sets the QueryStrategy that is used for polling for new files.          * Default is Timestamp.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.gridfs.QueryStrategy</code>          * type.          *           * Group: consumer          */
 DECL|method|queryStrategy (String queryStrategy)
 specifier|default
 name|GridFsEndpointConsumerBuilder
@@ -599,7 +599,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedGridFsEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedGridFsEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedGridFsEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedGridFsEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGridFsEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGridFsEndpointConsumerBuilder
@@ -725,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGridFsEndpointConsumerBuilder
@@ -746,7 +746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGridFsEndpointConsumerBuilder
@@ -789,7 +789,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|connectionBean ( String connectionBean)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the GridFS bucket within the database. Default is          * fs.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the GridFS bucket within the database. Default is          * fs.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|bucket (String bucket)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB database to target.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB database to target.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          * The option is a<code>com.mongodb.ReadPreference</code> type.          * @group common          */
+comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          *           * The option is a:<code>com.mongodb.ReadPreference</code> type.          *           * Group: common          */
 DECL|method|readPreference ( Object readPreference)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          * The option will be converted to a          *<code>com.mongodb.ReadPreference</code> type.          * @group common          */
+comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          *           * The option will be converted to a          *<code>com.mongodb.ReadPreference</code> type.          *           * Group: common          */
 DECL|method|readPreference ( String readPreference)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          * The option is a<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcern (Object writeConcern)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcern (String writeConcern)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          * The option is a<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcernRef ( Object writeConcernRef)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcernRef ( String writeConcernRef)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -999,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -1020,7 +1020,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against GridRS.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Sets the operation this endpoint will execute against GridRS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|GridFsEndpointProducerBuilder
@@ -1063,7 +1063,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGridFsEndpointProducerBuilder
@@ -1084,7 +1084,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGridFsEndpointProducerBuilder
@@ -1105,7 +1105,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGridFsEndpointProducerBuilder
@@ -1126,7 +1126,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGridFsEndpointProducerBuilder
@@ -1171,7 +1171,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|connectionBean (String connectionBean)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1192,7 +1192,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the GridFS bucket within the database. Default is          * fs.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the GridFS bucket within the database. Default is          * fs.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|bucket (String bucket)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1213,7 +1213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB database to target.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB database to target.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1234,7 +1234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          * The option is a<code>com.mongodb.ReadPreference</code> type.          * @group common          */
+comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          *           * The option is a:<code>com.mongodb.ReadPreference</code> type.          *           * Group: common          */
 DECL|method|readPreference (Object readPreference)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1255,7 +1255,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          * The option will be converted to a          *<code>com.mongodb.ReadPreference</code> type.          * @group common          */
+comment|/**          * Sets a MongoDB ReadPreference on the Mongo connection. Read          * preferences set directly on the connection will be overridden by this          * setting. The com.mongodb.ReadPreference#valueOf(String) utility          * method is used to resolve the passed readPreference value. Some          * examples for the possible values are nearest, primary or secondary          * etc.          *           * The option will be converted to a          *<code>com.mongodb.ReadPreference</code> type.          *           * Group: common          */
 DECL|method|readPreference (String readPreference)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1276,7 +1276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          * The option is a<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcern (Object writeConcern)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1297,7 +1297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB using the          * standard ones. Resolved from the fields of the WriteConcern class by          * calling the WriteConcern#valueOf(String) method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcern (String writeConcern)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1318,7 +1318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          * The option is a<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcernRef (Object writeConcernRef)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          * @group common          */
+comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
 DECL|method|writeConcernRef (String writeConcernRef)
 specifier|default
 name|GridFsEndpointBuilder
@@ -1384,7 +1384,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGridFsEndpointBuilder
@@ -1405,7 +1405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGridFsEndpointBuilder
@@ -1426,7 +1426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedGridFsEndpointBuilder
@@ -1447,7 +1447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedGridFsEndpointBuilder

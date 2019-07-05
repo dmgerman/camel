@@ -160,7 +160,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|SedaEndpointConsumerBuilder
@@ -181,7 +181,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
 name|SedaEndpointConsumerBuilder
@@ -202,7 +202,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|size (String size)
 specifier|default
 name|SedaEndpointConsumerBuilder
@@ -223,7 +223,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|SedaEndpointConsumerBuilder
@@ -244,7 +244,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|SedaEndpointConsumerBuilder
@@ -265,7 +265,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of concurrent threads processing exchanges.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of concurrent threads processing exchanges.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
 specifier|default
 name|SedaEndpointConsumerBuilder
@@ -286,7 +286,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of concurrent threads processing exchanges.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of concurrent threads processing exchanges.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
 specifier|default
 name|SedaEndpointConsumerBuilder
@@ -329,7 +329,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -350,7 +350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -371,7 +371,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -392,7 +392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -413,7 +413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to limit the number of concurrentConsumers to the maximum of          * 500. By default, an exception will be thrown if an endpoint is          * configured with a greater number. You can disable that check by          * turning this option off.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether to limit the number of concurrentConsumers to the maximum of          * 500. By default, an exception will be thrown if an endpoint is          * configured with a greater number. You can disable that check by          * turning this option off.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|limitConcurrentConsumers ( boolean limitConcurrentConsumers)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -434,7 +434,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to limit the number of concurrentConsumers to the maximum of          * 500. By default, an exception will be thrown if an endpoint is          * configured with a greater number. You can disable that check by          * turning this option off.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether to limit the number of concurrentConsumers to the maximum of          * 500. By default, an exception will be thrown if an endpoint is          * configured with a greater number. You can disable that check by          * turning this option off.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|limitConcurrentConsumers ( String limitConcurrentConsumers)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -455,7 +455,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether multiple consumers are allowed. If enabled, you can          * use SEDA for Publish-Subscribe messaging. That is, you can send a          * message to the SEDA queue and have each consumer receive a copy of          * the message. When enabled, this option should be specified on every          * consumer endpoint.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Specifies whether multiple consumers are allowed. If enabled, you can          * use SEDA for Publish-Subscribe messaging. That is, you can send a          * message to the SEDA queue and have each consumer receive a copy of          * the message. When enabled, this option should be specified on every          * consumer endpoint.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|multipleConsumers ( boolean multipleConsumers)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -476,7 +476,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether multiple consumers are allowed. If enabled, you can          * use SEDA for Publish-Subscribe messaging. That is, you can send a          * message to the SEDA queue and have each consumer receive a copy of          * the message. When enabled, this option should be specified on every          * consumer endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Specifies whether multiple consumers are allowed. If enabled, you can          * use SEDA for Publish-Subscribe messaging. That is, you can send a          * message to the SEDA queue and have each consumer receive a copy of          * the message. When enabled, this option should be specified on every          * consumer endpoint.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|multipleConsumers ( String multipleConsumers)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -497,7 +497,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout used when polling. When a timeout occurs, the consumer          * can check whether it is allowed to continue running. Setting a lower          * value allows the consumer to react more quickly upon shutdown.          * The option is a<code>int</code> type.          * @group consumer (advanced)          */
+comment|/**          * The timeout used when polling. When a timeout occurs, the consumer          * can check whether it is allowed to continue running. Setting a lower          * value allows the consumer to react more quickly upon shutdown.          *           * The option is a:<code>int</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollTimeout (int pollTimeout)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -518,7 +518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout used when polling. When a timeout occurs, the consumer          * can check whether it is allowed to continue running. Setting a lower          * value allows the consumer to react more quickly upon shutdown.          * The option will be converted to a<code>int</code> type.          * @group consumer (advanced)          */
+comment|/**          * The timeout used when polling. When a timeout occurs, the consumer          * can check whether it is allowed to continue running. Setting a lower          * value allows the consumer to react more quickly upon shutdown.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollTimeout ( String pollTimeout)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -539,7 +539,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to purge the task queue when stopping the consumer/route.          * This allows to stop faster, as any pending messages on the queue is          * discarded.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether to purge the task queue when stopping the consumer/route.          * This allows to stop faster, as any pending messages on the queue is          * discarded.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|purgeWhenStopping ( boolean purgeWhenStopping)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -560,7 +560,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to purge the task queue when stopping the consumer/route.          * This allows to stop faster, as any pending messages on the queue is          * discarded.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether to purge the task queue when stopping the consumer/route.          * This allows to stop faster, as any pending messages on the queue is          * discarded.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|purgeWhenStopping ( String purgeWhenStopping)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -581,7 +581,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -602,7 +602,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -623,7 +623,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          * The option is a<code>java.util.concurrent.BlockingQueue</code> type.          * @group advanced          */
+comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          *           * The option is a:<code>java.util.concurrent.BlockingQueue</code>          * type.          *           * Group: advanced          */
 DECL|method|queue (BlockingQueue queue)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -644,7 +644,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          * The option will be converted to a          *<code>java.util.concurrent.BlockingQueue</code> type.          * @group advanced          */
+comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          *           * The option will be converted to a          *<code>java.util.concurrent.BlockingQueue</code> type.          *           * Group: advanced          */
 DECL|method|queue (String queue)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -665,7 +665,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -686,7 +686,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSedaEndpointConsumerBuilder
@@ -729,7 +729,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -750,7 +750,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -771,7 +771,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|size (String size)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -792,7 +792,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether a thread that sends messages to a full SEDA queue will block          * until the queue's capacity is no longer exhausted. By default, an          * exception will be thrown stating that the queue is full. By enabling          * this option, the calling thread will instead block and wait until the          * message can be accepted.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether a thread that sends messages to a full SEDA queue will block          * until the queue's capacity is no longer exhausted. By default, an          * exception will be thrown stating that the queue is full. By enabling          * this option, the calling thread will instead block and wait until the          * message can be accepted.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|blockWhenFull (boolean blockWhenFull)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -813,7 +813,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether a thread that sends messages to a full SEDA queue will block          * until the queue's capacity is no longer exhausted. By default, an          * exception will be thrown stating that the queue is full. By enabling          * this option, the calling thread will instead block and wait until the          * message can be accepted.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether a thread that sends messages to a full SEDA queue will block          * until the queue's capacity is no longer exhausted. By default, an          * exception will be thrown stating that the queue is full. By enabling          * this option, the calling thread will instead block and wait until the          * message can be accepted.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|blockWhenFull (String blockWhenFull)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -834,7 +834,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should discard the message (do not add the          * message to the queue), when sending to a queue with no active          * consumers. Only one of the options discardIfNoConsumers and          * failIfNoConsumers can be enabled at the same time.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should discard the message (do not add the          * message to the queue), when sending to a queue with no active          * consumers. Only one of the options discardIfNoConsumers and          * failIfNoConsumers can be enabled at the same time.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|discardIfNoConsumers ( boolean discardIfNoConsumers)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -855,7 +855,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should discard the message (do not add the          * message to the queue), when sending to a queue with no active          * consumers. Only one of the options discardIfNoConsumers and          * failIfNoConsumers can be enabled at the same time.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should discard the message (do not add the          * message to the queue), when sending to a queue with no active          * consumers. Only one of the options discardIfNoConsumers and          * failIfNoConsumers can be enabled at the same time.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|discardIfNoConsumers ( String discardIfNoConsumers)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -876,7 +876,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should fail by throwing an exception, when          * sending to a queue with no active consumers. Only one of the options          * discardIfNoConsumers and failIfNoConsumers can be enabled at the same          * time.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should fail by throwing an exception, when          * sending to a queue with no active consumers. Only one of the options          * discardIfNoConsumers and failIfNoConsumers can be enabled at the same          * time.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failIfNoConsumers ( boolean failIfNoConsumers)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -897,7 +897,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should fail by throwing an exception, when          * sending to a queue with no active consumers. Only one of the options          * discardIfNoConsumers and failIfNoConsumers can be enabled at the same          * time.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should fail by throwing an exception, when          * sending to a queue with no active consumers. Only one of the options          * discardIfNoConsumers and failIfNoConsumers can be enabled at the same          * time.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failIfNoConsumers ( String failIfNoConsumers)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -918,7 +918,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -939,7 +939,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -960,7 +960,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * offerTimeout (in milliseconds) can be added to the block case when          * queue is full. You can disable timeout by using 0 or a negative          * value.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * offerTimeout (in milliseconds) can be added to the block case when          * queue is full. You can disable timeout by using 0 or a negative          * value.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|offerTimeout (long offerTimeout)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -981,7 +981,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * offerTimeout (in milliseconds) can be added to the block case when          * queue is full. You can disable timeout by using 0 or a negative          * value.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * offerTimeout (in milliseconds) can be added to the block case when          * queue is full. You can disable timeout by using 0 or a negative          * value.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|offerTimeout (String offerTimeout)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -1002,7 +1002,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout (in milliseconds) before a SEDA producer will stop waiting          * for an asynchronous task to complete. You can disable timeout by          * using 0 or a negative value.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * Timeout (in milliseconds) before a SEDA producer will stop waiting          * for an asynchronous task to complete. You can disable timeout by          * using 0 or a negative value.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|timeout (long timeout)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -1023,7 +1023,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout (in milliseconds) before a SEDA producer will stop waiting          * for an asynchronous task to complete. You can disable timeout by          * using 0 or a negative value.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * Timeout (in milliseconds) before a SEDA producer will stop waiting          * for an asynchronous task to complete. You can disable timeout by          * using 0 or a negative value.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -1044,7 +1044,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to specify whether the caller should wait for the async task          * to complete or not before continuing. The following three options are          * supported: Always, Never or IfReplyExpected. The first two values are          * self-explanatory. The last value, IfReplyExpected, will only wait if          * the message is Request Reply based. The default option is          * IfReplyExpected.          * The option is a<code>org.apache.camel.WaitForTaskToComplete</code>          * type.          * @group producer          */
+comment|/**          * Option to specify whether the caller should wait for the async task          * to complete or not before continuing. The following three options are          * supported: Always, Never or IfReplyExpected. The first two values are          * self-explanatory. The last value, IfReplyExpected, will only wait if          * the message is Request Reply based. The default option is          * IfReplyExpected.          *           * The option is a:<code>org.apache.camel.WaitForTaskToComplete</code>          * type.          *           * Group: producer          */
 DECL|method|waitForTaskToComplete ( WaitForTaskToComplete waitForTaskToComplete)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -1065,7 +1065,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to specify whether the caller should wait for the async task          * to complete or not before continuing. The following three options are          * supported: Always, Never or IfReplyExpected. The first two values are          * self-explanatory. The last value, IfReplyExpected, will only wait if          * the message is Request Reply based. The default option is          * IfReplyExpected.          * The option will be converted to a          *<code>org.apache.camel.WaitForTaskToComplete</code> type.          * @group producer          */
+comment|/**          * Option to specify whether the caller should wait for the async task          * to complete or not before continuing. The following three options are          * supported: Always, Never or IfReplyExpected. The first two values are          * self-explanatory. The last value, IfReplyExpected, will only wait if          * the message is Request Reply based. The default option is          * IfReplyExpected.          *           * The option will be converted to a          *<code>org.apache.camel.WaitForTaskToComplete</code> type.          *           * Group: producer          */
 DECL|method|waitForTaskToComplete ( String waitForTaskToComplete)
 specifier|default
 name|SedaEndpointProducerBuilder
@@ -1108,7 +1108,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSedaEndpointProducerBuilder
@@ -1129,7 +1129,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSedaEndpointProducerBuilder
@@ -1150,7 +1150,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          * The option is a<code>java.util.concurrent.BlockingQueue</code> type.          * @group advanced          */
+comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          *           * The option is a:<code>java.util.concurrent.BlockingQueue</code>          * type.          *           * Group: advanced          */
 DECL|method|queue (BlockingQueue queue)
 specifier|default
 name|AdvancedSedaEndpointProducerBuilder
@@ -1171,7 +1171,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          * The option will be converted to a          *<code>java.util.concurrent.BlockingQueue</code> type.          * @group advanced          */
+comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          *           * The option will be converted to a          *<code>java.util.concurrent.BlockingQueue</code> type.          *           * Group: advanced          */
 DECL|method|queue (String queue)
 specifier|default
 name|AdvancedSedaEndpointProducerBuilder
@@ -1192,7 +1192,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSedaEndpointProducerBuilder
@@ -1213,7 +1213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSedaEndpointProducerBuilder
@@ -1258,7 +1258,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|SedaEndpointBuilder
@@ -1279,7 +1279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
 name|SedaEndpointBuilder
@@ -1300,7 +1300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|size (String size)
 specifier|default
 name|SedaEndpointBuilder
@@ -1345,7 +1345,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSedaEndpointBuilder
@@ -1366,7 +1366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSedaEndpointBuilder
@@ -1387,7 +1387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          * The option is a<code>java.util.concurrent.BlockingQueue</code> type.          * @group advanced          */
+comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          *           * The option is a:<code>java.util.concurrent.BlockingQueue</code>          * type.          *           * Group: advanced          */
 DECL|method|queue (BlockingQueue queue)
 specifier|default
 name|AdvancedSedaEndpointBuilder
@@ -1408,7 +1408,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          * The option will be converted to a          *<code>java.util.concurrent.BlockingQueue</code> type.          * @group advanced          */
+comment|/**          * Define the queue instance which will be used by the endpoint. This          * option is only for rare use-cases where you want to use a custom          * queue instance.          *           * The option will be converted to a          *<code>java.util.concurrent.BlockingQueue</code> type.          *           * Group: advanced          */
 DECL|method|queue (String queue)
 specifier|default
 name|AdvancedSedaEndpointBuilder
@@ -1429,7 +1429,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSedaEndpointBuilder
@@ -1450,7 +1450,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSedaEndpointBuilder

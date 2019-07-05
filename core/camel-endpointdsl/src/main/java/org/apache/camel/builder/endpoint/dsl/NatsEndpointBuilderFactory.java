@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|servers (String servers)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          * The option is a<code>io.nats.client.Connection</code> type.          * @group common          */
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: common          */
 DECL|method|connection (Object connection)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          * @group common          */
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: common          */
 DECL|method|connection (String connection)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout for connection attempts. (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout for connection attempts. (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout ( String connectionTimeout)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if we want to flush connection or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection ( boolean flushConnection)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if we want to flush connection or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection ( String flushConnection)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the flush timeout (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the flush timeout (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|flushTimeout (int flushTimeout)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the flush timeout (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the flush timeout (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|flushTimeout (String flushTimeout)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * maximum number of pings have not received a response allowed by the          * client.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * maximum number of pings have not received a response allowed by the          * client.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxPingsOut (int maxPingsOut)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * maximum number of pings have not received a response allowed by the          * client.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * maximum number of pings have not received a response allowed by the          * client.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxPingsOut (String maxPingsOut)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max reconnection attempts.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Max reconnection attempts.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnectAttempts ( int maxReconnectAttempts)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max reconnection attempts.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Max reconnection attempts.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnectAttempts ( String maxReconnectAttempts)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noEcho (boolean noEcho)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noEcho (String noEcho)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noRandomizeServers ( boolean noRandomizeServers)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noRandomizeServers ( String noRandomizeServers)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in pedantic mode (this affects performace).          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in pedantic mode (this affects performace).          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|pedantic (boolean pedantic)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in pedantic mode (this affects performace).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in pedantic mode (this affects performace).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|pedantic (String pedantic)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|pingInterval (int pingInterval)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -556,7 +556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|pingInterval (String pingInterval)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -577,7 +577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not using reconnection feature.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not using reconnection feature.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reconnect (boolean reconnect)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -598,7 +598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not using reconnection feature.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not using reconnection feature.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reconnect (String reconnect)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -619,7 +619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Waiting time before attempts reconnection (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Waiting time before attempts reconnection (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|reconnectTimeWait ( int reconnectTimeWait)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -640,7 +640,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Waiting time before attempts reconnection (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Waiting time before attempts reconnection (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|reconnectTimeWait ( String reconnectTimeWait)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -661,7 +661,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval to clean up cancelled/timed out requests.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Interval to clean up cancelled/timed out requests.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|requestCleanupInterval ( int requestCleanupInterval)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -682,7 +682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval to clean up cancelled/timed out requests.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Interval to clean up cancelled/timed out requests.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|requestCleanupInterval ( String requestCleanupInterval)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -703,7 +703,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -724,7 +724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in verbose mode.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in verbose mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|verbose (boolean verbose)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -745,7 +745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in verbose mode.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in verbose mode.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|verbose (String verbose)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -766,7 +766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -787,7 +787,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -808,7 +808,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Stop receiving messages from a topic we are subscribing to after          * maxMessages.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Stop receiving messages from a topic we are subscribing to after          * maxMessages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|maxMessages (String maxMessages)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -829,7 +829,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consumer pool size.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Consumer pool size.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|poolSize (int poolSize)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -850,7 +850,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consumer pool size.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Consumer pool size.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|poolSize (String poolSize)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -871,7 +871,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Queue name if we are using nats for a queue configuration.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The Queue name if we are using nats for a queue configuration.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|queueName (String queueName)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -892,7 +892,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -913,7 +913,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -934,7 +934,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -955,7 +955,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|NatsEndpointConsumerBuilder
@@ -998,7 +998,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedNatsEndpointConsumerBuilder
@@ -1019,7 +1019,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedNatsEndpointConsumerBuilder
@@ -1040,7 +1040,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedNatsEndpointConsumerBuilder
@@ -1061,7 +1061,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedNatsEndpointConsumerBuilder
@@ -1082,7 +1082,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedNatsEndpointConsumerBuilder
@@ -1103,7 +1103,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedNatsEndpointConsumerBuilder
@@ -1124,7 +1124,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedNatsEndpointConsumerBuilder
@@ -1145,7 +1145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedNatsEndpointConsumerBuilder
@@ -1188,7 +1188,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|servers (String servers)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1209,7 +1209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          * The option is a<code>io.nats.client.Connection</code> type.          * @group common          */
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: common          */
 DECL|method|connection (Object connection)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1230,7 +1230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          * @group common          */
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: common          */
 DECL|method|connection (String connection)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1251,7 +1251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout for connection attempts. (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1272,7 +1272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout for connection attempts. (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout ( String connectionTimeout)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1293,7 +1293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if we want to flush connection or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection ( boolean flushConnection)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1314,7 +1314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if we want to flush connection or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection ( String flushConnection)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1335,7 +1335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the flush timeout (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the flush timeout (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|flushTimeout (int flushTimeout)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1356,7 +1356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the flush timeout (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the flush timeout (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|flushTimeout (String flushTimeout)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1377,7 +1377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * maximum number of pings have not received a response allowed by the          * client.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * maximum number of pings have not received a response allowed by the          * client.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxPingsOut (int maxPingsOut)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1398,7 +1398,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * maximum number of pings have not received a response allowed by the          * client.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * maximum number of pings have not received a response allowed by the          * client.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxPingsOut (String maxPingsOut)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1419,7 +1419,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max reconnection attempts.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Max reconnection attempts.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnectAttempts ( int maxReconnectAttempts)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1440,7 +1440,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max reconnection attempts.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Max reconnection attempts.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnectAttempts ( String maxReconnectAttempts)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1461,7 +1461,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noEcho (boolean noEcho)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1482,7 +1482,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noEcho (String noEcho)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1503,7 +1503,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noRandomizeServers ( boolean noRandomizeServers)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1524,7 +1524,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noRandomizeServers ( String noRandomizeServers)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1545,7 +1545,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in pedantic mode (this affects performace).          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in pedantic mode (this affects performace).          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|pedantic (boolean pedantic)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1566,7 +1566,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in pedantic mode (this affects performace).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in pedantic mode (this affects performace).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|pedantic (String pedantic)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1587,7 +1587,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|pingInterval (int pingInterval)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1608,7 +1608,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|pingInterval (String pingInterval)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1629,7 +1629,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not using reconnection feature.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not using reconnection feature.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reconnect (boolean reconnect)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1650,7 +1650,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not using reconnection feature.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not using reconnection feature.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reconnect (String reconnect)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1671,7 +1671,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Waiting time before attempts reconnection (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Waiting time before attempts reconnection (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|reconnectTimeWait ( int reconnectTimeWait)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1692,7 +1692,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Waiting time before attempts reconnection (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Waiting time before attempts reconnection (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|reconnectTimeWait ( String reconnectTimeWait)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1713,7 +1713,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval to clean up cancelled/timed out requests.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Interval to clean up cancelled/timed out requests.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|requestCleanupInterval ( int requestCleanupInterval)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1734,7 +1734,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval to clean up cancelled/timed out requests.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Interval to clean up cancelled/timed out requests.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|requestCleanupInterval ( String requestCleanupInterval)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1755,7 +1755,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1776,7 +1776,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in verbose mode.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in verbose mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|verbose (boolean verbose)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1797,7 +1797,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in verbose mode.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in verbose mode.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|verbose (String verbose)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1818,7 +1818,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1839,7 +1839,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1860,7 +1860,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * the subject to which subscribers should send response.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * the subject to which subscribers should send response.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|replySubject (String replySubject)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1881,7 +1881,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1902,7 +1902,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1923,7 +1923,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1944,7 +1944,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|NatsEndpointProducerBuilder
@@ -1987,7 +1987,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedNatsEndpointProducerBuilder
@@ -2008,7 +2008,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedNatsEndpointProducerBuilder
@@ -2029,7 +2029,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedNatsEndpointProducerBuilder
@@ -2050,7 +2050,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedNatsEndpointProducerBuilder
@@ -2095,7 +2095,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|servers (String servers)
 specifier|default
 name|NatsEndpointBuilder
@@ -2116,7 +2116,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          * The option is a<code>io.nats.client.Connection</code> type.          * @group common          */
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: common          */
 DECL|method|connection (Object connection)
 specifier|default
 name|NatsEndpointBuilder
@@ -2137,7 +2137,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference an already instantiated connection to Nats server.          * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          * @group common          */
+comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option will be converted to a          *<code>io.nats.client.Connection</code> type.          *           * Group: common          */
 DECL|method|connection (String connection)
 specifier|default
 name|NatsEndpointBuilder
@@ -2158,7 +2158,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout for connection attempts. (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout (int connectionTimeout)
 specifier|default
 name|NatsEndpointBuilder
@@ -2179,7 +2179,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout for connection attempts. (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Timeout for connection attempts. (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout (String connectionTimeout)
 specifier|default
 name|NatsEndpointBuilder
@@ -2200,7 +2200,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if we want to flush connection or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection (boolean flushConnection)
 specifier|default
 name|NatsEndpointBuilder
@@ -2221,7 +2221,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if we want to flush connection or not.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if we want to flush connection or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|flushConnection (String flushConnection)
 specifier|default
 name|NatsEndpointBuilder
@@ -2242,7 +2242,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the flush timeout (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the flush timeout (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|flushTimeout (int flushTimeout)
 specifier|default
 name|NatsEndpointBuilder
@@ -2263,7 +2263,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the flush timeout (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the flush timeout (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|flushTimeout (String flushTimeout)
 specifier|default
 name|NatsEndpointBuilder
@@ -2284,7 +2284,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * maximum number of pings have not received a response allowed by the          * client.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * maximum number of pings have not received a response allowed by the          * client.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxPingsOut (int maxPingsOut)
 specifier|default
 name|NatsEndpointBuilder
@@ -2305,7 +2305,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * maximum number of pings have not received a response allowed by the          * client.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * maximum number of pings have not received a response allowed by the          * client.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxPingsOut (String maxPingsOut)
 specifier|default
 name|NatsEndpointBuilder
@@ -2326,7 +2326,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max reconnection attempts.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Max reconnection attempts.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnectAttempts ( int maxReconnectAttempts)
 specifier|default
 name|NatsEndpointBuilder
@@ -2347,7 +2347,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max reconnection attempts.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Max reconnection attempts.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnectAttempts ( String maxReconnectAttempts)
 specifier|default
 name|NatsEndpointBuilder
@@ -2368,7 +2368,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noEcho (boolean noEcho)
 specifier|default
 name|NatsEndpointBuilder
@@ -2389,7 +2389,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Turn off echo. If supported by the gnatsd version you are connecting          * to this flag will prevent the server from echoing messages back to          * the connection if it has subscriptions on the subject being published          * to.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noEcho (String noEcho)
 specifier|default
 name|NatsEndpointBuilder
@@ -2410,7 +2410,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noRandomizeServers ( boolean noRandomizeServers)
 specifier|default
 name|NatsEndpointBuilder
@@ -2431,7 +2431,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not randomizing the order of servers for the connection          * attempts.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|noRandomizeServers (String noRandomizeServers)
 specifier|default
 name|NatsEndpointBuilder
@@ -2452,7 +2452,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in pedantic mode (this affects performace).          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in pedantic mode (this affects performace).          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|pedantic (boolean pedantic)
 specifier|default
 name|NatsEndpointBuilder
@@ -2473,7 +2473,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in pedantic mode (this affects performace).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in pedantic mode (this affects performace).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|pedantic (String pedantic)
 specifier|default
 name|NatsEndpointBuilder
@@ -2494,7 +2494,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|pingInterval (int pingInterval)
 specifier|default
 name|NatsEndpointBuilder
@@ -2515,7 +2515,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Ping interval to be aware if connection is still alive (in          * milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|pingInterval (String pingInterval)
 specifier|default
 name|NatsEndpointBuilder
@@ -2536,7 +2536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not using reconnection feature.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not using reconnection feature.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reconnect (boolean reconnect)
 specifier|default
 name|NatsEndpointBuilder
@@ -2557,7 +2557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not using reconnection feature.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not using reconnection feature.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reconnect (String reconnect)
 specifier|default
 name|NatsEndpointBuilder
@@ -2578,7 +2578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Waiting time before attempts reconnection (in milliseconds).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Waiting time before attempts reconnection (in milliseconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|reconnectTimeWait (int reconnectTimeWait)
 specifier|default
 name|NatsEndpointBuilder
@@ -2599,7 +2599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Waiting time before attempts reconnection (in milliseconds).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Waiting time before attempts reconnection (in milliseconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|reconnectTimeWait (String reconnectTimeWait)
 specifier|default
 name|NatsEndpointBuilder
@@ -2620,7 +2620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval to clean up cancelled/timed out requests.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Interval to clean up cancelled/timed out requests.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|requestCleanupInterval ( int requestCleanupInterval)
 specifier|default
 name|NatsEndpointBuilder
@@ -2641,7 +2641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval to clean up cancelled/timed out requests.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Interval to clean up cancelled/timed out requests.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|requestCleanupInterval ( String requestCleanupInterval)
 specifier|default
 name|NatsEndpointBuilder
@@ -2662,7 +2662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|NatsEndpointBuilder
@@ -2683,7 +2683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in verbose mode.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in verbose mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|verbose (boolean verbose)
 specifier|default
 name|NatsEndpointBuilder
@@ -2704,7 +2704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not running in verbose mode.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not running in verbose mode.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|verbose (String verbose)
 specifier|default
 name|NatsEndpointBuilder
@@ -2725,7 +2725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|NatsEndpointBuilder
@@ -2746,7 +2746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|NatsEndpointBuilder
@@ -2767,7 +2767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|NatsEndpointBuilder
@@ -2788,7 +2788,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|NatsEndpointBuilder
@@ -2833,7 +2833,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedNatsEndpointBuilder
@@ -2854,7 +2854,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedNatsEndpointBuilder
@@ -2875,7 +2875,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedNatsEndpointBuilder
@@ -2896,7 +2896,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedNatsEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The base path.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The base path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|path (String path)
 specifier|default
 name|RestApiEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Optional CamelContext id pattern to only allow Rest APIs from rest          * services within CamelContext's which name matches the pattern.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Optional CamelContext id pattern to only allow Rest APIs from rest          * services within CamelContext's which name matches the pattern.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|contextIdPattern (String contextIdPattern)
 specifier|default
 name|RestApiEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Camel Rest API component to use for generating the API of the          * REST services, such as swagger.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The Camel Rest API component to use for generating the API of the          * REST services, such as swagger.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|apiComponentName (String apiComponentName)
 specifier|default
 name|RestApiEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Camel Rest component to use for (consumer) the REST transport,          * such as jetty, servlet, undertow. If no component has been explicit          * configured, then Camel will lookup if there is a Camel component that          * integrates with the Rest DSL, or if a          * org.apache.camel.spi.RestConsumerFactory is registered in the          * registry. If either one is found, then that is being used.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The Camel Rest component to use for (consumer) the REST transport,          * such as jetty, servlet, undertow. If no component has been explicit          * configured, then Camel will lookup if there is a Camel component that          * integrates with the Rest DSL, or if a          * org.apache.camel.spi.RestConsumerFactory is registered in the          * registry. If either one is found, then that is being used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|consumerComponentName ( String consumerComponentName)
 specifier|default
 name|RestApiEndpointBuilder
@@ -216,7 +216,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRestApiEndpointBuilder
@@ -237,7 +237,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRestApiEndpointBuilder
@@ -258,7 +258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedRestApiEndpointBuilder
@@ -279,7 +279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedRestApiEndpointBuilder

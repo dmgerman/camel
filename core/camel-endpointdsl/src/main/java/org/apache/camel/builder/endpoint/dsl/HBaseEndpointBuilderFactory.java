@@ -156,7 +156,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the table.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of the table.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|tableName (String tableName)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -177,7 +177,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          * The option is a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          * @group common          */
+comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          *           * The option is a:          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          *           * Group: common          */
 DECL|method|cellMappingStrategyFactory ( Object cellMappingStrategyFactory)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -198,7 +198,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          * The option will be converted to a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          * @group common          */
+comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          *           * The option will be converted to a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          *           * Group: common          */
 DECL|method|cellMappingStrategyFactory ( String cellMappingStrategyFactory)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -219,7 +219,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of filters to use.          * The option is a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          * @group common          */
+comment|/**          * A list of filters to use.          *           * The option is a:          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          *           * Group: common          */
 DECL|method|filters (List<Object> filters)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -243,7 +243,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of filters to use.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          * @group common          */
+comment|/**          * A list of filters to use.          *           * The option will be converted to a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          *           * Group: common          */
 DECL|method|filters (String filters)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -264,7 +264,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The class name of a custom mapping strategy implementation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The class name of a custom mapping strategy implementation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mappingStrategyClassName ( String mappingStrategyClassName)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -285,7 +285,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The strategy to use for mapping Camel messages to HBase columns.          * Supported values: header, or body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The strategy to use for mapping Camel messages to HBase columns.          * Supported values: header, or body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mappingStrategyName ( String mappingStrategyName)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -306,7 +306,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|rowMapping ( Map<String, Object> rowMapping)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -332,7 +332,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|rowMapping (String rowMapping)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -353,7 +353,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          * The option is a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          * @group common          */
+comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          *           * The option is a:          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          *           * Group: common          */
 DECL|method|rowModel (Object rowModel)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -374,7 +374,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          * The option will be converted to a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          * @group common          */
+comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          *           * The option will be converted to a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          *           * Group: common          */
 DECL|method|rowModel (String rowModel)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -395,7 +395,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          * The option is a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          * @group common          */
+comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          *           * The option is a:          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          *           * Group: common          */
 DECL|method|userGroupInformation ( Object userGroupInformation)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -416,7 +416,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          * The option will be converted to a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          * @group common          */
+comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          *           * The option will be converted to a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          *           * Group: common          */
 DECL|method|userGroupInformation ( String userGroupInformation)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -437,7 +437,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -458,7 +458,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -479,7 +479,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -500,7 +500,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -521,7 +521,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The HBase operation to perform.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The HBase operation to perform.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|operation (String operation)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -542,7 +542,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the option is true, Camel HBase Consumer will remove the rows          * which it processes.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the option is true, Camel HBase Consumer will remove the rows          * which it processes.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|remove (boolean remove)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -563,7 +563,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the option is true, Camel HBase Consumer will remove the rows          * which it processes.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the option is true, Camel HBase Consumer will remove the rows          * which it processes.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|remove (String remove)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -584,7 +584,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HBaseRemoveHandler that is executed when a row is to          * be removed.          * The option is a          *<code>org.apache.camel.component.hbase.HBaseRemoveHandler</code>          * type.          * @group consumer          */
+comment|/**          * To use a custom HBaseRemoveHandler that is executed when a row is to          * be removed.          *           * The option is a:          *<code>org.apache.camel.component.hbase.HBaseRemoveHandler</code>          * type.          *           * Group: consumer          */
 DECL|method|removeHandler (Object removeHandler)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -605,7 +605,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HBaseRemoveHandler that is executed when a row is to          * be removed.          * The option will be converted to a          *<code>org.apache.camel.component.hbase.HBaseRemoveHandler</code>          * type.          * @group consumer          */
+comment|/**          * To use a custom HBaseRemoveHandler that is executed when a row is to          * be removed.          *           * The option will be converted to a          *<code>org.apache.camel.component.hbase.HBaseRemoveHandler</code>          * type.          *           * Group: consumer          */
 DECL|method|removeHandler (String removeHandler)
 specifier|default
 name|HBaseEndpointConsumerBuilder
@@ -648,7 +648,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedHBaseEndpointConsumerBuilder
@@ -669,7 +669,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedHBaseEndpointConsumerBuilder
@@ -690,7 +690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedHBaseEndpointConsumerBuilder
@@ -711,7 +711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedHBaseEndpointConsumerBuilder
@@ -732,7 +732,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedHBaseEndpointConsumerBuilder
@@ -753,7 +753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedHBaseEndpointConsumerBuilder
@@ -774,7 +774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedHBaseEndpointConsumerBuilder
@@ -795,7 +795,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedHBaseEndpointConsumerBuilder
@@ -838,7 +838,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the table.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of the table.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|tableName (String tableName)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -859,7 +859,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          * The option is a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          * @group common          */
+comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          *           * The option is a:          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          *           * Group: common          */
 DECL|method|cellMappingStrategyFactory ( Object cellMappingStrategyFactory)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -880,7 +880,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          * The option will be converted to a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          * @group common          */
+comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          *           * The option will be converted to a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          *           * Group: common          */
 DECL|method|cellMappingStrategyFactory ( String cellMappingStrategyFactory)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -901,7 +901,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of filters to use.          * The option is a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          * @group common          */
+comment|/**          * A list of filters to use.          *           * The option is a:          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          *           * Group: common          */
 DECL|method|filters (List<Object> filters)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -925,7 +925,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of filters to use.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          * @group common          */
+comment|/**          * A list of filters to use.          *           * The option will be converted to a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          *           * Group: common          */
 DECL|method|filters (String filters)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -946,7 +946,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The class name of a custom mapping strategy implementation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The class name of a custom mapping strategy implementation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mappingStrategyClassName ( String mappingStrategyClassName)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -967,7 +967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The strategy to use for mapping Camel messages to HBase columns.          * Supported values: header, or body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The strategy to use for mapping Camel messages to HBase columns.          * Supported values: header, or body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mappingStrategyName ( String mappingStrategyName)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -988,7 +988,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|rowMapping ( Map<String, Object> rowMapping)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1014,7 +1014,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|rowMapping (String rowMapping)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1035,7 +1035,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          * The option is a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          * @group common          */
+comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          *           * The option is a:          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          *           * Group: common          */
 DECL|method|rowModel (Object rowModel)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1056,7 +1056,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          * The option will be converted to a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          * @group common          */
+comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          *           * The option will be converted to a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          *           * Group: common          */
 DECL|method|rowModel (String rowModel)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1077,7 +1077,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          * The option is a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          * @group common          */
+comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          *           * The option is a:          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          *           * Group: common          */
 DECL|method|userGroupInformation ( Object userGroupInformation)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1098,7 +1098,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          * The option will be converted to a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          * @group common          */
+comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          *           * The option will be converted to a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          *           * Group: common          */
 DECL|method|userGroupInformation ( String userGroupInformation)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1119,7 +1119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1140,7 +1140,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1161,7 +1161,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of rows to scan.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The maximum number of rows to scan.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|maxResults (int maxResults)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1182,7 +1182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of rows to scan.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The maximum number of rows to scan.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|maxResults (String maxResults)
 specifier|default
 name|HBaseEndpointProducerBuilder
@@ -1225,7 +1225,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedHBaseEndpointProducerBuilder
@@ -1246,7 +1246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedHBaseEndpointProducerBuilder
@@ -1267,7 +1267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedHBaseEndpointProducerBuilder
@@ -1288,7 +1288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedHBaseEndpointProducerBuilder
@@ -1333,7 +1333,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the table.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of the table.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|tableName (String tableName)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1354,7 +1354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          * The option is a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          * @group common          */
+comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          *           * The option is a:          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          *           * Group: common          */
 DECL|method|cellMappingStrategyFactory ( Object cellMappingStrategyFactory)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1375,7 +1375,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          * The option will be converted to a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          * @group common          */
+comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          *           * The option will be converted to a          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          *           * Group: common          */
 DECL|method|cellMappingStrategyFactory ( String cellMappingStrategyFactory)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1396,7 +1396,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of filters to use.          * The option is a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          * @group common          */
+comment|/**          * A list of filters to use.          *           * The option is a:          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          *           * Group: common          */
 DECL|method|filters (List<Object> filters)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1420,7 +1420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of filters to use.          * The option will be converted to a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          * @group common          */
+comment|/**          * A list of filters to use.          *           * The option will be converted to a          *<code>java.util.List&lt;org.apache.hadoop.hbase.filter.Filter&gt;</code> type.          *           * Group: common          */
 DECL|method|filters (String filters)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1441,7 +1441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The class name of a custom mapping strategy implementation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The class name of a custom mapping strategy implementation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mappingStrategyClassName ( String mappingStrategyClassName)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1462,7 +1462,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The strategy to use for mapping Camel messages to HBase columns.          * Supported values: header, or body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The strategy to use for mapping Camel messages to HBase columns.          * Supported values: header, or body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|mappingStrategyName ( String mappingStrategyName)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1483,7 +1483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|rowMapping (Map<String, Object> rowMapping)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1509,7 +1509,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * To map the key/values from the Map to a HBaseRow. The following keys          * is supported: rowId - The id of the row. This has limited use as the          * row usually changes per Exchange. rowType - The type to covert row id          * to. Supported operations: CamelHBaseScan. family - The column family.          * Supports a number suffix for referring to more than one columns.          * qualifier - The column qualifier. Supports a number suffix for          * referring to more than one columns. value - The value. Supports a          * number suffix for referring to more than one columns valueType - The          * value type. Supports a number suffix for referring to more than one          * columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|rowMapping (String rowMapping)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1530,7 +1530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          * The option is a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          * @group common          */
+comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          *           * The option is a:          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          *           * Group: common          */
 DECL|method|rowModel (Object rowModel)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1551,7 +1551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          * The option will be converted to a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          * @group common          */
+comment|/**          * An instance of org.apache.camel.component.hbase.model.HBaseRow which          * describes how each row should be modeled.          *           * The option will be converted to a          *<code>org.apache.camel.component.hbase.model.HBaseRow</code> type.          *           * Group: common          */
 DECL|method|rowModel (String rowModel)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1572,7 +1572,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          * The option is a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          * @group common          */
+comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          *           * The option is a:          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          *           * Group: common          */
 DECL|method|userGroupInformation ( Object userGroupInformation)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1593,7 +1593,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          * The option will be converted to a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          * @group common          */
+comment|/**          * Defines privileges to communicate with HBase such as using kerberos.          *           * The option will be converted to a          *<code>org.apache.hadoop.security.UserGroupInformation</code> type.          *           * Group: common          */
 DECL|method|userGroupInformation ( String userGroupInformation)
 specifier|default
 name|HBaseEndpointBuilder
@@ -1638,7 +1638,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedHBaseEndpointBuilder
@@ -1659,7 +1659,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedHBaseEndpointBuilder
@@ -1680,7 +1680,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedHBaseEndpointBuilder
@@ -1701,7 +1701,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedHBaseEndpointBuilder

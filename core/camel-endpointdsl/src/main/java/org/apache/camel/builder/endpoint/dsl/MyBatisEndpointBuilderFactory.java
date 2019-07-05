@@ -210,7 +210,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|statement (String statement)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -231,7 +231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -252,7 +252,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -273,7 +273,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is intended to split results returned by the database          * pool into the batches and deliver them in multiple exchanges. This          * integer defines the maximum messages to deliver in single exchange.          * By default, no maximum is set. Can be used to set a limit of e.g.          * 1000 to avoid when starting up the server that there are thousands of          * files. Set a value of 0 or negative to disable it.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * This option is intended to split results returned by the database          * pool into the batches and deliver them in multiple exchanges. This          * integer defines the maximum messages to deliver in single exchange.          * By default, no maximum is set. Can be used to set a limit of e.g.          * 1000 to avoid when starting up the server that there are thousands of          * files. Set a value of 0 or negative to disable it.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -294,7 +294,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is intended to split results returned by the database          * pool into the batches and deliver them in multiple exchanges. This          * integer defines the maximum messages to deliver in single exchange.          * By default, no maximum is set. Can be used to set a limit of e.g.          * 1000 to avoid when starting up the server that there are thousands of          * files. Set a value of 0 or negative to disable it.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * This option is intended to split results returned by the database          * pool into the batches and deliver them in multiple exchanges. This          * integer defines the maximum messages to deliver in single exchange.          * By default, no maximum is set. Can be used to set a limit of e.g.          * 1000 to avoid when starting up the server that there are thousands of          * files. Set a value of 0 or negative to disable it.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -315,7 +315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Statement to run after data has been processed in the route.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Statement to run after data has been processed in the route.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|onConsume (String onConsume)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -336,7 +336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether allow empty resultset to be routed to the next hop.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether allow empty resultset to be routed to the next hop.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|routeEmptyResultSet ( boolean routeEmptyResultSet)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -357,7 +357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether allow empty resultset to be routed to the next hop.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether allow empty resultset to be routed to the next hop.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|routeEmptyResultSet ( String routeEmptyResultSet)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -378,7 +378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -399,7 +399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -420,7 +420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables or disables transaction. If enabled then if processing an          * exchange failed then the consumer break out processing any further          * exchanges to cause a rollback eager.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Enables or disables transaction. If enabled then if processing an          * exchange failed then the consumer break out processing any further          * exchanges to cause a rollback eager.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|transacted (boolean transacted)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -441,7 +441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables or disables transaction. If enabled then if processing an          * exchange failed then the consumer break out processing any further          * exchanges to cause a rollback eager.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Enables or disables transaction. If enabled then if processing an          * exchange failed then the consumer break out processing any further          * exchanges to cause a rollback eager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|transacted (String transacted)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -462,7 +462,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Process resultset individually or as a list.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Process resultset individually or as a list.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|useIterator (boolean useIterator)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -483,7 +483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Process resultset individually or as a list.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Process resultset individually or as a list.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|useIterator (String useIterator)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -504,7 +504,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -525,7 +525,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -546,7 +546,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -567,7 +567,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -588,7 +588,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -609,7 +609,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -630,7 +630,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (long delay)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -651,7 +651,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (String delay)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -672,7 +672,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|greedy (boolean greedy)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -693,7 +693,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|greedy (String greedy)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -714,7 +714,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -735,7 +735,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -756,7 +756,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
+comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -777,7 +777,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
+comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -798,7 +798,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
+comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          *           * The option is a:          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          *           * Group: scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -819,7 +819,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
+comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          *           * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          *           * Group: scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -840,7 +840,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option is a:          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -861,7 +861,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler (String scheduler)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -882,7 +882,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -908,7 +908,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -929,7 +929,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Whether the scheduler should be auto started.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -950,7 +950,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Whether the scheduler should be auto started.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|startScheduler ( String startScheduler)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -971,7 +971,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
+comment|/**          * Time unit for initialDelay and delay options.          *           * The option is a:<code>java.util.concurrent.TimeUnit</code> type.          *           * Group: scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -992,7 +992,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
+comment|/**          * Time unit for initialDelay and delay options.          *           * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          *           * Group: scheduler          */
 DECL|method|timeUnit (String timeUnit)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -1013,7 +1013,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|useFixedDelay ( boolean useFixedDelay)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -1034,7 +1034,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|useFixedDelay ( String useFixedDelay)
 specifier|default
 name|MyBatisEndpointConsumerBuilder
@@ -1077,7 +1077,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1098,7 +1098,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1119,7 +1119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1140,7 +1140,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1161,7 +1161,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option is a:          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1182,7 +1182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1203,7 +1203,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom MyBatisProcessingStrategy.          * The option is a          *<code>org.apache.camel.component.mybatis.MyBatisProcessingStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * To use a custom MyBatisProcessingStrategy.          *           * The option is a:          *<code>org.apache.camel.component.mybatis.MyBatisProcessingStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|processingStrategy ( Object processingStrategy)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1224,7 +1224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom MyBatisProcessingStrategy.          * The option will be converted to a          *<code>org.apache.camel.component.mybatis.MyBatisProcessingStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * To use a custom MyBatisProcessingStrategy.          *           * The option will be converted to a          *<code>org.apache.camel.component.mybatis.MyBatisProcessingStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|processingStrategy ( String processingStrategy)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1245,7 +1245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1266,7 +1266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1287,7 +1287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1308,7 +1308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedMyBatisEndpointConsumerBuilder
@@ -1351,7 +1351,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|statement (String statement)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1372,7 +1372,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The executor type to be used while executing statements. simple -          * executor does nothing special. reuse - executor reuses prepared          * statements. batch - executor reuses statements and batches updates.          * The option is a<code>org.apache.ibatis.session.ExecutorType</code>          * type.          * @group producer          */
+comment|/**          * The executor type to be used while executing statements. simple -          * executor does nothing special. reuse - executor reuses prepared          * statements. batch - executor reuses statements and batches updates.          *           * The option is a:<code>org.apache.ibatis.session.ExecutorType</code>          * type.          *           * Group: producer          */
 DECL|method|executorType ( ExecutorType executorType)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1393,7 +1393,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The executor type to be used while executing statements. simple -          * executor does nothing special. reuse - executor reuses prepared          * statements. batch - executor reuses statements and batches updates.          * The option will be converted to a          *<code>org.apache.ibatis.session.ExecutorType</code> type.          * @group producer          */
+comment|/**          * The executor type to be used while executing statements. simple -          * executor does nothing special. reuse - executor reuses prepared          * statements. batch - executor reuses statements and batches updates.          *           * The option will be converted to a          *<code>org.apache.ibatis.session.ExecutorType</code> type.          *           * Group: producer          */
 DECL|method|executorType (String executorType)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1414,7 +1414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * User the header value for input parameters instead of the message          * body. By default, inputHeader == null and the input parameters are          * taken from the message body. If outputHeader is set, the value is          * used and query parameters will be taken from the header instead of          * the body.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * User the header value for input parameters instead of the message          * body. By default, inputHeader == null and the input parameters are          * taken from the message body. If outputHeader is set, the value is          * used and query parameters will be taken from the header instead of          * the body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|inputHeader (String inputHeader)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1435,7 +1435,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1456,7 +1456,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1477,7 +1477,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Store the query result in a header instead of the message body. By          * default, outputHeader == null and the query result is stored in the          * message body, any existing content in the message body is discarded.          * If outputHeader is set, the value is used as the name of the header          * to store the query result and the original message body is preserved.          * Setting outputHeader will also omit populating the default          * CamelMyBatisResult header since it would be the same as outputHeader          * all the time.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Store the query result in a header instead of the message body. By          * default, outputHeader == null and the query result is stored in the          * message body, any existing content in the message body is discarded.          * If outputHeader is set, the value is used as the name of the header          * to store the query result and the original message body is preserved.          * Setting outputHeader will also omit populating the default          * CamelMyBatisResult header since it would be the same as outputHeader          * all the time.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|outputHeader (String outputHeader)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1498,7 +1498,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Mandatory to specify for the producer to control which kind of          * operation to invoke.          * The option is a          *<code>org.apache.camel.component.mybatis.StatementType</code> type.          * @group producer          */
+comment|/**          * Mandatory to specify for the producer to control which kind of          * operation to invoke.          *           * The option is a:          *<code>org.apache.camel.component.mybatis.StatementType</code> type.          *           * Group: producer          */
 DECL|method|statementType ( StatementType statementType)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1519,7 +1519,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Mandatory to specify for the producer to control which kind of          * operation to invoke.          * The option will be converted to a          *<code>org.apache.camel.component.mybatis.StatementType</code> type.          * @group producer          */
+comment|/**          * Mandatory to specify for the producer to control which kind of          * operation to invoke.          *           * The option will be converted to a          *<code>org.apache.camel.component.mybatis.StatementType</code> type.          *           * Group: producer          */
 DECL|method|statementType ( String statementType)
 specifier|default
 name|MyBatisEndpointProducerBuilder
@@ -1562,7 +1562,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMyBatisEndpointProducerBuilder
@@ -1583,7 +1583,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMyBatisEndpointProducerBuilder
@@ -1604,7 +1604,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedMyBatisEndpointProducerBuilder
@@ -1625,7 +1625,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedMyBatisEndpointProducerBuilder
@@ -1670,7 +1670,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|statement (String statement)
 specifier|default
 name|MyBatisEndpointBuilder
@@ -1715,7 +1715,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMyBatisEndpointBuilder
@@ -1736,7 +1736,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMyBatisEndpointBuilder
@@ -1757,7 +1757,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMyBatisEndpointBuilder
@@ -1778,7 +1778,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMyBatisEndpointBuilder

@@ -120,7 +120,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the bean to invoke.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the bean to invoke.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|beanName (String beanName)
 specifier|default
 name|EjbEndpointBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled, Camel will cache the result of the first Registry          * look-up. Cache can be enabled if the bean in the Registry is defined          * as a singleton scope.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * If enabled, Camel will cache the result of the first Registry          * look-up. Cache can be enabled if the bean in the Registry is defined          * as a singleton scope.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|cache (Boolean cache)
 specifier|default
 name|EjbEndpointBuilder
@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled, Camel will cache the result of the first Registry          * look-up. Cache can be enabled if the bean in the Registry is defined          * as a singleton scope.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * If enabled, Camel will cache the result of the first Registry          * look-up. Cache can be enabled if the bean in the Registry is defined          * as a singleton scope.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|cache (String cache)
 specifier|default
 name|EjbEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the method to invoke on the bean.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the method to invoke on the bean.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|method (String method)
 specifier|default
 name|EjbEndpointBuilder
@@ -204,7 +204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for configuring additional properties on the bean.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * Used for configuring additional properties on the bean.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|parameters (Map<String, Object> parameters)
 specifier|default
 name|EjbEndpointBuilder
@@ -230,7 +230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for configuring additional properties on the bean.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * Used for configuring additional properties on the bean.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|parameters (String parameters)
 specifier|default
 name|EjbEndpointBuilder
@@ -273,7 +273,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedEjbEndpointBuilder
@@ -294,7 +294,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedEjbEndpointBuilder
@@ -315,7 +315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedEjbEndpointBuilder
@@ -336,7 +336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedEjbEndpointBuilder

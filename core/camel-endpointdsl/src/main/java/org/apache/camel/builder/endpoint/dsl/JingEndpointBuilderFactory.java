@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URL to a local resource on the classpath or a full URL to a remote          * resource or resource on the file system which contains the schema to          * validate against.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * URL to a local resource on the classpath or a full URL to a remote          * resource or resource on the file system which contains the schema to          * validate against.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|JingEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to validate using RelaxNG compact syntax or not. By default          * this is false for using RelaxNG XML Syntax (rng) And true is for          * using RelaxNG Compact Syntax (rnc).          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to validate using RelaxNG compact syntax or not. By default          * this is false for using RelaxNG XML Syntax (rng) And true is for          * using RelaxNG Compact Syntax (rnc).          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|compactSyntax (boolean compactSyntax)
 specifier|default
 name|JingEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to validate using RelaxNG compact syntax or not. By default          * this is false for using RelaxNG XML Syntax (rng) And true is for          * using RelaxNG Compact Syntax (rnc).          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to validate using RelaxNG compact syntax or not. By default          * this is false for using RelaxNG XML Syntax (rng) And true is for          * using RelaxNG Compact Syntax (rnc).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|compactSyntax (String compactSyntax)
 specifier|default
 name|JingEndpointBuilder
@@ -195,7 +195,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJingEndpointBuilder
@@ -216,7 +216,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJingEndpointBuilder
@@ -237,7 +237,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJingEndpointBuilder
@@ -258,7 +258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJingEndpointBuilder

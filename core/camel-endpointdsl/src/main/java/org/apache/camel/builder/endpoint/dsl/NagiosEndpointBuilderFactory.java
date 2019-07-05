@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * This is the address of the Nagios host where checks should be send.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * This is the address of the Nagios host where checks should be send.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|host (String host)
 specifier|default
 name|NagiosEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of the host.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The port number of the host.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|port (int port)
 specifier|default
 name|NagiosEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of the host.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The port number of the host.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|port (String port)
 specifier|default
 name|NagiosEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Connection timeout in millis.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Connection timeout in millis.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|connectionTimeout (int connectionTimeout)
 specifier|default
 name|NagiosEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Connection timeout in millis.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Connection timeout in millis.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|connectionTimeout (String connectionTimeout)
 specifier|default
 name|NagiosEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to use synchronous when sending a passive check.          * Setting it to false will allow Camel to continue routing the message          * and the passive check message will be send asynchronously.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether or not to use synchronous when sending a passive check.          * Setting it to false will allow Camel to continue routing the message          * and the passive check message will be send asynchronously.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|sendSync (boolean sendSync)
 specifier|default
 name|NagiosEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to use synchronous when sending a passive check.          * Setting it to false will allow Camel to continue routing the message          * and the passive check message will be send asynchronously.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether or not to use synchronous when sending a passive check.          * Setting it to false will allow Camel to continue routing the message          * and the passive check message will be send asynchronously.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|sendSync (String sendSync)
 specifier|default
 name|NagiosEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sending timeout in millis.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Sending timeout in millis.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|NagiosEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sending timeout in millis.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Sending timeout in millis.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|NagiosEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To specify an encryption method.          * The option is a          *<code>com.googlecode.jsendnsca.encryption.Encryption</code> type.          * @group security          */
+comment|/**          * To specify an encryption method.          *           * The option is a:          *<code>com.googlecode.jsendnsca.encryption.Encryption</code> type.          *           * Group: security          */
 DECL|method|encryption (Encryption encryption)
 specifier|default
 name|NagiosEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To specify an encryption method.          * The option will be converted to a          *<code>com.googlecode.jsendnsca.encryption.Encryption</code> type.          * @group security          */
+comment|/**          * To specify an encryption method.          *           * The option will be converted to a          *<code>com.googlecode.jsendnsca.encryption.Encryption</code> type.          *           * Group: security          */
 DECL|method|encryption (String encryption)
 specifier|default
 name|NagiosEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To specify an encryption method.          * The option is a          *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>          * type.          * @group security          */
+comment|/**          * To specify an encryption method.          *           * The option is a:          *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>          * type.          *           * Group: security          */
 annotation|@
 name|Deprecated
 DECL|method|encryptionMethod ( NagiosEncryptionMethod encryptionMethod)
@@ -364,7 +364,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To specify an encryption method.          * The option will be converted to a          *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>          * type.          * @group security          */
+comment|/**          * To specify an encryption method.          *           * The option will be converted to a          *<code>org.apache.camel.component.nagios.NagiosEncryptionMethod</code>          * type.          *           * Group: security          */
 annotation|@
 name|Deprecated
 DECL|method|encryptionMethod (String encryptionMethod)
@@ -387,7 +387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to be authenticated when sending checks to Nagios.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password to be authenticated when sending checks to Nagios.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|NagiosEndpointBuilder
@@ -430,7 +430,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedNagiosEndpointBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedNagiosEndpointBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedNagiosEndpointBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedNagiosEndpointBuilder

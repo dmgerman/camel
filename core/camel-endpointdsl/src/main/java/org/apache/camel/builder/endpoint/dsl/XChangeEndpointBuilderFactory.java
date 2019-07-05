@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The exchange to connect to.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The exchange to connect to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|name (String name)
 specifier|default
 name|XChangeEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The currency.          * The option is a<code>org.knowm.xchange.currency.Currency</code>          * type.          * @group producer          */
+comment|/**          * The currency.          *           * The option is a:<code>org.knowm.xchange.currency.Currency</code>          * type.          *           * Group: producer          */
 DECL|method|currency (Object currency)
 specifier|default
 name|XChangeEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The currency.          * The option will be converted to a          *<code>org.knowm.xchange.currency.Currency</code> type.          * @group producer          */
+comment|/**          * The currency.          *           * The option will be converted to a          *<code>org.knowm.xchange.currency.Currency</code> type.          *           * Group: producer          */
 DECL|method|currency (String currency)
 specifier|default
 name|XChangeEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The currency pair.          * The option is a<code>org.knowm.xchange.currency.CurrencyPair</code>          * type.          * @group producer          */
+comment|/**          * The currency pair.          *           * The option is a:<code>org.knowm.xchange.currency.CurrencyPair</code>          * type.          *           * Group: producer          */
 DECL|method|currencyPair (Object currencyPair)
 specifier|default
 name|XChangeEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The currency pair.          * The option will be converted to a          *<code>org.knowm.xchange.currency.CurrencyPair</code> type.          * @group producer          */
+comment|/**          * The currency pair.          *           * The option will be converted to a          *<code>org.knowm.xchange.currency.CurrencyPair</code> type.          *           * Group: producer          */
 DECL|method|currencyPair (String currencyPair)
 specifier|default
 name|XChangeEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The method to execute.          * The option is a          *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeMethod</code> type.          * @group producer          */
+comment|/**          * The method to execute.          *           * The option is a:          *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeMethod</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|method (XChangeMethod method)
 specifier|default
 name|XChangeEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The method to execute.          * The option will be converted to a          *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeMethod</code> type.          * @group producer          */
+comment|/**          * The method to execute.          *           * The option will be converted to a          *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeMethod</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|method (String method)
 specifier|default
 name|XChangeEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The service to call.          * The option is a          *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeService</code> type.          * @group producer          */
+comment|/**          * The service to call.          *           * The option is a:          *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeService</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|service (XChangeService service)
 specifier|default
 name|XChangeEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The service to call.          * The option will be converted to a          *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeService</code> type.          * @group producer          */
+comment|/**          * The service to call.          *           * The option will be converted to a          *<code>org.apache.camel.component.xchange.XChangeConfiguration$XChangeService</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|service (String service)
 specifier|default
 name|XChangeEndpointBuilder
@@ -321,7 +321,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedXChangeEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedXChangeEndpointBuilder
@@ -363,7 +363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedXChangeEndpointBuilder
@@ -384,7 +384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedXChangeEndpointBuilder

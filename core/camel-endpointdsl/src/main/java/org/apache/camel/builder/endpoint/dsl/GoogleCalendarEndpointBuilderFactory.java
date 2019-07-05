@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
 DECL|method|apiName ( GoogleCalendarApiName apiName)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName ( String methodName)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Google calendar application name. Example would be          * camel-google-calendar/1.0.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Google calendar application name. Example would be          * camel-google-calendar/1.0.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|applicationName ( String applicationName)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client ID of the calendar application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Client ID of the calendar application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client secret of the calendar application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Client secret of the calendar application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientSecret ( String clientSecret)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The emailAddress of the Google Service Account.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The emailAddress of the Google Service Account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|emailAddress ( String emailAddress)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of the p12 file which has the private key to use with the          * Google Service Account.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of the p12 file which has the private key to use with the          * Google Service Account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|p12FileName ( String p12FileName)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|refreshToken ( String refreshToken)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. You can separate multiple scopes by comma.          * See https://developers.google.com/google-apps/calendar/auth for more          * info.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. You can separate multiple scopes by comma.          * See https://developers.google.com/google-apps/calendar/auth for more          * info.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|scopes (String scopes)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The email address of the user the application is trying to          * impersonate in the service account flow.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The email address of the user the application is trying to          * impersonate in the service account flow.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|GoogleCalendarEndpointConsumerBuilder
@@ -473,7 +473,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedGoogleCalendarEndpointConsumerBuilder
@@ -494,7 +494,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedGoogleCalendarEndpointConsumerBuilder
@@ -515,7 +515,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedGoogleCalendarEndpointConsumerBuilder
@@ -536,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedGoogleCalendarEndpointConsumerBuilder
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleCalendarEndpointConsumerBuilder
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleCalendarEndpointConsumerBuilder
@@ -599,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGoogleCalendarEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGoogleCalendarEndpointConsumerBuilder
@@ -663,7 +663,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
 DECL|method|apiName ( GoogleCalendarApiName apiName)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -684,7 +684,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -705,7 +705,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName ( String methodName)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -726,7 +726,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -747,7 +747,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Google calendar application name. Example would be          * camel-google-calendar/1.0.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Google calendar application name. Example would be          * camel-google-calendar/1.0.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|applicationName ( String applicationName)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -768,7 +768,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client ID of the calendar application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Client ID of the calendar application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -789,7 +789,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client secret of the calendar application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Client secret of the calendar application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientSecret ( String clientSecret)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The emailAddress of the Google Service Account.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The emailAddress of the Google Service Account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|emailAddress ( String emailAddress)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of the p12 file which has the private key to use with the          * Google Service Account.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of the p12 file which has the private key to use with the          * Google Service Account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|p12FileName ( String p12FileName)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|refreshToken ( String refreshToken)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. You can separate multiple scopes by comma.          * See https://developers.google.com/google-apps/calendar/auth for more          * info.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. You can separate multiple scopes by comma.          * See https://developers.google.com/google-apps/calendar/auth for more          * info.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|scopes (String scopes)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The email address of the user the application is trying to          * impersonate in the service account flow.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The email address of the user the application is trying to          * impersonate in the service account flow.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|GoogleCalendarEndpointProducerBuilder
@@ -1000,7 +1000,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleCalendarEndpointProducerBuilder
@@ -1021,7 +1021,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleCalendarEndpointProducerBuilder
@@ -1042,7 +1042,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGoogleCalendarEndpointProducerBuilder
@@ -1063,7 +1063,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGoogleCalendarEndpointProducerBuilder
@@ -1108,7 +1108,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option is a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
 DECL|method|apiName ( GoogleCalendarApiName apiName)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1129,7 +1129,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          * @group common          */
+comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
 DECL|method|apiName (String apiName)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1150,7 +1150,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What sub operation to use for the selected operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1171,7 +1171,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1192,7 +1192,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Google calendar application name. Example would be          * camel-google-calendar/1.0.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Google calendar application name. Example would be          * camel-google-calendar/1.0.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|applicationName ( String applicationName)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1213,7 +1213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client ID of the calendar application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Client ID of the calendar application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1234,7 +1234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client secret of the calendar application.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Client secret of the calendar application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientSecret (String clientSecret)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1255,7 +1255,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The emailAddress of the Google Service Account.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The emailAddress of the Google Service Account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|emailAddress (String emailAddress)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1276,7 +1276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1297,7 +1297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of the p12 file which has the private key to use with the          * Google Service Account.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of the p12 file which has the private key to use with the          * Google Service Account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|p12FileName (String p12FileName)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1318,7 +1318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|refreshToken (String refreshToken)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. You can separate multiple scopes by comma.          * See https://developers.google.com/google-apps/calendar/auth for more          * info.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. You can separate multiple scopes by comma.          * See https://developers.google.com/google-apps/calendar/auth for more          * info.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|scopes (String scopes)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1360,7 +1360,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The email address of the user the application is trying to          * impersonate in the service account flow.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The email address of the user the application is trying to          * impersonate in the service account flow.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
 name|GoogleCalendarEndpointBuilder
@@ -1405,7 +1405,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleCalendarEndpointBuilder
@@ -1426,7 +1426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleCalendarEndpointBuilder
@@ -1447,7 +1447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGoogleCalendarEndpointBuilder
@@ -1468,7 +1468,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGoogleCalendarEndpointBuilder

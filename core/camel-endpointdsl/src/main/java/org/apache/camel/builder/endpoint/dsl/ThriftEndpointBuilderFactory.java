@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server host name. This is localhost or 0.0.0.0 (if not          * defined) when being a consumer or remote server host name when using          * producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Thrift server host name. This is localhost or 0.0.0.0 (if not          * defined) when being a consumer or remote server host name when using          * producer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server port.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The Thrift server port.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server port.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The Thrift server port.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Fully qualified service name from the thrift descriptor file (package          * dot service definition name).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Fully qualified service name from the thrift descriptor file (package          * dot service definition name).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|service (String service)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol compression mechanism type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          * @group common          */
+comment|/**          * Protocol compression mechanism type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          *           * Group: common          */
 DECL|method|compressionType ( ThriftCompressionType compressionType)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol compression mechanism type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          * @group common          */
+comment|/**          * Protocol compression mechanism type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          *           * Group: common          */
 DECL|method|compressionType ( String compressionType)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Exchange protocol serialization type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          * @group common          */
+comment|/**          * Exchange protocol serialization type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          *           * Group: common          */
 DECL|method|exchangeProtocol ( ThriftExchangeProtocol exchangeProtocol)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Exchange protocol serialization type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          * @group common          */
+comment|/**          * Exchange protocol serialization type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          *           * Group: common          */
 DECL|method|exchangeProtocol ( String exchangeProtocol)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client timeout for consumers.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Client timeout for consumers.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|clientTimeout (int clientTimeout)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client timeout for consumers.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Client timeout for consumers.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|clientTimeout (String clientTimeout)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server consumer max thread pool size.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * The Thrift server consumer max thread pool size.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxPoolSize (int maxPoolSize)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server consumer max thread pool size.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * The Thrift server consumer max thread pool size.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxPoolSize (String maxPoolSize)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server consumer initial thread pool size.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * The Thrift server consumer initial thread pool size.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|poolSize (int poolSize)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server consumer initial thread pool size.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * The Thrift server consumer initial thread pool size.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|poolSize (String poolSize)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Security negotiation type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          * @group security          */
+comment|/**          * Security negotiation type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          *           * Group: security          */
 DECL|method|negotiationType ( ThriftNegotiationType negotiationType)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Security negotiation type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          * @group security          */
+comment|/**          * Security negotiation type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          *           * Group: security          */
 DECL|method|negotiationType ( String negotiationType)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configuration parameters for SSL/TLS security negotiation.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Configuration parameters for SSL/TLS security negotiation.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslParameters (Object sslParameters)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configuration parameters for SSL/TLS security negotiation.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Configuration parameters for SSL/TLS security negotiation.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslParameters (String sslParameters)
 specifier|default
 name|ThriftEndpointConsumerBuilder
@@ -578,7 +578,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedThriftEndpointConsumerBuilder
@@ -599,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedThriftEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedThriftEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedThriftEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedThriftEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedThriftEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedThriftEndpointConsumerBuilder
@@ -725,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedThriftEndpointConsumerBuilder
@@ -768,7 +768,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server host name. This is localhost or 0.0.0.0 (if not          * defined) when being a consumer or remote server host name when using          * producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Thrift server host name. This is localhost or 0.0.0.0 (if not          * defined) when being a consumer or remote server host name when using          * producer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -789,7 +789,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server port.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The Thrift server port.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server port.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The Thrift server port.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Fully qualified service name from the thrift descriptor file (package          * dot service definition name).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Fully qualified service name from the thrift descriptor file (package          * dot service definition name).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|service (String service)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol compression mechanism type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          * @group common          */
+comment|/**          * Protocol compression mechanism type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          *           * Group: common          */
 DECL|method|compressionType ( ThriftCompressionType compressionType)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol compression mechanism type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          * @group common          */
+comment|/**          * Protocol compression mechanism type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          *           * Group: common          */
 DECL|method|compressionType ( String compressionType)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Exchange protocol serialization type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          * @group common          */
+comment|/**          * Exchange protocol serialization type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          *           * Group: common          */
 DECL|method|exchangeProtocol ( ThriftExchangeProtocol exchangeProtocol)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Exchange protocol serialization type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          * @group common          */
+comment|/**          * Exchange protocol serialization type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          *           * Group: common          */
 DECL|method|exchangeProtocol ( String exchangeProtocol)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift invoked method name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The Thrift invoked method name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|method (String method)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -999,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Security negotiation type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          * @group security          */
+comment|/**          * Security negotiation type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          *           * Group: security          */
 DECL|method|negotiationType ( ThriftNegotiationType negotiationType)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -1020,7 +1020,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Security negotiation type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          * @group security          */
+comment|/**          * Security negotiation type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          *           * Group: security          */
 DECL|method|negotiationType ( String negotiationType)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -1041,7 +1041,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configuration parameters for SSL/TLS security negotiation.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Configuration parameters for SSL/TLS security negotiation.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslParameters (Object sslParameters)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -1062,7 +1062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configuration parameters for SSL/TLS security negotiation.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Configuration parameters for SSL/TLS security negotiation.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslParameters (String sslParameters)
 specifier|default
 name|ThriftEndpointProducerBuilder
@@ -1105,7 +1105,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedThriftEndpointProducerBuilder
@@ -1126,7 +1126,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedThriftEndpointProducerBuilder
@@ -1147,7 +1147,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedThriftEndpointProducerBuilder
@@ -1168,7 +1168,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedThriftEndpointProducerBuilder
@@ -1213,7 +1213,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server host name. This is localhost or 0.0.0.0 (if not          * defined) when being a consumer or remote server host name when using          * producer.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Thrift server host name. This is localhost or 0.0.0.0 (if not          * defined) when being a consumer or remote server host name when using          * producer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1234,7 +1234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server port.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The Thrift server port.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1255,7 +1255,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Thrift server port.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The Thrift server port.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1276,7 +1276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Fully qualified service name from the thrift descriptor file (package          * dot service definition name).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Fully qualified service name from the thrift descriptor file (package          * dot service definition name).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|service (String service)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1297,7 +1297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol compression mechanism type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          * @group common          */
+comment|/**          * Protocol compression mechanism type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          *           * Group: common          */
 DECL|method|compressionType ( ThriftCompressionType compressionType)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1318,7 +1318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol compression mechanism type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          * @group common          */
+comment|/**          * Protocol compression mechanism type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftCompressionType</code>          * type.          *           * Group: common          */
 DECL|method|compressionType (String compressionType)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Exchange protocol serialization type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          * @group common          */
+comment|/**          * Exchange protocol serialization type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          *           * Group: common          */
 DECL|method|exchangeProtocol ( ThriftExchangeProtocol exchangeProtocol)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1360,7 +1360,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Exchange protocol serialization type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          * @group common          */
+comment|/**          * Exchange protocol serialization type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftExchangeProtocol</code>          * type.          *           * Group: common          */
 DECL|method|exchangeProtocol (String exchangeProtocol)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1381,7 +1381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Security negotiation type.          * The option is a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          * @group security          */
+comment|/**          * Security negotiation type.          *           * The option is a:          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          *           * Group: security          */
 DECL|method|negotiationType ( ThriftNegotiationType negotiationType)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Security negotiation type.          * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          * @group security          */
+comment|/**          * Security negotiation type.          *           * The option will be converted to a          *<code>org.apache.camel.component.thrift.ThriftNegotiationType</code>          * type.          *           * Group: security          */
 DECL|method|negotiationType (String negotiationType)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configuration parameters for SSL/TLS security negotiation.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Configuration parameters for SSL/TLS security negotiation.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslParameters (Object sslParameters)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1444,7 +1444,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configuration parameters for SSL/TLS security negotiation.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Configuration parameters for SSL/TLS security negotiation.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslParameters (String sslParameters)
 specifier|default
 name|ThriftEndpointBuilder
@@ -1489,7 +1489,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedThriftEndpointBuilder
@@ -1510,7 +1510,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedThriftEndpointBuilder
@@ -1531,7 +1531,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedThriftEndpointBuilder
@@ -1552,7 +1552,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedThriftEndpointBuilder

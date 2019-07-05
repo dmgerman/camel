@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the cluster.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of the cluster.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|clusterName (String clusterName)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time in ms to wait before connection will timeout.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The time in ms to wait before connection will timeout.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time in ms to wait before connection will timeout.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The time in ms to wait before connection will timeout.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|connectionTimeout ( String connectionTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Disconnect after it finish calling the producer.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Disconnect after it finish calling the producer.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Disconnect after it finish calling the producer.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Disconnect after it finish calling the producer.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|disconnect (String disconnect)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable SSL.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Enable SSL.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|enableSSL (boolean enableSSL)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable SSL.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Enable SSL.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|enableSSL (String enableSSL)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Comma separated list with ip:port formatted remote transport          * addresses to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Comma separated list with ip:port formatted remote transport          * addresses to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|hostAddresses (String hostAddresses)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of the index to act against.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The name of the index to act against.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|indexName (String indexName)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type of the index to act against.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The type of the index to act against.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|indexType (String indexType)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time in ms before retry.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The time in ms before retry.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|maxRetryTimeout (int maxRetryTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time in ms before retry.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The time in ms before retry.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|maxRetryTimeout ( String maxRetryTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -362,7 +362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What operation to perform.          * The option is a          *<code>org.apache.camel.component.elasticsearch.ElasticsearchOperation</code> type.          * @group producer          */
+comment|/**          * What operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.elasticsearch.ElasticsearchOperation</code> type.          *           * Group: producer          */
 DECL|method|operation ( ElasticsearchOperation operation)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.elasticsearch.ElasticsearchOperation</code> type.          * @group producer          */
+comment|/**          * What operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.elasticsearch.ElasticsearchOperation</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -404,7 +404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time in ms during which elasticsearch will keep search context alive.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Time in ms during which elasticsearch will keep search context alive.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|scrollKeepAliveMs ( int scrollKeepAliveMs)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -425,7 +425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time in ms during which elasticsearch will keep search context alive.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Time in ms during which elasticsearch will keep search context alive.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|scrollKeepAliveMs ( String scrollKeepAliveMs)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout in ms to wait before the socket will timeout.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The timeout in ms to wait before the socket will timeout.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|socketTimeout (int socketTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -467,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout in ms to wait before the socket will timeout.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The timeout in ms to wait before the socket will timeout.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|socketTimeout (String socketTimeout)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -488,7 +488,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable scroll usage.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Enable scroll usage.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useScroll (boolean useScroll)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -509,7 +509,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable scroll usage.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Enable scroll usage.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useScroll (String useScroll)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -530,7 +530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Index creation waits for the write consistency number of shards to be          * available.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Index creation waits for the write consistency number of shards to be          * available.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|waitForActiveShards ( int waitForActiveShards)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -551,7 +551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Index creation waits for the write consistency number of shards to be          * available.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Index creation waits for the write consistency number of shards to be          * available.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|waitForActiveShards ( String waitForActiveShards)
 specifier|default
 name|ElasticsearchEndpointBuilder
@@ -594,7 +594,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder
@@ -615,7 +615,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder
@@ -636,7 +636,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder
@@ -657,7 +657,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedElasticsearchEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Connection to the influx database, of class InfluxDB.class.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Connection to the influx database, of class InfluxDB.class.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|connectionBean (String connectionBean)
 specifier|default
 name|InfluxDbEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if this operation is a batch operation or not.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Define if this operation is a batch operation or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|batch (boolean batch)
 specifier|default
 name|InfluxDbEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if this operation is a batch operation or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Define if this operation is a batch operation or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|batch (String batch)
 specifier|default
 name|InfluxDbEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of the database where the time series will be stored.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The name of the database where the time series will be stored.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|databaseName (String databaseName)
 specifier|default
 name|InfluxDbEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if this operation is an insert or a query.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Define if this operation is an insert or a query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|InfluxDbEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the query in case of operation query.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Define the query in case of operation query.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|query (String query)
 specifier|default
 name|InfluxDbEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The string that defines the retention policy to the data created by          * the endpoint.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The string that defines the retention policy to the data created by          * the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|retentionPolicy (String retentionPolicy)
 specifier|default
 name|InfluxDbEndpointBuilder
@@ -279,7 +279,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedInfluxDbEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedInfluxDbEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedInfluxDbEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedInfluxDbEndpointBuilder

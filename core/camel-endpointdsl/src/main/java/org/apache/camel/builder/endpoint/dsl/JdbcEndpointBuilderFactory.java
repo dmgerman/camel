@@ -120,7 +120,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSource to lookup in the Registry. If the name is          * dataSource or default, then Camel will attempt to lookup a default          * DataSource from the registry, meaning if there is a only one instance          * of DataSource found, then this DataSource will be used.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of DataSource to lookup in the Registry. If the name is          * dataSource or default, then Camel will attempt to lookup a default          * DataSource from the registry, meaning if there is a only one instance          * of DataSource found, then this DataSource will be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|dataSourceName (String dataSourceName)
 specifier|default
 name|JdbcEndpointBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow using named parameters in the queries.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to allow using named parameters in the queries.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
 specifier|default
 name|JdbcEndpointBuilder
@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow using named parameters in the queries.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to allow using named parameters in the queries.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowNamedParameters ( String allowNamedParameters)
 specifier|default
 name|JdbcEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify the full package and class name to use as conversion when          * outputType=SelectOne or SelectList.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Specify the full package and class name to use as conversion when          * outputType=SelectOne or SelectList.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|outputClass (String outputClass)
 specifier|default
 name|JdbcEndpointBuilder
@@ -204,7 +204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines the output the producer should use.          * The option is a          *<code>org.apache.camel.component.jdbc.JdbcOutputType</code> type.          * @group producer          */
+comment|/**          * Determines the output the producer should use.          *           * The option is a:          *<code>org.apache.camel.component.jdbc.JdbcOutputType</code> type.          *           * Group: producer          */
 DECL|method|outputType (JdbcOutputType outputType)
 specifier|default
 name|JdbcEndpointBuilder
@@ -225,7 +225,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines the output the producer should use.          * The option will be converted to a          *<code>org.apache.camel.component.jdbc.JdbcOutputType</code> type.          * @group producer          */
+comment|/**          * Determines the output the producer should use.          *           * The option will be converted to a          *<code>org.apache.camel.component.jdbc.JdbcOutputType</code> type.          *           * Group: producer          */
 DECL|method|outputType (String outputType)
 specifier|default
 name|JdbcEndpointBuilder
@@ -246,7 +246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Optional parameters to the java.sql.Statement. For example to set          * maxRows, fetchSize etc.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group producer          */
+comment|/**          * Optional parameters to the java.sql.Statement. For example to set          * maxRows, fetchSize etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: producer          */
 DECL|method|parameters (Map<String, Object> parameters)
 specifier|default
 name|JdbcEndpointBuilder
@@ -272,7 +272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Optional parameters to the java.sql.Statement. For example to set          * maxRows, fetchSize etc.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group producer          */
+comment|/**          * Optional parameters to the java.sql.Statement. For example to set          * maxRows, fetchSize etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: producer          */
 DECL|method|parameters (String parameters)
 specifier|default
 name|JdbcEndpointBuilder
@@ -293,7 +293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default maximum number of rows that can be read by a polling          * query. The default value is 0.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The default maximum number of rows that can be read by a polling          * query. The default value is 0.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|readSize (int readSize)
 specifier|default
 name|JdbcEndpointBuilder
@@ -314,7 +314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default maximum number of rows that can be read by a polling          * query. The default value is 0.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The default maximum number of rows that can be read by a polling          * query. The default value is 0.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|readSize (String readSize)
 specifier|default
 name|JdbcEndpointBuilder
@@ -335,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Camel will set the autoCommit on the JDBC connection to be false,          * commit the change after executed the statement and reset the          * autoCommit flag of the connection at the end, if the resetAutoCommit          * is true. If the JDBC connection doesn't support to reset the          * autoCommit flag, you can set the resetAutoCommit flag to be false,          * and Camel will not try to reset the autoCommit flag. When used with          * XA transactions you most likely need to set it to false so that the          * transaction manager is in charge of committing this tx.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Camel will set the autoCommit on the JDBC connection to be false,          * commit the change after executed the statement and reset the          * autoCommit flag of the connection at the end, if the resetAutoCommit          * is true. If the JDBC connection doesn't support to reset the          * autoCommit flag, you can set the resetAutoCommit flag to be false,          * and Camel will not try to reset the autoCommit flag. When used with          * XA transactions you most likely need to set it to false so that the          * transaction manager is in charge of committing this tx.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|resetAutoCommit (boolean resetAutoCommit)
 specifier|default
 name|JdbcEndpointBuilder
@@ -356,7 +356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Camel will set the autoCommit on the JDBC connection to be false,          * commit the change after executed the statement and reset the          * autoCommit flag of the connection at the end, if the resetAutoCommit          * is true. If the JDBC connection doesn't support to reset the          * autoCommit flag, you can set the resetAutoCommit flag to be false,          * and Camel will not try to reset the autoCommit flag. When used with          * XA transactions you most likely need to set it to false so that the          * transaction manager is in charge of committing this tx.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Camel will set the autoCommit on the JDBC connection to be false,          * commit the change after executed the statement and reset the          * autoCommit flag of the connection at the end, if the resetAutoCommit          * is true. If the JDBC connection doesn't support to reset the          * autoCommit flag, you can set the resetAutoCommit flag to be false,          * and Camel will not try to reset the autoCommit flag. When used with          * XA transactions you most likely need to set it to false so that the          * transaction manager is in charge of committing this tx.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|resetAutoCommit (String resetAutoCommit)
 specifier|default
 name|JdbcEndpointBuilder
@@ -377,7 +377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether transactions are in use.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether transactions are in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|transacted (boolean transacted)
 specifier|default
 name|JdbcEndpointBuilder
@@ -398,7 +398,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether transactions are in use.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether transactions are in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|transacted (String transacted)
 specifier|default
 name|JdbcEndpointBuilder
@@ -419,7 +419,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To read BLOB columns as bytes instead of string data. This may be          * needed for certain databases such as Oracle where you must read BLOB          * columns as bytes.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * To read BLOB columns as bytes instead of string data. This may be          * needed for certain databases such as Oracle where you must read BLOB          * columns as bytes.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useGetBytesForBlob ( boolean useGetBytesForBlob)
 specifier|default
 name|JdbcEndpointBuilder
@@ -440,7 +440,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To read BLOB columns as bytes instead of string data. This may be          * needed for certain databases such as Oracle where you must read BLOB          * columns as bytes.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * To read BLOB columns as bytes instead of string data. This may be          * needed for certain databases such as Oracle where you must read BLOB          * columns as bytes.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useGetBytesForBlob (String useGetBytesForBlob)
 specifier|default
 name|JdbcEndpointBuilder
@@ -461,7 +461,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this option to true to use the prepareStatementStrategy with          * named parameters. This allows to define queries with named          * placeholders, and use headers with the dynamic values for the query          * placeholders.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Set this option to true to use the prepareStatementStrategy with          * named parameters. This allows to define queries with named          * placeholders, and use headers with the dynamic values for the query          * placeholders.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useHeadersAsParameters ( boolean useHeadersAsParameters)
 specifier|default
 name|JdbcEndpointBuilder
@@ -482,7 +482,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this option to true to use the prepareStatementStrategy with          * named parameters. This allows to define queries with named          * placeholders, and use headers with the dynamic values for the query          * placeholders.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Set this option to true to use the prepareStatementStrategy with          * named parameters. This allows to define queries with named          * placeholders, and use headers with the dynamic values for the query          * placeholders.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useHeadersAsParameters ( String useHeadersAsParameters)
 specifier|default
 name|JdbcEndpointBuilder
@@ -503,7 +503,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when          * retrieving column name. JDBC 4.0 uses columnLabel to get the column          * name where as JDBC 3.0 uses both columnName or columnLabel.          * Unfortunately JDBC drivers behave differently so you can use this          * option to work out issues around your JDBC driver if you get problem          * using this component This option is default true.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when          * retrieving column name. JDBC 4.0 uses columnLabel to get the column          * name where as JDBC 3.0 uses both columnName or columnLabel.          * Unfortunately JDBC drivers behave differently so you can use this          * option to work out issues around your JDBC driver if you get problem          * using this component This option is default true.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useJDBC4ColumnNameAndLabelSemantics ( boolean useJDBC4ColumnNameAndLabelSemantics)
 specifier|default
 name|JdbcEndpointBuilder
@@ -524,7 +524,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when          * retrieving column name. JDBC 4.0 uses columnLabel to get the column          * name where as JDBC 3.0 uses both columnName or columnLabel.          * Unfortunately JDBC drivers behave differently so you can use this          * option to work out issues around your JDBC driver if you get problem          * using this component This option is default true.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when          * retrieving column name. JDBC 4.0 uses columnLabel to get the column          * name where as JDBC 3.0 uses both columnName or columnLabel.          * Unfortunately JDBC drivers behave differently so you can use this          * option to work out issues around your JDBC driver if you get problem          * using this component This option is default true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useJDBC4ColumnNameAndLabelSemantics ( String useJDBC4ColumnNameAndLabelSemantics)
 specifier|default
 name|JdbcEndpointBuilder
@@ -567,7 +567,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
@@ -588,7 +588,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
@@ -609,7 +609,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom org.apache.camel.component.jdbc.BeanRowMapper when          * using outputClass. The default implementation will lower case the row          * names and skip underscores, and dashes. For example CUST_ID is mapped          * as custId.          * The option is a          *<code>org.apache.camel.component.jdbc.BeanRowMapper</code> type.          * @group advanced          */
+comment|/**          * To use a custom org.apache.camel.component.jdbc.BeanRowMapper when          * using outputClass. The default implementation will lower case the row          * names and skip underscores, and dashes. For example CUST_ID is mapped          * as custId.          *           * The option is a:          *<code>org.apache.camel.component.jdbc.BeanRowMapper</code> type.          *           * Group: advanced          */
 DECL|method|beanRowMapper (Object beanRowMapper)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
@@ -630,7 +630,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom org.apache.camel.component.jdbc.BeanRowMapper when          * using outputClass. The default implementation will lower case the row          * names and skip underscores, and dashes. For example CUST_ID is mapped          * as custId.          * The option will be converted to a          *<code>org.apache.camel.component.jdbc.BeanRowMapper</code> type.          * @group advanced          */
+comment|/**          * To use a custom org.apache.camel.component.jdbc.BeanRowMapper when          * using outputClass. The default implementation will lower case the row          * names and skip underscores, and dashes. For example CUST_ID is mapped          * as custId.          *           * The option will be converted to a          *<code>org.apache.camel.component.jdbc.BeanRowMapper</code> type.          *           * Group: advanced          */
 DECL|method|beanRowMapper (String beanRowMapper)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
@@ -651,7 +651,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to          * control preparation of the query and prepared statement.          * The option is a          *<code>org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy</code> type.          * @group advanced          */
+comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to          * control preparation of the query and prepared statement.          *           * The option is a:          *<code>org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy</code> type.          *           * Group: advanced          */
 DECL|method|prepareStatementStrategy ( Object prepareStatementStrategy)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
@@ -672,7 +672,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to          * control preparation of the query and prepared statement.          * The option will be converted to a          *<code>org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy</code> type.          * @group advanced          */
+comment|/**          * Allows to plugin to use a custom          * org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to          * control preparation of the query and prepared statement.          *           * The option will be converted to a          *<code>org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy</code> type.          *           * Group: advanced          */
 DECL|method|prepareStatementStrategy ( String prepareStatementStrategy)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
@@ -693,7 +693,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedJdbcEndpointBuilder
@@ -714,7 +714,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedJdbcEndpointBuilder

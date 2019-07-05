@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|JsonValidatorEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use resource content cache or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (boolean contentCache)
 specifier|default
 name|JsonValidatorEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use resource content cache or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (String contentCache)
 specifier|default
 name|JsonValidatorEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to fail if no body exists.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to fail if no body exists.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failOnNullBody ( boolean failOnNullBody)
 specifier|default
 name|JsonValidatorEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to fail if no body exists.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to fail if no body exists.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failOnNullBody ( String failOnNullBody)
 specifier|default
 name|JsonValidatorEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to fail if no header exists when validating against a header.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to fail if no header exists when validating against a header.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failOnNullHeader ( boolean failOnNullHeader)
 specifier|default
 name|JsonValidatorEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to fail if no header exists when validating against a header.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to fail if no header exists when validating against a header.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failOnNullHeader ( String failOnNullHeader)
 specifier|default
 name|JsonValidatorEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To validate against a header instead of the message body.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * To validate against a header instead of the message body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|headerName (String headerName)
 specifier|default
 name|JsonValidatorEndpointBuilder
@@ -300,7 +300,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ValidatorErrorHandler. The default error handler          * captures the errors and throws an exception.          * The option is a          *<code>org.apache.camel.component.jsonvalidator.JsonValidatorErrorHandler</code> type.          * @group advanced          */
+comment|/**          * To use a custom ValidatorErrorHandler. The default error handler          * captures the errors and throws an exception.          *           * The option is a:          *<code>org.apache.camel.component.jsonvalidator.JsonValidatorErrorHandler</code> type.          *           * Group: advanced          */
 DECL|method|errorHandler ( Object errorHandler)
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
@@ -363,7 +363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ValidatorErrorHandler. The default error handler          * captures the errors and throws an exception.          * The option will be converted to a          *<code>org.apache.camel.component.jsonvalidator.JsonValidatorErrorHandler</code> type.          * @group advanced          */
+comment|/**          * To use a custom ValidatorErrorHandler. The default error handler          * captures the errors and throws an exception.          *           * The option will be converted to a          *<code>org.apache.camel.component.jsonvalidator.JsonValidatorErrorHandler</code> type.          *           * Group: advanced          */
 DECL|method|errorHandler ( String errorHandler)
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
@@ -384,7 +384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom schema loader allowing for adding custom format          * validation. The default implementation will create a schema loader          * with draft v4 support.          * The option is a          *<code>org.apache.camel.component.jsonvalidator.JsonSchemaLoader</code> type.          * @group advanced          */
+comment|/**          * To use a custom schema loader allowing for adding custom format          * validation. The default implementation will create a schema loader          * with draft v4 support.          *           * The option is a:          *<code>org.apache.camel.component.jsonvalidator.JsonSchemaLoader</code> type.          *           * Group: advanced          */
 DECL|method|schemaLoader ( Object schemaLoader)
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom schema loader allowing for adding custom format          * validation. The default implementation will create a schema loader          * with draft v4 support.          * The option will be converted to a          *<code>org.apache.camel.component.jsonvalidator.JsonSchemaLoader</code> type.          * @group advanced          */
+comment|/**          * To use a custom schema loader allowing for adding custom format          * validation. The default implementation will create a schema loader          * with draft v4 support.          *           * The option will be converted to a          *<code>org.apache.camel.component.jsonvalidator.JsonSchemaLoader</code> type.          *           * Group: advanced          */
 DECL|method|schemaLoader ( String schemaLoader)
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
@@ -426,7 +426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder
@@ -447,7 +447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedJsonValidatorEndpointBuilder

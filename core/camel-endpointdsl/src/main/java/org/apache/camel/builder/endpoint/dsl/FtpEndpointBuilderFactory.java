@@ -270,7 +270,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the FTP server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the FTP server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -291,7 +291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the FTP server.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the FTP server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -312,7 +312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the FTP server.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the FTP server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -333,7 +333,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The starting directory.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The starting directory.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|directoryName (String directoryName)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -354,7 +354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|binary (boolean binary)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -375,7 +375,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|binary (String binary)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -396,7 +396,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is used to specify the encoding of the file. You can use          * this on the consumer, to specify the encodings of the files, which          * allow Camel to know the charset it should load the file content in          * case the file content is being accessed. Likewise when writing a          * file, you can use this option to specify which charset to write the          * file as well. Do mind that when writing the file Camel may have to          * read the message content into memory to be able to convert the data          * into the configured charset, so do not use this if you have big          * messages.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * This option is used to specify the encoding of the file. You can use          * this on the consumer, to specify the encodings of the files, which          * allow Camel to know the charset it should load the file content in          * case the file content is being accessed. Likewise when writing a          * file, you can use this option to specify which charset to write the          * file as well. Do mind that when writing the file Camel may have to          * read the message content into memory to be able to convert the data          * into the configured charset, so do not use this if you have big          * messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|charset (String charset)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -417,7 +417,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -438,7 +438,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|disconnect (String disconnect)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -459,7 +459,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Producer: If provided, then Camel will write a 2nd done file when the          * original file has been written. The done file will be empty. This          * option configures what file name to use. Either you can specify a          * fixed name. Or you can use dynamic placeholders. The done file will          * always be written in the same folder as the original file. Consumer:          * If provided, Camel will only consume files if a done file exists.          * This option configures what file name to use. Either you can specify          * a fixed name. Or you can use dynamic placeholders.The done file is          * always expected in the same folder as the original file. Only          * ${file.name} and ${file.name.noext} is supported as dynamic          * placeholders.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Producer: If provided, then Camel will write a 2nd done file when the          * original file has been written. The done file will be empty. This          * option configures what file name to use. Either you can specify a          * fixed name. Or you can use dynamic placeholders. The done file will          * always be written in the same folder as the original file. Consumer:          * If provided, Camel will only consume files if a done file exists.          * This option configures what file name to use. Either you can specify          * a fixed name. Or you can use dynamic placeholders.The done file is          * always expected in the same folder as the original file. Only          * ${file.name} and ${file.name.noext} is supported as dynamic          * placeholders.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|doneFileName (String doneFileName)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -480,7 +480,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group common          */
+comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: common          */
 DECL|method|fileName (Expression fileName)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -501,7 +501,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group common          */
+comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: common          */
 DECL|method|fileName (String fileName)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -522,7 +522,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets passive mode connections. Default is active mode connections.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sets passive mode connections. Default is active mode connections.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|passiveMode (boolean passiveMode)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -543,7 +543,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets passive mode connections. Default is active mode connections.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sets passive mode connections. Default is active mode connections.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|passiveMode (String passiveMode)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -564,7 +564,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          * The option is a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          * @group common          */
+comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          *           * The option is a:          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          *           * Group: common          */
 DECL|method|separator (PathSeparator separator)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -585,7 +585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          * The option will be converted to a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          * @group common          */
+comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          *           * Group: common          */
 DECL|method|separator (String separator)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -606,7 +606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|transferLoggingIntervalSeconds ( int transferLoggingIntervalSeconds)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -627,7 +627,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|transferLoggingIntervalSeconds ( String transferLoggingIntervalSeconds)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -648,7 +648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group common          */
+comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: common          */
 DECL|method|transferLoggingLevel ( LoggingLevel transferLoggingLevel)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -669,7 +669,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group common          */
+comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: common          */
 DECL|method|transferLoggingLevel ( String transferLoggingLevel)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -690,7 +690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|transferLoggingVerbose ( boolean transferLoggingVerbose)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -711,7 +711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|transferLoggingVerbose ( String transferLoggingVerbose)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -732,7 +732,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -753,7 +753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -774,7 +774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the file will be deleted after it is processed successfully.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the file will be deleted after it is processed successfully.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|delete (boolean delete)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -795,7 +795,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the file will be deleted after it is processed successfully.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the file will be deleted after it is processed successfully.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|delete (String delete)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -816,7 +816,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the move failure expression based on Simple language. For          * example, to move files into a .error subdirectory use: .error. Note:          * When moving the files to the fail location Camel will handle the          * error and will not pick up the file again.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group consumer          */
+comment|/**          * Sets the move failure expression based on Simple language. For          * example, to move files into a .error subdirectory use: .error. Note:          * When moving the files to the fail location Camel will handle the          * error and will not pick up the file again.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: consumer          */
 DECL|method|moveFailed (Expression moveFailed)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -837,7 +837,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the move failure expression based on Simple language. For          * example, to move files into a .error subdirectory use: .error. Note:          * When moving the files to the fail location Camel will handle the          * error and will not pick up the file again.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group consumer          */
+comment|/**          * Sets the move failure expression based on Simple language. For          * example, to move files into a .error subdirectory use: .error. Note:          * When moving the files to the fail location Camel will handle the          * error and will not pick up the file again.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: consumer          */
 DECL|method|moveFailed (String moveFailed)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -858,7 +858,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the file is not moved or deleted in any way. This option is          * good for readonly data, or for ETL type requirements. If noop=true,          * Camel will set idempotent=true as well, to avoid consuming the same          * files over and over again.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the file is not moved or deleted in any way. This option is          * good for readonly data, or for ETL type requirements. If noop=true,          * Camel will set idempotent=true as well, to avoid consuming the same          * files over and over again.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|noop (boolean noop)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -879,7 +879,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the file is not moved or deleted in any way. This option is          * good for readonly data, or for ETL type requirements. If noop=true,          * Camel will set idempotent=true as well, to avoid consuming the same          * files over and over again.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the file is not moved or deleted in any way. This option is          * good for readonly data, or for ETL type requirements. If noop=true,          * Camel will set idempotent=true as well, to avoid consuming the same          * files over and over again.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|noop (String noop)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -900,7 +900,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expression (such as File Language) used to dynamically set the          * filename when moving it before processing. For example to move          * in-progress files into the order directory set this value to order.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group consumer          */
+comment|/**          * Expression (such as File Language) used to dynamically set the          * filename when moving it before processing. For example to move          * in-progress files into the order directory set this value to order.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: consumer          */
 DECL|method|preMove (Expression preMove)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -921,7 +921,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expression (such as File Language) used to dynamically set the          * filename when moving it before processing. For example to move          * in-progress files into the order directory set this value to order.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group consumer          */
+comment|/**          * Expression (such as File Language) used to dynamically set the          * filename when moving it before processing. For example to move          * in-progress files into the order directory set this value to order.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: consumer          */
 DECL|method|preMove (String preMove)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -942,7 +942,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When pre-sort is enabled then the consumer will sort the file and          * directory names during polling, that was retrieved from the file          * system. You may want to do this in case you need to operate on the          * files in a sorted order. The pre-sort is executed before the consumer          * starts to filter, and accept files to process by Camel. This option          * is default=false meaning disabled.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * When pre-sort is enabled then the consumer will sort the file and          * directory names during polling, that was retrieved from the file          * system. You may want to do this in case you need to operate on the          * files in a sorted order. The pre-sort is executed before the consumer          * starts to filter, and accept files to process by Camel. This option          * is default=false meaning disabled.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|preSort (boolean preSort)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -963,7 +963,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When pre-sort is enabled then the consumer will sort the file and          * directory names during polling, that was retrieved from the file          * system. You may want to do this in case you need to operate on the          * files in a sorted order. The pre-sort is executed before the consumer          * starts to filter, and accept files to process by Camel. This option          * is default=false meaning disabled.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * When pre-sort is enabled then the consumer will sort the file and          * directory names during polling, that was retrieved from the file          * system. You may want to do this in case you need to operate on the          * files in a sorted order. The pre-sort is executed before the consumer          * starts to filter, and accept files to process by Camel. This option          * is default=false meaning disabled.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|preSort (String preSort)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -984,7 +984,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If a directory, will look for files in all the sub-directories as          * well.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If a directory, will look for files in all the sub-directories as          * well.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|recursive (boolean recursive)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1005,7 +1005,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If a directory, will look for files in all the sub-directories as          * well.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If a directory, will look for files in all the sub-directories as          * well.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|recursive (String recursive)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1026,7 +1026,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures whether resume download is enabled. This must be supported          * by the FTP server (almost all FTP servers support it). In addition          * the options localWorkDirectory must be configured so downloaded files          * are stored in a local directory, and the option binary must be          * enabled, which is required to support resuming of downloads.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Configures whether resume download is enabled. This must be supported          * by the FTP server (almost all FTP servers support it). In addition          * the options localWorkDirectory must be configured so downloaded files          * are stored in a local directory, and the option binary must be          * enabled, which is required to support resuming of downloads.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|resumeDownload (boolean resumeDownload)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1047,7 +1047,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures whether resume download is enabled. This must be supported          * by the FTP server (almost all FTP servers support it). In addition          * the options localWorkDirectory must be configured so downloaded files          * are stored in a local directory, and the option binary must be          * enabled, which is required to support resuming of downloads.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Configures whether resume download is enabled. This must be supported          * by the FTP server (almost all FTP servers support it). In addition          * the options localWorkDirectory must be configured so downloaded files          * are stored in a local directory, and the option binary must be          * enabled, which is required to support resuming of downloads.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|resumeDownload (String resumeDownload)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1068,7 +1068,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1089,7 +1089,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1110,7 +1110,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the download method to use when not using a local working          * directory. If set to true, the remote files are streamed to the route          * as they are read. When set to false, the remote files are loaded into          * memory before being sent into the route.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Sets the download method to use when not using a local working          * directory. If set to true, the remote files are streamed to the route          * as they are read. When set to false, the remote files are loaded into          * memory before being sent into the route.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|streamDownload (boolean streamDownload)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1131,7 +1131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the download method to use when not using a local working          * directory. If set to true, the remote files are streamed to the route          * as they are read. When set to false, the remote files are loaded into          * memory before being sent into the route.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Sets the download method to use when not using a local working          * directory. If set to true, the remote files are streamed to the route          * as they are read. When set to false, the remote files are loaded into          * memory before being sent into the route.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|streamDownload (String streamDownload)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1152,7 +1152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Ant style filter exclusion. If both antInclude and antExclude are          * used, antExclude takes precedence over antInclude. Multiple          * exclusions may be specified in comma-delimited format.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Ant style filter exclusion. If both antInclude and antExclude are          * used, antExclude takes precedence over antInclude. Multiple          * exclusions may be specified in comma-delimited format.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|antExclude (String antExclude)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1173,7 +1173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets case sensitive flag on ant filter.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Sets case sensitive flag on ant filter.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|antFilterCaseSensitive ( boolean antFilterCaseSensitive)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1194,7 +1194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets case sensitive flag on ant filter.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Sets case sensitive flag on ant filter.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|antFilterCaseSensitive ( String antFilterCaseSensitive)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1215,7 +1215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Ant style filter inclusion. Multiple inclusions may be specified in          * comma-delimited format.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Ant style filter inclusion. Multiple inclusions may be specified in          * comma-delimited format.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|antInclude (String antInclude)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1236,7 +1236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for controlling whether the limit from maxMessagesPerPoll is          * eager or not. If eager then the limit is during the scanning of          * files. Where as false would scan all files, and then perform sorting.          * Setting this option to false allows for sorting all files first, and          * then limit the poll. Mind that this requires a higher memory usage as          * all file details are in memory to perform the sorting.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Allows for controlling whether the limit from maxMessagesPerPoll is          * eager or not. If eager then the limit is during the scanning of          * files. Where as false would scan all files, and then perform sorting.          * Setting this option to false allows for sorting all files first, and          * then limit the poll. Mind that this requires a higher memory usage as          * all file details are in memory to perform the sorting.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|eagerMaxMessagesPerPoll ( boolean eagerMaxMessagesPerPoll)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1257,7 +1257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for controlling whether the limit from maxMessagesPerPoll is          * eager or not. If eager then the limit is during the scanning of          * files. Where as false would scan all files, and then perform sorting.          * Setting this option to false allows for sorting all files first, and          * then limit the poll. Mind that this requires a higher memory usage as          * all file details are in memory to perform the sorting.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Allows for controlling whether the limit from maxMessagesPerPoll is          * eager or not. If eager then the limit is during the scanning of          * files. Where as false would scan all files, and then perform sorting.          * Setting this option to false allows for sorting all files first, and          * then limit the poll. Mind that this requires a higher memory usage as          * all file details are in memory to perform the sorting.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|eagerMaxMessagesPerPoll ( String eagerMaxMessagesPerPoll)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1278,7 +1278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Is used to exclude files, if filename matches the regex pattern          * (matching is case in-senstive). Notice if you use symbols such as          * plus sign and others you would need to configure this using the RAW()          * syntax if configuring this as an endpoint uri. See more details at          * configuring endpoint uris.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Is used to exclude files, if filename matches the regex pattern          * (matching is case in-senstive). Notice if you use symbols such as          * plus sign and others you would need to configure this using the RAW()          * syntax if configuring this as an endpoint uri. See more details at          * configuring endpoint uris.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|exclude (String exclude)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1299,7 +1299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Pluggable filter as a          * org.apache.camel.component.file.GenericFileFilter class. Will skip          * files if filter returns false in its accept() method.          * The option is a          *<code>org.apache.camel.component.file.GenericFileFilter&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          * @group filter          */
+comment|/**          * Pluggable filter as a          * org.apache.camel.component.file.GenericFileFilter class. Will skip          * files if filter returns false in its accept() method.          *           * The option is a:          *<code>org.apache.camel.component.file.GenericFileFilter&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          *           * Group: filter          */
 DECL|method|filter (Object filter)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1320,7 +1320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Pluggable filter as a          * org.apache.camel.component.file.GenericFileFilter class. Will skip          * files if filter returns false in its accept() method.          * The option will be converted to a          *<code>org.apache.camel.component.file.GenericFileFilter&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          * @group filter          */
+comment|/**          * Pluggable filter as a          * org.apache.camel.component.file.GenericFileFilter class. Will skip          * files if filter returns false in its accept() method.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.GenericFileFilter&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          *           * Group: filter          */
 DECL|method|filter (String filter)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1341,7 +1341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Filters the directory based on Simple language. For example to filter          * on current date, you can use a simple date pattern such as          * ${date:now:yyyMMdd}.          * The option is a<code>org.apache.camel.Predicate</code> type.          * @group filter          */
+comment|/**          * Filters the directory based on Simple language. For example to filter          * on current date, you can use a simple date pattern such as          * ${date:now:yyyMMdd}.          *           * The option is a:<code>org.apache.camel.Predicate</code> type.          *           * Group: filter          */
 DECL|method|filterDirectory ( Predicate filterDirectory)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1362,7 +1362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Filters the directory based on Simple language. For example to filter          * on current date, you can use a simple date pattern such as          * ${date:now:yyyMMdd}.          * The option will be converted to a          *<code>org.apache.camel.Predicate</code> type.          * @group filter          */
+comment|/**          * Filters the directory based on Simple language. For example to filter          * on current date, you can use a simple date pattern such as          * ${date:now:yyyMMdd}.          *           * The option will be converted to a          *<code>org.apache.camel.Predicate</code> type.          *           * Group: filter          */
 DECL|method|filterDirectory ( String filterDirectory)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1383,7 +1383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Filters the file based on Simple language. For example to filter on          * file size, you can use ${file:size} 5000.          * The option is a<code>org.apache.camel.Predicate</code> type.          * @group filter          */
+comment|/**          * Filters the file based on Simple language. For example to filter on          * file size, you can use ${file:size} 5000.          *           * The option is a:<code>org.apache.camel.Predicate</code> type.          *           * Group: filter          */
 DECL|method|filterFile (Predicate filterFile)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1404,7 +1404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Filters the file based on Simple language. For example to filter on          * file size, you can use ${file:size} 5000.          * The option will be converted to a          *<code>org.apache.camel.Predicate</code> type.          * @group filter          */
+comment|/**          * Filters the file based on Simple language. For example to filter on          * file size, you can use ${file:size} 5000.          *           * The option will be converted to a          *<code>org.apache.camel.Predicate</code> type.          *           * Group: filter          */
 DECL|method|filterFile (String filterFile)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1425,7 +1425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to use the Idempotent Consumer EIP pattern to let Camel skip          * already processed files. Will by default use a memory based LRUCache          * that holds 1000 entries. If noop=true then idempotent will be enabled          * as well to avoid consuming the same files over and over again.          * The option is a<code>java.lang.Boolean</code> type.          * @group filter          */
+comment|/**          * Option to use the Idempotent Consumer EIP pattern to let Camel skip          * already processed files. Will by default use a memory based LRUCache          * that holds 1000 entries. If noop=true then idempotent will be enabled          * as well to avoid consuming the same files over and over again.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: filter          */
 DECL|method|idempotent (Boolean idempotent)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1446,7 +1446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to use the Idempotent Consumer EIP pattern to let Camel skip          * already processed files. Will by default use a memory based LRUCache          * that holds 1000 entries. If noop=true then idempotent will be enabled          * as well to avoid consuming the same files over and over again.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group filter          */
+comment|/**          * Option to use the Idempotent Consumer EIP pattern to let Camel skip          * already processed files. Will by default use a memory based LRUCache          * that holds 1000 entries. If noop=true then idempotent will be enabled          * as well to avoid consuming the same files over and over again.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: filter          */
 DECL|method|idempotent (String idempotent)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1467,7 +1467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom idempotent key. By default the absolute path of the          * file is used. You can use the File Language, for example to use the          * file name and file size, you can do:          * idempotentKey=${file:name}-${file:size}.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group filter          */
+comment|/**          * To use a custom idempotent key. By default the absolute path of the          * file is used. You can use the File Language, for example to use the          * file name and file size, you can do:          * idempotentKey=${file:name}-${file:size}.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: filter          */
 DECL|method|idempotentKey ( Expression idempotentKey)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1488,7 +1488,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom idempotent key. By default the absolute path of the          * file is used. You can use the File Language, for example to use the          * file name and file size, you can do:          * idempotentKey=${file:name}-${file:size}.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group filter          */
+comment|/**          * To use a custom idempotent key. By default the absolute path of the          * file is used. You can use the File Language, for example to use the          * file name and file size, you can do:          * idempotentKey=${file:name}-${file:size}.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: filter          */
 DECL|method|idempotentKey (String idempotentKey)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1509,7 +1509,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable repository org.apache.camel.spi.IdempotentRepository          * which by default use MemoryMessageIdRepository if none is specified          * and idempotent is true.          * The option is a          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          * @group filter          */
+comment|/**          * A pluggable repository org.apache.camel.spi.IdempotentRepository          * which by default use MemoryMessageIdRepository if none is specified          * and idempotent is true.          *           * The option is a:          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          *           * Group: filter          */
 DECL|method|idempotentRepository ( IdempotentRepository idempotentRepository)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1530,7 +1530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable repository org.apache.camel.spi.IdempotentRepository          * which by default use MemoryMessageIdRepository if none is specified          * and idempotent is true.          * The option will be converted to a          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          * @group filter          */
+comment|/**          * A pluggable repository org.apache.camel.spi.IdempotentRepository          * which by default use MemoryMessageIdRepository if none is specified          * and idempotent is true.          *           * The option will be converted to a          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          *           * Group: filter          */
 DECL|method|idempotentRepository ( String idempotentRepository)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1551,7 +1551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Is used to include files, if filename matches the regex pattern          * (matching is case in-sensitive). Notice if you use symbols such as          * plus sign and others you would need to configure this using the RAW()          * syntax if configuring this as an endpoint uri. See more details at          * configuring endpoint uris.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Is used to include files, if filename matches the regex pattern          * (matching is case in-sensitive). Notice if you use symbols such as          * plus sign and others you would need to configure this using the RAW()          * syntax if configuring this as an endpoint uri. See more details at          * configuring endpoint uris.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|include (String include)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1572,7 +1572,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum depth to traverse when recursively processing a          * directory.          * The option is a<code>int</code> type.          * @group filter          */
+comment|/**          * The maximum depth to traverse when recursively processing a          * directory.          *           * The option is a:<code>int</code> type.          *           * Group: filter          */
 DECL|method|maxDepth (int maxDepth)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1593,7 +1593,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum depth to traverse when recursively processing a          * directory.          * The option will be converted to a<code>int</code> type.          * @group filter          */
+comment|/**          * The maximum depth to traverse when recursively processing a          * directory.          *           * The option will be converted to a<code>int</code> type.          *           * Group: filter          */
 DECL|method|maxDepth (String maxDepth)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1614,7 +1614,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a maximum messages to gather per poll. By default no          * maximum is set. Can be used to set a limit of e.g. 1000 to avoid when          * starting up the server that there are thousands of files. Set a value          * of 0 or negative to disabled it. Notice: If this option is in use          * then the File and FTP components will limit before any sorting. For          * example if you have 100000 files and use maxMessagesPerPoll=500, then          * only the first 500 files will be picked up, and then sorted. You can          * use the eagerMaxMessagesPerPoll option and set this to false to allow          * to scan all files first and then sort afterwards.          * The option is a<code>int</code> type.          * @group filter          */
+comment|/**          * To define a maximum messages to gather per poll. By default no          * maximum is set. Can be used to set a limit of e.g. 1000 to avoid when          * starting up the server that there are thousands of files. Set a value          * of 0 or negative to disabled it. Notice: If this option is in use          * then the File and FTP components will limit before any sorting. For          * example if you have 100000 files and use maxMessagesPerPoll=500, then          * only the first 500 files will be picked up, and then sorted. You can          * use the eagerMaxMessagesPerPoll option and set this to false to allow          * to scan all files first and then sort afterwards.          *           * The option is a:<code>int</code> type.          *           * Group: filter          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1635,7 +1635,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a maximum messages to gather per poll. By default no          * maximum is set. Can be used to set a limit of e.g. 1000 to avoid when          * starting up the server that there are thousands of files. Set a value          * of 0 or negative to disabled it. Notice: If this option is in use          * then the File and FTP components will limit before any sorting. For          * example if you have 100000 files and use maxMessagesPerPoll=500, then          * only the first 500 files will be picked up, and then sorted. You can          * use the eagerMaxMessagesPerPoll option and set this to false to allow          * to scan all files first and then sort afterwards.          * The option will be converted to a<code>int</code> type.          * @group filter          */
+comment|/**          * To define a maximum messages to gather per poll. By default no          * maximum is set. Can be used to set a limit of e.g. 1000 to avoid when          * starting up the server that there are thousands of files. Set a value          * of 0 or negative to disabled it. Notice: If this option is in use          * then the File and FTP components will limit before any sorting. For          * example if you have 100000 files and use maxMessagesPerPoll=500, then          * only the first 500 files will be picked up, and then sorted. You can          * use the eagerMaxMessagesPerPoll option and set this to false to allow          * to scan all files first and then sort afterwards.          *           * The option will be converted to a<code>int</code> type.          *           * Group: filter          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1656,7 +1656,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The minimum depth to start processing when recursively processing a          * directory. Using minDepth=1 means the base directory. Using          * minDepth=2 means the first sub directory.          * The option is a<code>int</code> type.          * @group filter          */
+comment|/**          * The minimum depth to start processing when recursively processing a          * directory. Using minDepth=1 means the base directory. Using          * minDepth=2 means the first sub directory.          *           * The option is a:<code>int</code> type.          *           * Group: filter          */
 DECL|method|minDepth (int minDepth)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1677,7 +1677,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The minimum depth to start processing when recursively processing a          * directory. Using minDepth=1 means the base directory. Using          * minDepth=2 means the first sub directory.          * The option will be converted to a<code>int</code> type.          * @group filter          */
+comment|/**          * The minimum depth to start processing when recursively processing a          * directory. Using minDepth=1 means the base directory. Using          * minDepth=2 means the first sub directory.          *           * The option will be converted to a<code>int</code> type.          *           * Group: filter          */
 DECL|method|minDepth (String minDepth)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1698,7 +1698,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expression (such as Simple Language) used to dynamically set the          * filename when moving it after processing. To move files into a .done          * subdirectory just enter .done.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group filter          */
+comment|/**          * Expression (such as Simple Language) used to dynamically set the          * filename when moving it after processing. To move files into a .done          * subdirectory just enter .done.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: filter          */
 DECL|method|move (Expression move)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1719,7 +1719,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expression (such as Simple Language) used to dynamically set the          * filename when moving it after processing. To move files into a .done          * subdirectory just enter .done.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group filter          */
+comment|/**          * Expression (such as Simple Language) used to dynamically set the          * filename when moving it after processing. To move files into a .done          * subdirectory just enter .done.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: filter          */
 DECL|method|move (String move)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1740,7 +1740,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Pluggable read-lock as a          * org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy          * implementation.          * The option is a          *<code>org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          * @group lock          */
+comment|/**          * Pluggable read-lock as a          * org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy          * implementation.          *           * The option is a:          *<code>org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          *           * Group: lock          */
 DECL|method|exclusiveReadLockStrategy ( Object exclusiveReadLockStrategy)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1761,7 +1761,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Pluggable read-lock as a          * org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy          * implementation.          * The option will be converted to a          *<code>org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          * @group lock          */
+comment|/**          * Pluggable read-lock as a          * org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy          * implementation.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          *           * Group: lock          */
 DECL|method|exclusiveReadLockStrategy ( String exclusiveReadLockStrategy)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1782,7 +1782,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by consumer, to only poll the files if it has exclusive          * read-lock on the file (i.e. the file is not in-progress or being          * written). Camel will wait until the file lock is granted. This option          * provides the build in strategies: none - No read lock is in use          * markerFile - Camel creates a marker file (fileName.camelLock) and          * then holds a lock on it. This option is not available for the FTP          * component changed - Changed is using file length/modification          * timestamp to detect whether the file is currently being copied or          * not. Will at least use 1 sec to determine this, so this option cannot          * consume files as fast as the others, but can be more reliable as the          * JDK IO API cannot always determine whether a file is currently being          * used by another process. The option readLockCheckInterval can be used          * to set the check frequency. fileLock - is for using          * java.nio.channels.FileLock. This option is not avail for Windows OS          * and the FTP component. This approach should be avoided when accessing          * a remote file system via a mount/share unless that file system          * supports distributed file locks. rename - rename is for using a try          * to rename the file as a test if we can get exclusive read-lock.          * idempotent - (only for file component) idempotent is for using a          * idempotentRepository as the read-lock. This allows to use read locks          * that supports clustering if the idempotent repository implementation          * supports that. idempotent-changed - (only for file component)          * idempotent-changed is for using a idempotentRepository and changed as          * the combined read-lock. This allows to use read locks that supports          * clustering if the idempotent repository implementation supports that.          * idempotent-rename - (only for file component) idempotent-rename is          * for using a idempotentRepository and rename as the combined          * read-lock. This allows to use read locks that supports clustering if          * the idempotent repository implementation supports that. Notice: The          * various read locks is not all suited to work in clustered mode, where          * concurrent consumers on different nodes is competing for the same          * files on a shared file system. The markerFile using a close to atomic          * operation to create the empty marker file, but its not guaranteed to          * work in a cluster. The fileLock may work better but then the file          * system need to support distributed file locks, and so on. Using the          * idempotent read lock can support clustering if the idempotent          * repository supports clustering, such as Hazelcast Component or          * Infinispan.          * The option is a<code>java.lang.String</code> type.          * @group lock          */
+comment|/**          * Used by consumer, to only poll the files if it has exclusive          * read-lock on the file (i.e. the file is not in-progress or being          * written). Camel will wait until the file lock is granted. This option          * provides the build in strategies: none - No read lock is in use          * markerFile - Camel creates a marker file (fileName.camelLock) and          * then holds a lock on it. This option is not available for the FTP          * component changed - Changed is using file length/modification          * timestamp to detect whether the file is currently being copied or          * not. Will at least use 1 sec to determine this, so this option cannot          * consume files as fast as the others, but can be more reliable as the          * JDK IO API cannot always determine whether a file is currently being          * used by another process. The option readLockCheckInterval can be used          * to set the check frequency. fileLock - is for using          * java.nio.channels.FileLock. This option is not avail for Windows OS          * and the FTP component. This approach should be avoided when accessing          * a remote file system via a mount/share unless that file system          * supports distributed file locks. rename - rename is for using a try          * to rename the file as a test if we can get exclusive read-lock.          * idempotent - (only for file component) idempotent is for using a          * idempotentRepository as the read-lock. This allows to use read locks          * that supports clustering if the idempotent repository implementation          * supports that. idempotent-changed - (only for file component)          * idempotent-changed is for using a idempotentRepository and changed as          * the combined read-lock. This allows to use read locks that supports          * clustering if the idempotent repository implementation supports that.          * idempotent-rename - (only for file component) idempotent-rename is          * for using a idempotentRepository and rename as the combined          * read-lock. This allows to use read locks that supports clustering if          * the idempotent repository implementation supports that. Notice: The          * various read locks is not all suited to work in clustered mode, where          * concurrent consumers on different nodes is competing for the same          * files on a shared file system. The markerFile using a close to atomic          * operation to create the empty marker file, but its not guaranteed to          * work in a cluster. The fileLock may work better but then the file          * system need to support distributed file locks, and so on. Using the          * idempotent read lock can support clustering if the idempotent          * repository supports clustering, such as Hazelcast Component or          * Infinispan.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: lock          */
 DECL|method|readLock (String readLock)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1803,7 +1803,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in millis for the read-lock, if supported by the read lock.          * This interval is used for sleeping between attempts to acquire the          * read lock. For example when using the changed read lock, you can set          * a higher interval period to cater for slow writes. The default of 1          * sec. may be too fast if the producer is very slow writing the file.          * Notice: For FTP the default readLockCheckInterval is 5000. The          * readLockTimeout value must be higher than readLockCheckInterval, but          * a rule of thumb is to have a timeout that is at least 2 or more times          * higher than the readLockCheckInterval. This is needed to ensure that          * amble time is allowed for the read lock process to try to grab the          * lock before the timeout was hit.          * The option is a<code>long</code> type.          * @group lock          */
+comment|/**          * Interval in millis for the read-lock, if supported by the read lock.          * This interval is used for sleeping between attempts to acquire the          * read lock. For example when using the changed read lock, you can set          * a higher interval period to cater for slow writes. The default of 1          * sec. may be too fast if the producer is very slow writing the file.          * Notice: For FTP the default readLockCheckInterval is 5000. The          * readLockTimeout value must be higher than readLockCheckInterval, but          * a rule of thumb is to have a timeout that is at least 2 or more times          * higher than the readLockCheckInterval. This is needed to ensure that          * amble time is allowed for the read lock process to try to grab the          * lock before the timeout was hit.          *           * The option is a:<code>long</code> type.          *           * Group: lock          */
 DECL|method|readLockCheckInterval ( long readLockCheckInterval)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1824,7 +1824,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Interval in millis for the read-lock, if supported by the read lock.          * This interval is used for sleeping between attempts to acquire the          * read lock. For example when using the changed read lock, you can set          * a higher interval period to cater for slow writes. The default of 1          * sec. may be too fast if the producer is very slow writing the file.          * Notice: For FTP the default readLockCheckInterval is 5000. The          * readLockTimeout value must be higher than readLockCheckInterval, but          * a rule of thumb is to have a timeout that is at least 2 or more times          * higher than the readLockCheckInterval. This is needed to ensure that          * amble time is allowed for the read lock process to try to grab the          * lock before the timeout was hit.          * The option will be converted to a<code>long</code> type.          * @group lock          */
+comment|/**          * Interval in millis for the read-lock, if supported by the read lock.          * This interval is used for sleeping between attempts to acquire the          * read lock. For example when using the changed read lock, you can set          * a higher interval period to cater for slow writes. The default of 1          * sec. may be too fast if the producer is very slow writing the file.          * Notice: For FTP the default readLockCheckInterval is 5000. The          * readLockTimeout value must be higher than readLockCheckInterval, but          * a rule of thumb is to have a timeout that is at least 2 or more times          * higher than the readLockCheckInterval. This is needed to ensure that          * amble time is allowed for the read lock process to try to grab the          * lock before the timeout was hit.          *           * The option will be converted to a<code>long</code> type.          *           * Group: lock          */
 DECL|method|readLockCheckInterval ( String readLockCheckInterval)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1845,7 +1845,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not read lock with marker files should upon startup delete          * any orphan read lock files, which may have been left on the file          * system, if Camel was not properly shutdown (such as a JVM crash). If          * turning this option to false then any orphaned lock file will cause          * Camel to not attempt to pickup that file, this could also be due          * another node is concurrently reading files from the same shared          * directory.          * The option is a<code>boolean</code> type.          * @group lock          */
+comment|/**          * Whether or not read lock with marker files should upon startup delete          * any orphan read lock files, which may have been left on the file          * system, if Camel was not properly shutdown (such as a JVM crash). If          * turning this option to false then any orphaned lock file will cause          * Camel to not attempt to pickup that file, this could also be due          * another node is concurrently reading files from the same shared          * directory.          *           * The option is a:<code>boolean</code> type.          *           * Group: lock          */
 DECL|method|readLockDeleteOrphanLockFiles ( boolean readLockDeleteOrphanLockFiles)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1866,7 +1866,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not read lock with marker files should upon startup delete          * any orphan read lock files, which may have been left on the file          * system, if Camel was not properly shutdown (such as a JVM crash). If          * turning this option to false then any orphaned lock file will cause          * Camel to not attempt to pickup that file, this could also be due          * another node is concurrently reading files from the same shared          * directory.          * The option will be converted to a<code>boolean</code> type.          * @group lock          */
+comment|/**          * Whether or not read lock with marker files should upon startup delete          * any orphan read lock files, which may have been left on the file          * system, if Camel was not properly shutdown (such as a JVM crash). If          * turning this option to false then any orphaned lock file will cause          * Camel to not attempt to pickup that file, this could also be due          * another node is concurrently reading files from the same shared          * directory.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: lock          */
 DECL|method|readLockDeleteOrphanLockFiles ( String readLockDeleteOrphanLockFiles)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1887,7 +1887,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level used when a read lock could not be acquired. By default          * a DEBUG is logged. You can change this level, for example to OFF to          * not have any logging. This option is only applicable for readLock of          * types: changed, fileLock, idempotent, idempotent-changed,          * idempotent-rename, rename.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group lock          */
+comment|/**          * Logging level used when a read lock could not be acquired. By default          * a DEBUG is logged. You can change this level, for example to OFF to          * not have any logging. This option is only applicable for readLock of          * types: changed, fileLock, idempotent, idempotent-changed,          * idempotent-rename, rename.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: lock          */
 DECL|method|readLockLoggingLevel ( LoggingLevel readLockLoggingLevel)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1908,7 +1908,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level used when a read lock could not be acquired. By default          * a DEBUG is logged. You can change this level, for example to OFF to          * not have any logging. This option is only applicable for readLock of          * types: changed, fileLock, idempotent, idempotent-changed,          * idempotent-rename, rename.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group lock          */
+comment|/**          * Logging level used when a read lock could not be acquired. By default          * a DEBUG is logged. You can change this level, for example to OFF to          * not have any logging. This option is only applicable for readLock of          * types: changed, fileLock, idempotent, idempotent-changed,          * idempotent-rename, rename.          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: lock          */
 DECL|method|readLockLoggingLevel ( String readLockLoggingLevel)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1929,7 +1929,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use marker file with the changed, rename, or exclusive          * read lock types. By default a marker file is used as well to guard          * against other processes picking up the same files. This behavior can          * be turned off by setting this option to false. For example if you do          * not want to write marker files to the file systems by the Camel          * application.          * The option is a<code>boolean</code> type.          * @group lock          */
+comment|/**          * Whether to use marker file with the changed, rename, or exclusive          * read lock types. By default a marker file is used as well to guard          * against other processes picking up the same files. This behavior can          * be turned off by setting this option to false. For example if you do          * not want to write marker files to the file systems by the Camel          * application.          *           * The option is a:<code>boolean</code> type.          *           * Group: lock          */
 DECL|method|readLockMarkerFile ( boolean readLockMarkerFile)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1950,7 +1950,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use marker file with the changed, rename, or exclusive          * read lock types. By default a marker file is used as well to guard          * against other processes picking up the same files. This behavior can          * be turned off by setting this option to false. For example if you do          * not want to write marker files to the file systems by the Camel          * application.          * The option will be converted to a<code>boolean</code> type.          * @group lock          */
+comment|/**          * Whether to use marker file with the changed, rename, or exclusive          * read lock types. By default a marker file is used as well to guard          * against other processes picking up the same files. This behavior can          * be turned off by setting this option to false. For example if you do          * not want to write marker files to the file systems by the Camel          * application.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: lock          */
 DECL|method|readLockMarkerFile ( String readLockMarkerFile)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1971,7 +1971,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is applied only for readLock=changed. It allows to          * specify a minimum age the file must be before attempting to acquire          * the read lock. For example use readLockMinAge=300s to require the          * file is at last 5 minutes old. This can speedup the changed read lock          * as it will only attempt to acquire files which are at least that          * given age.          * The option is a<code>long</code> type.          * @group lock          */
+comment|/**          * This option is applied only for readLock=changed. It allows to          * specify a minimum age the file must be before attempting to acquire          * the read lock. For example use readLockMinAge=300s to require the          * file is at last 5 minutes old. This can speedup the changed read lock          * as it will only attempt to acquire files which are at least that          * given age.          *           * The option is a:<code>long</code> type.          *           * Group: lock          */
 DECL|method|readLockMinAge (long readLockMinAge)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -1992,7 +1992,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is applied only for readLock=changed. It allows to          * specify a minimum age the file must be before attempting to acquire          * the read lock. For example use readLockMinAge=300s to require the          * file is at last 5 minutes old. This can speedup the changed read lock          * as it will only attempt to acquire files which are at least that          * given age.          * The option will be converted to a<code>long</code> type.          * @group lock          */
+comment|/**          * This option is applied only for readLock=changed. It allows to          * specify a minimum age the file must be before attempting to acquire          * the read lock. For example use readLockMinAge=300s to require the          * file is at last 5 minutes old. This can speedup the changed read lock          * as it will only attempt to acquire files which are at least that          * given age.          *           * The option will be converted to a<code>long</code> type.          *           * Group: lock          */
 DECL|method|readLockMinAge (String readLockMinAge)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2013,7 +2013,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is applied only for readLock=changed. It allows you to          * configure a minimum file length. By default Camel expects the file to          * contain data, and thus the default value is 1. You can set this          * option to zero, to allow consuming zero-length files.          * The option is a<code>long</code> type.          * @group lock          */
+comment|/**          * This option is applied only for readLock=changed. It allows you to          * configure a minimum file length. By default Camel expects the file to          * contain data, and thus the default value is 1. You can set this          * option to zero, to allow consuming zero-length files.          *           * The option is a:<code>long</code> type.          *           * Group: lock          */
 DECL|method|readLockMinLength ( long readLockMinLength)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2034,7 +2034,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is applied only for readLock=changed. It allows you to          * configure a minimum file length. By default Camel expects the file to          * contain data, and thus the default value is 1. You can set this          * option to zero, to allow consuming zero-length files.          * The option will be converted to a<code>long</code> type.          * @group lock          */
+comment|/**          * This option is applied only for readLock=changed. It allows you to          * configure a minimum file length. By default Camel expects the file to          * contain data, and thus the default value is 1. You can set this          * option to zero, to allow consuming zero-length files.          *           * The option will be converted to a<code>long</code> type.          *           * Group: lock          */
 DECL|method|readLockMinLength ( String readLockMinLength)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2055,7 +2055,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is applied only for readLock=idempotent. It allows to          * specify whether to remove the file name entry from the idempotent          * repository when processing the file is succeeded and a commit          * happens. By default the file is not removed which ensures that any          * race-condition do not occur so another active node may attempt to          * grab the file. Instead the idempotent repository may support eviction          * strategies that you can configure to evict the file name entry after          * X minutes - this ensures no problems with race conditions. See more          * details at the readLockIdempotentReleaseDelay option.          * The option is a<code>boolean</code> type.          * @group lock          */
+comment|/**          * This option is applied only for readLock=idempotent. It allows to          * specify whether to remove the file name entry from the idempotent          * repository when processing the file is succeeded and a commit          * happens. By default the file is not removed which ensures that any          * race-condition do not occur so another active node may attempt to          * grab the file. Instead the idempotent repository may support eviction          * strategies that you can configure to evict the file name entry after          * X minutes - this ensures no problems with race conditions. See more          * details at the readLockIdempotentReleaseDelay option.          *           * The option is a:<code>boolean</code> type.          *           * Group: lock          */
 DECL|method|readLockRemoveOnCommit ( boolean readLockRemoveOnCommit)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2076,7 +2076,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is applied only for readLock=idempotent. It allows to          * specify whether to remove the file name entry from the idempotent          * repository when processing the file is succeeded and a commit          * happens. By default the file is not removed which ensures that any          * race-condition do not occur so another active node may attempt to          * grab the file. Instead the idempotent repository may support eviction          * strategies that you can configure to evict the file name entry after          * X minutes - this ensures no problems with race conditions. See more          * details at the readLockIdempotentReleaseDelay option.          * The option will be converted to a<code>boolean</code> type.          * @group lock          */
+comment|/**          * This option is applied only for readLock=idempotent. It allows to          * specify whether to remove the file name entry from the idempotent          * repository when processing the file is succeeded and a commit          * happens. By default the file is not removed which ensures that any          * race-condition do not occur so another active node may attempt to          * grab the file. Instead the idempotent repository may support eviction          * strategies that you can configure to evict the file name entry after          * X minutes - this ensures no problems with race conditions. See more          * details at the readLockIdempotentReleaseDelay option.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: lock          */
 DECL|method|readLockRemoveOnCommit ( String readLockRemoveOnCommit)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2097,7 +2097,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is applied only for readLock=idempotent. It allows to          * specify whether to remove the file name entry from the idempotent          * repository when processing the file failed and a rollback happens. If          * this option is false, then the file name entry is confirmed (as if          * the file did a commit).          * The option is a<code>boolean</code> type.          * @group lock          */
+comment|/**          * This option is applied only for readLock=idempotent. It allows to          * specify whether to remove the file name entry from the idempotent          * repository when processing the file failed and a rollback happens. If          * this option is false, then the file name entry is confirmed (as if          * the file did a commit).          *           * The option is a:<code>boolean</code> type.          *           * Group: lock          */
 DECL|method|readLockRemoveOnRollback ( boolean readLockRemoveOnRollback)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2118,7 +2118,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is applied only for readLock=idempotent. It allows to          * specify whether to remove the file name entry from the idempotent          * repository when processing the file failed and a rollback happens. If          * this option is false, then the file name entry is confirmed (as if          * the file did a commit).          * The option will be converted to a<code>boolean</code> type.          * @group lock          */
+comment|/**          * This option is applied only for readLock=idempotent. It allows to          * specify whether to remove the file name entry from the idempotent          * repository when processing the file failed and a rollback happens. If          * this option is false, then the file name entry is confirmed (as if          * the file did a commit).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: lock          */
 DECL|method|readLockRemoveOnRollback ( String readLockRemoveOnRollback)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2139,7 +2139,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Optional timeout in millis for the read-lock, if supported by the          * read-lock. If the read-lock could not be granted and the timeout          * triggered, then Camel will skip the file. At next poll Camel, will          * try the file again, and this time maybe the read-lock could be          * granted. Use a value of 0 or lower to indicate forever. Currently          * fileLock, changed and rename support the timeout. Notice: For FTP the          * default readLockTimeout value is 20000 instead of 10000. The          * readLockTimeout value must be higher than readLockCheckInterval, but          * a rule of thumb is to have a timeout that is at least 2 or more times          * higher than the readLockCheckInterval. This is needed to ensure that          * amble time is allowed for the read lock process to try to grab the          * lock before the timeout was hit.          * The option is a<code>long</code> type.          * @group lock          */
+comment|/**          * Optional timeout in millis for the read-lock, if supported by the          * read-lock. If the read-lock could not be granted and the timeout          * triggered, then Camel will skip the file. At next poll Camel, will          * try the file again, and this time maybe the read-lock could be          * granted. Use a value of 0 or lower to indicate forever. Currently          * fileLock, changed and rename support the timeout. Notice: For FTP the          * default readLockTimeout value is 20000 instead of 10000. The          * readLockTimeout value must be higher than readLockCheckInterval, but          * a rule of thumb is to have a timeout that is at least 2 or more times          * higher than the readLockCheckInterval. This is needed to ensure that          * amble time is allowed for the read lock process to try to grab the          * lock before the timeout was hit.          *           * The option is a:<code>long</code> type.          *           * Group: lock          */
 DECL|method|readLockTimeout (long readLockTimeout)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2160,7 +2160,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Optional timeout in millis for the read-lock, if supported by the          * read-lock. If the read-lock could not be granted and the timeout          * triggered, then Camel will skip the file. At next poll Camel, will          * try the file again, and this time maybe the read-lock could be          * granted. Use a value of 0 or lower to indicate forever. Currently          * fileLock, changed and rename support the timeout. Notice: For FTP the          * default readLockTimeout value is 20000 instead of 10000. The          * readLockTimeout value must be higher than readLockCheckInterval, but          * a rule of thumb is to have a timeout that is at least 2 or more times          * higher than the readLockCheckInterval. This is needed to ensure that          * amble time is allowed for the read lock process to try to grab the          * lock before the timeout was hit.          * The option will be converted to a<code>long</code> type.          * @group lock          */
+comment|/**          * Optional timeout in millis for the read-lock, if supported by the          * read-lock. If the read-lock could not be granted and the timeout          * triggered, then Camel will skip the file. At next poll Camel, will          * try the file again, and this time maybe the read-lock could be          * granted. Use a value of 0 or lower to indicate forever. Currently          * fileLock, changed and rename support the timeout. Notice: For FTP the          * default readLockTimeout value is 20000 instead of 10000. The          * readLockTimeout value must be higher than readLockCheckInterval, but          * a rule of thumb is to have a timeout that is at least 2 or more times          * higher than the readLockCheckInterval. This is needed to ensure that          * amble time is allowed for the read lock process to try to grab the          * lock before the timeout was hit.          *           * The option will be converted to a<code>long</code> type.          *           * Group: lock          */
 DECL|method|readLockTimeout ( String readLockTimeout)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2181,7 +2181,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2202,7 +2202,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2223,7 +2223,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2244,7 +2244,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2265,7 +2265,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2286,7 +2286,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2307,7 +2307,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (long delay)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2328,7 +2328,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (String delay)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2349,7 +2349,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|greedy (boolean greedy)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2370,7 +2370,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|greedy (String greedy)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2391,7 +2391,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2412,7 +2412,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2433,7 +2433,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
+comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2454,7 +2454,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
+comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2475,7 +2475,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
+comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          *           * The option is a:          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          *           * Group: scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2496,7 +2496,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
+comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          *           * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          *           * Group: scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2517,7 +2517,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option is a:          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2538,7 +2538,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler (String scheduler)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2559,7 +2559,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2585,7 +2585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2606,7 +2606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Whether the scheduler should be auto started.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|startScheduler (boolean startScheduler)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2627,7 +2627,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Whether the scheduler should be auto started.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|startScheduler (String startScheduler)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2648,7 +2648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
+comment|/**          * Time unit for initialDelay and delay options.          *           * The option is a:<code>java.util.concurrent.TimeUnit</code> type.          *           * Group: scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2669,7 +2669,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
+comment|/**          * Time unit for initialDelay and delay options.          *           * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          *           * Group: scheduler          */
 DECL|method|timeUnit (String timeUnit)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2690,7 +2690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|useFixedDelay (boolean useFixedDelay)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2711,7 +2711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|useFixedDelay (String useFixedDelay)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2732,7 +2732,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To shuffle the list of files (sort in random order).          * The option is a<code>boolean</code> type.          * @group sort          */
+comment|/**          * To shuffle the list of files (sort in random order).          *           * The option is a:<code>boolean</code> type.          *           * Group: sort          */
 DECL|method|shuffle (boolean shuffle)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2753,7 +2753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To shuffle the list of files (sort in random order).          * The option will be converted to a<code>boolean</code> type.          * @group sort          */
+comment|/**          * To shuffle the list of files (sort in random order).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: sort          */
 DECL|method|shuffle (String shuffle)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2774,7 +2774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Built-in sort by using the File Language. Supports nested sorts, so          * you can have a sort by file name and as a 2nd group sort by modified          * date.          * The option is a          *<code>java.util.Comparator&lt;org.apache.camel.Exchange&gt;</code>          * type.          * @group sort          */
+comment|/**          * Built-in sort by using the File Language. Supports nested sorts, so          * you can have a sort by file name and as a 2nd group sort by modified          * date.          *           * The option is a:          *<code>java.util.Comparator&lt;org.apache.camel.Exchange&gt;</code>          * type.          *           * Group: sort          */
 DECL|method|sortBy (Comparator<Exchange> sortBy)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2798,7 +2798,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Built-in sort by using the File Language. Supports nested sorts, so          * you can have a sort by file name and as a 2nd group sort by modified          * date.          * The option will be converted to a          *<code>java.util.Comparator&lt;org.apache.camel.Exchange&gt;</code>          * type.          * @group sort          */
+comment|/**          * Built-in sort by using the File Language. Supports nested sorts, so          * you can have a sort by file name and as a 2nd group sort by modified          * date.          *           * The option will be converted to a          *<code>java.util.Comparator&lt;org.apache.camel.Exchange&gt;</code>          * type.          *           * Group: sort          */
 DECL|method|sortBy (String sortBy)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2819,7 +2819,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Pluggable sorter as a java.util.Comparator class.          * The option is a          *<code>java.util.Comparator&lt;org.apache.camel.component.file.GenericFile&lt;org.apache.commons.net.ftp.FTPFile&gt;&gt;</code> type.          * @group sort          */
+comment|/**          * Pluggable sorter as a java.util.Comparator class.          *           * The option is a:          *<code>java.util.Comparator&lt;org.apache.camel.component.file.GenericFile&lt;org.apache.commons.net.ftp.FTPFile&gt;&gt;</code> type.          *           * Group: sort          */
 DECL|method|sorter (Comparator<Object> sorter)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2843,7 +2843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Pluggable sorter as a java.util.Comparator class.          * The option will be converted to a          *<code>java.util.Comparator&lt;org.apache.camel.component.file.GenericFile&lt;org.apache.commons.net.ftp.FTPFile&gt;&gt;</code> type.          * @group sort          */
+comment|/**          * Pluggable sorter as a java.util.Comparator class.          *           * The option will be converted to a          *<code>java.util.Comparator&lt;org.apache.camel.component.file.GenericFile&lt;org.apache.commons.net.ftp.FTPFile&gt;&gt;</code> type.          *           * Group: sort          */
 DECL|method|sorter (String sorter)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2864,7 +2864,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Account to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Account to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|account (String account)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2885,7 +2885,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2906,7 +2906,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Username to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|FtpEndpointConsumerBuilder
@@ -2949,7 +2949,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
+comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          *           * The option is a:<code>boolean</code> type.          *           * Group: common (advanced)          */
 DECL|method|fastExistsCheck ( boolean fastExistsCheck)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -2970,7 +2970,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
+comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common (advanced)          */
 DECL|method|fastExistsCheck ( String fastExistsCheck)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -2991,7 +2991,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the FTP consumer should download the file. If this option is          * set to false, then the message body will be null, but the consumer          * will still trigger a Camel Exchange that has details about the file          * such as file name, file size, etc. It's just that the file will not          * be downloaded.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether the FTP consumer should download the file. If this option is          * set to false, then the message body will be null, but the consumer          * will still trigger a Camel Exchange that has details about the file          * such as file name, file size, etc. It's just that the file will not          * be downloaded.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|download (boolean download)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3012,7 +3012,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the FTP consumer should download the file. If this option is          * set to false, then the message body will be null, but the consumer          * will still trigger a Camel Exchange that has details about the file          * such as file name, file size, etc. It's just that the file will not          * be downloaded.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether the FTP consumer should download the file. If this option is          * set to false, then the message body will be null, but the consumer          * will still trigger a Camel Exchange that has details about the file          * such as file name, file size, etc. It's just that the file will not          * be downloaded.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|download (String download)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3033,7 +3033,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3054,7 +3054,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3075,7 +3075,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3096,7 +3096,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3117,7 +3117,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set how the consumer will handle subfolders and files          * in the path if the directory parser results in with absolute paths          * The reason for this is that some FTP servers may return file names          * with absolute paths, and if so then the FTP component needs to handle          * this by converting the returned path into a relative path.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Allows you to set how the consumer will handle subfolders and files          * in the path if the directory parser results in with absolute paths          * The reason for this is that some FTP servers may return file names          * with absolute paths, and if so then the FTP component needs to handle          * this by converting the returned path into a relative path.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|handleDirectoryParserAbsoluteResult ( boolean handleDirectoryParserAbsoluteResult)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3138,7 +3138,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set how the consumer will handle subfolders and files          * in the path if the directory parser results in with absolute paths          * The reason for this is that some FTP servers may return file names          * with absolute paths, and if so then the FTP component needs to handle          * this by converting the returned path into a relative path.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Allows you to set how the consumer will handle subfolders and files          * in the path if the directory parser results in with absolute paths          * The reason for this is that some FTP servers may return file names          * with absolute paths, and if so then the FTP component needs to handle          * this by converting the returned path into a relative path.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|handleDirectoryParserAbsoluteResult ( String handleDirectoryParserAbsoluteResult)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3159,7 +3159,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to ignore when (trying to list files in directories or when          * downloading a file), which does not exist or due to permission error.          * By default when a directory or file does not exists or insufficient          * permission, then an exception is thrown. Setting this option to true          * allows to ignore that instead.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether to ignore when (trying to list files in directories or when          * downloading a file), which does not exist or due to permission error.          * By default when a directory or file does not exists or insufficient          * permission, then an exception is thrown. Setting this option to true          * allows to ignore that instead.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|ignoreFileNotFoundOrPermissionError ( boolean ignoreFileNotFoundOrPermissionError)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3180,7 +3180,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to ignore when (trying to list files in directories or when          * downloading a file), which does not exist or due to permission error.          * By default when a directory or file does not exists or insufficient          * permission, then an exception is thrown. Setting this option to true          * allows to ignore that instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether to ignore when (trying to list files in directories or when          * downloading a file), which does not exist or due to permission error.          * By default when a directory or file does not exists or insufficient          * permission, then an exception is thrown. Setting this option to true          * allows to ignore that instead.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|ignoreFileNotFoundOrPermissionError ( String ignoreFileNotFoundOrPermissionError)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3201,7 +3201,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable in-progress repository          * org.apache.camel.spi.IdempotentRepository. The in-progress repository          * is used to account the current in progress files being consumed. By          * default a memory based repository is used.          * The option is a          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable in-progress repository          * org.apache.camel.spi.IdempotentRepository. The in-progress repository          * is used to account the current in progress files being consumed. By          * default a memory based repository is used.          *           * The option is a:          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|inProgressRepository ( IdempotentRepository inProgressRepository)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3222,7 +3222,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable in-progress repository          * org.apache.camel.spi.IdempotentRepository. The in-progress repository          * is used to account the current in progress files being consumed. By          * default a memory based repository is used.          * The option will be converted to a          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable in-progress repository          * org.apache.camel.spi.IdempotentRepository. The in-progress repository          * is used to account the current in progress files being consumed. By          * default a memory based repository is used.          *           * The option will be converted to a          *<code>org.apache.camel.spi.IdempotentRepository</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|inProgressRepository ( String inProgressRepository)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3243,7 +3243,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * When consuming, a local work directory can be used to store the          * remote file content directly in local files, to avoid loading the          * content into memory. This is beneficial, if you consume a very big          * remote file and thus can conserve memory.          * The option is a<code>java.lang.String</code> type.          * @group consumer (advanced)          */
+comment|/**          * When consuming, a local work directory can be used to store the          * remote file content directly in local files, to avoid loading the          * content into memory. This is beneficial, if you consume a very big          * remote file and thus can conserve memory.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|localWorkDirectory ( String localWorkDirectory)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3264,7 +3264,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom org.apache.camel.spi.ExceptionHandler to handle any          * thrown exceptions that happens during the file on completion process          * where the consumer does either a commit or rollback. The default          * implementation will log any exception at WARN level and ignore.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To use a custom org.apache.camel.spi.ExceptionHandler to handle any          * thrown exceptions that happens during the file on completion process          * where the consumer does either a commit or rollback. The default          * implementation will log any exception at WARN level and ignore.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|onCompletionExceptionHandler ( ExceptionHandler onCompletionExceptionHandler)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3285,7 +3285,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom org.apache.camel.spi.ExceptionHandler to handle any          * thrown exceptions that happens during the file on completion process          * where the consumer does either a commit or rollback. The default          * implementation will log any exception at WARN level and ignore.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To use a custom org.apache.camel.spi.ExceptionHandler to handle any          * thrown exceptions that happens during the file on completion process          * where the consumer does either a commit or rollback. The default          * implementation will log any exception at WARN level and ignore.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|onCompletionExceptionHandler ( String onCompletionExceptionHandler)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3306,7 +3306,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option is a:          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3327,7 +3327,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3348,7 +3348,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable          * org.apache.camel.component.file.GenericFileProcessStrategy allowing          * you to implement your own readLock option or similar. Can also be          * used when special conditions must be met before a file can be          * consumed, such as a special ready file exists. If this option is set          * then the readLock option does not apply.          * The option is a          *<code>org.apache.camel.component.file.GenericFileProcessStrategy&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable          * org.apache.camel.component.file.GenericFileProcessStrategy allowing          * you to implement your own readLock option or similar. Can also be          * used when special conditions must be met before a file can be          * consumed, such as a special ready file exists. If this option is set          * then the readLock option does not apply.          *           * The option is a:          *<code>org.apache.camel.component.file.GenericFileProcessStrategy&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|processStrategy ( Object processStrategy)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3369,7 +3369,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable          * org.apache.camel.component.file.GenericFileProcessStrategy allowing          * you to implement your own readLock option or similar. Can also be          * used when special conditions must be met before a file can be          * consumed, such as a special ready file exists. If this option is set          * then the readLock option does not apply.          * The option will be converted to a          *<code>org.apache.camel.component.file.GenericFileProcessStrategy&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable          * org.apache.camel.component.file.GenericFileProcessStrategy allowing          * you to implement your own readLock option or similar. Can also be          * used when special conditions must be met before a file can be          * consumed, such as a special ready file exists. If this option is set          * then the readLock option does not apply.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.GenericFileProcessStrategy&lt;org.apache.commons.net.ftp.FTPFile&gt;</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|processStrategy ( String processStrategy)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3390,7 +3390,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The receive (download) buffer size Used only by FTPClient.          * The option is a<code>int</code> type.          * @group consumer (advanced)          */
+comment|/**          * The receive (download) buffer size Used only by FTPClient.          *           * The option is a:<code>int</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|receiveBufferSize ( int receiveBufferSize)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3411,7 +3411,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The receive (download) buffer size Used only by FTPClient.          * The option will be converted to a<code>int</code> type.          * @group consumer (advanced)          */
+comment|/**          * The receive (download) buffer size Used only by FTPClient.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|receiveBufferSize ( String receiveBufferSize)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3432,7 +3432,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow using LIST command when downloading a file. Default          * is true. In some use cases you may want to download a specific file          * and are not allowed to use the LIST command, and therefore you can          * set this option to false. Notice when using this option, then the          * specific file to download does not include meta-data information such          * as file size, timestamp, permissions etc, because those information          * is only possible to retrieve when LIST command is in use.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether to allow using LIST command when downloading a file. Default          * is true. In some use cases you may want to download a specific file          * and are not allowed to use the LIST command, and therefore you can          * set this option to false. Notice when using this option, then the          * specific file to download does not include meta-data information such          * as file size, timestamp, permissions etc, because those information          * is only possible to retrieve when LIST command is in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|useList (boolean useList)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3453,7 +3453,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow using LIST command when downloading a file. Default          * is true. In some use cases you may want to download a specific file          * and are not allowed to use the LIST command, and therefore you can          * set this option to false. Notice when using this option, then the          * specific file to download does not include meta-data information such          * as file size, timestamp, permissions etc, because those information          * is only possible to retrieve when LIST command is in use.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Whether to allow using LIST command when downloading a file. Default          * is true. In some use cases you may want to download a specific file          * and are not allowed to use the LIST command, and therefore you can          * set this option to false. Notice when using this option, then the          * specific file to download does not include meta-data information such          * as file size, timestamp, permissions etc, because those information          * is only possible to retrieve when LIST command is in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|useList (String useList)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3474,7 +3474,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the client side port range in active mode. The syntax is:          * minPort-maxPort Both port numbers are inclusive, eg 10000-19999 to          * include all 1xxxx ports.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Set the client side port range in active mode. The syntax is:          * minPort-maxPort Both port numbers are inclusive, eg 10000-19999 to          * include all 1xxxx ports.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|activePortRange ( String activePortRange)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3495,7 +3495,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|autoCreate (boolean autoCreate)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3516,7 +3516,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|autoCreate (String autoCreate)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3537,7 +3537,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3558,7 +3558,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3579,7 +3579,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3600,7 +3600,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3621,7 +3621,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|connectTimeout ( int connectTimeout)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3642,7 +3642,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|connectTimeout ( String connectTimeout)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3663,7 +3663,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClient.          * The option is a<code>org.apache.commons.net.ftp.FTPClient</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClient.          *           * The option is a:<code>org.apache.commons.net.ftp.FTPClient</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClient (Object ftpClient)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3684,7 +3684,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClient.          * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClient</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClient.          *           * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClient</code> type.          *           * Group: advanced          */
 DECL|method|ftpClient (String ftpClient)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3705,7 +3705,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          * The option is a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          *           * The option is a:          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfig ( Object ftpClientConfig)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3726,7 +3726,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          *           * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfig ( String ftpClientConfig)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3747,7 +3747,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfigParameters ( Map<String, Object> ftpClientConfigParameters)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3773,7 +3773,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClientConfigParameters ( String ftpClientConfigParameters)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3794,7 +3794,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientParameters ( Map<String, Object> ftpClientParameters)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3820,7 +3820,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClientParameters ( String ftpClientParameters)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3841,7 +3841,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maximumReconnectAttempts ( int maximumReconnectAttempts)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3862,7 +3862,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maximumReconnectAttempts ( String maximumReconnectAttempts)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3883,7 +3883,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          * The option is a<code>long</code> type.          * @group advanced          */
+comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          *           * The option is a:<code>long</code> type.          *           * Group: advanced          */
 DECL|method|reconnectDelay ( long reconnectDelay)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3904,7 +3904,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
+comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          *           * The option will be converted to a<code>long</code> type.          *           * Group: advanced          */
 DECL|method|reconnectDelay ( String reconnectDelay)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3925,7 +3925,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets optional site command(s) to be executed after successful login.          * Multiple site commands can be separated using a new line character.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Sets optional site command(s) to be executed after successful login.          * Multiple site commands can be separated using a new line character.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|siteCommand ( String siteCommand)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3946,7 +3946,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|soTimeout (int soTimeout)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3967,7 +3967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|soTimeout (String soTimeout)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3988,7 +3988,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|stepwise (boolean stepwise)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -4009,7 +4009,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|stepwise (String stepwise)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -4030,7 +4030,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -4051,7 +4051,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -4072,7 +4072,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|throwExceptionOnConnectFailed ( boolean throwExceptionOnConnectFailed)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -4093,7 +4093,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|throwExceptionOnConnectFailed ( String throwExceptionOnConnectFailed)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -4114,7 +4114,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -4135,7 +4135,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -4178,7 +4178,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the FTP server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the FTP server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4199,7 +4199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the FTP server.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the FTP server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4220,7 +4220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the FTP server.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the FTP server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4241,7 +4241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The starting directory.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The starting directory.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|directoryName (String directoryName)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4262,7 +4262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|binary (boolean binary)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4283,7 +4283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|binary (String binary)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4304,7 +4304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is used to specify the encoding of the file. You can use          * this on the consumer, to specify the encodings of the files, which          * allow Camel to know the charset it should load the file content in          * case the file content is being accessed. Likewise when writing a          * file, you can use this option to specify which charset to write the          * file as well. Do mind that when writing the file Camel may have to          * read the message content into memory to be able to convert the data          * into the configured charset, so do not use this if you have big          * messages.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * This option is used to specify the encoding of the file. You can use          * this on the consumer, to specify the encodings of the files, which          * allow Camel to know the charset it should load the file content in          * case the file content is being accessed. Likewise when writing a          * file, you can use this option to specify which charset to write the          * file as well. Do mind that when writing the file Camel may have to          * read the message content into memory to be able to convert the data          * into the configured charset, so do not use this if you have big          * messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|charset (String charset)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4325,7 +4325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4346,7 +4346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|disconnect (String disconnect)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4367,7 +4367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Producer: If provided, then Camel will write a 2nd done file when the          * original file has been written. The done file will be empty. This          * option configures what file name to use. Either you can specify a          * fixed name. Or you can use dynamic placeholders. The done file will          * always be written in the same folder as the original file. Consumer:          * If provided, Camel will only consume files if a done file exists.          * This option configures what file name to use. Either you can specify          * a fixed name. Or you can use dynamic placeholders.The done file is          * always expected in the same folder as the original file. Only          * ${file.name} and ${file.name.noext} is supported as dynamic          * placeholders.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Producer: If provided, then Camel will write a 2nd done file when the          * original file has been written. The done file will be empty. This          * option configures what file name to use. Either you can specify a          * fixed name. Or you can use dynamic placeholders. The done file will          * always be written in the same folder as the original file. Consumer:          * If provided, Camel will only consume files if a done file exists.          * This option configures what file name to use. Either you can specify          * a fixed name. Or you can use dynamic placeholders.The done file is          * always expected in the same folder as the original file. Only          * ${file.name} and ${file.name.noext} is supported as dynamic          * placeholders.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|doneFileName (String doneFileName)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4388,7 +4388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group common          */
+comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: common          */
 DECL|method|fileName (Expression fileName)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4409,7 +4409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group common          */
+comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: common          */
 DECL|method|fileName (String fileName)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4430,7 +4430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets passive mode connections. Default is active mode connections.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sets passive mode connections. Default is active mode connections.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|passiveMode (boolean passiveMode)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4451,7 +4451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets passive mode connections. Default is active mode connections.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sets passive mode connections. Default is active mode connections.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|passiveMode (String passiveMode)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4472,7 +4472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          * The option is a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          * @group common          */
+comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          *           * The option is a:          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          *           * Group: common          */
 DECL|method|separator (PathSeparator separator)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4493,7 +4493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          * The option will be converted to a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          * @group common          */
+comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          *           * Group: common          */
 DECL|method|separator (String separator)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4514,7 +4514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|transferLoggingIntervalSeconds ( int transferLoggingIntervalSeconds)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4535,7 +4535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|transferLoggingIntervalSeconds ( String transferLoggingIntervalSeconds)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4556,7 +4556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group common          */
+comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: common          */
 DECL|method|transferLoggingLevel ( LoggingLevel transferLoggingLevel)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4577,7 +4577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group common          */
+comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: common          */
 DECL|method|transferLoggingLevel ( String transferLoggingLevel)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4598,7 +4598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|transferLoggingVerbose ( boolean transferLoggingVerbose)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4619,7 +4619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|transferLoggingVerbose ( String transferLoggingVerbose)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4640,7 +4640,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What to do if a file already exists with the same name. Override,          * which is the default, replaces the existing file. Append - adds          * content to the existing file. Fail - throws a          * GenericFileOperationException, indicating that there is already an          * existing file. Ignore - silently ignores the problem and does not          * override the existing file, but assumes everything is okay. Move -          * option requires to use the moveExisting option to be configured as          * well. The option eagerDeleteTargetFile can be used to control what to          * do if an moving the file, and there exists already an existing file,          * otherwise causing the move operation to fail. The Move option will          * move any existing files, before writing the target file. TryRename is          * only applicable if tempFileName option is in use. This allows to try          * renaming the file from the temporary name to the actual name, without          * doing any exists check. This check may be faster on some file systems          * and especially FTP servers.          * The option is a          *<code>org.apache.camel.component.file.GenericFileExist</code> type.          * @group producer          */
+comment|/**          * What to do if a file already exists with the same name. Override,          * which is the default, replaces the existing file. Append - adds          * content to the existing file. Fail - throws a          * GenericFileOperationException, indicating that there is already an          * existing file. Ignore - silently ignores the problem and does not          * override the existing file, but assumes everything is okay. Move -          * option requires to use the moveExisting option to be configured as          * well. The option eagerDeleteTargetFile can be used to control what to          * do if an moving the file, and there exists already an existing file,          * otherwise causing the move operation to fail. The Move option will          * move any existing files, before writing the target file. TryRename is          * only applicable if tempFileName option is in use. This allows to try          * renaming the file from the temporary name to the actual name, without          * doing any exists check. This check may be faster on some file systems          * and especially FTP servers.          *           * The option is a:          *<code>org.apache.camel.component.file.GenericFileExist</code> type.          *           * Group: producer          */
 DECL|method|fileExist (GenericFileExist fileExist)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4661,7 +4661,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What to do if a file already exists with the same name. Override,          * which is the default, replaces the existing file. Append - adds          * content to the existing file. Fail - throws a          * GenericFileOperationException, indicating that there is already an          * existing file. Ignore - silently ignores the problem and does not          * override the existing file, but assumes everything is okay. Move -          * option requires to use the moveExisting option to be configured as          * well. The option eagerDeleteTargetFile can be used to control what to          * do if an moving the file, and there exists already an existing file,          * otherwise causing the move operation to fail. The Move option will          * move any existing files, before writing the target file. TryRename is          * only applicable if tempFileName option is in use. This allows to try          * renaming the file from the temporary name to the actual name, without          * doing any exists check. This check may be faster on some file systems          * and especially FTP servers.          * The option will be converted to a          *<code>org.apache.camel.component.file.GenericFileExist</code> type.          * @group producer          */
+comment|/**          * What to do if a file already exists with the same name. Override,          * which is the default, replaces the existing file. Append - adds          * content to the existing file. Fail - throws a          * GenericFileOperationException, indicating that there is already an          * existing file. Ignore - silently ignores the problem and does not          * override the existing file, but assumes everything is okay. Move -          * option requires to use the moveExisting option to be configured as          * well. The option eagerDeleteTargetFile can be used to control what to          * do if an moving the file, and there exists already an existing file,          * otherwise causing the move operation to fail. The Move option will          * move any existing files, before writing the target file. TryRename is          * only applicable if tempFileName option is in use. This allows to try          * renaming the file from the temporary name to the actual name, without          * doing any exists check. This check may be faster on some file systems          * and especially FTP servers.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.GenericFileExist</code> type.          *           * Group: producer          */
 DECL|method|fileExist (String fileExist)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4682,7 +4682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Flatten is used to flatten the file name path to strip any leading          * paths, so it's just the file name. This allows you to consume          * recursively into sub-directories, but when you eg write the files to          * another directory they will be written in a single directory. Setting          * this to true on the producer enforces that any file name in          * CamelFileName header will be stripped for any leading paths.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Flatten is used to flatten the file name path to strip any leading          * paths, so it's just the file name. This allows you to consume          * recursively into sub-directories, but when you eg write the files to          * another directory they will be written in a single directory. Setting          * this to true on the producer enforces that any file name in          * CamelFileName header will be stripped for any leading paths.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flatten (boolean flatten)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4703,7 +4703,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Flatten is used to flatten the file name path to strip any leading          * paths, so it's just the file name. This allows you to consume          * recursively into sub-directories, but when you eg write the files to          * another directory they will be written in a single directory. Setting          * this to true on the producer enforces that any file name in          * CamelFileName header will be stripped for any leading paths.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Flatten is used to flatten the file name path to strip any leading          * paths, so it's just the file name. This allows you to consume          * recursively into sub-directories, but when you eg write the files to          * another directory they will be written in a single directory. Setting          * this to true on the producer enforces that any file name in          * CamelFileName header will be stripped for any leading paths.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flatten (String flatten)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4724,7 +4724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for jailing (restricting) writing files to the starting          * directory (and sub) only. This is enabled by default to not allow          * Camel to write files to outside directories (to be more secured out          * of the box). You can turn this off to allow writing files to          * directories outside the starting directory, such as parent or root          * folders.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Used for jailing (restricting) writing files to the starting          * directory (and sub) only. This is enabled by default to not allow          * Camel to write files to outside directories (to be more secured out          * of the box). You can turn this off to allow writing files to          * directories outside the starting directory, such as parent or root          * folders.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|jailStartingDirectory ( boolean jailStartingDirectory)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4745,7 +4745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for jailing (restricting) writing files to the starting          * directory (and sub) only. This is enabled by default to not allow          * Camel to write files to outside directories (to be more secured out          * of the box). You can turn this off to allow writing files to          * directories outside the starting directory, such as parent or root          * folders.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Used for jailing (restricting) writing files to the starting          * directory (and sub) only. This is enabled by default to not allow          * Camel to write files to outside directories (to be more secured out          * of the box). You can turn this off to allow writing files to          * directories outside the starting directory, such as parent or root          * folders.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|jailStartingDirectory ( String jailStartingDirectory)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4766,7 +4766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4787,7 +4787,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4808,7 +4808,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expression (such as File Language) used to compute file name to use          * when fileExist=Move is configured. To move files into a backup          * subdirectory just enter backup. This option only supports the          * following File Language tokens: file:name, file:name.ext,          * file:name.noext, file:onlyname, file:onlyname.noext, file:ext, and          * file:parent. Notice the file:parent is not supported by the FTP          * component, as the FTP component can only move any existing files to a          * relative directory based on current dir as base.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group producer          */
+comment|/**          * Expression (such as File Language) used to compute file name to use          * when fileExist=Move is configured. To move files into a backup          * subdirectory just enter backup. This option only supports the          * following File Language tokens: file:name, file:name.ext,          * file:name.noext, file:onlyname, file:onlyname.noext, file:ext, and          * file:parent. Notice the file:parent is not supported by the FTP          * component, as the FTP component can only move any existing files to a          * relative directory based on current dir as base.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: producer          */
 DECL|method|moveExisting (Expression moveExisting)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4829,7 +4829,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expression (such as File Language) used to compute file name to use          * when fileExist=Move is configured. To move files into a backup          * subdirectory just enter backup. This option only supports the          * following File Language tokens: file:name, file:name.ext,          * file:name.noext, file:onlyname, file:onlyname.noext, file:ext, and          * file:parent. Notice the file:parent is not supported by the FTP          * component, as the FTP component can only move any existing files to a          * relative directory based on current dir as base.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group producer          */
+comment|/**          * Expression (such as File Language) used to compute file name to use          * when fileExist=Move is configured. To move files into a backup          * subdirectory just enter backup. This option only supports the          * following File Language tokens: file:name, file:name.ext,          * file:name.noext, file:onlyname, file:onlyname.noext, file:ext, and          * file:parent. Notice the file:parent is not supported by the FTP          * component, as the FTP component can only move any existing files to a          * relative directory based on current dir as base.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: producer          */
 DECL|method|moveExisting (String moveExisting)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4850,7 +4850,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The same as tempPrefix option but offering a more fine grained          * control on the naming of the temporary filename as it uses the File          * Language. The location for tempFilename is relative to the final file          * location in the option 'fileName', not the target directory in the          * base uri. For example if option fileName includes a directory prefix:          * dir/finalFilename then tempFileName is relative to that subdirectory          * dir.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group producer          */
+comment|/**          * The same as tempPrefix option but offering a more fine grained          * control on the naming of the temporary filename as it uses the File          * Language. The location for tempFilename is relative to the final file          * location in the option 'fileName', not the target directory in the          * base uri. For example if option fileName includes a directory prefix:          * dir/finalFilename then tempFileName is relative to that subdirectory          * dir.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: producer          */
 DECL|method|tempFileName (Expression tempFileName)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4871,7 +4871,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The same as tempPrefix option but offering a more fine grained          * control on the naming of the temporary filename as it uses the File          * Language. The location for tempFilename is relative to the final file          * location in the option 'fileName', not the target directory in the          * base uri. For example if option fileName includes a directory prefix:          * dir/finalFilename then tempFileName is relative to that subdirectory          * dir.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group producer          */
+comment|/**          * The same as tempPrefix option but offering a more fine grained          * control on the naming of the temporary filename as it uses the File          * Language. The location for tempFilename is relative to the final file          * location in the option 'fileName', not the target directory in the          * base uri. For example if option fileName includes a directory prefix:          * dir/finalFilename then tempFileName is relative to that subdirectory          * dir.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: producer          */
 DECL|method|tempFileName (String tempFileName)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4892,7 +4892,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is used to write the file using a temporary name and          * then, after the write is complete, rename it to the real name. Can be          * used to identify files being written and also avoid consumers (not          * using exclusive read locks) reading in progress files. Is often used          * by FTP when uploading big files.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * This option is used to write the file using a temporary name and          * then, after the write is complete, rename it to the real name. Can be          * used to identify files being written and also avoid consumers (not          * using exclusive read locks) reading in progress files. Is often used          * by FTP when uploading big files.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|tempPrefix (String tempPrefix)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4913,7 +4913,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Account to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Account to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|account (String account)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4934,7 +4934,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4955,7 +4955,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Username to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|FtpEndpointProducerBuilder
@@ -4998,7 +4998,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
+comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          *           * The option is a:<code>boolean</code> type.          *           * Group: common (advanced)          */
 DECL|method|fastExistsCheck ( boolean fastExistsCheck)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5019,7 +5019,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
+comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common (advanced)          */
 DECL|method|fastExistsCheck ( String fastExistsCheck)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5040,7 +5040,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used to specify if a null body is allowed during file writing. If set          * to true then an empty file will be created, when set to false, and          * attempting to send a null body to the file component, a          * GenericFileWriteException of 'Cannot write null body to file.' will          * be thrown. If the fileExist option is set to 'Override', then the          * file will be truncated, and if set to append the file will remain          * unchanged.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Used to specify if a null body is allowed during file writing. If set          * to true then an empty file will be created, when set to false, and          * attempting to send a null body to the file component, a          * GenericFileWriteException of 'Cannot write null body to file.' will          * be thrown. If the fileExist option is set to 'Override', then the          * file will be truncated, and if set to append the file will remain          * unchanged.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|allowNullBody ( boolean allowNullBody)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5061,7 +5061,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used to specify if a null body is allowed during file writing. If set          * to true then an empty file will be created, when set to false, and          * attempting to send a null body to the file component, a          * GenericFileWriteException of 'Cannot write null body to file.' will          * be thrown. If the fileExist option is set to 'Override', then the          * file will be truncated, and if set to append the file will remain          * unchanged.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Used to specify if a null body is allowed during file writing. If set          * to true then an empty file will be created, when set to false, and          * attempting to send a null body to the file component, a          * GenericFileWriteException of 'Cannot write null body to file.' will          * be thrown. If the fileExist option is set to 'Override', then the          * file will be truncated, and if set to append the file will remain          * unchanged.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|allowNullBody ( String allowNullBody)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5082,7 +5082,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to set chmod on the stored file. For example chmod=640.          * The option is a<code>java.lang.String</code> type.          * @group producer (advanced)          */
+comment|/**          * Allows you to set chmod on the stored file. For example chmod=640.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer (advanced)          */
 DECL|method|chmod (String chmod)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5103,7 +5103,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to disconnect from remote FTP server right after a          * Batch upload is complete. disconnectOnBatchComplete will only          * disconnect the current connection to the FTP server.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether or not to disconnect from remote FTP server right after a          * Batch upload is complete. disconnectOnBatchComplete will only          * disconnect the current connection to the FTP server.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|disconnectOnBatchComplete ( boolean disconnectOnBatchComplete)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5124,7 +5124,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to disconnect from remote FTP server right after a          * Batch upload is complete. disconnectOnBatchComplete will only          * disconnect the current connection to the FTP server.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether or not to disconnect from remote FTP server right after a          * Batch upload is complete. disconnectOnBatchComplete will only          * disconnect the current connection to the FTP server.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|disconnectOnBatchComplete ( String disconnectOnBatchComplete)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5145,7 +5145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to eagerly delete any existing target file. This          * option only applies when you use fileExists=Override and the          * tempFileName option as well. You can use this to disable (set it to          * false) deleting the target file before the temp file is written. For          * example you may write big files and want the target file to exists          * during the temp file is being written. This ensure the target file is          * only deleted until the very last moment, just before the temp file is          * being renamed to the target filename. This option is also used to          * control whether to delete any existing files when fileExist=Move is          * enabled, and an existing file exists. If this option          * copyAndDeleteOnRenameFails false, then an exception will be thrown if          * an existing file existed, if its true, then the existing file is          * deleted before the move operation.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether or not to eagerly delete any existing target file. This          * option only applies when you use fileExists=Override and the          * tempFileName option as well. You can use this to disable (set it to          * false) deleting the target file before the temp file is written. For          * example you may write big files and want the target file to exists          * during the temp file is being written. This ensure the target file is          * only deleted until the very last moment, just before the temp file is          * being renamed to the target filename. This option is also used to          * control whether to delete any existing files when fileExist=Move is          * enabled, and an existing file exists. If this option          * copyAndDeleteOnRenameFails false, then an exception will be thrown if          * an existing file existed, if its true, then the existing file is          * deleted before the move operation.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|eagerDeleteTargetFile ( boolean eagerDeleteTargetFile)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5166,7 +5166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to eagerly delete any existing target file. This          * option only applies when you use fileExists=Override and the          * tempFileName option as well. You can use this to disable (set it to          * false) deleting the target file before the temp file is written. For          * example you may write big files and want the target file to exists          * during the temp file is being written. This ensure the target file is          * only deleted until the very last moment, just before the temp file is          * being renamed to the target filename. This option is also used to          * control whether to delete any existing files when fileExist=Move is          * enabled, and an existing file exists. If this option          * copyAndDeleteOnRenameFails false, then an exception will be thrown if          * an existing file existed, if its true, then the existing file is          * deleted before the move operation.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether or not to eagerly delete any existing target file. This          * option only applies when you use fileExists=Override and the          * tempFileName option as well. You can use this to disable (set it to          * false) deleting the target file before the temp file is written. For          * example you may write big files and want the target file to exists          * during the temp file is being written. This ensure the target file is          * only deleted until the very last moment, just before the temp file is          * being renamed to the target filename. This option is also used to          * control whether to delete any existing files when fileExist=Move is          * enabled, and an existing file exists. If this option          * copyAndDeleteOnRenameFails false, then an exception will be thrown if          * an existing file existed, if its true, then the existing file is          * deleted before the move operation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|eagerDeleteTargetFile ( String eagerDeleteTargetFile)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5187,7 +5187,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Will keep the last modified timestamp from the source file (if any).          * Will use the Exchange.FILE_LAST_MODIFIED header to located the          * timestamp. This header can contain either a java.util.Date or long          * with the timestamp. If the timestamp exists and the option is enabled          * it will set this timestamp on the written file. Note: This option          * only applies to the file producer. You cannot use this option with          * any of the ftp producers.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Will keep the last modified timestamp from the source file (if any).          * Will use the Exchange.FILE_LAST_MODIFIED header to located the          * timestamp. This header can contain either a java.util.Date or long          * with the timestamp. If the timestamp exists and the option is enabled          * it will set this timestamp on the written file. Note: This option          * only applies to the file producer. You cannot use this option with          * any of the ftp producers.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|keepLastModified ( boolean keepLastModified)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5208,7 +5208,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Will keep the last modified timestamp from the source file (if any).          * Will use the Exchange.FILE_LAST_MODIFIED header to located the          * timestamp. This header can contain either a java.util.Date or long          * with the timestamp. If the timestamp exists and the option is enabled          * it will set this timestamp on the written file. Note: This option          * only applies to the file producer. You cannot use this option with          * any of the ftp producers.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Will keep the last modified timestamp from the source file (if any).          * Will use the Exchange.FILE_LAST_MODIFIED header to located the          * timestamp. This header can contain either a java.util.Date or long          * with the timestamp. If the timestamp exists and the option is enabled          * it will set this timestamp on the written file. Note: This option          * only applies to the file producer. You cannot use this option with          * any of the ftp producers.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|keepLastModified ( String keepLastModified)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5229,7 +5229,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Strategy (Custom Strategy) used to move file with special naming          * token to use when fileExist=Move is configured. By default, there is          * an implementation used if no custom strategy is provided.          * The option is a          *<code>org.apache.camel.component.file.strategy.FileMoveExistingStrategy</code> type.          * @group producer (advanced)          */
+comment|/**          * Strategy (Custom Strategy) used to move file with special naming          * token to use when fileExist=Move is configured. By default, there is          * an implementation used if no custom strategy is provided.          *           * The option is a:          *<code>org.apache.camel.component.file.strategy.FileMoveExistingStrategy</code> type.          *           * Group: producer (advanced)          */
 DECL|method|moveExistingFileStrategy ( Object moveExistingFileStrategy)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5250,7 +5250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Strategy (Custom Strategy) used to move file with special naming          * token to use when fileExist=Move is configured. By default, there is          * an implementation used if no custom strategy is provided.          * The option will be converted to a          *<code>org.apache.camel.component.file.strategy.FileMoveExistingStrategy</code> type.          * @group producer (advanced)          */
+comment|/**          * Strategy (Custom Strategy) used to move file with special naming          * token to use when fileExist=Move is configured. By default, there is          * an implementation used if no custom strategy is provided.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.strategy.FileMoveExistingStrategy</code> type.          *           * Group: producer (advanced)          */
 DECL|method|moveExistingFileStrategy ( String moveExistingFileStrategy)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5271,7 +5271,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to send a noop command as a pre-write check before uploading          * files to the FTP server. This is enabled by default as a validation          * of the connection is still valid, which allows to silently re-connect          * to be able to upload the file. However if this causes problems, you          * can turn this option off.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether to send a noop command as a pre-write check before uploading          * files to the FTP server. This is enabled by default as a validation          * of the connection is still valid, which allows to silently re-connect          * to be able to upload the file. However if this causes problems, you          * can turn this option off.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|sendNoop (boolean sendNoop)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5292,7 +5292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to send a noop command as a pre-write check before uploading          * files to the FTP server. This is enabled by default as a validation          * of the connection is still valid, which allows to silently re-connect          * to be able to upload the file. However if this causes problems, you          * can turn this option off.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether to send a noop command as a pre-write check before uploading          * files to the FTP server. This is enabled by default as a validation          * of the connection is still valid, which allows to silently re-connect          * to be able to upload the file. However if this causes problems, you          * can turn this option off.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|sendNoop (String sendNoop)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5313,7 +5313,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the client side port range in active mode. The syntax is:          * minPort-maxPort Both port numbers are inclusive, eg 10000-19999 to          * include all 1xxxx ports.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Set the client side port range in active mode. The syntax is:          * minPort-maxPort Both port numbers are inclusive, eg 10000-19999 to          * include all 1xxxx ports.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|activePortRange ( String activePortRange)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5334,7 +5334,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|autoCreate (boolean autoCreate)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5355,7 +5355,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|autoCreate (String autoCreate)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5376,7 +5376,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5397,7 +5397,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5418,7 +5418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5439,7 +5439,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5460,7 +5460,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|connectTimeout ( int connectTimeout)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5481,7 +5481,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|connectTimeout ( String connectTimeout)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5502,7 +5502,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClient.          * The option is a<code>org.apache.commons.net.ftp.FTPClient</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClient.          *           * The option is a:<code>org.apache.commons.net.ftp.FTPClient</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClient (Object ftpClient)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5523,7 +5523,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClient.          * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClient</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClient.          *           * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClient</code> type.          *           * Group: advanced          */
 DECL|method|ftpClient (String ftpClient)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5544,7 +5544,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          * The option is a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          *           * The option is a:          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfig ( Object ftpClientConfig)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5565,7 +5565,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          *           * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfig ( String ftpClientConfig)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5586,7 +5586,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfigParameters ( Map<String, Object> ftpClientConfigParameters)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5612,7 +5612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClientConfigParameters ( String ftpClientConfigParameters)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5633,7 +5633,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientParameters ( Map<String, Object> ftpClientParameters)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5659,7 +5659,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClientParameters ( String ftpClientParameters)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5680,7 +5680,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maximumReconnectAttempts ( int maximumReconnectAttempts)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5701,7 +5701,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maximumReconnectAttempts ( String maximumReconnectAttempts)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5722,7 +5722,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          * The option is a<code>long</code> type.          * @group advanced          */
+comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          *           * The option is a:<code>long</code> type.          *           * Group: advanced          */
 DECL|method|reconnectDelay ( long reconnectDelay)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5743,7 +5743,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
+comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          *           * The option will be converted to a<code>long</code> type.          *           * Group: advanced          */
 DECL|method|reconnectDelay ( String reconnectDelay)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5764,7 +5764,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets optional site command(s) to be executed after successful login.          * Multiple site commands can be separated using a new line character.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Sets optional site command(s) to be executed after successful login.          * Multiple site commands can be separated using a new line character.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|siteCommand ( String siteCommand)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5785,7 +5785,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|soTimeout (int soTimeout)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5806,7 +5806,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|soTimeout (String soTimeout)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5827,7 +5827,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|stepwise (boolean stepwise)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5848,7 +5848,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|stepwise (String stepwise)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5869,7 +5869,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5890,7 +5890,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5911,7 +5911,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|throwExceptionOnConnectFailed ( boolean throwExceptionOnConnectFailed)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5932,7 +5932,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|throwExceptionOnConnectFailed ( String throwExceptionOnConnectFailed)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5953,7 +5953,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5974,7 +5974,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -6019,7 +6019,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the FTP server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname of the FTP server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|FtpEndpointBuilder
@@ -6040,7 +6040,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the FTP server.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the FTP server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|FtpEndpointBuilder
@@ -6061,7 +6061,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the FTP server.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port of the FTP server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|FtpEndpointBuilder
@@ -6082,7 +6082,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The starting directory.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The starting directory.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|directoryName (String directoryName)
 specifier|default
 name|FtpEndpointBuilder
@@ -6103,7 +6103,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|binary (boolean binary)
 specifier|default
 name|FtpEndpointBuilder
@@ -6124,7 +6124,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII          * (false).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|binary (String binary)
 specifier|default
 name|FtpEndpointBuilder
@@ -6145,7 +6145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option is used to specify the encoding of the file. You can use          * this on the consumer, to specify the encodings of the files, which          * allow Camel to know the charset it should load the file content in          * case the file content is being accessed. Likewise when writing a          * file, you can use this option to specify which charset to write the          * file as well. Do mind that when writing the file Camel may have to          * read the message content into memory to be able to convert the data          * into the configured charset, so do not use this if you have big          * messages.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * This option is used to specify the encoding of the file. You can use          * this on the consumer, to specify the encodings of the files, which          * allow Camel to know the charset it should load the file content in          * case the file content is being accessed. Likewise when writing a          * file, you can use this option to specify which charset to write the          * file as well. Do mind that when writing the file Camel may have to          * read the message content into memory to be able to convert the data          * into the configured charset, so do not use this if you have big          * messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|charset (String charset)
 specifier|default
 name|FtpEndpointBuilder
@@ -6166,7 +6166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|disconnect (boolean disconnect)
 specifier|default
 name|FtpEndpointBuilder
@@ -6187,7 +6187,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether or not to disconnect from remote FTP server right after use.          * Disconnect will only disconnect the current connection to the FTP          * server. If you have a consumer which you want to stop, then you need          * to stop the consumer/route instead.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|disconnect (String disconnect)
 specifier|default
 name|FtpEndpointBuilder
@@ -6208,7 +6208,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Producer: If provided, then Camel will write a 2nd done file when the          * original file has been written. The done file will be empty. This          * option configures what file name to use. Either you can specify a          * fixed name. Or you can use dynamic placeholders. The done file will          * always be written in the same folder as the original file. Consumer:          * If provided, Camel will only consume files if a done file exists.          * This option configures what file name to use. Either you can specify          * a fixed name. Or you can use dynamic placeholders.The done file is          * always expected in the same folder as the original file. Only          * ${file.name} and ${file.name.noext} is supported as dynamic          * placeholders.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Producer: If provided, then Camel will write a 2nd done file when the          * original file has been written. The done file will be empty. This          * option configures what file name to use. Either you can specify a          * fixed name. Or you can use dynamic placeholders. The done file will          * always be written in the same folder as the original file. Consumer:          * If provided, Camel will only consume files if a done file exists.          * This option configures what file name to use. Either you can specify          * a fixed name. Or you can use dynamic placeholders.The done file is          * always expected in the same folder as the original file. Only          * ${file.name} and ${file.name.noext} is supported as dynamic          * placeholders.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|doneFileName (String doneFileName)
 specifier|default
 name|FtpEndpointBuilder
@@ -6229,7 +6229,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          * The option is a<code>org.apache.camel.Expression</code> type.          * @group common          */
+comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          *           * The option is a:<code>org.apache.camel.Expression</code> type.          *           * Group: common          */
 DECL|method|fileName (Expression fileName)
 specifier|default
 name|FtpEndpointBuilder
@@ -6250,7 +6250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          * @group common          */
+comment|/**          * Use Expression such as File Language to dynamically set the filename.          * For consumers, it's used as a filename filter. For producers, it's          * used to evaluate the filename to write. If an expression is set, it          * take precedence over the CamelFileName header. (Note: The header          * itself can also be an Expression). The expression options support          * both String and Expression types. If the expression is a String type,          * it is always evaluated using the File Language. If the expression is          * an Expression type, the specified Expression type is used - this          * allows you, for instance, to use OGNL expressions. For the consumer,          * you can use it to filter filenames, so you can for instance consume          * today's file using the File Language syntax:          * mydata-${date:now:yyyyMMdd}.txt. The producers support the          * CamelOverruleFileName header which takes precedence over any existing          * CamelFileName header; the CamelOverruleFileName is a header that is          * used only once, and makes it easier as this avoids to temporary store          * CamelFileName and have to restore it afterwards.          *           * The option will be converted to a          *<code>org.apache.camel.Expression</code> type.          *           * Group: common          */
 DECL|method|fileName (String fileName)
 specifier|default
 name|FtpEndpointBuilder
@@ -6271,7 +6271,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets passive mode connections. Default is active mode connections.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sets passive mode connections. Default is active mode connections.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|passiveMode (boolean passiveMode)
 specifier|default
 name|FtpEndpointBuilder
@@ -6292,7 +6292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets passive mode connections. Default is active mode connections.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sets passive mode connections. Default is active mode connections.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|passiveMode (String passiveMode)
 specifier|default
 name|FtpEndpointBuilder
@@ -6313,7 +6313,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          * The option is a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          * @group common          */
+comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          *           * The option is a:          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          *           * Group: common          */
 DECL|method|separator (PathSeparator separator)
 specifier|default
 name|FtpEndpointBuilder
@@ -6334,7 +6334,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          * The option will be converted to a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          * @group common          */
+comment|/**          * Sets the path separator to be used. UNIX = Uses unix style path          * separator Windows = Uses windows style path separator Auto = (is          * default) Use existing path separator in file name.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.remote.RemoteFileConfiguration$PathSeparator</code> type.          *           * Group: common          */
 DECL|method|separator (String separator)
 specifier|default
 name|FtpEndpointBuilder
@@ -6355,7 +6355,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|transferLoggingIntervalSeconds ( int transferLoggingIntervalSeconds)
 specifier|default
 name|FtpEndpointBuilder
@@ -6376,7 +6376,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Configures the interval in seconds to use when logging the progress          * of upload and download operations that are in-flight. This is used          * for logging progress when operations takes longer time.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|transferLoggingIntervalSeconds ( String transferLoggingIntervalSeconds)
 specifier|default
 name|FtpEndpointBuilder
@@ -6397,7 +6397,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group common          */
+comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: common          */
 DECL|method|transferLoggingLevel ( LoggingLevel transferLoggingLevel)
 specifier|default
 name|FtpEndpointBuilder
@@ -6418,7 +6418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group common          */
+comment|/**          * Configure the logging level to use when logging the progress of          * upload and download operations.          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: common          */
 DECL|method|transferLoggingLevel ( String transferLoggingLevel)
 specifier|default
 name|FtpEndpointBuilder
@@ -6439,7 +6439,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|transferLoggingVerbose ( boolean transferLoggingVerbose)
 specifier|default
 name|FtpEndpointBuilder
@@ -6460,7 +6460,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configures whether the perform verbose (fine grained) logging of the          * progress of upload and download operations.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|transferLoggingVerbose ( String transferLoggingVerbose)
 specifier|default
 name|FtpEndpointBuilder
@@ -6481,7 +6481,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Account to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Account to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|account (String account)
 specifier|default
 name|FtpEndpointBuilder
@@ -6502,7 +6502,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|FtpEndpointBuilder
@@ -6523,7 +6523,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to use for login.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Username to use for login.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|FtpEndpointBuilder
@@ -6568,7 +6568,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          * The option is a<code>boolean</code> type.          * @group common (advanced)          */
+comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          *           * The option is a:<code>boolean</code> type.          *           * Group: common (advanced)          */
 DECL|method|fastExistsCheck ( boolean fastExistsCheck)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6589,7 +6589,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          * The option will be converted to a<code>boolean</code> type.          * @group common (advanced)          */
+comment|/**          * If set this option to be true, camel-ftp will use the list file          * directly to check if the file exists. Since some FTP server may not          * support to list the file directly, if the option is false, camel-ftp          * will use the old way to list the directory and check if the file          * exists. This option also influences readLock=changed to control          * whether it performs a fast check to update file information or not.          * This can be used to speed up the process if the FTP server has a lot          * of files.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common (advanced)          */
 DECL|method|fastExistsCheck ( String fastExistsCheck)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6610,7 +6610,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the client side port range in active mode. The syntax is:          * minPort-maxPort Both port numbers are inclusive, eg 10000-19999 to          * include all 1xxxx ports.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Set the client side port range in active mode. The syntax is:          * minPort-maxPort Both port numbers are inclusive, eg 10000-19999 to          * include all 1xxxx ports.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|activePortRange ( String activePortRange)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6631,7 +6631,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|autoCreate (boolean autoCreate)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6652,7 +6652,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Automatically create missing directories in the file's pathname. For          * the file consumer, that means creating the starting directory. For          * the file producer, it means the directory the files should be written          * to.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|autoCreate (String autoCreate)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6673,7 +6673,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6694,7 +6694,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6715,7 +6715,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6736,7 +6736,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6757,7 +6757,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|connectTimeout (int connectTimeout)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6778,7 +6778,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the connect timeout for waiting for a connection to be          * established Used by both FTPClient and JSCH.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|connectTimeout (String connectTimeout)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6799,7 +6799,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClient.          * The option is a<code>org.apache.commons.net.ftp.FTPClient</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClient.          *           * The option is a:<code>org.apache.commons.net.ftp.FTPClient</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClient (Object ftpClient)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6820,7 +6820,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClient.          * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClient</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClient.          *           * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClient</code> type.          *           * Group: advanced          */
 DECL|method|ftpClient (String ftpClient)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6841,7 +6841,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          * The option is a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          *           * The option is a:          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfig ( Object ftpClientConfig)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6862,7 +6862,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          * @group advanced          */
+comment|/**          * To use a custom instance of FTPClientConfig to configure the FTP          * client the endpoint should use.          *           * The option will be converted to a          *<code>org.apache.commons.net.ftp.FTPClientConfig</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfig ( String ftpClientConfig)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6883,7 +6883,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientConfigParameters ( Map<String, Object> ftpClientConfigParameters)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6909,7 +6909,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClientConfig.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClientConfigParameters ( String ftpClientConfigParameters)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6930,7 +6930,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|ftpClientParameters ( Map<String, Object> ftpClientParameters)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6956,7 +6956,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Used by FtpComponent to provide additional parameters for the          * FTPClient.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|ftpClientParameters ( String ftpClientParameters)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6977,7 +6977,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maximumReconnectAttempts ( int maximumReconnectAttempts)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6998,7 +6998,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Specifies the maximum reconnect attempts Camel performs when it tries          * to connect to the remote FTP server. Use 0 to disable this behavior.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|maximumReconnectAttempts ( String maximumReconnectAttempts)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7019,7 +7019,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          * The option is a<code>long</code> type.          * @group advanced          */
+comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          *           * The option is a:<code>long</code> type.          *           * Group: advanced          */
 DECL|method|reconnectDelay (long reconnectDelay)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7040,7 +7040,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
+comment|/**          * Delay in millis Camel will wait before performing a reconnect          * attempt.          *           * The option will be converted to a<code>long</code> type.          *           * Group: advanced          */
 DECL|method|reconnectDelay (String reconnectDelay)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7061,7 +7061,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets optional site command(s) to be executed after successful login.          * Multiple site commands can be separated using a new line character.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Sets optional site command(s) to be executed after successful login.          * Multiple site commands can be separated using a new line character.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|siteCommand (String siteCommand)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7082,7 +7082,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|soTimeout (int soTimeout)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7103,7 +7103,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel          * 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in          * millis. Recommended option is to set this to 300000 so as not have a          * hanged connection. On SFTP this option is set as timeout on the JSCH          * Session instance.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|soTimeout (String soTimeout)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7124,7 +7124,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|stepwise (boolean stepwise)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7145,7 +7145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether we should stepwise change directories while traversing          * file structures when downloading files, or as well when uploading a          * file to a directory. You can disable this if you for example are in a          * situation where you cannot change directory on the FTP server due          * security reasons.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|stepwise (String stepwise)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7166,7 +7166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7187,7 +7187,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7208,7 +7208,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|throwExceptionOnConnectFailed ( boolean throwExceptionOnConnectFailed)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7229,7 +7229,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Should an exception be thrown if connection failed (exhausted) By          * default exception is not thrown and a WARN is logged. You can use          * this to enable exception being thrown and handle the thrown exception          * from the org.apache.camel.spi.PollingConsumerPollStrategy rollback          * method.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|throwExceptionOnConnectFailed ( String throwExceptionOnConnectFailed)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7250,7 +7250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          * The option is a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -7271,7 +7271,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          * The option will be converted to a<code>int</code> type.          * @group advanced          */
+comment|/**          * Sets the data timeout for waiting for reply Used only by FTPClient.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|AdvancedFtpEndpointBuilder

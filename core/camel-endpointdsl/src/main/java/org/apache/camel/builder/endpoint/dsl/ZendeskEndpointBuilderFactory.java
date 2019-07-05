@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What operation to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What operation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server URL to connect.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The server URL to connect.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverUrl (String serverUrl)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The OAuth token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The OAuth token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|oauthToken (String oauthToken)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The security token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The security token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|token (String token)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The user name.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The user name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|ZendeskEndpointConsumerBuilder
@@ -347,7 +347,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedZendeskEndpointConsumerBuilder
@@ -368,7 +368,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedZendeskEndpointConsumerBuilder
@@ -389,7 +389,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedZendeskEndpointConsumerBuilder
@@ -410,7 +410,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedZendeskEndpointConsumerBuilder
@@ -431,7 +431,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedZendeskEndpointConsumerBuilder
@@ -452,7 +452,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedZendeskEndpointConsumerBuilder
@@ -473,7 +473,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedZendeskEndpointConsumerBuilder
@@ -494,7 +494,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedZendeskEndpointConsumerBuilder
@@ -537,7 +537,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What operation to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What operation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -558,7 +558,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -579,7 +579,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server URL to connect.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The server URL to connect.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverUrl (String serverUrl)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -600,7 +600,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -621,7 +621,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -642,7 +642,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The OAuth token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The OAuth token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|oauthToken (String oauthToken)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -663,7 +663,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -684,7 +684,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The security token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The security token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|token (String token)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -705,7 +705,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The user name.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The user name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|ZendeskEndpointProducerBuilder
@@ -748,7 +748,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedZendeskEndpointProducerBuilder
@@ -769,7 +769,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedZendeskEndpointProducerBuilder
@@ -790,7 +790,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedZendeskEndpointProducerBuilder
@@ -811,7 +811,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedZendeskEndpointProducerBuilder
@@ -856,7 +856,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What operation to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * What operation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|ZendeskEndpointBuilder
@@ -877,7 +877,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
 name|ZendeskEndpointBuilder
@@ -898,7 +898,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server URL to connect.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The server URL to connect.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverUrl (String serverUrl)
 specifier|default
 name|ZendeskEndpointBuilder
@@ -919,7 +919,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The OAuth token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The OAuth token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|oauthToken (String oauthToken)
 specifier|default
 name|ZendeskEndpointBuilder
@@ -940,7 +940,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|ZendeskEndpointBuilder
@@ -961,7 +961,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The security token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The security token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|token (String token)
 specifier|default
 name|ZendeskEndpointBuilder
@@ -982,7 +982,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The user name.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The user name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|ZendeskEndpointBuilder
@@ -1027,7 +1027,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedZendeskEndpointBuilder
@@ -1048,7 +1048,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedZendeskEndpointBuilder
@@ -1069,7 +1069,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedZendeskEndpointBuilder
@@ -1090,7 +1090,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedZendeskEndpointBuilder

@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|connectionBean ( String connectionBean)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB collection to bind to this endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB collection to bind to this endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|collection (String collection)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the collection index (JSON FORMAT : { field1 : order1, field2 :          * order2}).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the collection index (JSON FORMAT : { field1 : order1, field2 :          * order2}).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|collectionIndex ( String collectionIndex)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCollection ( boolean createCollection)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCollection ( String createCollection)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB database to target.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB database to target.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option is a<code>com.mongodb.MongoClient</code> type.          * @group common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection ( Object mongoConnection)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          * @group common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection ( String mongoConnection)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          * The option is a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          * @group common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation ( MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          * @group common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          * The option is a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          * @group common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType ( MongoDbOutputType outputType)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          * @group common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType (String outputType)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consumer type.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Consumer type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|consumerType (String consumerType)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Filter condition for change streams consumer.          * The option is a<code>java.lang.String</code> type.          * @group changeStream          */
+comment|/**          * Filter condition for change streams consumer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: changeStream          */
 DECL|method|streamFilter (String streamFilter)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * One tail tracking collection can host many trackers for several          * tailable consumers. To keep them separate, each tracker should have          * its own unique persistentId.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * One tail tracking collection can host many trackers for several          * tailable consumers. To keep them separate, each tracker should have          * its own unique persistentId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|persistentId (String persistentId)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          * The option is a<code>boolean</code> type.          * @group tail          */
+comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          *           * The option is a:<code>boolean</code> type.          *           * Group: tail          */
 DECL|method|persistentTailTracking ( boolean persistentTailTracking)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          * The option will be converted to a<code>boolean</code> type.          * @group tail          */
+comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: tail          */
 DECL|method|persistentTailTracking ( String persistentTailTracking)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Collection where tail tracking information will be persisted. If not          * specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used          * by default.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Collection where tail tracking information will be persisted. If not          * specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used          * by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackCollection ( String tailTrackCollection)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -556,7 +556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates what database the tail tracking mechanism will persist to.          * If not specified, the current database will be picked by default.          * Dynamicity will not be taken into account even if enabled, i.e. the          * tail tracking database will not vary past endpoint initialisation.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Indicates what database the tail tracking mechanism will persist to.          * If not specified, the current database will be picked by default.          * Dynamicity will not be taken into account even if enabled, i.e. the          * tail tracking database will not vary past endpoint initialisation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackDb (String tailTrackDb)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -577,7 +577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Field where the last tracked value will be placed. If not specified,          * MongoDbTailTrackingConfig#DEFAULT_FIELD will be used by default.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Field where the last tracked value will be placed. If not specified,          * MongoDbTailTrackingConfig#DEFAULT_FIELD will be used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackField ( String tailTrackField)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -598,7 +598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Correlation field in the incoming record which is of increasing          * nature and will be used to position the tailing cursor every time it          * is generated. The cursor will be (re)created with a query of type:          * tailTrackIncreasingField lastValue (possibly recovered from          * persistent tail tracking). Can be of type Integer, Date, String, etc.          * NOTE: No support for dot notation at the current time, so the field          * should be at the top level of the document.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Correlation field in the incoming record which is of increasing          * nature and will be used to position the tailing cursor every time it          * is generated. The cursor will be (re)created with a query of type:          * tailTrackIncreasingField lastValue (possibly recovered from          * persistent tail tracking). Can be of type Integer, Date, String, etc.          * NOTE: No support for dot notation at the current time, so the field          * should be at the top level of the document.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackIncreasingField ( String tailTrackIncreasingField)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -641,7 +641,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -725,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -746,7 +746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -767,7 +767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          * The option is a<code>long</code> type.          * @group advanced          */
+comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          *           * The option is a:<code>long</code> type.          *           * Group: advanced          */
 DECL|method|cursorRegenerationDelay ( long cursorRegenerationDelay)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -788,7 +788,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
+comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: advanced          */
 DECL|method|cursorRegenerationDelay ( String cursorRegenerationDelay)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -809,7 +809,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|dynamicity ( boolean dynamicity)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -830,7 +830,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|dynamicity ( String dynamicity)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -851,7 +851,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -872,7 +872,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -893,7 +893,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|writeResultAsHeader ( boolean writeResultAsHeader)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -914,7 +914,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|writeResultAsHeader ( String writeResultAsHeader)
 specifier|default
 name|AdvancedMongoDbEndpointConsumerBuilder
@@ -957,7 +957,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|connectionBean ( String connectionBean)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB collection to bind to this endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB collection to bind to this endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|collection (String collection)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -999,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the collection index (JSON FORMAT : { field1 : order1, field2 :          * order2}).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the collection index (JSON FORMAT : { field1 : order1, field2 :          * order2}).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|collectionIndex ( String collectionIndex)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1020,7 +1020,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCollection ( boolean createCollection)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1041,7 +1041,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCollection ( String createCollection)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1062,7 +1062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB database to target.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB database to target.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option is a<code>com.mongodb.MongoClient</code> type.          * @group common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection ( Object mongoConnection)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          * @group common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection ( String mongoConnection)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1125,7 +1125,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          * The option is a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          * @group common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation ( MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1146,7 +1146,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          * @group common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1167,7 +1167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          * The option is a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          * @group common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType ( MongoDbOutputType outputType)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1188,7 +1188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          * @group common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType (String outputType)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1209,7 +1209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1230,7 +1230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1251,7 +1251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Filter condition for change streams consumer.          * The option is a<code>java.lang.String</code> type.          * @group changeStream          */
+comment|/**          * Filter condition for change streams consumer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: changeStream          */
 DECL|method|streamFilter (String streamFilter)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1272,7 +1272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * One tail tracking collection can host many trackers for several          * tailable consumers. To keep them separate, each tracker should have          * its own unique persistentId.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * One tail tracking collection can host many trackers for several          * tailable consumers. To keep them separate, each tracker should have          * its own unique persistentId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|persistentId (String persistentId)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1293,7 +1293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          * The option is a<code>boolean</code> type.          * @group tail          */
+comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          *           * The option is a:<code>boolean</code> type.          *           * Group: tail          */
 DECL|method|persistentTailTracking ( boolean persistentTailTracking)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1314,7 +1314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          * The option will be converted to a<code>boolean</code> type.          * @group tail          */
+comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: tail          */
 DECL|method|persistentTailTracking ( String persistentTailTracking)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1335,7 +1335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Collection where tail tracking information will be persisted. If not          * specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used          * by default.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Collection where tail tracking information will be persisted. If not          * specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used          * by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackCollection ( String tailTrackCollection)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1356,7 +1356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates what database the tail tracking mechanism will persist to.          * If not specified, the current database will be picked by default.          * Dynamicity will not be taken into account even if enabled, i.e. the          * tail tracking database will not vary past endpoint initialisation.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Indicates what database the tail tracking mechanism will persist to.          * If not specified, the current database will be picked by default.          * Dynamicity will not be taken into account even if enabled, i.e. the          * tail tracking database will not vary past endpoint initialisation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackDb (String tailTrackDb)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1377,7 +1377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Field where the last tracked value will be placed. If not specified,          * MongoDbTailTrackingConfig#DEFAULT_FIELD will be used by default.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Field where the last tracked value will be placed. If not specified,          * MongoDbTailTrackingConfig#DEFAULT_FIELD will be used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackField ( String tailTrackField)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1398,7 +1398,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Correlation field in the incoming record which is of increasing          * nature and will be used to position the tailing cursor every time it          * is generated. The cursor will be (re)created with a query of type:          * tailTrackIncreasingField lastValue (possibly recovered from          * persistent tail tracking). Can be of type Integer, Date, String, etc.          * NOTE: No support for dot notation at the current time, so the field          * should be at the top level of the document.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Correlation field in the incoming record which is of increasing          * nature and will be used to position the tailing cursor every time it          * is generated. The cursor will be (re)created with a query of type:          * tailTrackIncreasingField lastValue (possibly recovered from          * persistent tail tracking). Can be of type Integer, Date, String, etc.          * NOTE: No support for dot notation at the current time, so the field          * should be at the top level of the document.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackIncreasingField ( String tailTrackIncreasingField)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1441,7 +1441,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1462,7 +1462,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1483,7 +1483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          * The option is a<code>long</code> type.          * @group advanced          */
+comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          *           * The option is a:<code>long</code> type.          *           * Group: advanced          */
 DECL|method|cursorRegenerationDelay ( long cursorRegenerationDelay)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1504,7 +1504,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
+comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: advanced          */
 DECL|method|cursorRegenerationDelay ( String cursorRegenerationDelay)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1525,7 +1525,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|dynamicity ( boolean dynamicity)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1546,7 +1546,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|dynamicity ( String dynamicity)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1567,7 +1567,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1588,7 +1588,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1609,7 +1609,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|writeResultAsHeader ( boolean writeResultAsHeader)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1630,7 +1630,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|writeResultAsHeader ( String writeResultAsHeader)
 specifier|default
 name|AdvancedMongoDbEndpointProducerBuilder
@@ -1675,7 +1675,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|connectionBean (String connectionBean)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1696,7 +1696,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB collection to bind to this endpoint.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB collection to bind to this endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|collection (String collection)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1717,7 +1717,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the collection index (JSON FORMAT : { field1 : order1, field2 :          * order2}).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the collection index (JSON FORMAT : { field1 : order1, field2 :          * order2}).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|collectionIndex (String collectionIndex)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1738,7 +1738,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCollection (boolean createCollection)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1759,7 +1759,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Create collection during initialisation if it doesn't exist. Default          * is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCollection (String createCollection)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1780,7 +1780,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the MongoDB database to target.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Sets the name of the MongoDB database to target.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|database (String database)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1801,7 +1801,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option is a<code>com.mongodb.MongoClient</code> type.          * @group common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option is a:<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection (Object mongoConnection)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1822,7 +1822,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Mongo instance that represents the backing connection.          * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          * @group common          */
+comment|/**          * Sets the Mongo instance that represents the backing connection.          *           * The option will be converted to a          *<code>com.mongodb.MongoClient</code> type.          *           * Group: common          */
 DECL|method|mongoConnection (String mongoConnection)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1843,7 +1843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          * The option is a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          * @group common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1864,7 +1864,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          * @group common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1885,7 +1885,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          * The option is a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          * @group common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType (MongoDbOutputType outputType)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1906,7 +1906,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          * @group common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType (String outputType)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1927,7 +1927,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Filter condition for change streams consumer.          * The option is a<code>java.lang.String</code> type.          * @group changeStream          */
+comment|/**          * Filter condition for change streams consumer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: changeStream          */
 DECL|method|streamFilter (String streamFilter)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1948,7 +1948,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * One tail tracking collection can host many trackers for several          * tailable consumers. To keep them separate, each tracker should have          * its own unique persistentId.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * One tail tracking collection can host many trackers for several          * tailable consumers. To keep them separate, each tracker should have          * its own unique persistentId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|persistentId (String persistentId)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1969,7 +1969,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          * The option is a<code>boolean</code> type.          * @group tail          */
+comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          *           * The option is a:<code>boolean</code> type.          *           * Group: tail          */
 DECL|method|persistentTailTracking ( boolean persistentTailTracking)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1990,7 +1990,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          * The option will be converted to a<code>boolean</code> type.          * @group tail          */
+comment|/**          * Enable persistent tail tracking, which is a mechanism to keep track          * of the last consumed message across system restarts. The next time          * the system is up, the endpoint will recover the cursor from the point          * where it last stopped slurping records.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: tail          */
 DECL|method|persistentTailTracking ( String persistentTailTracking)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -2011,7 +2011,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Collection where tail tracking information will be persisted. If not          * specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used          * by default.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Collection where tail tracking information will be persisted. If not          * specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used          * by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackCollection ( String tailTrackCollection)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -2032,7 +2032,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates what database the tail tracking mechanism will persist to.          * If not specified, the current database will be picked by default.          * Dynamicity will not be taken into account even if enabled, i.e. the          * tail tracking database will not vary past endpoint initialisation.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Indicates what database the tail tracking mechanism will persist to.          * If not specified, the current database will be picked by default.          * Dynamicity will not be taken into account even if enabled, i.e. the          * tail tracking database will not vary past endpoint initialisation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackDb (String tailTrackDb)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -2053,7 +2053,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Field where the last tracked value will be placed. If not specified,          * MongoDbTailTrackingConfig#DEFAULT_FIELD will be used by default.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Field where the last tracked value will be placed. If not specified,          * MongoDbTailTrackingConfig#DEFAULT_FIELD will be used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackField (String tailTrackField)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -2074,7 +2074,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Correlation field in the incoming record which is of increasing          * nature and will be used to position the tailing cursor every time it          * is generated. The cursor will be (re)created with a query of type:          * tailTrackIncreasingField lastValue (possibly recovered from          * persistent tail tracking). Can be of type Integer, Date, String, etc.          * NOTE: No support for dot notation at the current time, so the field          * should be at the top level of the document.          * The option is a<code>java.lang.String</code> type.          * @group tail          */
+comment|/**          * Correlation field in the incoming record which is of increasing          * nature and will be used to position the tailing cursor every time it          * is generated. The cursor will be (re)created with a query of type:          * tailTrackIncreasingField lastValue (possibly recovered from          * persistent tail tracking). Can be of type Integer, Date, String, etc.          * NOTE: No support for dot notation at the current time, so the field          * should be at the top level of the document.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: tail          */
 DECL|method|tailTrackIncreasingField ( String tailTrackIncreasingField)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -2119,7 +2119,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2140,7 +2140,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2161,7 +2161,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          * The option is a<code>long</code> type.          * @group advanced          */
+comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          *           * The option is a:<code>long</code> type.          *           * Group: advanced          */
 DECL|method|cursorRegenerationDelay ( long cursorRegenerationDelay)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2182,7 +2182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          * The option will be converted to a<code>long</code> type.          * @group advanced          */
+comment|/**          * MongoDB tailable cursors will block until new data arrives. If no new          * data is inserted, after some time the cursor will be automatically          * freed and closed by the MongoDB server. The client is expected to          * regenerate the cursor if needed. This value specifies the time to          * wait before attempting to fetch a new cursor, and if the attempt          * fails, how long before the next attempt is made. Default value is          * 1000ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: advanced          */
 DECL|method|cursorRegenerationDelay ( String cursorRegenerationDelay)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2203,7 +2203,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|dynamicity (boolean dynamicity)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2224,7 +2224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether this endpoint will attempt to dynamically resolve the          * target database and collection from the incoming Exchange properties.          * Can be used to override at runtime the database and collection          * specified on the otherwise static endpoint URI. It is disabled by          * default to boost performance. Enabling it will take a minimal          * performance hit.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|dynamicity (String dynamicity)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2245,7 +2245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2266,7 +2266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2287,7 +2287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|writeResultAsHeader ( boolean writeResultAsHeader)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder
@@ -2308,7 +2308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * In write operations, it determines whether instead of returning          * WriteResult as the body of the OUT message, we transfer the IN          * message to the OUT and attach the WriteResult as a header.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|writeResultAsHeader ( String writeResultAsHeader)
 specifier|default
 name|AdvancedMongoDbEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the table currently worked with.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The name of the table currently worked with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|tableName (String tableName)
 specifier|default
 name|DdbEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use the AmazonDynamoDB as the client.          * The option is a          *<code>com.amazonaws.services.dynamodbv2.AmazonDynamoDB</code> type.          * @group producer          */
+comment|/**          * To use the AmazonDynamoDB as the client.          *           * The option is a:          *<code>com.amazonaws.services.dynamodbv2.AmazonDynamoDB</code> type.          *           * Group: producer          */
 DECL|method|amazonDDBClient (Object amazonDDBClient)
 specifier|default
 name|DdbEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use the AmazonDynamoDB as the client.          * The option will be converted to a          *<code>com.amazonaws.services.dynamodbv2.AmazonDynamoDB</code> type.          * @group producer          */
+comment|/**          * To use the AmazonDynamoDB as the client.          *           * The option will be converted to a          *<code>com.amazonaws.services.dynamodbv2.AmazonDynamoDB</code> type.          *           * Group: producer          */
 DECL|method|amazonDDBClient (String amazonDDBClient)
 specifier|default
 name|DdbEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|consistentRead (boolean consistentRead)
 specifier|default
 name|DdbEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|consistentRead (String consistentRead)
 specifier|default
 name|DdbEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Attribute name when creating table.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Attribute name when creating table.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|keyAttributeName (String keyAttributeName)
 specifier|default
 name|DdbEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Attribute type when creating table.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Attribute type when creating table.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|keyAttributeType (String keyAttributeType)
 specifier|default
 name|DdbEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What operation to perform.          * The option is a          *<code>org.apache.camel.component.aws.ddb.DdbOperations</code> type.          * @group producer          */
+comment|/**          * What operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.aws.ddb.DdbOperations</code> type.          *           * Group: producer          */
 DECL|method|operation (DdbOperations operation)
 specifier|default
 name|DdbEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.aws.ddb.DdbOperations</code> type.          * @group producer          */
+comment|/**          * What operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.aws.ddb.DdbOperations</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|DdbEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy host when instantiating the DDB client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * To define a proxy host when instantiating the DDB client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|DdbEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the DDB client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * To define a proxy port when instantiating the DDB client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|DdbEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the DDB client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * To define a proxy port when instantiating the DDB client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|DdbEndpointBuilder
@@ -362,7 +362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The provisioned throughput to reserve for reading resources from your          * table.          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * The provisioned throughput to reserve for reading resources from your          * table.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|readCapacity (Long readCapacity)
 specifier|default
 name|DdbEndpointBuilder
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The provisioned throughput to reserve for reading resources from your          * table.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * The provisioned throughput to reserve for reading resources from your          * table.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|readCapacity (String readCapacity)
 specifier|default
 name|DdbEndpointBuilder
@@ -404,7 +404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which DDB client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The region in which DDB client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
 name|DdbEndpointBuilder
@@ -425,7 +425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The provisioned throughput to reserved for writing resources to your          * table.          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * The provisioned throughput to reserved for writing resources to your          * table.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|writeCapacity (Long writeCapacity)
 specifier|default
 name|DdbEndpointBuilder
@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The provisioned throughput to reserved for writing resources to your          * table.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * The provisioned throughput to reserved for writing resources to your          * table.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|writeCapacity (String writeCapacity)
 specifier|default
 name|DdbEndpointBuilder
@@ -467,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Amazon AWS Access Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|accessKey (String accessKey)
 specifier|default
 name|DdbEndpointBuilder
@@ -488,7 +488,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Amazon AWS Secret Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|secretKey (String secretKey)
 specifier|default
 name|DdbEndpointBuilder
@@ -531,7 +531,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDdbEndpointBuilder
@@ -552,7 +552,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDdbEndpointBuilder
@@ -573,7 +573,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDdbEndpointBuilder
@@ -594,7 +594,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDdbEndpointBuilder

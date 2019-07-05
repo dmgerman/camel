@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Path to the resource. You can prefix with: classpath, file, http,          * ref, or bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|FreemarkerEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Freemarker configuration to use.          * The option is a<code>freemarker.template.Configuration</code> type.          * @group producer          */
+comment|/**          * Sets the Freemarker configuration to use.          *           * The option is a:<code>freemarker.template.Configuration</code> type.          *           * Group: producer          */
 DECL|method|configuration (Object configuration)
 specifier|default
 name|FreemarkerEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Freemarker configuration to use.          * The option will be converted to a          *<code>freemarker.template.Configuration</code> type.          * @group producer          */
+comment|/**          * Sets the Freemarker configuration to use.          *           * The option will be converted to a          *<code>freemarker.template.Configuration</code> type.          *           * Group: producer          */
 DECL|method|configuration (String configuration)
 specifier|default
 name|FreemarkerEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use resource content cache or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (boolean contentCache)
 specifier|default
 name|FreemarkerEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use resource content cache or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (String contentCache)
 specifier|default
 name|FreemarkerEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the encoding to be used for loading the template file.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Sets the encoding to be used for loading the template file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|encoding (String encoding)
 specifier|default
 name|FreemarkerEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of seconds the loaded template resource will remain in the          * cache.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Number of seconds the loaded template resource will remain in the          * cache.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|templateUpdateDelay ( int templateUpdateDelay)
 specifier|default
 name|FreemarkerEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of seconds the loaded template resource will remain in the          * cache.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Number of seconds the loaded template resource will remain in the          * cache.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|templateUpdateDelay ( String templateUpdateDelay)
 specifier|default
 name|FreemarkerEndpointBuilder
@@ -300,7 +300,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder
@@ -363,7 +363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedFreemarkerEndpointBuilder

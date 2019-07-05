@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The operation to perform to the given resource.          * The option is a          *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanOperations</code> type.          * @group producer          */
+comment|/**          * The operation to perform to the given resource.          *           * The option is a:          *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanOperations</code> type.          *           * Group: producer          */
 DECL|method|operation ( DigitalOceanOperations operation)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The operation to perform to the given resource.          * The option will be converted to a          *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanOperations</code> type.          * @group producer          */
+comment|/**          * The operation to perform to the given resource.          *           * The option will be converted to a          *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanOperations</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use for pagination. Force the page number.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Use for pagination. Force the page number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|page (Integer page)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use for pagination. Force the page number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Use for pagination. Force the page number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|page (String page)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use for pagination. Set the number of item per request. The maximum          * number of results per page is 200.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Use for pagination. Set the number of item per request. The maximum          * number of results per page is 200.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|perPage (Integer perPage)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use for pagination. Set the number of item per request. The maximum          * number of results per page is 200.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Use for pagination. Set the number of item per request. The maximum          * number of results per page is 200.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|perPage (String perPage)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The DigitalOcean resource type on which perform the operation.          * The option is a          *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanResources</code> type.          * @group producer          */
+comment|/**          * The DigitalOcean resource type on which perform the operation.          *           * The option is a:          *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanResources</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|resource ( DigitalOceanResources resource)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The DigitalOcean resource type on which perform the operation.          * The option will be converted to a          *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanResources</code> type.          * @group producer          */
+comment|/**          * The DigitalOcean resource type on which perform the operation.          *           * The option will be converted to a          *<code>org.apache.camel.component.digitalocean.constants.DigitalOceanResources</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|resource (String resource)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a proxy host if needed.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Set a proxy host if needed.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyHost (String httpProxyHost)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a proxy password if needed.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Set a proxy password if needed.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a proxy port if needed.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * Set a proxy port if needed.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyPort (Integer httpProxyPort)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a proxy port if needed.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * Set a proxy port if needed.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|httpProxyPort (String httpProxyPort)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -362,7 +362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a proxy host if needed.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Set a proxy host if needed.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyUser (String httpProxyUser)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * DigitalOcean OAuth Token.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * DigitalOcean OAuth Token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|oAuthToken (String oAuthToken)
 specifier|default
 name|DigitalOceanEndpointBuilder
@@ -426,7 +426,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDigitalOceanEndpointBuilder
@@ -447,7 +447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDigitalOceanEndpointBuilder
@@ -468,7 +468,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a existing configured DigitalOceanClient as client.          * The option is a          *<code>com.myjeeva.digitalocean.impl.DigitalOceanClient</code> type.          * @group advanced          */
+comment|/**          * To use a existing configured DigitalOceanClient as client.          *           * The option is a:          *<code>com.myjeeva.digitalocean.impl.DigitalOceanClient</code> type.          *           * Group: advanced          */
 DECL|method|digitalOceanClient ( Object digitalOceanClient)
 specifier|default
 name|AdvancedDigitalOceanEndpointBuilder
@@ -489,7 +489,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a existing configured DigitalOceanClient as client.          * The option will be converted to a          *<code>com.myjeeva.digitalocean.impl.DigitalOceanClient</code> type.          * @group advanced          */
+comment|/**          * To use a existing configured DigitalOceanClient as client.          *           * The option will be converted to a          *<code>com.myjeeva.digitalocean.impl.DigitalOceanClient</code> type.          *           * Group: advanced          */
 DECL|method|digitalOceanClient ( String digitalOceanClient)
 specifier|default
 name|AdvancedDigitalOceanEndpointBuilder
@@ -510,7 +510,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedDigitalOceanEndpointBuilder
@@ -531,7 +531,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedDigitalOceanEndpointBuilder

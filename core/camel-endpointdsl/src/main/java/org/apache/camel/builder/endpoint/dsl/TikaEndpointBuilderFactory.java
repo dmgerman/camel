@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Tika Operation. parse or detect.          * The option is a          *<code>org.apache.camel.component.tika.TikaOperation</code> type.          * @group producer          */
+comment|/**          * Tika Operation. parse or detect.          *           * The option is a:          *<code>org.apache.camel.component.tika.TikaOperation</code> type.          *           * Group: producer          */
 DECL|method|operation (TikaOperation operation)
 specifier|default
 name|TikaEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Operation. parse or detect.          * The option will be converted to a          *<code>org.apache.camel.component.tika.TikaOperation</code> type.          * @group producer          */
+comment|/**          * Tika Operation. parse or detect.          *           * The option will be converted to a          *<code>org.apache.camel.component.tika.TikaOperation</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|TikaEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Config.          * The option is a<code>org.apache.tika.config.TikaConfig</code> type.          * @group producer          */
+comment|/**          * Tika Config.          *           * The option is a:<code>org.apache.tika.config.TikaConfig</code> type.          *           * Group: producer          */
 DECL|method|tikaConfig (Object tikaConfig)
 specifier|default
 name|TikaEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Config.          * The option will be converted to a          *<code>org.apache.tika.config.TikaConfig</code> type.          * @group producer          */
+comment|/**          * Tika Config.          *           * The option will be converted to a          *<code>org.apache.tika.config.TikaConfig</code> type.          *           * Group: producer          */
 DECL|method|tikaConfig (String tikaConfig)
 specifier|default
 name|TikaEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Config Uri: The URI of tika-config.xml.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Tika Config Uri: The URI of tika-config.xml.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|tikaConfigUri (String tikaConfigUri)
 specifier|default
 name|TikaEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Parse Output Encoding - Used to specify the character encoding          * of the parsed output. Defaults to Charset.defaultCharset() .          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Tika Parse Output Encoding - Used to specify the character encoding          * of the parsed output. Defaults to Charset.defaultCharset() .          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|tikaParseOutputEncoding ( String tikaParseOutputEncoding)
 specifier|default
 name|TikaEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Output Format. Supported output formats. xml: Returns Parsed          * Content as XML. html: Returns Parsed Content as HTML. text: Returns          * Parsed Content as Text. textMain: Uses the boilerpipe library to          * automatically extract the main content from a web page.          * The option is a          *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code>          * type.          * @group producer          */
+comment|/**          * Tika Output Format. Supported output formats. xml: Returns Parsed          * Content as XML. html: Returns Parsed Content as HTML. text: Returns          * Parsed Content as Text. textMain: Uses the boilerpipe library to          * automatically extract the main content from a web page.          *           * The option is a:          *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code>          * type.          *           * Group: producer          */
 DECL|method|tikaParseOutputFormat ( TikaParseOutputFormat tikaParseOutputFormat)
 specifier|default
 name|TikaEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Output Format. Supported output formats. xml: Returns Parsed          * Content as XML. html: Returns Parsed Content as HTML. text: Returns          * Parsed Content as Text. textMain: Uses the boilerpipe library to          * automatically extract the main content from a web page.          * The option will be converted to a          *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code>          * type.          * @group producer          */
+comment|/**          * Tika Output Format. Supported output formats. xml: Returns Parsed          * Content as XML. html: Returns Parsed Content as HTML. text: Returns          * Parsed Content as Text. textMain: Uses the boilerpipe library to          * automatically extract the main content from a web page.          *           * The option will be converted to a          *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code>          * type.          *           * Group: producer          */
 DECL|method|tikaParseOutputFormat ( String tikaParseOutputFormat)
 specifier|default
 name|TikaEndpointBuilder
@@ -300,7 +300,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedTikaEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedTikaEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedTikaEndpointBuilder
@@ -363,7 +363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedTikaEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Network interface on which to listen for Lumberjack.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Network interface on which to listen for Lumberjack.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|host (String host)
 specifier|default
 name|LumberjackEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Network port on which to listen for Lumberjack.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Network port on which to listen for Lumberjack.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|port (int port)
 specifier|default
 name|LumberjackEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Network port on which to listen for Lumberjack.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Network port on which to listen for Lumberjack.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|port (String port)
 specifier|default
 name|LumberjackEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SSL configuration.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group consumer          */
+comment|/**          * SSL configuration.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: consumer          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|LumberjackEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SSL configuration.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group consumer          */
+comment|/**          * SSL configuration.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: consumer          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|LumberjackEndpointBuilder
@@ -237,7 +237,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedLumberjackEndpointBuilder
@@ -258,7 +258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedLumberjackEndpointBuilder
@@ -279,7 +279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedLumberjackEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLumberjackEndpointBuilder

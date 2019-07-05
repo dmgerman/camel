@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the language to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Sets the name of the language to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|languageName (String languageName)
 specifier|default
 name|LanguageEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Path to the resource, or a reference to lookup a bean in the Registry          * to use as the resource.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Path to the resource, or a reference to lookup a bean in the Registry          * to use as the resource.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|LanguageEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the script is binary content or text content. By default the          * script is read as text content (eg java.lang.String).          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the script is binary content or text content. By default the          * script is read as text content (eg java.lang.String).          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|binary (boolean binary)
 specifier|default
 name|LanguageEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the script is binary content or text content. By default the          * script is read as text content (eg java.lang.String).          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the script is binary content or text content. By default the          * script is read as text content (eg java.lang.String).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|binary (String binary)
 specifier|default
 name|LanguageEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to cache the compiled script and reuse Notice reusing the          * script can cause side effects from processing one Camel          * org.apache.camel.Exchange to the next org.apache.camel.Exchange.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to cache the compiled script and reuse Notice reusing the          * script can cause side effects from processing one Camel          * org.apache.camel.Exchange to the next org.apache.camel.Exchange.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|cacheScript (boolean cacheScript)
 specifier|default
 name|LanguageEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to cache the compiled script and reuse Notice reusing the          * script can cause side effects from processing one Camel          * org.apache.camel.Exchange to the next org.apache.camel.Exchange.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to cache the compiled script and reuse Notice reusing the          * script can cause side effects from processing one Camel          * org.apache.camel.Exchange to the next org.apache.camel.Exchange.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|cacheScript (String cacheScript)
 specifier|default
 name|LanguageEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use resource content cache or not.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use resource content cache or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (boolean contentCache)
 specifier|default
 name|LanguageEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to use resource content cache or not.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sets whether to use resource content cache or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (String contentCache)
 specifier|default
 name|LanguageEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the script to execute.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Sets the script to execute.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|script (String script)
 specifier|default
 name|LanguageEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not the result of the script should be used as message          * body. This options is default true.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether or not the result of the script should be used as message          * body. This options is default true.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|transform (boolean transform)
 specifier|default
 name|LanguageEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not the result of the script should be used as message          * body. This options is default true.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether or not the result of the script should be used as message          * body. This options is default true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|transform (String transform)
 specifier|default
 name|LanguageEndpointBuilder
@@ -363,7 +363,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedLanguageEndpointBuilder
@@ -384,7 +384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedLanguageEndpointBuilder
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLanguageEndpointBuilder
@@ -426,7 +426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLanguageEndpointBuilder

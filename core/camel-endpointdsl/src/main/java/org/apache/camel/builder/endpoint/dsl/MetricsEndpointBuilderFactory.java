@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Type of metrics.          * The option is a          *<code>org.apache.camel.component.metrics.MetricsType</code> type.          * @group producer          */
+comment|/**          * Type of metrics.          *           * The option is a:          *<code>org.apache.camel.component.metrics.MetricsType</code> type.          *           * Group: producer          */
 DECL|method|metricsType (MetricsType metricsType)
 specifier|default
 name|MetricsEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Type of metrics.          * The option will be converted to a          *<code>org.apache.camel.component.metrics.MetricsType</code> type.          * @group producer          */
+comment|/**          * Type of metrics.          *           * The option will be converted to a          *<code>org.apache.camel.component.metrics.MetricsType</code> type.          *           * Group: producer          */
 DECL|method|metricsType (String metricsType)
 specifier|default
 name|MetricsEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of metrics.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of metrics.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|metricsName (String metricsName)
 specifier|default
 name|MetricsEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Action when using timer type.          * The option is a          *<code>org.apache.camel.component.metrics.MetricsTimerAction</code>          * type.          * @group producer          */
+comment|/**          * Action when using timer type.          *           * The option is a:          *<code>org.apache.camel.component.metrics.MetricsTimerAction</code>          * type.          *           * Group: producer          */
 DECL|method|action (MetricsTimerAction action)
 specifier|default
 name|MetricsEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Action when using timer type.          * The option will be converted to a          *<code>org.apache.camel.component.metrics.MetricsTimerAction</code>          * type.          * @group producer          */
+comment|/**          * Action when using timer type.          *           * The option will be converted to a          *<code>org.apache.camel.component.metrics.MetricsTimerAction</code>          * type.          *           * Group: producer          */
 DECL|method|action (String action)
 specifier|default
 name|MetricsEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Decrement value when using counter type.          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Decrement value when using counter type.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|decrement (Long decrement)
 specifier|default
 name|MetricsEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Decrement value when using counter type.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Decrement value when using counter type.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|decrement (String decrement)
 specifier|default
 name|MetricsEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Increment value when using counter type.          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Increment value when using counter type.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|increment (Long increment)
 specifier|default
 name|MetricsEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Increment value when using counter type.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Increment value when using counter type.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|increment (String increment)
 specifier|default
 name|MetricsEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Mark when using meter type.          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Mark when using meter type.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|mark (Long mark)
 specifier|default
 name|MetricsEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Mark when using meter type.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Mark when using meter type.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|mark (String mark)
 specifier|default
 name|MetricsEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Subject value when using gauge type.          * The option is a<code>java.lang.Object</code> type.          * @group producer          */
+comment|/**          * Subject value when using gauge type.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: producer          */
 DECL|method|subject (Object subject)
 specifier|default
 name|MetricsEndpointBuilder
@@ -362,7 +362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Subject value when using gauge type.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group producer          */
+comment|/**          * Subject value when using gauge type.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: producer          */
 DECL|method|subject (String subject)
 specifier|default
 name|MetricsEndpointBuilder
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Value value when using histogram type.          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Value value when using histogram type.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|value (Long value)
 specifier|default
 name|MetricsEndpointBuilder
@@ -404,7 +404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Value value when using histogram type.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Value value when using histogram type.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|value (String value)
 specifier|default
 name|MetricsEndpointBuilder
@@ -447,7 +447,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMetricsEndpointBuilder
@@ -468,7 +468,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMetricsEndpointBuilder
@@ -489,7 +489,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedMetricsEndpointBuilder
@@ -510,7 +510,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMetricsEndpointBuilder

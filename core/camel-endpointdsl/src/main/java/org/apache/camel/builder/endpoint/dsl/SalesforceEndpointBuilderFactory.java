@@ -146,7 +146,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the topic/channel to use.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The name of the topic/channel to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|topicName (String topicName)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -167,7 +167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * APEX method name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APEX method name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apexMethod (String apexMethod)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -188,7 +188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Query params for APEX method.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * Query params for APEX method.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|apexQueryParams ( Map<String, Object> apexQueryParams)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -214,7 +214,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Query params for APEX method.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * Query params for APEX method.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|apexQueryParams ( String apexQueryParams)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -235,7 +235,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * APEX method URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APEX method URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apexUrl (String apexUrl)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -256,7 +256,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce API version, defaults to          * SalesforceEndpointConfig.DEFAULT_VERSION.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce API version, defaults to          * SalesforceEndpointConfig.DEFAULT_VERSION.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -277,7 +277,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|backoffIncrement ( long backoffIncrement)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -298,7 +298,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|backoffIncrement ( String backoffIncrement)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -319,7 +319,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Batch ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Batch ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|batchId (String batchId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -340,7 +340,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          * The option is a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          * @group common          */
+comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          *           * Group: common          */
 DECL|method|contentType ( ContentType contentType)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -361,7 +361,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          * @group common          */
+comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -382,7 +382,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|defaultReplayId ( Long defaultReplayId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -403,7 +403,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|defaultReplayId ( String defaultReplayId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -424,7 +424,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          * The option is a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          * @group common          */
+comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          *           * Group: common          */
 DECL|method|format (PayloadFormat format)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -445,7 +445,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          * @group common          */
+comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          *           * Group: common          */
 DECL|method|format (String format)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -466,7 +466,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          * The option is a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          * @group common          */
+comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          *           * Group: common          */
 DECL|method|httpClient (Object httpClient)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -487,7 +487,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          * @group common          */
+comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          *           * Group: common          */
 DECL|method|httpClient (String httpClient)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -508,7 +508,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|includeDetails ( Boolean includeDetails)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -529,7 +529,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|includeDetails ( String includeDetails)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -550,7 +550,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Replay IDs to start from per channel name.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Long&gt;</code> type.          * @group common          */
+comment|/**          * Replay IDs to start from per channel name.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Long&gt;</code> type.          *           * Group: common          */
 DECL|method|initialReplayIdMap ( Map<String, Long> initialReplayIdMap)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -576,7 +576,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Replay IDs to start from per channel name.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Long&gt;</code>          * type.          * @group common          */
+comment|/**          * Replay IDs to start from per channel name.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Long&gt;</code>          * type.          *           * Group: common          */
 DECL|method|initialReplayIdMap ( String initialReplayIdMap)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -597,7 +597,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report execution instance ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report execution instance ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|instanceId (String instanceId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -618,7 +618,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Job ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Job ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|jobId (String jobId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -639,7 +639,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|limit (Integer limit)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -660,7 +660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|limit (String limit)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -681,7 +681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|maxBackoff (long maxBackoff)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -702,7 +702,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|maxBackoff (String maxBackoff)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -723,7 +723,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          * The option is a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          * @group common          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          *           * Group: common          */
 DECL|method|notFoundBehaviour ( NotFoundBehaviour notFoundBehaviour)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -744,7 +744,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          * @group common          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          *           * Group: common          */
 DECL|method|notFoundBehaviour ( String notFoundBehaviour)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -765,7 +765,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          * The option is a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          * @group common          */
+comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForFields ( NotifyForFieldsEnum notifyForFields)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -786,7 +786,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          * @group common          */
+comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForFields ( String notifyForFields)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -807,7 +807,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationCreate ( Boolean notifyForOperationCreate)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -828,7 +828,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationCreate ( String notifyForOperationCreate)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -849,7 +849,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationDelete ( Boolean notifyForOperationDelete)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -870,7 +870,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationDelete ( String notifyForOperationDelete)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -891,7 +891,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          * The option is a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          * @group common          */
+comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForOperations ( NotifyForOperationsEnum notifyForOperations)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -912,7 +912,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          * @group common          */
+comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForOperations ( String notifyForOperations)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -933,7 +933,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationUndelete ( Boolean notifyForOperationUndelete)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -954,7 +954,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationUndelete ( String notifyForOperationUndelete)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -975,7 +975,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationUpdate ( Boolean notifyForOperationUpdate)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -996,7 +996,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationUpdate ( String notifyForOperationUpdate)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1017,7 +1017,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          * The option is a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          * @group common          */
+comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          *           * The option is a:          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          *           * Group: common          */
 DECL|method|objectMapper ( Object objectMapper)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1038,7 +1038,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          * The option will be converted to a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          * @group common          */
+comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          *           * The option will be converted to a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          *           * Group: common          */
 DECL|method|objectMapper ( String objectMapper)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1059,7 +1059,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|rawPayload (boolean rawPayload)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1080,7 +1080,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|rawPayload (String rawPayload)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1101,7 +1101,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|reportId (String reportId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1122,7 +1122,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report metadata for filtering.          * The option is a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report metadata for filtering.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          *           * Group: common          */
 DECL|method|reportMetadata ( Object reportMetadata)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1143,7 +1143,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report metadata for filtering.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report metadata for filtering.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          *           * Group: common          */
 DECL|method|reportMetadata ( String reportMetadata)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1164,7 +1164,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Result ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Result ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resultId (String resultId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1185,7 +1185,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|serializeNulls ( boolean serializeNulls)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1206,7 +1206,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|serializeNulls ( String serializeNulls)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1227,7 +1227,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject blob field name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject blob field name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectBlobFieldName ( String sObjectBlobFieldName)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1248,7 +1248,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Fully qualified SObject class name, usually generated using          * camel-salesforce-maven-plugin.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Fully qualified SObject class name, usually generated using          * camel-salesforce-maven-plugin.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectClass ( String sObjectClass)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1269,7 +1269,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject fields to retrieve.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject fields to retrieve.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectFields ( String sObjectFields)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1290,7 +1290,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject ID if required by API.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject ID if required by API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectId (String sObjectId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1311,7 +1311,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject external ID field name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject external ID field name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectIdName ( String sObjectIdName)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1332,7 +1332,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject external ID field value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject external ID field value.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectIdValue ( String sObjectIdValue)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1353,7 +1353,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject name if required or supported by API.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject name if required or supported by API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectName (String sObjectName)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1374,7 +1374,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce SOQL query string.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce SOQL query string.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectQuery ( String sObjectQuery)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1395,7 +1395,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce SOSL search string.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce SOSL search string.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectSearch ( String sObjectSearch)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1416,7 +1416,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|updateTopic ( boolean updateTopic)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1437,7 +1437,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|updateTopic (String updateTopic)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1458,7 +1458,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1479,7 +1479,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1500,7 +1500,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The replayId value to use when subscribing.          * The option is a<code>java.lang.Long</code> type.          * @group consumer          */
+comment|/**          * The replayId value to use when subscribing.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: consumer          */
 DECL|method|replayId (Long replayId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1521,7 +1521,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The replayId value to use when subscribing.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group consumer          */
+comment|/**          * The replayId value to use when subscribing.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: consumer          */
 DECL|method|replayId (String replayId)
 specifier|default
 name|SalesforceEndpointConsumerBuilder
@@ -1564,7 +1564,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedSalesforceEndpointConsumerBuilder
@@ -1585,7 +1585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedSalesforceEndpointConsumerBuilder
@@ -1606,7 +1606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedSalesforceEndpointConsumerBuilder
@@ -1627,7 +1627,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedSalesforceEndpointConsumerBuilder
@@ -1648,7 +1648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSalesforceEndpointConsumerBuilder
@@ -1669,7 +1669,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSalesforceEndpointConsumerBuilder
@@ -1690,7 +1690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSalesforceEndpointConsumerBuilder
@@ -1711,7 +1711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSalesforceEndpointConsumerBuilder
@@ -1754,7 +1754,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The operation to use.          * The option is a          *<code>org.apache.camel.component.salesforce.internal.OperationName</code> type.          * @group producer          */
+comment|/**          * The operation to use.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.OperationName</code> type.          *           * Group: producer          */
 DECL|method|operationName ( OperationName operationName)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1775,7 +1775,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The operation to use.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.OperationName</code> type.          * @group producer          */
+comment|/**          * The operation to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.OperationName</code> type.          *           * Group: producer          */
 DECL|method|operationName ( String operationName)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1796,7 +1796,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * APEX method name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APEX method name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apexMethod (String apexMethod)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1817,7 +1817,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Query params for APEX method.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * Query params for APEX method.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|apexQueryParams ( Map<String, Object> apexQueryParams)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1843,7 +1843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Query params for APEX method.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * Query params for APEX method.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|apexQueryParams ( String apexQueryParams)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1864,7 +1864,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * APEX method URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APEX method URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apexUrl (String apexUrl)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1885,7 +1885,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce API version, defaults to          * SalesforceEndpointConfig.DEFAULT_VERSION.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce API version, defaults to          * SalesforceEndpointConfig.DEFAULT_VERSION.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1906,7 +1906,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|backoffIncrement ( long backoffIncrement)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1927,7 +1927,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|backoffIncrement ( String backoffIncrement)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1948,7 +1948,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Batch ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Batch ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|batchId (String batchId)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1969,7 +1969,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          * The option is a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          * @group common          */
+comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          *           * Group: common          */
 DECL|method|contentType ( ContentType contentType)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -1990,7 +1990,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          * @group common          */
+comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2011,7 +2011,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|defaultReplayId ( Long defaultReplayId)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2032,7 +2032,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|defaultReplayId ( String defaultReplayId)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2053,7 +2053,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          * The option is a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          * @group common          */
+comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          *           * Group: common          */
 DECL|method|format (PayloadFormat format)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2074,7 +2074,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          * @group common          */
+comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          *           * Group: common          */
 DECL|method|format (String format)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2095,7 +2095,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          * The option is a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          * @group common          */
+comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          *           * Group: common          */
 DECL|method|httpClient (Object httpClient)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2116,7 +2116,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          * @group common          */
+comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          *           * Group: common          */
 DECL|method|httpClient (String httpClient)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2137,7 +2137,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|includeDetails ( Boolean includeDetails)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2158,7 +2158,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|includeDetails ( String includeDetails)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2179,7 +2179,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Replay IDs to start from per channel name.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Long&gt;</code> type.          * @group common          */
+comment|/**          * Replay IDs to start from per channel name.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Long&gt;</code> type.          *           * Group: common          */
 DECL|method|initialReplayIdMap ( Map<String, Long> initialReplayIdMap)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2205,7 +2205,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Replay IDs to start from per channel name.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Long&gt;</code>          * type.          * @group common          */
+comment|/**          * Replay IDs to start from per channel name.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Long&gt;</code>          * type.          *           * Group: common          */
 DECL|method|initialReplayIdMap ( String initialReplayIdMap)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2226,7 +2226,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report execution instance ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report execution instance ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|instanceId (String instanceId)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2247,7 +2247,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Job ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Job ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|jobId (String jobId)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2268,7 +2268,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|limit (Integer limit)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2289,7 +2289,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|limit (String limit)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2310,7 +2310,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|maxBackoff (long maxBackoff)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2331,7 +2331,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|maxBackoff (String maxBackoff)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2352,7 +2352,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          * The option is a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          * @group common          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          *           * Group: common          */
 DECL|method|notFoundBehaviour ( NotFoundBehaviour notFoundBehaviour)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2373,7 +2373,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          * @group common          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          *           * Group: common          */
 DECL|method|notFoundBehaviour ( String notFoundBehaviour)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2394,7 +2394,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          * The option is a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          * @group common          */
+comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForFields ( NotifyForFieldsEnum notifyForFields)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2415,7 +2415,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          * @group common          */
+comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForFields ( String notifyForFields)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2436,7 +2436,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationCreate ( Boolean notifyForOperationCreate)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2457,7 +2457,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationCreate ( String notifyForOperationCreate)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2478,7 +2478,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationDelete ( Boolean notifyForOperationDelete)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2499,7 +2499,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationDelete ( String notifyForOperationDelete)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2520,7 +2520,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          * The option is a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          * @group common          */
+comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForOperations ( NotifyForOperationsEnum notifyForOperations)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2541,7 +2541,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          * @group common          */
+comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForOperations ( String notifyForOperations)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2562,7 +2562,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationUndelete ( Boolean notifyForOperationUndelete)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2583,7 +2583,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationUndelete ( String notifyForOperationUndelete)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2604,7 +2604,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationUpdate ( Boolean notifyForOperationUpdate)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2625,7 +2625,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationUpdate ( String notifyForOperationUpdate)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2646,7 +2646,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          * The option is a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          * @group common          */
+comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          *           * The option is a:          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          *           * Group: common          */
 DECL|method|objectMapper ( Object objectMapper)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2667,7 +2667,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          * The option will be converted to a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          * @group common          */
+comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          *           * The option will be converted to a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          *           * Group: common          */
 DECL|method|objectMapper ( String objectMapper)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2688,7 +2688,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|rawPayload (boolean rawPayload)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2709,7 +2709,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|rawPayload (String rawPayload)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2730,7 +2730,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|reportId (String reportId)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2751,7 +2751,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report metadata for filtering.          * The option is a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report metadata for filtering.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          *           * Group: common          */
 DECL|method|reportMetadata ( Object reportMetadata)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2772,7 +2772,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report metadata for filtering.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report metadata for filtering.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          *           * Group: common          */
 DECL|method|reportMetadata ( String reportMetadata)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2793,7 +2793,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Result ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Result ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resultId (String resultId)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2814,7 +2814,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|serializeNulls ( boolean serializeNulls)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2835,7 +2835,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|serializeNulls ( String serializeNulls)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2856,7 +2856,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject blob field name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject blob field name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectBlobFieldName ( String sObjectBlobFieldName)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2877,7 +2877,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Fully qualified SObject class name, usually generated using          * camel-salesforce-maven-plugin.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Fully qualified SObject class name, usually generated using          * camel-salesforce-maven-plugin.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectClass ( String sObjectClass)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2898,7 +2898,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject fields to retrieve.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject fields to retrieve.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectFields ( String sObjectFields)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2919,7 +2919,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject ID if required by API.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject ID if required by API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectId (String sObjectId)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2940,7 +2940,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject external ID field name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject external ID field name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectIdName ( String sObjectIdName)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2961,7 +2961,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject external ID field value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject external ID field value.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectIdValue ( String sObjectIdValue)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -2982,7 +2982,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject name if required or supported by API.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject name if required or supported by API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectName (String sObjectName)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -3003,7 +3003,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce SOQL query string.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce SOQL query string.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectQuery ( String sObjectQuery)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -3024,7 +3024,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce SOSL search string.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce SOSL search string.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectSearch ( String sObjectSearch)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -3045,7 +3045,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|updateTopic ( boolean updateTopic)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -3066,7 +3066,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|updateTopic (String updateTopic)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -3087,7 +3087,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -3108,7 +3108,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|SalesforceEndpointProducerBuilder
@@ -3151,7 +3151,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSalesforceEndpointProducerBuilder
@@ -3172,7 +3172,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSalesforceEndpointProducerBuilder
@@ -3193,7 +3193,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSalesforceEndpointProducerBuilder
@@ -3214,7 +3214,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSalesforceEndpointProducerBuilder
@@ -3259,7 +3259,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * APEX method name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APEX method name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apexMethod (String apexMethod)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3280,7 +3280,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Query params for APEX method.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * Query params for APEX method.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|apexQueryParams ( Map<String, Object> apexQueryParams)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3306,7 +3306,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Query params for APEX method.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * Query params for APEX method.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|apexQueryParams (String apexQueryParams)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3327,7 +3327,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * APEX method URL.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APEX method URL.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apexUrl (String apexUrl)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3348,7 +3348,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce API version, defaults to          * SalesforceEndpointConfig.DEFAULT_VERSION.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce API version, defaults to          * SalesforceEndpointConfig.DEFAULT_VERSION.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3369,7 +3369,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|backoffIncrement (long backoffIncrement)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3390,7 +3390,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Backoff interval increment for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|backoffIncrement ( String backoffIncrement)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3411,7 +3411,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Batch ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Batch ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|batchId (String batchId)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3432,7 +3432,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          * The option is a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          * @group common          */
+comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          *           * Group: common          */
 DECL|method|contentType (ContentType contentType)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3453,7 +3453,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          * @group common          */
+comment|/**          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.bulk.ContentType</code> type.          *           * Group: common          */
 DECL|method|contentType (String contentType)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3474,7 +3474,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|defaultReplayId (Long defaultReplayId)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3495,7 +3495,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Default replayId setting if no value is found in initialReplayIdMap.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|defaultReplayId (String defaultReplayId)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3516,7 +3516,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          * The option is a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          * @group common          */
+comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          *           * Group: common          */
 DECL|method|format (PayloadFormat format)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3537,7 +3537,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          * @group common          */
+comment|/**          * Payload format to use for Salesforce API calls, either JSON or XML,          * defaults to JSON.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.PayloadFormat</code> type.          *           * Group: common          */
 DECL|method|format (String format)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3558,7 +3558,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          * The option is a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          * @group common          */
+comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          *           * Group: common          */
 DECL|method|httpClient (Object httpClient)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3579,7 +3579,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          * @group common          */
+comment|/**          * Custom Jetty Http Client to use to connect to Salesforce.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.SalesforceHttpClient</code> type.          *           * Group: common          */
 DECL|method|httpClient (String httpClient)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3600,7 +3600,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|includeDetails (Boolean includeDetails)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3621,7 +3621,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Include details in Salesforce1 Analytics report, defaults to false.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|includeDetails (String includeDetails)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3642,7 +3642,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Replay IDs to start from per channel name.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Long&gt;</code> type.          * @group common          */
+comment|/**          * Replay IDs to start from per channel name.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Long&gt;</code> type.          *           * Group: common          */
 DECL|method|initialReplayIdMap ( Map<String, Long> initialReplayIdMap)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3668,7 +3668,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Replay IDs to start from per channel name.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Long&gt;</code>          * type.          * @group common          */
+comment|/**          * Replay IDs to start from per channel name.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Long&gt;</code>          * type.          *           * Group: common          */
 DECL|method|initialReplayIdMap ( String initialReplayIdMap)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3689,7 +3689,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report execution instance ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report execution instance ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|instanceId (String instanceId)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3710,7 +3710,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Job ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Job ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|jobId (String jobId)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3731,7 +3731,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|limit (Integer limit)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3752,7 +3752,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Limit on number of returned records. Applicable to some of the API,          * check the Salesforce documentation.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|limit (String limit)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3773,7 +3773,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|maxBackoff (long maxBackoff)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3794,7 +3794,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Maximum backoff interval for Streaming connection restart attempts          * for failures beyond CometD auto-reconnect.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|maxBackoff (String maxBackoff)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3815,7 +3815,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          * The option is a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          * @group common          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          *           * Group: common          */
 DECL|method|notFoundBehaviour ( NotFoundBehaviour notFoundBehaviour)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3836,7 +3836,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          * @group common          */
+comment|/**          * Sets the behaviour of 404 not found status received from Salesforce          * API. Should the body be set to NULL NotFoundBehaviour#NULL or should          * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -          * the default.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.NotFoundBehaviour</code>          * type.          *           * Group: common          */
 DECL|method|notFoundBehaviour ( String notFoundBehaviour)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3857,7 +3857,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          * The option is a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          * @group common          */
+comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForFields ( NotifyForFieldsEnum notifyForFields)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3878,7 +3878,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          * @group common          */
+comment|/**          * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForFieldsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForFields (String notifyForFields)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3899,7 +3899,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationCreate ( Boolean notifyForOperationCreate)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3920,7 +3920,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for create operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationCreate ( String notifyForOperationCreate)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3941,7 +3941,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationDelete ( Boolean notifyForOperationDelete)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3962,7 +3962,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for delete operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationDelete ( String notifyForOperationDelete)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -3983,7 +3983,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          * The option is a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          * @group common          */
+comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          *           * The option is a:          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForOperations ( NotifyForOperationsEnum notifyForOperations)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4004,7 +4004,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          * @group common          */
+comment|/**          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API          * version 29.0).          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnum</code> type.          *           * Group: common          */
 DECL|method|notifyForOperations ( String notifyForOperations)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4025,7 +4025,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationUndelete ( Boolean notifyForOperationUndelete)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4046,7 +4046,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for un-delete operation, defaults to false (API version =          * 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationUndelete ( String notifyForOperationUndelete)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4067,7 +4067,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|notifyForOperationUpdate ( Boolean notifyForOperationUpdate)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4088,7 +4088,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Notify for update operation, defaults to false (API version = 29.0).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|notifyForOperationUpdate ( String notifyForOperationUpdate)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4109,7 +4109,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          * The option is a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          * @group common          */
+comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          *           * The option is a:          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          *           * Group: common          */
 DECL|method|objectMapper (Object objectMapper)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4130,7 +4130,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          * The option will be converted to a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          * @group common          */
+comment|/**          * Custom Jackson ObjectMapper to use when serializing/deserializing          * Salesforce objects.          *           * The option will be converted to a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          *           * Group: common          */
 DECL|method|objectMapper (String objectMapper)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4151,7 +4151,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|rawPayload (boolean rawPayload)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4172,7 +4172,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use raw payload String for request and response (either JSON or XML          * depending on format), instead of DTOs, false by default.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|rawPayload (String rawPayload)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4193,7 +4193,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report Id.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|reportId (String reportId)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4214,7 +4214,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report metadata for filtering.          * The option is a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report metadata for filtering.          *           * The option is a:          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          *           * Group: common          */
 DECL|method|reportMetadata (Object reportMetadata)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4235,7 +4235,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce1 Analytics report metadata for filtering.          * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          * @group common          */
+comment|/**          * Salesforce1 Analytics report metadata for filtering.          *           * The option will be converted to a          *<code>org.apache.camel.component.salesforce.api.dto.analytics.reports.ReportMetadata</code> type.          *           * Group: common          */
 DECL|method|reportMetadata (String reportMetadata)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4256,7 +4256,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bulk API Result ID.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Bulk API Result ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|resultId (String resultId)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4277,7 +4277,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|serializeNulls (boolean serializeNulls)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4298,7 +4298,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|serializeNulls (String serializeNulls)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4319,7 +4319,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject blob field name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject blob field name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectBlobFieldName ( String sObjectBlobFieldName)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4340,7 +4340,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Fully qualified SObject class name, usually generated using          * camel-salesforce-maven-plugin.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Fully qualified SObject class name, usually generated using          * camel-salesforce-maven-plugin.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectClass (String sObjectClass)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4361,7 +4361,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject fields to retrieve.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject fields to retrieve.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectFields (String sObjectFields)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4382,7 +4382,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject ID if required by API.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject ID if required by API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectId (String sObjectId)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4403,7 +4403,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject external ID field name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject external ID field name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectIdName (String sObjectIdName)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4424,7 +4424,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject external ID field value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject external ID field value.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectIdValue (String sObjectIdValue)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4445,7 +4445,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SObject name if required or supported by API.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * SObject name if required or supported by API.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectName (String sObjectName)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4466,7 +4466,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce SOQL query string.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce SOQL query string.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectQuery (String sObjectQuery)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4487,7 +4487,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Salesforce SOSL search string.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Salesforce SOSL search string.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectSearch (String sObjectSearch)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4508,7 +4508,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|updateTopic (boolean updateTopic)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4529,7 +4529,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to update an existing Push Topic when using the Streaming          * API, defaults to false.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|updateTopic (String updateTopic)
 specifier|default
 name|SalesforceEndpointBuilder
@@ -4574,7 +4574,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSalesforceEndpointBuilder
@@ -4595,7 +4595,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSalesforceEndpointBuilder
@@ -4616,7 +4616,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSalesforceEndpointBuilder
@@ -4637,7 +4637,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSalesforceEndpointBuilder

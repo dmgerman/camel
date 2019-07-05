@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the bean with the MyBatis annotations. This can either by a          * type alias or a FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of the bean with the MyBatis annotations. This can either by a          * type alias or a FQN class name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|beanName (String beanName)
 specifier|default
 name|MyBatisBeanEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the method on the bean that has the SQL query to be executed.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of the method on the bean that has the SQL query to be executed.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|methodName (String methodName)
 specifier|default
 name|MyBatisBeanEndpointBuilder
@@ -174,7 +174,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder
@@ -195,7 +195,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder
@@ -216,7 +216,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder
@@ -237,7 +237,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedMyBatisBeanEndpointBuilder

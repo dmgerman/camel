@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the cache.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The name of the cache.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|cacheName (String cacheName)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reliable (boolean reliable)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reliable (String reliable)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option is a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group consumer          */
+comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          *           * The option is a:          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          *           * Group: consumer          */
 DECL|method|defaultOperation ( HazelcastOperation defaultOperation)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          * The option will be converted to a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          * @group consumer          */
+comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          *           * The option will be converted to a          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          *           * Group: consumer          */
 DECL|method|defaultOperation ( String defaultOperation)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option is a<code>com.hazelcast.core.HazelcastInstance</code>          * type.          * @group consumer          */
+comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          *           * The option is a:<code>com.hazelcast.core.HazelcastInstance</code>          * type.          *           * Group: consumer          */
 DECL|method|hazelcastInstance ( Object hazelcastInstance)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          * The option will be converted to a          *<code>com.hazelcast.core.HazelcastInstance</code> type.          * @group consumer          */
+comment|/**          * The hazelcast instance reference which can be used for hazelcast          * endpoint.          *           * The option will be converted to a          *<code>com.hazelcast.core.HazelcastInstance</code> type.          *           * Group: consumer          */
 DECL|method|hazelcastInstance ( String hazelcastInstance)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The hazelcast instance reference name which can be used for hazelcast          * endpoint. If you don't specify the instance reference, camel use the          * default hazelcast instance from the camel-hazelcast instance.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The hazelcast instance reference name which can be used for hazelcast          * endpoint. If you don't specify the instance reference, camel use the          * default hazelcast instance from the camel-hazelcast instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|hazelcastInstanceName ( String hazelcastInstanceName)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option is a<code>int</code> type.          * @group seda          */
+comment|/**          * To use concurrent consumers polling from the SEDA queue.          *           * The option is a:<code>int</code> type.          *           * Group: seda          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use concurrent consumers polling from the SEDA queue.          * The option will be converted to a<code>int</code> type.          * @group seda          */
+comment|/**          * To use concurrent consumers polling from the SEDA queue.          *           * The option will be converted to a<code>int</code> type.          *           * Group: seda          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option is a<code>int</code> type.          * @group seda          */
+comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          *           * The option is a:<code>int</code> type.          *           * Group: seda          */
 DECL|method|onErrorDelay (int onErrorDelay)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          * The option will be converted to a<code>int</code> type.          * @group seda          */
+comment|/**          * Milliseconds before consumer continues polling after an error has          * occurred.          *           * The option will be converted to a<code>int</code> type.          *           * Group: seda          */
 DECL|method|onErrorDelay ( String onErrorDelay)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -362,7 +362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option is a<code>int</code> type.          * @group seda          */
+comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          *           * The option is a:<code>int</code> type.          *           * Group: seda          */
 DECL|method|pollTimeout (int pollTimeout)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          * The option will be converted to a<code>int</code> type.          * @group seda          */
+comment|/**          * The timeout used when consuming from the SEDA queue. When a timeout          * occurs, the consumer can check whether it is allowed to continue          * running. Setting a lower value allows the consumer to react more          * quickly upon shutdown.          *           * The option will be converted to a<code>int</code> type.          *           * Group: seda          */
 DECL|method|pollTimeout (String pollTimeout)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -404,7 +404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option is a<code>boolean</code> type.          * @group seda          */
+comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          *           * The option is a:<code>boolean</code> type.          *           * Group: seda          */
 DECL|method|transacted (boolean transacted)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -425,7 +425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
+comment|/**          * If set to true then the consumer runs in transaction mode, where the          * messages in the seda queue will only be removed if the transaction          * commits, which happens when the processing is complete.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: seda          */
 DECL|method|transacted (String transacted)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option is a<code>boolean</code> type.          * @group seda          */
+comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          *           * The option is a:<code>boolean</code> type.          *           * Group: seda          */
 DECL|method|transferExchange ( boolean transferExchange)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -467,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          * The option will be converted to a<code>boolean</code> type.          * @group seda          */
+comment|/**          * If set to true the whole Exchange will be transfered. If header or          * body contains not serializable objects, they will be skipped.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: seda          */
 DECL|method|transferExchange ( String transferExchange)
 specifier|default
 name|HazelcastInstanceEndpointBuilder
@@ -510,7 +510,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedHazelcastInstanceEndpointBuilder
@@ -531,7 +531,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedHazelcastInstanceEndpointBuilder
@@ -552,7 +552,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedHazelcastInstanceEndpointBuilder
@@ -573,7 +573,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedHazelcastInstanceEndpointBuilder

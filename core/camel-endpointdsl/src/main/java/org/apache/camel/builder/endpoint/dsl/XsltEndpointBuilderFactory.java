@@ -120,7 +120,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Path to the template. The following is supported by the default          * URIResolver. You can prefix with: classpath, file, http, ref, or          * bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Path to the template. The following is supported by the default          * URIResolver. You can prefix with: classpath, file, http, ref, or          * bean. classpath, file and http loads the resource using these          * protocols (classpath is default). ref will lookup the resource in the          * registry. bean will call a method on a bean to be used as the          * resource. For bean you can specify the method name after dot, eg          * bean:myBean.myMethod.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|resourceUri (String resourceUri)
 specifier|default
 name|XsltEndpointBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowStAX (boolean allowStAX)
 specifier|default
 name|XsltEndpointBuilder
@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowStAX (String allowStAX)
 specifier|default
 name|XsltEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Cache for the resource content (the stylesheet file) when it is          * loaded. If set to false Camel will reload the stylesheet file on each          * message processing. This is good for development. A cached stylesheet          * can be forced to reload at runtime via JMX using the          * clearCachedStylesheet operation.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Cache for the resource content (the stylesheet file) when it is          * loaded. If set to false Camel will reload the stylesheet file on each          * message processing. This is good for development. A cached stylesheet          * can be forced to reload at runtime via JMX using the          * clearCachedStylesheet operation.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (boolean contentCache)
 specifier|default
 name|XsltEndpointBuilder
@@ -204,7 +204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Cache for the resource content (the stylesheet file) when it is          * loaded. If set to false Camel will reload the stylesheet file on each          * message processing. This is good for development. A cached stylesheet          * can be forced to reload at runtime via JMX using the          * clearCachedStylesheet operation.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Cache for the resource content (the stylesheet file) when it is          * loaded. If set to false Camel will reload the stylesheet file on each          * message processing. This is good for development. A cached stylesheet          * can be forced to reload at runtime via JMX using the          * clearCachedStylesheet operation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (String contentCache)
 specifier|default
 name|XsltEndpointBuilder
@@ -225,7 +225,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you have output=file then this option dictates whether or not the          * output file should be deleted when the Exchange is done processing.          * For example suppose the output file is a temporary file, then it can          * be a good idea to delete it after use.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If you have output=file then this option dictates whether or not the          * output file should be deleted when the Exchange is done processing.          * For example suppose the output file is a temporary file, then it can          * be a good idea to delete it after use.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|deleteOutputFile (boolean deleteOutputFile)
 specifier|default
 name|XsltEndpointBuilder
@@ -246,7 +246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you have output=file then this option dictates whether or not the          * output file should be deleted when the Exchange is done processing.          * For example suppose the output file is a temporary file, then it can          * be a good idea to delete it after use.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If you have output=file then this option dictates whether or not the          * output file should be deleted when the Exchange is done processing.          * For example suppose the output file is a temporary file, then it can          * be a good idea to delete it after use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|deleteOutputFile (String deleteOutputFile)
 specifier|default
 name|XsltEndpointBuilder
@@ -267,7 +267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to throw an exception if the input body is null.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether or not to throw an exception if the input body is null.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failOnNullBody (boolean failOnNullBody)
 specifier|default
 name|XsltEndpointBuilder
@@ -288,7 +288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to throw an exception if the input body is null.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether or not to throw an exception if the input body is null.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failOnNullBody (String failOnNullBody)
 specifier|default
 name|XsltEndpointBuilder
@@ -309,7 +309,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to specify which output type to use. Possible values are:          * string, bytes, DOM, file. The first three options are all in memory          * based, where as file is streamed directly to a java.io.File. For file          * you must specify the filename in the IN header with the key          * Exchange.XSLT_FILE_NAME which is also CamelXsltFileName. Also any          * paths leading to the filename must be created beforehand, otherwise          * an exception is thrown at runtime.          * The option is a          *<code>org.apache.camel.component.xslt.XsltOutput</code> type.          * @group producer          */
+comment|/**          * Option to specify which output type to use. Possible values are:          * string, bytes, DOM, file. The first three options are all in memory          * based, where as file is streamed directly to a java.io.File. For file          * you must specify the filename in the IN header with the key          * Exchange.XSLT_FILE_NAME which is also CamelXsltFileName. Also any          * paths leading to the filename must be created beforehand, otherwise          * an exception is thrown at runtime.          *           * The option is a:          *<code>org.apache.camel.component.xslt.XsltOutput</code> type.          *           * Group: producer          */
 DECL|method|output (XsltOutput output)
 specifier|default
 name|XsltEndpointBuilder
@@ -330,7 +330,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to specify which output type to use. Possible values are:          * string, bytes, DOM, file. The first three options are all in memory          * based, where as file is streamed directly to a java.io.File. For file          * you must specify the filename in the IN header with the key          * Exchange.XSLT_FILE_NAME which is also CamelXsltFileName. Also any          * paths leading to the filename must be created beforehand, otherwise          * an exception is thrown at runtime.          * The option will be converted to a          *<code>org.apache.camel.component.xslt.XsltOutput</code> type.          * @group producer          */
+comment|/**          * Option to specify which output type to use. Possible values are:          * string, bytes, DOM, file. The first three options are all in memory          * based, where as file is streamed directly to a java.io.File. For file          * you must specify the filename in the IN header with the key          * Exchange.XSLT_FILE_NAME which is also CamelXsltFileName. Also any          * paths leading to the filename must be created beforehand, otherwise          * an exception is thrown at runtime.          *           * The option will be converted to a          *<code>org.apache.camel.component.xslt.XsltOutput</code> type.          *           * Group: producer          */
 DECL|method|output (String output)
 specifier|default
 name|XsltEndpointBuilder
@@ -351,7 +351,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Saxon as the transformerFactoryClass. If enabled then          * the class net.sf.saxon.TransformerFactoryImpl. You would need to add          * Saxon to the classpath.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to use Saxon as the transformerFactoryClass. If enabled then          * the class net.sf.saxon.TransformerFactoryImpl. You would need to add          * Saxon to the classpath.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|saxon (boolean saxon)
 specifier|default
 name|XsltEndpointBuilder
@@ -372,7 +372,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Saxon as the transformerFactoryClass. If enabled then          * the class net.sf.saxon.TransformerFactoryImpl. You would need to add          * Saxon to the classpath.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to use Saxon as the transformerFactoryClass. If enabled then          * the class net.sf.saxon.TransformerFactoryImpl. You would need to add          * Saxon to the classpath.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|saxon (String saxon)
 specifier|default
 name|XsltEndpointBuilder
@@ -393,7 +393,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of javax.xml.transform.Transformer object that are cached          * for reuse to avoid calls to Template.newTransformer().          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The number of javax.xml.transform.Transformer object that are cached          * for reuse to avoid calls to Template.newTransformer().          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|transformerCacheSize ( int transformerCacheSize)
 specifier|default
 name|XsltEndpointBuilder
@@ -414,7 +414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of javax.xml.transform.Transformer object that are cached          * for reuse to avoid calls to Template.newTransformer().          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The number of javax.xml.transform.Transformer object that are cached          * for reuse to avoid calls to Template.newTransformer().          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|transformerCacheSize ( String transformerCacheSize)
 specifier|default
 name|XsltEndpointBuilder
@@ -457,7 +457,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -478,7 +478,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -499,7 +499,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom org.xml.sax.EntityResolver with          * javax.xml.transform.sax.SAXSource.          * The option is a<code>org.xml.sax.EntityResolver</code> type.          * @group advanced          */
+comment|/**          * To use a custom org.xml.sax.EntityResolver with          * javax.xml.transform.sax.SAXSource.          *           * The option is a:<code>org.xml.sax.EntityResolver</code> type.          *           * Group: advanced          */
 DECL|method|entityResolver (Object entityResolver)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -520,7 +520,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom org.xml.sax.EntityResolver with          * javax.xml.transform.sax.SAXSource.          * The option will be converted to a          *<code>org.xml.sax.EntityResolver</code> type.          * @group advanced          */
+comment|/**          * To use a custom org.xml.sax.EntityResolver with          * javax.xml.transform.sax.SAXSource.          *           * The option will be converted to a          *<code>org.xml.sax.EntityResolver</code> type.          *           * Group: advanced          */
 DECL|method|entityResolver (String entityResolver)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -541,7 +541,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to configure to use a custom          * javax.xml.transform.ErrorListener. Beware when doing this then the          * default error listener which captures any errors or fatal errors and          * store information on the Exchange as properties is not in use. So          * only use this option for special use-cases.          * The option is a<code>javax.xml.transform.ErrorListener</code> type.          * @group advanced          */
+comment|/**          * Allows to configure to use a custom          * javax.xml.transform.ErrorListener. Beware when doing this then the          * default error listener which captures any errors or fatal errors and          * store information on the Exchange as properties is not in use. So          * only use this option for special use-cases.          *           * The option is a:<code>javax.xml.transform.ErrorListener</code> type.          *           * Group: advanced          */
 DECL|method|errorListener (Object errorListener)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -562,7 +562,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to configure to use a custom          * javax.xml.transform.ErrorListener. Beware when doing this then the          * default error listener which captures any errors or fatal errors and          * store information on the Exchange as properties is not in use. So          * only use this option for special use-cases.          * The option will be converted to a          *<code>javax.xml.transform.ErrorListener</code> type.          * @group advanced          */
+comment|/**          * Allows to configure to use a custom          * javax.xml.transform.ErrorListener. Beware when doing this then the          * default error listener which captures any errors or fatal errors and          * store information on the Exchange as properties is not in use. So          * only use this option for special use-cases.          *           * The option will be converted to a          *<code>javax.xml.transform.ErrorListener</code> type.          *           * Group: advanced          */
 DECL|method|errorListener (String errorListener)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -583,7 +583,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to use a custom          * org.apache.camel.builder.xml.ResultHandlerFactory which is capable of          * using custom org.apache.camel.builder.xml.ResultHandler types.          * The option is a          *<code>org.apache.camel.component.xslt.ResultHandlerFactory</code>          * type.          * @group advanced          */
+comment|/**          * Allows you to use a custom          * org.apache.camel.builder.xml.ResultHandlerFactory which is capable of          * using custom org.apache.camel.builder.xml.ResultHandler types.          *           * The option is a:          *<code>org.apache.camel.component.xslt.ResultHandlerFactory</code>          * type.          *           * Group: advanced          */
 DECL|method|resultHandlerFactory ( Object resultHandlerFactory)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -604,7 +604,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to use a custom          * org.apache.camel.builder.xml.ResultHandlerFactory which is capable of          * using custom org.apache.camel.builder.xml.ResultHandler types.          * The option will be converted to a          *<code>org.apache.camel.component.xslt.ResultHandlerFactory</code>          * type.          * @group advanced          */
+comment|/**          * Allows you to use a custom          * org.apache.camel.builder.xml.ResultHandlerFactory which is capable of          * using custom org.apache.camel.builder.xml.ResultHandler types.          *           * The option will be converted to a          *<code>org.apache.camel.component.xslt.ResultHandlerFactory</code>          * type.          *           * Group: advanced          */
 DECL|method|resultHandlerFactory ( String resultHandlerFactory)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -625,7 +625,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom Saxon configuration.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * To use a custom Saxon configuration.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|saxonConfiguration ( Object saxonConfiguration)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -646,7 +646,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom Saxon configuration.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * To use a custom Saxon configuration.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|saxonConfiguration ( String saxonConfiguration)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -667,7 +667,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          * The option is a<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          *           * The option is a:<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|saxonExtensionFunctions ( List<Object> saxonExtensionFunctions)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -691,7 +691,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|saxonExtensionFunctions ( String saxonExtensionFunctions)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -712,7 +712,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -733,7 +733,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -754,7 +754,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom XSLT transformer factory.          * The option is a<code>javax.xml.transform.TransformerFactory</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom XSLT transformer factory.          *           * The option is a:<code>javax.xml.transform.TransformerFactory</code>          * type.          *           * Group: advanced          */
 DECL|method|transformerFactory ( Object transformerFactory)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -775,7 +775,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom XSLT transformer factory.          * The option will be converted to a          *<code>javax.xml.transform.TransformerFactory</code> type.          * @group advanced          */
+comment|/**          * To use a custom XSLT transformer factory.          *           * The option will be converted to a          *<code>javax.xml.transform.TransformerFactory</code> type.          *           * Group: advanced          */
 DECL|method|transformerFactory ( String transformerFactory)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -796,7 +796,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom XSLT transformer factory, specified as a FQN class          * name.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * To use a custom XSLT transformer factory, specified as a FQN class          * name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|transformerFactoryClass ( String transformerFactoryClass)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -817,7 +817,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom javax.xml.transform.URIResolver.          * The option is a<code>javax.xml.transform.URIResolver</code> type.          * @group advanced          */
+comment|/**          * To use a custom javax.xml.transform.URIResolver.          *           * The option is a:<code>javax.xml.transform.URIResolver</code> type.          *           * Group: advanced          */
 DECL|method|uriResolver (Object uriResolver)
 specifier|default
 name|AdvancedXsltEndpointBuilder
@@ -838,7 +838,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom javax.xml.transform.URIResolver.          * The option will be converted to a          *<code>javax.xml.transform.URIResolver</code> type.          * @group advanced          */
+comment|/**          * To use a custom javax.xml.transform.URIResolver.          *           * The option will be converted to a          *<code>javax.xml.transform.URIResolver</code> type.          *           * Group: advanced          */
 DECL|method|uriResolver (String uriResolver)
 specifier|default
 name|AdvancedXsltEndpointBuilder

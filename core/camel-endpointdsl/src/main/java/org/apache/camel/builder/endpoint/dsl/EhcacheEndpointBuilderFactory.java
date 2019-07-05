@@ -156,7 +156,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * the cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|cacheName (String cacheName)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -177,7 +177,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager.          * The option is a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          * @group common          */
+comment|/**          * The cache manager.          *           * The option is a:          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          *           * Group: common          */
 DECL|method|cacheManager (Object cacheManager)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -198,7 +198,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager.          * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          * @group common          */
+comment|/**          * The cache manager.          *           * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          *           * Group: common          */
 DECL|method|cacheManager (String cacheManager)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -219,7 +219,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager configuration.          * The option is a<code>org.ehcache.config.Configuration</code> type.          * @group common          */
+comment|/**          * The cache manager configuration.          *           * The option is a:<code>org.ehcache.config.Configuration</code> type.          *           * Group: common          */
 DECL|method|cacheManagerConfiguration ( Object cacheManagerConfiguration)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -240,7 +240,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager configuration.          * The option will be converted to a          *<code>org.ehcache.config.Configuration</code> type.          * @group common          */
+comment|/**          * The cache manager configuration.          *           * The option will be converted to a          *<code>org.ehcache.config.Configuration</code> type.          *           * Group: common          */
 DECL|method|cacheManagerConfiguration ( String cacheManagerConfiguration)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -261,7 +261,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URI pointing to the Ehcache XML configuration file's location.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URI pointing to the Ehcache XML configuration file's location.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|configurationUri ( String configurationUri)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -282,7 +282,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCacheIfNotExist ( boolean createCacheIfNotExist)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -303,7 +303,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCacheIfNotExist ( String createCacheIfNotExist)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -324,7 +324,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -345,7 +345,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -366,7 +366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the delivery mode (synchronous, asynchronous).          * The option is a<code>org.ehcache.event.EventFiring</code> type.          * @group consumer          */
+comment|/**          * Set the delivery mode (synchronous, asynchronous).          *           * The option is a:<code>org.ehcache.event.EventFiring</code> type.          *           * Group: consumer          */
 DECL|method|eventFiring ( EventFiring eventFiring)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -387,7 +387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the delivery mode (synchronous, asynchronous).          * The option will be converted to a          *<code>org.ehcache.event.EventFiring</code> type.          * @group consumer          */
+comment|/**          * Set the delivery mode (synchronous, asynchronous).          *           * The option will be converted to a          *<code>org.ehcache.event.EventFiring</code> type.          *           * Group: consumer          */
 DECL|method|eventFiring (String eventFiring)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -408,7 +408,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the delivery mode (ordered, unordered).          * The option is a<code>org.ehcache.event.EventOrdering</code> type.          * @group consumer          */
+comment|/**          * Set the delivery mode (ordered, unordered).          *           * The option is a:<code>org.ehcache.event.EventOrdering</code> type.          *           * Group: consumer          */
 DECL|method|eventOrdering ( EventOrdering eventOrdering)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -429,7 +429,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the delivery mode (ordered, unordered).          * The option will be converted to a          *<code>org.ehcache.event.EventOrdering</code> type.          * @group consumer          */
+comment|/**          * Set the delivery mode (ordered, unordered).          *           * The option will be converted to a          *<code>org.ehcache.event.EventOrdering</code> type.          *           * Group: consumer          */
 DECL|method|eventOrdering ( String eventOrdering)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -450,7 +450,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the type of events to listen for.          * The option is a          *<code>java.util.Set&lt;org.ehcache.event.EventType&gt;</code> type.          * @group consumer          */
+comment|/**          * Set the type of events to listen for.          *           * The option is a:          *<code>java.util.Set&lt;org.ehcache.event.EventType&gt;</code> type.          *           * Group: consumer          */
 DECL|method|eventTypes ( Set<EventType> eventTypes)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -474,7 +474,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the type of events to listen for.          * The option will be converted to a          *<code>java.util.Set&lt;org.ehcache.event.EventType&gt;</code> type.          * @group consumer          */
+comment|/**          * Set the type of events to listen for.          *           * The option will be converted to a          *<code>java.util.Set&lt;org.ehcache.event.EventType&gt;</code> type.          *           * Group: consumer          */
 DECL|method|eventTypes (String eventTypes)
 specifier|default
 name|EhcacheEndpointConsumerBuilder
@@ -517,7 +517,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -538,7 +538,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -559,7 +559,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -580,7 +580,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -601,7 +601,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -622,7 +622,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -643,7 +643,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default cache configuration to be used to create caches.          * The option is a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          * @group advanced          */
+comment|/**          * The default cache configuration to be used to create caches.          *           * The option is a:          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          *           * Group: advanced          */
 DECL|method|configuration ( Object configuration)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -664,7 +664,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default cache configuration to be used to create caches.          * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          * @group advanced          */
+comment|/**          * The default cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          *           * Group: advanced          */
 DECL|method|configuration ( String configuration)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -685,7 +685,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          * The option is a<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          * @group advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( Map<String, Object> configurations)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -711,7 +711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          * @group advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( String configurations)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -732,7 +732,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|keyType ( Class<Object> keyType)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -756,7 +756,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -777,7 +777,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -798,7 +798,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -819,7 +819,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|valueType ( Class<Object> valueType)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -843,7 +843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|valueType ( String valueType)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -886,7 +886,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * the cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|cacheName (String cacheName)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -907,7 +907,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager.          * The option is a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          * @group common          */
+comment|/**          * The cache manager.          *           * The option is a:          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          *           * Group: common          */
 DECL|method|cacheManager (Object cacheManager)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -928,7 +928,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager.          * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          * @group common          */
+comment|/**          * The cache manager.          *           * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          *           * Group: common          */
 DECL|method|cacheManager (String cacheManager)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -949,7 +949,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager configuration.          * The option is a<code>org.ehcache.config.Configuration</code> type.          * @group common          */
+comment|/**          * The cache manager configuration.          *           * The option is a:<code>org.ehcache.config.Configuration</code> type.          *           * Group: common          */
 DECL|method|cacheManagerConfiguration ( Object cacheManagerConfiguration)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -970,7 +970,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager configuration.          * The option will be converted to a          *<code>org.ehcache.config.Configuration</code> type.          * @group common          */
+comment|/**          * The cache manager configuration.          *           * The option will be converted to a          *<code>org.ehcache.config.Configuration</code> type.          *           * Group: common          */
 DECL|method|cacheManagerConfiguration ( String cacheManagerConfiguration)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -991,7 +991,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URI pointing to the Ehcache XML configuration file's location.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URI pointing to the Ehcache XML configuration file's location.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|configurationUri ( String configurationUri)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -1012,7 +1012,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCacheIfNotExist ( boolean createCacheIfNotExist)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -1033,7 +1033,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCacheIfNotExist ( String createCacheIfNotExist)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -1054,7 +1054,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the default cache action. If an action is set in the          * message header, then the operation from the header takes precedence.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * To configure the default cache action. If an action is set in the          * message header, then the operation from the header takes precedence.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|action (String action)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -1075,7 +1075,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the default action key. If a key is set in the message          * header, then the key from the header takes precedence.          * The option is a<code>java.lang.Object</code> type.          * @group producer          */
+comment|/**          * To configure the default action key. If a key is set in the message          * header, then the key from the header takes precedence.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: producer          */
 DECL|method|key (Object key)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -1096,7 +1096,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the default action key. If a key is set in the message          * header, then the key from the header takes precedence.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group producer          */
+comment|/**          * To configure the default action key. If a key is set in the message          * header, then the key from the header takes precedence.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: producer          */
 DECL|method|key (String key)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -1117,7 +1117,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -1138,7 +1138,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|EhcacheEndpointProducerBuilder
@@ -1181,7 +1181,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1202,7 +1202,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1223,7 +1223,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default cache configuration to be used to create caches.          * The option is a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          * @group advanced          */
+comment|/**          * The default cache configuration to be used to create caches.          *           * The option is a:          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          *           * Group: advanced          */
 DECL|method|configuration ( Object configuration)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1244,7 +1244,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default cache configuration to be used to create caches.          * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          * @group advanced          */
+comment|/**          * The default cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          *           * Group: advanced          */
 DECL|method|configuration ( String configuration)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1265,7 +1265,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          * The option is a<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          * @group advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( Map<String, Object> configurations)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1291,7 +1291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          * @group advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( String configurations)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1312,7 +1312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|keyType ( Class<Object> keyType)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1336,7 +1336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1357,7 +1357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1378,7 +1378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1399,7 +1399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|valueType ( Class<Object> valueType)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|valueType ( String valueType)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1468,7 +1468,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * the cache name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|cacheName (String cacheName)
 specifier|default
 name|EhcacheEndpointBuilder
@@ -1489,7 +1489,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager.          * The option is a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          * @group common          */
+comment|/**          * The cache manager.          *           * The option is a:          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          *           * Group: common          */
 DECL|method|cacheManager (Object cacheManager)
 specifier|default
 name|EhcacheEndpointBuilder
@@ -1510,7 +1510,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager.          * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          * @group common          */
+comment|/**          * The cache manager.          *           * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          *           * Group: common          */
 DECL|method|cacheManager (String cacheManager)
 specifier|default
 name|EhcacheEndpointBuilder
@@ -1531,7 +1531,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager configuration.          * The option is a<code>org.ehcache.config.Configuration</code> type.          * @group common          */
+comment|/**          * The cache manager configuration.          *           * The option is a:<code>org.ehcache.config.Configuration</code> type.          *           * Group: common          */
 DECL|method|cacheManagerConfiguration ( Object cacheManagerConfiguration)
 specifier|default
 name|EhcacheEndpointBuilder
@@ -1552,7 +1552,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache manager configuration.          * The option will be converted to a          *<code>org.ehcache.config.Configuration</code> type.          * @group common          */
+comment|/**          * The cache manager configuration.          *           * The option will be converted to a          *<code>org.ehcache.config.Configuration</code> type.          *           * Group: common          */
 DECL|method|cacheManagerConfiguration ( String cacheManagerConfiguration)
 specifier|default
 name|EhcacheEndpointBuilder
@@ -1573,7 +1573,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URI pointing to the Ehcache XML configuration file's location.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URI pointing to the Ehcache XML configuration file's location.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|configurationUri (String configurationUri)
 specifier|default
 name|EhcacheEndpointBuilder
@@ -1594,7 +1594,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCacheIfNotExist ( boolean createCacheIfNotExist)
 specifier|default
 name|EhcacheEndpointBuilder
@@ -1615,7 +1615,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCacheIfNotExist ( String createCacheIfNotExist)
 specifier|default
 name|EhcacheEndpointBuilder
@@ -1660,7 +1660,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1681,7 +1681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1702,7 +1702,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default cache configuration to be used to create caches.          * The option is a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          * @group advanced          */
+comment|/**          * The default cache configuration to be used to create caches.          *           * The option is a:          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          *           * Group: advanced          */
 DECL|method|configuration ( Object configuration)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1723,7 +1723,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default cache configuration to be used to create caches.          * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          * @group advanced          */
+comment|/**          * The default cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>org.apache.camel.component.ehcache.EhcacheConfiguration</code>          * type.          *           * Group: advanced          */
 DECL|method|configuration ( String configuration)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1744,7 +1744,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          * The option is a<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          * @group advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( Map<String, Object> configurations)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1770,7 +1770,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          * @group advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( String configurations)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1791,7 +1791,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|keyType (Class<Object> keyType)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1815,7 +1815,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1836,7 +1836,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1857,7 +1857,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1878,7 +1878,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          * The option is a<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          * @group advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|valueType (Class<Object> valueType)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1902,7 +1902,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          * @group advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
 DECL|method|valueType (String valueType)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder

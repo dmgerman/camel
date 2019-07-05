@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Type of metrics.          * The option is a<code>io.micrometer.core.instrument.Meter$Type</code>          * type.          * @group producer          */
+comment|/**          * Type of metrics.          *           * The option is a:          *<code>io.micrometer.core.instrument.Meter$Type</code> type.          *           * Group: producer          */
 DECL|method|metricsType (Type metricsType)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Type of metrics.          * The option will be converted to a          *<code>io.micrometer.core.instrument.Meter$Type</code> type.          * @group producer          */
+comment|/**          * Type of metrics.          *           * The option will be converted to a          *<code>io.micrometer.core.instrument.Meter$Type</code> type.          *           * Group: producer          */
 DECL|method|metricsType (String metricsType)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of metrics.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of metrics.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|metricsName (String metricsName)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tags of metrics.          * The option is a          *<code>java.lang.Iterable&lt;io.micrometer.core.instrument.Tag&gt;</code> type.          * @group producer          */
+comment|/**          * Tags of metrics.          *           * The option is a:          *<code>java.lang.Iterable&lt;io.micrometer.core.instrument.Tag&gt;</code> type.          *           * Group: producer          */
 DECL|method|tags (Iterable<Object> tags)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -197,7 +197,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tags of metrics.          * The option will be converted to a          *<code>java.lang.Iterable&lt;io.micrometer.core.instrument.Tag&gt;</code> type.          * @group producer          */
+comment|/**          * Tags of metrics.          *           * The option will be converted to a          *<code>java.lang.Iterable&lt;io.micrometer.core.instrument.Tag&gt;</code> type.          *           * Group: producer          */
 DECL|method|tags (String tags)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -218,7 +218,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Action expression when using timer type.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Action expression when using timer type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|action (String action)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -239,7 +239,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Decrement value expression when using counter type.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Decrement value expression when using counter type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|decrement (String decrement)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -260,7 +260,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Increment value expression when using counter type.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Increment value expression when using counter type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|increment (String increment)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -281,7 +281,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Value expression when using histogram type.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Value expression when using histogram type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|value (String value)
 specifier|default
 name|MicrometerEndpointBuilder
@@ -324,7 +324,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedMicrometerEndpointBuilder
@@ -345,7 +345,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedMicrometerEndpointBuilder
@@ -366,7 +366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedMicrometerEndpointBuilder
@@ -387,7 +387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedMicrometerEndpointBuilder

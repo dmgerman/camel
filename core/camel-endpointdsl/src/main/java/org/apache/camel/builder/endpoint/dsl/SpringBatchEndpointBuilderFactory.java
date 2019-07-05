@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the Spring Batch job located in the registry.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The name of the Spring Batch job located in the registry.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|jobName (String jobName)
 specifier|default
 name|SpringBatchEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Explicitly defines if the jobName should be taken from the headers          * instead of the URI.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Explicitly defines if the jobName should be taken from the headers          * instead of the URI.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|jobFromHeader (boolean jobFromHeader)
 specifier|default
 name|SpringBatchEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Explicitly defines if the jobName should be taken from the headers          * instead of the URI.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Explicitly defines if the jobName should be taken from the headers          * instead of the URI.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|jobFromHeader (String jobFromHeader)
 specifier|default
 name|SpringBatchEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Explicitly specifies a JobLauncher to be used.          * The option is a          *<code>org.springframework.batch.core.launch.JobLauncher</code> type.          * @group producer          */
+comment|/**          * Explicitly specifies a JobLauncher to be used.          *           * The option is a:          *<code>org.springframework.batch.core.launch.JobLauncher</code> type.          *           * Group: producer          */
 DECL|method|jobLauncher (Object jobLauncher)
 specifier|default
 name|SpringBatchEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Explicitly specifies a JobLauncher to be used.          * The option will be converted to a          *<code>org.springframework.batch.core.launch.JobLauncher</code> type.          * @group producer          */
+comment|/**          * Explicitly specifies a JobLauncher to be used.          *           * The option will be converted to a          *<code>org.springframework.batch.core.launch.JobLauncher</code> type.          *           * Group: producer          */
 DECL|method|jobLauncher (String jobLauncher)
 specifier|default
 name|SpringBatchEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Explicitly specifies a JobRegistry to be used.          * The option is a          *<code>org.springframework.batch.core.configuration.JobRegistry</code>          * type.          * @group producer          */
+comment|/**          * Explicitly specifies a JobRegistry to be used.          *           * The option is a:          *<code>org.springframework.batch.core.configuration.JobRegistry</code>          * type.          *           * Group: producer          */
 DECL|method|jobRegistry (Object jobRegistry)
 specifier|default
 name|SpringBatchEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Explicitly specifies a JobRegistry to be used.          * The option will be converted to a          *<code>org.springframework.batch.core.configuration.JobRegistry</code>          * type.          * @group producer          */
+comment|/**          * Explicitly specifies a JobRegistry to be used.          *           * The option will be converted to a          *<code>org.springframework.batch.core.configuration.JobRegistry</code>          * type.          *           * Group: producer          */
 DECL|method|jobRegistry (String jobRegistry)
 specifier|default
 name|SpringBatchEndpointBuilder
@@ -279,7 +279,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSpringBatchEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSpringBatchEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSpringBatchEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSpringBatchEndpointBuilder

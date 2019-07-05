@@ -146,7 +146,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The endpoint operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -167,7 +167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|operationDetail ( String operationDetail)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -188,7 +188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Wordpress REST API version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Wordpress REST API version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -209,7 +209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The criteria to use with complex searches.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * The criteria to use with complex searches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|criteria ( Map<String, Object> criteria)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -235,7 +235,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The criteria to use with complex searches.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * The criteria to use with complex searches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|criteria (String criteria)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -256,7 +256,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|force (Boolean force)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -277,7 +277,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|force (String force)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -298,7 +298,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|id (Integer id)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -319,7 +319,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|id (String id)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -340,7 +340,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password from authorized user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password from authorized user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -361,7 +361,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Search criteria.          * The option is a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          * @group common          */
+comment|/**          * Search criteria.          *           * The option is a:          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          *           * Group: common          */
 DECL|method|searchCriteria ( Object searchCriteria)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -382,7 +382,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Search criteria.          * The option will be converted to a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          * @group common          */
+comment|/**          * Search criteria.          *           * The option will be converted to a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          *           * Group: common          */
 DECL|method|searchCriteria ( String searchCriteria)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -403,7 +403,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Wordpress API URL from your site, e.g.          * http://myblog.com/wp-json/.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Wordpress API URL from your site, e.g.          * http://myblog.com/wp-json/.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|url (String url)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -424,7 +424,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Authorized user to perform writing operations.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Authorized user to perform writing operations.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -445,7 +445,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -466,7 +466,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -509,7 +509,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedWordpressEndpointConsumerBuilder
@@ -530,7 +530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedWordpressEndpointConsumerBuilder
@@ -551,7 +551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedWordpressEndpointConsumerBuilder
@@ -572,7 +572,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedWordpressEndpointConsumerBuilder
@@ -593,7 +593,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedWordpressEndpointConsumerBuilder
@@ -614,7 +614,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedWordpressEndpointConsumerBuilder
@@ -635,7 +635,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedWordpressEndpointConsumerBuilder
@@ -656,7 +656,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedWordpressEndpointConsumerBuilder
@@ -699,7 +699,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The endpoint operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -720,7 +720,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|operationDetail ( String operationDetail)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -741,7 +741,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Wordpress REST API version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Wordpress REST API version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -762,7 +762,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The criteria to use with complex searches.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * The criteria to use with complex searches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|criteria ( Map<String, Object> criteria)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -788,7 +788,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The criteria to use with complex searches.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * The criteria to use with complex searches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|criteria (String criteria)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -809,7 +809,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|force (Boolean force)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -830,7 +830,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|force (String force)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -851,7 +851,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|id (Integer id)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -872,7 +872,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|id (String id)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -893,7 +893,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password from authorized user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password from authorized user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -914,7 +914,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Search criteria.          * The option is a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          * @group common          */
+comment|/**          * Search criteria.          *           * The option is a:          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          *           * Group: common          */
 DECL|method|searchCriteria ( Object searchCriteria)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -935,7 +935,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Search criteria.          * The option will be converted to a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          * @group common          */
+comment|/**          * Search criteria.          *           * The option will be converted to a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          *           * Group: common          */
 DECL|method|searchCriteria ( String searchCriteria)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -956,7 +956,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Wordpress API URL from your site, e.g.          * http://myblog.com/wp-json/.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Wordpress API URL from your site, e.g.          * http://myblog.com/wp-json/.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|url (String url)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -977,7 +977,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Authorized user to perform writing operations.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Authorized user to perform writing operations.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -998,7 +998,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -1019,7 +1019,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -1062,7 +1062,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedWordpressEndpointProducerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedWordpressEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedWordpressEndpointProducerBuilder
@@ -1125,7 +1125,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedWordpressEndpointProducerBuilder
@@ -1170,7 +1170,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint operation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The endpoint operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1191,7 +1191,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|operationDetail (String operationDetail)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1212,7 +1212,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Wordpress REST API version.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Wordpress REST API version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1233,7 +1233,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The criteria to use with complex searches.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * The criteria to use with complex searches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|criteria (Map<String, Object> criteria)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1259,7 +1259,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The criteria to use with complex searches.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * The criteria to use with complex searches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|criteria (String criteria)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1280,7 +1280,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|force (Boolean force)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1301,7 +1301,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|force (String force)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1322,7 +1322,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|id (Integer id)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1343,7 +1343,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The entity ID. Should be passed when the operation performed requires          * a specific entity, e.g. deleting a post.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|id (String id)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1364,7 +1364,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password from authorized user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password from authorized user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1385,7 +1385,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Search criteria.          * The option is a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          * @group common          */
+comment|/**          * Search criteria.          *           * The option is a:          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          *           * Group: common          */
 DECL|method|searchCriteria (Object searchCriteria)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1406,7 +1406,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Search criteria.          * The option will be converted to a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          * @group common          */
+comment|/**          * Search criteria.          *           * The option will be converted to a          *<code>org.apache.camel.component.wordpress.api.model.SearchCriteria</code> type.          *           * Group: common          */
 DECL|method|searchCriteria (String searchCriteria)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1427,7 +1427,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Wordpress API URL from your site, e.g.          * http://myblog.com/wp-json/.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The Wordpress API URL from your site, e.g.          * http://myblog.com/wp-json/.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|url (String url)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1448,7 +1448,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Authorized user to perform writing operations.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Authorized user to perform writing operations.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
 name|WordpressEndpointBuilder
@@ -1493,7 +1493,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedWordpressEndpointBuilder
@@ -1514,7 +1514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedWordpressEndpointBuilder
@@ -1535,7 +1535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedWordpressEndpointBuilder
@@ -1556,7 +1556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedWordpressEndpointBuilder

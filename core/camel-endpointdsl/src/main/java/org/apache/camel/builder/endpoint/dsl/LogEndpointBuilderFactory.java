@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The logger name to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The logger name to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|loggerName (String loggerName)
 specifier|default
 name|LogEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, will hide stats when no new messages have been received for          * a time interval, if false, show stats regardless of message traffic.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * If true, will hide stats when no new messages have been received for          * a time interval, if false, show stats regardless of message traffic.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|groupActiveOnly (Boolean groupActiveOnly)
 specifier|default
 name|LogEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, will hide stats when no new messages have been received for          * a time interval, if false, show stats regardless of message traffic.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * If true, will hide stats when no new messages have been received for          * a time interval, if false, show stats regardless of message traffic.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|groupActiveOnly (String groupActiveOnly)
 specifier|default
 name|LogEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the initial delay for stats (in millis).          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Set the initial delay for stats (in millis).          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|groupDelay (Long groupDelay)
 specifier|default
 name|LogEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the initial delay for stats (in millis).          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * Set the initial delay for stats (in millis).          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|groupDelay (String groupDelay)
 specifier|default
 name|LogEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If specified will group message stats by this time interval (in          * millis).          * The option is a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * If specified will group message stats by this time interval (in          * millis).          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|groupInterval (Long groupInterval)
 specifier|default
 name|LogEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If specified will group message stats by this time interval (in          * millis).          * The option will be converted to a<code>java.lang.Long</code> type.          * @group producer          */
+comment|/**          * If specified will group message stats by this time interval (in          * millis).          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|groupInterval (String groupInterval)
 specifier|default
 name|LogEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An integer that specifies a group size for throughput logging.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * An integer that specifies a group size for throughput logging.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|groupSize (Integer groupSize)
 specifier|default
 name|LogEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An integer that specifies a group size for throughput logging.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * An integer that specifies a group size for throughput logging.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|groupSize (String groupSize)
 specifier|default
 name|LogEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level to use. The default value is INFO.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Logging level to use. The default value is INFO.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|level (String level)
 specifier|default
 name|LogEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, mask sensitive information like password or passphrase in          * the log.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * If true, mask sensitive information like password or passphrase in          * the log.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|logMask (Boolean logMask)
 specifier|default
 name|LogEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, mask sensitive information like password or passphrase in          * the log.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * If true, mask sensitive information like password or passphrase in          * the log.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|logMask (String logMask)
 specifier|default
 name|LogEndpointBuilder
@@ -362,7 +362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An optional Marker name to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * An optional Marker name to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|marker (String marker)
 specifier|default
 name|LogEndpointBuilder
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Limits the number of characters logged per line.          * The option is a<code>int</code> type.          * @group formatting          */
+comment|/**          * Limits the number of characters logged per line.          *           * The option is a:<code>int</code> type.          *           * Group: formatting          */
 DECL|method|maxChars (int maxChars)
 specifier|default
 name|LogEndpointBuilder
@@ -404,7 +404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Limits the number of characters logged per line.          * The option will be converted to a<code>int</code> type.          * @group formatting          */
+comment|/**          * Limits the number of characters logged per line.          *           * The option will be converted to a<code>int</code> type.          *           * Group: formatting          */
 DECL|method|maxChars (String maxChars)
 specifier|default
 name|LogEndpointBuilder
@@ -425,7 +425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled then each information is outputted on a newline.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If enabled then each information is outputted on a newline.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|multiline (boolean multiline)
 specifier|default
 name|LogEndpointBuilder
@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled then each information is outputted on a newline.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If enabled then each information is outputted on a newline.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|multiline (String multiline)
 specifier|default
 name|LogEndpointBuilder
@@ -467,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Quick option for turning all options on. (multiline, maxChars has to          * be manually set if to be used).          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Quick option for turning all options on. (multiline, maxChars has to          * be manually set if to be used).          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showAll (boolean showAll)
 specifier|default
 name|LogEndpointBuilder
@@ -488,7 +488,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Quick option for turning all options on. (multiline, maxChars has to          * be manually set if to be used).          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Quick option for turning all options on. (multiline, maxChars has to          * be manually set if to be used).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showAll (String showAll)
 specifier|default
 name|LogEndpointBuilder
@@ -509,7 +509,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the message body.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the message body.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showBody (boolean showBody)
 specifier|default
 name|LogEndpointBuilder
@@ -530,7 +530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the message body.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the message body.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showBody (String showBody)
 specifier|default
 name|LogEndpointBuilder
@@ -551,7 +551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the body Java type.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the body Java type.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showBodyType (boolean showBodyType)
 specifier|default
 name|LogEndpointBuilder
@@ -572,7 +572,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the body Java type.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the body Java type.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showBodyType (String showBodyType)
 specifier|default
 name|LogEndpointBuilder
@@ -593,7 +593,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * f the exchange has a caught exception, show the exception message (no          * stack trace).A caught exception is stored as a property on the          * exchange (using the key org.apache.camel.Exchange#EXCEPTION_CAUGHT          * and for instance a doCatch can catch exceptions.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * f the exchange has a caught exception, show the exception message (no          * stack trace).A caught exception is stored as a property on the          * exchange (using the key org.apache.camel.Exchange#EXCEPTION_CAUGHT          * and for instance a doCatch can catch exceptions.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showCaughtException ( boolean showCaughtException)
 specifier|default
 name|LogEndpointBuilder
@@ -614,7 +614,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * f the exchange has a caught exception, show the exception message (no          * stack trace).A caught exception is stored as a property on the          * exchange (using the key org.apache.camel.Exchange#EXCEPTION_CAUGHT          * and for instance a doCatch can catch exceptions.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * f the exchange has a caught exception, show the exception message (no          * stack trace).A caught exception is stored as a property on the          * exchange (using the key org.apache.camel.Exchange#EXCEPTION_CAUGHT          * and for instance a doCatch can catch exceptions.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showCaughtException ( String showCaughtException)
 specifier|default
 name|LogEndpointBuilder
@@ -635,7 +635,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the exchange has an exception, show the exception message (no          * stacktrace).          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If the exchange has an exception, show the exception message (no          * stacktrace).          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showException (boolean showException)
 specifier|default
 name|LogEndpointBuilder
@@ -656,7 +656,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the exchange has an exception, show the exception message (no          * stacktrace).          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If the exchange has an exception, show the exception message (no          * stacktrace).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showException (String showException)
 specifier|default
 name|LogEndpointBuilder
@@ -677,7 +677,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the unique exchange ID.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the unique exchange ID.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showExchangeId (boolean showExchangeId)
 specifier|default
 name|LogEndpointBuilder
@@ -698,7 +698,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the unique exchange ID.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the unique exchange ID.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showExchangeId (String showExchangeId)
 specifier|default
 name|LogEndpointBuilder
@@ -719,7 +719,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Shows the Message Exchange Pattern (or MEP for short).          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Shows the Message Exchange Pattern (or MEP for short).          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showExchangePattern ( boolean showExchangePattern)
 specifier|default
 name|LogEndpointBuilder
@@ -740,7 +740,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Shows the Message Exchange Pattern (or MEP for short).          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Shows the Message Exchange Pattern (or MEP for short).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showExchangePattern ( String showExchangePattern)
 specifier|default
 name|LogEndpointBuilder
@@ -761,7 +761,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled Camel will output files.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If enabled Camel will output files.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showFiles (boolean showFiles)
 specifier|default
 name|LogEndpointBuilder
@@ -782,7 +782,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled Camel will output files.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If enabled Camel will output files.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showFiles (String showFiles)
 specifier|default
 name|LogEndpointBuilder
@@ -803,7 +803,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled Camel will on Future objects wait for it to complete to          * obtain the payload to be logged.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If enabled Camel will on Future objects wait for it to complete to          * obtain the payload to be logged.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showFuture (boolean showFuture)
 specifier|default
 name|LogEndpointBuilder
@@ -824,7 +824,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled Camel will on Future objects wait for it to complete to          * obtain the payload to be logged.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If enabled Camel will on Future objects wait for it to complete to          * obtain the payload to be logged.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showFuture (String showFuture)
 specifier|default
 name|LogEndpointBuilder
@@ -845,7 +845,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the message headers.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the message headers.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showHeaders (boolean showHeaders)
 specifier|default
 name|LogEndpointBuilder
@@ -866,7 +866,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the message headers.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the message headers.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showHeaders (String showHeaders)
 specifier|default
 name|LogEndpointBuilder
@@ -887,7 +887,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the exchange has an out message, show the out message.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If the exchange has an out message, show the out message.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showOut (boolean showOut)
 specifier|default
 name|LogEndpointBuilder
@@ -908,7 +908,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the exchange has an out message, show the out message.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * If the exchange has an out message, show the out message.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showOut (String showOut)
 specifier|default
 name|LogEndpointBuilder
@@ -929,7 +929,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the exchange properties.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the exchange properties.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showProperties (boolean showProperties)
 specifier|default
 name|LogEndpointBuilder
@@ -950,7 +950,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the exchange properties.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the exchange properties.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showProperties (String showProperties)
 specifier|default
 name|LogEndpointBuilder
@@ -971,7 +971,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the stack trace, if an exchange has an exception. Only effective          * if one of showAll, showException or showCaughtException are enabled.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the stack trace, if an exchange has an exception. Only effective          * if one of showAll, showException or showCaughtException are enabled.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showStackTrace (boolean showStackTrace)
 specifier|default
 name|LogEndpointBuilder
@@ -992,7 +992,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Show the stack trace, if an exchange has an exception. Only effective          * if one of showAll, showException or showCaughtException are enabled.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Show the stack trace, if an exchange has an exception. Only effective          * if one of showAll, showException or showCaughtException are enabled.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showStackTrace (String showStackTrace)
 specifier|default
 name|LogEndpointBuilder
@@ -1013,7 +1013,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether Camel should show stream bodies or not (eg such as          * java.io.InputStream). Beware if you enable this option then you may          * not be able later to access the message body as the stream have          * already been read by this logger. To remedy this you will have to use          * Stream Caching.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Whether Camel should show stream bodies or not (eg such as          * java.io.InputStream). Beware if you enable this option then you may          * not be able later to access the message body as the stream have          * already been read by this logger. To remedy this you will have to use          * Stream Caching.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showStreams (boolean showStreams)
 specifier|default
 name|LogEndpointBuilder
@@ -1034,7 +1034,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether Camel should show stream bodies or not (eg such as          * java.io.InputStream). Beware if you enable this option then you may          * not be able later to access the message body as the stream have          * already been read by this logger. To remedy this you will have to use          * Stream Caching.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Whether Camel should show stream bodies or not (eg such as          * java.io.InputStream). Beware if you enable this option then you may          * not be able later to access the message body as the stream have          * already been read by this logger. To remedy this you will have to use          * Stream Caching.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showStreams (String showStreams)
 specifier|default
 name|LogEndpointBuilder
@@ -1055,7 +1055,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to skip line separators when logging the message body.This          * allows to log the message body in one line, setting this option to          * false will preserve any line separators from the body, which then          * will log the body as is.          * The option is a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Whether to skip line separators when logging the message body.This          * allows to log the message body in one line, setting this option to          * false will preserve any line separators from the body, which then          * will log the body as is.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|skipBodyLineSeparator ( boolean skipBodyLineSeparator)
 specifier|default
 name|LogEndpointBuilder
@@ -1076,7 +1076,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to skip line separators when logging the message body.This          * allows to log the message body in one line, setting this option to          * false will preserve any line separators from the body, which then          * will log the body as is.          * The option will be converted to a<code>boolean</code> type.          * @group formatting          */
+comment|/**          * Whether to skip line separators when logging the message body.This          * allows to log the message body in one line, setting this option to          * false will preserve any line separators from the body, which then          * will log the body as is.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|skipBodyLineSeparator ( String skipBodyLineSeparator)
 specifier|default
 name|LogEndpointBuilder
@@ -1097,7 +1097,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the outputs style to use.          * The option is a          *<code>org.apache.camel.support.processor.DefaultExchangeFormatter$OutputStyle</code> type.          * @group formatting          */
+comment|/**          * Sets the outputs style to use.          *           * The option is a:          *<code>org.apache.camel.support.processor.DefaultExchangeFormatter$OutputStyle</code> type.          *           * Group: formatting          */
 DECL|method|style (OutputStyle style)
 specifier|default
 name|LogEndpointBuilder
@@ -1118,7 +1118,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the outputs style to use.          * The option will be converted to a          *<code>org.apache.camel.support.processor.DefaultExchangeFormatter$OutputStyle</code> type.          * @group formatting          */
+comment|/**          * Sets the outputs style to use.          *           * The option will be converted to a          *<code>org.apache.camel.support.processor.DefaultExchangeFormatter$OutputStyle</code> type.          *           * Group: formatting          */
 DECL|method|style (String style)
 specifier|default
 name|LogEndpointBuilder
@@ -1161,7 +1161,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedLogEndpointBuilder
@@ -1182,7 +1182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedLogEndpointBuilder
@@ -1203,7 +1203,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLogEndpointBuilder
@@ -1224,7 +1224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLogEndpointBuilder

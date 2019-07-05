@@ -120,7 +120,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Specifies an index for the endpoint.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Specifies an index for the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|index (String index)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Google Calendar application name. Example would be          * camel-google-calendar/1.0.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Google Calendar application name. Example would be          * camel-google-calendar/1.0.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|applicationName ( String applicationName)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The calendarId to be used.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The calendarId to be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|calendarId (String calendarId)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -204,7 +204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client ID of the calendar application.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Client ID of the calendar application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -225,7 +225,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client secret of the calendar application.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Client secret of the calendar application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|clientSecret ( String clientSecret)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -246,7 +246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Take into account the lastUpdate of the last event polled as start          * date for the next poll.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Take into account the lastUpdate of the last event polled as start          * date for the next poll.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|considerLastUpdate ( boolean considerLastUpdate)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -267,7 +267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Take into account the lastUpdate of the last event polled as start          * date for the next poll.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Take into account the lastUpdate of the last event polled as start          * date for the next poll.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|considerLastUpdate ( String considerLastUpdate)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -288,7 +288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consume events in the selected calendar from now on.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Consume events in the selected calendar from now on.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|consumeFromNow ( boolean consumeFromNow)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -309,7 +309,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consume events in the selected calendar from now on.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Consume events in the selected calendar from now on.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|consumeFromNow ( String consumeFromNow)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -330,7 +330,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max results to be returned.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Max results to be returned.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxResults (int maxResults)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -351,7 +351,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max results to be returned.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Max results to be returned.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxResults (String maxResults)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -372,7 +372,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The query to execute on calendar.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The query to execute on calendar.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|query (String query)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -393,7 +393,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|refreshToken ( String refreshToken)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -414,7 +414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. See          * https://developers.google.com/calendar/auth for more info.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group consumer          */
+comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. See          * https://developers.google.com/calendar/auth for more info.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: consumer          */
 DECL|method|scopes (List<String> scopes)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -438,7 +438,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. See          * https://developers.google.com/calendar/auth for more info.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group consumer          */
+comment|/**          * Specifies the level of permissions you want a calendar application to          * have to a user account. See          * https://developers.google.com/calendar/auth for more info.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: consumer          */
 DECL|method|scopes (String scopes)
 specifier|default
 name|GoogleCalendarStreamEndpointBuilder
@@ -481,7 +481,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleCalendarStreamEndpointBuilder
@@ -502,7 +502,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleCalendarStreamEndpointBuilder
@@ -523,7 +523,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGoogleCalendarStreamEndpointBuilder
@@ -544,7 +544,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGoogleCalendarStreamEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Url to the SAP net-weaver gateway server.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Url to the SAP net-weaver gateway server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|url (String url)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the JSON Map contains only a single entry, then flattern by          * storing that single entry value as the message body.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If the JSON Map contains only a single entry, then flattern by          * storing that single entry value as the message body.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flatternMap (boolean flatternMap)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the JSON Map contains only a single entry, then flattern by          * storing that single entry value as the message body.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If the JSON Map contains only a single entry, then flattern by          * storing that single entry value as the message body.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flatternMap (String flatternMap)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to return data in JSON format. If this option is false, then          * XML is returned in Atom format.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to return data in JSON format. If this option is false, then          * XML is returned in Atom format.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|json (boolean json)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to return data in JSON format. If this option is false, then          * XML is returned in Atom format.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to return data in JSON format. If this option is false, then          * XML is returned in Atom format.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|json (String json)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To transform the JSON from a String to a Map in the message body.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * To transform the JSON from a String to a Map in the message body.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|jsonAsMap (boolean jsonAsMap)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To transform the JSON from a String to a Map in the message body.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * To transform the JSON from a String to a Map in the message body.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|jsonAsMap (String jsonAsMap)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for account.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Password for account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|password (String password)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username for account.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Username for account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|username (String username)
 specifier|default
 name|NetWeaverEndpointBuilder
@@ -321,7 +321,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder
@@ -363,7 +363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder
@@ -384,7 +384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedNetWeaverEndpointBuilder

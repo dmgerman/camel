@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|stream (String stream)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of threads used to process exchanges in the Camel route.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of threads used to process exchanges in the Camel route.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of threads used to process exchanges in the Camel route.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of threads used to process exchanges in the Camel route.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the low watermark of requested exchanges to the active          * subscription as percentage of the maxInflightExchanges. When the          * number of pending items from the upstream source is lower than the          * watermark, new items can be requested to the subscription. If set to          * 0, the subscriber will request items in batches of          * maxInflightExchanges, only after all items of the previous batch have          * been processed. If set to 1, the subscriber can request a new item          * each time an exchange is processed (chatty). Any intermediate value          * can be used.          * The option is a<code>double</code> type.          * @group consumer          */
+comment|/**          * Set the low watermark of requested exchanges to the active          * subscription as percentage of the maxInflightExchanges. When the          * number of pending items from the upstream source is lower than the          * watermark, new items can be requested to the subscription. If set to          * 0, the subscriber will request items in batches of          * maxInflightExchanges, only after all items of the previous batch have          * been processed. If set to 1, the subscriber can request a new item          * each time an exchange is processed (chatty). Any intermediate value          * can be used.          *           * The option is a:<code>double</code> type.          *           * Group: consumer          */
 DECL|method|exchangesRefillLowWatermark ( double exchangesRefillLowWatermark)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the low watermark of requested exchanges to the active          * subscription as percentage of the maxInflightExchanges. When the          * number of pending items from the upstream source is lower than the          * watermark, new items can be requested to the subscription. If set to          * 0, the subscriber will request items in batches of          * maxInflightExchanges, only after all items of the previous batch have          * been processed. If set to 1, the subscriber can request a new item          * each time an exchange is processed (chatty). Any intermediate value          * can be used.          * The option will be converted to a<code>double</code> type.          * @group consumer          */
+comment|/**          * Set the low watermark of requested exchanges to the active          * subscription as percentage of the maxInflightExchanges. When the          * number of pending items from the upstream source is lower than the          * watermark, new items can be requested to the subscription. If set to          * 0, the subscriber will request items in batches of          * maxInflightExchanges, only after all items of the previous batch have          * been processed. If set to 1, the subscriber can request a new item          * each time an exchange is processed (chatty). Any intermediate value          * can be used.          *           * The option will be converted to a<code>double</code> type.          *           * Group: consumer          */
 DECL|method|exchangesRefillLowWatermark ( String exchangesRefillLowWatermark)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines if onComplete events should be pushed to the Camel route.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Determines if onComplete events should be pushed to the Camel route.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|forwardOnComplete ( boolean forwardOnComplete)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines if onComplete events should be pushed to the Camel route.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Determines if onComplete events should be pushed to the Camel route.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|forwardOnComplete ( String forwardOnComplete)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines if onError events should be pushed to the Camel route.          * Exceptions will be set as message body.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Determines if onError events should be pushed to the Camel route.          * Exceptions will be set as message body.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|forwardOnError ( boolean forwardOnError)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines if onError events should be pushed to the Camel route.          * Exceptions will be set as message body.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Determines if onError events should be pushed to the Camel route.          * Exceptions will be set as message body.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|forwardOnError ( String forwardOnError)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum number of exchanges concurrently being processed by Camel.          * This parameter controls backpressure on the stream. Setting a          * non-positive value will disable backpressure.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * Maximum number of exchanges concurrently being processed by Camel.          * This parameter controls backpressure on the stream. Setting a          * non-positive value will disable backpressure.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|maxInflightExchanges ( Integer maxInflightExchanges)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum number of exchanges concurrently being processed by Camel.          * This parameter controls backpressure on the stream. Setting a          * non-positive value will disable backpressure.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * Maximum number of exchanges concurrently being processed by Camel.          * This parameter controls backpressure on the stream. Setting a          * non-positive value will disable backpressure.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|maxInflightExchanges ( String maxInflightExchanges)
 specifier|default
 name|ReactiveStreamsEndpointConsumerBuilder
@@ -431,7 +431,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedReactiveStreamsEndpointConsumerBuilder
@@ -452,7 +452,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedReactiveStreamsEndpointConsumerBuilder
@@ -473,7 +473,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedReactiveStreamsEndpointConsumerBuilder
@@ -494,7 +494,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedReactiveStreamsEndpointConsumerBuilder
@@ -515,7 +515,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedReactiveStreamsEndpointConsumerBuilder
@@ -536,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedReactiveStreamsEndpointConsumerBuilder
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedReactiveStreamsEndpointConsumerBuilder
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedReactiveStreamsEndpointConsumerBuilder
@@ -621,7 +621,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|stream (String stream)
 specifier|default
 name|ReactiveStreamsEndpointProducerBuilder
@@ -642,7 +642,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The backpressure strategy to use when pushing events to a slow          * subscriber.          * The option is a          *<code>org.apache.camel.component.reactive.streams.ReactiveStreamsBackpressureStrategy</code> type.          * @group producer          */
+comment|/**          * The backpressure strategy to use when pushing events to a slow          * subscriber.          *           * The option is a:          *<code>org.apache.camel.component.reactive.streams.ReactiveStreamsBackpressureStrategy</code> type.          *           * Group: producer          */
 DECL|method|backpressureStrategy ( ReactiveStreamsBackpressureStrategy backpressureStrategy)
 specifier|default
 name|ReactiveStreamsEndpointProducerBuilder
@@ -663,7 +663,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The backpressure strategy to use when pushing events to a slow          * subscriber.          * The option will be converted to a          *<code>org.apache.camel.component.reactive.streams.ReactiveStreamsBackpressureStrategy</code> type.          * @group producer          */
+comment|/**          * The backpressure strategy to use when pushing events to a slow          * subscriber.          *           * The option will be converted to a          *<code>org.apache.camel.component.reactive.streams.ReactiveStreamsBackpressureStrategy</code> type.          *           * Group: producer          */
 DECL|method|backpressureStrategy ( String backpressureStrategy)
 specifier|default
 name|ReactiveStreamsEndpointProducerBuilder
@@ -684,7 +684,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|ReactiveStreamsEndpointProducerBuilder
@@ -705,7 +705,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|ReactiveStreamsEndpointProducerBuilder
@@ -748,7 +748,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedReactiveStreamsEndpointProducerBuilder
@@ -769,7 +769,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedReactiveStreamsEndpointProducerBuilder
@@ -790,7 +790,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedReactiveStreamsEndpointProducerBuilder
@@ -811,7 +811,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedReactiveStreamsEndpointProducerBuilder
@@ -856,7 +856,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|stream (String stream)
 specifier|default
 name|ReactiveStreamsEndpointBuilder
@@ -901,7 +901,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedReactiveStreamsEndpointBuilder
@@ -922,7 +922,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedReactiveStreamsEndpointBuilder
@@ -943,7 +943,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedReactiveStreamsEndpointBuilder
@@ -964,7 +964,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedReactiveStreamsEndpointBuilder

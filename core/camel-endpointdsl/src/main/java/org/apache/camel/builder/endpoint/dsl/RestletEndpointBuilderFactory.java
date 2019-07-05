@@ -160,7 +160,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The protocol to use which is http or https.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The protocol to use which is http or https.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|protocol (String protocol)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -181,7 +181,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The hostname of the restlet service.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The hostname of the restlet service.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -202,7 +202,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of the restlet service.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The port number of the restlet service.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -223,7 +223,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of the restlet service.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The port number of the restlet service.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -244,7 +244,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource pattern such as /customer/{id}.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The resource pattern such as /customer/{id}.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uriPattern (String uriPattern)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -265,7 +265,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          * The option is a<code>org.restlet.data.Method</code> type.          * @group common          */
+comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          *           * The option is a:<code>org.restlet.data.Method</code> type.          *           * Group: common          */
 DECL|method|restletMethod ( Object restletMethod)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -286,7 +286,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          * The option will be converted to a          *<code>org.restlet.data.Method</code> type.          * @group common          */
+comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          *           * The option will be converted to a          *<code>org.restlet.data.Method</code> type.          *           * Group: common          */
 DECL|method|restletMethod ( String restletMethod)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -307,7 +307,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -328,7 +328,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -349,7 +349,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify one or more methods separated by commas (e.g.          * restletMethods=post,put) to be serviced by a restlet consumer          * endpoint. If both restletMethod and restletMethods options are          * specified, the restletMethod setting is ignored. The possible methods          * are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE.          * The option is a<code>org.restlet.data.Method[]</code> type.          * @group consumer          */
+comment|/**          * Specify one or more methods separated by commas (e.g.          * restletMethods=post,put) to be serviced by a restlet consumer          * endpoint. If both restletMethod and restletMethods options are          * specified, the restletMethod setting is ignored. The possible methods          * are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE.          *           * The option is a:<code>org.restlet.data.Method[]</code> type.          *           * Group: consumer          */
 DECL|method|restletMethods ( Object[] restletMethods)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -371,7 +371,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify one or more methods separated by commas (e.g.          * restletMethods=post,put) to be serviced by a restlet consumer          * endpoint. If both restletMethod and restletMethods options are          * specified, the restletMethod setting is ignored. The possible methods          * are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE.          * The option will be converted to a          *<code>org.restlet.data.Method[]</code> type.          * @group consumer          */
+comment|/**          * Specify one or more methods separated by commas (e.g.          * restletMethods=post,put) to be serviced by a restlet consumer          * endpoint. If both restletMethod and restletMethods options are          * specified, the restletMethod setting is ignored. The possible methods          * are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE.          *           * The option will be converted to a          *<code>org.restlet.data.Method[]</code> type.          *           * Group: consumer          */
 DECL|method|restletMethods ( String restletMethods)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -392,7 +392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the security realms of restlet as a map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group security          */
+comment|/**          * To configure the security realms of restlet as a map.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: security          */
 DECL|method|restletRealm ( Map<String, String> restletRealm)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -418,7 +418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the security realms of restlet as a map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group security          */
+comment|/**          * To configure the security realms of restlet as a map.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: security          */
 DECL|method|restletRealm (String restletRealm)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -439,7 +439,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -460,7 +460,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|RestletEndpointConsumerBuilder
@@ -503,7 +503,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Determines whether or not the raw input stream from Restlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Restlet input          * stream to support reading it multiple times to ensure Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultRestletBinding will copy the request input stream into a          * stream cache and put it into message body if this option is false to          * support reading the stream multiple times.          * The option is a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Determines whether or not the raw input stream from Restlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Restlet input          * stream to support reading it multiple times to ensure Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultRestletBinding will copy the request input stream into a          * stream cache and put it into message body if this option is false to          * support reading the stream multiple times.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|disableStreamCache ( boolean disableStreamCache)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -524,7 +524,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines whether or not the raw input stream from Restlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Restlet input          * stream to support reading it multiple times to ensure Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultRestletBinding will copy the request input stream into a          * stream cache and put it into message body if this option is false to          * support reading the stream multiple times.          * The option will be converted to a<code>boolean</code> type.          * @group consumer (advanced)          */
+comment|/**          * Determines whether or not the raw input stream from Restlet is cached          * or not (Camel will read the stream into a in memory/overflow to file,          * Stream caching) cache. By default Camel will cache the Restlet input          * stream to support reading it multiple times to ensure Camel can          * retrieve all data from the stream. However you can set this option to          * true when you for example need to access the raw stream, such as          * streaming it directly to a file or other persistent store.          * DefaultRestletBinding will copy the request input stream into a          * stream cache and put it into message body if this option is false to          * support reading the stream multiple times.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|disableStreamCache ( String disableStreamCache)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -545,7 +545,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -566,7 +566,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -587,7 +587,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -608,7 +608,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -629,7 +629,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -650,7 +650,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -671,7 +671,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option is a:          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -692,7 +692,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -713,7 +713,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          * The option is a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          * @group advanced          */
+comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          *           * The option is a:          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          *           * Group: advanced          */
 DECL|method|restletBinding ( Object restletBinding)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -734,7 +734,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          * The option will be converted to a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          * @group advanced          */
+comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          *           * The option will be converted to a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          *           * Group: advanced          */
 DECL|method|restletBinding ( String restletBinding)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -755,7 +755,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( Boolean synchronous)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -776,7 +776,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedRestletEndpointConsumerBuilder
@@ -819,7 +819,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The protocol to use which is http or https.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The protocol to use which is http or https.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|protocol (String protocol)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -840,7 +840,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The hostname of the restlet service.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The hostname of the restlet service.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -861,7 +861,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of the restlet service.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The port number of the restlet service.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -882,7 +882,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of the restlet service.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The port number of the restlet service.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -903,7 +903,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource pattern such as /customer/{id}.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The resource pattern such as /customer/{id}.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uriPattern (String uriPattern)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -924,7 +924,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          * The option is a<code>org.restlet.data.Method</code> type.          * @group common          */
+comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          *           * The option is a:<code>org.restlet.data.Method</code> type.          *           * Group: common          */
 DECL|method|restletMethod ( Object restletMethod)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -945,7 +945,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          * The option will be converted to a          *<code>org.restlet.data.Method</code> type.          * @group common          */
+comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          *           * The option will be converted to a          *<code>org.restlet.data.Method</code> type.          *           * Group: common          */
 DECL|method|restletMethod ( String restletMethod)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -966,7 +966,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Client will give up connection if the connection is timeout, 0          * for unlimited wait.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The Client will give up connection if the connection is timeout, 0          * for unlimited wait.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|connectTimeout (int connectTimeout)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -987,7 +987,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Client will give up connection if the connection is timeout, 0          * for unlimited wait.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The Client will give up connection if the connection is timeout, 0          * for unlimited wait.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|connectTimeout ( String connectTimeout)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1008,7 +1008,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure a cookie handler to maintain a HTTP session.          * The option is a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          * @group producer          */
+comment|/**          * Configure a cookie handler to maintain a HTTP session.          *           * The option is a:          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          *           * Group: producer          */
 DECL|method|cookieHandler ( Object cookieHandler)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1029,7 +1029,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configure a cookie handler to maintain a HTTP session.          * The option will be converted to a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          * @group producer          */
+comment|/**          * Configure a cookie handler to maintain a HTTP session.          *           * The option will be converted to a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          *           * Group: producer          */
 DECL|method|cookieHandler ( String cookieHandler)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1050,7 +1050,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1071,7 +1071,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1092,7 +1092,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Client socket receive timeout, 0 for unlimited wait.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The Client socket receive timeout, 0 for unlimited wait.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|socketTimeout (int socketTimeout)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1113,7 +1113,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Client socket receive timeout, 0 for unlimited wait.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The Client socket receive timeout, 0 for unlimited wait.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|socketTimeout ( String socketTimeout)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1134,7 +1134,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to throw exception on a producer failure. If this option is          * false then the http status code is set as a message header which can          * be checked if it has an error value.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to throw exception on a producer failure. If this option is          * false then the http status code is set as a message header which can          * be checked if it has an error value.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|throwExceptionOnFailure ( boolean throwExceptionOnFailure)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1155,7 +1155,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to throw exception on a producer failure. If this option is          * false then the http status code is set as a message header which can          * be checked if it has an error value.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to throw exception on a producer failure. If this option is          * false then the http status code is set as a message header which can          * be checked if it has an error value.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|throwExceptionOnFailure ( String throwExceptionOnFailure)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1176,7 +1176,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the security realms of restlet as a map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group security          */
+comment|/**          * To configure the security realms of restlet as a map.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: security          */
 DECL|method|restletRealm ( Map<String, String> restletRealm)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1202,7 +1202,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the security realms of restlet as a map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group security          */
+comment|/**          * To configure the security realms of restlet as a map.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: security          */
 DECL|method|restletRealm (String restletRealm)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1223,7 +1223,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1244,7 +1244,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|RestletEndpointProducerBuilder
@@ -1287,7 +1287,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether to auto close the stream representation as response from          * calling a REST service using the restlet producer. If the response is          * streaming and the option streamRepresentation is enabled then you may          * want to auto close the InputStream from the streaming response to          * ensure the input stream is closed when the Camel Exchange is done          * being routed. However if you need to read the stream outside a Camel          * route, you may need to not auto close the stream.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether to auto close the stream representation as response from          * calling a REST service using the restlet producer. If the response is          * streaming and the option streamRepresentation is enabled then you may          * want to auto close the InputStream from the streaming response to          * ensure the input stream is closed when the Camel Exchange is done          * being routed. However if you need to read the stream outside a Camel          * route, you may need to not auto close the stream.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|autoCloseStream ( boolean autoCloseStream)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1308,7 +1308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to auto close the stream representation as response from          * calling a REST service using the restlet producer. If the response is          * streaming and the option streamRepresentation is enabled then you may          * want to auto close the InputStream from the streaming response to          * ensure the input stream is closed when the Camel Exchange is done          * being routed. However if you need to read the stream outside a Camel          * route, you may need to not auto close the stream.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether to auto close the stream representation as response from          * calling a REST service using the restlet producer. If the response is          * streaming and the option streamRepresentation is enabled then you may          * want to auto close the InputStream from the streaming response to          * ensure the input stream is closed when the Camel Exchange is done          * being routed. However if you need to read the stream outside a Camel          * route, you may need to not auto close the stream.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|autoCloseStream ( String autoCloseStream)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1329,7 +1329,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to support stream representation as response from calling a          * REST service using the restlet producer. If the response is streaming          * then this option can be enabled to use an java.io.InputStream as the          * message body on the Camel Message body. If using this option you may          * want to enable the autoCloseStream option as well to ensure the input          * stream is closed when the Camel Exchange is done being routed.          * However if you need to read the stream outside a Camel route, you may          * need to not auto close the stream.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether to support stream representation as response from calling a          * REST service using the restlet producer. If the response is streaming          * then this option can be enabled to use an java.io.InputStream as the          * message body on the Camel Message body. If using this option you may          * want to enable the autoCloseStream option as well to ensure the input          * stream is closed when the Camel Exchange is done being routed.          * However if you need to read the stream outside a Camel route, you may          * need to not auto close the stream.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|streamRepresentation ( boolean streamRepresentation)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1350,7 +1350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to support stream representation as response from calling a          * REST service using the restlet producer. If the response is streaming          * then this option can be enabled to use an java.io.InputStream as the          * message body on the Camel Message body. If using this option you may          * want to enable the autoCloseStream option as well to ensure the input          * stream is closed when the Camel Exchange is done being routed.          * However if you need to read the stream outside a Camel route, you may          * need to not auto close the stream.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Whether to support stream representation as response from calling a          * REST service using the restlet producer. If the response is streaming          * then this option can be enabled to use an java.io.InputStream as the          * message body on the Camel Message body. If using this option you may          * want to enable the autoCloseStream option as well to ensure the input          * stream is closed when the Camel Exchange is done being routed.          * However if you need to read the stream outside a Camel route, you may          * need to not auto close the stream.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|streamRepresentation ( String streamRepresentation)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1371,7 +1371,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1392,7 +1392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1413,7 +1413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option is a:          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1434,7 +1434,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1455,7 +1455,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          * The option is a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          * @group advanced          */
+comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          *           * The option is a:          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          *           * Group: advanced          */
 DECL|method|restletBinding ( Object restletBinding)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1476,7 +1476,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          * The option will be converted to a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          * @group advanced          */
+comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          *           * The option will be converted to a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          *           * Group: advanced          */
 DECL|method|restletBinding ( String restletBinding)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1497,7 +1497,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( Boolean synchronous)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1518,7 +1518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedRestletEndpointProducerBuilder
@@ -1563,7 +1563,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The protocol to use which is http or https.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The protocol to use which is http or https.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|protocol (String protocol)
 specifier|default
 name|RestletEndpointBuilder
@@ -1584,7 +1584,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The hostname of the restlet service.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The hostname of the restlet service.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|RestletEndpointBuilder
@@ -1605,7 +1605,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of the restlet service.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The port number of the restlet service.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|RestletEndpointBuilder
@@ -1626,7 +1626,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port number of the restlet service.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The port number of the restlet service.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|RestletEndpointBuilder
@@ -1647,7 +1647,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The resource pattern such as /customer/{id}.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The resource pattern such as /customer/{id}.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uriPattern (String uriPattern)
 specifier|default
 name|RestletEndpointBuilder
@@ -1668,7 +1668,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          * The option is a<code>org.restlet.data.Method</code> type.          * @group common          */
+comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          *           * The option is a:<code>org.restlet.data.Method</code> type.          *           * Group: common          */
 DECL|method|restletMethod (Object restletMethod)
 specifier|default
 name|RestletEndpointBuilder
@@ -1689,7 +1689,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          * The option will be converted to a          *<code>org.restlet.data.Method</code> type.          * @group common          */
+comment|/**          * On a producer endpoint, specifies the request method to use. On a          * consumer endpoint, specifies that the endpoint consumes only          * restletMethod requests.          *           * The option will be converted to a          *<code>org.restlet.data.Method</code> type.          *           * Group: common          */
 DECL|method|restletMethod (String restletMethod)
 specifier|default
 name|RestletEndpointBuilder
@@ -1710,7 +1710,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the security realms of restlet as a map.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group security          */
+comment|/**          * To configure the security realms of restlet as a map.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: security          */
 DECL|method|restletRealm ( Map<String, String> restletRealm)
 specifier|default
 name|RestletEndpointBuilder
@@ -1736,7 +1736,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure the security realms of restlet as a map.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group security          */
+comment|/**          * To configure the security realms of restlet as a map.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: security          */
 DECL|method|restletRealm (String restletRealm)
 specifier|default
 name|RestletEndpointBuilder
@@ -1757,7 +1757,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|RestletEndpointBuilder
@@ -1778,7 +1778,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|RestletEndpointBuilder
@@ -1823,7 +1823,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRestletEndpointBuilder
@@ -1844,7 +1844,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRestletEndpointBuilder
@@ -1865,7 +1865,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option is a:          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: advanced          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
 specifier|default
 name|AdvancedRestletEndpointBuilder
@@ -1886,7 +1886,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group advanced          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: advanced          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
 specifier|default
 name|AdvancedRestletEndpointBuilder
@@ -1907,7 +1907,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          * The option is a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          * @group advanced          */
+comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          *           * The option is a:          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          *           * Group: advanced          */
 DECL|method|restletBinding ( Object restletBinding)
 specifier|default
 name|AdvancedRestletEndpointBuilder
@@ -1928,7 +1928,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          * The option will be converted to a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          * @group advanced          */
+comment|/**          * To use a custom RestletBinding to bind between Restlet and Camel          * message.          *           * The option will be converted to a          *<code>org.apache.camel.component.restlet.RestletBinding</code> type.          *           * Group: advanced          */
 DECL|method|restletBinding ( String restletBinding)
 specifier|default
 name|AdvancedRestletEndpointBuilder
@@ -1949,7 +1949,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (Boolean synchronous)
 specifier|default
 name|AdvancedRestletEndpointBuilder
@@ -1970,7 +1970,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedRestletEndpointBuilder

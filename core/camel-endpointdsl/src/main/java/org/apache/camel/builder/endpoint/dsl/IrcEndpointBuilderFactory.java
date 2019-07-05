@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the IRC chat server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname for the IRC chat server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hostname (String hostname)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to auto re-join when being kicked.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to auto re-join when being kicked.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoRejoin (boolean autoRejoin)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to auto re-join when being kicked.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to auto re-join when being kicked.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoRejoin (String autoRejoin)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|commandTimeout (long commandTimeout)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|commandTimeout (String commandTimeout)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|namesOnJoin (boolean namesOnJoin)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|namesOnJoin (String namesOnJoin)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The nickname used in chat.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The nickname used in chat.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nickname (String nickname)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use persistent messages.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use persistent messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|persistent (boolean persistent)
@@ -369,7 +369,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use persistent messages.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use persistent messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|persistent (String persistent)
@@ -392,7 +392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC user's actual name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The IRC user's actual name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|realname (String realname)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -413,7 +413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -434,7 +434,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -455,7 +455,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user join events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user join events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onJoin (boolean onJoin)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -476,7 +476,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user join events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user join events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onJoin (String onJoin)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -497,7 +497,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle kick events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle kick events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onKick (boolean onKick)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -518,7 +518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle kick events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle kick events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onKick (String onKick)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -539,7 +539,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle mode change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle mode change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onMode (boolean onMode)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -560,7 +560,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle mode change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle mode change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onMode (String onMode)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -581,7 +581,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle nickname change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle nickname change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onNick (boolean onNick)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -602,7 +602,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle nickname change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle nickname change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onNick (String onNick)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -623,7 +623,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user part events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user part events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPart (boolean onPart)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -644,7 +644,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user part events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user part events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPart (String onPart)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -665,7 +665,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle private message events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle private message events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPrivmsg (boolean onPrivmsg)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -686,7 +686,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle private message events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle private message events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPrivmsg (String onPrivmsg)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -707,7 +707,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user quit events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user quit events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onQuit (boolean onQuit)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -728,7 +728,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user quit events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user quit events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onQuit (String onQuit)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -749,7 +749,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onReply (boolean onReply)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -770,7 +770,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onReply (String onReply)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -791,7 +791,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle topic change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle topic change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onTopic (boolean onTopic)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -812,7 +812,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle topic change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle topic change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onTopic (String onTopic)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -833,7 +833,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Your IRC server nickname password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Your IRC server nickname password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|nickPassword (String nickPassword)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -854,7 +854,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC server password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The IRC server password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -875,7 +875,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -896,7 +896,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -917,7 +917,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The trust manager used to verify the SSL server's certificate.          * The option is a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          * @group security          */
+comment|/**          * The trust manager used to verify the SSL server's certificate.          *           * The option is a:          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          *           * Group: security          */
 DECL|method|trustManager (Object trustManager)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -938,7 +938,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The trust manager used to verify the SSL server's certificate.          * The option will be converted to a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          * @group security          */
+comment|/**          * The trust manager used to verify the SSL server's certificate.          *           * The option will be converted to a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          *           * Group: security          */
 DECL|method|trustManager (String trustManager)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -959,7 +959,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC server user name.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The IRC server user name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|IrcEndpointConsumerBuilder
@@ -1002,7 +1002,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1023,7 +1023,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1044,7 +1044,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1065,7 +1065,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1086,7 +1086,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1107,7 +1107,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1128,7 +1128,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not the server supports color codes.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether or not the server supports color codes.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|colors (boolean colors)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1149,7 +1149,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not the server supports color codes.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether or not the server supports color codes.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|colors (String colors)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1170,7 +1170,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1191,7 +1191,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedIrcEndpointConsumerBuilder
@@ -1234,7 +1234,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the IRC chat server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname for the IRC chat server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hostname (String hostname)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1255,7 +1255,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1276,7 +1276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1297,7 +1297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to auto re-join when being kicked.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to auto re-join when being kicked.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoRejoin (boolean autoRejoin)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1318,7 +1318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to auto re-join when being kicked.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to auto re-join when being kicked.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoRejoin (String autoRejoin)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|commandTimeout (long commandTimeout)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1360,7 +1360,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|commandTimeout (String commandTimeout)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1381,7 +1381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|namesOnJoin (boolean namesOnJoin)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|namesOnJoin (String namesOnJoin)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The nickname used in chat.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The nickname used in chat.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nickname (String nickname)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1444,7 +1444,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use persistent messages.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use persistent messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|persistent (boolean persistent)
@@ -1467,7 +1467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use persistent messages.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use persistent messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|persistent (String persistent)
@@ -1490,7 +1490,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC user's actual name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The IRC user's actual name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|realname (String realname)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1511,7 +1511,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1532,7 +1532,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1553,7 +1553,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user join events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user join events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onJoin (boolean onJoin)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1574,7 +1574,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user join events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user join events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onJoin (String onJoin)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1595,7 +1595,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle kick events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle kick events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onKick (boolean onKick)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1616,7 +1616,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle kick events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle kick events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onKick (String onKick)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1637,7 +1637,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle mode change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle mode change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onMode (boolean onMode)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1658,7 +1658,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle mode change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle mode change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onMode (String onMode)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1679,7 +1679,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle nickname change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle nickname change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onNick (boolean onNick)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1700,7 +1700,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle nickname change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle nickname change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onNick (String onNick)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1721,7 +1721,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user part events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user part events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPart (boolean onPart)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1742,7 +1742,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user part events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user part events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPart (String onPart)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1763,7 +1763,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle private message events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle private message events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPrivmsg (boolean onPrivmsg)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1784,7 +1784,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle private message events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle private message events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPrivmsg (String onPrivmsg)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1805,7 +1805,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user quit events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user quit events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onQuit (boolean onQuit)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1826,7 +1826,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user quit events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user quit events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onQuit (String onQuit)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1847,7 +1847,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onReply (boolean onReply)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1868,7 +1868,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onReply (String onReply)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1889,7 +1889,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle topic change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle topic change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onTopic (boolean onTopic)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1910,7 +1910,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle topic change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle topic change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onTopic (String onTopic)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1931,7 +1931,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Your IRC server nickname password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Your IRC server nickname password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|nickPassword (String nickPassword)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1952,7 +1952,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC server password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The IRC server password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1973,7 +1973,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -1994,7 +1994,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -2015,7 +2015,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The trust manager used to verify the SSL server's certificate.          * The option is a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          * @group security          */
+comment|/**          * The trust manager used to verify the SSL server's certificate.          *           * The option is a:          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          *           * Group: security          */
 DECL|method|trustManager (Object trustManager)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -2036,7 +2036,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The trust manager used to verify the SSL server's certificate.          * The option will be converted to a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          * @group security          */
+comment|/**          * The trust manager used to verify the SSL server's certificate.          *           * The option will be converted to a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          *           * Group: security          */
 DECL|method|trustManager (String trustManager)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -2057,7 +2057,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC server user name.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The IRC server user name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|IrcEndpointProducerBuilder
@@ -2100,7 +2100,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedIrcEndpointProducerBuilder
@@ -2121,7 +2121,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedIrcEndpointProducerBuilder
@@ -2142,7 +2142,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not the server supports color codes.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether or not the server supports color codes.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|colors (boolean colors)
 specifier|default
 name|AdvancedIrcEndpointProducerBuilder
@@ -2163,7 +2163,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not the server supports color codes.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether or not the server supports color codes.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|colors (String colors)
 specifier|default
 name|AdvancedIrcEndpointProducerBuilder
@@ -2184,7 +2184,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedIrcEndpointProducerBuilder
@@ -2205,7 +2205,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedIrcEndpointProducerBuilder
@@ -2250,7 +2250,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the IRC chat server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname for the IRC chat server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hostname (String hostname)
 specifier|default
 name|IrcEndpointBuilder
@@ -2271,7 +2271,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|IrcEndpointBuilder
@@ -2292,7 +2292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|IrcEndpointBuilder
@@ -2313,7 +2313,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to auto re-join when being kicked.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to auto re-join when being kicked.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoRejoin (boolean autoRejoin)
 specifier|default
 name|IrcEndpointBuilder
@@ -2334,7 +2334,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to auto re-join when being kicked.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether to auto re-join when being kicked.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoRejoin (String autoRejoin)
 specifier|default
 name|IrcEndpointBuilder
@@ -2355,7 +2355,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|commandTimeout (long commandTimeout)
 specifier|default
 name|IrcEndpointBuilder
@@ -2376,7 +2376,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Delay in milliseconds before sending commands after the connection is          * established.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|commandTimeout (String commandTimeout)
 specifier|default
 name|IrcEndpointBuilder
@@ -2397,7 +2397,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|namesOnJoin (boolean namesOnJoin)
 specifier|default
 name|IrcEndpointBuilder
@@ -2418,7 +2418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Sends NAMES command to channel after joining it. onReply has to be          * true in order to process the result which will have the header value          * irc.num = '353'.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|namesOnJoin (String namesOnJoin)
 specifier|default
 name|IrcEndpointBuilder
@@ -2439,7 +2439,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The nickname used in chat.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The nickname used in chat.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|nickname (String nickname)
 specifier|default
 name|IrcEndpointBuilder
@@ -2460,7 +2460,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use persistent messages.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use persistent messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|persistent (boolean persistent)
@@ -2483,7 +2483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use persistent messages.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Use persistent messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|persistent (String persistent)
@@ -2506,7 +2506,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC user's actual name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The IRC user's actual name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|realname (String realname)
 specifier|default
 name|IrcEndpointBuilder
@@ -2527,7 +2527,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user join events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user join events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onJoin (boolean onJoin)
 specifier|default
 name|IrcEndpointBuilder
@@ -2548,7 +2548,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user join events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user join events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onJoin (String onJoin)
 specifier|default
 name|IrcEndpointBuilder
@@ -2569,7 +2569,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle kick events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle kick events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onKick (boolean onKick)
 specifier|default
 name|IrcEndpointBuilder
@@ -2590,7 +2590,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle kick events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle kick events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onKick (String onKick)
 specifier|default
 name|IrcEndpointBuilder
@@ -2611,7 +2611,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle mode change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle mode change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onMode (boolean onMode)
 specifier|default
 name|IrcEndpointBuilder
@@ -2632,7 +2632,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle mode change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle mode change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onMode (String onMode)
 specifier|default
 name|IrcEndpointBuilder
@@ -2653,7 +2653,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle nickname change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle nickname change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onNick (boolean onNick)
 specifier|default
 name|IrcEndpointBuilder
@@ -2674,7 +2674,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle nickname change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle nickname change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onNick (String onNick)
 specifier|default
 name|IrcEndpointBuilder
@@ -2695,7 +2695,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user part events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user part events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPart (boolean onPart)
 specifier|default
 name|IrcEndpointBuilder
@@ -2716,7 +2716,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user part events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user part events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPart (String onPart)
 specifier|default
 name|IrcEndpointBuilder
@@ -2737,7 +2737,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle private message events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle private message events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPrivmsg (boolean onPrivmsg)
 specifier|default
 name|IrcEndpointBuilder
@@ -2758,7 +2758,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle private message events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle private message events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onPrivmsg (String onPrivmsg)
 specifier|default
 name|IrcEndpointBuilder
@@ -2779,7 +2779,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user quit events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user quit events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onQuit (boolean onQuit)
 specifier|default
 name|IrcEndpointBuilder
@@ -2800,7 +2800,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle user quit events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle user quit events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onQuit (String onQuit)
 specifier|default
 name|IrcEndpointBuilder
@@ -2821,7 +2821,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onReply (boolean onReply)
 specifier|default
 name|IrcEndpointBuilder
@@ -2842,7 +2842,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Whether or not to handle general responses to commands or          * informational messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onReply (String onReply)
 specifier|default
 name|IrcEndpointBuilder
@@ -2863,7 +2863,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle topic change events.          * The option is a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle topic change events.          *           * The option is a:<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onTopic (boolean onTopic)
 specifier|default
 name|IrcEndpointBuilder
@@ -2884,7 +2884,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handle topic change events.          * The option will be converted to a<code>boolean</code> type.          * @group filter          */
+comment|/**          * Handle topic change events.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: filter          */
 DECL|method|onTopic (String onTopic)
 specifier|default
 name|IrcEndpointBuilder
@@ -2905,7 +2905,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Your IRC server nickname password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Your IRC server nickname password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|nickPassword (String nickPassword)
 specifier|default
 name|IrcEndpointBuilder
@@ -2926,7 +2926,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC server password.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The IRC server password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|IrcEndpointBuilder
@@ -2947,7 +2947,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|IrcEndpointBuilder
@@ -2968,7 +2968,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * Used for configuring security using SSL. Reference to a          * org.apache.camel.support.jsse.SSLContextParameters in the Registry.          * This reference overrides any configured SSLContextParameters at the          * component level. Note that this setting overrides the trustManager          * option.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|IrcEndpointBuilder
@@ -2989,7 +2989,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The trust manager used to verify the SSL server's certificate.          * The option is a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          * @group security          */
+comment|/**          * The trust manager used to verify the SSL server's certificate.          *           * The option is a:          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          *           * Group: security          */
 DECL|method|trustManager (Object trustManager)
 specifier|default
 name|IrcEndpointBuilder
@@ -3010,7 +3010,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The trust manager used to verify the SSL server's certificate.          * The option will be converted to a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          * @group security          */
+comment|/**          * The trust manager used to verify the SSL server's certificate.          *           * The option will be converted to a          *<code>org.schwering.irc.lib.ssl.SSLTrustManager</code> type.          *           * Group: security          */
 DECL|method|trustManager (String trustManager)
 specifier|default
 name|IrcEndpointBuilder
@@ -3031,7 +3031,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The IRC server user name.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The IRC server user name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|IrcEndpointBuilder
@@ -3076,7 +3076,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedIrcEndpointBuilder
@@ -3097,7 +3097,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedIrcEndpointBuilder
@@ -3118,7 +3118,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not the server supports color codes.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether or not the server supports color codes.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|colors (boolean colors)
 specifier|default
 name|AdvancedIrcEndpointBuilder
@@ -3139,7 +3139,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether or not the server supports color codes.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether or not the server supports color codes.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|colors (String colors)
 specifier|default
 name|AdvancedIrcEndpointBuilder
@@ -3160,7 +3160,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedIrcEndpointBuilder
@@ -3181,7 +3181,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedIrcEndpointBuilder

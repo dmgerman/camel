@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Which operation to use.          * The option is a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          * @group common          */
+comment|/**          * Which operation to use.          *           * The option is a:          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          *           * Group: common          */
 DECL|method|operation ( DockerOperation operation)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Which operation to use.          * The option will be converted to a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          * @group common          */
+comment|/**          * Which operation to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Email address associated with the user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Email address associated with the user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|email (String email)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Docker host.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker port.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Docker port.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Docker port.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Request timeout for response (in seconds).          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Request timeout for response (in seconds).          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|requestTimeout ( Integer requestTimeout)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Request timeout for response (in seconds).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Request timeout for response (in seconds).          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|requestTimeout ( String requestTimeout)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Location containing the SSL certificate chain.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Location containing the SSL certificate chain.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|certPath (String certPath)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to authenticate with.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password to authenticate with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use HTTPS communication.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Use HTTPS communication.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use HTTPS communication.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Use HTTPS communication.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Check TLS.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Check TLS.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|tlsVerify (boolean tlsVerify)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Check TLS.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Check TLS.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|tlsVerify (String tlsVerify)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * User name to authenticate with.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * User name to authenticate with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|DockerEndpointConsumerBuilder
@@ -515,7 +515,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -536,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -599,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The fully qualified class name of the DockerCmdExecFactory          * implementation to use.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * The fully qualified class name of the DockerCmdExecFactory          * implementation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|cmdExecFactory ( String cmdExecFactory)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to follow redirect filter.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to follow redirect filter.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|followRedirectFilter ( boolean followRedirectFilter)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to follow redirect filter.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to follow redirect filter.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|followRedirectFilter ( String followRedirectFilter)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use logging filter.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to use logging filter.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|loggingFilter ( boolean loggingFilter)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -725,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use logging filter.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to use logging filter.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|loggingFilter ( String loggingFilter)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -746,7 +746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum route connections.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Maximum route connections.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|maxPerRouteConnections ( Integer maxPerRouteConnections)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -767,7 +767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum route connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Maximum route connections.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|maxPerRouteConnections ( String maxPerRouteConnections)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -788,7 +788,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum total connections.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Maximum total connections.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|maxTotalConnections ( Integer maxTotalConnections)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -809,7 +809,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum total connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Maximum total connections.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|maxTotalConnections ( String maxTotalConnections)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -830,7 +830,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Server address for docker registry.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Server address for docker registry.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|serverAddress ( String serverAddress)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -851,7 +851,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Socket connection mode.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Socket connection mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|socket (boolean socket)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -872,7 +872,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Socket connection mode.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Socket connection mode.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|socket (String socket)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -893,7 +893,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -914,7 +914,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedDockerEndpointConsumerBuilder
@@ -957,7 +957,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Which operation to use.          * The option is a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          * @group common          */
+comment|/**          * Which operation to use.          *           * The option is a:          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          *           * Group: common          */
 DECL|method|operation ( DockerOperation operation)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Which operation to use.          * The option will be converted to a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          * @group common          */
+comment|/**          * Which operation to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -999,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Email address associated with the user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Email address associated with the user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|email (String email)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1020,7 +1020,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Docker host.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1041,7 +1041,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker port.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Docker port.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1062,7 +1062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Docker port.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Request timeout for response (in seconds).          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Request timeout for response (in seconds).          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|requestTimeout ( Integer requestTimeout)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Request timeout for response (in seconds).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Request timeout for response (in seconds).          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|requestTimeout ( String requestTimeout)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1125,7 +1125,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1146,7 +1146,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1167,7 +1167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Location containing the SSL certificate chain.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Location containing the SSL certificate chain.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|certPath (String certPath)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1188,7 +1188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to authenticate with.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password to authenticate with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1209,7 +1209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use HTTPS communication.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Use HTTPS communication.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1230,7 +1230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use HTTPS communication.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Use HTTPS communication.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1251,7 +1251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Check TLS.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Check TLS.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|tlsVerify (boolean tlsVerify)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1272,7 +1272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Check TLS.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Check TLS.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|tlsVerify (String tlsVerify)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1293,7 +1293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * User name to authenticate with.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * User name to authenticate with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|DockerEndpointProducerBuilder
@@ -1336,7 +1336,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1357,7 +1357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1378,7 +1378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The fully qualified class name of the DockerCmdExecFactory          * implementation to use.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * The fully qualified class name of the DockerCmdExecFactory          * implementation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|cmdExecFactory ( String cmdExecFactory)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1399,7 +1399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to follow redirect filter.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to follow redirect filter.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|followRedirectFilter ( boolean followRedirectFilter)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1420,7 +1420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to follow redirect filter.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to follow redirect filter.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|followRedirectFilter ( String followRedirectFilter)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1441,7 +1441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use logging filter.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to use logging filter.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|loggingFilter ( boolean loggingFilter)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1462,7 +1462,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use logging filter.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to use logging filter.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|loggingFilter ( String loggingFilter)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1483,7 +1483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum route connections.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Maximum route connections.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|maxPerRouteConnections ( Integer maxPerRouteConnections)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1504,7 +1504,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum route connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Maximum route connections.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|maxPerRouteConnections ( String maxPerRouteConnections)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1525,7 +1525,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum total connections.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Maximum total connections.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|maxTotalConnections ( Integer maxTotalConnections)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1546,7 +1546,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum total connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Maximum total connections.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|maxTotalConnections ( String maxTotalConnections)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1567,7 +1567,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Server address for docker registry.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Server address for docker registry.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|serverAddress ( String serverAddress)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1588,7 +1588,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Socket connection mode.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Socket connection mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|socket (boolean socket)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1609,7 +1609,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Socket connection mode.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Socket connection mode.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|socket (String socket)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1630,7 +1630,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1651,7 +1651,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedDockerEndpointProducerBuilder
@@ -1696,7 +1696,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Which operation to use.          * The option is a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          * @group common          */
+comment|/**          * Which operation to use.          *           * The option is a:          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          *           * Group: common          */
 DECL|method|operation (DockerOperation operation)
 specifier|default
 name|DockerEndpointBuilder
@@ -1717,7 +1717,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Which operation to use.          * The option will be converted to a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          * @group common          */
+comment|/**          * Which operation to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.docker.DockerOperation</code> type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|DockerEndpointBuilder
@@ -1738,7 +1738,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Email address associated with the user.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Email address associated with the user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|email (String email)
 specifier|default
 name|DockerEndpointBuilder
@@ -1759,7 +1759,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker host.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Docker host.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|DockerEndpointBuilder
@@ -1780,7 +1780,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker port.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Docker port.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|DockerEndpointBuilder
@@ -1801,7 +1801,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Docker port.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Docker port.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|DockerEndpointBuilder
@@ -1822,7 +1822,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Request timeout for response (in seconds).          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Request timeout for response (in seconds).          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|requestTimeout (Integer requestTimeout)
 specifier|default
 name|DockerEndpointBuilder
@@ -1843,7 +1843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Request timeout for response (in seconds).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Request timeout for response (in seconds).          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|requestTimeout (String requestTimeout)
 specifier|default
 name|DockerEndpointBuilder
@@ -1864,7 +1864,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Location containing the SSL certificate chain.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Location containing the SSL certificate chain.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|certPath (String certPath)
 specifier|default
 name|DockerEndpointBuilder
@@ -1885,7 +1885,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to authenticate with.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password to authenticate with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|DockerEndpointBuilder
@@ -1906,7 +1906,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use HTTPS communication.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Use HTTPS communication.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|DockerEndpointBuilder
@@ -1927,7 +1927,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Use HTTPS communication.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Use HTTPS communication.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|DockerEndpointBuilder
@@ -1948,7 +1948,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Check TLS.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Check TLS.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|tlsVerify (boolean tlsVerify)
 specifier|default
 name|DockerEndpointBuilder
@@ -1969,7 +1969,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Check TLS.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Check TLS.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|tlsVerify (String tlsVerify)
 specifier|default
 name|DockerEndpointBuilder
@@ -1990,7 +1990,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * User name to authenticate with.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * User name to authenticate with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|DockerEndpointBuilder
@@ -2035,7 +2035,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2056,7 +2056,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2077,7 +2077,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The fully qualified class name of the DockerCmdExecFactory          * implementation to use.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * The fully qualified class name of the DockerCmdExecFactory          * implementation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|cmdExecFactory ( String cmdExecFactory)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2098,7 +2098,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to follow redirect filter.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to follow redirect filter.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|followRedirectFilter ( boolean followRedirectFilter)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2119,7 +2119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to follow redirect filter.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to follow redirect filter.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|followRedirectFilter ( String followRedirectFilter)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2140,7 +2140,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use logging filter.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to use logging filter.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|loggingFilter ( boolean loggingFilter)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2161,7 +2161,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use logging filter.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether to use logging filter.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|loggingFilter (String loggingFilter)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2182,7 +2182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum route connections.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Maximum route connections.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|maxPerRouteConnections ( Integer maxPerRouteConnections)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2203,7 +2203,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum route connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Maximum route connections.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|maxPerRouteConnections ( String maxPerRouteConnections)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2224,7 +2224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum total connections.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Maximum total connections.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|maxTotalConnections ( Integer maxTotalConnections)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2245,7 +2245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum total connections.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Maximum total connections.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|maxTotalConnections ( String maxTotalConnections)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2266,7 +2266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Server address for docker registry.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Server address for docker registry.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|serverAddress (String serverAddress)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2287,7 +2287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Socket connection mode.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Socket connection mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|socket (boolean socket)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2308,7 +2308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Socket connection mode.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Socket connection mode.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|socket (String socket)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2329,7 +2329,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDockerEndpointBuilder
@@ -2350,7 +2350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDockerEndpointBuilder

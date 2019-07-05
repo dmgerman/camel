@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Specifies an index for the endpoint.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Specifies an index for the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|index (String index)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|accessToken (String accessToken)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Google mail application name. Example would be camel-google-mail/1.0.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Google mail application name. Example would be camel-google-mail/1.0.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|applicationName ( String applicationName)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client ID of the mail application.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Client ID of the mail application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client secret of the mail application.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Client secret of the mail application.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|clientSecret (String clientSecret)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Comma separated list of labels to take into account.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Comma separated list of labels to take into account.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|labels (String labels)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Mark the message as read once it has been consumed.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Mark the message as read once it has been consumed.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|markAsRead (boolean markAsRead)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Mark the message as read once it has been consumed.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Mark the message as read once it has been consumed.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|markAsRead (String markAsRead)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max results to be returned.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * Max results to be returned.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|maxResults (long maxResults)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Max results to be returned.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * Max results to be returned.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|maxResults (String maxResults)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The query to execute on gmail box.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The query to execute on gmail box.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|query (String query)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * OAuth 2 refresh token. Using this, the Google Calendar component can          * obtain a new accessToken whenever the current one expires - a          * necessity if the application is long-lived.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|refreshToken (String refreshToken)
 specifier|default
 name|GoogleMailStreamEndpointBuilder
@@ -384,7 +384,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleMailStreamEndpointBuilder
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoogleMailStreamEndpointBuilder
@@ -426,7 +426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGoogleMailStreamEndpointBuilder
@@ -447,7 +447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGoogleMailStreamEndpointBuilder

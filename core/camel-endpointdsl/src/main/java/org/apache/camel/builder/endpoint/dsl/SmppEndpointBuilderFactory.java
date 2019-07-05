@@ -146,7 +146,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the SMSC server to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname for the SMSC server to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -167,7 +167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the SMSC server to use.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Port number for the SMSC server to use.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -188,7 +188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the SMSC server to use.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Port number for the SMSC server to use.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -209,7 +209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|initialReconnectDelay ( long initialReconnectDelay)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -230,7 +230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|initialReconnectDelay ( String initialReconnectDelay)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -251,7 +251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnect (int maxReconnect)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -272,7 +272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnect (String maxReconnect)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -293,7 +293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|reconnectDelay (long reconnectDelay)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -314,7 +314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|reconnectDelay (String reconnectDelay)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -335,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          * The option is a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          * @group common          */
+comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          *           * The option is a:          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          *           * Group: common          */
 DECL|method|splittingPolicy ( SmppSplittingPolicy splittingPolicy)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -356,7 +356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          * The option will be converted to a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          * @group common          */
+comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          *           * The option will be converted to a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          *           * Group: common          */
 DECL|method|splittingPolicy ( String splittingPolicy)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -377,7 +377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This parameter is used to categorize the type of ESME (External Short          * Message Entity) that is binding to the SMSC (max. 13 characters).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * This parameter is used to categorize the type of ESME (External Short          * Message Entity) that is binding to the SMSC (max. 13 characters).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|systemType (String systemType)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -398,7 +398,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can specify the address range for the SmppConsumer as defined in          * section 5.2.7 of the SMPP 3.4 specification. The SmppConsumer will          * receive messages only from SMSC's which target an address (MSISDN or          * IP address) within this range.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * You can specify the address range for the SmppConsumer as defined in          * section 5.2.7 of the SMPP 3.4 specification. The SmppConsumer will          * receive messages only from SMSC's which target an address (MSISDN or          * IP address) within this range.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|addressRange (String addressRange)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -419,7 +419,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -440,7 +440,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -461,7 +461,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          * The option is a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          *           * The option is a:<code>byte</code> type.          *           * Group: codec          */
 DECL|method|alphabet (byte alphabet)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -482,7 +482,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          * The option will be converted to a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: codec          */
 DECL|method|alphabet (String alphabet)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -503,7 +503,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          * The option is a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          *           * The option is a:<code>byte</code> type.          *           * Group: codec          */
 DECL|method|dataCoding (byte dataCoding)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -524,7 +524,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          * The option will be converted to a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          *           * The option will be converted to a<code>byte</code> type.          *           * Group: codec          */
 DECL|method|dataCoding (String dataCoding)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -545,7 +545,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the encoding scheme of the short message user data. Only for          * SubmitSm, ReplaceSm and SubmitMulti.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
+comment|/**          * Defines the encoding scheme of the short message user data. Only for          * SubmitSm, ReplaceSm and SubmitMulti.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: codec          */
 DECL|method|encoding (String encoding)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -566,7 +566,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the hostname or ip address of your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the hostname or ip address of your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyHost (String httpProxyHost)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -587,7 +587,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the password required for your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the password required for your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -608,7 +608,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyPort (Integer httpProxyPort)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -629,7 +629,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|httpProxyPort (String httpProxyPort)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -650,7 +650,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the username required for your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the username required for your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyUsername ( String httpProxyUsername)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -671,7 +671,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group proxy          */
+comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: proxy          */
 DECL|method|proxyHeaders ( Map<String, String> proxyHeaders)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -697,7 +697,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group proxy          */
+comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: proxy          */
 DECL|method|proxyHeaders (String proxyHeaders)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -718,7 +718,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The password for connecting to SMSC server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The password for connecting to SMSC server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -739,7 +739,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The system id (username) for connecting to SMSC server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The system id (username) for connecting to SMSC server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|systemId (String systemId)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -760,7 +760,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether using SSL with the smpps protocol.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Whether using SSL with the smpps protocol.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|usingSSL (boolean usingSSL)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -781,7 +781,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether using SSL with the smpps protocol.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Whether using SSL with the smpps protocol.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|usingSSL (String usingSSL)
 specifier|default
 name|SmppEndpointConsumerBuilder
@@ -824,7 +824,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -845,7 +845,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -866,7 +866,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -887,7 +887,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -908,7 +908,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -929,7 +929,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -950,7 +950,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|enquireLinkTimer ( Integer enquireLinkTimer)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -971,7 +971,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|enquireLinkTimer ( String enquireLinkTimer)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -992,7 +992,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          * The option is a<code>org.jsmpp.session.SessionStateListener</code>          * type.          * @group advanced          */
+comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          *           * The option is a:<code>org.jsmpp.session.SessionStateListener</code>          * type.          *           * Group: advanced          */
 DECL|method|sessionStateListener ( Object sessionStateListener)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -1013,7 +1013,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          * The option will be converted to a          *<code>org.jsmpp.session.SessionStateListener</code> type.          * @group advanced          */
+comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          *           * The option will be converted to a          *<code>org.jsmpp.session.SessionStateListener</code> type.          *           * Group: advanced          */
 DECL|method|sessionStateListener ( String sessionStateListener)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -1034,7 +1034,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -1055,7 +1055,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -1076,7 +1076,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|transactionTimer ( Integer transactionTimer)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -1097,7 +1097,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|transactionTimer ( String transactionTimer)
 specifier|default
 name|AdvancedSmppEndpointConsumerBuilder
@@ -1140,7 +1140,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the SMSC server to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname for the SMSC server to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1161,7 +1161,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the SMSC server to use.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Port number for the SMSC server to use.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1182,7 +1182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the SMSC server to use.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Port number for the SMSC server to use.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1203,7 +1203,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|initialReconnectDelay ( long initialReconnectDelay)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1224,7 +1224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|initialReconnectDelay ( String initialReconnectDelay)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1245,7 +1245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnect (int maxReconnect)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1266,7 +1266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnect (String maxReconnect)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1287,7 +1287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|reconnectDelay (long reconnectDelay)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1308,7 +1308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|reconnectDelay (String reconnectDelay)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1329,7 +1329,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          * The option is a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          * @group common          */
+comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          *           * The option is a:          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          *           * Group: common          */
 DECL|method|splittingPolicy ( SmppSplittingPolicy splittingPolicy)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1350,7 +1350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          * The option will be converted to a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          * @group common          */
+comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          *           * The option will be converted to a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          *           * Group: common          */
 DECL|method|splittingPolicy ( String splittingPolicy)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1371,7 +1371,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This parameter is used to categorize the type of ESME (External Short          * Message Entity) that is binding to the SMSC (max. 13 characters).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * This parameter is used to categorize the type of ESME (External Short          * Message Entity) that is binding to the SMSC (max. 13 characters).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|systemType (String systemType)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1392,7 +1392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the destination SME address. For mobile terminated messages,          * this is the directory number of the recipient MS. Only for SubmitSm,          * SubmitMulti, CancelSm and DataSm.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Defines the destination SME address. For mobile terminated messages,          * this is the directory number of the recipient MS. Only for SubmitSm,          * SubmitMulti, CancelSm and DataSm.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|destAddr (String destAddr)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1413,7 +1413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of number (TON) to be used in the SME destination          * address parameters. Only for SubmitSm, SubmitMulti, CancelSm and          * DataSm. The following NPI values are defined: 0: Unknown 1: ISDN          * (E163/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8:          * National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to          * be defined by WAP Forum).          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the type of number (TON) to be used in the SME destination          * address parameters. Only for SubmitSm, SubmitMulti, CancelSm and          * DataSm. The following NPI values are defined: 0: Unknown 1: ISDN          * (E163/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8:          * National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to          * be defined by WAP Forum).          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|destAddrNpi (byte destAddrNpi)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1434,7 +1434,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of number (TON) to be used in the SME destination          * address parameters. Only for SubmitSm, SubmitMulti, CancelSm and          * DataSm. The following NPI values are defined: 0: Unknown 1: ISDN          * (E163/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8:          * National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to          * be defined by WAP Forum).          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the type of number (TON) to be used in the SME destination          * address parameters. Only for SubmitSm, SubmitMulti, CancelSm and          * DataSm. The following NPI values are defined: 0: Unknown 1: ISDN          * (E163/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8:          * National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to          * be defined by WAP Forum).          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|destAddrNpi (String destAddrNpi)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1455,7 +1455,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of number (TON) to be used in the SME destination          * address parameters. Only for SubmitSm, SubmitMulti, CancelSm and          * DataSm. The following TON values are defined: 0: Unknown 1:          * International 2: National 3: Network Specific 4: Subscriber Number 5:          * Alphanumeric 6: Abbreviated.          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the type of number (TON) to be used in the SME destination          * address parameters. Only for SubmitSm, SubmitMulti, CancelSm and          * DataSm. The following TON values are defined: 0: Unknown 1:          * International 2: National 3: Network Specific 4: Subscriber Number 5:          * Alphanumeric 6: Abbreviated.          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|destAddrTon (byte destAddrTon)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1476,7 +1476,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of number (TON) to be used in the SME destination          * address parameters. Only for SubmitSm, SubmitMulti, CancelSm and          * DataSm. The following TON values are defined: 0: Unknown 1:          * International 2: National 3: Network Specific 4: Subscriber Number 5:          * Alphanumeric 6: Abbreviated.          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the type of number (TON) to be used in the SME destination          * address parameters. Only for SubmitSm, SubmitMulti, CancelSm and          * DataSm. The following TON values are defined: 0: Unknown 1:          * International 2: National 3: Network Specific 4: Subscriber Number 5:          * Alphanumeric 6: Abbreviated.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|destAddrTon (String destAddrTon)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1497,7 +1497,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sessions can be lazily created to avoid exceptions, if the SMSC is          * not available when the Camel producer is started. Camel will check          * the in message headers 'CamelSmppSystemId' and 'CamelSmppPassword' of          * the first exchange. If they are present, Camel will use these data to          * connect to the SMSC.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sessions can be lazily created to avoid exceptions, if the SMSC is          * not available when the Camel producer is started. Camel will check          * the in message headers 'CamelSmppSystemId' and 'CamelSmppPassword' of          * the first exchange. If they are present, Camel will use these data to          * connect to the SMSC.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazySessionCreation ( boolean lazySessionCreation)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1518,7 +1518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sessions can be lazily created to avoid exceptions, if the SMSC is          * not available when the Camel producer is started. Camel will check          * the in message headers 'CamelSmppSystemId' and 'CamelSmppPassword' of          * the first exchange. If they are present, Camel will use these data to          * connect to the SMSC.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Sessions can be lazily created to avoid exceptions, if the SMSC is          * not available when the Camel producer is started. Camel will check          * the in message headers 'CamelSmppSystemId' and 'CamelSmppPassword' of          * the first exchange. If they are present, Camel will use these data to          * connect to the SMSC.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazySessionCreation ( String lazySessionCreation)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1539,7 +1539,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1560,7 +1560,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1581,7 +1581,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the numeric plan indicator (NPI) to be used in the SME. The          * following NPI values are defined: 0: Unknown 1: ISDN (E163/E164) 2:          * Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9:          * Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined          * by WAP Forum).          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the numeric plan indicator (NPI) to be used in the SME. The          * following NPI values are defined: 0: Unknown 1: ISDN (E163/E164) 2:          * Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9:          * Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined          * by WAP Forum).          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|numberingPlanIndicator ( byte numberingPlanIndicator)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1602,7 +1602,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the numeric plan indicator (NPI) to be used in the SME. The          * following NPI values are defined: 0: Unknown 1: ISDN (E163/E164) 2:          * Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9:          * Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined          * by WAP Forum).          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the numeric plan indicator (NPI) to be used in the SME. The          * following NPI values are defined: 0: Unknown 1: ISDN (E163/E164) 2:          * Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9:          * Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined          * by WAP Forum).          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|numberingPlanIndicator ( String numberingPlanIndicator)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1623,7 +1623,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows the originating SME to assign a priority level to the short          * message. Only for SubmitSm and SubmitMulti. Four Priority Levels are          * supported: 0: Level 0 (lowest) priority 1: Level 1 priority 2: Level          * 2 priority 3: Level 3 (highest) priority.          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Allows the originating SME to assign a priority level to the short          * message. Only for SubmitSm and SubmitMulti. Four Priority Levels are          * supported: 0: Level 0 (lowest) priority 1: Level 1 priority 2: Level          * 2 priority 3: Level 3 (highest) priority.          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|priorityFlag (byte priorityFlag)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1644,7 +1644,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows the originating SME to assign a priority level to the short          * message. Only for SubmitSm and SubmitMulti. Four Priority Levels are          * supported: 0: Level 0 (lowest) priority 1: Level 1 priority 2: Level          * 2 priority 3: Level 3 (highest) priority.          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Allows the originating SME to assign a priority level to the short          * message. Only for SubmitSm and SubmitMulti. Four Priority Levels are          * supported: 0: Level 0 (lowest) priority 1: Level 1 priority 2: Level          * 2 priority 3: Level 3 (highest) priority.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|priorityFlag (String priorityFlag)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1665,7 +1665,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The protocol id.          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * The protocol id.          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|protocolId (byte protocolId)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1686,7 +1686,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The protocol id.          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * The protocol id.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|protocolId (String protocolId)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1707,7 +1707,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Is used to request an SMSC delivery receipt and/or SME originated          * acknowledgements. The following values are defined: 0: No SMSC          * delivery receipt requested. 1: SMSC delivery receipt requested where          * final delivery outcome is success or failure. 2: SMSC delivery          * receipt requested where the final delivery outcome is delivery          * failure.          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Is used to request an SMSC delivery receipt and/or SME originated          * acknowledgements. The following values are defined: 0: No SMSC          * delivery receipt requested. 1: SMSC delivery receipt requested where          * final delivery outcome is success or failure. 2: SMSC delivery          * receipt requested where the final delivery outcome is delivery          * failure.          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|registeredDelivery ( byte registeredDelivery)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1728,7 +1728,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Is used to request an SMSC delivery receipt and/or SME originated          * acknowledgements. The following values are defined: 0: No SMSC          * delivery receipt requested. 1: SMSC delivery receipt requested where          * final delivery outcome is success or failure. 2: SMSC delivery          * receipt requested where the final delivery outcome is delivery          * failure.          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Is used to request an SMSC delivery receipt and/or SME originated          * acknowledgements. The following values are defined: 0: No SMSC          * delivery receipt requested. 1: SMSC delivery receipt requested where          * final delivery outcome is success or failure. 2: SMSC delivery          * receipt requested where the final delivery outcome is delivery          * failure.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|registeredDelivery ( String registeredDelivery)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1749,7 +1749,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used to request the SMSC to replace a previously submitted message,          * that is still pending delivery. The SMSC will replace an existing          * message provided that the source address, destination address and          * service type match the same fields in the new message. The following          * replace if present flag values are defined: 0: Don't replace 1:          * Replace.          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Used to request the SMSC to replace a previously submitted message,          * that is still pending delivery. The SMSC will replace an existing          * message provided that the source address, destination address and          * service type match the same fields in the new message. The following          * replace if present flag values are defined: 0: Don't replace 1:          * Replace.          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|replaceIfPresentFlag ( byte replaceIfPresentFlag)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1770,7 +1770,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used to request the SMSC to replace a previously submitted message,          * that is still pending delivery. The SMSC will replace an existing          * message provided that the source address, destination address and          * service type match the same fields in the new message. The following          * replace if present flag values are defined: 0: Don't replace 1:          * Replace.          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Used to request the SMSC to replace a previously submitted message,          * that is still pending delivery. The SMSC will replace an existing          * message provided that the source address, destination address and          * service type match the same fields in the new message. The following          * replace if present flag values are defined: 0: Don't replace 1:          * Replace.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|replaceIfPresentFlag ( String replaceIfPresentFlag)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1791,7 +1791,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The service type parameter can be used to indicate the SMS          * Application service associated with the message. The following          * generic service_types are defined: CMT: Cellular Messaging CPT:          * Cellular Paging VMN: Voice Mail Notification VMA: Voice Mail Alerting          * WAP: Wireless Application Protocol USSD: Unstructured Supplementary          * Services Data.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The service type parameter can be used to indicate the SMS          * Application service associated with the message. The following          * generic service_types are defined: CMT: Cellular Messaging CPT:          * Cellular Paging VMN: Voice Mail Notification VMA: Voice Mail Alerting          * WAP: Wireless Application Protocol USSD: Unstructured Supplementary          * Services Data.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|serviceType (String serviceType)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1812,7 +1812,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the address of SME (Short Message Entity) which originated          * this message.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Defines the address of SME (Short Message Entity) which originated          * this message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|sourceAddr (String sourceAddr)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1833,7 +1833,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the numeric plan indicator (NPI) to be used in the SME          * originator address parameters. The following NPI values are defined:          * 0: Unknown 1: ISDN (E163/E164) 2: Data (X.121) 3: Telex (F.69) 6:          * Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet          * (IP) 18: WAP Client Id (to be defined by WAP Forum).          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the numeric plan indicator (NPI) to be used in the SME          * originator address parameters. The following NPI values are defined:          * 0: Unknown 1: ISDN (E163/E164) 2: Data (X.121) 3: Telex (F.69) 6:          * Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet          * (IP) 18: WAP Client Id (to be defined by WAP Forum).          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|sourceAddrNpi (byte sourceAddrNpi)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1854,7 +1854,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the numeric plan indicator (NPI) to be used in the SME          * originator address parameters. The following NPI values are defined:          * 0: Unknown 1: ISDN (E163/E164) 2: Data (X.121) 3: Telex (F.69) 6:          * Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet          * (IP) 18: WAP Client Id (to be defined by WAP Forum).          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the numeric plan indicator (NPI) to be used in the SME          * originator address parameters. The following NPI values are defined:          * 0: Unknown 1: ISDN (E163/E164) 2: Data (X.121) 3: Telex (F.69) 6:          * Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet          * (IP) 18: WAP Client Id (to be defined by WAP Forum).          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|sourceAddrNpi (String sourceAddrNpi)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1875,7 +1875,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of number (TON) to be used in the SME originator          * address parameters. The following TON values are defined: 0: Unknown          * 1: International 2: National 3: Network Specific 4: Subscriber Number          * 5: Alphanumeric 6: Abbreviated.          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the type of number (TON) to be used in the SME originator          * address parameters. The following TON values are defined: 0: Unknown          * 1: International 2: National 3: Network Specific 4: Subscriber Number          * 5: Alphanumeric 6: Abbreviated.          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|sourceAddrTon (byte sourceAddrTon)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1896,7 +1896,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of number (TON) to be used in the SME originator          * address parameters. The following TON values are defined: 0: Unknown          * 1: International 2: National 3: Network Specific 4: Subscriber Number          * 5: Alphanumeric 6: Abbreviated.          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the type of number (TON) to be used in the SME originator          * address parameters. The following TON values are defined: 0: Unknown          * 1: International 2: National 3: Network Specific 4: Subscriber Number          * 5: Alphanumeric 6: Abbreviated.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|sourceAddrTon (String sourceAddrTon)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1917,7 +1917,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of number (TON) to be used in the SME. The following          * TON values are defined: 0: Unknown 1: International 2: National 3:          * Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated.          * The option is a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the type of number (TON) to be used in the SME. The following          * TON values are defined: 0: Unknown 1: International 2: National 3:          * Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated.          *           * The option is a:<code>byte</code> type.          *           * Group: producer          */
 DECL|method|typeOfNumber (byte typeOfNumber)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1938,7 +1938,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the type of number (TON) to be used in the SME. The following          * TON values are defined: 0: Unknown 1: International 2: National 3:          * Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated.          * The option will be converted to a<code>byte</code> type.          * @group producer          */
+comment|/**          * Defines the type of number (TON) to be used in the SME. The following          * TON values are defined: 0: Unknown 1: International 2: National 3:          * Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: producer          */
 DECL|method|typeOfNumber (String typeOfNumber)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1959,7 +1959,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          * The option is a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          *           * The option is a:<code>byte</code> type.          *           * Group: codec          */
 DECL|method|alphabet (byte alphabet)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -1980,7 +1980,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          * The option will be converted to a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: codec          */
 DECL|method|alphabet (String alphabet)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2001,7 +2001,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          * The option is a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          *           * The option is a:<code>byte</code> type.          *           * Group: codec          */
 DECL|method|dataCoding (byte dataCoding)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2022,7 +2022,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          * The option will be converted to a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          *           * The option will be converted to a<code>byte</code> type.          *           * Group: codec          */
 DECL|method|dataCoding (String dataCoding)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2043,7 +2043,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the encoding scheme of the short message user data. Only for          * SubmitSm, ReplaceSm and SubmitMulti.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
+comment|/**          * Defines the encoding scheme of the short message user data. Only for          * SubmitSm, ReplaceSm and SubmitMulti.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: codec          */
 DECL|method|encoding (String encoding)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2064,7 +2064,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the hostname or ip address of your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the hostname or ip address of your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyHost (String httpProxyHost)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2085,7 +2085,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the password required for your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the password required for your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyPassword ( String httpProxyPassword)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2106,7 +2106,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyPort (Integer httpProxyPort)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2127,7 +2127,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|httpProxyPort (String httpProxyPort)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2148,7 +2148,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the username required for your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the username required for your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyUsername ( String httpProxyUsername)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2169,7 +2169,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group proxy          */
+comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: proxy          */
 DECL|method|proxyHeaders ( Map<String, String> proxyHeaders)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2195,7 +2195,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group proxy          */
+comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: proxy          */
 DECL|method|proxyHeaders (String proxyHeaders)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2216,7 +2216,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The password for connecting to SMSC server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The password for connecting to SMSC server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2237,7 +2237,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The system id (username) for connecting to SMSC server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The system id (username) for connecting to SMSC server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|systemId (String systemId)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2258,7 +2258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether using SSL with the smpps protocol.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Whether using SSL with the smpps protocol.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|usingSSL (boolean usingSSL)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2279,7 +2279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether using SSL with the smpps protocol.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Whether using SSL with the smpps protocol.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|usingSSL (String usingSSL)
 specifier|default
 name|SmppEndpointProducerBuilder
@@ -2322,7 +2322,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2343,7 +2343,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2364,7 +2364,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|enquireLinkTimer ( Integer enquireLinkTimer)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2385,7 +2385,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|enquireLinkTimer ( String enquireLinkTimer)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2406,7 +2406,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          * The option is a<code>org.jsmpp.session.SessionStateListener</code>          * type.          * @group advanced          */
+comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          *           * The option is a:<code>org.jsmpp.session.SessionStateListener</code>          * type.          *           * Group: advanced          */
 DECL|method|sessionStateListener ( Object sessionStateListener)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2427,7 +2427,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          * The option will be converted to a          *<code>org.jsmpp.session.SessionStateListener</code> type.          * @group advanced          */
+comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          *           * The option will be converted to a          *<code>org.jsmpp.session.SessionStateListener</code> type.          *           * Group: advanced          */
 DECL|method|sessionStateListener ( String sessionStateListener)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2448,7 +2448,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2469,7 +2469,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2490,7 +2490,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|transactionTimer ( Integer transactionTimer)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2511,7 +2511,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|transactionTimer ( String transactionTimer)
 specifier|default
 name|AdvancedSmppEndpointProducerBuilder
@@ -2556,7 +2556,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the SMSC server to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname for the SMSC server to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|SmppEndpointBuilder
@@ -2577,7 +2577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the SMSC server to use.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Port number for the SMSC server to use.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|SmppEndpointBuilder
@@ -2598,7 +2598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port number for the SMSC server to use.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Port number for the SMSC server to use.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|SmppEndpointBuilder
@@ -2619,7 +2619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|initialReconnectDelay ( long initialReconnectDelay)
 specifier|default
 name|SmppEndpointBuilder
@@ -2640,7 +2640,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|initialReconnectDelay ( String initialReconnectDelay)
 specifier|default
 name|SmppEndpointBuilder
@@ -2661,7 +2661,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnect (int maxReconnect)
 specifier|default
 name|SmppEndpointBuilder
@@ -2682,7 +2682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Defines the maximum number of attempts to reconnect to the SMSC, if          * SMSC returns a negative bind response.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxReconnect (String maxReconnect)
 specifier|default
 name|SmppEndpointBuilder
@@ -2703,7 +2703,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          * The option is a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|reconnectDelay (long reconnectDelay)
 specifier|default
 name|SmppEndpointBuilder
@@ -2724,7 +2724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          * The option will be converted to a<code>long</code> type.          * @group common          */
+comment|/**          * Defines the interval in milliseconds between the reconnect attempts,          * if the connection to the SMSC was lost and the previous was not          * succeed.          *           * The option will be converted to a<code>long</code> type.          *           * Group: common          */
 DECL|method|reconnectDelay (String reconnectDelay)
 specifier|default
 name|SmppEndpointBuilder
@@ -2745,7 +2745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          * The option is a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          * @group common          */
+comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          *           * The option is a:          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          *           * Group: common          */
 DECL|method|splittingPolicy ( SmppSplittingPolicy splittingPolicy)
 specifier|default
 name|SmppEndpointBuilder
@@ -2766,7 +2766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          * The option will be converted to a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          * @group common          */
+comment|/**          * You can specify a policy for handling long messages: ALLOW - the          * default, long messages are split to 140 bytes per message TRUNCATE -          * long messages are split and only the first fragment will be sent to          * the SMSC. Some carriers drop subsequent fragments so this reduces          * load on the SMPP connection sending parts of a message that will          * never be delivered. REJECT - if a message would need to be split, it          * is rejected with an SMPP NegativeResponseException and the reason          * code signifying the message is too long.          *           * The option will be converted to a          *<code>org.apache.camel.component.smpp.SmppSplittingPolicy</code>          * type.          *           * Group: common          */
 DECL|method|splittingPolicy (String splittingPolicy)
 specifier|default
 name|SmppEndpointBuilder
@@ -2787,7 +2787,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This parameter is used to categorize the type of ESME (External Short          * Message Entity) that is binding to the SMSC (max. 13 characters).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * This parameter is used to categorize the type of ESME (External Short          * Message Entity) that is binding to the SMSC (max. 13 characters).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|systemType (String systemType)
 specifier|default
 name|SmppEndpointBuilder
@@ -2808,7 +2808,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          * The option is a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          *           * The option is a:<code>byte</code> type.          *           * Group: codec          */
 DECL|method|alphabet (byte alphabet)
 specifier|default
 name|SmppEndpointBuilder
@@ -2829,7 +2829,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          * The option will be converted to a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines encoding of data according the SMPP 3.4 specification,          * section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2          * Alphabet.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: codec          */
 DECL|method|alphabet (String alphabet)
 specifier|default
 name|SmppEndpointBuilder
@@ -2850,7 +2850,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          * The option is a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          *           * The option is a:<code>byte</code> type.          *           * Group: codec          */
 DECL|method|dataCoding (byte dataCoding)
 specifier|default
 name|SmppEndpointBuilder
@@ -2871,7 +2871,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          * The option will be converted to a<code>byte</code> type.          * @group codec          */
+comment|/**          * Defines the data coding according the SMPP 3.4 specification, section          * 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin          * 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2          * (ISO/IEC-10646) 13: Extended Kanji JIS(X 0212-1990).          *           * The option will be converted to a<code>byte</code> type.          *           * Group: codec          */
 DECL|method|dataCoding (String dataCoding)
 specifier|default
 name|SmppEndpointBuilder
@@ -2892,7 +2892,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the encoding scheme of the short message user data. Only for          * SubmitSm, ReplaceSm and SubmitMulti.          * The option is a<code>java.lang.String</code> type.          * @group codec          */
+comment|/**          * Defines the encoding scheme of the short message user data. Only for          * SubmitSm, ReplaceSm and SubmitMulti.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: codec          */
 DECL|method|encoding (String encoding)
 specifier|default
 name|SmppEndpointBuilder
@@ -2913,7 +2913,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the hostname or ip address of your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the hostname or ip address of your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyHost (String httpProxyHost)
 specifier|default
 name|SmppEndpointBuilder
@@ -2934,7 +2934,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the password required for your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the password required for your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyPassword (String httpProxyPassword)
 specifier|default
 name|SmppEndpointBuilder
@@ -2955,7 +2955,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyPort (Integer httpProxyPort)
 specifier|default
 name|SmppEndpointBuilder
@@ -2976,7 +2976,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * If you need to tunnel SMPP through a HTTP proxy, set this attribute          * to the port of your HTTP proxy.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|httpProxyPort (String httpProxyPort)
 specifier|default
 name|SmppEndpointBuilder
@@ -2997,7 +2997,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the username required for your HTTP proxy.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * If your HTTP proxy requires basic authentication, set this attribute          * to the username required for your HTTP proxy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyUsername (String httpProxyUsername)
 specifier|default
 name|SmppEndpointBuilder
@@ -3018,7 +3018,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group proxy          */
+comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: proxy          */
 DECL|method|proxyHeaders ( Map<String, String> proxyHeaders)
 specifier|default
 name|SmppEndpointBuilder
@@ -3044,7 +3044,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group proxy          */
+comment|/**          * These headers will be passed to the proxy server while establishing          * the connection.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: proxy          */
 DECL|method|proxyHeaders (String proxyHeaders)
 specifier|default
 name|SmppEndpointBuilder
@@ -3065,7 +3065,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The password for connecting to SMSC server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The password for connecting to SMSC server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|SmppEndpointBuilder
@@ -3086,7 +3086,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The system id (username) for connecting to SMSC server.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The system id (username) for connecting to SMSC server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|systemId (String systemId)
 specifier|default
 name|SmppEndpointBuilder
@@ -3107,7 +3107,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether using SSL with the smpps protocol.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Whether using SSL with the smpps protocol.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|usingSSL (boolean usingSSL)
 specifier|default
 name|SmppEndpointBuilder
@@ -3128,7 +3128,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether using SSL with the smpps protocol.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Whether using SSL with the smpps protocol.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|usingSSL (String usingSSL)
 specifier|default
 name|SmppEndpointBuilder
@@ -3173,7 +3173,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3194,7 +3194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3215,7 +3215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|enquireLinkTimer ( Integer enquireLinkTimer)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3236,7 +3236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Defines the interval in milliseconds between the confidence checks.          * The confidence check is used to test the communication path between          * an ESME and an SMSC.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|enquireLinkTimer ( String enquireLinkTimer)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3257,7 +3257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          * The option is a<code>org.jsmpp.session.SessionStateListener</code>          * type.          * @group advanced          */
+comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          *           * The option is a:<code>org.jsmpp.session.SessionStateListener</code>          * type.          *           * Group: advanced          */
 DECL|method|sessionStateListener ( Object sessionStateListener)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3278,7 +3278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          * The option will be converted to a          *<code>org.jsmpp.session.SessionStateListener</code> type.          * @group advanced          */
+comment|/**          * You can refer to a org.jsmpp.session.SessionStateListener in the          * Registry to receive callbacks when the session state changed.          *           * The option will be converted to a          *<code>org.jsmpp.session.SessionStateListener</code> type.          *           * Group: advanced          */
 DECL|method|sessionStateListener ( String sessionStateListener)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3299,7 +3299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3320,7 +3320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3341,7 +3341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          * The option is a<code>java.lang.Integer</code> type.          * @group advanced          */
+comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|transactionTimer ( Integer transactionTimer)
 specifier|default
 name|AdvancedSmppEndpointBuilder
@@ -3362,7 +3362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group advanced          */
+comment|/**          * Defines the maximum period of inactivity allowed after a transaction,          * after which an SMPP entity may assume that the session is no longer          * active. This timer may be active on either communicating SMPP entity          * (i.e. SMSC or ESME).          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: advanced          */
 DECL|method|transactionTimer ( String transactionTimer)
 specifier|default
 name|AdvancedSmppEndpointBuilder

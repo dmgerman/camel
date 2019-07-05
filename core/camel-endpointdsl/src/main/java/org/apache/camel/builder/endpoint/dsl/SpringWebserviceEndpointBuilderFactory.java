@@ -146,7 +146,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Endpoint mapping type if endpoint mapping is used. rootqname - Offers          * the option to map web service requests based on the qualified name of          * the root element contained in the message. soapaction - Used to map          * web service requests based on the SOAP action specified in the header          * of the message. uri - In order to map web service requests that          * target a specific URI. xpathresult - Used to map web service requests          * based on the evaluation of an XPath expression against the incoming          * message. The result of the evaluation should match the XPath result          * specified in the endpoint URI. beanname - Allows you to reference an          * org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher          * object in order to integrate with existing (legacy) endpoint mappings          * like PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          * The option is a          *<code>org.apache.camel.component.spring.ws.type.EndpointMappingType</code> type.          * @group consumer          */
+comment|/**          * Endpoint mapping type if endpoint mapping is used. rootqname - Offers          * the option to map web service requests based on the qualified name of          * the root element contained in the message. soapaction - Used to map          * web service requests based on the SOAP action specified in the header          * of the message. uri - In order to map web service requests that          * target a specific URI. xpathresult - Used to map web service requests          * based on the evaluation of an XPath expression against the incoming          * message. The result of the evaluation should match the XPath result          * specified in the endpoint URI. beanname - Allows you to reference an          * org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher          * object in order to integrate with existing (legacy) endpoint mappings          * like PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          *           * The option is a:          *<code>org.apache.camel.component.spring.ws.type.EndpointMappingType</code> type.          *           * Group: consumer          */
 DECL|method|type ( EndpointMappingType type)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -167,7 +167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Endpoint mapping type if endpoint mapping is used. rootqname - Offers          * the option to map web service requests based on the qualified name of          * the root element contained in the message. soapaction - Used to map          * web service requests based on the SOAP action specified in the header          * of the message. uri - In order to map web service requests that          * target a specific URI. xpathresult - Used to map web service requests          * based on the evaluation of an XPath expression against the incoming          * message. The result of the evaluation should match the XPath result          * specified in the endpoint URI. beanname - Allows you to reference an          * org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher          * object in order to integrate with existing (legacy) endpoint mappings          * like PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.type.EndpointMappingType</code> type.          * @group consumer          */
+comment|/**          * Endpoint mapping type if endpoint mapping is used. rootqname - Offers          * the option to map web service requests based on the qualified name of          * the root element contained in the message. soapaction - Used to map          * web service requests based on the SOAP action specified in the header          * of the message. uri - In order to map web service requests that          * target a specific URI. xpathresult - Used to map web service requests          * based on the evaluation of an XPath expression against the incoming          * message. The result of the evaluation should match the XPath result          * specified in the endpoint URI. beanname - Allows you to reference an          * org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher          * object in order to integrate with existing (legacy) endpoint mappings          * like PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          *           * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.type.EndpointMappingType</code> type.          *           * Group: consumer          */
 DECL|method|type (String type)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -188,7 +188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Endpoint mapping key if endpoint mapping is used.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Endpoint mapping key if endpoint mapping is used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|lookupKey ( String lookupKey)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -209,7 +209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          * The option is a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          * @group common          */
+comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          *           * The option is a:          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          *           * Group: common          */
 DECL|method|messageFilter ( Object messageFilter)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -230,7 +230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          * @group common          */
+comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          *           * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          *           * Group: common          */
 DECL|method|messageFilter ( String messageFilter)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -251,7 +251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -272,7 +272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -293,7 +293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Spring org.springframework.ws.server.endpoint.MessageEndpoint for          * dispatching messages received by Spring-WS to a Camel endpoint, to          * integrate with existing (legacy) endpoint mappings like          * PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          * The option is a          *<code>org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher</code> type.          * @group consumer          */
+comment|/**          * Spring org.springframework.ws.server.endpoint.MessageEndpoint for          * dispatching messages received by Spring-WS to a Camel endpoint, to          * integrate with existing (legacy) endpoint mappings like          * PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          *           * The option is a:          *<code>org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher</code> type.          *           * Group: consumer          */
 DECL|method|endpointDispatcher ( Object endpointDispatcher)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -314,7 +314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Spring org.springframework.ws.server.endpoint.MessageEndpoint for          * dispatching messages received by Spring-WS to a Camel endpoint, to          * integrate with existing (legacy) endpoint mappings like          * PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher</code> type.          * @group consumer          */
+comment|/**          * Spring org.springframework.ws.server.endpoint.MessageEndpoint for          * dispatching messages received by Spring-WS to a Camel endpoint, to          * integrate with existing (legacy) endpoint mappings like          * PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          *           * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher</code> type.          *           * Group: consumer          */
 DECL|method|endpointDispatcher ( String endpointDispatcher)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -335,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to an instance of          * org.apache.camel.component.spring.ws.bean.CamelEndpointMapping in the          * Registry/ApplicationContext. Only one bean is required in the          * registry to serve all Camel/Spring-WS endpoints. This bean is          * auto-discovered by the MessageDispatcher and used to map requests to          * Camel endpoints based on characteristics specified on the endpoint          * (like root QName, SOAP action, etc).          * The option is a          *<code>org.apache.camel.component.spring.ws.bean.CamelSpringWSEndpointMapping</code> type.          * @group consumer          */
+comment|/**          * Reference to an instance of          * org.apache.camel.component.spring.ws.bean.CamelEndpointMapping in the          * Registry/ApplicationContext. Only one bean is required in the          * registry to serve all Camel/Spring-WS endpoints. This bean is          * auto-discovered by the MessageDispatcher and used to map requests to          * Camel endpoints based on characteristics specified on the endpoint          * (like root QName, SOAP action, etc).          *           * The option is a:          *<code>org.apache.camel.component.spring.ws.bean.CamelSpringWSEndpointMapping</code> type.          *           * Group: consumer          */
 DECL|method|endpointMapping ( Object endpointMapping)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -356,7 +356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to an instance of          * org.apache.camel.component.spring.ws.bean.CamelEndpointMapping in the          * Registry/ApplicationContext. Only one bean is required in the          * registry to serve all Camel/Spring-WS endpoints. This bean is          * auto-discovered by the MessageDispatcher and used to map requests to          * Camel endpoints based on characteristics specified on the endpoint          * (like root QName, SOAP action, etc).          * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.bean.CamelSpringWSEndpointMapping</code> type.          * @group consumer          */
+comment|/**          * Reference to an instance of          * org.apache.camel.component.spring.ws.bean.CamelEndpointMapping in the          * Registry/ApplicationContext. Only one bean is required in the          * registry to serve all Camel/Spring-WS endpoints. This bean is          * auto-discovered by the MessageDispatcher and used to map requests to          * Camel endpoints based on characteristics specified on the endpoint          * (like root QName, SOAP action, etc).          *           * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.bean.CamelSpringWSEndpointMapping</code> type.          *           * Group: consumer          */
 DECL|method|endpointMapping ( String endpointMapping)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -377,7 +377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The XPath expression to use when option type=xpathresult. Then this          * option is required to be configured.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The XPath expression to use when option type=xpathresult. Then this          * option is required to be configured.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|expression ( String expression)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -398,7 +398,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -419,7 +419,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|SpringWebserviceEndpointConsumerBuilder
@@ -462,7 +462,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedSpringWebserviceEndpointConsumerBuilder
@@ -483,7 +483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedSpringWebserviceEndpointConsumerBuilder
@@ -504,7 +504,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedSpringWebserviceEndpointConsumerBuilder
@@ -525,7 +525,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedSpringWebserviceEndpointConsumerBuilder
@@ -546,7 +546,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSpringWebserviceEndpointConsumerBuilder
@@ -567,7 +567,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSpringWebserviceEndpointConsumerBuilder
@@ -588,7 +588,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSpringWebserviceEndpointConsumerBuilder
@@ -609,7 +609,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSpringWebserviceEndpointConsumerBuilder
@@ -652,7 +652,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The default Web Service endpoint uri to use for the producer.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The default Web Service endpoint uri to use for the producer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|webServiceEndpointUri ( String webServiceEndpointUri)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -673,7 +673,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          * The option is a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          * @group common          */
+comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          *           * The option is a:          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          *           * Group: common          */
 DECL|method|messageFilter ( Object messageFilter)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -694,7 +694,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          * @group common          */
+comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          *           * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          *           * Group: common          */
 DECL|method|messageFilter ( String messageFilter)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -715,7 +715,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to override soap response attachments in in/out exchange with          * attachments from the actual service layer. If the invoked service          * appends or rewrites the soap attachments this option when set to          * true, allows the modified soap attachments to be overwritten in          * in/out message attachments.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Option to override soap response attachments in in/out exchange with          * attachments from the actual service layer. If the invoked service          * appends or rewrites the soap attachments this option when set to          * true, allows the modified soap attachments to be overwritten in          * in/out message attachments.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowResponseAttachmentOverride ( boolean allowResponseAttachmentOverride)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -736,7 +736,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to override soap response attachments in in/out exchange with          * attachments from the actual service layer. If the invoked service          * appends or rewrites the soap attachments this option when set to          * true, allows the modified soap attachments to be overwritten in          * in/out message attachments.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Option to override soap response attachments in in/out exchange with          * attachments from the actual service layer. If the invoked service          * appends or rewrites the soap attachments this option when set to          * true, allows the modified soap attachments to be overwritten in          * in/out message attachments.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowResponseAttachmentOverride ( String allowResponseAttachmentOverride)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -757,7 +757,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to override soap response header in in/out exchange with          * header info from the actual service layer. If the invoked service          * appends or rewrites the soap header this option when set to true,          * allows the modified soap header to be overwritten in in/out message          * headers.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Option to override soap response header in in/out exchange with          * header info from the actual service layer. If the invoked service          * appends or rewrites the soap header this option when set to true,          * allows the modified soap header to be overwritten in in/out message          * headers.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowResponseHeaderOverride ( boolean allowResponseHeaderOverride)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -778,7 +778,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to override soap response header in in/out exchange with          * header info from the actual service layer. If the invoked service          * appends or rewrites the soap header this option when set to true,          * allows the modified soap header to be overwritten in in/out message          * headers.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Option to override soap response header in in/out exchange with          * header info from the actual service layer. If the invoked service          * appends or rewrites the soap header this option when set to true,          * allows the modified soap header to be overwritten in in/out message          * headers.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowResponseHeaderOverride ( String allowResponseHeaderOverride)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -799,7 +799,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signifies the value for the faultAction response WS-Addressing Fault          * Action header that is provided by the method.          * The option is a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * Signifies the value for the faultAction response WS-Addressing Fault          * Action header that is provided by the method.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|faultAction ( URI faultAction)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -820,7 +820,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signifies the value for the faultAction response WS-Addressing Fault          * Action header that is provided by the method.          * The option will be converted to a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * Signifies the value for the faultAction response WS-Addressing Fault          * Action header that is provided by the method.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|faultAction ( String faultAction)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -841,7 +841,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signifies the value for the faultAction response WS-Addressing          * FaultTo header that is provided by the method.          * The option is a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * Signifies the value for the faultAction response WS-Addressing          * FaultTo header that is provided by the method.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|faultTo (URI faultTo)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -862,7 +862,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signifies the value for the faultAction response WS-Addressing          * FaultTo header that is provided by the method.          * The option will be converted to a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * Signifies the value for the faultAction response WS-Addressing          * FaultTo header that is provided by the method.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|faultTo (String faultTo)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -883,7 +883,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -904,7 +904,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -925,7 +925,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom WebServiceMessageFactory. For example when          * you want Apache Axiom to handle web service messages instead of SAAJ.          * The option is a          *<code>org.springframework.ws.WebServiceMessageFactory</code> type.          * @group producer          */
+comment|/**          * Option to provide a custom WebServiceMessageFactory. For example when          * you want Apache Axiom to handle web service messages instead of SAAJ.          *           * The option is a:          *<code>org.springframework.ws.WebServiceMessageFactory</code> type.          *           * Group: producer          */
 DECL|method|messageFactory ( Object messageFactory)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -946,7 +946,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom WebServiceMessageFactory. For example when          * you want Apache Axiom to handle web service messages instead of SAAJ.          * The option will be converted to a          *<code>org.springframework.ws.WebServiceMessageFactory</code> type.          * @group producer          */
+comment|/**          * Option to provide a custom WebServiceMessageFactory. For example when          * you want Apache Axiom to handle web service messages instead of SAAJ.          *           * The option will be converted to a          *<code>org.springframework.ws.WebServiceMessageFactory</code> type.          *           * Group: producer          */
 DECL|method|messageFactory ( String messageFactory)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -967,7 +967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom MessageIdStrategy to control generation of          * unique message ids.          * The option is a          *<code>org.springframework.ws.soap.addressing.messageid.MessageIdStrategy</code> type.          * @group producer          */
+comment|/**          * Option to provide a custom MessageIdStrategy to control generation of          * unique message ids.          *           * The option is a:          *<code>org.springframework.ws.soap.addressing.messageid.MessageIdStrategy</code> type.          *           * Group: producer          */
 DECL|method|messageIdStrategy ( Object messageIdStrategy)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -988,7 +988,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom MessageIdStrategy to control generation of          * unique message ids.          * The option will be converted to a          *<code>org.springframework.ws.soap.addressing.messageid.MessageIdStrategy</code> type.          * @group producer          */
+comment|/**          * Option to provide a custom MessageIdStrategy to control generation of          * unique message ids.          *           * The option will be converted to a          *<code>org.springframework.ws.soap.addressing.messageid.MessageIdStrategy</code> type.          *           * Group: producer          */
 DECL|method|messageIdStrategy ( String messageIdStrategy)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1009,7 +1009,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom WebServiceMessageSender. For example to          * perform authentication or use alternative transports.          * The option is a          *<code>org.springframework.ws.transport.WebServiceMessageSender</code>          * type.          * @group producer          */
+comment|/**          * Option to provide a custom WebServiceMessageSender. For example to          * perform authentication or use alternative transports.          *           * The option is a:          *<code>org.springframework.ws.transport.WebServiceMessageSender</code>          * type.          *           * Group: producer          */
 DECL|method|messageSender ( Object messageSender)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1030,7 +1030,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom WebServiceMessageSender. For example to          * perform authentication or use alternative transports.          * The option will be converted to a          *<code>org.springframework.ws.transport.WebServiceMessageSender</code>          * type.          * @group producer          */
+comment|/**          * Option to provide a custom WebServiceMessageSender. For example to          * perform authentication or use alternative transports.          *           * The option will be converted to a          *<code>org.springframework.ws.transport.WebServiceMessageSender</code>          * type.          *           * Group: producer          */
 DECL|method|messageSender ( String messageSender)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1051,7 +1051,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signifies the value for the response WS-Addressing Action header that          * is provided by the method.          * The option is a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * Signifies the value for the response WS-Addressing Action header that          * is provided by the method.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|outputAction ( URI outputAction)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1072,7 +1072,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signifies the value for the response WS-Addressing Action header that          * is provided by the method.          * The option will be converted to a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * Signifies the value for the response WS-Addressing Action header that          * is provided by the method.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|outputAction ( String outputAction)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1093,7 +1093,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signifies the value for the replyTo response WS-Addressing ReplyTo          * header that is provided by the method.          * The option is a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * Signifies the value for the replyTo response WS-Addressing ReplyTo          * header that is provided by the method.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|replyTo (URI replyTo)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1114,7 +1114,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signifies the value for the replyTo response WS-Addressing ReplyTo          * header that is provided by the method.          * The option will be converted to a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * Signifies the value for the replyTo response WS-Addressing ReplyTo          * header that is provided by the method.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|replyTo (String replyTo)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1135,7 +1135,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SOAP action to include inside a SOAP request when accessing remote          * web services.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * SOAP action to include inside a SOAP request when accessing remote          * web services.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|soapAction ( String soapAction)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1156,7 +1156,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the socket read timeout (in milliseconds) while invoking a          * webservice using the producer, see URLConnection.setReadTimeout() and          * CommonsHttpMessageSender.setReadTimeout(). This option works when          * using the built-in message sender implementations:          * CommonsHttpMessageSender and HttpUrlConnectionMessageSender. One of          * these implementations will be used by default for HTTP based services          * unless you customize the Spring WS configuration options supplied to          * the component. If you are using a non-standard sender, it is assumed          * that you will handle your own timeout configuration. The built-in          * message sender HttpComponentsMessageSender is considered instead of          * CommonsHttpMessageSender which has been deprecated, see          * HttpComponentsMessageSender.setReadTimeout().          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Sets the socket read timeout (in milliseconds) while invoking a          * webservice using the producer, see URLConnection.setReadTimeout() and          * CommonsHttpMessageSender.setReadTimeout(). This option works when          * using the built-in message sender implementations:          * CommonsHttpMessageSender and HttpUrlConnectionMessageSender. One of          * these implementations will be used by default for HTTP based services          * unless you customize the Spring WS configuration options supplied to          * the component. If you are using a non-standard sender, it is assumed          * that you will handle your own timeout configuration. The built-in          * message sender HttpComponentsMessageSender is considered instead of          * CommonsHttpMessageSender which has been deprecated, see          * HttpComponentsMessageSender.setReadTimeout().          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1177,7 +1177,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the socket read timeout (in milliseconds) while invoking a          * webservice using the producer, see URLConnection.setReadTimeout() and          * CommonsHttpMessageSender.setReadTimeout(). This option works when          * using the built-in message sender implementations:          * CommonsHttpMessageSender and HttpUrlConnectionMessageSender. One of          * these implementations will be used by default for HTTP based services          * unless you customize the Spring WS configuration options supplied to          * the component. If you are using a non-standard sender, it is assumed          * that you will handle your own timeout configuration. The built-in          * message sender HttpComponentsMessageSender is considered instead of          * CommonsHttpMessageSender which has been deprecated, see          * HttpComponentsMessageSender.setReadTimeout().          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Sets the socket read timeout (in milliseconds) while invoking a          * webservice using the producer, see URLConnection.setReadTimeout() and          * CommonsHttpMessageSender.setReadTimeout(). This option works when          * using the built-in message sender implementations:          * CommonsHttpMessageSender and HttpUrlConnectionMessageSender. One of          * these implementations will be used by default for HTTP based services          * unless you customize the Spring WS configuration options supplied to          * the component. If you are using a non-standard sender, it is assumed          * that you will handle your own timeout configuration. The built-in          * message sender HttpComponentsMessageSender is considered instead of          * CommonsHttpMessageSender which has been deprecated, see          * HttpComponentsMessageSender.setReadTimeout().          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1198,7 +1198,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom WebServiceTemplate. This allows for full          * control over client-side web services handling; like adding a custom          * interceptor or specifying a fault resolver, message sender or message          * factory.          * The option is a          *<code>org.springframework.ws.client.core.WebServiceTemplate</code>          * type.          * @group producer          */
+comment|/**          * Option to provide a custom WebServiceTemplate. This allows for full          * control over client-side web services handling; like adding a custom          * interceptor or specifying a fault resolver, message sender or message          * factory.          *           * The option is a:          *<code>org.springframework.ws.client.core.WebServiceTemplate</code>          * type.          *           * Group: producer          */
 DECL|method|webServiceTemplate ( Object webServiceTemplate)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1219,7 +1219,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom WebServiceTemplate. This allows for full          * control over client-side web services handling; like adding a custom          * interceptor or specifying a fault resolver, message sender or message          * factory.          * The option will be converted to a          *<code>org.springframework.ws.client.core.WebServiceTemplate</code>          * type.          * @group producer          */
+comment|/**          * Option to provide a custom WebServiceTemplate. This allows for full          * control over client-side web services handling; like adding a custom          * interceptor or specifying a fault resolver, message sender or message          * factory.          *           * The option will be converted to a          *<code>org.springframework.ws.client.core.WebServiceTemplate</code>          * type.          *           * Group: producer          */
 DECL|method|webServiceTemplate ( String webServiceTemplate)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1240,7 +1240,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * WS-Addressing 1.0 action header to include when accessing web          * services. The To header is set to the address of the web service as          * specified in the endpoint URI (default Spring-WS behavior).          * The option is a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * WS-Addressing 1.0 action header to include when accessing web          * services. The To header is set to the address of the web service as          * specified in the endpoint URI (default Spring-WS behavior).          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|wsAddressingAction ( URI wsAddressingAction)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1261,7 +1261,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * WS-Addressing 1.0 action header to include when accessing web          * services. The To header is set to the address of the web service as          * specified in the endpoint URI (default Spring-WS behavior).          * The option will be converted to a<code>java.net.URI</code> type.          * @group producer          */
+comment|/**          * WS-Addressing 1.0 action header to include when accessing web          * services. The To header is set to the address of the web service as          * specified in the endpoint URI (default Spring-WS behavior).          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: producer          */
 DECL|method|wsAddressingAction ( String wsAddressingAction)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1282,7 +1282,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1303,7 +1303,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|SpringWebserviceEndpointProducerBuilder
@@ -1346,7 +1346,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSpringWebserviceEndpointProducerBuilder
@@ -1367,7 +1367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSpringWebserviceEndpointProducerBuilder
@@ -1388,7 +1388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSpringWebserviceEndpointProducerBuilder
@@ -1409,7 +1409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSpringWebserviceEndpointProducerBuilder
@@ -1454,7 +1454,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          * The option is a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          * @group common          */
+comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          *           * The option is a:          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          *           * Group: common          */
 DECL|method|messageFilter ( Object messageFilter)
 specifier|default
 name|SpringWebserviceEndpointBuilder
@@ -1475,7 +1475,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          * @group common          */
+comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          *           * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          *           * Group: common          */
 DECL|method|messageFilter ( String messageFilter)
 specifier|default
 name|SpringWebserviceEndpointBuilder
@@ -1496,7 +1496,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|SpringWebserviceEndpointBuilder
@@ -1517,7 +1517,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|SpringWebserviceEndpointBuilder
@@ -1562,7 +1562,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSpringWebserviceEndpointBuilder
@@ -1583,7 +1583,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSpringWebserviceEndpointBuilder
@@ -1604,7 +1604,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSpringWebserviceEndpointBuilder
@@ -1625,7 +1625,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedSpringWebserviceEndpointBuilder

@@ -122,7 +122,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The ipfs command.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The ipfs command.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|ipfsCmd (String ipfsCmd)
 specifier|default
 name|IPFSEndpointBuilder
@@ -143,7 +143,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The ipfs output directory.          * The option is a<code>java.nio.file.Path</code> type.          * @group producer          */
+comment|/**          * The ipfs output directory.          *           * The option is a:<code>java.nio.file.Path</code> type.          *           * Group: producer          */
 DECL|method|outdir (Path outdir)
 specifier|default
 name|IPFSEndpointBuilder
@@ -164,7 +164,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The ipfs output directory.          * The option will be converted to a<code>java.nio.file.Path</code>          * type.          * @group producer          */
+comment|/**          * The ipfs output directory.          *           * The option will be converted to a<code>java.nio.file.Path</code>          * type.          *           * Group: producer          */
 DECL|method|outdir (String outdir)
 specifier|default
 name|IPFSEndpointBuilder
@@ -207,7 +207,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedIPFSEndpointBuilder
@@ -228,7 +228,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedIPFSEndpointBuilder
@@ -249,7 +249,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedIPFSEndpointBuilder
@@ -270,7 +270,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedIPFSEndpointBuilder

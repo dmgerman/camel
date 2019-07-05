@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The primary output format is PDF but other output formats are also          * supported.          * The option is a          *<code>org.apache.camel.component.fop.FopOutputType</code> type.          * @group producer          */
+comment|/**          * The primary output format is PDF but other output formats are also          * supported.          *           * The option is a:          *<code>org.apache.camel.component.fop.FopOutputType</code> type.          *           * Group: producer          */
 DECL|method|outputType (FopOutputType outputType)
 specifier|default
 name|FopEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The primary output format is PDF but other output formats are also          * supported.          * The option will be converted to a          *<code>org.apache.camel.component.fop.FopOutputType</code> type.          * @group producer          */
+comment|/**          * The primary output format is PDF but other output formats are also          * supported.          *           * The option will be converted to a          *<code>org.apache.camel.component.fop.FopOutputType</code> type.          *           * Group: producer          */
 DECL|method|outputType (String outputType)
 specifier|default
 name|FopEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to use a custom configured or implementation of          * org.apache.fop.apps.FopFactory.          * The option is a<code>org.apache.fop.apps.FopFactory</code> type.          * @group producer          */
+comment|/**          * Allows to use a custom configured or implementation of          * org.apache.fop.apps.FopFactory.          *           * The option is a:<code>org.apache.fop.apps.FopFactory</code> type.          *           * Group: producer          */
 DECL|method|fopFactory (Object fopFactory)
 specifier|default
 name|FopEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to use a custom configured or implementation of          * org.apache.fop.apps.FopFactory.          * The option will be converted to a          *<code>org.apache.fop.apps.FopFactory</code> type.          * @group producer          */
+comment|/**          * Allows to use a custom configured or implementation of          * org.apache.fop.apps.FopFactory.          *           * The option will be converted to a          *<code>org.apache.fop.apps.FopFactory</code> type.          *           * Group: producer          */
 DECL|method|fopFactory (String fopFactory)
 specifier|default
 name|FopEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of a configuration file which can be loaded from          * classpath or file system.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The location of a configuration file which can be loaded from          * classpath or file system.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|userConfigURL (String userConfigURL)
 specifier|default
 name|FopEndpointBuilder
@@ -237,7 +237,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedFopEndpointBuilder
@@ -258,7 +258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedFopEndpointBuilder
@@ -279,7 +279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedFopEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedFopEndpointBuilder

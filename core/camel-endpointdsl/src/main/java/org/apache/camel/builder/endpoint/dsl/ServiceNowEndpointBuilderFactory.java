@@ -120,7 +120,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The ServiceNow instance name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The ServiceNow instance name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|instanceName (String instanceName)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return only scorecards where the          * indicator Display field is selected. Set this parameter to all to          * return scorecards with any Display field value. This parameter is          * true by default.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to return only scorecards where the          * indicator Display field is selected. Set this parameter to all to          * return scorecards with any Display field value. This parameter is          * true by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|display (String display)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Return the display value (true), actual value (false), or both (all)          * for reference fields (default: false).          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Return the display value (true), actual value (false), or both (all)          * for reference fields (default: false).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|displayValue (String displayValue)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * True to exclude Table API links for reference fields (default:          * false).          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * True to exclude Table API links for reference fields (default:          * false).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|excludeReferenceLink ( Boolean excludeReferenceLink)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -204,7 +204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * True to exclude Table API links for reference fields (default:          * false).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * True to exclude Table API links for reference fields (default:          * false).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|excludeReferenceLink ( String excludeReferenceLink)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -225,7 +225,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return only scorecards that are          * favorites of the querying user.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to return only scorecards that are          * favorites of the querying user.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|favorites (Boolean favorites)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -246,7 +246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return only scorecards that are          * favorites of the querying user.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this parameter to true to return only scorecards that are          * favorites of the querying user.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|favorites (String favorites)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -267,7 +267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to always return all available aggregates          * for an indicator, including when an aggregate has already been          * applied. If a value is not specified, this parameter defaults to          * false and returns no aggregates.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to always return all available aggregates          * for an indicator, including when an aggregate has already been          * applied. If a value is not specified, this parameter defaults to          * false and returns no aggregates.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|includeAggregates ( Boolean includeAggregates)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -288,7 +288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to always return all available aggregates          * for an indicator, including when an aggregate has already been          * applied. If a value is not specified, this parameter defaults to          * false and returns no aggregates.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this parameter to true to always return all available aggregates          * for an indicator, including when an aggregate has already been          * applied. If a value is not specified, this parameter defaults to          * false and returns no aggregates.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|includeAggregates ( String includeAggregates)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -309,7 +309,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return all available aggregates for an          * indicator when no aggregate has been applied. If a value is not          * specified, this parameter defaults to false and returns no          * aggregates.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to return all available aggregates for an          * indicator when no aggregate has been applied. If a value is not          * specified, this parameter defaults to false and returns no          * aggregates.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|includeAvailableAggregates ( Boolean includeAvailableAggregates)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -330,7 +330,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return all available aggregates for an          * indicator when no aggregate has been applied. If a value is not          * specified, this parameter defaults to false and returns no          * aggregates.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this parameter to true to return all available aggregates for an          * indicator when no aggregate has been applied. If a value is not          * specified, this parameter defaults to false and returns no          * aggregates.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|includeAvailableAggregates ( String includeAvailableAggregates)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -351,7 +351,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return all available breakdowns for an          * indicator. If a value is not specified, this parameter defaults to          * false and returns no breakdowns.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to return all available breakdowns for an          * indicator. If a value is not specified, this parameter defaults to          * false and returns no breakdowns.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|includeAvailableBreakdowns ( Boolean includeAvailableBreakdowns)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -372,7 +372,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return all available breakdowns for an          * indicator. If a value is not specified, this parameter defaults to          * false and returns no breakdowns.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this parameter to true to return all available breakdowns for an          * indicator. If a value is not specified, this parameter defaults to          * false and returns no breakdowns.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|includeAvailableBreakdowns ( String includeAvailableBreakdowns)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -393,7 +393,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return all notes associated with the          * score. The note element contains the note text as well as the author          * and timestamp when the note was added.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to return all notes associated with the          * score. The note element contains the note text as well as the author          * and timestamp when the note was added.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|includeScoreNotes ( Boolean includeScoreNotes)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -414,7 +414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return all notes associated with the          * score. The note element contains the note text as well as the author          * and timestamp when the note was added.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this parameter to true to return all notes associated with the          * score. The note element contains the note text as well as the author          * and timestamp when the note was added.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|includeScoreNotes ( String includeScoreNotes)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -435,7 +435,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return all scores for a scorecard. If a          * value is not specified, this parameter defaults to false and returns          * only the most recent score value.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to return all scores for a scorecard. If a          * value is not specified, this parameter defaults to false and returns          * only the most recent score value.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|includeScores (Boolean includeScores)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -456,7 +456,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return all scores for a scorecard. If a          * value is not specified, this parameter defaults to false and returns          * only the most recent score value.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this parameter to true to return all scores for a scorecard. If a          * value is not specified, this parameter defaults to false and returns          * only the most recent score value.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|includeScores (String includeScores)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -477,7 +477,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * True to set raw value of input fields (default: false).          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * True to set raw value of input fields (default: false).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|inputDisplayValue ( Boolean inputDisplayValue)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -498,7 +498,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * True to set raw value of input fields (default: false).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * True to set raw value of input fields (default: false).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|inputDisplayValue ( String inputDisplayValue)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -519,7 +519,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return only scorecards for key          * indicators.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to return only scorecards for key          * indicators.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|key (Boolean key)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -540,7 +540,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return only scorecards for key          * indicators.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this parameter to true to return only scorecards for key          * indicators.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|key (String key)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -561,7 +561,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines both request and response models.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group producer          */
+comment|/**          * Defines both request and response models.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          *           * Group: producer          */
 DECL|method|models ( Map<String, Class<Object>> models)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -590,7 +590,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines both request and response models.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group producer          */
+comment|/**          * Defines both request and response models.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          *           * Group: producer          */
 DECL|method|models (String models)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -611,7 +611,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enter the maximum number of scorecards each query can return. By          * default this value is 10, and the maximum is 100.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Enter the maximum number of scorecards each query can return. By          * default this value is 10, and the maximum is 100.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|perPage (Integer perPage)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -632,7 +632,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enter the maximum number of scorecards each query can return. By          * default this value is 10, and the maximum is 100.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Enter the maximum number of scorecards each query can return. By          * default this value is 10, and the maximum is 100.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|perPage (String perPage)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -653,7 +653,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The ServiceNow release to target, default to Helsinki See          * https://docs.servicenow.com.          * The option is a          *<code>org.apache.camel.component.servicenow.ServiceNowRelease</code>          * type.          * @group producer          */
+comment|/**          * The ServiceNow release to target, default to Helsinki See          * https://docs.servicenow.com.          *           * The option is a:          *<code>org.apache.camel.component.servicenow.ServiceNowRelease</code>          * type.          *           * Group: producer          */
 DECL|method|release (ServiceNowRelease release)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -674,7 +674,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The ServiceNow release to target, default to Helsinki See          * https://docs.servicenow.com.          * The option will be converted to a          *<code>org.apache.camel.component.servicenow.ServiceNowRelease</code>          * type.          * @group producer          */
+comment|/**          * The ServiceNow release to target, default to Helsinki See          * https://docs.servicenow.com.          *           * The option will be converted to a          *<code>org.apache.camel.component.servicenow.ServiceNowRelease</code>          * type.          *           * Group: producer          */
 DECL|method|release (String release)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -695,7 +695,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the request model.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group producer          */
+comment|/**          * Defines the request model.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          *           * Group: producer          */
 DECL|method|requestModels ( Map<String, Class<Object>> requestModels)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -724,7 +724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the request model.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group producer          */
+comment|/**          * Defines the request model.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          *           * Group: producer          */
 DECL|method|requestModels (String requestModels)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -745,7 +745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default resource, can be overridden by header          * CamelServiceNowResource.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The default resource, can be overridden by header          * CamelServiceNowResource.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|resource (String resource)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -766,7 +766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the response model.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group producer          */
+comment|/**          * Defines the response model.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          *           * Group: producer          */
 DECL|method|responseModels ( Map<String, Class<Object>> responseModels)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -795,7 +795,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the response model.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          * @group producer          */
+comment|/**          * Defines the response model.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * java.lang.Class&lt;java.lang.Object&gt;&gt;</code> type.          *           * Group: producer          */
 DECL|method|responseModels (String responseModels)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -816,7 +816,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify the value to use when sorting results. By default, queries          * sort records by value.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Specify the value to use when sorting results. By default, queries          * sort records by value.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|sortBy (String sortBy)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -837,7 +837,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify the sort direction, ascending or descending. By default,          * queries sort records in descending order. Use sysparm_sortdir=asc to          * sort in ascending order.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Specify the sort direction, ascending or descending. By default,          * queries sort records in descending order. Use sysparm_sortdir=asc to          * sort in ascending order.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|sortDir (String sortDir)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -858,7 +858,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * True to suppress auto generation of system fields (default: false).          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * True to suppress auto generation of system fields (default: false).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|suppressAutoSysField ( Boolean suppressAutoSysField)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -879,7 +879,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * True to suppress auto generation of system fields (default: false).          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * True to suppress auto generation of system fields (default: false).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|suppressAutoSysField ( String suppressAutoSysField)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -900,7 +900,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this value to true to remove the Link header from the response.          * The Link header allows you to request additional pages of data when          * the number of records matching your query exceeds the query limit.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this value to true to remove the Link header from the response.          * The Link header allows you to request additional pages of data when          * the number of records matching your query exceeds the query limit.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|suppressPaginationHeader ( Boolean suppressPaginationHeader)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -921,7 +921,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this value to true to remove the Link header from the response.          * The Link header allows you to request additional pages of data when          * the number of records matching your query exceeds the query limit.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this value to true to remove the Link header from the response.          * The Link header allows you to request additional pages of data when          * the number of records matching your query exceeds the query limit.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|suppressPaginationHeader ( String suppressPaginationHeader)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -942,7 +942,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The default table, can be overridden by header CamelServiceNowTable.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The default table, can be overridden by header CamelServiceNowTable.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|table (String table)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -963,7 +963,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return only scorecards that have a          * target.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Set this parameter to true to return only scorecards that have a          * target.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|target (Boolean target)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -984,7 +984,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to return only scorecards that have a          * target.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Set this parameter to true to return only scorecards that have a          * target.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|target (String target)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1005,7 +1005,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Gets only those categories whose parent is a catalog.          * The option is a<code>java.lang.Boolean</code> type.          * @group producer          */
+comment|/**          * Gets only those categories whose parent is a catalog.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|topLevelOnly (Boolean topLevelOnly)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1026,7 +1026,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Gets only those categories whose parent is a catalog.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group producer          */
+comment|/**          * Gets only those categories whose parent is a catalog.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|topLevelOnly (String topLevelOnly)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1047,7 +1047,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy host name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * The proxy host name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1068,7 +1068,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy port number.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * The proxy port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1089,7 +1089,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * The proxy port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1110,7 +1110,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The ServiceNow REST API url.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The ServiceNow REST API url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|apiUrl (String apiUrl)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1131,7 +1131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth2 ClientID.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * OAuth2 ClientID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|oauthClientId (String oauthClientId)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1152,7 +1152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth2 ClientSecret.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * OAuth2 ClientSecret.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|oauthClientSecret ( String oauthClientSecret)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1173,7 +1173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * OAuth token Url.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * OAuth token Url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|oauthTokenUrl (String oauthTokenUrl)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1194,7 +1194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * ServiceNow account password, MUST be provided.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * ServiceNow account password, MUST be provided.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1215,7 +1215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password for proxy authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|proxyPassword (String proxyPassword)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1236,7 +1236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Username for proxy authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|proxyUserName (String proxyUserName)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1257,7 +1257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters. See          * http://camel.apache.org/camel-configuration-utilities.html.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters. See          * http://camel.apache.org/camel-configuration-utilities.html.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1278,7 +1278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters. See          * http://camel.apache.org/camel-configuration-utilities.html.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters. See          * http://camel.apache.org/camel-configuration-utilities.html.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1299,7 +1299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * ServiceNow user account name, MUST be provided.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * ServiceNow user account name, MUST be provided.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
 DECL|method|userName (String userName)
 specifier|default
 name|ServiceNowEndpointBuilder
@@ -1342,7 +1342,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The ServiceNow REST API version, default latest.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * The ServiceNow REST API version, default latest.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1363,7 +1363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1384,7 +1384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1405,7 +1405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The date format used for Json serialization/deserialization.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * The date format used for Json serialization/deserialization.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|dateFormat (String dateFormat)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1426,7 +1426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The date-time format used for Json serialization/deserialization.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * The date-time format used for Json serialization/deserialization.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|dateTimeFormat ( String dateTimeFormat)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1447,7 +1447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure http-client.          * The option is a          *<code>org.apache.cxf.transports.http.configuration.HTTPClientPolicy</code> type.          * @group advanced          */
+comment|/**          * To configure http-client.          *           * The option is a:          *<code>org.apache.cxf.transports.http.configuration.HTTPClientPolicy</code> type.          *           * Group: advanced          */
 DECL|method|httpClientPolicy ( Object httpClientPolicy)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1468,7 +1468,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure http-client.          * The option will be converted to a          *<code>org.apache.cxf.transports.http.configuration.HTTPClientPolicy</code> type.          * @group advanced          */
+comment|/**          * To configure http-client.          *           * The option will be converted to a          *<code>org.apache.cxf.transports.http.configuration.HTTPClientPolicy</code> type.          *           * Group: advanced          */
 DECL|method|httpClientPolicy ( String httpClientPolicy)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1489,7 +1489,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets Jackson's ObjectMapper to use for request/reply.          * The option is a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          * @group advanced          */
+comment|/**          * Sets Jackson's ObjectMapper to use for request/reply.          *           * The option is a:          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          *           * Group: advanced          */
 DECL|method|mapper (Object mapper)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1510,7 +1510,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets Jackson's ObjectMapper to use for request/reply.          * The option will be converted to a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          * @group advanced          */
+comment|/**          * Sets Jackson's ObjectMapper to use for request/reply.          *           * The option will be converted to a          *<code>com.fasterxml.jackson.databind.ObjectMapper</code> type.          *           * Group: advanced          */
 DECL|method|mapper (String mapper)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1531,7 +1531,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure proxy authentication.          * The option is a          *<code>org.apache.cxf.configuration.security.ProxyAuthorizationPolicy</code> type.          * @group advanced          */
+comment|/**          * To configure proxy authentication.          *           * The option is a:          *<code>org.apache.cxf.configuration.security.ProxyAuthorizationPolicy</code> type.          *           * Group: advanced          */
 DECL|method|proxyAuthorizationPolicy ( Object proxyAuthorizationPolicy)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1552,7 +1552,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure proxy authentication.          * The option will be converted to a          *<code>org.apache.cxf.configuration.security.ProxyAuthorizationPolicy</code> type.          * @group advanced          */
+comment|/**          * To configure proxy authentication.          *           * The option will be converted to a          *<code>org.apache.cxf.configuration.security.ProxyAuthorizationPolicy</code> type.          *           * Group: advanced          */
 DECL|method|proxyAuthorizationPolicy ( String proxyAuthorizationPolicy)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1573,7 +1573,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to retrieve the target record when using          * import set api. The import set result is then replaced by the target          * record.          * The option is a<code>java.lang.Boolean</code> type.          * @group advanced          */
+comment|/**          * Set this parameter to true to retrieve the target record when using          * import set api. The import set result is then replaced by the target          * record.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: advanced          */
 DECL|method|retrieveTargetRecordOnImport ( Boolean retrieveTargetRecordOnImport)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1594,7 +1594,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set this parameter to true to retrieve the target record when using          * import set api. The import set result is then replaced by the target          * record.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group advanced          */
+comment|/**          * Set this parameter to true to retrieve the target record when using          * import set api. The import set result is then replaced by the target          * record.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: advanced          */
 DECL|method|retrieveTargetRecordOnImport ( String retrieveTargetRecordOnImport)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1615,7 +1615,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1636,7 +1636,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder
@@ -1657,7 +1657,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time format used for Json serialization/deserialization.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * The time format used for Json serialization/deserialization.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|timeFormat (String timeFormat)
 specifier|default
 name|AdvancedServiceNowEndpointBuilder

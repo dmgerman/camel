@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverUrls (String serverUrls)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The node in the ZooKeeper server (aka znode).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The node in the ZooKeeper server (aka znode).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|path (String path)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Not in use.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Not in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|awaitExistence ( boolean awaitExistence)
@@ -201,7 +201,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Not in use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Not in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|awaitExistence ( String awaitExistence)
@@ -224,7 +224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the children of the node should be listed.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether the children of the node should be listed.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|listChildren ( boolean listChildren)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -245,7 +245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the children of the node should be listed.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether the children of the node should be listed.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|listChildren ( String listChildren)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -266,7 +266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time interval to wait on connection before timing out.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The time interval to wait on connection before timing out.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -287,7 +287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time interval to wait on connection before timing out.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The time interval to wait on connection before timing out.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -308,7 +308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time interval to backoff for after an error before retrying.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The time interval to backoff for after an error before retrying.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|backoff (long backoff)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -329,7 +329,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time interval to backoff for after an error before retrying.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The time interval to backoff for after an error before retrying.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|backoff (String backoff)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -350,7 +350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -371,7 +371,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -392,7 +392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should changes to the znode be 'watched' and repeatedly processed.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Should changes to the znode be 'watched' and repeatedly processed.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|repeat (boolean repeat)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -413,7 +413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should changes to the znode be 'watched' and repeatedly processed.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Should changes to the znode be 'watched' and repeatedly processed.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|repeat (String repeat)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -434,7 +434,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Upon the delete of a znode, should an empty message be send to the          * consumer.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Upon the delete of a znode, should an empty message be send to the          * consumer.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageOnDelete ( boolean sendEmptyMessageOnDelete)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -455,7 +455,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Upon the delete of a znode, should an empty message be send to the          * consumer.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Upon the delete of a znode, should an empty message be send to the          * consumer.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageOnDelete ( String sendEmptyMessageOnDelete)
 specifier|default
 name|ZooKeeperEndpointConsumerBuilder
@@ -498,7 +498,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedZooKeeperEndpointConsumerBuilder
@@ -519,7 +519,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedZooKeeperEndpointConsumerBuilder
@@ -540,7 +540,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedZooKeeperEndpointConsumerBuilder
@@ -561,7 +561,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedZooKeeperEndpointConsumerBuilder
@@ -582,7 +582,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedZooKeeperEndpointConsumerBuilder
@@ -603,7 +603,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedZooKeeperEndpointConsumerBuilder
@@ -624,7 +624,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedZooKeeperEndpointConsumerBuilder
@@ -645,7 +645,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedZooKeeperEndpointConsumerBuilder
@@ -688,7 +688,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverUrls (String serverUrls)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -709,7 +709,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The node in the ZooKeeper server (aka znode).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The node in the ZooKeeper server (aka znode).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|path (String path)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -730,7 +730,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Not in use.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Not in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|awaitExistence ( boolean awaitExistence)
@@ -753,7 +753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Not in use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Not in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|awaitExistence ( String awaitExistence)
@@ -776,7 +776,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the children of the node should be listed.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether the children of the node should be listed.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|listChildren ( boolean listChildren)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -797,7 +797,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the children of the node should be listed.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether the children of the node should be listed.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|listChildren ( String listChildren)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -818,7 +818,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time interval to wait on connection before timing out.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The time interval to wait on connection before timing out.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -839,7 +839,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time interval to wait on connection before timing out.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The time interval to wait on connection before timing out.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -860,7 +860,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the endpoint create the node if it does not currently exist.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Should the endpoint create the node if it does not currently exist.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|create (boolean create)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -881,7 +881,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the endpoint create the node if it does not currently exist.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Should the endpoint create the node if it does not currently exist.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|create (String create)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -902,7 +902,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The create mode that should be used for the newly created node.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The create mode that should be used for the newly created node.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|createMode (String createMode)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -923,7 +923,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -944,7 +944,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|ZooKeeperEndpointProducerBuilder
@@ -987,7 +987,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedZooKeeperEndpointProducerBuilder
@@ -1008,7 +1008,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedZooKeeperEndpointProducerBuilder
@@ -1029,7 +1029,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedZooKeeperEndpointProducerBuilder
@@ -1050,7 +1050,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedZooKeeperEndpointProducerBuilder
@@ -1095,7 +1095,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|serverUrls (String serverUrls)
 specifier|default
 name|ZooKeeperEndpointBuilder
@@ -1116,7 +1116,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The node in the ZooKeeper server (aka znode).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The node in the ZooKeeper server (aka znode).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|path (String path)
 specifier|default
 name|ZooKeeperEndpointBuilder
@@ -1137,7 +1137,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Not in use.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Not in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|awaitExistence (boolean awaitExistence)
@@ -1160,7 +1160,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Not in use.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Not in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
 DECL|method|awaitExistence (String awaitExistence)
@@ -1183,7 +1183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the children of the node should be listed.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether the children of the node should be listed.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|listChildren (boolean listChildren)
 specifier|default
 name|ZooKeeperEndpointBuilder
@@ -1204,7 +1204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the children of the node should be listed.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Whether the children of the node should be listed.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|listChildren (String listChildren)
 specifier|default
 name|ZooKeeperEndpointBuilder
@@ -1225,7 +1225,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time interval to wait on connection before timing out.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The time interval to wait on connection before timing out.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|ZooKeeperEndpointBuilder
@@ -1246,7 +1246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The time interval to wait on connection before timing out.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The time interval to wait on connection before timing out.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|ZooKeeperEndpointBuilder
@@ -1291,7 +1291,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedZooKeeperEndpointBuilder
@@ -1312,7 +1312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedZooKeeperEndpointBuilder
@@ -1333,7 +1333,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedZooKeeperEndpointBuilder
@@ -1354,7 +1354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedZooKeeperEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the Lambda function.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of the Lambda function.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|function (String function)
 specifier|default
 name|LambdaEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The operation to perform. It can be listFunctions, getFunction,          * createFunction, deleteFunction or invokeFunction.          * The option is a          *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code>          * type.          * @group producer          */
+comment|/**          * The operation to perform. It can be listFunctions, getFunction,          * createFunction, deleteFunction or invokeFunction.          *           * The option is a:          *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code>          * type.          *           * Required: true          * Group: producer          */
 DECL|method|operation (LambdaOperations operation)
 specifier|default
 name|LambdaEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The operation to perform. It can be listFunctions, getFunction,          * createFunction, deleteFunction or invokeFunction.          * The option will be converted to a          *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code>          * type.          * @group producer          */
+comment|/**          * The operation to perform. It can be listFunctions, getFunction,          * createFunction, deleteFunction or invokeFunction.          *           * The option will be converted to a          *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code>          * type.          *           * Required: true          * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|LambdaEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy host when instantiating the Lambda client.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * To define a proxy host when instantiating the Lambda client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|LambdaEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the Lambda client.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * To define a proxy port when instantiating the Lambda client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|LambdaEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the Lambda client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * To define a proxy port when instantiating the Lambda client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|LambdaEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Amazon AWS Access Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|accessKey (String accessKey)
 specifier|default
 name|LambdaEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Amazon AWS Secret Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|secretKey (String secretKey)
 specifier|default
 name|LambdaEndpointBuilder
@@ -300,7 +300,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To use a existing configured AwsLambdaClient as client.          * The option is a<code>com.amazonaws.services.lambda.AWSLambda</code>          * type.          * @group advanced          */
+comment|/**          * To use a existing configured AwsLambdaClient as client.          *           * The option is a:<code>com.amazonaws.services.lambda.AWSLambda</code>          * type.          *           * Group: advanced          */
 DECL|method|awsLambdaClient ( Object awsLambdaClient)
 specifier|default
 name|AdvancedLambdaEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a existing configured AwsLambdaClient as client.          * The option will be converted to a          *<code>com.amazonaws.services.lambda.AWSLambda</code> type.          * @group advanced          */
+comment|/**          * To use a existing configured AwsLambdaClient as client.          *           * The option will be converted to a          *<code>com.amazonaws.services.lambda.AWSLambda</code> type.          *           * Group: advanced          */
 DECL|method|awsLambdaClient ( String awsLambdaClient)
 specifier|default
 name|AdvancedLambdaEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedLambdaEndpointBuilder
@@ -363,7 +363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedLambdaEndpointBuilder
@@ -384,7 +384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedLambdaEndpointBuilder
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedLambdaEndpointBuilder

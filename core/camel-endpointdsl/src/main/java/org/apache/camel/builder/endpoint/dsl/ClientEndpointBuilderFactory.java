@@ -146,7 +146,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The object information address.          * The option is a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          * @group common          */
+comment|/**          * The object information address.          *           * The option is a:          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
 DECL|method|uriPath (Object uriPath)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -167,7 +167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The object information address.          * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          * @group common          */
+comment|/**          * The object information address.          *           * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
 DECL|method|uriPath (String uriPath)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -188,7 +188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Data module options.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          * @group common          */
+comment|/**          * Data module options.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          *           * Group: common          */
 DECL|method|dataModuleOptions ( Object dataModuleOptions)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -209,7 +209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Data module options.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          * @group common          */
+comment|/**          * Data module options.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          *           * Group: common          */
 DECL|method|dataModuleOptions ( String dataModuleOptions)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -230,7 +230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol options.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          * @group common          */
+comment|/**          * Protocol options.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          *           * Group: common          */
 DECL|method|protocolOptions ( Object protocolOptions)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -251,7 +251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol options.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          * @group common          */
+comment|/**          * Protocol options.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          *           * Group: common          */
 DECL|method|protocolOptions ( String protocolOptions)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -272,7 +272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -293,7 +293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -314,7 +314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter W - Acknowledgment window.          * The option is a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter W - Acknowledgment window.          *           * The option is a:<code>short</code> type.          *           * Group: connection          */
 DECL|method|acknowledgeWindow ( short acknowledgeWindow)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -335,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter W - Acknowledgment window.          * The option will be converted to a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter W - Acknowledgment window.          *           * The option will be converted to a<code>short</code> type.          *           * Group: connection          */
 DECL|method|acknowledgeWindow ( String acknowledgeWindow)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -356,7 +356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          * @group connection          */
+comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          *           * Group: connection          */
 DECL|method|adsuAddressType ( ASDUAddressType adsuAddressType)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -377,7 +377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          * @group connection          */
+comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          *           * Group: connection          */
 DECL|method|adsuAddressType ( String adsuAddressType)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -398,7 +398,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          * @group connection          */
+comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          *           * Group: connection          */
 DECL|method|causeOfTransmissionType ( CauseOfTransmissionType causeOfTransmissionType)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -419,7 +419,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          * @group connection          */
+comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          *           * Group: connection          */
 DECL|method|causeOfTransmissionType ( String causeOfTransmissionType)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -440,7 +440,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          * @group connection          */
+comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          *           * Group: connection          */
 DECL|method|informationObjectAddressType ( InformationObjectAddressType informationObjectAddressType)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -461,7 +461,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          * @group connection          */
+comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          *           * Group: connection          */
 DECL|method|informationObjectAddressType ( String informationObjectAddressType)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -482,7 +482,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          * The option is a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          *           * The option is a:<code>short</code> type.          *           * Group: connection          */
 DECL|method|maxUnacknowledged ( short maxUnacknowledged)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -503,7 +503,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          * The option will be converted to a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          *           * The option will be converted to a<code>short</code> type.          *           * Group: connection          */
 DECL|method|maxUnacknowledged ( String maxUnacknowledged)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -524,7 +524,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T1 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T1 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout1 (int timeout1)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -545,7 +545,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T1 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T1 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout1 (String timeout1)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -566,7 +566,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T2 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T2 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout2 (int timeout2)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -587,7 +587,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T2 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T2 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout2 (String timeout2)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -608,7 +608,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T3 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T3 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout3 (int timeout3)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -629,7 +629,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T3 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T3 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout3 (String timeout3)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -650,7 +650,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to include the source address.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( boolean causeSourceAddress)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -671,7 +671,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( String causeSourceAddress)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -692,7 +692,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether background scan transmissions should be ignored.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether background scan transmissions should be ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreBackgroundScan ( boolean ignoreBackgroundScan)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -713,7 +713,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether background scan transmissions should be ignored.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether background scan transmissions should be ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreBackgroundScan ( String ignoreBackgroundScan)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -734,7 +734,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to ignore or respect DST.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to ignore or respect DST.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreDaylightSavingTime ( boolean ignoreDaylightSavingTime)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -755,7 +755,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to ignore or respect DST.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to ignore or respect DST.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreDaylightSavingTime ( String ignoreDaylightSavingTime)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -776,7 +776,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timezone to use. May be any Java time zone string.          * The option is a<code>java.util.TimeZone</code> type.          * @group data          */
+comment|/**          * The timezone to use. May be any Java time zone string.          *           * The option is a:<code>java.util.TimeZone</code> type.          *           * Group: data          */
 DECL|method|timeZone (TimeZone timeZone)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -797,7 +797,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timezone to use. May be any Java time zone string.          * The option will be converted to a<code>java.util.TimeZone</code>          * type.          * @group data          */
+comment|/**          * The timezone to use. May be any Java time zone string.          *           * The option will be converted to a<code>java.util.TimeZone</code>          * type.          *           * Group: data          */
 DECL|method|timeZone (String timeZone)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -818,7 +818,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An identifier grouping connection instances.          * The option is a<code>java.lang.String</code> type.          * @group id          */
+comment|/**          * An identifier grouping connection instances.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: id          */
 DECL|method|connectionId (String connectionId)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -861,7 +861,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedClientEndpointConsumerBuilder
@@ -882,7 +882,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedClientEndpointConsumerBuilder
@@ -903,7 +903,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedClientEndpointConsumerBuilder
@@ -924,7 +924,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedClientEndpointConsumerBuilder
@@ -945,7 +945,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedClientEndpointConsumerBuilder
@@ -966,7 +966,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedClientEndpointConsumerBuilder
@@ -987,7 +987,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedClientEndpointConsumerBuilder
@@ -1008,7 +1008,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedClientEndpointConsumerBuilder
@@ -1051,7 +1051,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The object information address.          * The option is a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          * @group common          */
+comment|/**          * The object information address.          *           * The option is a:          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
 DECL|method|uriPath (Object uriPath)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1072,7 +1072,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The object information address.          * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          * @group common          */
+comment|/**          * The object information address.          *           * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
 DECL|method|uriPath (String uriPath)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1093,7 +1093,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Data module options.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          * @group common          */
+comment|/**          * Data module options.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          *           * Group: common          */
 DECL|method|dataModuleOptions ( Object dataModuleOptions)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1114,7 +1114,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Data module options.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          * @group common          */
+comment|/**          * Data module options.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          *           * Group: common          */
 DECL|method|dataModuleOptions ( String dataModuleOptions)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1135,7 +1135,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol options.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          * @group common          */
+comment|/**          * Protocol options.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          *           * Group: common          */
 DECL|method|protocolOptions ( Object protocolOptions)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1156,7 +1156,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol options.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          * @group common          */
+comment|/**          * Protocol options.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          *           * Group: common          */
 DECL|method|protocolOptions ( String protocolOptions)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1177,7 +1177,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1198,7 +1198,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1219,7 +1219,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter W - Acknowledgment window.          * The option is a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter W - Acknowledgment window.          *           * The option is a:<code>short</code> type.          *           * Group: connection          */
 DECL|method|acknowledgeWindow ( short acknowledgeWindow)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1240,7 +1240,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter W - Acknowledgment window.          * The option will be converted to a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter W - Acknowledgment window.          *           * The option will be converted to a<code>short</code> type.          *           * Group: connection          */
 DECL|method|acknowledgeWindow ( String acknowledgeWindow)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1261,7 +1261,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          * @group connection          */
+comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          *           * Group: connection          */
 DECL|method|adsuAddressType ( ASDUAddressType adsuAddressType)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1282,7 +1282,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          * @group connection          */
+comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          *           * Group: connection          */
 DECL|method|adsuAddressType ( String adsuAddressType)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1303,7 +1303,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          * @group connection          */
+comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          *           * Group: connection          */
 DECL|method|causeOfTransmissionType ( CauseOfTransmissionType causeOfTransmissionType)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1324,7 +1324,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          * @group connection          */
+comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          *           * Group: connection          */
 DECL|method|causeOfTransmissionType ( String causeOfTransmissionType)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1345,7 +1345,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          * @group connection          */
+comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          *           * Group: connection          */
 DECL|method|informationObjectAddressType ( InformationObjectAddressType informationObjectAddressType)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1366,7 +1366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          * @group connection          */
+comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          *           * Group: connection          */
 DECL|method|informationObjectAddressType ( String informationObjectAddressType)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1387,7 +1387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          * The option is a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          *           * The option is a:<code>short</code> type.          *           * Group: connection          */
 DECL|method|maxUnacknowledged ( short maxUnacknowledged)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1408,7 +1408,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          * The option will be converted to a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          *           * The option will be converted to a<code>short</code> type.          *           * Group: connection          */
 DECL|method|maxUnacknowledged ( String maxUnacknowledged)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1429,7 +1429,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T1 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T1 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout1 (int timeout1)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1450,7 +1450,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T1 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T1 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout1 (String timeout1)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1471,7 +1471,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T2 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T2 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout2 (int timeout2)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1492,7 +1492,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T2 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T2 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout2 (String timeout2)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1513,7 +1513,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T3 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T3 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout3 (int timeout3)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1534,7 +1534,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T3 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T3 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout3 (String timeout3)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1555,7 +1555,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to include the source address.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( boolean causeSourceAddress)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1576,7 +1576,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( String causeSourceAddress)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1597,7 +1597,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether background scan transmissions should be ignored.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether background scan transmissions should be ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreBackgroundScan ( boolean ignoreBackgroundScan)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1618,7 +1618,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether background scan transmissions should be ignored.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether background scan transmissions should be ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreBackgroundScan ( String ignoreBackgroundScan)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1639,7 +1639,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to ignore or respect DST.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to ignore or respect DST.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreDaylightSavingTime ( boolean ignoreDaylightSavingTime)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1660,7 +1660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to ignore or respect DST.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to ignore or respect DST.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreDaylightSavingTime ( String ignoreDaylightSavingTime)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1681,7 +1681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timezone to use. May be any Java time zone string.          * The option is a<code>java.util.TimeZone</code> type.          * @group data          */
+comment|/**          * The timezone to use. May be any Java time zone string.          *           * The option is a:<code>java.util.TimeZone</code> type.          *           * Group: data          */
 DECL|method|timeZone (TimeZone timeZone)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1702,7 +1702,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timezone to use. May be any Java time zone string.          * The option will be converted to a<code>java.util.TimeZone</code>          * type.          * @group data          */
+comment|/**          * The timezone to use. May be any Java time zone string.          *           * The option will be converted to a<code>java.util.TimeZone</code>          * type.          *           * Group: data          */
 DECL|method|timeZone (String timeZone)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1723,7 +1723,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An identifier grouping connection instances.          * The option is a<code>java.lang.String</code> type.          * @group id          */
+comment|/**          * An identifier grouping connection instances.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: id          */
 DECL|method|connectionId (String connectionId)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -1766,7 +1766,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedClientEndpointProducerBuilder
@@ -1787,7 +1787,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedClientEndpointProducerBuilder
@@ -1808,7 +1808,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedClientEndpointProducerBuilder
@@ -1829,7 +1829,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedClientEndpointProducerBuilder
@@ -1874,7 +1874,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The object information address.          * The option is a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          * @group common          */
+comment|/**          * The object information address.          *           * The option is a:          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
 DECL|method|uriPath (Object uriPath)
 specifier|default
 name|ClientEndpointBuilder
@@ -1895,7 +1895,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The object information address.          * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          * @group common          */
+comment|/**          * The object information address.          *           * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
 DECL|method|uriPath (String uriPath)
 specifier|default
 name|ClientEndpointBuilder
@@ -1916,7 +1916,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Data module options.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          * @group common          */
+comment|/**          * Data module options.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          *           * Group: common          */
 DECL|method|dataModuleOptions (Object dataModuleOptions)
 specifier|default
 name|ClientEndpointBuilder
@@ -1937,7 +1937,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Data module options.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          * @group common          */
+comment|/**          * Data module options.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          *           * Group: common          */
 DECL|method|dataModuleOptions (String dataModuleOptions)
 specifier|default
 name|ClientEndpointBuilder
@@ -1958,7 +1958,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol options.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          * @group common          */
+comment|/**          * Protocol options.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          *           * Group: common          */
 DECL|method|protocolOptions (Object protocolOptions)
 specifier|default
 name|ClientEndpointBuilder
@@ -1979,7 +1979,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol options.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          * @group common          */
+comment|/**          * Protocol options.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ProtocolOptions</code>          * type.          *           * Group: common          */
 DECL|method|protocolOptions (String protocolOptions)
 specifier|default
 name|ClientEndpointBuilder
@@ -2000,7 +2000,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter W - Acknowledgment window.          * The option is a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter W - Acknowledgment window.          *           * The option is a:<code>short</code> type.          *           * Group: connection          */
 DECL|method|acknowledgeWindow (short acknowledgeWindow)
 specifier|default
 name|ClientEndpointBuilder
@@ -2021,7 +2021,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter W - Acknowledgment window.          * The option will be converted to a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter W - Acknowledgment window.          *           * The option will be converted to a<code>short</code> type.          *           * Group: connection          */
 DECL|method|acknowledgeWindow (String acknowledgeWindow)
 specifier|default
 name|ClientEndpointBuilder
@@ -2042,7 +2042,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          * @group connection          */
+comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          *           * Group: connection          */
 DECL|method|adsuAddressType ( ASDUAddressType adsuAddressType)
 specifier|default
 name|ClientEndpointBuilder
@@ -2063,7 +2063,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          * @group connection          */
+comment|/**          * The common ASDU address size. May be either SIZE_1 or SIZE_2.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.ASDUAddressType</code>          * type.          *           * Group: connection          */
 DECL|method|adsuAddressType (String adsuAddressType)
 specifier|default
 name|ClientEndpointBuilder
@@ -2084,7 +2084,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          * @group connection          */
+comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          *           * Group: connection          */
 DECL|method|causeOfTransmissionType ( CauseOfTransmissionType causeOfTransmissionType)
 specifier|default
 name|ClientEndpointBuilder
@@ -2105,7 +2105,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          * @group connection          */
+comment|/**          * The cause of transmission type. May be either SIZE_1 or SIZE_2.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.CauseOfTransmissionType</code> type.          *           * Group: connection          */
 DECL|method|causeOfTransmissionType ( String causeOfTransmissionType)
 specifier|default
 name|ClientEndpointBuilder
@@ -2126,7 +2126,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          * The option is a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          * @group connection          */
+comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          *           * Group: connection          */
 DECL|method|informationObjectAddressType ( InformationObjectAddressType informationObjectAddressType)
 specifier|default
 name|ClientEndpointBuilder
@@ -2147,7 +2147,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          * @group connection          */
+comment|/**          * The information address size. May be either SIZE_1, SIZE_2 or SIZE_3.          *           * The option will be converted to a          *<code>org.eclipse.neoscada.protocol.iec60870.InformationObjectAddressType</code> type.          *           * Group: connection          */
 DECL|method|informationObjectAddressType ( String informationObjectAddressType)
 specifier|default
 name|ClientEndpointBuilder
@@ -2168,7 +2168,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          * The option is a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          *           * The option is a:<code>short</code> type.          *           * Group: connection          */
 DECL|method|maxUnacknowledged (short maxUnacknowledged)
 specifier|default
 name|ClientEndpointBuilder
@@ -2189,7 +2189,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          * The option will be converted to a<code>short</code> type.          * @group connection          */
+comment|/**          * Parameter K - Maximum number of un-acknowledged messages.          *           * The option will be converted to a<code>short</code> type.          *           * Group: connection          */
 DECL|method|maxUnacknowledged (String maxUnacknowledged)
 specifier|default
 name|ClientEndpointBuilder
@@ -2210,7 +2210,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T1 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T1 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout1 (int timeout1)
 specifier|default
 name|ClientEndpointBuilder
@@ -2231,7 +2231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T1 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T1 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout1 (String timeout1)
 specifier|default
 name|ClientEndpointBuilder
@@ -2252,7 +2252,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T2 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T2 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout2 (int timeout2)
 specifier|default
 name|ClientEndpointBuilder
@@ -2273,7 +2273,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T2 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T2 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout2 (String timeout2)
 specifier|default
 name|ClientEndpointBuilder
@@ -2294,7 +2294,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T3 in milliseconds.          * The option is a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T3 in milliseconds.          *           * The option is a:<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout3 (int timeout3)
 specifier|default
 name|ClientEndpointBuilder
@@ -2315,7 +2315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout T3 in milliseconds.          * The option will be converted to a<code>int</code> type.          * @group connection          */
+comment|/**          * Timeout T3 in milliseconds.          *           * The option will be converted to a<code>int</code> type.          *           * Group: connection          */
 DECL|method|timeout3 (String timeout3)
 specifier|default
 name|ClientEndpointBuilder
@@ -2336,7 +2336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to include the source address.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( boolean causeSourceAddress)
 specifier|default
 name|ClientEndpointBuilder
@@ -2357,7 +2357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( String causeSourceAddress)
 specifier|default
 name|ClientEndpointBuilder
@@ -2378,7 +2378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether background scan transmissions should be ignored.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether background scan transmissions should be ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreBackgroundScan ( boolean ignoreBackgroundScan)
 specifier|default
 name|ClientEndpointBuilder
@@ -2399,7 +2399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether background scan transmissions should be ignored.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether background scan transmissions should be ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreBackgroundScan ( String ignoreBackgroundScan)
 specifier|default
 name|ClientEndpointBuilder
@@ -2420,7 +2420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to ignore or respect DST.          * The option is a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to ignore or respect DST.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreDaylightSavingTime ( boolean ignoreDaylightSavingTime)
 specifier|default
 name|ClientEndpointBuilder
@@ -2441,7 +2441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to ignore or respect DST.          * The option will be converted to a<code>boolean</code> type.          * @group data          */
+comment|/**          * Whether to ignore or respect DST.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
 DECL|method|ignoreDaylightSavingTime ( String ignoreDaylightSavingTime)
 specifier|default
 name|ClientEndpointBuilder
@@ -2462,7 +2462,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timezone to use. May be any Java time zone string.          * The option is a<code>java.util.TimeZone</code> type.          * @group data          */
+comment|/**          * The timezone to use. May be any Java time zone string.          *           * The option is a:<code>java.util.TimeZone</code> type.          *           * Group: data          */
 DECL|method|timeZone (TimeZone timeZone)
 specifier|default
 name|ClientEndpointBuilder
@@ -2483,7 +2483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timezone to use. May be any Java time zone string.          * The option will be converted to a<code>java.util.TimeZone</code>          * type.          * @group data          */
+comment|/**          * The timezone to use. May be any Java time zone string.          *           * The option will be converted to a<code>java.util.TimeZone</code>          * type.          *           * Group: data          */
 DECL|method|timeZone (String timeZone)
 specifier|default
 name|ClientEndpointBuilder
@@ -2504,7 +2504,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An identifier grouping connection instances.          * The option is a<code>java.lang.String</code> type.          * @group id          */
+comment|/**          * An identifier grouping connection instances.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: id          */
 DECL|method|connectionId (String connectionId)
 specifier|default
 name|ClientEndpointBuilder
@@ -2549,7 +2549,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedClientEndpointBuilder
@@ -2570,7 +2570,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedClientEndpointBuilder
@@ -2591,7 +2591,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedClientEndpointBuilder
@@ -2612,7 +2612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedClientEndpointBuilder

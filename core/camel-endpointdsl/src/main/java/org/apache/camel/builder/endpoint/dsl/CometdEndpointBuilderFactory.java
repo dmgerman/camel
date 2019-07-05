@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Host port number.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Host port number.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Host port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Host port number.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The channelName represents a topic that can be subscribed to by the          * Camel endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The channelName represents a topic that can be subscribed to by the          * Camel endpoints.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channelName (String channelName)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The origins domain that support to cross, if the crosssOriginFilterOn          * is true.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The origins domain that support to cross, if the crosssOriginFilterOn          * is true.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|allowedOrigins ( String allowedOrigins)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The root directory for the web resources or classpath. Use the          * protocol file: or classpath: depending if you want that the component          * loads the resource from file system or classpath. Classpath is          * required for OSGI deployment where the resources are packaged in the          * jar.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The root directory for the web resources or classpath. Use the          * protocol file: or classpath: depending if you want that the component          * loads the resource from file system or classpath. Classpath is          * required for OSGI deployment where the resources are packaged in the          * jar.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|baseResource (String baseResource)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will support for cross-domain filtering.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will support for cross-domain filtering.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|crossOriginFilterOn ( boolean crossOriginFilterOn)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will support for cross-domain filtering.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will support for cross-domain filtering.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|crossOriginFilterOn ( String crossOriginFilterOn)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The filterPath will be used by the CrossOriginFilter, if the          * crosssOriginFilterOn is true.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The filterPath will be used by the CrossOriginFilter, if the          * crosssOriginFilterOn is true.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filterPath (String filterPath)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|interval (int interval)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|interval (String interval)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|jsonCommented ( boolean jsonCommented)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|jsonCommented (String jsonCommented)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level. 0=none, 1=info, 2=debug.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Logging level. 0=none, 1=info, 2=debug.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|logLevel (int logLevel)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level. 0=none, 1=info, 2=debug.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Logging level. 0=none, 1=info, 2=debug.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|logLevel (String logLevel)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxInterval (int maxInterval)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxInterval (String maxInterval)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|multiFrameInterval ( int multiFrameInterval)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|multiFrameInterval ( String multiFrameInterval)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -556,7 +556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -577,7 +577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -598,7 +598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -619,7 +619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the server session headers in the Camel message          * when creating a Camel Message for incoming requests.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether to include the server session headers in the Camel message          * when creating a Camel Message for incoming requests.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sessionHeadersEnabled ( boolean sessionHeadersEnabled)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -640,7 +640,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the server session headers in the Camel message          * when creating a Camel Message for incoming requests.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether to include the server session headers in the Camel message          * when creating a Camel Message for incoming requests.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sessionHeadersEnabled ( String sessionHeadersEnabled)
 specifier|default
 name|CometdEndpointConsumerBuilder
@@ -683,7 +683,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedCometdEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedCometdEndpointConsumerBuilder
@@ -725,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedCometdEndpointConsumerBuilder
@@ -746,7 +746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedCometdEndpointConsumerBuilder
@@ -767,7 +767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedCometdEndpointConsumerBuilder
@@ -788,7 +788,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedCometdEndpointConsumerBuilder
@@ -809,7 +809,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedCometdEndpointConsumerBuilder
@@ -830,7 +830,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedCometdEndpointConsumerBuilder
@@ -873,7 +873,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Host port number.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Host port number.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Host port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Host port number.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The channelName represents a topic that can be subscribed to by the          * Camel endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The channelName represents a topic that can be subscribed to by the          * Camel endpoints.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channelName (String channelName)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The origins domain that support to cross, if the crosssOriginFilterOn          * is true.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The origins domain that support to cross, if the crosssOriginFilterOn          * is true.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|allowedOrigins ( String allowedOrigins)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The root directory for the web resources or classpath. Use the          * protocol file: or classpath: depending if you want that the component          * loads the resource from file system or classpath. Classpath is          * required for OSGI deployment where the resources are packaged in the          * jar.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The root directory for the web resources or classpath. Use the          * protocol file: or classpath: depending if you want that the component          * loads the resource from file system or classpath. Classpath is          * required for OSGI deployment where the resources are packaged in the          * jar.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|baseResource (String baseResource)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -999,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will support for cross-domain filtering.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will support for cross-domain filtering.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|crossOriginFilterOn ( boolean crossOriginFilterOn)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1020,7 +1020,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will support for cross-domain filtering.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will support for cross-domain filtering.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|crossOriginFilterOn ( String crossOriginFilterOn)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1041,7 +1041,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The filterPath will be used by the CrossOriginFilter, if the          * crosssOriginFilterOn is true.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The filterPath will be used by the CrossOriginFilter, if the          * crosssOriginFilterOn is true.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filterPath (String filterPath)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1062,7 +1062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|interval (int interval)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|interval (String interval)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|jsonCommented ( boolean jsonCommented)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1125,7 +1125,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|jsonCommented (String jsonCommented)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1146,7 +1146,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level. 0=none, 1=info, 2=debug.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Logging level. 0=none, 1=info, 2=debug.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|logLevel (int logLevel)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1167,7 +1167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level. 0=none, 1=info, 2=debug.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Logging level. 0=none, 1=info, 2=debug.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|logLevel (String logLevel)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1188,7 +1188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxInterval (int maxInterval)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1209,7 +1209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxInterval (String maxInterval)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1230,7 +1230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|multiFrameInterval ( int multiFrameInterval)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1251,7 +1251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|multiFrameInterval ( String multiFrameInterval)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1272,7 +1272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1293,7 +1293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1314,7 +1314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to disconnect local sessions after publishing a message to          * its channel. Disconnecting local session is needed as they are not          * swept by default by CometD, and therefore you can run out of memory.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to disconnect local sessions after publishing a message to          * its channel. Disconnecting local session is needed as they are not          * swept by default by CometD, and therefore you can run out of memory.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|disconnectLocalSession ( boolean disconnectLocalSession)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1335,7 +1335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to disconnect local sessions after publishing a message to          * its channel. Disconnecting local session is needed as they are not          * swept by default by CometD, and therefore you can run out of memory.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to disconnect local sessions after publishing a message to          * its channel. Disconnecting local session is needed as they are not          * swept by default by CometD, and therefore you can run out of memory.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|disconnectLocalSession ( String disconnectLocalSession)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1356,7 +1356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1377,7 +1377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|CometdEndpointProducerBuilder
@@ -1420,7 +1420,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedCometdEndpointProducerBuilder
@@ -1441,7 +1441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedCometdEndpointProducerBuilder
@@ -1462,7 +1462,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedCometdEndpointProducerBuilder
@@ -1483,7 +1483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedCometdEndpointProducerBuilder
@@ -1528,7 +1528,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Hostname.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|CometdEndpointBuilder
@@ -1549,7 +1549,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Host port number.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Host port number.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|port (int port)
 specifier|default
 name|CometdEndpointBuilder
@@ -1570,7 +1570,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Host port number.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Host port number.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|CometdEndpointBuilder
@@ -1591,7 +1591,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The channelName represents a topic that can be subscribed to by the          * Camel endpoints.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The channelName represents a topic that can be subscribed to by the          * Camel endpoints.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channelName (String channelName)
 specifier|default
 name|CometdEndpointBuilder
@@ -1612,7 +1612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The origins domain that support to cross, if the crosssOriginFilterOn          * is true.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The origins domain that support to cross, if the crosssOriginFilterOn          * is true.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|allowedOrigins (String allowedOrigins)
 specifier|default
 name|CometdEndpointBuilder
@@ -1633,7 +1633,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The root directory for the web resources or classpath. Use the          * protocol file: or classpath: depending if you want that the component          * loads the resource from file system or classpath. Classpath is          * required for OSGI deployment where the resources are packaged in the          * jar.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The root directory for the web resources or classpath. Use the          * protocol file: or classpath: depending if you want that the component          * loads the resource from file system or classpath. Classpath is          * required for OSGI deployment where the resources are packaged in the          * jar.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|baseResource (String baseResource)
 specifier|default
 name|CometdEndpointBuilder
@@ -1654,7 +1654,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will support for cross-domain filtering.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will support for cross-domain filtering.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|crossOriginFilterOn ( boolean crossOriginFilterOn)
 specifier|default
 name|CometdEndpointBuilder
@@ -1675,7 +1675,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will support for cross-domain filtering.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will support for cross-domain filtering.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|crossOriginFilterOn ( String crossOriginFilterOn)
 specifier|default
 name|CometdEndpointBuilder
@@ -1696,7 +1696,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The filterPath will be used by the CrossOriginFilter, if the          * crosssOriginFilterOn is true.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The filterPath will be used by the CrossOriginFilter, if the          * crosssOriginFilterOn is true.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filterPath (String filterPath)
 specifier|default
 name|CometdEndpointBuilder
@@ -1717,7 +1717,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|interval (int interval)
 specifier|default
 name|CometdEndpointBuilder
@@ -1738,7 +1738,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout in milliseconds. How long a client will          * wait between reconnects.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|interval (String interval)
 specifier|default
 name|CometdEndpointBuilder
@@ -1759,7 +1759,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|jsonCommented (boolean jsonCommented)
 specifier|default
 name|CometdEndpointBuilder
@@ -1780,7 +1780,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * If true, the server will accept JSON wrapped in a comment and will          * generate JSON wrapped in a comment. This is a defence against Ajax          * Hijacking.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|jsonCommented (String jsonCommented)
 specifier|default
 name|CometdEndpointBuilder
@@ -1801,7 +1801,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level. 0=none, 1=info, 2=debug.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Logging level. 0=none, 1=info, 2=debug.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|logLevel (int logLevel)
 specifier|default
 name|CometdEndpointBuilder
@@ -1822,7 +1822,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Logging level. 0=none, 1=info, 2=debug.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Logging level. 0=none, 1=info, 2=debug.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|logLevel (String logLevel)
 specifier|default
 name|CometdEndpointBuilder
@@ -1843,7 +1843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|maxInterval (int maxInterval)
 specifier|default
 name|CometdEndpointBuilder
@@ -1864,7 +1864,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The max client side poll timeout in milliseconds. A client will be          * removed if a connection is not received in this time.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|maxInterval (String maxInterval)
 specifier|default
 name|CometdEndpointBuilder
@@ -1885,7 +1885,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|multiFrameInterval (int multiFrameInterval)
 specifier|default
 name|CometdEndpointBuilder
@@ -1906,7 +1906,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The client side poll timeout, if multiple connections are detected          * from the same browser.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|multiFrameInterval ( String multiFrameInterval)
 specifier|default
 name|CometdEndpointBuilder
@@ -1927,7 +1927,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (int timeout)
 specifier|default
 name|CometdEndpointBuilder
@@ -1948,7 +1948,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The server side poll timeout in milliseconds. This is how long the          * server will hold a reconnect request before responding.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|CometdEndpointBuilder
@@ -1993,7 +1993,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedCometdEndpointBuilder
@@ -2014,7 +2014,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedCometdEndpointBuilder
@@ -2035,7 +2035,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCometdEndpointBuilder
@@ -2056,7 +2056,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCometdEndpointBuilder

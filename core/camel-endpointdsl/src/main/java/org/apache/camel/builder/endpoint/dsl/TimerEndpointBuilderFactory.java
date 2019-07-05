@@ -130,7 +130,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the timer.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The name of the timer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|timerName (String timerName)
 specifier|default
 name|TimerEndpointBuilder
@@ -151,7 +151,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of milliseconds to wait before the first event is          * generated. Should not be used in conjunction with the time option.          * The default value is 1000. You can also specify time values using          * units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds),          * and 1h (1 hour).          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The number of milliseconds to wait before the first event is          * generated. Should not be used in conjunction with the time option.          * The default value is 1000. You can also specify time values using          * units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds),          * and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|delay (long delay)
 specifier|default
 name|TimerEndpointBuilder
@@ -172,7 +172,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of milliseconds to wait before the first event is          * generated. Should not be used in conjunction with the time option.          * The default value is 1000. You can also specify time values using          * units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds),          * and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The number of milliseconds to wait before the first event is          * generated. Should not be used in conjunction with the time option.          * The default value is 1000. You can also specify time values using          * units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds),          * and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|delay (String delay)
 specifier|default
 name|TimerEndpointBuilder
@@ -193,7 +193,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Events take place at approximately regular intervals, separated by          * the specified period.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Events take place at approximately regular intervals, separated by          * the specified period.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|fixedRate (boolean fixedRate)
 specifier|default
 name|TimerEndpointBuilder
@@ -214,7 +214,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Events take place at approximately regular intervals, separated by          * the specified period.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Events take place at approximately regular intervals, separated by          * the specified period.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|fixedRate (String fixedRate)
 specifier|default
 name|TimerEndpointBuilder
@@ -235,7 +235,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greater than 0, generate periodic events every period          * milliseconds. The default value is 1000. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * If greater than 0, generate periodic events every period          * milliseconds. The default value is 1000. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|period (long period)
 specifier|default
 name|TimerEndpointBuilder
@@ -256,7 +256,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greater than 0, generate periodic events every period          * milliseconds. The default value is 1000. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * If greater than 0, generate periodic events every period          * milliseconds. The default value is 1000. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|period (String period)
 specifier|default
 name|TimerEndpointBuilder
@@ -277,7 +277,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies a maximum limit of number of fires. So if you set it to 1,          * the timer will only fire once. If you set it to 5, it will only fire          * five times. A value of zero or negative means fire forever.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * Specifies a maximum limit of number of fires. So if you set it to 1,          * the timer will only fire once. If you set it to 5, it will only fire          * five times. A value of zero or negative means fire forever.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|repeatCount (long repeatCount)
 specifier|default
 name|TimerEndpointBuilder
@@ -298,7 +298,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies a maximum limit of number of fires. So if you set it to 1,          * the timer will only fire once. If you set it to 5, it will only fire          * five times. A value of zero or negative means fire forever.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * Specifies a maximum limit of number of fires. So if you set it to 1,          * the timer will only fire once. If you set it to 5, it will only fire          * five times. A value of zero or negative means fire forever.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|repeatCount (String repeatCount)
 specifier|default
 name|TimerEndpointBuilder
@@ -341,7 +341,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -362,7 +362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether or not the thread associated with the timer          * endpoint runs as a daemon. The default value is true.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Specifies whether or not the thread associated with the timer          * endpoint runs as a daemon. The default value is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|daemon (boolean daemon)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -404,7 +404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether or not the thread associated with the timer          * endpoint runs as a daemon. The default value is true.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Specifies whether or not the thread associated with the timer          * endpoint runs as a daemon. The default value is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|daemon (String daemon)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -425,7 +425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows you to specify a custom Date pattern to use for setting the          * time option using URI syntax.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * Allows you to specify a custom Date pattern to use for setting the          * time option using URI syntax.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|pattern (String pattern)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -467,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -488,7 +488,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A java.util.Date the first event should be generated. If using the          * URI, the pattern expected is: yyyy-MM-dd HH:mm:ss or          * yyyy-MM-dd'T'HH:mm:ss.          * The option is a<code>java.util.Date</code> type.          * @group advanced          */
+comment|/**          * A java.util.Date the first event should be generated. If using the          * URI, the pattern expected is: yyyy-MM-dd HH:mm:ss or          * yyyy-MM-dd'T'HH:mm:ss.          *           * The option is a:<code>java.util.Date</code> type.          *           * Group: advanced          */
 DECL|method|time (Date time)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -509,7 +509,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A java.util.Date the first event should be generated. If using the          * URI, the pattern expected is: yyyy-MM-dd HH:mm:ss or          * yyyy-MM-dd'T'HH:mm:ss.          * The option will be converted to a<code>java.util.Date</code> type.          * @group advanced          */
+comment|/**          * A java.util.Date the first event should be generated. If using the          * URI, the pattern expected is: yyyy-MM-dd HH:mm:ss or          * yyyy-MM-dd'T'HH:mm:ss.          *           * The option will be converted to a<code>java.util.Date</code> type.          *           * Group: advanced          */
 DECL|method|time (String time)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -530,7 +530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom Timer.          * The option is a<code>java.util.Timer</code> type.          * @group advanced          */
+comment|/**          * To use a custom Timer.          *           * The option is a:<code>java.util.Timer</code> type.          *           * Group: advanced          */
 DECL|method|timer (Timer timer)
 specifier|default
 name|AdvancedTimerEndpointBuilder
@@ -551,7 +551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom Timer.          * The option will be converted to a<code>java.util.Timer</code> type.          * @group advanced          */
+comment|/**          * To use a custom Timer.          *           * The option will be converted to a<code>java.util.Timer</code> type.          *           * Group: advanced          */
 DECL|method|timer (String timer)
 specifier|default
 name|AdvancedTimerEndpointBuilder

@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|servers (String servers)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A String to identify the kind of client.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * A String to identify the kind of client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userAgent (String userAgent)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically finish the NSQ message when it is retrieved from the          * quese and before the Exchange is processed.          * The option is a<code>java.lang.Boolean</code> type.          * @group consumer          */
+comment|/**          * Automatically finish the NSQ message when it is retrieved from the          * quese and before the Exchange is processed.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: consumer          */
 DECL|method|autoFinish (Boolean autoFinish)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically finish the NSQ message when it is retrieved from the          * quese and before the Exchange is processed.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group consumer          */
+comment|/**          * Automatically finish the NSQ message when it is retrieved from the          * quese and before the Exchange is processed.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: consumer          */
 DECL|method|autoFinish (String autoFinish)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of channel we want to use.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The name of channel we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|channel (String channel)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The lookup retry interval.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The lookup retry interval.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|lookupInterval (long lookupInterval)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The lookup retry interval.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The lookup retry interval.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|lookupInterval (String lookupInterval)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port of the nsqdlookupd server.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * The port of the nsqdlookupd server.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|lookupServerPort (int lookupServerPort)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port of the nsqdlookupd server.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * The port of the nsqdlookupd server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|lookupServerPort ( String lookupServerPort)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The NSQ message timeout for a consumer.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The NSQ message timeout for a consumer.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|messageTimeout (long messageTimeout)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The NSQ message timeout for a consumer.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The NSQ message timeout for a consumer.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|messageTimeout (String messageTimeout)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consumer pool size.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Consumer pool size.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|poolSize (int poolSize)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Consumer pool size.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Consumer pool size.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|poolSize (String poolSize)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The requeue interval.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The requeue interval.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|requeueInterval (long requeueInterval)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The requeue interval.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The requeue interval.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|requeueInterval ( String requeueInterval)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -556,7 +556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -577,7 +577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|NsqEndpointConsumerBuilder
@@ -620,7 +620,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedNsqEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedNsqEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedNsqEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedNsqEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedNsqEndpointConsumerBuilder
@@ -725,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedNsqEndpointConsumerBuilder
@@ -746,7 +746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedNsqEndpointConsumerBuilder
@@ -767,7 +767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedNsqEndpointConsumerBuilder
@@ -810,7 +810,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|servers (String servers)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A String to identify the kind of client.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * A String to identify the kind of client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userAgent (String userAgent)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port of the nsqd server.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * The port of the nsqd server.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|port (int port)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The port of the nsqd server.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * The port of the nsqd server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|port (String port)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -999,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -1020,7 +1020,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|NsqEndpointProducerBuilder
@@ -1063,7 +1063,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedNsqEndpointProducerBuilder
@@ -1084,7 +1084,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedNsqEndpointProducerBuilder
@@ -1105,7 +1105,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedNsqEndpointProducerBuilder
@@ -1126,7 +1126,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedNsqEndpointProducerBuilder
@@ -1171,7 +1171,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|servers (String servers)
 specifier|default
 name|NsqEndpointBuilder
@@ -1192,7 +1192,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of topic we want to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|NsqEndpointBuilder
@@ -1213,7 +1213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A String to identify the kind of client.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * A String to identify the kind of client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userAgent (String userAgent)
 specifier|default
 name|NsqEndpointBuilder
@@ -1234,7 +1234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option is a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (boolean secure)
 specifier|default
 name|NsqEndpointBuilder
@@ -1255,7 +1255,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set secure option indicating TLS is required.          * The option will be converted to a<code>boolean</code> type.          * @group security          */
+comment|/**          * Set secure option indicating TLS is required.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
 DECL|method|secure (String secure)
 specifier|default
 name|NsqEndpointBuilder
@@ -1276,7 +1276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|NsqEndpointBuilder
@@ -1297,7 +1297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure security using SSLContextParameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * To configure security using SSLContextParameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|NsqEndpointBuilder
@@ -1342,7 +1342,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedNsqEndpointBuilder
@@ -1363,7 +1363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedNsqEndpointBuilder
@@ -1384,7 +1384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedNsqEndpointBuilder
@@ -1405,7 +1405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedNsqEndpointBuilder

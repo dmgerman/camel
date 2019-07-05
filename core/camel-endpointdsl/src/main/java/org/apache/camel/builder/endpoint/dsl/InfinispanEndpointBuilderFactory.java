@@ -168,7 +168,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The cache to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The cache to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|cacheName (String cacheName)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -189,7 +189,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the host of the cache on Infinispan instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Specifies the host of the cache on Infinispan instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hosts (String hosts)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -210,7 +210,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the query builder.          * The option is a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          * @group common          */
+comment|/**          * Specifies the query builder.          *           * The option is a:          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          *           * Group: common          */
 DECL|method|queryBuilder ( Object queryBuilder)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -231,7 +231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the query builder.          * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          * @group common          */
+comment|/**          * Specifies the query builder.          *           * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          *           * Group: common          */
 DECL|method|queryBuilder ( String queryBuilder)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -252,7 +252,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -273,7 +273,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -294,7 +294,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the listener will be installed for the entire cluster.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the listener will be installed for the entire cluster.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|clusteredListener ( boolean clusteredListener)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -315,7 +315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the listener will be installed for the entire cluster.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the listener will be installed for the entire cluster.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|clusteredListener ( String clusteredListener)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -336,7 +336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The operation to perform.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The operation to perform.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 annotation|@
 name|Deprecated
 DECL|method|command (String command)
@@ -359,7 +359,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Returns the custom listener in use, if provided.          * The option is a          *<code>org.apache.camel.component.infinispan.InfinispanCustomListener</code> type.          * @group consumer          */
+comment|/**          * Returns the custom listener in use, if provided.          *           * The option is a:          *<code>org.apache.camel.component.infinispan.InfinispanCustomListener</code> type.          *           * Group: consumer          */
 DECL|method|customListener ( Object customListener)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -380,7 +380,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Returns the custom listener in use, if provided.          * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanCustomListener</code> type.          * @group consumer          */
+comment|/**          * Returns the custom listener in use, if provided.          *           * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanCustomListener</code> type.          *           * Group: consumer          */
 DECL|method|customListener ( String customListener)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -401,7 +401,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the set of event types to register by the consumer.          * Multiple event can be separated by comma. The possible event types          * are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED,          * CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED,          * CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED,          * TRANSACTION_COMPLETED, TRANSACTION_REGISTERED,          * CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED,          * PARTITION_STATUS_CHANGED.          * The option is a<code>java.util.Set&lt;java.lang.String&gt;</code>          * type.          * @group consumer          */
+comment|/**          * Specifies the set of event types to register by the consumer.          * Multiple event can be separated by comma. The possible event types          * are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED,          * CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED,          * CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED,          * TRANSACTION_COMPLETED, TRANSACTION_REGISTERED,          * CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED,          * PARTITION_STATUS_CHANGED.          *           * The option is a:<code>java.util.Set&lt;java.lang.String&gt;</code>          * type.          *           * Group: consumer          */
 DECL|method|eventTypes ( Set<String> eventTypes)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -425,7 +425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the set of event types to register by the consumer.          * Multiple event can be separated by comma. The possible event types          * are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED,          * CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED,          * CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED,          * TRANSACTION_COMPLETED, TRANSACTION_REGISTERED,          * CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED,          * PARTITION_STATUS_CHANGED.          * The option will be converted to a          *<code>java.util.Set&lt;java.lang.String&gt;</code> type.          * @group consumer          */
+comment|/**          * Specifies the set of event types to register by the consumer.          * Multiple event can be separated by comma. The possible event types          * are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED,          * CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED,          * CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED,          * TRANSACTION_COMPLETED, TRANSACTION_REGISTERED,          * CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED,          * PARTITION_STATUS_CHANGED.          *           * The option will be converted to a          *<code>java.util.Set&lt;java.lang.String&gt;</code> type.          *           * Group: consumer          */
 DECL|method|eventTypes (String eventTypes)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the consumer will receive notifications synchronously.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the consumer will receive notifications synchronously.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sync (boolean sync)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -467,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, the consumer will receive notifications synchronously.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If true, the consumer will receive notifications synchronously.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sync (String sync)
 specifier|default
 name|InfinispanEndpointConsumerBuilder
@@ -510,7 +510,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -531,7 +531,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -552,7 +552,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -573,7 +573,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -594,7 +594,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -615,7 +615,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -636,7 +636,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the cache Container to connect.          * The option is a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          * @group advanced          */
+comment|/**          * Specifies the cache Container to connect.          *           * The option is a:          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainer ( Object cacheContainer)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -657,7 +657,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the cache Container to connect.          * The option will be converted to a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          * @group advanced          */
+comment|/**          * Specifies the cache Container to connect.          *           * The option will be converted to a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainer ( String cacheContainer)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -678,7 +678,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainerConfiguration ( Object cacheContainerConfiguration)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -699,7 +699,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainerConfiguration ( String cacheContainerConfiguration)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -720,7 +720,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Implementation specific properties for the CacheManager.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group advanced          */
+comment|/**          * Implementation specific properties for the CacheManager.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurationProperties ( Map<String, String> configurationProperties)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -746,7 +746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Implementation specific properties for the CacheManager.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Implementation specific properties for the CacheManager.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|configurationProperties ( String configurationProperties)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -767,7 +767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An implementation specific URI for the CacheManager.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * An implementation specific URI for the CacheManager.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|configurationUri ( String configurationUri)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -788,7 +788,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          * The option is a<code>org.infinispan.context.Flag[]</code> type.          * @group advanced          */
+comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          *           * The option is a:<code>org.infinispan.context.Flag[]</code> type.          *           * Group: advanced          */
 DECL|method|flags (Flag[] flags)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          * The option will be converted to a          *<code>org.infinispan.context.Flag[]</code> type.          * @group advanced          */
+comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          *           * The option will be converted to a          *<code>org.infinispan.context.Flag[]</code> type.          *           * Group: advanced          */
 DECL|method|flags (String flags)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a specific remappingFunction to use in a compute operation.          * The option is a<code>java.util.function.BiFunction</code> type.          * @group advanced          */
+comment|/**          * Set a specific remappingFunction to use in a compute operation.          *           * The option is a:<code>java.util.function.BiFunction</code> type.          *           * Group: advanced          */
 DECL|method|remappingFunction ( BiFunction remappingFunction)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a specific remappingFunction to use in a compute operation.          * The option will be converted to a          *<code>java.util.function.BiFunction</code> type.          * @group advanced          */
+comment|/**          * Set a specific remappingFunction to use in a compute operation.          *           * The option will be converted to a          *<code>java.util.function.BiFunction</code> type.          *           * Group: advanced          */
 DECL|method|remappingFunction ( String remappingFunction)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|resultHeader ( Object resultHeader)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|resultHeader ( String resultHeader)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedInfinispanEndpointConsumerBuilder
@@ -979,7 +979,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The cache to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The cache to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|cacheName (String cacheName)
 specifier|default
 name|InfinispanEndpointProducerBuilder
@@ -1000,7 +1000,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the host of the cache on Infinispan instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Specifies the host of the cache on Infinispan instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hosts (String hosts)
 specifier|default
 name|InfinispanEndpointProducerBuilder
@@ -1021,7 +1021,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the query builder.          * The option is a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          * @group common          */
+comment|/**          * Specifies the query builder.          *           * The option is a:          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          *           * Group: common          */
 DECL|method|queryBuilder ( Object queryBuilder)
 specifier|default
 name|InfinispanEndpointProducerBuilder
@@ -1042,7 +1042,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the query builder.          * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          * @group common          */
+comment|/**          * Specifies the query builder.          *           * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          *           * Group: common          */
 DECL|method|queryBuilder ( String queryBuilder)
 specifier|default
 name|InfinispanEndpointProducerBuilder
@@ -1063,7 +1063,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|InfinispanEndpointProducerBuilder
@@ -1084,7 +1084,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|InfinispanEndpointProducerBuilder
@@ -1105,7 +1105,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The operation to perform.          * The option is a          *<code>org.apache.camel.component.infinispan.InfinispanOperation</code> type.          * @group producer          */
+comment|/**          * The operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.infinispan.InfinispanOperation</code> type.          *           * Group: producer          */
 DECL|method|operation ( InfinispanOperation operation)
 specifier|default
 name|InfinispanEndpointProducerBuilder
@@ -1126,7 +1126,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanOperation</code> type.          * @group producer          */
+comment|/**          * The operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanOperation</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|InfinispanEndpointProducerBuilder
@@ -1169,7 +1169,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1190,7 +1190,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1211,7 +1211,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the cache Container to connect.          * The option is a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          * @group advanced          */
+comment|/**          * Specifies the cache Container to connect.          *           * The option is a:          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainer ( Object cacheContainer)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1232,7 +1232,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the cache Container to connect.          * The option will be converted to a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          * @group advanced          */
+comment|/**          * Specifies the cache Container to connect.          *           * The option will be converted to a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainer ( String cacheContainer)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1253,7 +1253,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainerConfiguration ( Object cacheContainerConfiguration)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1274,7 +1274,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainerConfiguration ( String cacheContainerConfiguration)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1295,7 +1295,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Implementation specific properties for the CacheManager.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group advanced          */
+comment|/**          * Implementation specific properties for the CacheManager.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurationProperties ( Map<String, String> configurationProperties)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1321,7 +1321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Implementation specific properties for the CacheManager.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Implementation specific properties for the CacheManager.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|configurationProperties ( String configurationProperties)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1342,7 +1342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An implementation specific URI for the CacheManager.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * An implementation specific URI for the CacheManager.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|configurationUri ( String configurationUri)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1363,7 +1363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          * The option is a<code>org.infinispan.context.Flag[]</code> type.          * @group advanced          */
+comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          *           * The option is a:<code>org.infinispan.context.Flag[]</code> type.          *           * Group: advanced          */
 DECL|method|flags (Flag[] flags)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1385,7 +1385,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          * The option will be converted to a          *<code>org.infinispan.context.Flag[]</code> type.          * @group advanced          */
+comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          *           * The option will be converted to a          *<code>org.infinispan.context.Flag[]</code> type.          *           * Group: advanced          */
 DECL|method|flags (String flags)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1406,7 +1406,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a specific remappingFunction to use in a compute operation.          * The option is a<code>java.util.function.BiFunction</code> type.          * @group advanced          */
+comment|/**          * Set a specific remappingFunction to use in a compute operation.          *           * The option is a:<code>java.util.function.BiFunction</code> type.          *           * Group: advanced          */
 DECL|method|remappingFunction ( BiFunction remappingFunction)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1427,7 +1427,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a specific remappingFunction to use in a compute operation.          * The option will be converted to a          *<code>java.util.function.BiFunction</code> type.          * @group advanced          */
+comment|/**          * Set a specific remappingFunction to use in a compute operation.          *           * The option will be converted to a          *<code>java.util.function.BiFunction</code> type.          *           * Group: advanced          */
 DECL|method|remappingFunction ( String remappingFunction)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1448,7 +1448,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|resultHeader ( Object resultHeader)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1469,7 +1469,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|resultHeader ( String resultHeader)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1490,7 +1490,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1511,7 +1511,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedInfinispanEndpointProducerBuilder
@@ -1556,7 +1556,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The cache to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The cache to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|cacheName (String cacheName)
 specifier|default
 name|InfinispanEndpointBuilder
@@ -1577,7 +1577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the host of the cache on Infinispan instance.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Specifies the host of the cache on Infinispan instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hosts (String hosts)
 specifier|default
 name|InfinispanEndpointBuilder
@@ -1598,7 +1598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the query builder.          * The option is a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          * @group common          */
+comment|/**          * Specifies the query builder.          *           * The option is a:          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          *           * Group: common          */
 DECL|method|queryBuilder (Object queryBuilder)
 specifier|default
 name|InfinispanEndpointBuilder
@@ -1619,7 +1619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the query builder.          * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          * @group common          */
+comment|/**          * Specifies the query builder.          *           * The option will be converted to a          *<code>org.apache.camel.component.infinispan.InfinispanQueryBuilder</code> type.          *           * Group: common          */
 DECL|method|queryBuilder (String queryBuilder)
 specifier|default
 name|InfinispanEndpointBuilder
@@ -1664,7 +1664,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1685,7 +1685,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1706,7 +1706,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the cache Container to connect.          * The option is a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          * @group advanced          */
+comment|/**          * Specifies the cache Container to connect.          *           * The option is a:          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainer ( Object cacheContainer)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1727,7 +1727,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the cache Container to connect.          * The option will be converted to a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          * @group advanced          */
+comment|/**          * Specifies the cache Container to connect.          *           * The option will be converted to a          *<code>org.infinispan.commons.api.BasicCacheContainer</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainer ( String cacheContainer)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1748,7 +1748,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainerConfiguration ( Object cacheContainerConfiguration)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1769,7 +1769,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * The CacheContainer configuration. Uses if the cacheContainer is not          * defined. Must be the following types:          * org.infinispan.client.hotrod.configuration.Configuration - for remote          * cache interaction configuration;          * org.infinispan.configuration.cache.Configuration - for embedded cache          * interaction configuration;.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|cacheContainerConfiguration ( String cacheContainerConfiguration)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1790,7 +1790,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Implementation specific properties for the CacheManager.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group advanced          */
+comment|/**          * Implementation specific properties for the CacheManager.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurationProperties ( Map<String, String> configurationProperties)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1816,7 +1816,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Implementation specific properties for the CacheManager.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group advanced          */
+comment|/**          * Implementation specific properties for the CacheManager.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: advanced          */
 DECL|method|configurationProperties ( String configurationProperties)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1837,7 +1837,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * An implementation specific URI for the CacheManager.          * The option is a<code>java.lang.String</code> type.          * @group advanced          */
+comment|/**          * An implementation specific URI for the CacheManager.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|configurationUri ( String configurationUri)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1858,7 +1858,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          * The option is a<code>org.infinispan.context.Flag[]</code> type.          * @group advanced          */
+comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          *           * The option is a:<code>org.infinispan.context.Flag[]</code> type.          *           * Group: advanced          */
 DECL|method|flags (Flag[] flags)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1880,7 +1880,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          * The option will be converted to a          *<code>org.infinispan.context.Flag[]</code> type.          * @group advanced          */
+comment|/**          * A comma separated list of Flag to be applied by default on each cache          * invocation, not applicable to remote caches.          *           * The option will be converted to a          *<code>org.infinispan.context.Flag[]</code> type.          *           * Group: advanced          */
 DECL|method|flags (String flags)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1901,7 +1901,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a specific remappingFunction to use in a compute operation.          * The option is a<code>java.util.function.BiFunction</code> type.          * @group advanced          */
+comment|/**          * Set a specific remappingFunction to use in a compute operation.          *           * The option is a:<code>java.util.function.BiFunction</code> type.          *           * Group: advanced          */
 DECL|method|remappingFunction ( BiFunction remappingFunction)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1922,7 +1922,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a specific remappingFunction to use in a compute operation.          * The option will be converted to a          *<code>java.util.function.BiFunction</code> type.          * @group advanced          */
+comment|/**          * Set a specific remappingFunction to use in a compute operation.          *           * The option will be converted to a          *<code>java.util.function.BiFunction</code> type.          *           * Group: advanced          */
 DECL|method|remappingFunction ( String remappingFunction)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1943,7 +1943,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          * The option is a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|resultHeader ( Object resultHeader)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1964,7 +1964,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group advanced          */
+comment|/**          * Store the operation result in a header instead of the message body.          * By default, resultHeader == null and the query result is stored in          * the message body, any existing content in the message body is          * discarded. If resultHeader is set, the value is used as the name of          * the header to store the query result and the original message body is          * preserved. This value can be overridden by an in message header          * named: CamelInfinispanOperationResultHeader.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
 DECL|method|resultHeader ( String resultHeader)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -1985,7 +1985,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder
@@ -2006,7 +2006,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedInfinispanEndpointBuilder

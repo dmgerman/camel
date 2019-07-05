@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * SMS Provider HOST with scheme.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * SMS Provider HOST with scheme.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|host (String host)
 specifier|default
 name|CMEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This is the sender name. The maximum length is 11 characters.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * This is the sender name. The maximum length is 11 characters.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|defaultFrom (String defaultFrom)
 specifier|default
 name|CMEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If it is a multipart message forces the max number. Message can be          * truncated. Technically the gateway will first check if a message is          * larger than 160 characters, if so, the message will be cut into          * multiple 153 characters parts limited by these parameters.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * If it is a multipart message forces the max number. Message can be          * truncated. Technically the gateway will first check if a message is          * larger than 160 characters, if so, the message will be cut into          * multiple 153 characters parts limited by these parameters.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|defaultMaxNumberOfParts ( int defaultMaxNumberOfParts)
 specifier|default
 name|CMEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If it is a multipart message forces the max number. Message can be          * truncated. Technically the gateway will first check if a message is          * larger than 160 characters, if so, the message will be cut into          * multiple 153 characters parts limited by these parameters.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * If it is a multipart message forces the max number. Message can be          * truncated. Technically the gateway will first check if a message is          * larger than 160 characters, if so, the message will be cut into          * multiple 153 characters parts limited by these parameters.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|defaultMaxNumberOfParts ( String defaultMaxNumberOfParts)
 specifier|default
 name|CMEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The unique token to use.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The unique token to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|productToken (String productToken)
 specifier|default
 name|CMEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to test the connection to the SMS Gateway on startup.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to test the connection to the SMS Gateway on startup.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|testConnectionOnStartup ( boolean testConnectionOnStartup)
 specifier|default
 name|CMEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to test the connection to the SMS Gateway on startup.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to test the connection to the SMS Gateway on startup.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|testConnectionOnStartup ( String testConnectionOnStartup)
 specifier|default
 name|CMEndpointBuilder
@@ -279,7 +279,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedCMEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedCMEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCMEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCMEndpointBuilder

@@ -148,7 +148,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -169,7 +169,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -190,7 +190,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|size (String size)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -211,7 +211,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -232,7 +232,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -253,7 +253,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of concurrent threads processing exchanges.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of concurrent threads processing exchanges.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -274,7 +274,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of concurrent threads processing exchanges.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of concurrent threads processing exchanges.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -295,7 +295,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether multiple consumers are allowed. If enabled, you can          * use Disruptor for Publish-Subscribe messaging. That is, you can send          * a message to the queue and have each consumer receive a copy of the          * message. When enabled, this option should be specified on every          * consumer endpoint.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Specifies whether multiple consumers are allowed. If enabled, you can          * use Disruptor for Publish-Subscribe messaging. That is, you can send          * a message to the queue and have each consumer receive a copy of the          * message. When enabled, this option should be specified on every          * consumer endpoint.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|multipleConsumers ( boolean multipleConsumers)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -316,7 +316,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether multiple consumers are allowed. If enabled, you can          * use Disruptor for Publish-Subscribe messaging. That is, you can send          * a message to the queue and have each consumer receive a copy of the          * message. When enabled, this option should be specified on every          * consumer endpoint.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Specifies whether multiple consumers are allowed. If enabled, you can          * use Disruptor for Publish-Subscribe messaging. That is, you can send          * a message to the queue and have each consumer receive a copy of the          * message. When enabled, this option should be specified on every          * consumer endpoint.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|multipleConsumers ( String multipleConsumers)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -337,7 +337,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the strategy used by consumer threads to wait on new          * exchanges to be published. The options allowed are:Blocking,          * Sleeping, BusySpin and Yielding.          * The option is a          *<code>org.apache.camel.component.disruptor.DisruptorWaitStrategy</code> type.          * @group consumer          */
+comment|/**          * Defines the strategy used by consumer threads to wait on new          * exchanges to be published. The options allowed are:Blocking,          * Sleeping, BusySpin and Yielding.          *           * The option is a:          *<code>org.apache.camel.component.disruptor.DisruptorWaitStrategy</code> type.          *           * Group: consumer          */
 DECL|method|waitStrategy ( DisruptorWaitStrategy waitStrategy)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -358,7 +358,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the strategy used by consumer threads to wait on new          * exchanges to be published. The options allowed are:Blocking,          * Sleeping, BusySpin and Yielding.          * The option will be converted to a          *<code>org.apache.camel.component.disruptor.DisruptorWaitStrategy</code> type.          * @group consumer          */
+comment|/**          * Defines the strategy used by consumer threads to wait on new          * exchanges to be published. The options allowed are:Blocking,          * Sleeping, BusySpin and Yielding.          *           * The option will be converted to a          *<code>org.apache.camel.component.disruptor.DisruptorWaitStrategy</code> type.          *           * Group: consumer          */
 DECL|method|waitStrategy ( String waitStrategy)
 specifier|default
 name|DisruptorEndpointConsumerBuilder
@@ -401,7 +401,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedDisruptorEndpointConsumerBuilder
@@ -422,7 +422,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedDisruptorEndpointConsumerBuilder
@@ -443,7 +443,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedDisruptorEndpointConsumerBuilder
@@ -464,7 +464,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedDisruptorEndpointConsumerBuilder
@@ -485,7 +485,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDisruptorEndpointConsumerBuilder
@@ -506,7 +506,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDisruptorEndpointConsumerBuilder
@@ -527,7 +527,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedDisruptorEndpointConsumerBuilder
@@ -548,7 +548,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedDisruptorEndpointConsumerBuilder
@@ -591,7 +591,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -612,7 +612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -633,7 +633,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|size (String size)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -654,7 +654,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether a thread that sends messages to a full Disruptor will block          * until the ringbuffer's capacity is no longer exhausted. By default,          * the calling thread will block and wait until the message can be          * accepted. By disabling this option, an exception will be thrown          * stating that the queue is full.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether a thread that sends messages to a full Disruptor will block          * until the ringbuffer's capacity is no longer exhausted. By default,          * the calling thread will block and wait until the message can be          * accepted. By disabling this option, an exception will be thrown          * stating that the queue is full.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|blockWhenFull ( boolean blockWhenFull)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -675,7 +675,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether a thread that sends messages to a full Disruptor will block          * until the ringbuffer's capacity is no longer exhausted. By default,          * the calling thread will block and wait until the message can be          * accepted. By disabling this option, an exception will be thrown          * stating that the queue is full.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether a thread that sends messages to a full Disruptor will block          * until the ringbuffer's capacity is no longer exhausted. By default,          * the calling thread will block and wait until the message can be          * accepted. By disabling this option, an exception will be thrown          * stating that the queue is full.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|blockWhenFull ( String blockWhenFull)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -696,7 +696,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -717,7 +717,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -738,7 +738,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the producers allowed on the Disruptor. The options allowed          * are: Multi to allow multiple producers and Single to enable certain          * optimizations only allowed when one concurrent producer (on one          * thread or otherwise synchronized) is active.          * The option is a          *<code>org.apache.camel.component.disruptor.DisruptorProducerType</code> type.          * @group producer          */
+comment|/**          * Defines the producers allowed on the Disruptor. The options allowed          * are: Multi to allow multiple producers and Single to enable certain          * optimizations only allowed when one concurrent producer (on one          * thread or otherwise synchronized) is active.          *           * The option is a:          *<code>org.apache.camel.component.disruptor.DisruptorProducerType</code> type.          *           * Group: producer          */
 DECL|method|producerType ( DisruptorProducerType producerType)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -759,7 +759,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Defines the producers allowed on the Disruptor. The options allowed          * are: Multi to allow multiple producers and Single to enable certain          * optimizations only allowed when one concurrent producer (on one          * thread or otherwise synchronized) is active.          * The option will be converted to a          *<code>org.apache.camel.component.disruptor.DisruptorProducerType</code> type.          * @group producer          */
+comment|/**          * Defines the producers allowed on the Disruptor. The options allowed          * are: Multi to allow multiple producers and Single to enable certain          * optimizations only allowed when one concurrent producer (on one          * thread or otherwise synchronized) is active.          *           * The option will be converted to a          *<code>org.apache.camel.component.disruptor.DisruptorProducerType</code> type.          *           * Group: producer          */
 DECL|method|producerType ( String producerType)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -780,7 +780,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout (in milliseconds) before a producer will stop waiting for an          * asynchronous task to complete. You can disable timeout by using 0 or          * a negative value.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * Timeout (in milliseconds) before a producer will stop waiting for an          * asynchronous task to complete. You can disable timeout by using 0 or          * a negative value.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|timeout (long timeout)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -801,7 +801,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Timeout (in milliseconds) before a producer will stop waiting for an          * asynchronous task to complete. You can disable timeout by using 0 or          * a negative value.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * Timeout (in milliseconds) before a producer will stop waiting for an          * asynchronous task to complete. You can disable timeout by using 0 or          * a negative value.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -822,7 +822,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to specify whether the caller should wait for the async task          * to complete or not before continuing. The following three options are          * supported: Always, Never or IfReplyExpected. The first two values are          * self-explanatory. The last value, IfReplyExpected, will only wait if          * the message is Request Reply based.          * The option is a<code>org.apache.camel.WaitForTaskToComplete</code>          * type.          * @group producer          */
+comment|/**          * Option to specify whether the caller should wait for the async task          * to complete or not before continuing. The following three options are          * supported: Always, Never or IfReplyExpected. The first two values are          * self-explanatory. The last value, IfReplyExpected, will only wait if          * the message is Request Reply based.          *           * The option is a:<code>org.apache.camel.WaitForTaskToComplete</code>          * type.          *           * Group: producer          */
 DECL|method|waitForTaskToComplete ( WaitForTaskToComplete waitForTaskToComplete)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -843,7 +843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Option to specify whether the caller should wait for the async task          * to complete or not before continuing. The following three options are          * supported: Always, Never or IfReplyExpected. The first two values are          * self-explanatory. The last value, IfReplyExpected, will only wait if          * the message is Request Reply based.          * The option will be converted to a          *<code>org.apache.camel.WaitForTaskToComplete</code> type.          * @group producer          */
+comment|/**          * Option to specify whether the caller should wait for the async task          * to complete or not before continuing. The following three options are          * supported: Always, Never or IfReplyExpected. The first two values are          * self-explanatory. The last value, IfReplyExpected, will only wait if          * the message is Request Reply based.          *           * The option will be converted to a          *<code>org.apache.camel.WaitForTaskToComplete</code> type.          *           * Group: producer          */
 DECL|method|waitForTaskToComplete ( String waitForTaskToComplete)
 specifier|default
 name|DisruptorEndpointProducerBuilder
@@ -886,7 +886,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDisruptorEndpointProducerBuilder
@@ -907,7 +907,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDisruptorEndpointProducerBuilder
@@ -928,7 +928,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedDisruptorEndpointProducerBuilder
@@ -949,7 +949,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedDisruptorEndpointProducerBuilder
@@ -994,7 +994,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|DisruptorEndpointBuilder
@@ -1015,7 +1015,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
 name|DisruptorEndpointBuilder
@@ -1036,7 +1036,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|size (String size)
 specifier|default
 name|DisruptorEndpointBuilder
@@ -1081,7 +1081,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDisruptorEndpointBuilder
@@ -1102,7 +1102,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDisruptorEndpointBuilder
@@ -1123,7 +1123,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDisruptorEndpointBuilder
@@ -1144,7 +1144,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDisruptorEndpointBuilder

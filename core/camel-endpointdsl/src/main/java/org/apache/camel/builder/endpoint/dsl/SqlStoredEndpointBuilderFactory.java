@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the StoredProcedure template to perform.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Sets the StoredProcedure template to perform.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|template (String template)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables or disables batch mode.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Enables or disables batch mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|batch (boolean batch)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables or disables batch mode.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Enables or disables batch mode.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|batch (String batch)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the DataSource to use to communicate with the database.          * The option is a<code>javax.sql.DataSource</code> type.          * @group producer          */
+comment|/**          * Sets the DataSource to use to communicate with the database.          *           * The option is a:<code>javax.sql.DataSource</code> type.          *           * Group: producer          */
 DECL|method|dataSource (Object dataSource)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the DataSource to use to communicate with the database.          * The option will be converted to a<code>javax.sql.DataSource</code>          * type.          * @group producer          */
+comment|/**          * Sets the DataSource to use to communicate with the database.          *           * The option will be converted to a<code>javax.sql.DataSource</code>          * type.          *           * Group: producer          */
 DECL|method|dataSource (String dataSource)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether this call is for a function.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether this call is for a function.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|function (boolean function)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether this call is for a function.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether this call is for a function.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|function (String function)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set, will ignore the results of the template and use the existing          * IN message as the OUT message for the continuation of processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If set, will ignore the results of the template and use the existing          * IN message as the OUT message for the continuation of processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|noop (boolean noop)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set, will ignore the results of the template and use the existing          * IN message as the OUT message for the continuation of processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If set, will ignore the results of the template and use the existing          * IN message as the OUT message for the continuation of processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|noop (String noop)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Store the template result in a header instead of the message body. By          * default, outputHeader == null and the template result is stored in          * the message body, any existing content in the message body is          * discarded. If outputHeader is set, the value is used as the name of          * the header to store the template result and the original message body          * is preserved.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Store the template result in a header instead of the message body. By          * default, outputHeader == null and the template result is stored in          * the message body, any existing content in the message body is          * discarded. If outputHeader is set, the value is used as the name of          * the header to store the template result and the original message body          * is preserved.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|outputHeader (String outputHeader)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use the message body as the template and then headers for          * parameters. If this option is enabled then the template in the uri is          * not used.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to use the message body as the template and then headers for          * parameters. If this option is enabled then the template in the uri is          * not used.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useMessageBodyForTemplate ( boolean useMessageBodyForTemplate)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use the message body as the template and then headers for          * parameters. If this option is enabled then the template in the uri is          * not used.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether to use the message body as the template and then headers for          * parameters. If this option is enabled then the template in the uri is          * not used.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useMessageBodyForTemplate ( String useMessageBodyForTemplate)
 specifier|default
 name|SqlStoredEndpointBuilder
@@ -384,7 +384,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSqlStoredEndpointBuilder
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSqlStoredEndpointBuilder
@@ -426,7 +426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSqlStoredEndpointBuilder
@@ -447,7 +447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSqlStoredEndpointBuilder

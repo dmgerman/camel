@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the scheduler.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The name of the scheduler.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|name (String name)
 specifier|default
 name|SchedulerEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of threads used by the scheduling thread pool. Is by default          * using a single thread.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * Number of threads used by the scheduling thread pool. Is by default          * using a single thread.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|concurrentTasks (int concurrentTasks)
 specifier|default
 name|SchedulerEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of threads used by the scheduling thread pool. Is by default          * using a single thread.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * Number of threads used by the scheduling thread pool. Is by default          * using a single thread.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|concurrentTasks (String concurrentTasks)
 specifier|default
 name|SchedulerEndpointBuilder
@@ -195,7 +195,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSchedulerEndpointBuilder
@@ -216,7 +216,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSchedulerEndpointBuilder
@@ -237,7 +237,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSchedulerEndpointBuilder
@@ -258,7 +258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSchedulerEndpointBuilder

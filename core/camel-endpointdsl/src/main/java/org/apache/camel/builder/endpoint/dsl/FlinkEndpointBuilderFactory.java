@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Type of the endpoint (dataset, datastream).          * The option is a          *<code>org.apache.camel.component.flink.EndpointType</code> type.          * @group producer          */
+comment|/**          * Type of the endpoint (dataset, datastream).          *           * The option is a:          *<code>org.apache.camel.component.flink.EndpointType</code> type.          *           * Group: producer          */
 DECL|method|endpointType (EndpointType endpointType)
 specifier|default
 name|FlinkEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Type of the endpoint (dataset, datastream).          * The option will be converted to a          *<code>org.apache.camel.component.flink.EndpointType</code> type.          * @group producer          */
+comment|/**          * Type of the endpoint (dataset, datastream).          *           * The option will be converted to a          *<code>org.apache.camel.component.flink.EndpointType</code> type.          *           * Group: producer          */
 DECL|method|endpointType (String endpointType)
 specifier|default
 name|FlinkEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates if results should be collected or counted.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Indicates if results should be collected or counted.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|collect (boolean collect)
 specifier|default
 name|FlinkEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates if results should be collected or counted.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Indicates if results should be collected or counted.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|collect (String collect)
 specifier|default
 name|FlinkEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * DataSet to compute against.          * The option is a<code>org.apache.flink.api.java.DataSet</code> type.          * @group producer          */
+comment|/**          * DataSet to compute against.          *           * The option is a:<code>org.apache.flink.api.java.DataSet</code> type.          *           * Group: producer          */
 DECL|method|dataSet (Object dataSet)
 specifier|default
 name|FlinkEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * DataSet to compute against.          * The option will be converted to a          *<code>org.apache.flink.api.java.DataSet</code> type.          * @group producer          */
+comment|/**          * DataSet to compute against.          *           * The option will be converted to a          *<code>org.apache.flink.api.java.DataSet</code> type.          *           * Group: producer          */
 DECL|method|dataSet (String dataSet)
 specifier|default
 name|FlinkEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Function performing action against a DataSet.          * The option is a          *<code>org.apache.camel.component.flink.DataSetCallback</code> type.          * @group producer          */
+comment|/**          * Function performing action against a DataSet.          *           * The option is a:          *<code>org.apache.camel.component.flink.DataSetCallback</code> type.          *           * Group: producer          */
 DECL|method|dataSetCallback (Object dataSetCallback)
 specifier|default
 name|FlinkEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Function performing action against a DataSet.          * The option will be converted to a          *<code>org.apache.camel.component.flink.DataSetCallback</code> type.          * @group producer          */
+comment|/**          * Function performing action against a DataSet.          *           * The option will be converted to a          *<code>org.apache.camel.component.flink.DataSetCallback</code> type.          *           * Group: producer          */
 DECL|method|dataSetCallback (String dataSetCallback)
 specifier|default
 name|FlinkEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * DataStream to compute against.          * The option is a          *<code>org.apache.flink.streaming.api.datastream.DataStream</code>          * type.          * @group producer          */
+comment|/**          * DataStream to compute against.          *           * The option is a:          *<code>org.apache.flink.streaming.api.datastream.DataStream</code>          * type.          *           * Group: producer          */
 DECL|method|dataStream (Object dataStream)
 specifier|default
 name|FlinkEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * DataStream to compute against.          * The option will be converted to a          *<code>org.apache.flink.streaming.api.datastream.DataStream</code>          * type.          * @group producer          */
+comment|/**          * DataStream to compute against.          *           * The option will be converted to a          *<code>org.apache.flink.streaming.api.datastream.DataStream</code>          * type.          *           * Group: producer          */
 DECL|method|dataStream (String dataStream)
 specifier|default
 name|FlinkEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Function performing action against a DataStream.          * The option is a          *<code>org.apache.camel.component.flink.DataStreamCallback</code>          * type.          * @group producer          */
+comment|/**          * Function performing action against a DataStream.          *           * The option is a:          *<code>org.apache.camel.component.flink.DataStreamCallback</code>          * type.          *           * Group: producer          */
 DECL|method|dataStreamCallback ( Object dataStreamCallback)
 specifier|default
 name|FlinkEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Function performing action against a DataStream.          * The option will be converted to a          *<code>org.apache.camel.component.flink.DataStreamCallback</code>          * type.          * @group producer          */
+comment|/**          * Function performing action against a DataStream.          *           * The option will be converted to a          *<code>org.apache.camel.component.flink.DataStreamCallback</code>          * type.          *           * Group: producer          */
 DECL|method|dataStreamCallback ( String dataStreamCallback)
 specifier|default
 name|FlinkEndpointBuilder
@@ -384,7 +384,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedFlinkEndpointBuilder
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedFlinkEndpointBuilder
@@ -426,7 +426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedFlinkEndpointBuilder
@@ -447,7 +447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedFlinkEndpointBuilder

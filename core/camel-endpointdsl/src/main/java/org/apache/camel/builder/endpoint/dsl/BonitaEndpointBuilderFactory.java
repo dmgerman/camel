@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Operation to use.          * The option is a          *<code>org.apache.camel.component.bonita.util.BonitaOperation</code>          * type.          * @group consumer          */
+comment|/**          * Operation to use.          *           * The option is a:          *<code>org.apache.camel.component.bonita.util.BonitaOperation</code>          * type.          *           * Group: consumer          */
 DECL|method|operation (BonitaOperation operation)
 specifier|default
 name|BonitaEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Operation to use.          * The option will be converted to a          *<code>org.apache.camel.component.bonita.util.BonitaOperation</code>          * type.          * @group consumer          */
+comment|/**          * Operation to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.bonita.util.BonitaOperation</code>          * type.          *           * Group: consumer          */
 DECL|method|operation (String operation)
 specifier|default
 name|BonitaEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hostname where Bonita engine runs.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Hostname where Bonita engine runs.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|hostname (String hostname)
 specifier|default
 name|BonitaEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port of the server hosting Bonita engine.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Port of the server hosting Bonita engine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|port (String port)
 specifier|default
 name|BonitaEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the process involved in the operation.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Name of the process involved in the operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|processName (String processName)
 specifier|default
 name|BonitaEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to authenticate to Bonita engine.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Password to authenticate to Bonita engine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|BonitaEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to authenticate to Bonita engine.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Username to authenticate to Bonita engine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|username (String username)
 specifier|default
 name|BonitaEndpointBuilder
@@ -279,7 +279,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedBonitaEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedBonitaEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedBonitaEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedBonitaEndpointBuilder

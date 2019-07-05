@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The host where Redis server is running.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The host where Redis server is running.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Redis server port number.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Redis server port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Redis server port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Redis server port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of topic names or name patterns to subscribe to. Multiple names          * can be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * List of topic names or name patterns to subscribe to. Multiple names          * can be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channels (String channels)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          * The option is a<code>org.apache.camel.component.redis.Command</code>          * type.          * @group common          */
+comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          *           * The option is a:          *<code>org.apache.camel.component.redis.Command</code> type.          *           * Group: common          */
 DECL|method|command (Command command)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          * The option will be converted to a          *<code>org.apache.camel.component.redis.Command</code> type.          * @group common          */
+comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          *           * The option will be converted to a          *<code>org.apache.camel.component.redis.Command</code> type.          *           * Group: common          */
 DECL|method|command (String command)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          * The option is a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          *           * Group: common          */
 DECL|method|connectionFactory ( Object connectionFactory)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          *           * Group: common          */
 DECL|method|connectionFactory ( String connectionFactory)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          * The option is a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          *           * Group: common          */
 DECL|method|redisTemplate (Object redisTemplate)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          *           * Group: common          */
 DECL|method|redisTemplate (String redisTemplate)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          * The option is a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          *           * Group: common          */
 DECL|method|serializer (Object serializer)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          *           * Group: common          */
 DECL|method|serializer (String serializer)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|RedisEndpointConsumerBuilder
@@ -452,7 +452,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -473,7 +473,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -494,7 +494,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -515,7 +515,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -536,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisMessageListenerContainer instance          * to use.          * The option is a          *<code>org.springframework.data.redis.listener.RedisMessageListenerContainer</code> type.          * @group consumer (advanced)          */
+comment|/**          * Reference to a pre-configured RedisMessageListenerContainer instance          * to use.          *           * The option is a:          *<code>org.springframework.data.redis.listener.RedisMessageListenerContainer</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|listenerContainer ( Object listenerContainer)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisMessageListenerContainer instance          * to use.          * The option will be converted to a          *<code>org.springframework.data.redis.listener.RedisMessageListenerContainer</code> type.          * @group consumer (advanced)          */
+comment|/**          * Reference to a pre-configured RedisMessageListenerContainer instance          * to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.listener.RedisMessageListenerContainer</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|listenerContainer ( String listenerContainer)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -599,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedRedisEndpointConsumerBuilder
@@ -684,7 +684,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The host where Redis server is running.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The host where Redis server is running.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -705,7 +705,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Redis server port number.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Redis server port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -726,7 +726,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Redis server port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Redis server port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -747,7 +747,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of topic names or name patterns to subscribe to. Multiple names          * can be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * List of topic names or name patterns to subscribe to. Multiple names          * can be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channels (String channels)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -768,7 +768,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          * The option is a<code>org.apache.camel.component.redis.Command</code>          * type.          * @group common          */
+comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          *           * The option is a:          *<code>org.apache.camel.component.redis.Command</code> type.          *           * Group: common          */
 DECL|method|command (Command command)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -789,7 +789,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          * The option will be converted to a          *<code>org.apache.camel.component.redis.Command</code> type.          * @group common          */
+comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          *           * The option will be converted to a          *<code>org.apache.camel.component.redis.Command</code> type.          *           * Group: common          */
 DECL|method|command (String command)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          * The option is a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          *           * Group: common          */
 DECL|method|connectionFactory ( Object connectionFactory)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          *           * Group: common          */
 DECL|method|connectionFactory ( String connectionFactory)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          * The option is a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          *           * Group: common          */
 DECL|method|redisTemplate (Object redisTemplate)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          *           * Group: common          */
 DECL|method|redisTemplate (String redisTemplate)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          * The option is a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          *           * Group: common          */
 DECL|method|serializer (Object serializer)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          *           * Group: common          */
 DECL|method|serializer (String serializer)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|RedisEndpointProducerBuilder
@@ -1000,7 +1000,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRedisEndpointProducerBuilder
@@ -1021,7 +1021,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRedisEndpointProducerBuilder
@@ -1042,7 +1042,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedRedisEndpointProducerBuilder
@@ -1063,7 +1063,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedRedisEndpointProducerBuilder
@@ -1108,7 +1108,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The host where Redis server is running.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The host where Redis server is running.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|host (String host)
 specifier|default
 name|RedisEndpointBuilder
@@ -1129,7 +1129,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Redis server port number.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * Redis server port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|port (Integer port)
 specifier|default
 name|RedisEndpointBuilder
@@ -1150,7 +1150,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Redis server port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * Redis server port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|port (String port)
 specifier|default
 name|RedisEndpointBuilder
@@ -1171,7 +1171,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of topic names or name patterns to subscribe to. Multiple names          * can be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * List of topic names or name patterns to subscribe to. Multiple names          * can be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channels (String channels)
 specifier|default
 name|RedisEndpointBuilder
@@ -1192,7 +1192,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          * The option is a<code>org.apache.camel.component.redis.Command</code>          * type.          * @group common          */
+comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          *           * The option is a:          *<code>org.apache.camel.component.redis.Command</code> type.          *           * Group: common          */
 DECL|method|command (Command command)
 specifier|default
 name|RedisEndpointBuilder
@@ -1213,7 +1213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          * The option will be converted to a          *<code>org.apache.camel.component.redis.Command</code> type.          * @group common          */
+comment|/**          * Default command, which can be overridden by message header. Notice          * the consumer only supports the following commands: PSUBSCRIBE and          * SUBSCRIBE.          *           * The option will be converted to a          *<code>org.apache.camel.component.redis.Command</code> type.          *           * Group: common          */
 DECL|method|command (String command)
 specifier|default
 name|RedisEndpointBuilder
@@ -1234,7 +1234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          * The option is a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          *           * Group: common          */
 DECL|method|connectionFactory (Object connectionFactory)
 specifier|default
 name|RedisEndpointBuilder
@@ -1255,7 +1255,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisConnectionFactory instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.connection.RedisConnectionFactory</code> type.          *           * Group: common          */
 DECL|method|connectionFactory (String connectionFactory)
 specifier|default
 name|RedisEndpointBuilder
@@ -1276,7 +1276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          * The option is a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          *           * Group: common          */
 DECL|method|redisTemplate (Object redisTemplate)
 specifier|default
 name|RedisEndpointBuilder
@@ -1297,7 +1297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisTemplate instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.core.RedisTemplate</code> type.          *           * Group: common          */
 DECL|method|redisTemplate (String redisTemplate)
 specifier|default
 name|RedisEndpointBuilder
@@ -1318,7 +1318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          * The option is a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          *           * The option is a:          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          *           * Group: common          */
 DECL|method|serializer (Object serializer)
 specifier|default
 name|RedisEndpointBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          * The option will be converted to a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          * @group common          */
+comment|/**          * Reference to a pre-configured RedisSerializer instance to use.          *           * The option will be converted to a          *<code>org.springframework.data.redis.serializer.RedisSerializer</code> type.          *           * Group: common          */
 DECL|method|serializer (String serializer)
 specifier|default
 name|RedisEndpointBuilder
@@ -1384,7 +1384,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRedisEndpointBuilder
@@ -1405,7 +1405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRedisEndpointBuilder
@@ -1426,7 +1426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedRedisEndpointBuilder
@@ -1447,7 +1447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedRedisEndpointBuilder

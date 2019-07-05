@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * HTTP method to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * HTTP method to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|method (String method)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The base path.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The base path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|path (String path)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The uri template.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The uri template.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uriTemplate (String uriTemplate)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service accepts. By default we accept all kinds of types.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service accepts. By default we accept all kinds of types.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|consumes (String consumes)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To declare the incoming POJO binding type as a FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To declare the incoming POJO binding type as a FQN class name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inType (String inType)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To declare the outgoing POJO binding type as a FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To declare the outgoing POJO binding type as a FQN class name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|outType (String outType)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service returns.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service returns.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|produces (String produces)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the route this REST services creates.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the route this REST services creates.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|routeId (String routeId)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Camel Rest component to use for (consumer) the REST transport,          * such as jetty, servlet, undertow. If no component has been explicit          * configured, then Camel will lookup if there is a Camel component that          * integrates with the Rest DSL, or if a          * org.apache.camel.spi.RestConsumerFactory is registered in the          * registry. If either one is found, then that is being used.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The Camel Rest component to use for (consumer) the REST transport,          * such as jetty, servlet, undertow. If no component has been explicit          * configured, then Camel will lookup if there is a Camel component that          * integrates with the Rest DSL, or if a          * org.apache.camel.spi.RestConsumerFactory is registered in the          * registry. If either one is found, then that is being used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|consumerComponentName ( String consumerComponentName)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Human description to document this REST service.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Human description to document this REST service.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|description (String description)
 specifier|default
 name|RestEndpointConsumerBuilder
@@ -410,7 +410,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedRestEndpointConsumerBuilder
@@ -431,7 +431,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedRestEndpointConsumerBuilder
@@ -452,7 +452,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedRestEndpointConsumerBuilder
@@ -473,7 +473,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedRestEndpointConsumerBuilder
@@ -494,7 +494,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRestEndpointConsumerBuilder
@@ -515,7 +515,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRestEndpointConsumerBuilder
@@ -536,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedRestEndpointConsumerBuilder
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedRestEndpointConsumerBuilder
@@ -600,7 +600,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * HTTP method to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * HTTP method to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|method (String method)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -621,7 +621,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The base path.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The base path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|path (String path)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -642,7 +642,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The uri template.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The uri template.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uriTemplate (String uriTemplate)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -663,7 +663,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service accepts. By default we accept all kinds of types.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service accepts. By default we accept all kinds of types.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|consumes (String consumes)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -684,7 +684,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To declare the incoming POJO binding type as a FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To declare the incoming POJO binding type as a FQN class name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inType (String inType)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -705,7 +705,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To declare the outgoing POJO binding type as a FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To declare the outgoing POJO binding type as a FQN class name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|outType (String outType)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -726,7 +726,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service returns.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service returns.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|produces (String produces)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -747,7 +747,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the route this REST services creates.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the route this REST services creates.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|routeId (String routeId)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -768,7 +768,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The swagger api doc resource to use. The resource is loaded from          * classpath by default and must be in JSon format.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The swagger api doc resource to use. The resource is loaded from          * classpath by default and must be in JSon format.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|apiDoc (String apiDoc)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -789,7 +789,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures the binding mode for the producer. If set to anything          * other than 'off' the producer will try to convert the body of the          * incoming message from inType to the json or xml, and the response          * from json or xml to outType.          * The option is a          *<code>org.apache.camel.spi.RestConfiguration$RestBindingMode</code>          * type.          * @group producer          */
+comment|/**          * Configures the binding mode for the producer. If set to anything          * other than 'off' the producer will try to convert the body of the          * incoming message from inType to the json or xml, and the response          * from json or xml to outType.          *           * The option is a:          *<code>org.apache.camel.spi.RestConfiguration$RestBindingMode</code>          * type.          *           * Group: producer          */
 DECL|method|bindingMode ( RestBindingMode bindingMode)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Configures the binding mode for the producer. If set to anything          * other than 'off' the producer will try to convert the body of the          * incoming message from inType to the json or xml, and the response          * from json or xml to outType.          * The option will be converted to a          *<code>org.apache.camel.spi.RestConfiguration$RestBindingMode</code>          * type.          * @group producer          */
+comment|/**          * Configures the binding mode for the producer. If set to anything          * other than 'off' the producer will try to convert the body of the          * incoming message from inType to the json or xml, and the response          * from json or xml to outType.          *           * The option will be converted to a          *<code>org.apache.camel.spi.RestConfiguration$RestBindingMode</code>          * type.          *           * Group: producer          */
 DECL|method|bindingMode (String bindingMode)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Host and port of HTTP service to use (override host in swagger          * schema).          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Host and port of HTTP service to use (override host in swagger          * schema).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|host (String host)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Camel Rest component to use for (producer) the REST transport,          * such as http, undertow. If no component has been explicit configured,          * then Camel will lookup if there is a Camel component that integrates          * with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory          * is registered in the registry. If either one is found, then that is          * being used.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The Camel Rest component to use for (producer) the REST transport,          * such as http, undertow. If no component has been explicit configured,          * then Camel will lookup if there is a Camel component that integrates          * with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory          * is registered in the registry. If either one is found, then that is          * being used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|producerComponentName ( String producerComponentName)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Query parameters for the HTTP service to call.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Query parameters for the HTTP service to call.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|queryParameters ( String queryParameters)
 specifier|default
 name|RestEndpointProducerBuilder
@@ -958,7 +958,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRestEndpointProducerBuilder
@@ -979,7 +979,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRestEndpointProducerBuilder
@@ -1000,7 +1000,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedRestEndpointProducerBuilder
@@ -1021,7 +1021,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedRestEndpointProducerBuilder
@@ -1066,7 +1066,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * HTTP method to use.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * HTTP method to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|method (String method)
 specifier|default
 name|RestEndpointBuilder
@@ -1087,7 +1087,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The base path.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The base path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|path (String path)
 specifier|default
 name|RestEndpointBuilder
@@ -1108,7 +1108,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The uri template.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The uri template.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uriTemplate (String uriTemplate)
 specifier|default
 name|RestEndpointBuilder
@@ -1129,7 +1129,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service accepts. By default we accept all kinds of types.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service accepts. By default we accept all kinds of types.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|consumes (String consumes)
 specifier|default
 name|RestEndpointBuilder
@@ -1150,7 +1150,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To declare the incoming POJO binding type as a FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To declare the incoming POJO binding type as a FQN class name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inType (String inType)
 specifier|default
 name|RestEndpointBuilder
@@ -1171,7 +1171,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To declare the outgoing POJO binding type as a FQN class name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To declare the outgoing POJO binding type as a FQN class name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|outType (String outType)
 specifier|default
 name|RestEndpointBuilder
@@ -1192,7 +1192,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service returns.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service returns.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|produces (String produces)
 specifier|default
 name|RestEndpointBuilder
@@ -1213,7 +1213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the route this REST services creates.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the route this REST services creates.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|routeId (String routeId)
 specifier|default
 name|RestEndpointBuilder
@@ -1258,7 +1258,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedRestEndpointBuilder
@@ -1279,7 +1279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedRestEndpointBuilder
@@ -1300,7 +1300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedRestEndpointBuilder
@@ -1321,7 +1321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedRestEndpointBuilder

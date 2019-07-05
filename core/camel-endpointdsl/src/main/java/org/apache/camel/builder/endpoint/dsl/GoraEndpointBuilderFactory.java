@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Instance name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Instance name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type of the dataStore.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type of the dataStore.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataStoreClass (String dataStoreClass)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type class of the key.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type class of the key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|keyClass (String keyClass)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type of the value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type of the value.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|valueClass (String valueClass)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of concurrent consumers.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of concurrent consumers.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of concurrent consumers.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of concurrent consumers.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|concurrentConsumers ( String concurrentConsumers)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The End Key.          * The option is a<code>java.lang.Object</code> type.          * @group consumer          */
+comment|/**          * The End Key.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: consumer          */
 DECL|method|endKey (Object endKey)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The End Key.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group consumer          */
+comment|/**          * The End Key.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: consumer          */
 DECL|method|endKey (String endKey)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The End Time.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The End Time.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|endTime (long endTime)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The End Time.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The End Time.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|endTime (String endTime)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Fields.          * The option is a<code>com.google.common.base.Strings</code> type.          * @group consumer          */
+comment|/**          * The Fields.          *           * The option is a:<code>com.google.common.base.Strings</code> type.          *           * Group: consumer          */
 DECL|method|fields (Object fields)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Fields.          * The option will be converted to a          *<code>com.google.common.base.Strings</code> type.          * @group consumer          */
+comment|/**          * The Fields.          *           * The option will be converted to a          *<code>com.google.common.base.Strings</code> type.          *           * Group: consumer          */
 DECL|method|fields (String fields)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Key Range From.          * The option is a<code>java.lang.Object</code> type.          * @group consumer          */
+comment|/**          * The Key Range From.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: consumer          */
 DECL|method|keyRangeFrom (Object keyRangeFrom)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Key Range From.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group consumer          */
+comment|/**          * The Key Range From.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: consumer          */
 DECL|method|keyRangeFrom (String keyRangeFrom)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Key Range To.          * The option is a<code>java.lang.Object</code> type.          * @group consumer          */
+comment|/**          * The Key Range To.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: consumer          */
 DECL|method|keyRangeTo (Object keyRangeTo)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Key Range To.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group consumer          */
+comment|/**          * The Key Range To.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: consumer          */
 DECL|method|keyRangeTo (String keyRangeTo)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Limit.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Limit.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|limit (long limit)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Limit.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Limit.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|limit (String limit)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -556,7 +556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Start Key.          * The option is a<code>java.lang.Object</code> type.          * @group consumer          */
+comment|/**          * The Start Key.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: consumer          */
 DECL|method|startKey (Object startKey)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -577,7 +577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Start Key.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group consumer          */
+comment|/**          * The Start Key.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: consumer          */
 DECL|method|startKey (String startKey)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -598,7 +598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Start Time.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Start Time.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|startTime (long startTime)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -619,7 +619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Start Time.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Start Time.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|startTime (String startTime)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -640,7 +640,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Time Range From.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Time Range From.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|timeRangeFrom (long timeRangeFrom)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -661,7 +661,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Time Range From.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Time Range From.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|timeRangeFrom (String timeRangeFrom)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -682,7 +682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Time Range To.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Time Range To.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|timeRangeTo (long timeRangeTo)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -703,7 +703,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Time Range To.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Time Range To.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|timeRangeTo (String timeRangeTo)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -724,7 +724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Timestamp.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Timestamp.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|timestamp (long timestamp)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -745,7 +745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Timestamp.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * The Timestamp.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|timestamp (String timestamp)
 specifier|default
 name|GoraEndpointConsumerBuilder
@@ -788,7 +788,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -809,7 +809,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -830,7 +830,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -851,7 +851,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -872,7 +872,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -893,7 +893,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -914,7 +914,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hadoop Configuration.          * The option is a<code>org.apache.hadoop.conf.Configuration</code>          * type.          * @group advanced          */
+comment|/**          * Hadoop Configuration.          *           * The option is a:<code>org.apache.hadoop.conf.Configuration</code>          * type.          *           * Group: advanced          */
 DECL|method|hadoopConfiguration ( Object hadoopConfiguration)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -935,7 +935,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hadoop Configuration.          * The option will be converted to a          *<code>org.apache.hadoop.conf.Configuration</code> type.          * @group advanced          */
+comment|/**          * Hadoop Configuration.          *           * The option will be converted to a          *<code>org.apache.hadoop.conf.Configuration</code> type.          *           * Group: advanced          */
 DECL|method|hadoopConfiguration ( String hadoopConfiguration)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -956,7 +956,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -977,7 +977,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGoraEndpointConsumerBuilder
@@ -1020,7 +1020,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Instance name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Instance name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|GoraEndpointProducerBuilder
@@ -1041,7 +1041,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type of the dataStore.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type of the dataStore.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataStoreClass (String dataStoreClass)
 specifier|default
 name|GoraEndpointProducerBuilder
@@ -1062,7 +1062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type class of the key.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type class of the key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|keyClass (String keyClass)
 specifier|default
 name|GoraEndpointProducerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type of the value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type of the value.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|valueClass (String valueClass)
 specifier|default
 name|GoraEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Flush on every operation.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Flush on every operation.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flushOnEveryOperation ( boolean flushOnEveryOperation)
 specifier|default
 name|GoraEndpointProducerBuilder
@@ -1125,7 +1125,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Flush on every operation.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Flush on every operation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flushOnEveryOperation ( String flushOnEveryOperation)
 specifier|default
 name|GoraEndpointProducerBuilder
@@ -1146,7 +1146,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|GoraEndpointProducerBuilder
@@ -1167,7 +1167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|GoraEndpointProducerBuilder
@@ -1210,7 +1210,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoraEndpointProducerBuilder
@@ -1231,7 +1231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoraEndpointProducerBuilder
@@ -1252,7 +1252,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hadoop Configuration.          * The option is a<code>org.apache.hadoop.conf.Configuration</code>          * type.          * @group advanced          */
+comment|/**          * Hadoop Configuration.          *           * The option is a:<code>org.apache.hadoop.conf.Configuration</code>          * type.          *           * Group: advanced          */
 DECL|method|hadoopConfiguration ( Object hadoopConfiguration)
 specifier|default
 name|AdvancedGoraEndpointProducerBuilder
@@ -1273,7 +1273,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hadoop Configuration.          * The option will be converted to a          *<code>org.apache.hadoop.conf.Configuration</code> type.          * @group advanced          */
+comment|/**          * Hadoop Configuration.          *           * The option will be converted to a          *<code>org.apache.hadoop.conf.Configuration</code> type.          *           * Group: advanced          */
 DECL|method|hadoopConfiguration ( String hadoopConfiguration)
 specifier|default
 name|AdvancedGoraEndpointProducerBuilder
@@ -1294,7 +1294,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedGoraEndpointProducerBuilder
@@ -1315,7 +1315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedGoraEndpointProducerBuilder
@@ -1360,7 +1360,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Instance name.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Instance name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|GoraEndpointBuilder
@@ -1381,7 +1381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type of the dataStore.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type of the dataStore.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataStoreClass (String dataStoreClass)
 specifier|default
 name|GoraEndpointBuilder
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type class of the key.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type class of the key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|keyClass (String keyClass)
 specifier|default
 name|GoraEndpointBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type of the value.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The type of the value.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|valueClass (String valueClass)
 specifier|default
 name|GoraEndpointBuilder
@@ -1468,7 +1468,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedGoraEndpointBuilder
@@ -1489,7 +1489,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedGoraEndpointBuilder
@@ -1510,7 +1510,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hadoop Configuration.          * The option is a<code>org.apache.hadoop.conf.Configuration</code>          * type.          * @group advanced          */
+comment|/**          * Hadoop Configuration.          *           * The option is a:<code>org.apache.hadoop.conf.Configuration</code>          * type.          *           * Group: advanced          */
 DECL|method|hadoopConfiguration ( Object hadoopConfiguration)
 specifier|default
 name|AdvancedGoraEndpointBuilder
@@ -1531,7 +1531,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Hadoop Configuration.          * The option will be converted to a          *<code>org.apache.hadoop.conf.Configuration</code> type.          * @group advanced          */
+comment|/**          * Hadoop Configuration.          *           * The option will be converted to a          *<code>org.apache.hadoop.conf.Configuration</code> type.          *           * Group: advanced          */
 DECL|method|hadoopConfiguration ( String hadoopConfiguration)
 specifier|default
 name|AdvancedGoraEndpointBuilder
@@ -1552,7 +1552,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedGoraEndpointBuilder
@@ -1573,7 +1573,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedGoraEndpointBuilder

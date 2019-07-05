@@ -120,7 +120,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The metric namespace.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The metric namespace.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|namespace (String namespace)
 specifier|default
 name|CwEndpointBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use the AmazonCloudWatch as the client.          * The option is a          *<code>com.amazonaws.services.cloudwatch.AmazonCloudWatch</code> type.          * @group producer          */
+comment|/**          * To use the AmazonCloudWatch as the client.          *           * The option is a:          *<code>com.amazonaws.services.cloudwatch.AmazonCloudWatch</code> type.          *           * Group: producer          */
 DECL|method|amazonCwClient (Object amazonCwClient)
 specifier|default
 name|CwEndpointBuilder
@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use the AmazonCloudWatch as the client.          * The option will be converted to a          *<code>com.amazonaws.services.cloudwatch.AmazonCloudWatch</code> type.          * @group producer          */
+comment|/**          * To use the AmazonCloudWatch as the client.          *           * The option will be converted to a          *<code>com.amazonaws.services.cloudwatch.AmazonCloudWatch</code> type.          *           * Group: producer          */
 DECL|method|amazonCwClient (String amazonCwClient)
 specifier|default
 name|CwEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The metric name.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The metric name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|name (String name)
 specifier|default
 name|CwEndpointBuilder
@@ -204,7 +204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy host when instantiating the CW client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * To define a proxy host when instantiating the CW client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|CwEndpointBuilder
@@ -225,7 +225,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the CW client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * To define a proxy port when instantiating the CW client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|CwEndpointBuilder
@@ -246,7 +246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the CW client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * To define a proxy port when instantiating the CW client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|CwEndpointBuilder
@@ -267,7 +267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which CW client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The region in which CW client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
 name|CwEndpointBuilder
@@ -288,7 +288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The metric timestamp.          * The option is a<code>java.util.Date</code> type.          * @group producer          */
+comment|/**          * The metric timestamp.          *           * The option is a:<code>java.util.Date</code> type.          *           * Group: producer          */
 DECL|method|timestamp (Date timestamp)
 specifier|default
 name|CwEndpointBuilder
@@ -309,7 +309,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The metric timestamp.          * The option will be converted to a<code>java.util.Date</code> type.          * @group producer          */
+comment|/**          * The metric timestamp.          *           * The option will be converted to a<code>java.util.Date</code> type.          *           * Group: producer          */
 DECL|method|timestamp (String timestamp)
 specifier|default
 name|CwEndpointBuilder
@@ -330,7 +330,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The metric unit.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The metric unit.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|unit (String unit)
 specifier|default
 name|CwEndpointBuilder
@@ -351,7 +351,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The metric value.          * The option is a<code>java.lang.Double</code> type.          * @group producer          */
+comment|/**          * The metric value.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: producer          */
 DECL|method|value (Double value)
 specifier|default
 name|CwEndpointBuilder
@@ -372,7 +372,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The metric value.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group producer          */
+comment|/**          * The metric value.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: producer          */
 DECL|method|value (String value)
 specifier|default
 name|CwEndpointBuilder
@@ -393,7 +393,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Amazon AWS Access Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|accessKey (String accessKey)
 specifier|default
 name|CwEndpointBuilder
@@ -414,7 +414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Amazon AWS Secret Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|secretKey (String secretKey)
 specifier|default
 name|CwEndpointBuilder
@@ -457,7 +457,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedCwEndpointBuilder
@@ -478,7 +478,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedCwEndpointBuilder
@@ -499,7 +499,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedCwEndpointBuilder
@@ -520,7 +520,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedCwEndpointBuilder

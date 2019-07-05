@@ -176,7 +176,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -197,7 +197,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URL of the Kafka brokers to use. The format is          * host1:port1,host2:port2, and the list can be a subset of brokers or a          * VIP pointing to a subset of brokers. This option is known as          * bootstrap.servers in the Kafka documentation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URL of the Kafka brokers to use. The format is          * host1:port1,host2:port2, and the list can be a subset of brokers or a          * VIP pointing to a subset of brokers. This option is known as          * bootstrap.servers in the Kafka documentation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|brokers (String brokers)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -218,7 +218,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client id is a user-specified string sent in each request to help          * trace calls. It should logically identify the application making the          * request.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The client id is a user-specified string sent in each request to help          * trace calls. It should logically identify the application making the          * request.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -239,7 +239,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option is a:          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -260,7 +260,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -281,7 +281,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|reconnectBackoffMaxMs ( Integer reconnectBackoffMaxMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -302,7 +302,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|reconnectBackoffMaxMs ( String reconnectBackoffMaxMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -323,7 +323,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow doing manual commits via KafkaManualCommit. If this          * option is enabled then an instance of KafkaManualCommit is stored on          * the Exchange message header, which allows end users to access this          * API and perform manual offset commits via the Kafka consumer.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether to allow doing manual commits via KafkaManualCommit. If this          * option is enabled then an instance of KafkaManualCommit is stored on          * the Exchange message header, which allows end users to access this          * API and perform manual offset commits via the Kafka consumer.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|allowManualCommit ( boolean allowManualCommit)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -344,7 +344,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow doing manual commits via KafkaManualCommit. If this          * option is enabled then an instance of KafkaManualCommit is stored on          * the Exchange message header, which allows end users to access this          * API and perform manual offset commits via the Kafka consumer.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether to allow doing manual commits via KafkaManualCommit. If this          * option is enabled then an instance of KafkaManualCommit is stored on          * the Exchange message header, which allows end users to access this          * API and perform manual offset commits via the Kafka consumer.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|allowManualCommit ( String allowManualCommit)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -365,7 +365,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, periodically commit to ZooKeeper the offset of messages          * already fetched by the consumer. This committed offset will be used          * when the process fails as the position from which the new consumer          * will begin.          * The option is a<code>java.lang.Boolean</code> type.          * @group consumer          */
+comment|/**          * If true, periodically commit to ZooKeeper the offset of messages          * already fetched by the consumer. This committed offset will be used          * when the process fails as the position from which the new consumer          * will begin.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: consumer          */
 DECL|method|autoCommitEnable ( Boolean autoCommitEnable)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -386,7 +386,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true, periodically commit to ZooKeeper the offset of messages          * already fetched by the consumer. This committed offset will be used          * when the process fails as the position from which the new consumer          * will begin.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group consumer          */
+comment|/**          * If true, periodically commit to ZooKeeper the offset of messages          * already fetched by the consumer. This committed offset will be used          * when the process fails as the position from which the new consumer          * will begin.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: consumer          */
 DECL|method|autoCommitEnable ( String autoCommitEnable)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -407,7 +407,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The frequency in ms that the consumer offsets are committed to          * zookeeper.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The frequency in ms that the consumer offsets are committed to          * zookeeper.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|autoCommitIntervalMs ( Integer autoCommitIntervalMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -428,7 +428,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The frequency in ms that the consumer offsets are committed to          * zookeeper.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The frequency in ms that the consumer offsets are committed to          * zookeeper.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|autoCommitIntervalMs ( String autoCommitIntervalMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -449,7 +449,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to perform an explicit auto commit when the consumer stops to          * ensure the broker has a commit from the last consumed message. This          * requires the option autoCommitEnable is turned on. The possible          * values are: sync, async, or none. And sync is the default value.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Whether to perform an explicit auto commit when the consumer stops to          * ensure the broker has a commit from the last consumed message. This          * requires the option autoCommitEnable is turned on. The possible          * values are: sync, async, or none. And sync is the default value.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|autoCommitOnStop ( String autoCommitOnStop)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -470,7 +470,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * What to do when there is no initial offset in ZooKeeper or if an          * offset is out of range: earliest : automatically reset the offset to          * the earliest offset latest : automatically reset the offset to the          * latest offset fail: throw exception to the consumer.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * What to do when there is no initial offset in ZooKeeper or if an          * offset is out of range: earliest : automatically reset the offset to          * the earliest offset latest : automatically reset the offset to the          * latest offset fail: throw exception to the consumer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|autoOffsetReset ( String autoOffsetReset)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -491,7 +491,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This options controls what happens when a consumer is processing an          * exchange and it fails. If the option is false then the consumer          * continues to the next message and processes it. If the option is true          * then the consumer breaks out, and will seek back to offset of the          * message that caused a failure, and then re-attempt to process this          * message. However this can lead to endless processing of the same          * message if its bound to fail every time, eg a poison message.          * Therefore its recommended to deal with that for example by using          * Camel's error handler.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * This options controls what happens when a consumer is processing an          * exchange and it fails. If the option is false then the consumer          * continues to the next message and processes it. If the option is true          * then the consumer breaks out, and will seek back to offset of the          * message that caused a failure, and then re-attempt to process this          * message. However this can lead to endless processing of the same          * message if its bound to fail every time, eg a poison message.          * Therefore its recommended to deal with that for example by using          * Camel's error handler.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|breakOnFirstError ( boolean breakOnFirstError)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -512,7 +512,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This options controls what happens when a consumer is processing an          * exchange and it fails. If the option is false then the consumer          * continues to the next message and processes it. If the option is true          * then the consumer breaks out, and will seek back to offset of the          * message that caused a failure, and then re-attempt to process this          * message. However this can lead to endless processing of the same          * message if its bound to fail every time, eg a poison message.          * Therefore its recommended to deal with that for example by using          * Camel's error handler.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * This options controls what happens when a consumer is processing an          * exchange and it fails. If the option is false then the consumer          * continues to the next message and processes it. If the option is true          * then the consumer breaks out, and will seek back to offset of the          * message that caused a failure, and then re-attempt to process this          * message. However this can lead to endless processing of the same          * message if its bound to fail every time, eg a poison message.          * Therefore its recommended to deal with that for example by using          * Camel's error handler.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|breakOnFirstError ( String breakOnFirstError)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -533,7 +533,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -554,7 +554,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -575,7 +575,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically check the CRC32 of the records consumed. This ensures          * no on-the-wire or on-disk corruption to the messages occurred. This          * check adds some overhead, so it may be disabled in cases seeking          * extreme performance.          * The option is a<code>java.lang.Boolean</code> type.          * @group consumer          */
+comment|/**          * Automatically check the CRC32 of the records consumed. This ensures          * no on-the-wire or on-disk corruption to the messages occurred. This          * check adds some overhead, so it may be disabled in cases seeking          * extreme performance.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: consumer          */
 DECL|method|checkCrcs (Boolean checkCrcs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -596,7 +596,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Automatically check the CRC32 of the records consumed. This ensures          * no on-the-wire or on-disk corruption to the messages occurred. This          * check adds some overhead, so it may be disabled in cases seeking          * extreme performance.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group consumer          */
+comment|/**          * Automatically check the CRC32 of the records consumed. This ensures          * no on-the-wire or on-disk corruption to the messages occurred. This          * check adds some overhead, so it may be disabled in cases seeking          * extreme performance.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: consumer          */
 DECL|method|checkCrcs (String checkCrcs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -617,7 +617,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The configuration controls the maximum amount of time the client will          * wait for the response of a request. If the response is not received          * before the timeout elapses the client will resend the request if          * necessary or fail the request if retries are exhausted.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The configuration controls the maximum amount of time the client will          * wait for the response of a request. If the response is not received          * before the timeout elapses the client will resend the request if          * necessary or fail the request if retries are exhausted.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|consumerRequestTimeoutMs ( Integer consumerRequestTimeoutMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -638,7 +638,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The configuration controls the maximum amount of time the client will          * wait for the response of a request. If the response is not received          * before the timeout elapses the client will resend the request if          * necessary or fail the request if retries are exhausted.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The configuration controls the maximum amount of time the client will          * wait for the response of a request. If the response is not received          * before the timeout elapses the client will resend the request if          * necessary or fail the request if retries are exhausted.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|consumerRequestTimeoutMs ( String consumerRequestTimeoutMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -659,7 +659,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of consumers that connect to kafka server.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * The number of consumers that connect to kafka server.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|consumersCount (int consumersCount)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -680,7 +680,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of consumers that connect to kafka server.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * The number of consumers that connect to kafka server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|consumersCount ( String consumersCount)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -701,7 +701,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of concurrent consumers on the consumer.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of concurrent consumers on the consumer.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|consumerStreams (int consumerStreams)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -722,7 +722,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of concurrent consumers on the consumer.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Number of concurrent consumers on the consumer.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|consumerStreams ( String consumerStreams)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -743,7 +743,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of data the server should return for a fetch          * request This is not an absolute maximum, if the first message in the          * first non-empty partition of the fetch is larger than this value, the          * message will still be returned to ensure that the consumer can make          * progress. The maximum message size accepted by the broker is defined          * via message.max.bytes (broker config) or max.message.bytes (topic          * config). Note that the consumer performs multiple fetches in          * parallel.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The maximum amount of data the server should return for a fetch          * request This is not an absolute maximum, if the first message in the          * first non-empty partition of the fetch is larger than this value, the          * message will still be returned to ensure that the consumer can make          * progress. The maximum message size accepted by the broker is defined          * via message.max.bytes (broker config) or max.message.bytes (topic          * config). Note that the consumer performs multiple fetches in          * parallel.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|fetchMaxBytes (Integer fetchMaxBytes)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -764,7 +764,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of data the server should return for a fetch          * request This is not an absolute maximum, if the first message in the          * first non-empty partition of the fetch is larger than this value, the          * message will still be returned to ensure that the consumer can make          * progress. The maximum message size accepted by the broker is defined          * via message.max.bytes (broker config) or max.message.bytes (topic          * config). Note that the consumer performs multiple fetches in          * parallel.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The maximum amount of data the server should return for a fetch          * request This is not an absolute maximum, if the first message in the          * first non-empty partition of the fetch is larger than this value, the          * message will still be returned to ensure that the consumer can make          * progress. The maximum message size accepted by the broker is defined          * via message.max.bytes (broker config) or max.message.bytes (topic          * config). Note that the consumer performs multiple fetches in          * parallel.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|fetchMaxBytes (String fetchMaxBytes)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -785,7 +785,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The minimum amount of data the server should return for a fetch          * request. If insufficient data is available the request will wait for          * that much data to accumulate before answering the request.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The minimum amount of data the server should return for a fetch          * request. If insufficient data is available the request will wait for          * that much data to accumulate before answering the request.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|fetchMinBytes (Integer fetchMinBytes)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -806,7 +806,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The minimum amount of data the server should return for a fetch          * request. If insufficient data is available the request will wait for          * that much data to accumulate before answering the request.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The minimum amount of data the server should return for a fetch          * request. If insufficient data is available the request will wait for          * that much data to accumulate before answering the request.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|fetchMinBytes (String fetchMinBytes)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -827,7 +827,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of time the server will block before answering the          * fetch request if there isn't sufficient data to immediately satisfy          * fetch.min.bytes.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The maximum amount of time the server will block before answering the          * fetch request if there isn't sufficient data to immediately satisfy          * fetch.min.bytes.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|fetchWaitMaxMs ( Integer fetchWaitMaxMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -848,7 +848,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of time the server will block before answering the          * fetch request if there isn't sufficient data to immediately satisfy          * fetch.min.bytes.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The maximum amount of time the server will block before answering the          * fetch request if there isn't sufficient data to immediately satisfy          * fetch.min.bytes.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|fetchWaitMaxMs ( String fetchWaitMaxMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -869,7 +869,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A string that uniquely identifies the group of consumer processes to          * which this consumer belongs. By setting the same group id multiple          * processes indicate that they are all part of the same consumer group.          * This option is required for consumers.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * A string that uniquely identifies the group of consumer processes to          * which this consumer belongs. By setting the same group id multiple          * processes indicate that they are all part of the same consumer group.          * This option is required for consumers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|groupId (String groupId)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -890,7 +890,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The expected time between heartbeats to the consumer coordinator when          * using Kafka's group management facilities. Heartbeats are used to          * ensure that the consumer's session stays active and to facilitate          * rebalancing when new consumers join or leave the group. The value          * must be set lower than session.timeout.ms, but typically should be          * set no higher than 1/3 of that value. It can be adjusted even lower          * to control the expected time for normal rebalances.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The expected time between heartbeats to the consumer coordinator when          * using Kafka's group management facilities. Heartbeats are used to          * ensure that the consumer's session stays active and to facilitate          * rebalancing when new consumers join or leave the group. The value          * must be set lower than session.timeout.ms, but typically should be          * set no higher than 1/3 of that value. It can be adjusted even lower          * to control the expected time for normal rebalances.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|heartbeatIntervalMs ( Integer heartbeatIntervalMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -911,7 +911,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The expected time between heartbeats to the consumer coordinator when          * using Kafka's group management facilities. Heartbeats are used to          * ensure that the consumer's session stays active and to facilitate          * rebalancing when new consumers join or leave the group. The value          * must be set lower than session.timeout.ms, but typically should be          * set no higher than 1/3 of that value. It can be adjusted even lower          * to control the expected time for normal rebalances.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The expected time between heartbeats to the consumer coordinator when          * using Kafka's group management facilities. Heartbeats are used to          * ensure that the consumer's session stays active and to facilitate          * rebalancing when new consumers join or leave the group. The value          * must be set lower than session.timeout.ms, but typically should be          * set no higher than 1/3 of that value. It can be adjusted even lower          * to control the expected time for normal rebalances.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|heartbeatIntervalMs ( String heartbeatIntervalMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -932,7 +932,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets custom KafkaHeaderDeserializer for deserialization kafka headers          * values to camel headers values.          * The option is a          *<code>org.apache.camel.component.kafka.serde.KafkaHeaderDeserializer</code> type.          * @group consumer          */
+comment|/**          * Sets custom KafkaHeaderDeserializer for deserialization kafka headers          * values to camel headers values.          *           * The option is a:          *<code>org.apache.camel.component.kafka.serde.KafkaHeaderDeserializer</code> type.          *           * Group: consumer          */
 DECL|method|kafkaHeaderDeserializer ( Object kafkaHeaderDeserializer)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -953,7 +953,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets custom KafkaHeaderDeserializer for deserialization kafka headers          * values to camel headers values.          * The option will be converted to a          *<code>org.apache.camel.component.kafka.serde.KafkaHeaderDeserializer</code> type.          * @group consumer          */
+comment|/**          * Sets custom KafkaHeaderDeserializer for deserialization kafka headers          * values to camel headers values.          *           * The option will be converted to a          *<code>org.apache.camel.component.kafka.serde.KafkaHeaderDeserializer</code> type.          *           * Group: consumer          */
 DECL|method|kafkaHeaderDeserializer ( String kafkaHeaderDeserializer)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -974,7 +974,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Deserializer class for key that implements the Deserializer          * interface.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Deserializer class for key that implements the Deserializer          * interface.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|keyDeserializer ( String keyDeserializer)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -995,7 +995,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of data per-partition the server will return. The          * maximum total memory used for a request will be #partitions          * max.partition.fetch.bytes. This size must be at least as large as the          * maximum message size the server allows or else it is possible for the          * producer to send messages larger than the consumer can fetch. If that          * happens, the consumer can get stuck trying to fetch a large message          * on a certain partition.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The maximum amount of data per-partition the server will return. The          * maximum total memory used for a request will be #partitions          * max.partition.fetch.bytes. This size must be at least as large as the          * maximum message size the server allows or else it is possible for the          * producer to send messages larger than the consumer can fetch. If that          * happens, the consumer can get stuck trying to fetch a large message          * on a certain partition.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|maxPartitionFetchBytes ( Integer maxPartitionFetchBytes)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1016,7 +1016,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of data per-partition the server will return. The          * maximum total memory used for a request will be #partitions          * max.partition.fetch.bytes. This size must be at least as large as the          * maximum message size the server allows or else it is possible for the          * producer to send messages larger than the consumer can fetch. If that          * happens, the consumer can get stuck trying to fetch a large message          * on a certain partition.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The maximum amount of data per-partition the server will return. The          * maximum total memory used for a request will be #partitions          * max.partition.fetch.bytes. This size must be at least as large as the          * maximum message size the server allows or else it is possible for the          * producer to send messages larger than the consumer can fetch. If that          * happens, the consumer can get stuck trying to fetch a large message          * on a certain partition.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|maxPartitionFetchBytes ( String maxPartitionFetchBytes)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1037,7 +1037,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum delay between invocations of poll() when using consumer          * group management. This places an upper bound on the amount of time          * that the consumer can be idle before fetching more records. If poll()          * is not called before expiration of this timeout, then the consumer is          * considered failed and the group will rebalance in order to reassign          * the partitions to another member.          * The option is a<code>java.lang.Long</code> type.          * @group consumer          */
+comment|/**          * The maximum delay between invocations of poll() when using consumer          * group management. This places an upper bound on the amount of time          * that the consumer can be idle before fetching more records. If poll()          * is not called before expiration of this timeout, then the consumer is          * considered failed and the group will rebalance in order to reassign          * the partitions to another member.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: consumer          */
 DECL|method|maxPollIntervalMs ( Long maxPollIntervalMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1058,7 +1058,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum delay between invocations of poll() when using consumer          * group management. This places an upper bound on the amount of time          * that the consumer can be idle before fetching more records. If poll()          * is not called before expiration of this timeout, then the consumer is          * considered failed and the group will rebalance in order to reassign          * the partitions to another member.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group consumer          */
+comment|/**          * The maximum delay between invocations of poll() when using consumer          * group management. This places an upper bound on the amount of time          * that the consumer can be idle before fetching more records. If poll()          * is not called before expiration of this timeout, then the consumer is          * considered failed and the group will rebalance in order to reassign          * the partitions to another member.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: consumer          */
 DECL|method|maxPollIntervalMs ( String maxPollIntervalMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1079,7 +1079,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of records returned in a single call to poll().          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The maximum number of records returned in a single call to poll().          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|maxPollRecords ( Integer maxPollRecords)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1100,7 +1100,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of records returned in a single call to poll().          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The maximum number of records returned in a single call to poll().          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|maxPollRecords ( String maxPollRecords)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1121,7 +1121,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The offset repository to use in order to locally store the offset of          * each partition of the topic. Defining one will disable the          * autocommit.          * The option is a          *<code>org.apache.camel.spi.StateRepository&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group consumer          */
+comment|/**          * The offset repository to use in order to locally store the offset of          * each partition of the topic. Defining one will disable the          * autocommit.          *           * The option is a:          *<code>org.apache.camel.spi.StateRepository&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: consumer          */
 DECL|method|offsetRepository ( StateRepository<String, String> offsetRepository)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1147,7 +1147,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The offset repository to use in order to locally store the offset of          * each partition of the topic. Defining one will disable the          * autocommit.          * The option will be converted to a          *<code>org.apache.camel.spi.StateRepository&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group consumer          */
+comment|/**          * The offset repository to use in order to locally store the offset of          * each partition of the topic. Defining one will disable the          * autocommit.          *           * The option will be converted to a          *<code>org.apache.camel.spi.StateRepository&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: consumer          */
 DECL|method|offsetRepository ( String offsetRepository)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1168,7 +1168,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The class name of the partition assignment strategy that the client          * will use to distribute partition ownership amongst consumer instances          * when group management is used.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * The class name of the partition assignment strategy that the client          * will use to distribute partition ownership amongst consumer instances          * when group management is used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|partitionAssignor ( String partitionAssignor)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1189,7 +1189,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout used when polling the KafkaConsumer.          * The option is a<code>java.lang.Long</code> type.          * @group consumer          */
+comment|/**          * The timeout used when polling the KafkaConsumer.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: consumer          */
 DECL|method|pollTimeoutMs (Long pollTimeoutMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1210,7 +1210,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout used when polling the KafkaConsumer.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group consumer          */
+comment|/**          * The timeout used when polling the KafkaConsumer.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: consumer          */
 DECL|method|pollTimeoutMs (String pollTimeoutMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1231,7 +1231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set if KafkaConsumer will read from beginning or end on startup:          * beginning : read from beginning end : read from end This is replacing          * the earlier property seekToBeginning.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Set if KafkaConsumer will read from beginning or end on startup:          * beginning : read from beginning end : read from end This is replacing          * the earlier property seekToBeginning.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|seekTo (String seekTo)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1252,7 +1252,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout used to detect failures when using Kafka's group          * management facilities.          * The option is a<code>java.lang.Integer</code> type.          * @group consumer          */
+comment|/**          * The timeout used to detect failures when using Kafka's group          * management facilities.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|sessionTimeoutMs ( Integer sessionTimeoutMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1273,7 +1273,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout used to detect failures when using Kafka's group          * management facilities.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group consumer          */
+comment|/**          * The timeout used to detect failures when using Kafka's group          * management facilities.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
 DECL|method|sessionTimeoutMs ( String sessionTimeoutMs)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1294,7 +1294,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This enables the use of a specific Avro reader for use with the          * Confluent Platform schema registry and the          * io.confluent.kafka.serializers.KafkaAvroDeserializer. This option is          * only available in the Confluent Platform (not standard Apache Kafka).          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * This enables the use of a specific Avro reader for use with the          * Confluent Platform schema registry and the          * io.confluent.kafka.serializers.KafkaAvroDeserializer. This option is          * only available in the Confluent Platform (not standard Apache Kafka).          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|specificAvroReader ( boolean specificAvroReader)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1315,7 +1315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This enables the use of a specific Avro reader for use with the          * Confluent Platform schema registry and the          * io.confluent.kafka.serializers.KafkaAvroDeserializer. This option is          * only available in the Confluent Platform (not standard Apache Kafka).          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * This enables the use of a specific Avro reader for use with the          * Confluent Platform schema registry and the          * io.confluent.kafka.serializers.KafkaAvroDeserializer. This option is          * only available in the Confluent Platform (not standard Apache Kafka).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|specificAvroReader ( String specificAvroReader)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1336,7 +1336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the topic is a pattern (regular expression). This can be used          * to subscribe to dynamic number of topics matching the pattern.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether the topic is a pattern (regular expression). This can be used          * to subscribe to dynamic number of topics matching the pattern.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|topicIsPattern ( boolean topicIsPattern)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1357,7 +1357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the topic is a pattern (regular expression). This can be used          * to subscribe to dynamic number of topics matching the pattern.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Whether the topic is a pattern (regular expression). This can be used          * to subscribe to dynamic number of topics matching the pattern.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|topicIsPattern ( String topicIsPattern)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1378,7 +1378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Deserializer class for value that implements the Deserializer          * interface.          * The option is a<code>java.lang.String</code> type.          * @group consumer          */
+comment|/**          * Deserializer class for value that implements the Deserializer          * interface.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|valueDeserializer ( String valueDeserializer)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1399,7 +1399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets interceptors for producer or consumers. Producer interceptors          * have to be classes implementing          * org.apache.kafka.clients.producer.ProducerInterceptor Consumer          * interceptors have to be classes implementing          * org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if          * you use Producer interceptor on a consumer it will throw a class cast          * exception in runtime.          * The option is a<code>java.lang.String</code> type.          * @group monitoring          */
+comment|/**          * Sets interceptors for producer or consumers. Producer interceptors          * have to be classes implementing          * org.apache.kafka.clients.producer.ProducerInterceptor Consumer          * interceptors have to be classes implementing          * org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if          * you use Producer interceptor on a consumer it will throw a class cast          * exception in runtime.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: monitoring          */
 DECL|method|interceptorClasses ( String interceptorClasses)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1420,7 +1420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread sleep time between refresh attempts.          * The option is a<code>java.lang.Integer</code> type.          * @group security          */
+comment|/**          * Login thread sleep time between refresh attempts.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: security          */
 DECL|method|kerberosBeforeReloginMinTime ( Integer kerberosBeforeReloginMinTime)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1441,7 +1441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread sleep time between refresh attempts.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group security          */
+comment|/**          * Login thread sleep time between refresh attempts.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: security          */
 DECL|method|kerberosBeforeReloginMinTime ( String kerberosBeforeReloginMinTime)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1462,7 +1462,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Kerberos kinit command path. Default is /usr/bin/kinit.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Kerberos kinit command path. Default is /usr/bin/kinit.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|kerberosInitCmd ( String kerberosInitCmd)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1483,7 +1483,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see the          * security authorization and acls documentation.. Multiple values can          * be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see the          * security authorization and acls documentation.. Multiple values can          * be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|kerberosPrincipalToLocalRules ( String kerberosPrincipalToLocalRules)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1504,7 +1504,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Percentage of random jitter added to the renewal time.          * The option is a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Percentage of random jitter added to the renewal time.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewJitter ( Double kerberosRenewJitter)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1525,7 +1525,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Percentage of random jitter added to the renewal time.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Percentage of random jitter added to the renewal time.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewJitter ( String kerberosRenewJitter)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1546,7 +1546,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          * The option is a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewWindowFactor ( Double kerberosRenewWindowFactor)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1567,7 +1567,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewWindowFactor ( String kerberosRenewWindowFactor)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1588,7 +1588,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username=USERNAME password=PASSWORD;.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username=USERNAME password=PASSWORD;.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslJaasConfig ( String saslJaasConfig)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1609,7 +1609,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Kerberos principal name that Kafka runs as. This can be defined          * either in Kafka's JAAS config or in Kafka's config.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The Kerberos principal name that Kafka runs as. This can be defined          * either in Kafka's JAAS config or in Kafka's config.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslKerberosServiceName ( String saslKerberosServiceName)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1630,7 +1630,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Simple Authentication and Security Layer (SASL) Mechanism used.          * For the valid values see a href=          * http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtmlhttp://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The Simple Authentication and Security Layer (SASL) Mechanism used.          * For the valid values see a href=          * http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtmlhttp://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslMechanism (String saslMechanism)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1651,7 +1651,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT          * and SSL are supported.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT          * and SSL are supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|securityProtocol ( String securityProtocol)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1672,7 +1672,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of cipher suites. This is a named combination of          * authentication, encryption, MAC and key exchange algorithm used to          * negotiate the security settings for a network connection using TLS or          * SSL network protocol.By default all the available cipher suites are          * supported.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * A list of cipher suites. This is a named combination of          * authentication, encryption, MAC and key exchange algorithm used to          * negotiate the security settings for a network connection using TLS or          * SSL network protocol.By default all the available cipher suites are          * supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslCipherSuites ( String sslCipherSuites)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1693,7 +1693,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1714,7 +1714,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1735,7 +1735,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1          * and TLSv1 are enabled by default.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1          * and TLSv1 are enabled by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslEnabledProtocols ( String sslEnabledProtocols)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1756,7 +1756,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The endpoint identification algorithm to validate server hostname          * using server certificate.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The endpoint identification algorithm to validate server hostname          * using server certificate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslEndpointAlgorithm ( String sslEndpointAlgorithm)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1777,7 +1777,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used by key manager factory for SSL connections.          * Default value is the key manager factory algorithm configured for the          * Java Virtual Machine.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The algorithm used by key manager factory for SSL connections.          * Default value is the key manager factory algorithm configured for the          * Java Virtual Machine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeymanagerAlgorithm ( String sslKeymanagerAlgorithm)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1798,7 +1798,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file format of the key store file. This is optional for client.          * Default value is JKS.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The file format of the key store file. This is optional for client.          * Default value is JKS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeystoreType ( String sslKeystoreType)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1819,7 +1819,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The SSL protocol used to generate the SSLContext. Default setting is          * TLS, which is fine for most cases. Allowed values in recent JVMs are          * TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in          * older JVMs, but their usage is discouraged due to known security          * vulnerabilities.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The SSL protocol used to generate the SSLContext. Default setting is          * TLS, which is fine for most cases. Allowed values in recent JVMs are          * TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in          * older JVMs, but their usage is discouraged due to known security          * vulnerabilities.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslProtocol (String sslProtocol)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1840,7 +1840,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of the security provider used for SSL connections. Default          * value is the default security provider of the JVM.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The name of the security provider used for SSL connections. Default          * value is the default security provider of the JVM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslProvider (String sslProvider)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1861,7 +1861,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used by trust manager factory for SSL connections.          * Default value is the trust manager factory algorithm configured for          * the Java Virtual Machine.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The algorithm used by trust manager factory for SSL connections.          * Default value is the trust manager factory algorithm configured for          * the Java Virtual Machine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTrustmanagerAlgorithm ( String sslTrustmanagerAlgorithm)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1882,7 +1882,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file format of the trust store file. Default value is JKS.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The file format of the trust store file. Default value is JKS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTruststoreType ( String sslTruststoreType)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1903,7 +1903,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URL of the Confluent Platform schema registry servers to use. The          * format is host1:port1,host2:port2. This is known as          * schema.registry.url in the Confluent Platform documentation. This          * option is only available in the Confluent Platform (not standard          * Apache Kafka).          * The option is a<code>java.lang.String</code> type.          * @group confluent          */
+comment|/**          * URL of the Confluent Platform schema registry servers to use. The          * format is host1:port1,host2:port2. This is known as          * schema.registry.url in the Confluent Platform documentation. This          * option is only available in the Confluent Platform (not standard          * Apache Kafka).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: confluent          */
 DECL|method|schemaRegistryURL ( String schemaRegistryURL)
 specifier|default
 name|KafkaEndpointConsumerBuilder
@@ -1946,7 +1946,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedKafkaEndpointConsumerBuilder
@@ -1967,7 +1967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedKafkaEndpointConsumerBuilder
@@ -1988,7 +1988,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedKafkaEndpointConsumerBuilder
@@ -2009,7 +2009,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedKafkaEndpointConsumerBuilder
@@ -2030,7 +2030,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedKafkaEndpointConsumerBuilder
@@ -2051,7 +2051,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedKafkaEndpointConsumerBuilder
@@ -2072,7 +2072,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedKafkaEndpointConsumerBuilder
@@ -2093,7 +2093,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedKafkaEndpointConsumerBuilder
@@ -2136,7 +2136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2157,7 +2157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URL of the Kafka brokers to use. The format is          * host1:port1,host2:port2, and the list can be a subset of brokers or a          * VIP pointing to a subset of brokers. This option is known as          * bootstrap.servers in the Kafka documentation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URL of the Kafka brokers to use. The format is          * host1:port1,host2:port2, and the list can be a subset of brokers or a          * VIP pointing to a subset of brokers. This option is known as          * bootstrap.servers in the Kafka documentation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|brokers (String brokers)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2178,7 +2178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client id is a user-specified string sent in each request to help          * trace calls. It should logically identify the application making the          * request.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The client id is a user-specified string sent in each request to help          * trace calls. It should logically identify the application making the          * request.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2199,7 +2199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option is a:          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2220,7 +2220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2241,7 +2241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|reconnectBackoffMaxMs ( Integer reconnectBackoffMaxMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2262,7 +2262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|reconnectBackoffMaxMs ( String reconnectBackoffMaxMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2283,7 +2283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the option is true, then KafkaProducer will ignore the          * KafkaConstants.TOPIC header setting of the inbound message.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If the option is true, then KafkaProducer will ignore the          * KafkaConstants.TOPIC header setting of the inbound message.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|bridgeEndpoint ( boolean bridgeEndpoint)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2304,7 +2304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the option is true, then KafkaProducer will ignore the          * KafkaConstants.TOPIC header setting of the inbound message.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If the option is true, then KafkaProducer will ignore the          * KafkaConstants.TOPIC header setting of the inbound message.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|bridgeEndpoint ( String bridgeEndpoint)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2325,7 +2325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The total bytes of memory the producer can use to buffer records          * waiting to be sent to the server. If records are sent faster than          * they can be delivered to the server the producer will either block or          * throw an exception based on the preference specified by          * block.on.buffer.full.This setting should correspond roughly to the          * total memory the producer will use, but is not a hard bound since not          * all memory the producer uses is used for buffering. Some additional          * memory will be used for compression (if compression is enabled) as          * well as for maintaining in-flight requests.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The total bytes of memory the producer can use to buffer records          * waiting to be sent to the server. If records are sent faster than          * they can be delivered to the server the producer will either block or          * throw an exception based on the preference specified by          * block.on.buffer.full.This setting should correspond roughly to the          * total memory the producer will use, but is not a hard bound since not          * all memory the producer uses is used for buffering. Some additional          * memory will be used for compression (if compression is enabled) as          * well as for maintaining in-flight requests.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|bufferMemorySize ( Integer bufferMemorySize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2346,7 +2346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The total bytes of memory the producer can use to buffer records          * waiting to be sent to the server. If records are sent faster than          * they can be delivered to the server the producer will either block or          * throw an exception based on the preference specified by          * block.on.buffer.full.This setting should correspond roughly to the          * total memory the producer will use, but is not a hard bound since not          * all memory the producer uses is used for buffering. Some additional          * memory will be used for compression (if compression is enabled) as          * well as for maintaining in-flight requests.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The total bytes of memory the producer can use to buffer records          * waiting to be sent to the server. If records are sent faster than          * they can be delivered to the server the producer will either block or          * throw an exception based on the preference specified by          * block.on.buffer.full.This setting should correspond roughly to the          * total memory the producer will use, but is not a hard bound since not          * all memory the producer uses is used for buffering. Some additional          * memory will be used for compression (if compression is enabled) as          * well as for maintaining in-flight requests.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|bufferMemorySize ( String bufferMemorySize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2367,7 +2367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the option is true, then KafkaProducer will detect if the message          * is attempted to be sent back to the same topic it may come from, if          * the message was original from a kafka consumer. If the          * KafkaConstants.TOPIC header is the same as the original kafka          * consumer topic, then the header setting is ignored, and the topic of          * the producer endpoint is used. In other words this avoids sending the          * same message back to where it came from. This option is not in use if          * the option bridgeEndpoint is set to true.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If the option is true, then KafkaProducer will detect if the message          * is attempted to be sent back to the same topic it may come from, if          * the message was original from a kafka consumer. If the          * KafkaConstants.TOPIC header is the same as the original kafka          * consumer topic, then the header setting is ignored, and the topic of          * the producer endpoint is used. In other words this avoids sending the          * same message back to where it came from. This option is not in use if          * the option bridgeEndpoint is set to true.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|circularTopicDetection ( boolean circularTopicDetection)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2388,7 +2388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the option is true, then KafkaProducer will detect if the message          * is attempted to be sent back to the same topic it may come from, if          * the message was original from a kafka consumer. If the          * KafkaConstants.TOPIC header is the same as the original kafka          * consumer topic, then the header setting is ignored, and the topic of          * the producer endpoint is used. In other words this avoids sending the          * same message back to where it came from. This option is not in use if          * the option bridgeEndpoint is set to true.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If the option is true, then KafkaProducer will detect if the message          * is attempted to be sent back to the same topic it may come from, if          * the message was original from a kafka consumer. If the          * KafkaConstants.TOPIC header is the same as the original kafka          * consumer topic, then the header setting is ignored, and the topic of          * the producer endpoint is used. In other words this avoids sending the          * same message back to where it came from. This option is not in use if          * the option bridgeEndpoint is set to true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|circularTopicDetection ( String circularTopicDetection)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2409,7 +2409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This parameter allows you to specify the compression codec for all          * data generated by this producer. Valid values are none, gzip and          * snappy.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * This parameter allows you to specify the compression codec for all          * data generated by this producer. Valid values are none, gzip and          * snappy.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|compressionCodec ( String compressionCodec)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2430,7 +2430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close idle connections after the number of milliseconds specified by          * this config.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Close idle connections after the number of milliseconds specified by          * this config.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|connectionMaxIdleMs ( Integer connectionMaxIdleMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2451,7 +2451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close idle connections after the number of milliseconds specified by          * this config.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Close idle connections after the number of milliseconds specified by          * this config.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|connectionMaxIdleMs ( String connectionMaxIdleMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2472,7 +2472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to 'true' the producer will ensure that exactly one copy of          * each message is written in the stream. If 'false', producer retries          * may write duplicates of the retried message in the stream. If set to          * true this option will require max.in.flight.requests.per.connection          * to be set to 1 and retries cannot be zero and additionally acks must          * be set to 'all'.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If set to 'true' the producer will ensure that exactly one copy of          * each message is written in the stream. If 'false', producer retries          * may write duplicates of the retried message in the stream. If set to          * true this option will require max.in.flight.requests.per.connection          * to be set to 1 and retries cannot be zero and additionally acks must          * be set to 'all'.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|enableIdempotence ( boolean enableIdempotence)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2493,7 +2493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to 'true' the producer will ensure that exactly one copy of          * each message is written in the stream. If 'false', producer retries          * may write duplicates of the retried message in the stream. If set to          * true this option will require max.in.flight.requests.per.connection          * to be set to 1 and retries cannot be zero and additionally acks must          * be set to 'all'.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If set to 'true' the producer will ensure that exactly one copy of          * each message is written in the stream. If 'false', producer retries          * may write duplicates of the retried message in the stream. If set to          * true this option will require max.in.flight.requests.per.connection          * to be set to 1 and retries cannot be zero and additionally acks must          * be set to 'all'.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|enableIdempotence ( String enableIdempotence)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2514,7 +2514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets custom KafkaHeaderDeserializer for serialization camel headers          * values to kafka headers values.          * The option is a          *<code>org.apache.camel.component.kafka.serde.KafkaHeaderSerializer</code> type.          * @group producer          */
+comment|/**          * Sets custom KafkaHeaderDeserializer for serialization camel headers          * values to kafka headers values.          *           * The option is a:          *<code>org.apache.camel.component.kafka.serde.KafkaHeaderSerializer</code> type.          *           * Group: producer          */
 DECL|method|kafkaHeaderSerializer ( Object kafkaHeaderSerializer)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2535,7 +2535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets custom KafkaHeaderDeserializer for serialization camel headers          * values to kafka headers values.          * The option will be converted to a          *<code>org.apache.camel.component.kafka.serde.KafkaHeaderSerializer</code> type.          * @group producer          */
+comment|/**          * Sets custom KafkaHeaderDeserializer for serialization camel headers          * values to kafka headers values.          *           * The option will be converted to a          *<code>org.apache.camel.component.kafka.serde.KafkaHeaderSerializer</code> type.          *           * Group: producer          */
 DECL|method|kafkaHeaderSerializer ( String kafkaHeaderSerializer)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2556,7 +2556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The record key (or null if no key is specified). If this option has          * been configured then it take precedence over header          * KafkaConstants#KEY.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The record key (or null if no key is specified). If this option has          * been configured then it take precedence over header          * KafkaConstants#KEY.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|key (String key)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2577,7 +2577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The serializer class for keys (defaults to the same as for messages          * if nothing is given).          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The serializer class for keys (defaults to the same as for messages          * if nothing is given).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|keySerializerClass ( String keySerializerClass)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2598,7 +2598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2619,7 +2619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2640,7 +2640,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The producer groups together any records that arrive in between          * request transmissions into a single batched request. Normally this          * occurs only under load when records arrive faster than they can be          * sent out. However in some circumstances the client may want to reduce          * the number of requests even under moderate load. This setting          * accomplishes this by adding a small amount of artificial delaythat          * is, rather than immediately sending out a record the producer will          * wait for up to the given delay to allow other records to be sent so          * that the sends can be batched together. This can be thought of as          * analogous to Nagle's algorithm in TCP. This setting gives the upper          * bound on the delay for batching: once we get batch.size worth of          * records for a partition it will be sent immediately regardless of          * this setting, however if we have fewer than this many bytes          * accumulated for this partition we will 'linger' for the specified          * time waiting for more records to show up. This setting defaults to 0          * (i.e. no delay). Setting linger.ms=5, for example, would have the          * effect of reducing the number of requests sent but would add up to          * 5ms of latency to records sent in the absense of load.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The producer groups together any records that arrive in between          * request transmissions into a single batched request. Normally this          * occurs only under load when records arrive faster than they can be          * sent out. However in some circumstances the client may want to reduce          * the number of requests even under moderate load. This setting          * accomplishes this by adding a small amount of artificial delaythat          * is, rather than immediately sending out a record the producer will          * wait for up to the given delay to allow other records to be sent so          * that the sends can be batched together. This can be thought of as          * analogous to Nagle's algorithm in TCP. This setting gives the upper          * bound on the delay for batching: once we get batch.size worth of          * records for a partition it will be sent immediately regardless of          * this setting, however if we have fewer than this many bytes          * accumulated for this partition we will 'linger' for the specified          * time waiting for more records to show up. This setting defaults to 0          * (i.e. no delay). Setting linger.ms=5, for example, would have the          * effect of reducing the number of requests sent but would add up to          * 5ms of latency to records sent in the absense of load.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|lingerMs (Integer lingerMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2661,7 +2661,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The producer groups together any records that arrive in between          * request transmissions into a single batched request. Normally this          * occurs only under load when records arrive faster than they can be          * sent out. However in some circumstances the client may want to reduce          * the number of requests even under moderate load. This setting          * accomplishes this by adding a small amount of artificial delaythat          * is, rather than immediately sending out a record the producer will          * wait for up to the given delay to allow other records to be sent so          * that the sends can be batched together. This can be thought of as          * analogous to Nagle's algorithm in TCP. This setting gives the upper          * bound on the delay for batching: once we get batch.size worth of          * records for a partition it will be sent immediately regardless of          * this setting, however if we have fewer than this many bytes          * accumulated for this partition we will 'linger' for the specified          * time waiting for more records to show up. This setting defaults to 0          * (i.e. no delay). Setting linger.ms=5, for example, would have the          * effect of reducing the number of requests sent but would add up to          * 5ms of latency to records sent in the absense of load.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The producer groups together any records that arrive in between          * request transmissions into a single batched request. Normally this          * occurs only under load when records arrive faster than they can be          * sent out. However in some circumstances the client may want to reduce          * the number of requests even under moderate load. This setting          * accomplishes this by adding a small amount of artificial delaythat          * is, rather than immediately sending out a record the producer will          * wait for up to the given delay to allow other records to be sent so          * that the sends can be batched together. This can be thought of as          * analogous to Nagle's algorithm in TCP. This setting gives the upper          * bound on the delay for batching: once we get batch.size worth of          * records for a partition it will be sent immediately regardless of          * this setting, however if we have fewer than this many bytes          * accumulated for this partition we will 'linger' for the specified          * time waiting for more records to show up. This setting defaults to 0          * (i.e. no delay). Setting linger.ms=5, for example, would have the          * effect of reducing the number of requests sent but would add up to          * 5ms of latency to records sent in the absense of load.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|lingerMs (String lingerMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2682,7 +2682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The configuration controls how long sending to kafka will block.          * These methods can be blocked for multiple reasons. For e.g: buffer          * full, metadata unavailable.This configuration imposes maximum limit          * on the total time spent in fetching metadata, serialization of key          * and value, partitioning and allocation of buffer memory when doing a          * send(). In case of partitionsFor(), this configuration imposes a          * maximum time threshold on waiting for metadata.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The configuration controls how long sending to kafka will block.          * These methods can be blocked for multiple reasons. For e.g: buffer          * full, metadata unavailable.This configuration imposes maximum limit          * on the total time spent in fetching metadata, serialization of key          * and value, partitioning and allocation of buffer memory when doing a          * send(). In case of partitionsFor(), this configuration imposes a          * maximum time threshold on waiting for metadata.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|maxBlockMs (Integer maxBlockMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2703,7 +2703,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The configuration controls how long sending to kafka will block.          * These methods can be blocked for multiple reasons. For e.g: buffer          * full, metadata unavailable.This configuration imposes maximum limit          * on the total time spent in fetching metadata, serialization of key          * and value, partitioning and allocation of buffer memory when doing a          * send(). In case of partitionsFor(), this configuration imposes a          * maximum time threshold on waiting for metadata.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The configuration controls how long sending to kafka will block.          * These methods can be blocked for multiple reasons. For e.g: buffer          * full, metadata unavailable.This configuration imposes maximum limit          * on the total time spent in fetching metadata, serialization of key          * and value, partitioning and allocation of buffer memory when doing a          * send(). In case of partitionsFor(), this configuration imposes a          * maximum time threshold on waiting for metadata.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|maxBlockMs (String maxBlockMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2724,7 +2724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of unacknowledged requests the client will send on          * a single connection before blocking. Note that if this setting is set          * to be greater than 1 and there are failed sends, there is a risk of          * message re-ordering due to retries (i.e., if retries are enabled).          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The maximum number of unacknowledged requests the client will send on          * a single connection before blocking. Note that if this setting is set          * to be greater than 1 and there are failed sends, there is a risk of          * message re-ordering due to retries (i.e., if retries are enabled).          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|maxInFlightRequest ( Integer maxInFlightRequest)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2745,7 +2745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of unacknowledged requests the client will send on          * a single connection before blocking. Note that if this setting is set          * to be greater than 1 and there are failed sends, there is a risk of          * message re-ordering due to retries (i.e., if retries are enabled).          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The maximum number of unacknowledged requests the client will send on          * a single connection before blocking. Note that if this setting is set          * to be greater than 1 and there are failed sends, there is a risk of          * message re-ordering due to retries (i.e., if retries are enabled).          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|maxInFlightRequest ( String maxInFlightRequest)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2766,7 +2766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum size of a request. This is also effectively a cap on the          * maximum record size. Note that the server has its own cap on record          * size which may be different from this. This setting will limit the          * number of record batches the producer will send in a single request          * to avoid sending huge requests.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The maximum size of a request. This is also effectively a cap on the          * maximum record size. Note that the server has its own cap on record          * size which may be different from this. This setting will limit the          * number of record batches the producer will send in a single request          * to avoid sending huge requests.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|maxRequestSize ( Integer maxRequestSize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2787,7 +2787,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum size of a request. This is also effectively a cap on the          * maximum record size. Note that the server has its own cap on record          * size which may be different from this. This setting will limit the          * number of record batches the producer will send in a single request          * to avoid sending huge requests.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The maximum size of a request. This is also effectively a cap on the          * maximum record size. Note that the server has its own cap on record          * size which may be different from this. This setting will limit the          * number of record batches the producer will send in a single request          * to avoid sending huge requests.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|maxRequestSize ( String maxRequestSize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2808,7 +2808,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The period of time in milliseconds after which we force a refresh of          * metadata even if we haven't seen any partition leadership changes to          * proactively discover any new brokers or partitions.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The period of time in milliseconds after which we force a refresh of          * metadata even if we haven't seen any partition leadership changes to          * proactively discover any new brokers or partitions.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|metadataMaxAgeMs ( Integer metadataMaxAgeMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2829,7 +2829,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The period of time in milliseconds after which we force a refresh of          * metadata even if we haven't seen any partition leadership changes to          * proactively discover any new brokers or partitions.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The period of time in milliseconds after which we force a refresh of          * metadata even if we haven't seen any partition leadership changes to          * proactively discover any new brokers or partitions.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|metadataMaxAgeMs ( String metadataMaxAgeMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2850,7 +2850,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of classes to use as metrics reporters. Implementing the          * MetricReporter interface allows plugging in classes that will be          * notified of new metric creation. The JmxReporter is always included          * to register JMX statistics.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * A list of classes to use as metrics reporters. Implementing the          * MetricReporter interface allows plugging in classes that will be          * notified of new metric creation. The JmxReporter is always included          * to register JMX statistics.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|metricReporters ( String metricReporters)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2871,7 +2871,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of samples maintained to compute metrics.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The number of samples maintained to compute metrics.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|metricsSampleWindowMs ( Integer metricsSampleWindowMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2892,7 +2892,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of samples maintained to compute metrics.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The number of samples maintained to compute metrics.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|metricsSampleWindowMs ( String metricsSampleWindowMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2913,7 +2913,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of samples maintained to compute metrics.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The number of samples maintained to compute metrics.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|noOfMetricsSample ( Integer noOfMetricsSample)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2934,7 +2934,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of samples maintained to compute metrics.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The number of samples maintained to compute metrics.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|noOfMetricsSample ( String noOfMetricsSample)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2955,7 +2955,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The partitioner class for partitioning messages amongst sub-topics.          * The default partitioner is based on the hash of the key.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The partitioner class for partitioning messages amongst sub-topics.          * The default partitioner is based on the hash of the key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|partitioner (String partitioner)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2976,7 +2976,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The partition to which the record will be sent (or null if no          * partition was specified). If this option has been configured then it          * take precedence over header KafkaConstants#PARTITION_KEY.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The partition to which the record will be sent (or null if no          * partition was specified). If this option has been configured then it          * take precedence over header KafkaConstants#PARTITION_KEY.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|partitionKey (Integer partitionKey)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -2997,7 +2997,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The partition to which the record will be sent (or null if no          * partition was specified). If this option has been configured then it          * take precedence over header KafkaConstants#PARTITION_KEY.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The partition to which the record will be sent (or null if no          * partition was specified). If this option has been configured then it          * take precedence over header KafkaConstants#PARTITION_KEY.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|partitionKey (String partitionKey)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3018,7 +3018,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The producer will attempt to batch records together into fewer          * requests whenever multiple records are being sent to the same          * partition. This helps performance on both the client and the server.          * This configuration controls the default batch size in bytes. No          * attempt will be made to batch records larger than this size.Requests          * sent to brokers will contain multiple batches, one for each partition          * with data available to be sent.A small batch size will make batching          * less common and may reduce throughput (a batch size of zero will          * disable batching entirely). A very large batch size may use memory a          * bit more wastefully as we will always allocate a buffer of the          * specified batch size in anticipation of additional records.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The producer will attempt to batch records together into fewer          * requests whenever multiple records are being sent to the same          * partition. This helps performance on both the client and the server.          * This configuration controls the default batch size in bytes. No          * attempt will be made to batch records larger than this size.Requests          * sent to brokers will contain multiple batches, one for each partition          * with data available to be sent.A small batch size will make batching          * less common and may reduce throughput (a batch size of zero will          * disable batching entirely). A very large batch size may use memory a          * bit more wastefully as we will always allocate a buffer of the          * specified batch size in anticipation of additional records.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|producerBatchSize ( Integer producerBatchSize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3039,7 +3039,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The producer will attempt to batch records together into fewer          * requests whenever multiple records are being sent to the same          * partition. This helps performance on both the client and the server.          * This configuration controls the default batch size in bytes. No          * attempt will be made to batch records larger than this size.Requests          * sent to brokers will contain multiple batches, one for each partition          * with data available to be sent.A small batch size will make batching          * less common and may reduce throughput (a batch size of zero will          * disable batching entirely). A very large batch size may use memory a          * bit more wastefully as we will always allocate a buffer of the          * specified batch size in anticipation of additional records.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The producer will attempt to batch records together into fewer          * requests whenever multiple records are being sent to the same          * partition. This helps performance on both the client and the server.          * This configuration controls the default batch size in bytes. No          * attempt will be made to batch records larger than this size.Requests          * sent to brokers will contain multiple batches, one for each partition          * with data available to be sent.A small batch size will make batching          * less common and may reduce throughput (a batch size of zero will          * disable batching entirely). A very large batch size may use memory a          * bit more wastefully as we will always allocate a buffer of the          * specified batch size in anticipation of additional records.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|producerBatchSize ( String producerBatchSize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3060,7 +3060,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of unsent messages that can be queued up the          * producer when using async mode before either the producer must be          * blocked or data must be dropped.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The maximum number of unsent messages that can be queued up the          * producer when using async mode before either the producer must be          * blocked or data must be dropped.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|queueBufferingMaxMessages ( Integer queueBufferingMaxMessages)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3081,7 +3081,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of unsent messages that can be queued up the          * producer when using async mode before either the producer must be          * blocked or data must be dropped.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The maximum number of unsent messages that can be queued up the          * producer when using async mode before either the producer must be          * blocked or data must be dropped.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|queueBufferingMaxMessages ( String queueBufferingMaxMessages)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3102,7 +3102,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The size of the TCP receive buffer (SO_RCVBUF) to use when reading          * data.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The size of the TCP receive buffer (SO_RCVBUF) to use when reading          * data.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|receiveBufferBytes ( Integer receiveBufferBytes)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3123,7 +3123,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The size of the TCP receive buffer (SO_RCVBUF) to use when reading          * data.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The size of the TCP receive buffer (SO_RCVBUF) to use when reading          * data.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|receiveBufferBytes ( String receiveBufferBytes)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3144,7 +3144,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time to wait before attempting to reconnect to a given          * host. This avoids repeatedly connecting to a host in a tight loop.          * This backoff applies to all requests sent by the consumer to the          * broker.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The amount of time to wait before attempting to reconnect to a given          * host. This avoids repeatedly connecting to a host in a tight loop.          * This backoff applies to all requests sent by the consumer to the          * broker.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|reconnectBackoffMs ( Integer reconnectBackoffMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3165,7 +3165,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time to wait before attempting to reconnect to a given          * host. This avoids repeatedly connecting to a host in a tight loop.          * This backoff applies to all requests sent by the consumer to the          * broker.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The amount of time to wait before attempting to reconnect to a given          * host. This avoids repeatedly connecting to a host in a tight loop.          * This backoff applies to all requests sent by the consumer to the          * broker.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|reconnectBackoffMs ( String reconnectBackoffMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3186,7 +3186,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should store the RecordMetadata results from          * sending to Kafka. The results are stored in a List containing the          * RecordMetadata metadata's. The list is stored on a header with the          * key KafkaConstants#KAFKA_RECORDMETA.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should store the RecordMetadata results from          * sending to Kafka. The results are stored in a List containing the          * RecordMetadata metadata's. The list is stored on a header with the          * key KafkaConstants#KAFKA_RECORDMETA.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|recordMetadata ( boolean recordMetadata)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3207,7 +3207,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should store the RecordMetadata results from          * sending to Kafka. The results are stored in a List containing the          * RecordMetadata metadata's. The list is stored on a header with the          * key KafkaConstants#KAFKA_RECORDMETA.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should store the RecordMetadata results from          * sending to Kafka. The results are stored in a List containing the          * RecordMetadata metadata's. The list is stored on a header with the          * key KafkaConstants#KAFKA_RECORDMETA.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|recordMetadata ( String recordMetadata)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3228,7 +3228,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of acknowledgments the producer requires the leader to          * have received before considering a request complete. This controls          * the durability of records that are sent. The following settings are          * common: acks=0 If set to zero then the producer will not wait for any          * acknowledgment from the server at all. The record will be immediately          * added to the socket buffer and considered sent. No guarantee can be          * made that the server has received the record in this case, and the          * retries configuration will not take effect (as the client won't          * generally know of any failures). The offset given back for each          * record will always be set to -1. acks=1 This will mean the leader          * will write the record to its local log but will respond without          * awaiting full acknowledgement from all followers. In this case should          * the leader fail immediately after acknowledging the record but before          * the followers have replicated it then the record will be lost.          * acks=all This means the leader will wait for the full set of in-sync          * replicas to acknowledge the record. This guarantees that the record          * will not be lost as long as at least one in-sync replica remains          * alive. This is the strongest available guarantee.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The number of acknowledgments the producer requires the leader to          * have received before considering a request complete. This controls          * the durability of records that are sent. The following settings are          * common: acks=0 If set to zero then the producer will not wait for any          * acknowledgment from the server at all. The record will be immediately          * added to the socket buffer and considered sent. No guarantee can be          * made that the server has received the record in this case, and the          * retries configuration will not take effect (as the client won't          * generally know of any failures). The offset given back for each          * record will always be set to -1. acks=1 This will mean the leader          * will write the record to its local log but will respond without          * awaiting full acknowledgement from all followers. In this case should          * the leader fail immediately after acknowledging the record but before          * the followers have replicated it then the record will be lost.          * acks=all This means the leader will wait for the full set of in-sync          * replicas to acknowledge the record. This guarantees that the record          * will not be lost as long as at least one in-sync replica remains          * alive. This is the strongest available guarantee.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|requestRequiredAcks ( String requestRequiredAcks)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3249,7 +3249,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time the broker will wait trying to meet the          * request.required.acks requirement before sending back an error to the          * client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The amount of time the broker will wait trying to meet the          * request.required.acks requirement before sending back an error to the          * client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|requestTimeoutMs ( Integer requestTimeoutMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3270,7 +3270,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The amount of time the broker will wait trying to meet the          * request.required.acks requirement before sending back an error to the          * client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The amount of time the broker will wait trying to meet the          * request.required.acks requirement before sending back an error to the          * client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|requestTimeoutMs ( String requestTimeoutMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3291,7 +3291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting a value greater than zero will cause the client to resend any          * record whose send fails with a potentially transient error. Note that          * this retry is no different than if the client resent the record upon          * receiving the error. Allowing retries will potentially change the          * ordering of records because if two records are sent to a single          * partition, and the first fails and is retried but the second          * succeeds, then the second record may appear first.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Setting a value greater than zero will cause the client to resend any          * record whose send fails with a potentially transient error. Note that          * this retry is no different than if the client resent the record upon          * receiving the error. Allowing retries will potentially change the          * ordering of records because if two records are sent to a single          * partition, and the first fails and is retried but the second          * succeeds, then the second record may appear first.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|retries (Integer retries)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3312,7 +3312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Setting a value greater than zero will cause the client to resend any          * record whose send fails with a potentially transient error. Note that          * this retry is no different than if the client resent the record upon          * receiving the error. Allowing retries will potentially change the          * ordering of records because if two records are sent to a single          * partition, and the first fails and is retried but the second          * succeeds, then the second record may appear first.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Setting a value greater than zero will cause the client to resend any          * record whose send fails with a potentially transient error. Note that          * this retry is no different than if the client resent the record upon          * receiving the error. Allowing retries will potentially change the          * ordering of records because if two records are sent to a single          * partition, and the first fails and is retried but the second          * succeeds, then the second record may appear first.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|retries (String retries)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3333,7 +3333,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Before each retry, the producer refreshes the metadata of relevant          * topics to see if a new leader has been elected. Since leader election          * takes a bit of time, this property specifies the amount of time that          * the producer waits before refreshing the metadata.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Before each retry, the producer refreshes the metadata of relevant          * topics to see if a new leader has been elected. Since leader election          * takes a bit of time, this property specifies the amount of time that          * the producer waits before refreshing the metadata.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|retryBackoffMs ( Integer retryBackoffMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3354,7 +3354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Before each retry, the producer refreshes the metadata of relevant          * topics to see if a new leader has been elected. Since leader election          * takes a bit of time, this property specifies the amount of time that          * the producer waits before refreshing the metadata.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Before each retry, the producer refreshes the metadata of relevant          * topics to see if a new leader has been elected. Since leader election          * takes a bit of time, this property specifies the amount of time that          * the producer waits before refreshing the metadata.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|retryBackoffMs ( String retryBackoffMs)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3375,7 +3375,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Socket write buffer size.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Socket write buffer size.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|sendBufferBytes ( Integer sendBufferBytes)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3396,7 +3396,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Socket write buffer size.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Socket write buffer size.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|sendBufferBytes ( String sendBufferBytes)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3417,7 +3417,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The serializer class for messages.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The serializer class for messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|serializerClass ( String serializerClass)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3438,7 +3438,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom worker pool for continue routing Exchange after kafka          * server has acknowledge the message that was sent to it from          * KafkaProducer using asynchronous non-blocking processing.          * The option is a<code>java.util.concurrent.ExecutorService</code>          * type.          * @group producer          */
+comment|/**          * To use a custom worker pool for continue routing Exchange after kafka          * server has acknowledge the message that was sent to it from          * KafkaProducer using asynchronous non-blocking processing.          *           * The option is a:<code>java.util.concurrent.ExecutorService</code>          * type.          *           * Group: producer          */
 DECL|method|workerPool ( ExecutorService workerPool)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3459,7 +3459,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom worker pool for continue routing Exchange after kafka          * server has acknowledge the message that was sent to it from          * KafkaProducer using asynchronous non-blocking processing.          * The option will be converted to a          *<code>java.util.concurrent.ExecutorService</code> type.          * @group producer          */
+comment|/**          * To use a custom worker pool for continue routing Exchange after kafka          * server has acknowledge the message that was sent to it from          * KafkaProducer using asynchronous non-blocking processing.          *           * The option will be converted to a          *<code>java.util.concurrent.ExecutorService</code> type.          *           * Group: producer          */
 DECL|method|workerPool (String workerPool)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3480,7 +3480,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of core threads for the worker pool for continue routing          * Exchange after kafka server has acknowledge the message that was sent          * to it from KafkaProducer using asynchronous non-blocking processing.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Number of core threads for the worker pool for continue routing          * Exchange after kafka server has acknowledge the message that was sent          * to it from KafkaProducer using asynchronous non-blocking processing.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|workerPoolCoreSize ( Integer workerPoolCoreSize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3501,7 +3501,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of core threads for the worker pool for continue routing          * Exchange after kafka server has acknowledge the message that was sent          * to it from KafkaProducer using asynchronous non-blocking processing.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Number of core threads for the worker pool for continue routing          * Exchange after kafka server has acknowledge the message that was sent          * to it from KafkaProducer using asynchronous non-blocking processing.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|workerPoolCoreSize ( String workerPoolCoreSize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3522,7 +3522,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum number of threads for the worker pool for continue routing          * Exchange after kafka server has acknowledge the message that was sent          * to it from KafkaProducer using asynchronous non-blocking processing.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * Maximum number of threads for the worker pool for continue routing          * Exchange after kafka server has acknowledge the message that was sent          * to it from KafkaProducer using asynchronous non-blocking processing.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|workerPoolMaxSize ( Integer workerPoolMaxSize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3543,7 +3543,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Maximum number of threads for the worker pool for continue routing          * Exchange after kafka server has acknowledge the message that was sent          * to it from KafkaProducer using asynchronous non-blocking processing.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * Maximum number of threads for the worker pool for continue routing          * Exchange after kafka server has acknowledge the message that was sent          * to it from KafkaProducer using asynchronous non-blocking processing.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|workerPoolMaxSize ( String workerPoolMaxSize)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3564,7 +3564,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets interceptors for producer or consumers. Producer interceptors          * have to be classes implementing          * org.apache.kafka.clients.producer.ProducerInterceptor Consumer          * interceptors have to be classes implementing          * org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if          * you use Producer interceptor on a consumer it will throw a class cast          * exception in runtime.          * The option is a<code>java.lang.String</code> type.          * @group monitoring          */
+comment|/**          * Sets interceptors for producer or consumers. Producer interceptors          * have to be classes implementing          * org.apache.kafka.clients.producer.ProducerInterceptor Consumer          * interceptors have to be classes implementing          * org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if          * you use Producer interceptor on a consumer it will throw a class cast          * exception in runtime.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: monitoring          */
 DECL|method|interceptorClasses ( String interceptorClasses)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3585,7 +3585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread sleep time between refresh attempts.          * The option is a<code>java.lang.Integer</code> type.          * @group security          */
+comment|/**          * Login thread sleep time between refresh attempts.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: security          */
 DECL|method|kerberosBeforeReloginMinTime ( Integer kerberosBeforeReloginMinTime)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3606,7 +3606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread sleep time between refresh attempts.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group security          */
+comment|/**          * Login thread sleep time between refresh attempts.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: security          */
 DECL|method|kerberosBeforeReloginMinTime ( String kerberosBeforeReloginMinTime)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3627,7 +3627,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Kerberos kinit command path. Default is /usr/bin/kinit.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Kerberos kinit command path. Default is /usr/bin/kinit.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|kerberosInitCmd ( String kerberosInitCmd)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3648,7 +3648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see the          * security authorization and acls documentation.. Multiple values can          * be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see the          * security authorization and acls documentation.. Multiple values can          * be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|kerberosPrincipalToLocalRules ( String kerberosPrincipalToLocalRules)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3669,7 +3669,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Percentage of random jitter added to the renewal time.          * The option is a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Percentage of random jitter added to the renewal time.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewJitter ( Double kerberosRenewJitter)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3690,7 +3690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Percentage of random jitter added to the renewal time.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Percentage of random jitter added to the renewal time.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewJitter ( String kerberosRenewJitter)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3711,7 +3711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          * The option is a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewWindowFactor ( Double kerberosRenewWindowFactor)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3732,7 +3732,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewWindowFactor ( String kerberosRenewWindowFactor)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3753,7 +3753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username=USERNAME password=PASSWORD;.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username=USERNAME password=PASSWORD;.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslJaasConfig ( String saslJaasConfig)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3774,7 +3774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Kerberos principal name that Kafka runs as. This can be defined          * either in Kafka's JAAS config or in Kafka's config.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The Kerberos principal name that Kafka runs as. This can be defined          * either in Kafka's JAAS config or in Kafka's config.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslKerberosServiceName ( String saslKerberosServiceName)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3795,7 +3795,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Simple Authentication and Security Layer (SASL) Mechanism used.          * For the valid values see a href=          * http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtmlhttp://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The Simple Authentication and Security Layer (SASL) Mechanism used.          * For the valid values see a href=          * http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtmlhttp://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslMechanism (String saslMechanism)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3816,7 +3816,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT          * and SSL are supported.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT          * and SSL are supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|securityProtocol ( String securityProtocol)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3837,7 +3837,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of cipher suites. This is a named combination of          * authentication, encryption, MAC and key exchange algorithm used to          * negotiate the security settings for a network connection using TLS or          * SSL network protocol.By default all the available cipher suites are          * supported.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * A list of cipher suites. This is a named combination of          * authentication, encryption, MAC and key exchange algorithm used to          * negotiate the security settings for a network connection using TLS or          * SSL network protocol.By default all the available cipher suites are          * supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslCipherSuites ( String sslCipherSuites)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3858,7 +3858,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3879,7 +3879,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3900,7 +3900,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1          * and TLSv1 are enabled by default.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1          * and TLSv1 are enabled by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslEnabledProtocols ( String sslEnabledProtocols)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3921,7 +3921,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The endpoint identification algorithm to validate server hostname          * using server certificate.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The endpoint identification algorithm to validate server hostname          * using server certificate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslEndpointAlgorithm ( String sslEndpointAlgorithm)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3942,7 +3942,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used by key manager factory for SSL connections.          * Default value is the key manager factory algorithm configured for the          * Java Virtual Machine.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The algorithm used by key manager factory for SSL connections.          * Default value is the key manager factory algorithm configured for the          * Java Virtual Machine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeymanagerAlgorithm ( String sslKeymanagerAlgorithm)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3963,7 +3963,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The password of the private key in the key store file. This is          * optional for client.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The password of the private key in the key store file. This is          * optional for client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeyPassword ( String sslKeyPassword)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -3984,7 +3984,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of the key store file. This is optional for client and          * can be used for two-way authentication for client.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The location of the key store file. This is optional for client and          * can be used for two-way authentication for client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeystoreLocation ( String sslKeystoreLocation)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4005,7 +4005,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The store password for the key store file.This is optional for client          * and only needed if ssl.keystore.location is configured.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The store password for the key store file.This is optional for client          * and only needed if ssl.keystore.location is configured.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeystorePassword ( String sslKeystorePassword)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4026,7 +4026,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file format of the key store file. This is optional for client.          * Default value is JKS.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The file format of the key store file. This is optional for client.          * Default value is JKS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeystoreType ( String sslKeystoreType)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4047,7 +4047,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The SSL protocol used to generate the SSLContext. Default setting is          * TLS, which is fine for most cases. Allowed values in recent JVMs are          * TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in          * older JVMs, but their usage is discouraged due to known security          * vulnerabilities.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The SSL protocol used to generate the SSLContext. Default setting is          * TLS, which is fine for most cases. Allowed values in recent JVMs are          * TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in          * older JVMs, but their usage is discouraged due to known security          * vulnerabilities.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslProtocol (String sslProtocol)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4068,7 +4068,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of the security provider used for SSL connections. Default          * value is the default security provider of the JVM.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The name of the security provider used for SSL connections. Default          * value is the default security provider of the JVM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslProvider (String sslProvider)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4089,7 +4089,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used by trust manager factory for SSL connections.          * Default value is the trust manager factory algorithm configured for          * the Java Virtual Machine.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The algorithm used by trust manager factory for SSL connections.          * Default value is the trust manager factory algorithm configured for          * the Java Virtual Machine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTrustmanagerAlgorithm ( String sslTrustmanagerAlgorithm)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4110,7 +4110,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file format of the trust store file. Default value is JKS.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The file format of the trust store file. Default value is JKS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTruststoreType ( String sslTruststoreType)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4131,7 +4131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URL of the Confluent Platform schema registry servers to use. The          * format is host1:port1,host2:port2. This is known as          * schema.registry.url in the Confluent Platform documentation. This          * option is only available in the Confluent Platform (not standard          * Apache Kafka).          * The option is a<code>java.lang.String</code> type.          * @group confluent          */
+comment|/**          * URL of the Confluent Platform schema registry servers to use. The          * format is host1:port1,host2:port2. This is known as          * schema.registry.url in the Confluent Platform documentation. This          * option is only available in the Confluent Platform (not standard          * Apache Kafka).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: confluent          */
 DECL|method|schemaRegistryURL ( String schemaRegistryURL)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4152,7 +4152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of the trust store file.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The location of the trust store file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTruststoreLocation ( String sslTruststoreLocation)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4173,7 +4173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The password for the trust store file.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The password for the trust store file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTruststorePassword ( String sslTruststorePassword)
 specifier|default
 name|KafkaEndpointProducerBuilder
@@ -4216,7 +4216,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedKafkaEndpointProducerBuilder
@@ -4237,7 +4237,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedKafkaEndpointProducerBuilder
@@ -4258,7 +4258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedKafkaEndpointProducerBuilder
@@ -4279,7 +4279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedKafkaEndpointProducerBuilder
@@ -4324,7 +4324,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4345,7 +4345,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URL of the Kafka brokers to use. The format is          * host1:port1,host2:port2, and the list can be a subset of brokers or a          * VIP pointing to a subset of brokers. This option is known as          * bootstrap.servers in the Kafka documentation.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * URL of the Kafka brokers to use. The format is          * host1:port1,host2:port2, and the list can be a subset of brokers or a          * VIP pointing to a subset of brokers. This option is known as          * bootstrap.servers in the Kafka documentation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|brokers (String brokers)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4366,7 +4366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The client id is a user-specified string sent in each request to help          * trace calls. It should logically identify the application making the          * request.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The client id is a user-specified string sent in each request to help          * trace calls. It should logically identify the application making the          * request.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4387,7 +4387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option is a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option is a:          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: common          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4408,7 +4408,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          * @group common          */
+comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option will be converted to a          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: common          */
 DECL|method|headerFilterStrategy ( String headerFilterStrategy)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4429,7 +4429,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          * The option is a<code>java.lang.Integer</code> type.          * @group common          */
+comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|reconnectBackoffMaxMs ( Integer reconnectBackoffMaxMs)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4450,7 +4450,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group common          */
+comment|/**          * The maximum amount of time in milliseconds to wait when reconnecting          * to a broker that has repeatedly failed to connect. If provided, the          * backoff per host will increase exponentially for each consecutive          * connection failure, up to this maximum. After calculating the backoff          * increase, 20% random jitter is added to avoid connection storms.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
 DECL|method|reconnectBackoffMaxMs ( String reconnectBackoffMaxMs)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4471,7 +4471,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets interceptors for producer or consumers. Producer interceptors          * have to be classes implementing          * org.apache.kafka.clients.producer.ProducerInterceptor Consumer          * interceptors have to be classes implementing          * org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if          * you use Producer interceptor on a consumer it will throw a class cast          * exception in runtime.          * The option is a<code>java.lang.String</code> type.          * @group monitoring          */
+comment|/**          * Sets interceptors for producer or consumers. Producer interceptors          * have to be classes implementing          * org.apache.kafka.clients.producer.ProducerInterceptor Consumer          * interceptors have to be classes implementing          * org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if          * you use Producer interceptor on a consumer it will throw a class cast          * exception in runtime.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: monitoring          */
 DECL|method|interceptorClasses ( String interceptorClasses)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4492,7 +4492,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread sleep time between refresh attempts.          * The option is a<code>java.lang.Integer</code> type.          * @group security          */
+comment|/**          * Login thread sleep time between refresh attempts.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: security          */
 DECL|method|kerberosBeforeReloginMinTime ( Integer kerberosBeforeReloginMinTime)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4513,7 +4513,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread sleep time between refresh attempts.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group security          */
+comment|/**          * Login thread sleep time between refresh attempts.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: security          */
 DECL|method|kerberosBeforeReloginMinTime ( String kerberosBeforeReloginMinTime)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4534,7 +4534,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Kerberos kinit command path. Default is /usr/bin/kinit.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Kerberos kinit command path. Default is /usr/bin/kinit.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|kerberosInitCmd (String kerberosInitCmd)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4555,7 +4555,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see the          * security authorization and acls documentation.. Multiple values can          * be separated by comma.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * A list of rules for mapping from principal names to short names          * (typically operating system usernames). The rules are evaluated in          * order and the first rule that matches a principal name is used to map          * it to a short name. Any later rules in the list are ignored. By          * default, principal names of the form {username}/{hostname}{REALM} are          * mapped to {username}. For more details on the format please see the          * security authorization and acls documentation.. Multiple values can          * be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|kerberosPrincipalToLocalRules ( String kerberosPrincipalToLocalRules)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4576,7 +4576,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Percentage of random jitter added to the renewal time.          * The option is a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Percentage of random jitter added to the renewal time.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewJitter ( Double kerberosRenewJitter)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4597,7 +4597,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Percentage of random jitter added to the renewal time.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Percentage of random jitter added to the renewal time.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewJitter ( String kerberosRenewJitter)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4618,7 +4618,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          * The option is a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewWindowFactor ( Double kerberosRenewWindowFactor)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4639,7 +4639,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          * The option will be converted to a<code>java.lang.Double</code> type.          * @group security          */
+comment|/**          * Login thread will sleep until the specified window factor of time          * from last refresh to ticket's expiry has been reached, at which time          * it will try to renew the ticket.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: security          */
 DECL|method|kerberosRenewWindowFactor ( String kerberosRenewWindowFactor)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4660,7 +4660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username=USERNAME password=PASSWORD;.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Expose the kafka sasl.jaas.config parameter Example:          * org.apache.kafka.common.security.plain.PlainLoginModule required          * username=USERNAME password=PASSWORD;.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslJaasConfig (String saslJaasConfig)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4681,7 +4681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Kerberos principal name that Kafka runs as. This can be defined          * either in Kafka's JAAS config or in Kafka's config.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The Kerberos principal name that Kafka runs as. This can be defined          * either in Kafka's JAAS config or in Kafka's config.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslKerberosServiceName ( String saslKerberosServiceName)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4702,7 +4702,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Simple Authentication and Security Layer (SASL) Mechanism used.          * For the valid values see a href=          * http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtmlhttp://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The Simple Authentication and Security Layer (SASL) Mechanism used.          * For the valid values see a href=          * http://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtmlhttp://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|saslMechanism (String saslMechanism)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4723,7 +4723,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT          * and SSL are supported.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * Protocol used to communicate with brokers. SASL_PLAINTEXT, PLAINTEXT          * and SSL are supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|securityProtocol (String securityProtocol)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4744,7 +4744,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A list of cipher suites. This is a named combination of          * authentication, encryption, MAC and key exchange algorithm used to          * negotiate the security settings for a network connection using TLS or          * SSL network protocol.By default all the available cipher suites are          * supported.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * A list of cipher suites. This is a named combination of          * authentication, encryption, MAC and key exchange algorithm used to          * negotiate the security settings for a network connection using TLS or          * SSL network protocol.By default all the available cipher suites are          * supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslCipherSuites (String sslCipherSuites)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4765,7 +4765,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          * The option is a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4786,7 +4786,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          * @group security          */
+comment|/**          * SSL configuration using a Camel SSLContextParameters object. If          * configured it's applied before the other SSL endpoint parameters.          *           * The option will be converted to a          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: security          */
 DECL|method|sslContextParameters ( String sslContextParameters)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4807,7 +4807,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1          * and TLSv1 are enabled by default.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1          * and TLSv1 are enabled by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslEnabledProtocols ( String sslEnabledProtocols)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4828,7 +4828,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The endpoint identification algorithm to validate server hostname          * using server certificate.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The endpoint identification algorithm to validate server hostname          * using server certificate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslEndpointAlgorithm ( String sslEndpointAlgorithm)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4849,7 +4849,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used by key manager factory for SSL connections.          * Default value is the key manager factory algorithm configured for the          * Java Virtual Machine.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The algorithm used by key manager factory for SSL connections.          * Default value is the key manager factory algorithm configured for the          * Java Virtual Machine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeymanagerAlgorithm ( String sslKeymanagerAlgorithm)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4870,7 +4870,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file format of the key store file. This is optional for client.          * Default value is JKS.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The file format of the key store file. This is optional for client.          * Default value is JKS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslKeystoreType (String sslKeystoreType)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4891,7 +4891,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The SSL protocol used to generate the SSLContext. Default setting is          * TLS, which is fine for most cases. Allowed values in recent JVMs are          * TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in          * older JVMs, but their usage is discouraged due to known security          * vulnerabilities.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The SSL protocol used to generate the SSLContext. Default setting is          * TLS, which is fine for most cases. Allowed values in recent JVMs are          * TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in          * older JVMs, but their usage is discouraged due to known security          * vulnerabilities.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslProtocol (String sslProtocol)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4912,7 +4912,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name of the security provider used for SSL connections. Default          * value is the default security provider of the JVM.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The name of the security provider used for SSL connections. Default          * value is the default security provider of the JVM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslProvider (String sslProvider)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4933,7 +4933,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The algorithm used by trust manager factory for SSL connections.          * Default value is the trust manager factory algorithm configured for          * the Java Virtual Machine.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The algorithm used by trust manager factory for SSL connections.          * Default value is the trust manager factory algorithm configured for          * the Java Virtual Machine.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTrustmanagerAlgorithm ( String sslTrustmanagerAlgorithm)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4954,7 +4954,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file format of the trust store file. Default value is JKS.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The file format of the trust store file. Default value is JKS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTruststoreType (String sslTruststoreType)
 specifier|default
 name|KafkaEndpointBuilder
@@ -4975,7 +4975,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * URL of the Confluent Platform schema registry servers to use. The          * format is host1:port1,host2:port2. This is known as          * schema.registry.url in the Confluent Platform documentation. This          * option is only available in the Confluent Platform (not standard          * Apache Kafka).          * The option is a<code>java.lang.String</code> type.          * @group confluent          */
+comment|/**          * URL of the Confluent Platform schema registry servers to use. The          * format is host1:port1,host2:port2. This is known as          * schema.registry.url in the Confluent Platform documentation. This          * option is only available in the Confluent Platform (not standard          * Apache Kafka).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: confluent          */
 DECL|method|schemaRegistryURL (String schemaRegistryURL)
 specifier|default
 name|KafkaEndpointBuilder
@@ -5020,7 +5020,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedKafkaEndpointBuilder
@@ -5041,7 +5041,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedKafkaEndpointBuilder
@@ -5062,7 +5062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedKafkaEndpointBuilder
@@ -5083,7 +5083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedKafkaEndpointBuilder

@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of endpoint to lookup in the registry to use for polling          * messages used for testing.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of endpoint to lookup in the registry to use for polling          * messages used for testing.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|name (String name)
 specifier|default
 name|DataSetTestEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the expected messages should arrive in the same order or can          * be in any order.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the expected messages should arrive in the same order or can          * be in any order.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|anyOrder (boolean anyOrder)
 specifier|default
 name|DataSetTestEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the expected messages should arrive in the same order or can          * be in any order.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the expected messages should arrive in the same order or can          * be in any order.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|anyOrder (String anyOrder)
 specifier|default
 name|DataSetTestEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The split delimiter to use when split is enabled. By default the          * delimiter is new line based. The delimiter can be a regular          * expression.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The split delimiter to use when split is enabled. By default the          * delimiter is new line based. The delimiter can be a regular          * expression.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|delimiter (String delimiter)
 specifier|default
 name|DataSetTestEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled the messages loaded from the test endpoint will be split          * using new line delimiters so each line is an expected message. For          * example to use a file endpoint to load a file where each line is an          * expected message.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If enabled the messages loaded from the test endpoint will be split          * using new line delimiters so each line is an expected message. For          * example to use a file endpoint to load a file where each line is an          * expected message.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|split (boolean split)
 specifier|default
 name|DataSetTestEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled the messages loaded from the test endpoint will be split          * using new line delimiters so each line is an expected message. For          * example to use a file endpoint to load a file where each line is an          * expected message.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * If enabled the messages loaded from the test endpoint will be split          * using new line delimiters so each line is an expected message. For          * example to use a file endpoint to load a file where each line is an          * expected message.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|split (String split)
 specifier|default
 name|DataSetTestEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout to use when polling for message bodies from the URI.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * The timeout to use when polling for message bodies from the URI.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|timeout (long timeout)
 specifier|default
 name|DataSetTestEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The timeout to use when polling for message bodies from the URI.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * The timeout to use when polling for message bodies from the URI.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|timeout (String timeout)
 specifier|default
 name|DataSetTestEndpointBuilder
@@ -300,7 +300,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDataSetTestEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDataSetTestEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedDataSetTestEndpointBuilder
@@ -363,7 +363,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedDataSetTestEndpointBuilder

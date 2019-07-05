@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the domain currently worked with.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The name of the domain currently worked with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|domainName (String domainName)
 specifier|default
 name|SdbEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Access Key.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Amazon AWS Access Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|accessKey (String accessKey)
 specifier|default
 name|SdbEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use the AmazonSimpleDB as the client.          * The option is a          *<code>com.amazonaws.services.simpledb.AmazonSimpleDB</code> type.          * @group producer          */
+comment|/**          * To use the AmazonSimpleDB as the client.          *           * The option is a:          *<code>com.amazonaws.services.simpledb.AmazonSimpleDB</code> type.          *           * Group: producer          */
 DECL|method|amazonSDBClient (Object amazonSDBClient)
 specifier|default
 name|SdbEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use the AmazonSimpleDB as the client.          * The option will be converted to a          *<code>com.amazonaws.services.simpledb.AmazonSimpleDB</code> type.          * @group producer          */
+comment|/**          * To use the AmazonSimpleDB as the client.          *           * The option will be converted to a          *<code>com.amazonaws.services.simpledb.AmazonSimpleDB</code> type.          *           * Group: producer          */
 DECL|method|amazonSDBClient (String amazonSDBClient)
 specifier|default
 name|SdbEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|consistentRead (boolean consistentRead)
 specifier|default
 name|SdbEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Determines whether or not strong consistency should be enforced when          * data is read.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|consistentRead (String consistentRead)
 specifier|default
 name|SdbEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of domain names you want returned. The range is 1          * to 100.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * The maximum number of domain names you want returned. The range is 1          * to 100.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|maxNumberOfDomains (Integer maxNumberOfDomains)
 specifier|default
 name|SdbEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The maximum number of domain names you want returned. The range is 1          * to 100.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * The maximum number of domain names you want returned. The range is 1          * to 100.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|maxNumberOfDomains (String maxNumberOfDomains)
 specifier|default
 name|SdbEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Operation to perform.          * The option is a          *<code>org.apache.camel.component.aws.sdb.SdbOperations</code> type.          * @group producer          */
+comment|/**          * Operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.aws.sdb.SdbOperations</code> type.          *           * Group: producer          */
 DECL|method|operation (SdbOperations operation)
 specifier|default
 name|SdbEndpointBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Operation to perform.          * The option will be converted to a          *<code>org.apache.camel.component.aws.sdb.SdbOperations</code> type.          * @group producer          */
+comment|/**          * Operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.aws.sdb.SdbOperations</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|SdbEndpointBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy host when instantiating the SDB client.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * To define a proxy host when instantiating the SDB client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|SdbEndpointBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the SDB client.          * The option is a<code>java.lang.Integer</code> type.          * @group producer          */
+comment|/**          * To define a proxy port when instantiating the SDB client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|SdbEndpointBuilder
@@ -362,7 +362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the SDB client.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group producer          */
+comment|/**          * To define a proxy port when instantiating the SDB client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|SdbEndpointBuilder
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The region in which SDB client needs to work.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The region in which SDB client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
 name|SdbEndpointBuilder
@@ -404,7 +404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Secret Key.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Amazon AWS Secret Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|secretKey (String secretKey)
 specifier|default
 name|SdbEndpointBuilder
@@ -447,7 +447,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSdbEndpointBuilder
@@ -468,7 +468,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSdbEndpointBuilder
@@ -489,7 +489,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedSdbEndpointBuilder
@@ -510,7 +510,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSdbEndpointBuilder

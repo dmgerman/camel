@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSet to lookup in the registry.          * The option is a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          * @group common          */
+comment|/**          * Name of DataSet to lookup in the registry.          *           * The option is a:          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
 DECL|method|name (Object name)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSet to lookup in the registry.          * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          * @group common          */
+comment|/**          * Name of DataSet to lookup in the registry.          *           * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls the behaviour of the CamelDataSetIndex header. For          * Consumers: - off = the header will not be set - strict/lenient = the          * header will be set For Producers: - off = the header value will not          * be verified, and will not be set if it is not present = strict = the          * header value must be present and will be verified = lenient = the          * header value will be verified if it is present, and will be set if it          * is not present.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Controls the behaviour of the CamelDataSetIndex header. For          * Consumers: - off = the header will not be set - strict/lenient = the          * header will be set For Producers: - off = the header value will not          * be verified, and will not be set if it is not present = strict = the          * header value must be present and will be verified = lenient = the          * header value will be verified if it is present, and will be set if it          * is not present.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataSetIndex (String dataSetIndex)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time period in millis to wait before starting sending messages.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * Time period in millis to wait before starting sending messages.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time period in millis to wait before starting sending messages.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * Time period in millis to wait before starting sending messages.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Wait until the DataSet contains at least this number of messages.          * The option is a<code>int</code> type.          * @group consumer          */
+comment|/**          * Wait until the DataSet contains at least this number of messages.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|minRate (int minRate)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Wait until the DataSet contains at least this number of messages.          * The option will be converted to a<code>int</code> type.          * @group consumer          */
+comment|/**          * Wait until the DataSet contains at least this number of messages.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|minRate (String minRate)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets how many messages should be preloaded (sent) before the route          * completes its initialization.          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * Sets how many messages should be preloaded (sent) before the route          * completes its initialization.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|preloadSize (long preloadSize)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets how many messages should be preloaded (sent) before the route          * completes its initialization.          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * Sets how many messages should be preloaded (sent) before the route          * completes its initialization.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|preloadSize (String preloadSize)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -299,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows a delay to be specified which causes a delay when a message is          * sent by the consumer (to simulate slow processing).          * The option is a<code>long</code> type.          * @group consumer          */
+comment|/**          * Allows a delay to be specified which causes a delay when a message is          * sent by the consumer (to simulate slow processing).          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|produceDelay (long produceDelay)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -320,7 +320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows a delay to be specified which causes a delay when a message is          * sent by the consumer (to simulate slow processing).          * The option will be converted to a<code>long</code> type.          * @group consumer          */
+comment|/**          * Allows a delay to be specified which causes a delay when a message is          * sent by the consumer (to simulate slow processing).          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
 DECL|method|produceDelay (String produceDelay)
 specifier|default
 name|DataSetEndpointConsumerBuilder
@@ -363,7 +363,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDataSetEndpointConsumerBuilder
@@ -384,7 +384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDataSetEndpointConsumerBuilder
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedDataSetEndpointConsumerBuilder
@@ -426,7 +426,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedDataSetEndpointConsumerBuilder
@@ -469,7 +469,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSet to lookup in the registry.          * The option is a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          * @group common          */
+comment|/**          * Name of DataSet to lookup in the registry.          *           * The option is a:          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
 DECL|method|name (Object name)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -490,7 +490,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSet to lookup in the registry.          * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          * @group common          */
+comment|/**          * Name of DataSet to lookup in the registry.          *           * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -511,7 +511,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls the behaviour of the CamelDataSetIndex header. For          * Consumers: - off = the header will not be set - strict/lenient = the          * header will be set For Producers: - off = the header value will not          * be verified, and will not be set if it is not present = strict = the          * header value must be present and will be verified = lenient = the          * header value will be verified if it is present, and will be set if it          * is not present.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Controls the behaviour of the CamelDataSetIndex header. For          * Consumers: - off = the header will not be set - strict/lenient = the          * header will be set For Producers: - off = the header value will not          * be verified, and will not be set if it is not present = strict = the          * header value must be present and will be verified = lenient = the          * header value will be verified if it is present, and will be set if it          * is not present.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataSetIndex (String dataSetIndex)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -532,7 +532,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows a delay to be specified which causes a delay when a message is          * consumed by the producer (to simulate slow processing).          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * Allows a delay to be specified which causes a delay when a message is          * consumed by the producer (to simulate slow processing).          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|consumeDelay (long consumeDelay)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -553,7 +553,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows a delay to be specified which causes a delay when a message is          * consumed by the producer (to simulate slow processing).          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * Allows a delay to be specified which causes a delay when a message is          * consumed by the producer (to simulate slow processing).          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|consumeDelay (String consumeDelay)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -574,7 +574,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a grace period after which the mock endpoint will re-assert to          * ensure the preliminary assertion is still valid. This is used for          * example to assert that exactly a number of messages arrives. For          * example if expectedMessageCount(int) was set to 5, then the assertion          * is satisfied when 5 or more message arrives. To ensure that exactly 5          * messages arrives, then you would need to wait a little period to          * ensure no further message arrives. This is what you can use this          * method for. By default this period is disabled.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * Sets a grace period after which the mock endpoint will re-assert to          * ensure the preliminary assertion is still valid. This is used for          * example to assert that exactly a number of messages arrives. For          * example if expectedMessageCount(int) was set to 5, then the assertion          * is satisfied when 5 or more message arrives. To ensure that exactly 5          * messages arrives, then you would need to wait a little period to          * ensure no further message arrives. This is what you can use this          * method for. By default this period is disabled.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|assertPeriod (long assertPeriod)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -595,7 +595,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a grace period after which the mock endpoint will re-assert to          * ensure the preliminary assertion is still valid. This is used for          * example to assert that exactly a number of messages arrives. For          * example if expectedMessageCount(int) was set to 5, then the assertion          * is satisfied when 5 or more message arrives. To ensure that exactly 5          * messages arrives, then you would need to wait a little period to          * ensure no further message arrives. This is what you can use this          * method for. By default this period is disabled.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * Sets a grace period after which the mock endpoint will re-assert to          * ensure the preliminary assertion is still valid. This is used for          * example to assert that exactly a number of messages arrives. For          * example if expectedMessageCount(int) was set to 5, then the assertion          * is satisfied when 5 or more message arrives. To ensure that exactly 5          * messages arrives, then you would need to wait a little period to          * ensure no further message arrives. This is what you can use this          * method for. By default this period is disabled.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|assertPeriod (String assertPeriod)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -616,7 +616,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the expected number of message exchanges that should be          * received by this endpoint. Beware: If you want to expect that 0          * messages, then take extra care, as 0 matches when the tests starts,          * so you need to set a assert period time to let the test run for a          * while to make sure there are still no messages arrived; for that use          * setAssertPeriod(long). An alternative is to use NotifyBuilder, and          * use the notifier to know when Camel is done routing some messages,          * before you call the assertIsSatisfied() method on the mocks. This          * allows you to not use a fixed assert period, to speedup testing          * times. If you want to assert that exactly n'th message arrives to          * this mock endpoint, then see also the setAssertPeriod(long) method          * for further details.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Specifies the expected number of message exchanges that should be          * received by this endpoint. Beware: If you want to expect that 0          * messages, then take extra care, as 0 matches when the tests starts,          * so you need to set a assert period time to let the test run for a          * while to make sure there are still no messages arrived; for that use          * setAssertPeriod(long). An alternative is to use NotifyBuilder, and          * use the notifier to know when Camel is done routing some messages,          * before you call the assertIsSatisfied() method on the mocks. This          * allows you to not use a fixed assert period, to speedup testing          * times. If you want to assert that exactly n'th message arrives to          * this mock endpoint, then see also the setAssertPeriod(long) method          * for further details.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|expectedCount (int expectedCount)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -637,7 +637,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the expected number of message exchanges that should be          * received by this endpoint. Beware: If you want to expect that 0          * messages, then take extra care, as 0 matches when the tests starts,          * so you need to set a assert period time to let the test run for a          * while to make sure there are still no messages arrived; for that use          * setAssertPeriod(long). An alternative is to use NotifyBuilder, and          * use the notifier to know when Camel is done routing some messages,          * before you call the assertIsSatisfied() method on the mocks. This          * allows you to not use a fixed assert period, to speedup testing          * times. If you want to assert that exactly n'th message arrives to          * this mock endpoint, then see also the setAssertPeriod(long) method          * for further details.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Specifies the expected number of message exchanges that should be          * received by this endpoint. Beware: If you want to expect that 0          * messages, then take extra care, as 0 matches when the tests starts,          * so you need to set a assert period time to let the test run for a          * while to make sure there are still no messages arrived; for that use          * setAssertPeriod(long). An alternative is to use NotifyBuilder, and          * use the notifier to know when Camel is done routing some messages,          * before you call the assertIsSatisfied() method on the mocks. This          * allows you to not use a fixed assert period, to speedup testing          * times. If you want to assert that exactly n'th message arrives to          * this mock endpoint, then see also the setAssertPeriod(long) method          * for further details.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|expectedCount ( String expectedCount)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -658,7 +658,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -679,7 +679,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -700,7 +700,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A number that is used to turn on throughput logging based on groups          * of the size.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * A number that is used to turn on throughput logging based on groups          * of the size.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|reportGroup (int reportGroup)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -721,7 +721,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A number that is used to turn on throughput logging based on groups          * of the size.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * A number that is used to turn on throughput logging based on groups          * of the size.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|reportGroup (String reportGroup)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -742,7 +742,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the minimum expected amount of time (in millis) the          * assertIsSatisfied() will wait on a latch until it is satisfied.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * Sets the minimum expected amount of time (in millis) the          * assertIsSatisfied() will wait on a latch until it is satisfied.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|resultMinimumWaitTime ( long resultMinimumWaitTime)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -763,7 +763,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the minimum expected amount of time (in millis) the          * assertIsSatisfied() will wait on a latch until it is satisfied.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * Sets the minimum expected amount of time (in millis) the          * assertIsSatisfied() will wait on a latch until it is satisfied.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|resultMinimumWaitTime ( String resultMinimumWaitTime)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -784,7 +784,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the maximum amount of time (in millis) the assertIsSatisfied()          * will wait on a latch until it is satisfied.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * Sets the maximum amount of time (in millis) the assertIsSatisfied()          * will wait on a latch until it is satisfied.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|resultWaitTime ( long resultWaitTime)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -805,7 +805,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the maximum amount of time (in millis) the assertIsSatisfied()          * will wait on a latch until it is satisfied.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * Sets the maximum amount of time (in millis) the assertIsSatisfied()          * will wait on a latch until it is satisfied.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|resultWaitTime ( String resultWaitTime)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -826,7 +826,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies to only retain the first n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the first 10 Exchanges, then the getReceivedCounter()          * will still return 5000 but there is only the first 10 Exchanges in          * the getExchanges() and getReceivedExchanges() methods. When using          * this method, then some of the other expectation methods is not          * supported, for example the expectedBodiesReceived(Object...) sets a          * expectation on the first number of bodies received. You can configure          * both setRetainFirst(int) and setRetainLast(int) methods, to limit          * both the first and last received.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Specifies to only retain the first n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the first 10 Exchanges, then the getReceivedCounter()          * will still return 5000 but there is only the first 10 Exchanges in          * the getExchanges() and getReceivedExchanges() methods. When using          * this method, then some of the other expectation methods is not          * supported, for example the expectedBodiesReceived(Object...) sets a          * expectation on the first number of bodies received. You can configure          * both setRetainFirst(int) and setRetainLast(int) methods, to limit          * both the first and last received.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|retainFirst (int retainFirst)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -847,7 +847,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies to only retain the first n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the first 10 Exchanges, then the getReceivedCounter()          * will still return 5000 but there is only the first 10 Exchanges in          * the getExchanges() and getReceivedExchanges() methods. When using          * this method, then some of the other expectation methods is not          * supported, for example the expectedBodiesReceived(Object...) sets a          * expectation on the first number of bodies received. You can configure          * both setRetainFirst(int) and setRetainLast(int) methods, to limit          * both the first and last received.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Specifies to only retain the first n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the first 10 Exchanges, then the getReceivedCounter()          * will still return 5000 but there is only the first 10 Exchanges in          * the getExchanges() and getReceivedExchanges() methods. When using          * this method, then some of the other expectation methods is not          * supported, for example the expectedBodiesReceived(Object...) sets a          * expectation on the first number of bodies received. You can configure          * both setRetainFirst(int) and setRetainLast(int) methods, to limit          * both the first and last received.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|retainFirst (String retainFirst)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -868,7 +868,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies to only retain the last n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the last 20 Exchanges, then the getReceivedCounter() will          * still return 5000 but there is only the last 20 Exchanges in the          * getExchanges() and getReceivedExchanges() methods. When using this          * method, then some of the other expectation methods is not supported,          * for example the expectedBodiesReceived(Object...) sets a expectation          * on the first number of bodies received. You can configure both          * setRetainFirst(int) and setRetainLast(int) methods, to limit both the          * first and last received.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Specifies to only retain the last n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the last 20 Exchanges, then the getReceivedCounter() will          * still return 5000 but there is only the last 20 Exchanges in the          * getExchanges() and getReceivedExchanges() methods. When using this          * method, then some of the other expectation methods is not supported,          * for example the expectedBodiesReceived(Object...) sets a expectation          * on the first number of bodies received. You can configure both          * setRetainFirst(int) and setRetainLast(int) methods, to limit both the          * first and last received.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|retainLast (int retainLast)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -889,7 +889,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies to only retain the last n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the last 20 Exchanges, then the getReceivedCounter() will          * still return 5000 but there is only the last 20 Exchanges in the          * getExchanges() and getReceivedExchanges() methods. When using this          * method, then some of the other expectation methods is not supported,          * for example the expectedBodiesReceived(Object...) sets a expectation          * on the first number of bodies received. You can configure both          * setRetainFirst(int) and setRetainLast(int) methods, to limit both the          * first and last received.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Specifies to only retain the last n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the last 20 Exchanges, then the getReceivedCounter() will          * still return 5000 but there is only the last 20 Exchanges in the          * getExchanges() and getReceivedExchanges() methods. When using this          * method, then some of the other expectation methods is not supported,          * for example the expectedBodiesReceived(Object...) sets a expectation          * on the first number of bodies received. You can configure both          * setRetainFirst(int) and setRetainLast(int) methods, to limit both the          * first and last received.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|retainLast (String retainLast)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -910,7 +910,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows a sleep to be specified to wait to check that this endpoint          * really is empty when expectedMessageCount(int) is called with zero.          * The option is a<code>long</code> type.          * @group producer          */
+comment|/**          * Allows a sleep to be specified to wait to check that this endpoint          * really is empty when expectedMessageCount(int) is called with zero.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|sleepForEmptyTest ( long sleepForEmptyTest)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -931,7 +931,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows a sleep to be specified to wait to check that this endpoint          * really is empty when expectedMessageCount(int) is called with zero.          * The option will be converted to a<code>long</code> type.          * @group producer          */
+comment|/**          * Allows a sleep to be specified to wait to check that this endpoint          * really is empty when expectedMessageCount(int) is called with zero.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|sleepForEmptyTest ( String sleepForEmptyTest)
 specifier|default
 name|DataSetEndpointProducerBuilder
@@ -974,7 +974,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to make a deep copy of the incoming Exchange when          * received at this mock endpoint. Is by default true.          * The option is a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Sets whether to make a deep copy of the incoming Exchange when          * received at this mock endpoint. Is by default true.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|copyOnExchange ( boolean copyOnExchange)
 specifier|default
 name|AdvancedDataSetEndpointProducerBuilder
@@ -995,7 +995,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether to make a deep copy of the incoming Exchange when          * received at this mock endpoint. Is by default true.          * The option will be converted to a<code>boolean</code> type.          * @group producer (advanced)          */
+comment|/**          * Sets whether to make a deep copy of the incoming Exchange when          * received at this mock endpoint. Is by default true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
 DECL|method|copyOnExchange ( String copyOnExchange)
 specifier|default
 name|AdvancedDataSetEndpointProducerBuilder
@@ -1016,7 +1016,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDataSetEndpointProducerBuilder
@@ -1037,7 +1037,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDataSetEndpointProducerBuilder
@@ -1058,7 +1058,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedDataSetEndpointProducerBuilder
@@ -1079,7 +1079,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedDataSetEndpointProducerBuilder
@@ -1124,7 +1124,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSet to lookup in the registry.          * The option is a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          * @group common          */
+comment|/**          * Name of DataSet to lookup in the registry.          *           * The option is a:          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
 DECL|method|name (Object name)
 specifier|default
 name|DataSetEndpointBuilder
@@ -1145,7 +1145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSet to lookup in the registry.          * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          * @group common          */
+comment|/**          * Name of DataSet to lookup in the registry.          *           * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|DataSetEndpointBuilder
@@ -1166,7 +1166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls the behaviour of the CamelDataSetIndex header. For          * Consumers: - off = the header will not be set - strict/lenient = the          * header will be set For Producers: - off = the header value will not          * be verified, and will not be set if it is not present = strict = the          * header value must be present and will be verified = lenient = the          * header value will be verified if it is present, and will be set if it          * is not present.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Controls the behaviour of the CamelDataSetIndex header. For          * Consumers: - off = the header will not be set - strict/lenient = the          * header will be set For Producers: - off = the header value will not          * be verified, and will not be set if it is not present = strict = the          * header value must be present and will be verified = lenient = the          * header value will be verified if it is present, and will be set if it          * is not present.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataSetIndex (String dataSetIndex)
 specifier|default
 name|DataSetEndpointBuilder
@@ -1211,7 +1211,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedDataSetEndpointBuilder
@@ -1232,7 +1232,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedDataSetEndpointBuilder
@@ -1253,7 +1253,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedDataSetEndpointBuilder
@@ -1274,7 +1274,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedDataSetEndpointBuilder

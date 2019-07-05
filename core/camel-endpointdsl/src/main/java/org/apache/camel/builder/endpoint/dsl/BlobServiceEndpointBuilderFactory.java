@@ -146,7 +146,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Container or Blob compact Uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Container or Blob compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|containerOrBlobUri ( String containerOrBlobUri)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -167,7 +167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The blob service client.          * The option is a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          * @group common          */
+comment|/**          * The blob service client.          *           * The option is a:          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          *           * Group: common          */
 DECL|method|azureBlobClient ( Object azureBlobClient)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -188,7 +188,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The blob service client.          * The option will be converted to a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          * @group common          */
+comment|/**          * The blob service client.          *           * The option will be converted to a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          *           * Group: common          */
 DECL|method|azureBlobClient ( String azureBlobClient)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -209,7 +209,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|blobOffset (Long blobOffset)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -230,7 +230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|blobOffset (String blobOffset)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -251,7 +251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a blob type, 'blockblob' is default.          * The option is a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          * @group common          */
+comment|/**          * Set a blob type, 'blockblob' is default.          *           * The option is a:          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          *           * Group: common          */
 DECL|method|blobType (BlobType blobType)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -272,7 +272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a blob type, 'blockblob' is default.          * The option will be converted to a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          * @group common          */
+comment|/**          * Set a blob type, 'blockblob' is default.          *           * The option will be converted to a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          *           * Group: common          */
 DECL|method|blobType (String blobType)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -293,7 +293,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close the stream after read or keep it open, default is true.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Close the stream after read or keep it open, default is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|closeStreamAfterRead ( boolean closeStreamAfterRead)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -314,7 +314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close the stream after read or keep it open, default is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Close the stream after read or keep it open, default is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|closeStreamAfterRead ( String closeStreamAfterRead)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -335,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the storage credentials, required in most cases.          * The option is a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
+comment|/**          * Set the storage credentials, required in most cases.          *           * The option is a:          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          *           * Group: common          */
 DECL|method|credentials ( Object credentials)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -356,7 +356,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the storage credentials, required in most cases.          * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
+comment|/**          * Set the storage credentials, required in most cases.          *           * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          *           * Group: common          */
 DECL|method|credentials ( String credentials)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -377,7 +377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the data length for the download or page blob upload operations.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the data length for the download or page blob upload operations.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|dataLength (Long dataLength)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -398,7 +398,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the data length for the download or page blob upload operations.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the data length for the download or page blob upload operations.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|dataLength (String dataLength)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -419,7 +419,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the file directory where the downloaded blobs will be saved to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Set the file directory where the downloaded blobs will be saved to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fileDir (String fileDir)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -440,7 +440,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|publicForRead ( boolean publicForRead)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -461,7 +461,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|publicForRead ( String publicForRead)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -482,7 +482,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the minimum read size in bytes when reading the blob content.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the minimum read size in bytes when reading the blob content.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|streamReadSize ( int streamReadSize)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -503,7 +503,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the minimum read size in bytes when reading the blob content.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the minimum read size in bytes when reading the blob content.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|streamReadSize ( String streamReadSize)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -524,7 +524,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -545,7 +545,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|BlobServiceEndpointConsumerBuilder
@@ -588,7 +588,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedBlobServiceEndpointConsumerBuilder
@@ -609,7 +609,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedBlobServiceEndpointConsumerBuilder
@@ -630,7 +630,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedBlobServiceEndpointConsumerBuilder
@@ -651,7 +651,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedBlobServiceEndpointConsumerBuilder
@@ -672,7 +672,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedBlobServiceEndpointConsumerBuilder
@@ -693,7 +693,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedBlobServiceEndpointConsumerBuilder
@@ -714,7 +714,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedBlobServiceEndpointConsumerBuilder
@@ -735,7 +735,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedBlobServiceEndpointConsumerBuilder
@@ -778,7 +778,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Container or Blob compact Uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Container or Blob compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|containerOrBlobUri ( String containerOrBlobUri)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -799,7 +799,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The blob service client.          * The option is a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          * @group common          */
+comment|/**          * The blob service client.          *           * The option is a:          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          *           * Group: common          */
 DECL|method|azureBlobClient ( Object azureBlobClient)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -820,7 +820,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The blob service client.          * The option will be converted to a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          * @group common          */
+comment|/**          * The blob service client.          *           * The option will be converted to a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          *           * Group: common          */
 DECL|method|azureBlobClient ( String azureBlobClient)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -841,7 +841,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|blobOffset (Long blobOffset)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -862,7 +862,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|blobOffset (String blobOffset)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -883,7 +883,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a blob type, 'blockblob' is default.          * The option is a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          * @group common          */
+comment|/**          * Set a blob type, 'blockblob' is default.          *           * The option is a:          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          *           * Group: common          */
 DECL|method|blobType (BlobType blobType)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -904,7 +904,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a blob type, 'blockblob' is default.          * The option will be converted to a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          * @group common          */
+comment|/**          * Set a blob type, 'blockblob' is default.          *           * The option will be converted to a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          *           * Group: common          */
 DECL|method|blobType (String blobType)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -925,7 +925,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close the stream after read or keep it open, default is true.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Close the stream after read or keep it open, default is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|closeStreamAfterRead ( boolean closeStreamAfterRead)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -946,7 +946,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close the stream after read or keep it open, default is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Close the stream after read or keep it open, default is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|closeStreamAfterRead ( String closeStreamAfterRead)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -967,7 +967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the storage credentials, required in most cases.          * The option is a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
+comment|/**          * Set the storage credentials, required in most cases.          *           * The option is a:          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          *           * Group: common          */
 DECL|method|credentials ( Object credentials)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -988,7 +988,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the storage credentials, required in most cases.          * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
+comment|/**          * Set the storage credentials, required in most cases.          *           * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          *           * Group: common          */
 DECL|method|credentials ( String credentials)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1009,7 +1009,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the data length for the download or page blob upload operations.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the data length for the download or page blob upload operations.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|dataLength (Long dataLength)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1030,7 +1030,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the data length for the download or page blob upload operations.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the data length for the download or page blob upload operations.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|dataLength (String dataLength)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1051,7 +1051,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the file directory where the downloaded blobs will be saved to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Set the file directory where the downloaded blobs will be saved to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fileDir (String fileDir)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1072,7 +1072,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|publicForRead ( boolean publicForRead)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1093,7 +1093,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|publicForRead ( String publicForRead)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1114,7 +1114,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the minimum read size in bytes when reading the blob content.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the minimum read size in bytes when reading the blob content.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|streamReadSize ( int streamReadSize)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1135,7 +1135,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the minimum read size in bytes when reading the blob content.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the minimum read size in bytes when reading the blob content.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|streamReadSize ( String streamReadSize)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1156,7 +1156,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the blob meta-data.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          * @group producer          */
+comment|/**          * Set the blob meta-data.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.String&gt;</code> type.          *           * Group: producer          */
 DECL|method|blobMetadata ( Map<String, String> blobMetadata)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1182,7 +1182,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the blob meta-data.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          * @group producer          */
+comment|/**          * Set the blob meta-data.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.String&gt;</code>          * type.          *           * Group: producer          */
 DECL|method|blobMetadata ( String blobMetadata)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1203,7 +1203,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a prefix which can be used for listing the blobs.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Set a prefix which can be used for listing the blobs.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|blobPrefix (String blobPrefix)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1224,7 +1224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close the stream after write or keep it open, default is true.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Close the stream after write or keep it open, default is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|closeStreamAfterWrite ( boolean closeStreamAfterWrite)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1245,7 +1245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close the stream after write or keep it open, default is true.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Close the stream after write or keep it open, default is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|closeStreamAfterWrite ( String closeStreamAfterWrite)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1266,7 +1266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1287,7 +1287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1308,7 +1308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Blob service operation hint to the producer.          * The option is a          *<code>org.apache.camel.component.azure.blob.BlobServiceOperations</code> type.          * @group producer          */
+comment|/**          * Blob service operation hint to the producer.          *           * The option is a:          *<code>org.apache.camel.component.azure.blob.BlobServiceOperations</code> type.          *           * Group: producer          */
 DECL|method|operation ( BlobServiceOperations operation)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1329,7 +1329,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Blob service operation hint to the producer.          * The option will be converted to a          *<code>org.apache.camel.component.azure.blob.BlobServiceOperations</code> type.          * @group producer          */
+comment|/**          * Blob service operation hint to the producer.          *           * The option will be converted to a          *<code>org.apache.camel.component.azure.blob.BlobServiceOperations</code> type.          *           * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1350,7 +1350,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the size of the buffer for writing block and page blocks.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Set the size of the buffer for writing block and page blocks.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|streamWriteSize ( int streamWriteSize)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1371,7 +1371,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the size of the buffer for writing block and page blocks.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Set the size of the buffer for writing block and page blocks.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|streamWriteSize ( String streamWriteSize)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1392,7 +1392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify if the flat or hierarchical blob listing should be used.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Specify if the flat or hierarchical blob listing should be used.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useFlatListing ( boolean useFlatListing)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1413,7 +1413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify if the flat or hierarchical blob listing should be used.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Specify if the flat or hierarchical blob listing should be used.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|useFlatListing ( String useFlatListing)
 specifier|default
 name|BlobServiceEndpointProducerBuilder
@@ -1456,7 +1456,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedBlobServiceEndpointProducerBuilder
@@ -1477,7 +1477,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedBlobServiceEndpointProducerBuilder
@@ -1498,7 +1498,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedBlobServiceEndpointProducerBuilder
@@ -1519,7 +1519,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedBlobServiceEndpointProducerBuilder
@@ -1564,7 +1564,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Container or Blob compact Uri.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Container or Blob compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|containerOrBlobUri ( String containerOrBlobUri)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1585,7 +1585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The blob service client.          * The option is a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          * @group common          */
+comment|/**          * The blob service client.          *           * The option is a:          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          *           * Group: common          */
 DECL|method|azureBlobClient ( Object azureBlobClient)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1606,7 +1606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The blob service client.          * The option will be converted to a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          * @group common          */
+comment|/**          * The blob service client.          *           * The option will be converted to a          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          *           * Group: common          */
 DECL|method|azureBlobClient ( String azureBlobClient)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1627,7 +1627,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|blobOffset (Long blobOffset)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1648,7 +1648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the blob offset for the upload or download operations, default is          * 0.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|blobOffset (String blobOffset)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1669,7 +1669,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a blob type, 'blockblob' is default.          * The option is a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          * @group common          */
+comment|/**          * Set a blob type, 'blockblob' is default.          *           * The option is a:          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          *           * Group: common          */
 DECL|method|blobType (BlobType blobType)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1690,7 +1690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set a blob type, 'blockblob' is default.          * The option will be converted to a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          * @group common          */
+comment|/**          * Set a blob type, 'blockblob' is default.          *           * The option will be converted to a          *<code>org.apache.camel.component.azure.blob.BlobType</code> type.          *           * Group: common          */
 DECL|method|blobType (String blobType)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1711,7 +1711,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close the stream after read or keep it open, default is true.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Close the stream after read or keep it open, default is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|closeStreamAfterRead ( boolean closeStreamAfterRead)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1732,7 +1732,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Close the stream after read or keep it open, default is true.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Close the stream after read or keep it open, default is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|closeStreamAfterRead ( String closeStreamAfterRead)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1753,7 +1753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the storage credentials, required in most cases.          * The option is a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
+comment|/**          * Set the storage credentials, required in most cases.          *           * The option is a:          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          *           * Group: common          */
 DECL|method|credentials (Object credentials)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1774,7 +1774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the storage credentials, required in most cases.          * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          * @group common          */
+comment|/**          * Set the storage credentials, required in most cases.          *           * The option will be converted to a          *<code>com.microsoft.azure.storage.StorageCredentials</code> type.          *           * Group: common          */
 DECL|method|credentials (String credentials)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1795,7 +1795,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the data length for the download or page blob upload operations.          * The option is a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the data length for the download or page blob upload operations.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|dataLength (Long dataLength)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1816,7 +1816,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the data length for the download or page blob upload operations.          * The option will be converted to a<code>java.lang.Long</code> type.          * @group common          */
+comment|/**          * Set the data length for the download or page blob upload operations.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|dataLength (String dataLength)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1837,7 +1837,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the file directory where the downloaded blobs will be saved to.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Set the file directory where the downloaded blobs will be saved to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|fileDir (String fileDir)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1858,7 +1858,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|publicForRead (boolean publicForRead)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1879,7 +1879,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Storage resources can be public for reading their content, if this          * property is enabled then the credentials do not have to be set.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|publicForRead (String publicForRead)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1900,7 +1900,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the minimum read size in bytes when reading the blob content.          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Set the minimum read size in bytes when reading the blob content.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|streamReadSize (int streamReadSize)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1921,7 +1921,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the minimum read size in bytes when reading the blob content.          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Set the minimum read size in bytes when reading the blob content.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|streamReadSize (String streamReadSize)
 specifier|default
 name|BlobServiceEndpointBuilder
@@ -1966,7 +1966,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedBlobServiceEndpointBuilder
@@ -1987,7 +1987,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedBlobServiceEndpointBuilder
@@ -2008,7 +2008,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedBlobServiceEndpointBuilder
@@ -2029,7 +2029,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedBlobServiceEndpointBuilder

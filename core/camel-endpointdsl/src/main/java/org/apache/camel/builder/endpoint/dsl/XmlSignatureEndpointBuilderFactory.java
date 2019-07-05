@@ -130,7 +130,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether to sign or verify.          * The option is a          *<code>org.apache.camel.component.xmlsecurity.XmlCommand</code> type.          * @group producer          */
+comment|/**          * Whether to sign or verify.          *           * The option is a:          *<code>org.apache.camel.component.xmlsecurity.XmlCommand</code> type.          *           * Group: producer          */
 DECL|method|command (XmlCommand command)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -151,7 +151,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to sign or verify.          * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.XmlCommand</code> type.          * @group producer          */
+comment|/**          * Whether to sign or verify.          *           * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.XmlCommand</code> type.          *           * Group: producer          */
 DECL|method|command (String command)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -172,7 +172,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The name part in the URI can be chosen by the user to distinguish          * between different signer/verifier endpoints within the camel context.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The name part in the URI can be chosen by the user to distinguish          * between different signer/verifier endpoints within the camel context.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|name (String name)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -193,7 +193,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * You can set a base URI which is used in the URI dereferencing.          * Relative URIs are then concatenated with the base URI.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * You can set a base URI which is used in the URI dereferencing.          * Relative URIs are then concatenated with the base URI.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|baseUri (String baseUri)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -214,7 +214,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines if the XML signature specific headers be cleared after          * signing and verification. Defaults to true.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Determines if the XML signature specific headers be cleared after          * signing and verification. Defaults to true.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|clearHeaders (Boolean clearHeaders)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -235,7 +235,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines if the XML signature specific headers be cleared after          * signing and verification. Defaults to true.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Determines if the XML signature specific headers be cleared after          * signing and verification. Defaults to true.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|clearHeaders (String clearHeaders)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -256,7 +256,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the crypto context properties. See {link          * XMLCryptoContext#setProperty(String, Object)}. Possible properties          * are defined in XMLSignContext an XMLValidateContext (see Supported          * Properties). The following properties are set by default to the value          * Boolean#TRUE for the XML validation. If you want to switch these          * features off you must set the property value to Boolean#FALSE.          * org.jcp.xml.dsig.validateManifests          * javax.xml.crypto.dsig.cacheReference.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group common          */
+comment|/**          * Sets the crypto context properties. See {link          * XMLCryptoContext#setProperty(String, Object)}. Possible properties          * are defined in XMLSignContext an XMLValidateContext (see Supported          * Properties). The following properties are set by default to the value          * Boolean#TRUE for the XML validation. If you want to switch these          * features off you must set the property value to Boolean#FALSE.          * org.jcp.xml.dsig.validateManifests          * javax.xml.crypto.dsig.cacheReference.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
 DECL|method|cryptoContextProperties ( Map<String, Object> cryptoContextProperties)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -282,7 +282,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the crypto context properties. See {link          * XMLCryptoContext#setProperty(String, Object)}. Possible properties          * are defined in XMLSignContext an XMLValidateContext (see Supported          * Properties). The following properties are set by default to the value          * Boolean#TRUE for the XML validation. If you want to switch these          * features off you must set the property value to Boolean#FALSE.          * org.jcp.xml.dsig.validateManifests          * javax.xml.crypto.dsig.cacheReference.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group common          */
+comment|/**          * Sets the crypto context properties. See {link          * XMLCryptoContext#setProperty(String, Object)}. Possible properties          * are defined in XMLSignContext an XMLValidateContext (see Supported          * Properties). The following properties are set by default to the value          * Boolean#TRUE for the XML validation. If you want to switch these          * features off you must set the property value to Boolean#FALSE.          * org.jcp.xml.dsig.validateManifests          * javax.xml.crypto.dsig.cacheReference.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
 DECL|method|cryptoContextProperties ( String cryptoContextProperties)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -303,7 +303,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Disallows that the incoming XML document contains DTD DOCTYPE          * declaration. The default value is Boolean#TRUE.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Disallows that the incoming XML document contains DTD DOCTYPE          * declaration. The default value is Boolean#TRUE.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|disallowDoctypeDecl ( Boolean disallowDoctypeDecl)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -324,7 +324,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Disallows that the incoming XML document contains DTD DOCTYPE          * declaration. The default value is Boolean#TRUE.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Disallows that the incoming XML document contains DTD DOCTYPE          * declaration. The default value is Boolean#TRUE.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|disallowDoctypeDecl ( String disallowDoctypeDecl)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -345,7 +345,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is false. Can be overwritten by the          * header XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION.          * The option is a<code>java.lang.Boolean</code> type.          * @group common          */
+comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is false. Can be overwritten by the          * header XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|omitXmlDeclaration ( Boolean omitXmlDeclaration)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -366,7 +366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is false. Can be overwritten by the          * header XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group common          */
+comment|/**          * Indicator whether the XML declaration in the outgoing message body          * should be omitted. Default value is false. Can be overwritten by the          * header XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
 DECL|method|omitXmlDeclaration ( String omitXmlDeclaration)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -387,7 +387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The character encoding of the resulting signed XML document. If null          * then the encoding of the original XML document is used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The character encoding of the resulting signed XML document. If null          * then the encoding of the original XML document is used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|outputXmlEncoding ( String outputXmlEncoding)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -408,7 +408,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Classpath to the XML Schema. Must be specified in the detached XML          * Signature case for determining the ID attributes, might be set in the          * enveloped and enveloping case. If set, then the XML document is          * validated with the specified XML schema. The schema resource URI can          * be overwritten by the header          * XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Classpath to the XML Schema. Must be specified in the detached XML          * Signature case for determining the ID attributes, might be set in the          * enveloped and enveloping case. If set, then the XML document is          * validated with the specified XML schema. The schema resource URI can          * be overwritten by the header          * XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|schemaResourceUri ( String schemaResourceUri)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -429,7 +429,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * In order to protect the KeyInfo element from tampering you can add a          * reference to the signed info element so that it is protected via the          * signature value. The default value is true. Only relevant when a          * KeyInfo is returned by KeyAccessor. and KeyInfo#getId() is not null.          * The option is a<code>java.lang.Boolean</code> type.          * @group sign          */
+comment|/**          * In order to protect the KeyInfo element from tampering you can add a          * reference to the signed info element so that it is protected via the          * signature value. The default value is true. Only relevant when a          * KeyInfo is returned by KeyAccessor. and KeyInfo#getId() is not null.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: sign          */
 DECL|method|addKeyInfoReference ( Boolean addKeyInfoReference)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -450,7 +450,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * In order to protect the KeyInfo element from tampering you can add a          * reference to the signed info element so that it is protected via the          * signature value. The default value is true. Only relevant when a          * KeyInfo is returned by KeyAccessor. and KeyInfo#getId() is not null.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sign          */
+comment|/**          * In order to protect the KeyInfo element from tampering you can add a          * reference to the signed info element so that it is protected via the          * signature value. The default value is true. Only relevant when a          * KeyInfo is returned by KeyAccessor. and KeyInfo#getId() is not null.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: sign          */
 DECL|method|addKeyInfoReference ( String addKeyInfoReference)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -471,7 +471,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Canonicalization method used to canonicalize the SignedInfo element          * before the digest is calculated. You can use the helper methods          * XmlSignatureHelper.getCanonicalizationMethod(String algorithm) or          * getCanonicalizationMethod(String algorithm, List          * inclusiveNamespacePrefixes) to create a canonicalization method.          * The option is a<code>javax.xml.crypto.AlgorithmMethod</code> type.          * @group sign          */
+comment|/**          * Canonicalization method used to canonicalize the SignedInfo element          * before the digest is calculated. You can use the helper methods          * XmlSignatureHelper.getCanonicalizationMethod(String algorithm) or          * getCanonicalizationMethod(String algorithm, List          * inclusiveNamespacePrefixes) to create a canonicalization method.          *           * The option is a:<code>javax.xml.crypto.AlgorithmMethod</code> type.          *           * Group: sign          */
 DECL|method|canonicalizationMethod ( Object canonicalizationMethod)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -492,7 +492,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Canonicalization method used to canonicalize the SignedInfo element          * before the digest is calculated. You can use the helper methods          * XmlSignatureHelper.getCanonicalizationMethod(String algorithm) or          * getCanonicalizationMethod(String algorithm, List          * inclusiveNamespacePrefixes) to create a canonicalization method.          * The option will be converted to a          *<code>javax.xml.crypto.AlgorithmMethod</code> type.          * @group sign          */
+comment|/**          * Canonicalization method used to canonicalize the SignedInfo element          * before the digest is calculated. You can use the helper methods          * XmlSignatureHelper.getCanonicalizationMethod(String algorithm) or          * getCanonicalizationMethod(String algorithm, List          * inclusiveNamespacePrefixes) to create a canonicalization method.          *           * The option will be converted to a          *<code>javax.xml.crypto.AlgorithmMethod</code> type.          *           * Group: sign          */
 DECL|method|canonicalizationMethod ( String canonicalizationMethod)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -513,7 +513,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the content object Id attribute value. By default a UUID is          * generated. If you set the null value, then a new UUID will be          * generated. Only used in the enveloping case.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Sets the content object Id attribute value. By default a UUID is          * generated. If you set the null value, then a new UUID will be          * generated. Only used in the enveloping case.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|contentObjectId ( String contentObjectId)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -534,7 +534,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Type of the content reference. The default value is null. This value          * can be overwritten by the header          * XmlSignatureConstants#HEADER_CONTENT_REFERENCE_TYPE.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Type of the content reference. The default value is null. This value          * can be overwritten by the header          * XmlSignatureConstants#HEADER_CONTENT_REFERENCE_TYPE.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|contentReferenceType ( String contentReferenceType)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -555,7 +555,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Reference URI for the content to be signed. Only used in the          * enveloped case. If the reference URI contains an ID attribute value,          * then the resource schema URI ( setSchemaResourceUri(String)) must          * also be set because the schema validator will then find out which          * attributes are ID attributes. Will be ignored in the enveloping or          * detached case.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Reference URI for the content to be signed. Only used in the          * enveloped case. If the reference URI contains an ID attribute value,          * then the resource schema URI ( setSchemaResourceUri(String)) must          * also be set because the schema validator will then find out which          * attributes are ID attributes. Will be ignored in the enveloping or          * detached case.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|contentReferenceUri ( String contentReferenceUri)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -576,7 +576,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Digest algorithm URI. Optional parameter. This digest algorithm is          * used for calculating the digest of the input message. If this digest          * algorithm is not specified then the digest algorithm is calculated          * from the signature algorithm. Example:          * http://www.w3.org/2001/04/xmlenc#sha256.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Digest algorithm URI. Optional parameter. This digest algorithm is          * used for calculating the digest of the input message. If this digest          * algorithm is not specified then the digest algorithm is calculated          * from the signature algorithm. Example:          * http://www.w3.org/2001/04/xmlenc#sha256.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|digestAlgorithm ( String digestAlgorithm)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -597,7 +597,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For the signing process, a private key is necessary. You specify a          * key accessor bean which provides this private key. The key accessor          * bean must implement the KeyAccessor interface. The package          * org.apache.camel.component.xmlsecurity.api contains the default          * implementation class DefaultKeyAccessor which reads the private key          * from a Java keystore.          * The option is a          *<code>org.apache.camel.component.xmlsecurity.api.KeyAccessor</code>          * type.          * @group sign          */
+comment|/**          * For the signing process, a private key is necessary. You specify a          * key accessor bean which provides this private key. The key accessor          * bean must implement the KeyAccessor interface. The package          * org.apache.camel.component.xmlsecurity.api contains the default          * implementation class DefaultKeyAccessor which reads the private key          * from a Java keystore.          *           * The option is a:          *<code>org.apache.camel.component.xmlsecurity.api.KeyAccessor</code>          * type.          *           * Group: sign          */
 DECL|method|keyAccessor (Object keyAccessor)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -618,7 +618,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For the signing process, a private key is necessary. You specify a          * key accessor bean which provides this private key. The key accessor          * bean must implement the KeyAccessor interface. The package          * org.apache.camel.component.xmlsecurity.api contains the default          * implementation class DefaultKeyAccessor which reads the private key          * from a Java keystore.          * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.KeyAccessor</code>          * type.          * @group sign          */
+comment|/**          * For the signing process, a private key is necessary. You specify a          * key accessor bean which provides this private key. The key accessor          * bean must implement the KeyAccessor interface. The package          * org.apache.camel.component.xmlsecurity.api contains the default          * implementation class DefaultKeyAccessor which reads the private key          * from a Java keystore.          *           * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.KeyAccessor</code>          * type.          *           * Group: sign          */
 DECL|method|keyAccessor (String keyAccessor)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -639,7 +639,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Local name of the parent element to which the XML signature element          * will be added. Only relevant for enveloped XML signature.          * Alternatively you can also use          * setParentXpath(XPathFilterParameterSpec). Default value is null. The          * value must be null for enveloping and detached XML signature. This          * parameter or the parameter setParentXpath(XPathFilterParameterSpec)          * for enveloped signature and the parameter          * setXpathsToIdAttributes(List) for detached signature must not be set          * in the same configuration. If the parameters parentXpath and          * parentLocalName are specified in the same configuration then an          * exception is thrown.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Local name of the parent element to which the XML signature element          * will be added. Only relevant for enveloped XML signature.          * Alternatively you can also use          * setParentXpath(XPathFilterParameterSpec). Default value is null. The          * value must be null for enveloping and detached XML signature. This          * parameter or the parameter setParentXpath(XPathFilterParameterSpec)          * for enveloped signature and the parameter          * setXpathsToIdAttributes(List) for detached signature must not be set          * in the same configuration. If the parameters parentXpath and          * parentLocalName are specified in the same configuration then an          * exception is thrown.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|parentLocalName ( String parentLocalName)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -660,7 +660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Namespace of the parent element to which the XML signature element          * will be added.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Namespace of the parent element to which the XML signature element          * will be added.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|parentNamespace ( String parentNamespace)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -681,7 +681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the XPath to find the parent node in the enveloped case. Either          * you specify the parent node via this method or the local name and          * namespace of the parent with the methods setParentLocalName(String)          * and setParentNamespace(String). Default value is null. The value must          * be null for enveloping and detached XML signature. If the parameters          * parentXpath and parentLocalName are specified in the same          * configuration then an exception is thrown.          * The option is a          *<code>javax.xml.crypto.dsig.spec.XPathFilterParameterSpec</code>          * type.          * @group sign          */
+comment|/**          * Sets the XPath to find the parent node in the enveloped case. Either          * you specify the parent node via this method or the local name and          * namespace of the parent with the methods setParentLocalName(String)          * and setParentNamespace(String). Default value is null. The value must          * be null for enveloping and detached XML signature. If the parameters          * parentXpath and parentLocalName are specified in the same          * configuration then an exception is thrown.          *           * The option is a:          *<code>javax.xml.crypto.dsig.spec.XPathFilterParameterSpec</code>          * type.          *           * Group: sign          */
 DECL|method|parentXpath (Object parentXpath)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -702,7 +702,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the XPath to find the parent node in the enveloped case. Either          * you specify the parent node via this method or the local name and          * namespace of the parent with the methods setParentLocalName(String)          * and setParentNamespace(String). Default value is null. The value must          * be null for enveloping and detached XML signature. If the parameters          * parentXpath and parentLocalName are specified in the same          * configuration then an exception is thrown.          * The option will be converted to a          *<code>javax.xml.crypto.dsig.spec.XPathFilterParameterSpec</code>          * type.          * @group sign          */
+comment|/**          * Sets the XPath to find the parent node in the enveloped case. Either          * you specify the parent node via this method or the local name and          * namespace of the parent with the methods setParentLocalName(String)          * and setParentNamespace(String). Default value is null. The value must          * be null for enveloping and detached XML signature. If the parameters          * parentXpath and parentLocalName are specified in the same          * configuration then an exception is thrown.          *           * The option will be converted to a          *<code>javax.xml.crypto.dsig.spec.XPathFilterParameterSpec</code>          * type.          *           * Group: sign          */
 DECL|method|parentXpath (String parentXpath)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -723,7 +723,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicator whether the message body contains plain text. The default          * value is false, indicating that the message body contains XML. The          * value can be overwritten by the header          * XmlSignatureConstants#HEADER_MESSAGE_IS_PLAIN_TEXT.          * The option is a<code>java.lang.Boolean</code> type.          * @group sign          */
+comment|/**          * Indicator whether the message body contains plain text. The default          * value is false, indicating that the message body contains XML. The          * value can be overwritten by the header          * XmlSignatureConstants#HEADER_MESSAGE_IS_PLAIN_TEXT.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: sign          */
 DECL|method|plainText (Boolean plainText)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -744,7 +744,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicator whether the message body contains plain text. The default          * value is false, indicating that the message body contains XML. The          * value can be overwritten by the header          * XmlSignatureConstants#HEADER_MESSAGE_IS_PLAIN_TEXT.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group sign          */
+comment|/**          * Indicator whether the message body contains plain text. The default          * value is false, indicating that the message body contains XML. The          * value can be overwritten by the header          * XmlSignatureConstants#HEADER_MESSAGE_IS_PLAIN_TEXT.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: sign          */
 DECL|method|plainText (String plainText)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -765,7 +765,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Encoding of the plain text. Only relevant if the message body is          * plain text (see parameter plainText. Default value is UTF-8.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Encoding of the plain text. Only relevant if the message body is          * plain text (see parameter plainText. Default value is UTF-8.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|plainTextEncoding ( String plainTextEncoding)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -786,7 +786,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Namespace prefix for the XML signature namespace          * http://www.w3.org/2000/09/xmldsig#. Default value is ds. If null or          * an empty value is set then no prefix is used for the XML signature          * namespace. See best practice          * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-          * without-namespaces.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Namespace prefix for the XML signature namespace          * http://www.w3.org/2000/09/xmldsig#. Default value is ds. If null or          * an empty value is set then no prefix is used for the XML signature          * namespace. See best practice          * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-          * without-namespaces.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|prefixForXmlSignatureNamespace ( String prefixForXmlSignatureNamespace)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -807,7 +807,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For adding additional References and Objects to the XML signature          * which contain additional properties, you can provide a bean which          * implements the XmlSignatureProperties interface.          * The option is a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignatureProperties</code> type.          * @group sign          */
+comment|/**          * For adding additional References and Objects to the XML signature          * which contain additional properties, you can provide a bean which          * implements the XmlSignatureProperties interface.          *           * The option is a:          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignatureProperties</code> type.          *           * Group: sign          */
 DECL|method|properties (Object properties)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -828,7 +828,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For adding additional References and Objects to the XML signature          * which contain additional properties, you can provide a bean which          * implements the XmlSignatureProperties interface.          * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignatureProperties</code> type.          * @group sign          */
+comment|/**          * For adding additional References and Objects to the XML signature          * which contain additional properties, you can provide a bean which          * implements the XmlSignatureProperties interface.          *           * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignatureProperties</code> type.          *           * Group: sign          */
 DECL|method|properties (String properties)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -849,7 +849,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Signature algorithm. Default value is          * http://www.w3.org/2000/09/xmldsig#rsa-sha1.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Signature algorithm. Default value is          * http://www.w3.org/2000/09/xmldsig#rsa-sha1.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|signatureAlgorithm ( String signatureAlgorithm)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -870,7 +870,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the signature Id. If this parameter is not set (null value) then          * a unique ID is generated for the signature ID (default). If this          * parameter is set to (empty string) then no Id attribute is created in          * the signature element.          * The option is a<code>java.lang.String</code> type.          * @group sign          */
+comment|/**          * Sets the signature Id. If this parameter is not set (null value) then          * a unique ID is generated for the signature ID (default). If this          * parameter is set to (empty string) then no Id attribute is created in          * the signature element.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: sign          */
 DECL|method|signatureId (String signatureId)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -891,7 +891,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Transforms which are executed on the message body before the digest          * is calculated. By default, C14n is added and in the case of enveloped          * signature (see option parentLocalName) also          * http://www.w3.org/2000/09/xmldsig#enveloped-signature is added at          * position 0 of the list. Use methods in XmlSignatureHelper to create          * the transform methods.          * The option is a          *<code>java.util.List&lt;javax.xml.crypto.AlgorithmMethod&gt;</code>          * type.          * @group sign          */
+comment|/**          * Transforms which are executed on the message body before the digest          * is calculated. By default, C14n is added and in the case of enveloped          * signature (see option parentLocalName) also          * http://www.w3.org/2000/09/xmldsig#enveloped-signature is added at          * position 0 of the list. Use methods in XmlSignatureHelper to create          * the transform methods.          *           * The option is a:          *<code>java.util.List&lt;javax.xml.crypto.AlgorithmMethod&gt;</code>          * type.          *           * Group: sign          */
 DECL|method|transformMethods ( List<Object> transformMethods)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Transforms which are executed on the message body before the digest          * is calculated. By default, C14n is added and in the case of enveloped          * signature (see option parentLocalName) also          * http://www.w3.org/2000/09/xmldsig#enveloped-signature is added at          * position 0 of the list. Use methods in XmlSignatureHelper to create          * the transform methods.          * The option will be converted to a          *<code>java.util.List&lt;javax.xml.crypto.AlgorithmMethod&gt;</code>          * type.          * @group sign          */
+comment|/**          * Transforms which are executed on the message body before the digest          * is calculated. By default, C14n is added and in the case of enveloped          * signature (see option parentLocalName) also          * http://www.w3.org/2000/09/xmldsig#enveloped-signature is added at          * position 0 of the list. Use methods in XmlSignatureHelper to create          * the transform methods.          *           * The option will be converted to a          *<code>java.util.List&lt;javax.xml.crypto.AlgorithmMethod&gt;</code>          * type.          *           * Group: sign          */
 DECL|method|transformMethods ( String transformMethods)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the elements which are signed in the detached case via XPATH          * expressions to ID attributes (attributes of type ID). For each          * element found via the XPATH expression a detached signature is          * created whose reference URI contains the corresponding attribute          * value (preceded by '#'). The signature becomes the last sibling of          * the signed element. Elements with deeper hierarchy level are signed          * first. You can also set the XPATH list dynamically via the header          * XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES. The parameter          * setParentLocalName(String) or          * setParentXpath(XPathFilterParameterSpec) for enveloped signature and          * this parameter for detached signature must not be set in the same          * configuration.          * The option is a          *<code>java.util.List&lt;javax.xml.crypto.dsig.spec.XPathFilterParameterSpec&gt;</code> type.          * @group sign          */
+comment|/**          * Define the elements which are signed in the detached case via XPATH          * expressions to ID attributes (attributes of type ID). For each          * element found via the XPATH expression a detached signature is          * created whose reference URI contains the corresponding attribute          * value (preceded by '#'). The signature becomes the last sibling of          * the signed element. Elements with deeper hierarchy level are signed          * first. You can also set the XPATH list dynamically via the header          * XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES. The parameter          * setParentLocalName(String) or          * setParentXpath(XPathFilterParameterSpec) for enveloped signature and          * this parameter for detached signature must not be set in the same          * configuration.          *           * The option is a:          *<code>java.util.List&lt;javax.xml.crypto.dsig.spec.XPathFilterParameterSpec&gt;</code> type.          *           * Group: sign          */
 DECL|method|xpathsToIdAttributes ( List<Object> xpathsToIdAttributes)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -960,7 +960,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define the elements which are signed in the detached case via XPATH          * expressions to ID attributes (attributes of type ID). For each          * element found via the XPATH expression a detached signature is          * created whose reference URI contains the corresponding attribute          * value (preceded by '#'). The signature becomes the last sibling of          * the signed element. Elements with deeper hierarchy level are signed          * first. You can also set the XPATH list dynamically via the header          * XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES. The parameter          * setParentLocalName(String) or          * setParentXpath(XPathFilterParameterSpec) for enveloped signature and          * this parameter for detached signature must not be set in the same          * configuration.          * The option will be converted to a          *<code>java.util.List&lt;javax.xml.crypto.dsig.spec.XPathFilterParameterSpec&gt;</code> type.          * @group sign          */
+comment|/**          * Define the elements which are signed in the detached case via XPATH          * expressions to ID attributes (attributes of type ID). For each          * element found via the XPATH expression a detached signature is          * created whose reference URI contains the corresponding attribute          * value (preceded by '#'). The signature becomes the last sibling of          * the signed element. Elements with deeper hierarchy level are signed          * first. You can also set the XPATH list dynamically via the header          * XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES. The parameter          * setParentLocalName(String) or          * setParentXpath(XPathFilterParameterSpec) for enveloped signature and          * this parameter for detached signature must not be set in the same          * configuration.          *           * The option will be converted to a          *<code>java.util.List&lt;javax.xml.crypto.dsig.spec.XPathFilterParameterSpec&gt;</code> type.          *           * Group: sign          */
 DECL|method|xpathsToIdAttributes ( String xpathsToIdAttributes)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -981,7 +981,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Provides the key for validating the XML signature.          * The option is a<code>javax.xml.crypto.KeySelector</code> type.          * @group verify          */
+comment|/**          * Provides the key for validating the XML signature.          *           * The option is a:<code>javax.xml.crypto.KeySelector</code> type.          *           * Group: verify          */
 DECL|method|keySelector (Object keySelector)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1002,7 +1002,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Provides the key for validating the XML signature.          * The option will be converted to a          *<code>javax.xml.crypto.KeySelector</code> type.          * @group verify          */
+comment|/**          * Provides the key for validating the XML signature.          *           * The option will be converted to a          *<code>javax.xml.crypto.KeySelector</code> type.          *           * Group: verify          */
 DECL|method|keySelector (String keySelector)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1023,7 +1023,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the output node search value for determining the node from the          * XML signature document which shall be set to the output message body.          * The class of the value depends on the type of the output node search.          * The output node search is forwarded to XmlSignature2Message.          * The option is a<code>java.lang.Object</code> type.          * @group verify          */
+comment|/**          * Sets the output node search value for determining the node from the          * XML signature document which shall be set to the output message body.          * The class of the value depends on the type of the output node search.          * The output node search is forwarded to XmlSignature2Message.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: verify          */
 DECL|method|outputNodeSearch ( Object outputNodeSearch)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1044,7 +1044,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the output node search value for determining the node from the          * XML signature document which shall be set to the output message body.          * The class of the value depends on the type of the output node search.          * The output node search is forwarded to XmlSignature2Message.          * The option will be converted to a<code>java.lang.Object</code> type.          * @group verify          */
+comment|/**          * Sets the output node search value for determining the node from the          * XML signature document which shall be set to the output message body.          * The class of the value depends on the type of the output node search.          * The output node search is forwarded to XmlSignature2Message.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: verify          */
 DECL|method|outputNodeSearch ( String outputNodeSearch)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1065,7 +1065,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Determines the search type for determining the output node which is          * serialized into the output message bodyF. See          * setOutputNodeSearch(Object). The supported default search types you          * can find in DefaultXmlSignature2Message.          * The option is a<code>java.lang.String</code> type.          * @group verify          */
+comment|/**          * Determines the search type for determining the output node which is          * serialized into the output message bodyF. See          * setOutputNodeSearch(Object). The supported default search types you          * can find in DefaultXmlSignature2Message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: verify          */
 DECL|method|outputNodeSearchType ( String outputNodeSearchType)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1086,7 +1086,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicator whether the XML signature elements (elements with local          * name Signature and namesapce http://www.w3.org/2000/09/xmldsig#)          * shall be removed from the document set to the output message.          * Normally, this is only necessary, if the XML signature is enveloped.          * The default value is Boolean#FALSE. This parameter is forwarded to          * XmlSignature2Message. This indicator has no effect if the output node          * search is of type          * DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT.F.          * The option is a<code>java.lang.Boolean</code> type.          * @group verify          */
+comment|/**          * Indicator whether the XML signature elements (elements with local          * name Signature and namesapce http://www.w3.org/2000/09/xmldsig#)          * shall be removed from the document set to the output message.          * Normally, this is only necessary, if the XML signature is enveloped.          * The default value is Boolean#FALSE. This parameter is forwarded to          * XmlSignature2Message. This indicator has no effect if the output node          * search is of type          * DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT.F.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: verify          */
 DECL|method|removeSignatureElements ( Boolean removeSignatureElements)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1107,7 +1107,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicator whether the XML signature elements (elements with local          * name Signature and namesapce http://www.w3.org/2000/09/xmldsig#)          * shall be removed from the document set to the output message.          * Normally, this is only necessary, if the XML signature is enveloped.          * The default value is Boolean#FALSE. This parameter is forwarded to          * XmlSignature2Message. This indicator has no effect if the output node          * search is of type          * DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT.F.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group verify          */
+comment|/**          * Indicator whether the XML signature elements (elements with local          * name Signature and namesapce http://www.w3.org/2000/09/xmldsig#)          * shall be removed from the document set to the output message.          * Normally, this is only necessary, if the XML signature is enveloped.          * The default value is Boolean#FALSE. This parameter is forwarded to          * XmlSignature2Message. This indicator has no effect if the output node          * search is of type          * DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT.F.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: verify          */
 DECL|method|removeSignatureElements ( String removeSignatureElements)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1128,7 +1128,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables secure validation. If true then secure validation is enabled.          * The option is a<code>java.lang.Boolean</code> type.          * @group verify          */
+comment|/**          * Enables secure validation. If true then secure validation is enabled.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: verify          */
 DECL|method|secureValidation ( Boolean secureValidation)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1149,7 +1149,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables secure validation. If true then secure validation is enabled.          * The option will be converted to a<code>java.lang.Boolean</code>          * type.          * @group verify          */
+comment|/**          * Enables secure validation. If true then secure validation is enabled.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: verify          */
 DECL|method|secureValidation ( String secureValidation)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1170,7 +1170,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handles the different validation failed situations. The default          * implementation throws specific exceptions for the different          * situations (All exceptions have the package name          * org.apache.camel.component.xmlsecurity.api and are a sub-class of          * XmlSignatureInvalidException. If the signature value validation          * fails, a XmlSignatureInvalidValueException is thrown. If a reference          * validation fails, a XmlSignatureInvalidContentHashException is          * thrown. For more detailed information, see the JavaDoc.          * The option is a          *<code>org.apache.camel.component.xmlsecurity.api.ValidationFailedHandler</code> type.          * @group verify          */
+comment|/**          * Handles the different validation failed situations. The default          * implementation throws specific exceptions for the different          * situations (All exceptions have the package name          * org.apache.camel.component.xmlsecurity.api and are a sub-class of          * XmlSignatureInvalidException. If the signature value validation          * fails, a XmlSignatureInvalidValueException is thrown. If a reference          * validation fails, a XmlSignatureInvalidContentHashException is          * thrown. For more detailed information, see the JavaDoc.          *           * The option is a:          *<code>org.apache.camel.component.xmlsecurity.api.ValidationFailedHandler</code> type.          *           * Group: verify          */
 DECL|method|validationFailedHandler ( Object validationFailedHandler)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1191,7 +1191,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Handles the different validation failed situations. The default          * implementation throws specific exceptions for the different          * situations (All exceptions have the package name          * org.apache.camel.component.xmlsecurity.api and are a sub-class of          * XmlSignatureInvalidException. If the signature value validation          * fails, a XmlSignatureInvalidValueException is thrown. If a reference          * validation fails, a XmlSignatureInvalidContentHashException is          * thrown. For more detailed information, see the JavaDoc.          * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.ValidationFailedHandler</code> type.          * @group verify          */
+comment|/**          * Handles the different validation failed situations. The default          * implementation throws specific exceptions for the different          * situations (All exceptions have the package name          * org.apache.camel.component.xmlsecurity.api and are a sub-class of          * XmlSignatureInvalidException. If the signature value validation          * fails, a XmlSignatureInvalidValueException is thrown. If a reference          * validation fails, a XmlSignatureInvalidContentHashException is          * thrown. For more detailed information, see the JavaDoc.          *           * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.ValidationFailedHandler</code> type.          *           * Group: verify          */
 DECL|method|validationFailedHandler ( String validationFailedHandler)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1212,7 +1212,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bean which maps the XML signature to the output-message after the          * validation. How this mapping should be done can be configured by the          * options outputNodeSearchType, outputNodeSearch, and          * removeSignatureElements. The default implementation offers three          * possibilities which are related to the three output node search types          * Default, ElementName, and XPath. The default implementation          * determines a node which is then serialized and set to the body of the          * output message If the search type is ElementName then the output node          * (which must be in this case an element) is determined by the local          * name and namespace defined in the search value (see option          * outputNodeSearch). If the search type is XPath then the output node          * is determined by the XPath specified in the search value (in this          * case the output node can be of type Element, TextNode or Document).          * If the output node search type is Default then the following rules          * apply: In the enveloped XML signature case (there is a reference with          * URI= and transform          * http://www.w3.org/2000/09/xmldsig#enveloped-signature), the incoming          * XML document without the Signature element is set to the output          * message body. In the non-enveloped XML signature case, the message          * body is determined from a referenced Object; this is explained in          * more detail in chapter Output Node Determination in Enveloping XML          * Signature Case.          * The option is a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignature2Message</code> type.          * @group verify          */
+comment|/**          * Bean which maps the XML signature to the output-message after the          * validation. How this mapping should be done can be configured by the          * options outputNodeSearchType, outputNodeSearch, and          * removeSignatureElements. The default implementation offers three          * possibilities which are related to the three output node search types          * Default, ElementName, and XPath. The default implementation          * determines a node which is then serialized and set to the body of the          * output message If the search type is ElementName then the output node          * (which must be in this case an element) is determined by the local          * name and namespace defined in the search value (see option          * outputNodeSearch). If the search type is XPath then the output node          * is determined by the XPath specified in the search value (in this          * case the output node can be of type Element, TextNode or Document).          * If the output node search type is Default then the following rules          * apply: In the enveloped XML signature case (there is a reference with          * URI= and transform          * http://www.w3.org/2000/09/xmldsig#enveloped-signature), the incoming          * XML document without the Signature element is set to the output          * message body. In the non-enveloped XML signature case, the message          * body is determined from a referenced Object; this is explained in          * more detail in chapter Output Node Determination in Enveloping XML          * Signature Case.          *           * The option is a:          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignature2Message</code> type.          *           * Group: verify          */
 DECL|method|xmlSignature2Message ( Object xmlSignature2Message)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1233,7 +1233,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bean which maps the XML signature to the output-message after the          * validation. How this mapping should be done can be configured by the          * options outputNodeSearchType, outputNodeSearch, and          * removeSignatureElements. The default implementation offers three          * possibilities which are related to the three output node search types          * Default, ElementName, and XPath. The default implementation          * determines a node which is then serialized and set to the body of the          * output message If the search type is ElementName then the output node          * (which must be in this case an element) is determined by the local          * name and namespace defined in the search value (see option          * outputNodeSearch). If the search type is XPath then the output node          * is determined by the XPath specified in the search value (in this          * case the output node can be of type Element, TextNode or Document).          * If the output node search type is Default then the following rules          * apply: In the enveloped XML signature case (there is a reference with          * URI= and transform          * http://www.w3.org/2000/09/xmldsig#enveloped-signature), the incoming          * XML document without the Signature element is set to the output          * message body. In the non-enveloped XML signature case, the message          * body is determined from a referenced Object; this is explained in          * more detail in chapter Output Node Determination in Enveloping XML          * Signature Case.          * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignature2Message</code> type.          * @group verify          */
+comment|/**          * Bean which maps the XML signature to the output-message after the          * validation. How this mapping should be done can be configured by the          * options outputNodeSearchType, outputNodeSearch, and          * removeSignatureElements. The default implementation offers three          * possibilities which are related to the three output node search types          * Default, ElementName, and XPath. The default implementation          * determines a node which is then serialized and set to the body of the          * output message If the search type is ElementName then the output node          * (which must be in this case an element) is determined by the local          * name and namespace defined in the search value (see option          * outputNodeSearch). If the search type is XPath then the output node          * is determined by the XPath specified in the search value (in this          * case the output node can be of type Element, TextNode or Document).          * If the output node search type is Default then the following rules          * apply: In the enveloped XML signature case (there is a reference with          * URI= and transform          * http://www.w3.org/2000/09/xmldsig#enveloped-signature), the incoming          * XML document without the Signature element is set to the output          * message body. In the non-enveloped XML signature case, the message          * body is determined from a referenced Object; this is explained in          * more detail in chapter Output Node Determination in Enveloping XML          * Signature Case.          *           * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignature2Message</code> type.          *           * Group: verify          */
 DECL|method|xmlSignature2Message ( String xmlSignature2Message)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1254,7 +1254,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This interface allows the application to check the XML signature          * before the validation is executed. This step is recommended in          * http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed.          * The option is a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignatureChecker</code> type.          * @group verify          */
+comment|/**          * This interface allows the application to check the XML signature          * before the validation is executed. This step is recommended in          * http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed.          *           * The option is a:          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignatureChecker</code> type.          *           * Group: verify          */
 DECL|method|xmlSignatureChecker ( Object xmlSignatureChecker)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1275,7 +1275,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This interface allows the application to check the XML signature          * before the validation is executed. This step is recommended in          * http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed.          * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignatureChecker</code> type.          * @group verify          */
+comment|/**          * This interface allows the application to check the XML signature          * before the validation is executed. This step is recommended in          * http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed.          *           * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.api.XmlSignatureChecker</code> type.          *           * Group: verify          */
 DECL|method|xmlSignatureChecker ( String xmlSignatureChecker)
 specifier|default
 name|XmlSignatureEndpointBuilder
@@ -1318,7 +1318,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedXmlSignatureEndpointBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedXmlSignatureEndpointBuilder
@@ -1360,7 +1360,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedXmlSignatureEndpointBuilder
@@ -1381,7 +1381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedXmlSignatureEndpointBuilder
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you want to restrict the remote access via reference URIs, you can          * set an own dereferencer. Optional parameter. If not set the provider          * default dereferencer is used which can resolve URI fragments, HTTP,          * file and XPpointer URIs. Attention: The implementation is provider          * dependent!.          * The option is a<code>javax.xml.crypto.URIDereferencer</code> type.          * @group advanced          */
+comment|/**          * If you want to restrict the remote access via reference URIs, you can          * set an own dereferencer. Optional parameter. If not set the provider          * default dereferencer is used which can resolve URI fragments, HTTP,          * file and XPpointer URIs. Attention: The implementation is provider          * dependent!.          *           * The option is a:<code>javax.xml.crypto.URIDereferencer</code> type.          *           * Group: advanced          */
 DECL|method|uriDereferencer ( Object uriDereferencer)
 specifier|default
 name|AdvancedXmlSignatureEndpointBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If you want to restrict the remote access via reference URIs, you can          * set an own dereferencer. Optional parameter. If not set the provider          * default dereferencer is used which can resolve URI fragments, HTTP,          * file and XPpointer URIs. Attention: The implementation is provider          * dependent!.          * The option will be converted to a          *<code>javax.xml.crypto.URIDereferencer</code> type.          * @group advanced          */
+comment|/**          * If you want to restrict the remote access via reference URIs, you can          * set an own dereferencer. Optional parameter. If not set the provider          * default dereferencer is used which can resolve URI fragments, HTTP,          * file and XPpointer URIs. Attention: The implementation is provider          * dependent!.          *           * The option will be converted to a          *<code>javax.xml.crypto.URIDereferencer</code> type.          *           * Group: advanced          */
 DECL|method|uriDereferencer ( String uriDereferencer)
 specifier|default
 name|AdvancedXmlSignatureEndpointBuilder

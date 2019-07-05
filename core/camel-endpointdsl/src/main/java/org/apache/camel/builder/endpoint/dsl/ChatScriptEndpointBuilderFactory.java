@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname or IP of the server on which CS server is running.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Hostname or IP of the server on which CS server is running.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|host (String host)
 specifier|default
 name|ChatScriptEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port on which ChatScript is listening to.          * The option is a<code>int</code> type.          * @group producer          */
+comment|/**          * Port on which ChatScript is listening to.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|port (int port)
 specifier|default
 name|ChatScriptEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Port on which ChatScript is listening to.          * The option will be converted to a<code>int</code> type.          * @group producer          */
+comment|/**          * Port on which ChatScript is listening to.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
 DECL|method|port (String port)
 specifier|default
 name|ChatScriptEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the Bot in CS to converse with.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of the Bot in CS to converse with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|botName (String botName)
 specifier|default
 name|ChatScriptEndpointBuilder
@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Issues :reset command to start a new conversation everytime.          * The option is a<code>boolean</code> type.          * @group reset          */
+comment|/**          * Issues :reset command to start a new conversation everytime.          *           * The option is a:<code>boolean</code> type.          *           * Group: reset          */
 DECL|method|resetchat (boolean resetchat)
 specifier|default
 name|ChatScriptEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Issues :reset command to start a new conversation everytime.          * The option will be converted to a<code>boolean</code> type.          * @group reset          */
+comment|/**          * Issues :reset command to start a new conversation everytime.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: reset          */
 DECL|method|resetchat (String resetchat)
 specifier|default
 name|ChatScriptEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username who initializes the CS conversation. To be set when chat is          * initialized from camel route.          * The option is a<code>java.lang.String</code> type.          * @group username          */
+comment|/**          * Username who initializes the CS conversation. To be set when chat is          * initialized from camel route.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: username          */
 DECL|method|chatUserName (String chatUserName)
 specifier|default
 name|ChatScriptEndpointBuilder
@@ -279,7 +279,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedChatScriptEndpointBuilder
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedChatScriptEndpointBuilder
@@ -321,7 +321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedChatScriptEndpointBuilder
@@ -342,7 +342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedChatScriptEndpointBuilder

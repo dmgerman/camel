@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the Spring LDAP Template bean.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * Name of the Spring LDAP Template bean.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|templateName (String templateName)
 specifier|default
 name|SpringLdapEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The LDAP operation to be performed.          * The option is a          *<code>org.apache.camel.component.springldap.LdapOperation</code>          * type.          * @group producer          */
+comment|/**          * The LDAP operation to be performed.          *           * The option is a:          *<code>org.apache.camel.component.springldap.LdapOperation</code>          * type.          *           * Required: true          * Group: producer          */
 DECL|method|operation (LdapOperation operation)
 specifier|default
 name|SpringLdapEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The LDAP operation to be performed.          * The option will be converted to a          *<code>org.apache.camel.component.springldap.LdapOperation</code>          * type.          * @group producer          */
+comment|/**          * The LDAP operation to be performed.          *           * The option will be converted to a          *<code>org.apache.camel.component.springldap.LdapOperation</code>          * type.          *           * Required: true          * Group: producer          */
 DECL|method|operation (String operation)
 specifier|default
 name|SpringLdapEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The scope of the search operation.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
+comment|/**          * The scope of the search operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|scope (String scope)
 specifier|default
 name|SpringLdapEndpointBuilder
@@ -216,7 +216,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder
@@ -237,7 +237,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder
@@ -258,7 +258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder
@@ -279,7 +279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedSpringLdapEndpointBuilder

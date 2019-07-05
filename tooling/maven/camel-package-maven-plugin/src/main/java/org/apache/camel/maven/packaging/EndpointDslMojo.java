@@ -2787,7 +2787,11 @@ expr_stmt|;
 block|}
 name|desc
 operator|+=
-literal|"\nThe option is a<code>"
+literal|"\n"
+expr_stmt|;
+name|desc
+operator|+=
+literal|"\nThe option is a:<code>"
 operator|+
 name|ogtype
 operator|.
@@ -2812,7 +2816,41 @@ literal|"</code> type."
 expr_stmt|;
 name|desc
 operator|+=
-literal|"\n@group "
+literal|"\n"
+expr_stmt|;
+comment|// the Endpoint DSL currently requires to provide the entire context-path and not as individual options
+comment|// so lets only mark query parameters that are required as required
+if|if
+condition|(
+literal|"parameter"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getKind
+argument_list|()
+argument_list|)
+operator|&&
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getRequired
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|desc
+operator|+=
+literal|"\nRequired: true"
+expr_stmt|;
+block|}
+name|desc
+operator|+=
+literal|"\nGroup: "
 operator|+
 name|option
 operator|.
@@ -2975,6 +3013,10 @@ expr_stmt|;
 block|}
 name|desc
 operator|+=
+literal|"\n"
+expr_stmt|;
+name|desc
+operator|+=
 literal|"\nThe option will be converted to a<code>"
 operator|+
 name|ogtype
@@ -3000,7 +3042,41 @@ literal|"</code> type."
 expr_stmt|;
 name|desc
 operator|+=
-literal|"\n@group "
+literal|"\n"
+expr_stmt|;
+comment|// the Endpoint DSL currently requires to provide the entire context-path and not as individual options
+comment|// so lets only mark query parameters that are required as required
+if|if
+condition|(
+literal|"parameter"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getKind
+argument_list|()
+argument_list|)
+operator|&&
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getRequired
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|desc
+operator|+=
+literal|"\nRequired: true"
+expr_stmt|;
+block|}
+name|desc
+operator|+=
+literal|"\nGroup: "
 operator|+
 name|option
 operator|.

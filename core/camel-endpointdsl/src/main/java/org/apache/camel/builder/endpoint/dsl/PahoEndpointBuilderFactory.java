@@ -136,7 +136,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -157,7 +157,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoReconnect (boolean autoReconnect)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -178,7 +178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoReconnect (String autoReconnect)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -199,7 +199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The URL of the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The URL of the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|brokerUrl (String brokerUrl)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MQTT client identifier.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * MQTT client identifier.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client connection options.          * The option is a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          * @group common          */
+comment|/**          * Client connection options.          *           * The option is a:          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          *           * Group: common          */
 DECL|method|connectOptions (Object connectOptions)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client connection options.          * The option will be converted to a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          * @group common          */
+comment|/**          * Client connection options.          *           * The option will be converted to a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          *           * Group: common          */
 DECL|method|connectOptions (String connectOptions)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Base directory used by the file persistence provider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Base directory used by the file persistence provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filePersistenceDirectory ( String filePersistenceDirectory)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to be used for authentication against the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client persistence to be used - memory or file.          * The option is a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          * @group common          */
+comment|/**          * Client persistence to be used - memory or file.          *           * The option is a:          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence ( PahoPersistence persistence)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client persistence to be used - memory or file.          * The option will be converted to a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          * @group common          */
+comment|/**          * Client persistence to be used - memory or file.          *           * The option will be converted to a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence (String persistence)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client quality of service level (0-2).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Client quality of service level (0-2).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|qos (int qos)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client quality of service level (0-2).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Client quality of service level (0-2).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|qos (String qos)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Retain option.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Retain option.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|retained (boolean retained)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Retain option.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Retain option.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|retained (String retained)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to be used for authentication against the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userName (String userName)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -578,7 +578,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedPahoEndpointConsumerBuilder
@@ -599,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedPahoEndpointConsumerBuilder
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedPahoEndpointConsumerBuilder
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedPahoEndpointConsumerBuilder
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedPahoEndpointConsumerBuilder
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedPahoEndpointConsumerBuilder
@@ -704,7 +704,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedPahoEndpointConsumerBuilder
@@ -725,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedPahoEndpointConsumerBuilder
@@ -768,7 +768,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -789,7 +789,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoReconnect (boolean autoReconnect)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoReconnect (String autoReconnect)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -831,7 +831,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The URL of the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The URL of the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|brokerUrl (String brokerUrl)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MQTT client identifier.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * MQTT client identifier.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client connection options.          * The option is a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          * @group common          */
+comment|/**          * Client connection options.          *           * The option is a:          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          *           * Group: common          */
 DECL|method|connectOptions (Object connectOptions)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client connection options.          * The option will be converted to a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          * @group common          */
+comment|/**          * Client connection options.          *           * The option will be converted to a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          *           * Group: common          */
 DECL|method|connectOptions (String connectOptions)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -915,7 +915,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Base directory used by the file persistence provider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Base directory used by the file persistence provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filePersistenceDirectory ( String filePersistenceDirectory)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -936,7 +936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to be used for authentication against the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -957,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client persistence to be used - memory or file.          * The option is a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          * @group common          */
+comment|/**          * Client persistence to be used - memory or file.          *           * The option is a:          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence ( PahoPersistence persistence)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client persistence to be used - memory or file.          * The option will be converted to a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          * @group common          */
+comment|/**          * Client persistence to be used - memory or file.          *           * The option will be converted to a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence (String persistence)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -999,7 +999,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client quality of service level (0-2).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Client quality of service level (0-2).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|qos (int qos)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1020,7 +1020,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client quality of service level (0-2).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Client quality of service level (0-2).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|qos (String qos)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1041,7 +1041,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1062,7 +1062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Retain option.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Retain option.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|retained (boolean retained)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Retain option.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Retain option.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|retained (String retained)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1125,7 +1125,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to be used for authentication against the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userName (String userName)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1146,7 +1146,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1167,7 +1167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -1210,7 +1210,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedPahoEndpointProducerBuilder
@@ -1231,7 +1231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedPahoEndpointProducerBuilder
@@ -1252,7 +1252,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedPahoEndpointProducerBuilder
@@ -1273,7 +1273,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedPahoEndpointProducerBuilder
@@ -1318,7 +1318,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Name of the topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
 name|PahoEndpointBuilder
@@ -1339,7 +1339,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoReconnect (boolean autoReconnect)
 specifier|default
 name|PahoEndpointBuilder
@@ -1360,7 +1360,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoReconnect (String autoReconnect)
 specifier|default
 name|PahoEndpointBuilder
@@ -1381,7 +1381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The URL of the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The URL of the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|brokerUrl (String brokerUrl)
 specifier|default
 name|PahoEndpointBuilder
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * MQTT client identifier.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * MQTT client identifier.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
 name|PahoEndpointBuilder
@@ -1423,7 +1423,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client connection options.          * The option is a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          * @group common          */
+comment|/**          * Client connection options.          *           * The option is a:          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          *           * Group: common          */
 DECL|method|connectOptions (Object connectOptions)
 specifier|default
 name|PahoEndpointBuilder
@@ -1444,7 +1444,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client connection options.          * The option will be converted to a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          * @group common          */
+comment|/**          * Client connection options.          *           * The option will be converted to a          *<code>org.eclipse.paho.client.mqttv3.MqttConnectOptions</code> type.          *           * Group: common          */
 DECL|method|connectOptions (String connectOptions)
 specifier|default
 name|PahoEndpointBuilder
@@ -1465,7 +1465,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Base directory used by the file persistence provider.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Base directory used by the file persistence provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filePersistenceDirectory ( String filePersistenceDirectory)
 specifier|default
 name|PahoEndpointBuilder
@@ -1486,7 +1486,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to be used for authentication against the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|password (String password)
 specifier|default
 name|PahoEndpointBuilder
@@ -1507,7 +1507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client persistence to be used - memory or file.          * The option is a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          * @group common          */
+comment|/**          * Client persistence to be used - memory or file.          *           * The option is a:          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence (PahoPersistence persistence)
 specifier|default
 name|PahoEndpointBuilder
@@ -1528,7 +1528,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client persistence to be used - memory or file.          * The option will be converted to a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          * @group common          */
+comment|/**          * Client persistence to be used - memory or file.          *           * The option will be converted to a          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence (String persistence)
 specifier|default
 name|PahoEndpointBuilder
@@ -1549,7 +1549,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client quality of service level (0-2).          * The option is a<code>int</code> type.          * @group common          */
+comment|/**          * Client quality of service level (0-2).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|qos (int qos)
 specifier|default
 name|PahoEndpointBuilder
@@ -1570,7 +1570,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Client quality of service level (0-2).          * The option will be converted to a<code>int</code> type.          * @group common          */
+comment|/**          * Client quality of service level (0-2).          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
 DECL|method|qos (String qos)
 specifier|default
 name|PahoEndpointBuilder
@@ -1591,7 +1591,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
 specifier|default
 name|PahoEndpointBuilder
@@ -1612,7 +1612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
 specifier|default
 name|PahoEndpointBuilder
@@ -1633,7 +1633,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Retain option.          * The option is a<code>boolean</code> type.          * @group common          */
+comment|/**          * Retain option.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|retained (boolean retained)
 specifier|default
 name|PahoEndpointBuilder
@@ -1654,7 +1654,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Retain option.          * The option will be converted to a<code>boolean</code> type.          * @group common          */
+comment|/**          * Retain option.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|retained (String retained)
 specifier|default
 name|PahoEndpointBuilder
@@ -1675,7 +1675,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to be used for authentication against the MQTT broker.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|userName (String userName)
 specifier|default
 name|PahoEndpointBuilder
@@ -1720,7 +1720,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedPahoEndpointBuilder
@@ -1741,7 +1741,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedPahoEndpointBuilder
@@ -1762,7 +1762,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedPahoEndpointBuilder
@@ -1783,7 +1783,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedPahoEndpointBuilder

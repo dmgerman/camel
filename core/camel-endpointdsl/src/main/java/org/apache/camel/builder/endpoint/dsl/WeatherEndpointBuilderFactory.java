@@ -220,7 +220,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name value is not used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name value is not used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -241,7 +241,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * APPID ID used to authenticate the user connected to the API Server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APPID ID used to authenticate the user connected to the API Server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|appid (String appid)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To store the weather result in this header instead of the message          * body. This is useable if you want to keep current message body as-is.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To store the weather result in this header instead of the message          * body. This is useable if you want to keep current message body as-is.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|headerName (String headerName)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Language of the response.          * The option is a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          * @group common          */
+comment|/**          * Language of the response.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          *           * Group: common          */
 DECL|method|language (WeatherLanguage language)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Language of the response.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          * @group common          */
+comment|/**          * Language of the response.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          *           * Group: common          */
 DECL|method|language (String language)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The output format of the weather data.          * The option is a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          * @group common          */
+comment|/**          * The output format of the weather data.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          *           * Group: common          */
 DECL|method|mode (WeatherMode mode)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The output format of the weather data.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          * @group common          */
+comment|/**          * The output format of the weather data.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          *           * Group: common          */
 DECL|method|mode (String mode)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If null, the current weather will be returned, else use values of 5,          * 7, 14 days. Only the numeric value for the forecast period is          * actually parsed, so spelling, capitalisation of the time period is up          * to you (its ignored).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * If null, the current weather will be returned, else use values of 5,          * 7, 14 days. Only the numeric value for the forecast period is          * actually parsed, so spelling, capitalisation of the time period is up          * to you (its ignored).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|period (String period)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -388,7 +388,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The units for temperature measurement.          * The option is a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          * @group common          */
+comment|/**          * The units for temperature measurement.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          *           * Group: common          */
 DECL|method|units (WeatherUnits units)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -409,7 +409,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The units for temperature measurement.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          * @group common          */
+comment|/**          * The units for temperature measurement.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          *           * Group: common          */
 DECL|method|units (String units)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -430,7 +430,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          * The option is a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          * @group common          */
+comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          *           * Group: common          */
 DECL|method|weatherApi (WeatherApi weatherApi)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -451,7 +451,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          * @group common          */
+comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          *           * Group: common          */
 DECL|method|weatherApi (String weatherApi)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -493,7 +493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option is a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( boolean sendEmptyMessageWhenIdle)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -535,7 +535,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
+comment|/**          * If the polling consumer did not poll any files, you can enable this          * option to send an empty message (no body) instead.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|sendEmptyMessageWhenIdle ( String sendEmptyMessageWhenIdle)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -556,7 +556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -577,7 +577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( String backoffErrorThreshold)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -598,7 +598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffIdleThreshold ( int backoffIdleThreshold)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -619,7 +619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * The number of subsequent idle polls that should happen before the          * backoffMultipler should kick-in.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffIdleThreshold ( String backoffIdleThreshold)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -640,7 +640,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option is a<code>int</code> type.          * @group scheduler          */
+comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffMultiplier ( int backoffMultiplier)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -661,7 +661,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          * The option will be converted to a<code>int</code> type.          * @group scheduler          */
+comment|/**          * To let the scheduled polling consumer backoff if there has been a          * number of subsequent idles/errors in a row. The multiplier is then          * the number of polls that will be skipped before the next actual          * attempt is happening again. When this option is in use then          * backoffIdleThreshold and/or backoffErrorThreshold must also be          * configured.          *           * The option will be converted to a<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffMultiplier ( String backoffMultiplier)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -682,7 +682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (long delay)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -703,7 +703,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (String delay)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -724,7 +724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|greedy (boolean greedy)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -745,7 +745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * If greedy is enabled, then the ScheduledPollConsumer will run          * immediately again, if the previous run polled 1 or more messages.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|greedy (String greedy)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -766,7 +766,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option is a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|initialDelay (long initialDelay)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -787,7 +787,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          * The option will be converted to a<code>long</code> type.          * @group scheduler          */
+comment|/**          * Milliseconds before the first poll starts. You can also specify time          * values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|initialDelay (String initialDelay)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -808,7 +808,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option is a<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
+comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -829,7 +829,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          * @group scheduler          */
+comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( String runLoggingLevel)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -850,7 +850,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option is a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
+comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          *           * The option is a:          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          *           * Group: scheduler          */
 DECL|method|scheduledExecutorService ( ScheduledExecutorService scheduledExecutorService)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -871,7 +871,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          * @group scheduler          */
+comment|/**          * Allows for configuring a custom/shared thread pool to use for the          * consumer. By default each consumer has its own single threaded thread          * pool.          *           * The option will be converted to a          *<code>java.util.concurrent.ScheduledExecutorService</code> type.          *           * Group: scheduler          */
 DECL|method|scheduledExecutorService ( String scheduledExecutorService)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -892,7 +892,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option is a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option is a:          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -913,7 +913,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          * @group scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler (String scheduler)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -934,7 +934,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option is a<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          * @group scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -960,7 +960,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          * @group scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -981,7 +981,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the scheduler should be auto started.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Whether the scheduler should be auto started.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|startScheduler ( boolean startScheduler)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1002,7 +1002,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the scheduler should be auto started.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Whether the scheduler should be auto started.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|startScheduler ( String startScheduler)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1023,7 +1023,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time unit for initialDelay and delay options.          * The option is a<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
+comment|/**          * Time unit for initialDelay and delay options.          *           * The option is a:<code>java.util.concurrent.TimeUnit</code> type.          *           * Group: scheduler          */
 DECL|method|timeUnit (TimeUnit timeUnit)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1044,7 +1044,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Time unit for initialDelay and delay options.          * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          * @group scheduler          */
+comment|/**          * Time unit for initialDelay and delay options.          *           * The option will be converted to a          *<code>java.util.concurrent.TimeUnit</code> type.          *           * Group: scheduler          */
 DECL|method|timeUnit (String timeUnit)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1065,7 +1065,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option is a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          *           * The option is a:<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|useFixedDelay ( boolean useFixedDelay)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1086,7 +1086,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          * The option will be converted to a<code>boolean</code> type.          * @group scheduler          */
+comment|/**          * Controls if fixed delay or fixed rate is used. See          * ScheduledExecutorService in JDK for details.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: scheduler          */
 DECL|method|useFixedDelay ( String useFixedDelay)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1107,7 +1107,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of results to be found.          * The option is a<code>java.lang.Integer</code> type.          * @group filter          */
+comment|/**          * Number of results to be found.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: filter          */
 DECL|method|cnt (Integer cnt)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1128,7 +1128,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of results to be found.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group filter          */
+comment|/**          * Number of results to be found.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: filter          */
 DECL|method|cnt (String cnt)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1149,7 +1149,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group filter          */
+comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: filter          */
 DECL|method|ids (List<String> ids)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1173,7 +1173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group filter          */
+comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: filter          */
 DECL|method|ids (String ids)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1194,7 +1194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Latitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the bottom latitude.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Latitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the bottom latitude.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|lat (String lat)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1215,7 +1215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If null Camel will try and determine your current location using the          * geolocation of your ip address, else specify the city,country. For          * well known city names, Open Weather Map will determine the best fit,          * but multiple results may be returned. Hence specifying and country as          * well will return more accurate data. If you specify current as the          * location then the component will try to get the current latitude and          * longitude and use that to get the weather details. You can use lat          * and lon options instead of location.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * If null Camel will try and determine your current location using the          * geolocation of your ip address, else specify the city,country. For          * well known city names, Open Weather Map will determine the best fit,          * but multiple results may be returned. Hence specifying and country as          * well will return more accurate data. If you specify current as the          * location then the component will try to get the current latitude and          * longitude and use that to get the weather details. You can use lat          * and lon options instead of location.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|location (String location)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1236,7 +1236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Longitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the left longtitude.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Longitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the left longtitude.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|lon (String lon)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1257,7 +1257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the right longtitude. Needs to be used in          * combination with topLat and zoom.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the right longtitude. Needs to be used in          * combination with topLat and zoom.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|rightLon (String rightLon)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1278,7 +1278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the top latitude. Needs to be used in          * combination with rightLon and zoom.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the top latitude. Needs to be used in          * combination with rightLon and zoom.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|topLat (String topLat)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1299,7 +1299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Zip-code, e.g. 94040,us.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Zip-code, e.g. 94040,us.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|zip (String zip)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1320,7 +1320,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          * The option is a<code>java.lang.Integer</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: filter          */
 DECL|method|zoom (Integer zoom)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1341,7 +1341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group filter          */
+comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: filter          */
 DECL|method|zoom (String zoom)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1362,7 +1362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Domain for proxy NTLM authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Domain for proxy NTLM authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthDomain ( String proxyAuthDomain)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1383,7 +1383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Optional host for proxy NTLM authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Optional host for proxy NTLM authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthHost ( String proxyAuthHost)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1404,7 +1404,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Authentication method for proxy, either as Basic, Digest or NTLM.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Authentication method for proxy, either as Basic, Digest or NTLM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthMethod ( String proxyAuthMethod)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1425,7 +1425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Password for proxy authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthPassword ( String proxyAuthPassword)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1446,7 +1446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Username for proxy authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthUsername ( String proxyAuthUsername)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1467,7 +1467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy host name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * The proxy host name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1488,7 +1488,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy port number.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * The proxy port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1509,7 +1509,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * The proxy port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1530,7 +1530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The geolocation service now needs an accessKey to be used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The geolocation service now needs an accessKey to be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
 DECL|method|geolocationAccessKey ( String geolocationAccessKey)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1551,7 +1551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The geolocation service now needs to specify the IP associated to the          * accessKey you're using.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The geolocation service now needs to specify the IP associated to the          * accessKey you're using.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
 DECL|method|geolocationRequestHostIP ( String geolocationRequestHostIP)
 specifier|default
 name|WeatherEndpointConsumerBuilder
@@ -1594,7 +1594,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option is a<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1615,7 +1615,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          * @group consumer (advanced)          */
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exceptionHandler ( String exceptionHandler)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1636,7 +1636,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option is a<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( ExchangePattern exchangePattern)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1657,7 +1657,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          * @group consumer (advanced)          */
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|exchangePattern ( String exchangePattern)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1678,7 +1678,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option is a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option is a:          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1699,7 +1699,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          * @group consumer (advanced)          */
+comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option will be converted to a          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( String pollStrategy)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1720,7 +1720,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1741,7 +1741,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1762,7 +1762,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HttpConnectionManager to manage connections.          * The option is a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom HttpConnectionManager to manage connections.          *           * The option is a:          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          *           * Group: advanced          */
 DECL|method|httpConnectionManager ( Object httpConnectionManager)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1783,7 +1783,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HttpConnectionManager to manage connections.          * The option will be converted to a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom HttpConnectionManager to manage connections.          *           * The option will be converted to a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          *           * Group: advanced          */
 DECL|method|httpConnectionManager ( String httpConnectionManager)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1804,7 +1804,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1825,7 +1825,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedWeatherEndpointConsumerBuilder
@@ -1868,7 +1868,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name value is not used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name value is not used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -1889,7 +1889,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * APPID ID used to authenticate the user connected to the API Server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APPID ID used to authenticate the user connected to the API Server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|appid (String appid)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -1910,7 +1910,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To store the weather result in this header instead of the message          * body. This is useable if you want to keep current message body as-is.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To store the weather result in this header instead of the message          * body. This is useable if you want to keep current message body as-is.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|headerName (String headerName)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -1931,7 +1931,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Language of the response.          * The option is a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          * @group common          */
+comment|/**          * Language of the response.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          *           * Group: common          */
 DECL|method|language (WeatherLanguage language)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -1952,7 +1952,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Language of the response.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          * @group common          */
+comment|/**          * Language of the response.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          *           * Group: common          */
 DECL|method|language (String language)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -1973,7 +1973,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The output format of the weather data.          * The option is a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          * @group common          */
+comment|/**          * The output format of the weather data.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          *           * Group: common          */
 DECL|method|mode (WeatherMode mode)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -1994,7 +1994,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The output format of the weather data.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          * @group common          */
+comment|/**          * The output format of the weather data.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          *           * Group: common          */
 DECL|method|mode (String mode)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2015,7 +2015,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If null, the current weather will be returned, else use values of 5,          * 7, 14 days. Only the numeric value for the forecast period is          * actually parsed, so spelling, capitalisation of the time period is up          * to you (its ignored).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * If null, the current weather will be returned, else use values of 5,          * 7, 14 days. Only the numeric value for the forecast period is          * actually parsed, so spelling, capitalisation of the time period is up          * to you (its ignored).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|period (String period)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2036,7 +2036,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The units for temperature measurement.          * The option is a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          * @group common          */
+comment|/**          * The units for temperature measurement.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          *           * Group: common          */
 DECL|method|units (WeatherUnits units)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2057,7 +2057,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The units for temperature measurement.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          * @group common          */
+comment|/**          * The units for temperature measurement.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          *           * Group: common          */
 DECL|method|units (String units)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2078,7 +2078,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          * The option is a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          * @group common          */
+comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          *           * Group: common          */
 DECL|method|weatherApi (WeatherApi weatherApi)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2099,7 +2099,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          * @group common          */
+comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          *           * Group: common          */
 DECL|method|weatherApi (String weatherApi)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2120,7 +2120,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option is a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2141,7 +2141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          * The option will be converted to a<code>boolean</code> type.          * @group producer          */
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( String lazyStartProducer)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2162,7 +2162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of results to be found.          * The option is a<code>java.lang.Integer</code> type.          * @group filter          */
+comment|/**          * Number of results to be found.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: filter          */
 DECL|method|cnt (Integer cnt)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2183,7 +2183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of results to be found.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group filter          */
+comment|/**          * Number of results to be found.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: filter          */
 DECL|method|cnt (String cnt)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2204,7 +2204,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group filter          */
+comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: filter          */
 DECL|method|ids (List<String> ids)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2228,7 +2228,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group filter          */
+comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: filter          */
 DECL|method|ids (String ids)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2249,7 +2249,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Latitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the bottom latitude.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Latitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the bottom latitude.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|lat (String lat)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2270,7 +2270,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If null Camel will try and determine your current location using the          * geolocation of your ip address, else specify the city,country. For          * well known city names, Open Weather Map will determine the best fit,          * but multiple results may be returned. Hence specifying and country as          * well will return more accurate data. If you specify current as the          * location then the component will try to get the current latitude and          * longitude and use that to get the weather details. You can use lat          * and lon options instead of location.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * If null Camel will try and determine your current location using the          * geolocation of your ip address, else specify the city,country. For          * well known city names, Open Weather Map will determine the best fit,          * but multiple results may be returned. Hence specifying and country as          * well will return more accurate data. If you specify current as the          * location then the component will try to get the current latitude and          * longitude and use that to get the weather details. You can use lat          * and lon options instead of location.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|location (String location)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2291,7 +2291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Longitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the left longtitude.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Longitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the left longtitude.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|lon (String lon)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2312,7 +2312,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the right longtitude. Needs to be used in          * combination with topLat and zoom.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the right longtitude. Needs to be used in          * combination with topLat and zoom.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|rightLon (String rightLon)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2333,7 +2333,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the top latitude. Needs to be used in          * combination with rightLon and zoom.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the top latitude. Needs to be used in          * combination with rightLon and zoom.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|topLat (String topLat)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2354,7 +2354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Zip-code, e.g. 94040,us.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Zip-code, e.g. 94040,us.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|zip (String zip)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2375,7 +2375,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          * The option is a<code>java.lang.Integer</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: filter          */
 DECL|method|zoom (Integer zoom)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2396,7 +2396,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group filter          */
+comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: filter          */
 DECL|method|zoom (String zoom)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2417,7 +2417,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Domain for proxy NTLM authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Domain for proxy NTLM authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthDomain ( String proxyAuthDomain)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2438,7 +2438,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Optional host for proxy NTLM authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Optional host for proxy NTLM authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthHost ( String proxyAuthHost)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2459,7 +2459,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Authentication method for proxy, either as Basic, Digest or NTLM.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Authentication method for proxy, either as Basic, Digest or NTLM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthMethod ( String proxyAuthMethod)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2480,7 +2480,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Password for proxy authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthPassword ( String proxyAuthPassword)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2501,7 +2501,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Username for proxy authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthUsername ( String proxyAuthUsername)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2522,7 +2522,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy host name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * The proxy host name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2543,7 +2543,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy port number.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * The proxy port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2564,7 +2564,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * The proxy port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2585,7 +2585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The geolocation service now needs an accessKey to be used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The geolocation service now needs an accessKey to be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
 DECL|method|geolocationAccessKey ( String geolocationAccessKey)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2606,7 +2606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The geolocation service now needs to specify the IP associated to the          * accessKey you're using.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The geolocation service now needs to specify the IP associated to the          * accessKey you're using.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
 DECL|method|geolocationRequestHostIP ( String geolocationRequestHostIP)
 specifier|default
 name|WeatherEndpointProducerBuilder
@@ -2649,7 +2649,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedWeatherEndpointProducerBuilder
@@ -2670,7 +2670,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedWeatherEndpointProducerBuilder
@@ -2691,7 +2691,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HttpConnectionManager to manage connections.          * The option is a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom HttpConnectionManager to manage connections.          *           * The option is a:          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          *           * Group: advanced          */
 DECL|method|httpConnectionManager ( Object httpConnectionManager)
 specifier|default
 name|AdvancedWeatherEndpointProducerBuilder
@@ -2712,7 +2712,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HttpConnectionManager to manage connections.          * The option will be converted to a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom HttpConnectionManager to manage connections.          *           * The option will be converted to a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          *           * Group: advanced          */
 DECL|method|httpConnectionManager ( String httpConnectionManager)
 specifier|default
 name|AdvancedWeatherEndpointProducerBuilder
@@ -2733,7 +2733,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
 name|AdvancedWeatherEndpointProducerBuilder
@@ -2754,7 +2754,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( String synchronous)
 specifier|default
 name|AdvancedWeatherEndpointProducerBuilder
@@ -2799,7 +2799,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name value is not used.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * The name value is not used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|name (String name)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2820,7 +2820,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * APPID ID used to authenticate the user connected to the API Server.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * APPID ID used to authenticate the user connected to the API Server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|appid (String appid)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2841,7 +2841,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To store the weather result in this header instead of the message          * body. This is useable if you want to keep current message body as-is.          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * To store the weather result in this header instead of the message          * body. This is useable if you want to keep current message body as-is.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|headerName (String headerName)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2862,7 +2862,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Language of the response.          * The option is a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          * @group common          */
+comment|/**          * Language of the response.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          *           * Group: common          */
 DECL|method|language (WeatherLanguage language)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2883,7 +2883,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Language of the response.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          * @group common          */
+comment|/**          * Language of the response.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherLanguage</code> type.          *           * Group: common          */
 DECL|method|language (String language)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2904,7 +2904,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The output format of the weather data.          * The option is a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          * @group common          */
+comment|/**          * The output format of the weather data.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          *           * Group: common          */
 DECL|method|mode (WeatherMode mode)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2925,7 +2925,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The output format of the weather data.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          * @group common          */
+comment|/**          * The output format of the weather data.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherMode</code> type.          *           * Group: common          */
 DECL|method|mode (String mode)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2946,7 +2946,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If null, the current weather will be returned, else use values of 5,          * 7, 14 days. Only the numeric value for the forecast period is          * actually parsed, so spelling, capitalisation of the time period is up          * to you (its ignored).          * The option is a<code>java.lang.String</code> type.          * @group common          */
+comment|/**          * If null, the current weather will be returned, else use values of 5,          * 7, 14 days. Only the numeric value for the forecast period is          * actually parsed, so spelling, capitalisation of the time period is up          * to you (its ignored).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|period (String period)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2967,7 +2967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The units for temperature measurement.          * The option is a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          * @group common          */
+comment|/**          * The units for temperature measurement.          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          *           * Group: common          */
 DECL|method|units (WeatherUnits units)
 specifier|default
 name|WeatherEndpointBuilder
@@ -2988,7 +2988,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The units for temperature measurement.          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          * @group common          */
+comment|/**          * The units for temperature measurement.          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherUnits</code> type.          *           * Group: common          */
 DECL|method|units (String units)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3009,7 +3009,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          * The option is a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          * @group common          */
+comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          *           * The option is a:          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          *           * Group: common          */
 DECL|method|weatherApi (WeatherApi weatherApi)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3030,7 +3030,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          * @group common          */
+comment|/**          * The API to be use (current, forecast/3 hour, forecast daily,          * station).          *           * The option will be converted to a          *<code>org.apache.camel.component.weather.WeatherApi</code> type.          *           * Group: common          */
 DECL|method|weatherApi (String weatherApi)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3051,7 +3051,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of results to be found.          * The option is a<code>java.lang.Integer</code> type.          * @group filter          */
+comment|/**          * Number of results to be found.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: filter          */
 DECL|method|cnt (Integer cnt)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3072,7 +3072,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Number of results to be found.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group filter          */
+comment|/**          * Number of results to be found.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: filter          */
 DECL|method|cnt (String cnt)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3093,7 +3093,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          * The option is a<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          * @group filter          */
+comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: filter          */
 DECL|method|ids (List<String> ids)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3117,7 +3117,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          * @group filter          */
+comment|/**          * List of id's of city/stations. You can separate multiple ids by          * comma.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.String&gt;</code> type.          *           * Group: filter          */
 DECL|method|ids (String ids)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3138,7 +3138,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Latitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the bottom latitude.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Latitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the bottom latitude.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|lat (String lat)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3159,7 +3159,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If null Camel will try and determine your current location using the          * geolocation of your ip address, else specify the city,country. For          * well known city names, Open Weather Map will determine the best fit,          * but multiple results may be returned. Hence specifying and country as          * well will return more accurate data. If you specify current as the          * location then the component will try to get the current latitude and          * longitude and use that to get the weather details. You can use lat          * and lon options instead of location.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * If null Camel will try and determine your current location using the          * geolocation of your ip address, else specify the city,country. For          * well known city names, Open Weather Map will determine the best fit,          * but multiple results may be returned. Hence specifying and country as          * well will return more accurate data. If you specify current as the          * location then the component will try to get the current latitude and          * longitude and use that to get the weather details. You can use lat          * and lon options instead of location.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|location (String location)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3180,7 +3180,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Longitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the left longtitude.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Longitude of location. You can use lat and lon options instead of          * location. For boxed queries this is the left longtitude.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|lon (String lon)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3201,7 +3201,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the right longtitude. Needs to be used in          * combination with topLat and zoom.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the right longtitude. Needs to be used in          * combination with topLat and zoom.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|rightLon (String rightLon)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3222,7 +3222,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the top latitude. Needs to be used in          * combination with rightLon and zoom.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the top latitude. Needs to be used in          * combination with rightLon and zoom.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|topLat (String topLat)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3243,7 +3243,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Zip-code, e.g. 94040,us.          * The option is a<code>java.lang.String</code> type.          * @group filter          */
+comment|/**          * Zip-code, e.g. 94040,us.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|zip (String zip)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3264,7 +3264,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          * The option is a<code>java.lang.Integer</code> type.          * @group filter          */
+comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: filter          */
 DECL|method|zoom (Integer zoom)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3285,7 +3285,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group filter          */
+comment|/**          * For boxed queries this is the zoom. Needs to be used in combination          * with rightLon and topLat.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: filter          */
 DECL|method|zoom (String zoom)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3306,7 +3306,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Domain for proxy NTLM authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Domain for proxy NTLM authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthDomain (String proxyAuthDomain)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3327,7 +3327,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Optional host for proxy NTLM authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Optional host for proxy NTLM authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthHost (String proxyAuthHost)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3348,7 +3348,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Authentication method for proxy, either as Basic, Digest or NTLM.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Authentication method for proxy, either as Basic, Digest or NTLM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthMethod (String proxyAuthMethod)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3369,7 +3369,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Password for proxy authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthPassword ( String proxyAuthPassword)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3390,7 +3390,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username for proxy authentication.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * Username for proxy authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyAuthUsername ( String proxyAuthUsername)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3411,7 +3411,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy host name.          * The option is a<code>java.lang.String</code> type.          * @group proxy          */
+comment|/**          * The proxy host name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3432,7 +3432,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy port number.          * The option is a<code>java.lang.Integer</code> type.          * @group proxy          */
+comment|/**          * The proxy port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: proxy          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3453,7 +3453,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The proxy port number.          * The option will be converted to a<code>java.lang.Integer</code>          * type.          * @group proxy          */
+comment|/**          * The proxy port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: proxy          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3474,7 +3474,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The geolocation service now needs an accessKey to be used.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The geolocation service now needs an accessKey to be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
 DECL|method|geolocationAccessKey ( String geolocationAccessKey)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3495,7 +3495,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The geolocation service now needs to specify the IP associated to the          * accessKey you're using.          * The option is a<code>java.lang.String</code> type.          * @group security          */
+comment|/**          * The geolocation service now needs to specify the IP associated to the          * accessKey you're using.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
 DECL|method|geolocationRequestHostIP ( String geolocationRequestHostIP)
 specifier|default
 name|WeatherEndpointBuilder
@@ -3540,7 +3540,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
 name|AdvancedWeatherEndpointBuilder
@@ -3561,7 +3561,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( String basicPropertyBinding)
 specifier|default
 name|AdvancedWeatherEndpointBuilder
@@ -3582,7 +3582,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HttpConnectionManager to manage connections.          * The option is a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom HttpConnectionManager to manage connections.          *           * The option is a:          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          *           * Group: advanced          */
 DECL|method|httpConnectionManager ( Object httpConnectionManager)
 specifier|default
 name|AdvancedWeatherEndpointBuilder
@@ -3603,7 +3603,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom HttpConnectionManager to manage connections.          * The option will be converted to a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          * @group advanced          */
+comment|/**          * To use a custom HttpConnectionManager to manage connections.          *           * The option will be converted to a          *<code>org.apache.commons.httpclient.HttpConnectionManager</code>          * type.          *           * Group: advanced          */
 DECL|method|httpConnectionManager ( String httpConnectionManager)
 specifier|default
 name|AdvancedWeatherEndpointBuilder
@@ -3624,7 +3624,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option is a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (boolean synchronous)
 specifier|default
 name|AdvancedWeatherEndpointBuilder
@@ -3645,7 +3645,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          * The option will be converted to a<code>boolean</code> type.          * @group advanced          */
+comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous (String synchronous)
 specifier|default
 name|AdvancedWeatherEndpointBuilder
