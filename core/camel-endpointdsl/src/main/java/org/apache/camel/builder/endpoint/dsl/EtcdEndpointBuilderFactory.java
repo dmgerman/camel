@@ -2136,7 +2136,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * etcd (camel-etcd)      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store.      *       * Category: clustering,database      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-etcd      *       * Syntax:<code>etcd:namespace/path</code>      *       * Path parameter: namespace (required)      * The API namespace to use      * The value can be one of: keys,stats,watch      *       * Path parameter: path      * The path the endpoint refers to      */
+comment|/**      * etcd (camel-etcd)      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store.      *       * Category: clustering,database      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-etcd      *       * Syntax:<code>etcd:namespace/path</code>      *       * Path parameter: namespace (required)      * The API namespace to use      * The value can be one of: keys, stats, watch      *       * Path parameter: path      * The path the endpoint refers to      */
 DECL|method|etcd (String path)
 specifier|default
 name|EtcdEndpointBuilder

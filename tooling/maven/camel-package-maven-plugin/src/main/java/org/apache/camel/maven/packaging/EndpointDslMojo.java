@@ -3429,10 +3429,15 @@ name|desc
 operator|+=
 literal|"\nThe value can be one of: "
 operator|+
+name|wrapEnumValues
+argument_list|(
 name|option
 operator|.
 name|getEnumValues
 argument_list|()
+argument_list|,
+literal|120
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3474,6 +3479,63 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|wrapEnumValues (String enumValues, int watermark)
+specifier|private
+name|String
+name|wrapEnumValues
+parameter_list|(
+name|String
+name|enumValues
+parameter_list|,
+name|int
+name|watermark
+parameter_list|)
+block|{
+comment|// comma to space so we can wrap words (which uses space)
+name|String
+name|text
+init|=
+name|enumValues
+operator|.
+name|replace
+argument_list|(
+literal|','
+argument_list|,
+literal|' '
+argument_list|)
+decl_stmt|;
+name|String
+name|wrapped
+init|=
+name|StringHelper
+operator|.
+name|wrapWords
+argument_list|(
+name|text
+argument_list|,
+literal|"\n"
+argument_list|,
+name|watermark
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+comment|// back to comma again
+name|wrapped
+operator|=
+name|wrapped
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\s"
+argument_list|,
+literal|", "
+argument_list|)
+expr_stmt|;
+return|return
+name|wrapped
+return|;
 block|}
 DECL|method|getMethodName (String type)
 specifier|private

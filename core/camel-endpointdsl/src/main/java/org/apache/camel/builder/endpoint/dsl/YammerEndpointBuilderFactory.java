@@ -1863,7 +1863,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Yammer (camel-yammer)      * The yammer component allows you to interact with the Yammer enterprise      * social network.      *       * Category: social      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-yammer      *       * Syntax:<code>yammer:function</code>      *       * Path parameter: function (required)      * The function to use      * The value can be one of:      * MESSAGES,MY_FEED,ALGO,FOLLOWING,SENT,PRIVATE,RECEIVED,USERS,CURRENT      */
+comment|/**      * Yammer (camel-yammer)      * The yammer component allows you to interact with the Yammer enterprise      * social network.      *       * Category: social      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-yammer      *       * Syntax:<code>yammer:function</code>      *       * Path parameter: function (required)      * The function to use      * The value can be one of: MESSAGES, MY_FEED, ALGO, FOLLOWING, SENT,      * PRIVATE, RECEIVED, USERS, CURRENT      */
 DECL|method|yammer (String path)
 specifier|default
 name|YammerEndpointBuilder

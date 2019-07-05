@@ -395,7 +395,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Lucene (camel-lucene)      * To insert or query from Apache Lucene databases.      *       * Category: database,search      * Available as of version: 2.2      * Maven coordinates: org.apache.camel:camel-lucene      *       * Syntax:<code>lucene:host:operation</code>      *       * Path parameter: host (required)      * The URL to the lucene server      *       * Path parameter: operation (required)      * Operation to do such as insert or query.      * The value can be one of: insert,query      */
+comment|/**      * Lucene (camel-lucene)      * To insert or query from Apache Lucene databases.      *       * Category: database,search      * Available as of version: 2.2      * Maven coordinates: org.apache.camel:camel-lucene      *       * Syntax:<code>lucene:host:operation</code>      *       * Path parameter: host (required)      * The URL to the lucene server      *       * Path parameter: operation (required)      * Operation to do such as insert or query.      * The value can be one of: insert, query      */
 DECL|method|lucene (String path)
 specifier|default
 name|LuceneEndpointBuilder

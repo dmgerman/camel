@@ -2033,7 +2033,7 @@ block|,
 DECL|enumConstant|RSA_SHA_512
 name|RSA_SHA_512
 block|;     }
-comment|/**      * Box (camel-box)      * For uploading downloading and managing files folders groups      * collaborations etc on box DOT com.      *       * Category: api,file,cloud      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-box      *       * Syntax:<code>box:apiName/methodName</code>      *       * Path parameter: apiName (required)      * What kind of operation to perform      * The value can be one of:      * COLLABORATIONS,COMMENTS,EVENT_LOGS,FILES,FOLDERS,GROUPS,EVENTS,SEARCH,TASKS,USERS      *       * Path parameter: methodName (required)      * What sub operation to use for the selected operation      */
+comment|/**      * Box (camel-box)      * For uploading downloading and managing files folders groups      * collaborations etc on box DOT com.      *       * Category: api,file,cloud      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-box      *       * Syntax:<code>box:apiName/methodName</code>      *       * Path parameter: apiName (required)      * What kind of operation to perform      * The value can be one of: COLLABORATIONS, COMMENTS, EVENT_LOGS, FILES,      * FOLDERS, GROUPS, EVENTS, SEARCH, TASKS, USERS      *       * Path parameter: methodName (required)      * What sub operation to use for the selected operation      */
 DECL|method|box (String path)
 specifier|default
 name|BoxEndpointBuilder

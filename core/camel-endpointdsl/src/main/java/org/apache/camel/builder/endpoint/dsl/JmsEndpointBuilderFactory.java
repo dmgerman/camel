@@ -7332,7 +7332,7 @@ block|,
 DECL|enumConstant|Exclusive
 name|Exclusive
 block|;     }
-comment|/**      * JMS (camel-jms)      * The jms component allows messages to be sent to (or consumed from) a JMS      * Queue or Topic.      *       * Category: messaging      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-jms      *       * Syntax:<code>jms:destinationType:destinationName</code>      *       * Path parameter: destinationType      * The kind of destination to use      * Default value: queue      * The value can be one of: queue,topic,temp-queue,temp-topic      *       * Path parameter: destinationName (required)      * Name of the queue or topic to use as destination      */
+comment|/**      * JMS (camel-jms)      * The jms component allows messages to be sent to (or consumed from) a JMS      * Queue or Topic.      *       * Category: messaging      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-jms      *       * Syntax:<code>jms:destinationType:destinationName</code>      *       * Path parameter: destinationType      * The kind of destination to use      * Default value: queue      * The value can be one of: queue, topic, temp-queue, temp-topic      *       * Path parameter: destinationName (required)      * Name of the queue or topic to use as destination      */
 DECL|method|jms (String path)
 specifier|default
 name|JmsEndpointBuilder

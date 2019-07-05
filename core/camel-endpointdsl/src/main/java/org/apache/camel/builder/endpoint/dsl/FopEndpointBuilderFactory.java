@@ -280,7 +280,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * FOP (camel-fop)      * The fop component allows you to render a message into different output      * formats using Apache FOP.      *       * Category: transformation      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-fop      *       * Syntax:<code>fop:outputType</code>      *       * Path parameter: outputType (required)      * The primary output format is PDF but other output formats are also      * supported.      * The value can be one of: pdf,ps,pcl,png,jpeg,svg,xml,mif,rtf,txt      */
+comment|/**      * FOP (camel-fop)      * The fop component allows you to render a message into different output      * formats using Apache FOP.      *       * Category: transformation      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-fop      *       * Syntax:<code>fop:outputType</code>      *       * Path parameter: outputType (required)      * The primary output format is PDF but other output formats are also      * supported.      * The value can be one of: pdf, ps, pcl, png, jpeg, svg, xml, mif, rtf, txt      */
 DECL|method|fop (String path)
 specifier|default
 name|FopEndpointBuilder

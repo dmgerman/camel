@@ -217,7 +217,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * DNS (camel-dns)      * To lookup domain information and run DNS queries using DNSJava.      *       * Category: networking      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-dns      *       * Syntax:<code>dns:dnsType</code>      *       * Path parameter: dnsType (required)      * The type of the lookup.      * The value can be one of: dig,ip,lookup,wikipedia      */
+comment|/**      * DNS (camel-dns)      * To lookup domain information and run DNS queries using DNSJava.      *       * Category: networking      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-dns      *       * Syntax:<code>dns:dnsType</code>      *       * Path parameter: dnsType (required)      * The type of the lookup.      * The value can be one of: dig, ip, lookup, wikipedia      */
 DECL|method|dns (String path)
 specifier|default
 name|DnsEndpointBuilder

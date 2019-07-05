@@ -642,7 +642,7 @@ return|;
 block|}
 comment|/**      * To wrap a big line by words.      *      * @param line the big line      * @param newLine the new line to use when breaking into a new line      * @param watermark a watermark to denote the size to cut after      * @param wrapLongWords whether to wrap long words      */
 DECL|method|wrapWords (String line, String newLine, int watermark, boolean wrapLongWords)
-specifier|private
+specifier|public
 specifier|static
 name|String
 name|wrapWords
