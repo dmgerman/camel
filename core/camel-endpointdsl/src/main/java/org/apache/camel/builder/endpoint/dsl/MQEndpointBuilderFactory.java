@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Logical name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|label (String label)
-specifier|default
-name|MQEndpointBuilder
-name|label
-parameter_list|(
-name|String
-name|label
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"label"
-argument_list|,
-name|label
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The region in which MQ client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
