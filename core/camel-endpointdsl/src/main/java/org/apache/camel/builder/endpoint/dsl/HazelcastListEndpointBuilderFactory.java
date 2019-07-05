@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the cache.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|HazelcastListEndpointConsumerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          *           * The option is a:          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          *           * Group: common          */
 DECL|method|defaultOperation ( HazelcastOperation defaultOperation)
 specifier|default
@@ -894,27 +873,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the cache.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|HazelcastListEndpointProducerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To specify a default operation to use, if no operation header has          * been provided.          *           * The option is a:          *<code>org.apache.camel.component.hazelcast.HazelcastOperation</code>          * type.          *           * Group: common          */
 DECL|method|defaultOperation ( HazelcastOperation defaultOperation)
 specifier|default
@@ -1441,27 +1399,6 @@ return|return
 operator|(
 name|AdvancedHazelcastListEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The name of the cache.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|HazelcastListEndpointBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

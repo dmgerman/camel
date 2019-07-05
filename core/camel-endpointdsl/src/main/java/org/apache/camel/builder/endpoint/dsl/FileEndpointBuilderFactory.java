@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Comparator
@@ -277,48 +267,6 @@ return|return
 operator|(
 name|AdvancedFileEndpointConsumerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The starting directory.          *           * The option is a:<code>java.io.File</code> type.          *           * Group: common          */
-DECL|method|directoryName (File directoryName)
-specifier|default
-name|FileEndpointConsumerBuilder
-name|directoryName
-parameter_list|(
-name|File
-name|directoryName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"directoryName"
-argument_list|,
-name|directoryName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The starting directory.          *           * The option will be converted to a<code>java.io.File</code> type.          *           * Group: common          */
-DECL|method|directoryName (String directoryName)
-specifier|default
-name|FileEndpointConsumerBuilder
-name|directoryName
-parameter_list|(
-name|String
-name|directoryName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"directoryName"
-argument_list|,
-name|directoryName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -3380,48 +3328,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The starting directory.          *           * The option is a:<code>java.io.File</code> type.          *           * Group: common          */
-DECL|method|directoryName (File directoryName)
-specifier|default
-name|FileEndpointProducerBuilder
-name|directoryName
-parameter_list|(
-name|File
-name|directoryName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"directoryName"
-argument_list|,
-name|directoryName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The starting directory.          *           * The option will be converted to a<code>java.io.File</code> type.          *           * Group: common          */
-DECL|method|directoryName (String directoryName)
-specifier|default
-name|FileEndpointProducerBuilder
-name|directoryName
-parameter_list|(
-name|String
-name|directoryName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"directoryName"
-argument_list|,
-name|directoryName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * This option is used to specify the encoding of the file. You can use          * this on the consumer, to specify the encodings of the files, which          * allow Camel to know the charset it should load the file content in          * case the file content is being accessed. Likewise when writing a          * file, you can use this option to specify which charset to write the          * file as well. Do mind that when writing the file Camel may have to          * read the message content into memory to be able to convert the data          * into the configured charset, so do not use this if you have big          * messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|charset (String charset)
 specifier|default
@@ -4326,48 +4232,6 @@ return|return
 operator|(
 name|AdvancedFileEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The starting directory.          *           * The option is a:<code>java.io.File</code> type.          *           * Group: common          */
-DECL|method|directoryName (File directoryName)
-specifier|default
-name|FileEndpointBuilder
-name|directoryName
-parameter_list|(
-name|File
-name|directoryName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"directoryName"
-argument_list|,
-name|directoryName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The starting directory.          *           * The option will be converted to a<code>java.io.File</code> type.          *           * Group: common          */
-DECL|method|directoryName (String directoryName)
-specifier|default
-name|FileEndpointBuilder
-name|directoryName
-parameter_list|(
-name|String
-name|directoryName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"directoryName"
-argument_list|,
-name|directoryName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

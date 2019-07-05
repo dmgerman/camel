@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Local repository path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|localPath (String localPath)
-specifier|default
-name|GitEndpointConsumerBuilder
-name|localPath
-parameter_list|(
-name|String
-name|localPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"localPath"
-argument_list|,
-name|localPath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The branch name to work on.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|branchName (String branchName)
 specifier|default
@@ -579,27 +558,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Local repository path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|localPath (String localPath)
-specifier|default
-name|GitEndpointProducerBuilder
-name|localPath
-parameter_list|(
-name|String
-name|localPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"localPath"
-argument_list|,
-name|localPath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The branch name to work on.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|branchName (String branchName)
 specifier|default
@@ -958,27 +916,6 @@ return|return
 operator|(
 name|AdvancedGitEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Local repository path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|localPath (String localPath)
-specifier|default
-name|GitEndpointBuilder
-name|localPath
-parameter_list|(
-name|String
-name|localPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"localPath"
-argument_list|,
-name|localPath
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -220,27 +220,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the template to load from classpath or file system.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|XQueryEndpointConsumerBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to allow using StAX mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowStAX (boolean allowStAX)
 specifier|default
@@ -1631,27 +1610,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the template to load from classpath or file system.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|XQueryEndpointProducerBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to allow using StAX mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowStAX (boolean allowStAX)
 specifier|default
@@ -2322,27 +2280,6 @@ return|return
 operator|(
 name|AdvancedXQueryEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The name of the template to load from classpath or file system.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|XQueryEndpointBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

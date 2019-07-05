@@ -160,48 +160,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To lookup an existing configured CxfEndpoint. Must used bean: as          * prefix.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|beanId (String beanId)
-specifier|default
-name|CxfEndpointConsumerBuilder
-name|beanId
-parameter_list|(
-name|String
-name|beanId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"beanId"
-argument_list|,
-name|beanId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The service publish address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: service          */
-DECL|method|address (String address)
-specifier|default
-name|CxfEndpointConsumerBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The data type messages supported by the CXF endpoint.          *           * The option is a:          *<code>org.apache.camel.component.cxf.DataFormat</code> type.          *           * Group: common          */
 DECL|method|dataFormat (DataFormat dataFormat)
 specifier|default
@@ -1322,48 +1280,6 @@ return|return
 operator|(
 name|AdvancedCxfEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * To lookup an existing configured CxfEndpoint. Must used bean: as          * prefix.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|beanId (String beanId)
-specifier|default
-name|CxfEndpointProducerBuilder
-name|beanId
-parameter_list|(
-name|String
-name|beanId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"beanId"
-argument_list|,
-name|beanId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The service publish address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: service          */
-DECL|method|address (String address)
-specifier|default
-name|CxfEndpointProducerBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -2615,48 +2531,6 @@ return|return
 operator|(
 name|AdvancedCxfEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * To lookup an existing configured CxfEndpoint. Must used bean: as          * prefix.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|beanId (String beanId)
-specifier|default
-name|CxfEndpointBuilder
-name|beanId
-parameter_list|(
-name|String
-name|beanId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"beanId"
-argument_list|,
-name|beanId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The service publish address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: service          */
-DECL|method|address (String address)
-specifier|default
-name|CxfEndpointBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

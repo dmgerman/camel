@@ -176,27 +176,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|KafkaEndpointConsumerBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * URL of the Kafka brokers to use. The format is          * host1:port1,host2:port2, and the list can be a subset of brokers or a          * VIP pointing to a subset of brokers. This option is known as          * bootstrap.servers in the Kafka documentation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|brokers (String brokers)
 specifier|default
@@ -2133,27 +2112,6 @@ return|return
 operator|(
 name|AdvancedKafkaEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|KafkaEndpointProducerBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -4321,27 +4279,6 @@ return|return
 operator|(
 name|AdvancedKafkaEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of the topic to use. On the consumer you can use comma to          * separate multiple topics. A producer can only send a message to a          * single topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|KafkaEndpointBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the JGroups cluster the component should connect to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|clusterName (String clusterName)
-specifier|default
-name|JGroupsEndpointConsumerBuilder
-name|clusterName
-parameter_list|(
-name|String
-name|clusterName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"clusterName"
-argument_list|,
-name|clusterName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies configuration properties of the JChannel used by the          * endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channelProperties ( String channelProperties)
 specifier|default
@@ -474,27 +453,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the JGroups cluster the component should connect to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|clusterName (String clusterName)
-specifier|default
-name|JGroupsEndpointProducerBuilder
-name|clusterName
-parameter_list|(
-name|String
-name|clusterName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"clusterName"
-argument_list|,
-name|clusterName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies configuration properties of the JChannel used by the          * endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channelProperties ( String channelProperties)
 specifier|default
@@ -685,27 +643,6 @@ return|return
 operator|(
 name|AdvancedJGroupsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The name of the JGroups cluster the component should connect to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|clusterName (String clusterName)
-specifier|default
-name|JGroupsEndpointBuilder
-name|clusterName
-parameter_list|(
-name|String
-name|clusterName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"clusterName"
-argument_list|,
-name|clusterName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Url to the SAP net-weaver gateway server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|url (String url)
-specifier|default
-name|NetWeaverEndpointBuilder
-name|url
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"url"
-argument_list|,
-name|url
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * If the JSON Map contains only a single entry, then flattern by          * storing that single entry value as the message body.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flatternMap (boolean flatternMap)
 specifier|default

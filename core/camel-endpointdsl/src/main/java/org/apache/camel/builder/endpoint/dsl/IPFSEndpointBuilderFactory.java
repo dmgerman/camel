@@ -122,27 +122,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The ipfs command.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|ipfsCmd (String ipfsCmd)
-specifier|default
-name|IPFSEndpointBuilder
-name|ipfsCmd
-parameter_list|(
-name|String
-name|ipfsCmd
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"ipfsCmd"
-argument_list|,
-name|ipfsCmd
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The ipfs output directory.          *           * The option is a:<code>java.nio.file.Path</code> type.          *           * Group: producer          */
 DECL|method|outdir (Path outdir)
 specifier|default

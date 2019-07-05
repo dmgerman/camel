@@ -120,27 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The metric namespace.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|namespace (String namespace)
-specifier|default
-name|CwEndpointBuilder
-name|namespace
-parameter_list|(
-name|String
-name|namespace
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"namespace"
-argument_list|,
-name|namespace
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use the AmazonCloudWatch as the client.          *           * The option is a:          *<code>com.amazonaws.services.cloudwatch.AmazonCloudWatch</code> type.          *           * Group: producer          */
 DECL|method|amazonCwClient (Object amazonCwClient)
 specifier|default

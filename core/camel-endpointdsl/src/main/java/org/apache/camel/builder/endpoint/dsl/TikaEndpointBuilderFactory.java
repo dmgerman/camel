@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Tika Operation. parse or detect.          *           * The option is a:          *<code>org.apache.camel.component.tika.TikaOperation</code> type.          *           * Group: producer          */
-DECL|method|operation (TikaOperation operation)
-specifier|default
-name|TikaEndpointBuilder
-name|operation
-parameter_list|(
-name|TikaOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Tika Operation. parse or detect.          *           * The option will be converted to a          *<code>org.apache.camel.component.tika.TikaOperation</code> type.          *           * Group: producer          */
-DECL|method|operation (String operation)
-specifier|default
-name|TikaEndpointBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Tika Config.          *           * The option is a:<code>org.apache.tika.config.TikaConfig</code> type.          *           * Group: producer          */
 DECL|method|tikaConfig (Object tikaConfig)
 specifier|default
@@ -385,17 +343,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>org.apache.camel.component.tika.TikaOperation</code>      * enum.      */
-DECL|enum|TikaOperation
-enum|enum
-name|TikaOperation
-block|{
-DECL|enumConstant|parse
-name|parse
-block|,
-DECL|enumConstant|detect
-name|detect
-block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.tika.TikaParseOutputFormat</code> enum.      */
 DECL|enum|TikaParseOutputFormat
 enum|enum

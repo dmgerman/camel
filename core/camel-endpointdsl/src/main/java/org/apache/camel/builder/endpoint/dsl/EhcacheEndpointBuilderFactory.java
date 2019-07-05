@@ -156,27 +156,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|EhcacheEndpointConsumerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The cache manager.          *           * The option is a:          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          *           * Group: common          */
 DECL|method|cacheManager (Object cacheManager)
 specifier|default
@@ -886,27 +865,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|EhcacheEndpointProducerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The cache manager.          *           * The option is a:          *<code>org.apache.camel.component.ehcache.EhcacheManager</code> type.          *           * Group: common          */
 DECL|method|cacheManager (Object cacheManager)
 specifier|default
@@ -1465,27 +1423,6 @@ return|return
 operator|(
 name|AdvancedEhcacheEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|EhcacheEndpointBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

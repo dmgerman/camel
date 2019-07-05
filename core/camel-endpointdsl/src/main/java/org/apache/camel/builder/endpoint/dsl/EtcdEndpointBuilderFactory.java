@@ -210,69 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The API namespace to use.          *           * The option is a:          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          *           * Group: common          */
-DECL|method|namespace (EtcdNamespace namespace)
-specifier|default
-name|EtcdEndpointConsumerBuilder
-name|namespace
-parameter_list|(
-name|EtcdNamespace
-name|namespace
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"namespace"
-argument_list|,
-name|namespace
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The API namespace to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          *           * Group: common          */
-DECL|method|namespace (String namespace)
-specifier|default
-name|EtcdEndpointConsumerBuilder
-name|namespace
-parameter_list|(
-name|String
-name|namespace
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"namespace"
-argument_list|,
-name|namespace
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The path the endpoint refers to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|EtcdEndpointConsumerBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To apply an action recursively.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|recursive (boolean recursive)
 specifier|default
@@ -1456,69 +1393,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The API namespace to use.          *           * The option is a:          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          *           * Group: common          */
-DECL|method|namespace (EtcdNamespace namespace)
-specifier|default
-name|EtcdEndpointProducerBuilder
-name|namespace
-parameter_list|(
-name|EtcdNamespace
-name|namespace
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"namespace"
-argument_list|,
-name|namespace
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The API namespace to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          *           * Group: common          */
-DECL|method|namespace (String namespace)
-specifier|default
-name|EtcdEndpointProducerBuilder
-name|namespace
-parameter_list|(
-name|String
-name|namespace
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"namespace"
-argument_list|,
-name|namespace
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The path the endpoint refers to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|EtcdEndpointProducerBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To apply an action recursively.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|recursive (boolean recursive)
 specifier|default
@@ -1943,69 +1817,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The API namespace to use.          *           * The option is a:          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          *           * Group: common          */
-DECL|method|namespace (EtcdNamespace namespace)
-specifier|default
-name|EtcdEndpointBuilder
-name|namespace
-parameter_list|(
-name|EtcdNamespace
-name|namespace
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"namespace"
-argument_list|,
-name|namespace
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The API namespace to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.etcd.EtcdNamespace</code> type.          *           * Group: common          */
-DECL|method|namespace (String namespace)
-specifier|default
-name|EtcdEndpointBuilder
-name|namespace
-parameter_list|(
-name|String
-name|namespace
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"namespace"
-argument_list|,
-name|namespace
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The path the endpoint refers to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|EtcdEndpointBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To apply an action recursively.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|recursive (boolean recursive)
 specifier|default
@@ -2325,20 +2136,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>org.apache.camel.component.etcd.EtcdNamespace</code>      * enum.      */
-DECL|enum|EtcdNamespace
-enum|enum
-name|EtcdNamespace
-block|{
-DECL|enumConstant|stats
-name|stats
-block|,
-DECL|enumConstant|watch
-name|watch
-block|,
-DECL|enumConstant|keys
-name|keys
-block|;     }
 comment|/**      * etcd (camel-etcd)      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store.      *       * Syntax:<code>etcd:namespace/path</code>      * Category: clustering,database      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-etcd      */
 DECL|method|etcd (String path)
 specifier|default

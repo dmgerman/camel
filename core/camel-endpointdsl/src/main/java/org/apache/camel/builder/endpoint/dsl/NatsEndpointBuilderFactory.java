@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servers (String servers)
-specifier|default
-name|NatsEndpointConsumerBuilder
-name|servers
-parameter_list|(
-name|String
-name|servers
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servers"
-argument_list|,
-name|servers
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: common          */
 DECL|method|connection (Object connection)
 specifier|default
@@ -1188,27 +1167,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servers (String servers)
-specifier|default
-name|NatsEndpointProducerBuilder
-name|servers
-parameter_list|(
-name|String
-name|servers
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servers"
-argument_list|,
-name|servers
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Reference an already instantiated connection to Nats server.          *           * The option is a:<code>io.nats.client.Connection</code> type.          *           * Group: common          */
 DECL|method|connection (Object connection)
 specifier|default
@@ -2092,27 +2050,6 @@ return|return
 operator|(
 name|AdvancedNatsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * URLs to one or more NAT servers. Use comma to separate URLs when          * specifying multiple servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servers (String servers)
-specifier|default
-name|NatsEndpointBuilder
-name|servers
-parameter_list|(
-name|String
-name|servers
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servers"
-argument_list|,
-name|servers
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

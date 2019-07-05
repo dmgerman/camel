@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Connection to the influx database, of class InfluxDB.class.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|connectionBean (String connectionBean)
-specifier|default
-name|InfluxDbEndpointBuilder
-name|connectionBean
-parameter_list|(
-name|String
-name|connectionBean
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionBean"
-argument_list|,
-name|connectionBean
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Define if this operation is a batch operation or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|batch (boolean batch)
 specifier|default

@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionBean ( String connectionBean)
-specifier|default
-name|GridFsEndpointConsumerBuilder
-name|connectionBean
-parameter_list|(
-name|String
-name|connectionBean
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionBean"
-argument_list|,
-name|connectionBean
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the name of the GridFS bucket within the database. Default is          * fs.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|bucket (String bucket)
 specifier|default
@@ -789,27 +768,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionBean ( String connectionBean)
-specifier|default
-name|GridFsEndpointProducerBuilder
-name|connectionBean
-parameter_list|(
-name|String
-name|connectionBean
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionBean"
-argument_list|,
-name|connectionBean
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the name of the GridFS bucket within the database. Default is          * fs.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|bucket (String bucket)
 specifier|default
@@ -1168,27 +1126,6 @@ return|return
 operator|(
 name|AdvancedGridFsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionBean (String connectionBean)
-specifier|default
-name|GridFsEndpointBuilder
-name|connectionBean
-parameter_list|(
-name|String
-name|connectionBean
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionBean"
-argument_list|,
-name|connectionBean
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

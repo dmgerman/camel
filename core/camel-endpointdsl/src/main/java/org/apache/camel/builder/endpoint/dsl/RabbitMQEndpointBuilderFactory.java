@@ -146,27 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The exchange name determines which exchange produced messages will          * sent to. In the case of consumers, the exchange name determines which          * exchange the queue will bind to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|exchangeName (String exchangeName)
-specifier|default
-name|RabbitMQEndpointConsumerBuilder
-name|exchangeName
-parameter_list|(
-name|String
-name|exchangeName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"exchangeName"
-argument_list|,
-name|exchangeName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option is a:<code>com.rabbitmq.client.Address[]</code> type.          *           * Group: common          */
 DECL|method|addresses (Object[] addresses)
 specifier|default
@@ -2028,27 +2007,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The exchange name determines which exchange produced messages will          * sent to. In the case of consumers, the exchange name determines which          * exchange the queue will bind to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|exchangeName (String exchangeName)
-specifier|default
-name|RabbitMQEndpointProducerBuilder
-name|exchangeName
-parameter_list|(
-name|String
-name|exchangeName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"exchangeName"
-argument_list|,
-name|exchangeName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option is a:<code>com.rabbitmq.client.Address[]</code> type.          *           * Group: common          */
 DECL|method|addresses (Object[] addresses)
 specifier|default
@@ -3867,27 +3825,6 @@ return|return
 operator|(
 name|AdvancedRabbitMQEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The exchange name determines which exchange produced messages will          * sent to. In the case of consumers, the exchange name determines which          * exchange the queue will bind to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|exchangeName (String exchangeName)
-specifier|default
-name|RabbitMQEndpointBuilder
-name|exchangeName
-parameter_list|(
-name|String
-name|exchangeName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"exchangeName"
-argument_list|,
-name|exchangeName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

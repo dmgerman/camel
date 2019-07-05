@@ -148,69 +148,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( BraintreeApiName apiName)
-specifier|default
-name|BraintreeEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|BraintreeApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|BraintreeEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|BraintreeEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The environment Either SANDBOX or PRODUCTION.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|environment (String environment)
 specifier|default
@@ -738,69 +675,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( BraintreeApiName apiName)
-specifier|default
-name|BraintreeEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|BraintreeApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|BraintreeEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|BraintreeEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The environment Either SANDBOX or PRODUCTION.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|environment (String environment)
 specifier|default
@@ -1246,69 +1120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (BraintreeApiName apiName)
-specifier|default
-name|BraintreeEndpointBuilder
-name|apiName
-parameter_list|(
-name|BraintreeApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|BraintreeEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|BraintreeEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The environment Either SANDBOX or PRODUCTION.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|environment (String environment)
 specifier|default
@@ -1691,62 +1502,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.braintree.internal.BraintreeApiName</code> enum.      */
-DECL|enum|BraintreeApiName
-enum|enum
-name|BraintreeApiName
-block|{
-DECL|enumConstant|ADDON
-name|ADDON
-block|,
-DECL|enumConstant|ADDRESS
-name|ADDRESS
-block|,
-DECL|enumConstant|CLIENTTOKEN
-name|CLIENTTOKEN
-block|,
-DECL|enumConstant|CREDITCARDVERIFICATION
-name|CREDITCARDVERIFICATION
-block|,
-DECL|enumConstant|CUSTOMER
-name|CUSTOMER
-block|,
-DECL|enumConstant|DISCOUNT
-name|DISCOUNT
-block|,
-DECL|enumConstant|DISPUTE
-name|DISPUTE
-block|,
-DECL|enumConstant|DOCUMENTUPLOAD
-name|DOCUMENTUPLOAD
-block|,
-DECL|enumConstant|MERCHANTACCOUNT
-name|MERCHANTACCOUNT
-block|,
-DECL|enumConstant|PAYMENTMETHOD
-name|PAYMENTMETHOD
-block|,
-DECL|enumConstant|PAYMENTMETHODNONCE
-name|PAYMENTMETHODNONCE
-block|,
-DECL|enumConstant|PLAN
-name|PLAN
-block|,
-DECL|enumConstant|REPORT
-name|REPORT
-block|,
-DECL|enumConstant|SETTLEMENTBATCHSUMMARY
-name|SETTLEMENTBATCHSUMMARY
-block|,
-DECL|enumConstant|SUBSCRIPTION
-name|SUBSCRIPTION
-block|,
-DECL|enumConstant|TRANSACTION
-name|TRANSACTION
-block|,
-DECL|enumConstant|WEBHOOKNOTIFICATION
-name|WEBHOOKNOTIFICATION
-block|;     }
 comment|/**      * Braintree (camel-braintree)      * The braintree component is used for integrating with the Braintree      * Payment System.      *       * Syntax:<code>braintree:apiName/methodName</code>      * Category: api,cloud,payment      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-braintree      */
 DECL|method|braintree (String path)
 specifier|default

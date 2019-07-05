@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URL to a local resource on the classpath or a full URL to a remote          * resource or resource on the file system which contains the schema to          * validate against.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|JingEndpointBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to validate using RelaxNG compact syntax or not. By default          * this is false for using RelaxNG XML Syntax (rng) And true is for          * using RelaxNG Compact Syntax (rnc).          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|compactSyntax (boolean compactSyntax)
 specifier|default

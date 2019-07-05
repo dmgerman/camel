@@ -158,69 +158,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (AS2ApiName apiName)
-specifier|default
-name|AS2EndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|AS2ApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|AS2EndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|AS2EndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The value of the AS2From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2From (String as2From)
 specifier|default
@@ -1297,69 +1234,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (AS2ApiName apiName)
-specifier|default
-name|AS2EndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|AS2ApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|AS2EndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|AS2EndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The value of the AS2From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2From (String as2From)
 specifier|default
@@ -2354,69 +2228,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (AS2ApiName apiName)
-specifier|default
-name|AS2EndpointBuilder
-name|apiName
-parameter_list|(
-name|AS2ApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|AS2EndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|AS2EndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The value of the AS2From header of AS2 message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|as2From (String as2From)
 specifier|default
@@ -3348,17 +3159,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.as2.internal.AS2ApiName</code> enum.      */
-DECL|enum|AS2ApiName
-enum|enum
-name|AS2ApiName
-block|{
-DECL|enumConstant|CLIENT
-name|CLIENT
-block|,
-DECL|enumConstant|SERVER
-name|SERVER
-block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.as2.api.AS2MessageStructure</code> enum.      */
 DECL|enum|AS2MessageStructure
 enum|enum

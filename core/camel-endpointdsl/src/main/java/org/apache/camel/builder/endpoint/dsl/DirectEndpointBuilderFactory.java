@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of direct endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DirectEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -408,27 +387,6 @@ return|return
 operator|(
 name|AdvancedDirectEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of direct endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DirectEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -727,27 +685,6 @@ return|return
 operator|(
 name|AdvancedDirectEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of direct endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DirectEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

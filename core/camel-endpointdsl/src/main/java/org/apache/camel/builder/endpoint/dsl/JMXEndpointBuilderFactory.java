@@ -132,27 +132,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Server url comes from the remaining endpoint. Use platform to connect          * to local JVM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|serverURL (String serverURL)
-specifier|default
-name|JMXEndpointBuilder
-name|serverURL
-parameter_list|(
-name|String
-name|serverURL
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"serverURL"
-argument_list|,
-name|serverURL
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Format for the message body. Either xml or raw. If xml, the          * notification is serialized to xml. If raw, then the raw java object          * is set as the body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|format (String format)
 specifier|default

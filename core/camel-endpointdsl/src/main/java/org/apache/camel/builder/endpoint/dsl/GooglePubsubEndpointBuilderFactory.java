@@ -136,48 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Project Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|projectId (String projectId)
-specifier|default
-name|GooglePubsubEndpointConsumerBuilder
-name|projectId
-parameter_list|(
-name|String
-name|projectId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"projectId"
-argument_list|,
-name|projectId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Destination Name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName ( String destinationName)
-specifier|default
-name|GooglePubsubEndpointConsumerBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream          * process has to ack/nack explicitly.          *           * The option is a:          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> type.          *           * Group: common          */
 DECL|method|ackMode (AckMode ackMode)
 specifier|default
@@ -621,48 +579,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Project Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|projectId (String projectId)
-specifier|default
-name|GooglePubsubEndpointProducerBuilder
-name|projectId
-parameter_list|(
-name|String
-name|projectId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"projectId"
-argument_list|,
-name|projectId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Destination Name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName ( String destinationName)
-specifier|default
-name|GooglePubsubEndpointProducerBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * AUTO = exchange gets ack'ed/nack'ed on completion. NONE = downstream          * process has to ack/nack explicitly.          *           * The option is a:          *<code>org.apache.camel.component.google.pubsub.GooglePubsubConstants$AckMode</code> type.          *           * Group: common          */
 DECL|method|ackMode (AckMode ackMode)
 specifier|default
@@ -1021,48 +937,6 @@ return|return
 operator|(
 name|AdvancedGooglePubsubEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Project Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|projectId (String projectId)
-specifier|default
-name|GooglePubsubEndpointBuilder
-name|projectId
-parameter_list|(
-name|String
-name|projectId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"projectId"
-argument_list|,
-name|projectId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Destination Name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName ( String destinationName)
-specifier|default
-name|GooglePubsubEndpointBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

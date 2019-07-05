@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -163,69 +153,6 @@ return|return
 operator|(
 name|AdvancedJBPMEndpointConsumerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The URL to the jBPM server.          *           * The option is a:<code>java.net.URL</code> type.          *           * Group: common          */
-DECL|method|connectionURL (URL connectionURL)
-specifier|default
-name|JBPMEndpointConsumerBuilder
-name|connectionURL
-parameter_list|(
-name|URL
-name|connectionURL
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionURL"
-argument_list|,
-name|connectionURL
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URL to the jBPM server.          *           * The option will be converted to a<code>java.net.URL</code> type.          *           * Group: common          */
-DECL|method|connectionURL (String connectionURL)
-specifier|default
-name|JBPMEndpointConsumerBuilder
-name|connectionURL
-parameter_list|(
-name|String
-name|connectionURL
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionURL"
-argument_list|,
-name|connectionURL
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the event listener type to attach to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|eventListenerType ( String eventListenerType)
-specifier|default
-name|JBPMEndpointConsumerBuilder
-name|eventListenerType
-parameter_list|(
-name|String
-name|eventListenerType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"eventListenerType"
-argument_list|,
-name|eventListenerType
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1377,69 +1304,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The URL to the jBPM server.          *           * The option is a:<code>java.net.URL</code> type.          *           * Group: common          */
-DECL|method|connectionURL (URL connectionURL)
-specifier|default
-name|JBPMEndpointProducerBuilder
-name|connectionURL
-parameter_list|(
-name|URL
-name|connectionURL
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionURL"
-argument_list|,
-name|connectionURL
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URL to the jBPM server.          *           * The option will be converted to a<code>java.net.URL</code> type.          *           * Group: common          */
-DECL|method|connectionURL (String connectionURL)
-specifier|default
-name|JBPMEndpointProducerBuilder
-name|connectionURL
-parameter_list|(
-name|String
-name|connectionURL
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionURL"
-argument_list|,
-name|connectionURL
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the event listener type to attach to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|eventListenerType ( String eventListenerType)
-specifier|default
-name|JBPMEndpointProducerBuilder
-name|eventListenerType
-parameter_list|(
-name|String
-name|eventListenerType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"eventListenerType"
-argument_list|,
-name|eventListenerType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * attachId to use when retrieving attachments.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: common          */
 DECL|method|attachmentId (Long attachmentId)
 specifier|default
@@ -2524,69 +2388,6 @@ return|return
 operator|(
 name|AdvancedJBPMEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The URL to the jBPM server.          *           * The option is a:<code>java.net.URL</code> type.          *           * Group: common          */
-DECL|method|connectionURL (URL connectionURL)
-specifier|default
-name|JBPMEndpointBuilder
-name|connectionURL
-parameter_list|(
-name|URL
-name|connectionURL
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionURL"
-argument_list|,
-name|connectionURL
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URL to the jBPM server.          *           * The option will be converted to a<code>java.net.URL</code> type.          *           * Group: common          */
-DECL|method|connectionURL (String connectionURL)
-specifier|default
-name|JBPMEndpointBuilder
-name|connectionURL
-parameter_list|(
-name|String
-name|connectionURL
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionURL"
-argument_list|,
-name|connectionURL
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the event listener type to attach to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|eventListenerType (String eventListenerType)
-specifier|default
-name|JBPMEndpointBuilder
-name|eventListenerType
-parameter_list|(
-name|String
-name|eventListenerType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"eventListenerType"
-argument_list|,
-name|eventListenerType
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

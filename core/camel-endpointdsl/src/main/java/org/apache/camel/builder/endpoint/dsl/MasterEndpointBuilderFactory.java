@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the cluster namespace to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|namespace (String namespace)
-specifier|default
-name|MasterEndpointBuilder
-name|namespace
-parameter_list|(
-name|String
-name|namespace
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"namespace"
-argument_list|,
-name|namespace
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The endpoint uri to use in master/slave mode.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|delegateUri (String delegateUri)
-specifier|default
-name|MasterEndpointBuilder
-name|delegateUri
-parameter_list|(
-name|String
-name|delegateUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"delegateUri"
-argument_list|,
-name|delegateUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the Master component.      */
 DECL|interface|AdvancedMasterEndpointBuilder

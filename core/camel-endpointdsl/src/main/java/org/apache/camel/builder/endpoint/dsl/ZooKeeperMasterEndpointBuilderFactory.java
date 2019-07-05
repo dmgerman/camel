@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the cluster group to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|groupName (String groupName)
-specifier|default
-name|ZooKeeperMasterEndpointBuilder
-name|groupName
-parameter_list|(
-name|String
-name|groupName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"groupName"
-argument_list|,
-name|groupName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The consumer endpoint to use in master/slave mode.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|consumerEndpointUri ( String consumerEndpointUri)
-specifier|default
-name|ZooKeeperMasterEndpointBuilder
-name|consumerEndpointUri
-parameter_list|(
-name|String
-name|consumerEndpointUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"consumerEndpointUri"
-argument_list|,
-name|consumerEndpointUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the ZooKeeper Master component.      */
 DECL|interface|AdvancedZooKeeperMasterEndpointBuilder

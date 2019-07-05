@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The streaming type to consume.          *           * The option is a:          *<code>org.apache.camel.component.twitter.data.StreamingType</code>          * type.          *           * Group: consumer          */
-DECL|method|streamingType ( StreamingType streamingType)
-specifier|default
-name|TwitterStreamingEndpointBuilder
-name|streamingType
-parameter_list|(
-name|StreamingType
-name|streamingType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"streamingType"
-argument_list|,
-name|streamingType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The streaming type to consume.          *           * The option will be converted to a          *<code>org.apache.camel.component.twitter.data.StreamingType</code>          * type.          *           * Group: consumer          */
-DECL|method|streamingType ( String streamingType)
-specifier|default
-name|TwitterStreamingEndpointBuilder
-name|streamingType
-parameter_list|(
-name|String
-name|streamingType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"streamingType"
-argument_list|,
-name|streamingType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The http proxy host which can be used for the camel-twitter. Can also          * be configured on the TwitterComponent level instead.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
 DECL|method|httpProxyHost ( String httpProxyHost)
 specifier|default
@@ -448,23 +406,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.StreamingType</code> enum.      */
-DECL|enum|StreamingType
-enum|enum
-name|StreamingType
-block|{
-DECL|enumConstant|SAMPLE
-name|SAMPLE
-block|,
-DECL|enumConstant|FILTER
-name|FILTER
-block|,
-DECL|enumConstant|USER
-name|USER
-block|,
-DECL|enumConstant|UNKNOWN
-name|UNKNOWN
-block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.EndpointType</code> enum.      */
 DECL|enum|EndpointType
 enum|enum

@@ -146,48 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The object information address.          *           * The option is a:          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
-DECL|method|uriPath (Object uriPath)
-specifier|default
-name|ClientEndpointConsumerBuilder
-name|uriPath
-parameter_list|(
-name|Object
-name|uriPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriPath"
-argument_list|,
-name|uriPath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The object information address.          *           * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
-DECL|method|uriPath (String uriPath)
-specifier|default
-name|ClientEndpointConsumerBuilder
-name|uriPath
-parameter_list|(
-name|String
-name|uriPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriPath"
-argument_list|,
-name|uriPath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Data module options.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          *           * Group: common          */
 DECL|method|dataModuleOptions ( Object dataModuleOptions)
 specifier|default
@@ -1051,48 +1009,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The object information address.          *           * The option is a:          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
-DECL|method|uriPath (Object uriPath)
-specifier|default
-name|ClientEndpointProducerBuilder
-name|uriPath
-parameter_list|(
-name|Object
-name|uriPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriPath"
-argument_list|,
-name|uriPath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The object information address.          *           * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
-DECL|method|uriPath (String uriPath)
-specifier|default
-name|ClientEndpointProducerBuilder
-name|uriPath
-parameter_list|(
-name|String
-name|uriPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriPath"
-argument_list|,
-name|uriPath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Data module options.          *           * The option is a:          *<code>org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions</code> type.          *           * Group: common          */
 DECL|method|dataModuleOptions ( Object dataModuleOptions)
 specifier|default
@@ -1871,48 +1787,6 @@ return|return
 operator|(
 name|AdvancedClientEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The object information address.          *           * The option is a:          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
-DECL|method|uriPath (Object uriPath)
-specifier|default
-name|ClientEndpointBuilder
-name|uriPath
-parameter_list|(
-name|Object
-name|uriPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriPath"
-argument_list|,
-name|uriPath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The object information address.          *           * The option will be converted to a          *<code>org.apache.camel.component.iec60870.ObjectAddress</code> type.          *           * Group: common          */
-DECL|method|uriPath (String uriPath)
-specifier|default
-name|ClientEndpointBuilder
-name|uriPath
-parameter_list|(
-name|String
-name|uriPath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriPath"
-argument_list|,
-name|uriPath
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

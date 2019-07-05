@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the cluster.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|clusterName (String clusterName)
-specifier|default
-name|ElasticsearchEndpointBuilder
-name|clusterName
-parameter_list|(
-name|String
-name|clusterName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"clusterName"
-argument_list|,
-name|clusterName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The time in ms to wait before connection will timeout.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default

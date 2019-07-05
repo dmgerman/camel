@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the SQL query to perform. You can externalize the query by using          * file: or classpath: as prefix and specify the location of the file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|query (String query)
-specifier|default
-name|SqlEndpointConsumerBuilder
-name|query
-parameter_list|(
-name|String
-name|query
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"query"
-argument_list|,
-name|query
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to allow using named parameters in the queries.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
 specifier|default
@@ -1946,27 +1925,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the SQL query to perform. You can externalize the query by using          * file: or classpath: as prefix and specify the location of the file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|query (String query)
-specifier|default
-name|SqlEndpointProducerBuilder
-name|query
-parameter_list|(
-name|String
-name|query
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"query"
-argument_list|,
-name|query
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to allow using named parameters in the queries.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
 specifier|default
@@ -2731,27 +2689,6 @@ return|return
 operator|(
 name|AdvancedSqlEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Sets the SQL query to perform. You can externalize the query by using          * file: or classpath: as prefix and specify the location of the file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|query (String query)
-specifier|default
-name|SqlEndpointBuilder
-name|query
-parameter_list|(
-name|String
-name|query
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"query"
-argument_list|,
-name|query
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

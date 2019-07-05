@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.sheets.internal.GoogleSheetsApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleSheetsApiName apiName)
-specifier|default
-name|GoogleSheetsEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|GoogleSheetsApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.sheets.internal.GoogleSheetsApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleSheetsEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleSheetsEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
@@ -579,69 +516,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.sheets.internal.GoogleSheetsApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleSheetsApiName apiName)
-specifier|default
-name|GoogleSheetsEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|GoogleSheetsApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.sheets.internal.GoogleSheetsApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleSheetsEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleSheetsEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
@@ -940,69 +814,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.sheets.internal.GoogleSheetsApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (GoogleSheetsApiName apiName)
-specifier|default
-name|GoogleSheetsEndpointBuilder
-name|apiName
-parameter_list|(
-name|GoogleSheetsApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.sheets.internal.GoogleSheetsApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleSheetsEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleSheetsEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -1238,17 +1049,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.sheets.internal.GoogleSheetsApiName</code> enum.      */
-DECL|enum|GoogleSheetsApiName
-enum|enum
-name|GoogleSheetsApiName
-block|{
-DECL|enumConstant|SPREADSHEETS
-name|SPREADSHEETS
-block|,
-DECL|enumConstant|DATA
-name|DATA
-block|;     }
 comment|/**      * Google Sheets (camel-google-sheets)      * The google-sheets component provides access to Google Sheets.      *       * Syntax:<code>google-sheets:apiName/methodName</code>      * Category: api,cloud,sheets      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-google-sheets      */
 DECL|method|googleSheets (String path)
 specifier|default

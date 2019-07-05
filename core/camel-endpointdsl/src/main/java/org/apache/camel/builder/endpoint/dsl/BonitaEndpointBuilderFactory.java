@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Operation to use.          *           * The option is a:          *<code>org.apache.camel.component.bonita.util.BonitaOperation</code>          * type.          *           * Group: consumer          */
-DECL|method|operation (BonitaOperation operation)
-specifier|default
-name|BonitaEndpointBuilder
-name|operation
-parameter_list|(
-name|BonitaOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.bonita.util.BonitaOperation</code>          * type.          *           * Group: consumer          */
-DECL|method|operation (String operation)
-specifier|default
-name|BonitaEndpointBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Hostname where Bonita engine runs.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|hostname (String hostname)
 specifier|default
@@ -364,14 +322,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.bonita.util.BonitaOperation</code> enum.      */
-DECL|enum|BonitaOperation
-enum|enum
-name|BonitaOperation
-block|{
-DECL|enumConstant|startCase
-name|startCase
-block|;     }
 comment|/**      * Bonita (camel-bonita)      * Used for communicating with a remote Bonita BPM process engine.      *       * Syntax:<code>bonita:operation</code>      * Category: process      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-bonita      */
 DECL|method|bonita (String path)
 specifier|default

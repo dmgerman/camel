@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servers (String servers)
-specifier|default
-name|NsqEndpointConsumerBuilder
-name|servers
-parameter_list|(
-name|String
-name|servers
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servers"
-argument_list|,
-name|servers
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
@@ -810,27 +789,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servers (String servers)
-specifier|default
-name|NsqEndpointProducerBuilder
-name|servers
-parameter_list|(
-name|String
-name|servers
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servers"
-argument_list|,
-name|servers
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The name of topic we want to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|topic (String topic)
 specifier|default
@@ -1168,27 +1126,6 @@ return|return
 operator|(
 name|AdvancedNsqEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The hostnames of one or more nsqlookupd servers (consumer) or nsqd          * servers (producer).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servers (String servers)
-specifier|default
-name|NsqEndpointBuilder
-name|servers
-parameter_list|(
-name|String
-name|servers
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servers"
-argument_list|,
-name|servers
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -120,27 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSource to lookup in the Registry. If the name is          * dataSource or default, then Camel will attempt to lookup a default          * DataSource from the registry, meaning if there is a only one instance          * of DataSource found, then this DataSource will be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|dataSourceName (String dataSourceName)
-specifier|default
-name|JdbcEndpointBuilder
-name|dataSourceName
-parameter_list|(
-name|String
-name|dataSourceName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dataSourceName"
-argument_list|,
-name|dataSourceName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to allow using named parameters in the queries.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
 specifier|default

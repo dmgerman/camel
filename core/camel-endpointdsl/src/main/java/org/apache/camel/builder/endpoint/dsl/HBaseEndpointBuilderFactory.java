@@ -156,27 +156,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the table.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|tableName (String tableName)
-specifier|default
-name|HBaseEndpointConsumerBuilder
-name|tableName
-parameter_list|(
-name|String
-name|tableName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"tableName"
-argument_list|,
-name|tableName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          *           * The option is a:          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          *           * Group: common          */
 DECL|method|cellMappingStrategyFactory ( Object cellMappingStrategyFactory)
 specifier|default
@@ -838,27 +817,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the table.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|tableName (String tableName)
-specifier|default
-name|HBaseEndpointProducerBuilder
-name|tableName
-parameter_list|(
-name|String
-name|tableName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"tableName"
-argument_list|,
-name|tableName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use a custom CellMappingStrategyFactory that is responsible for          * mapping cells.          *           * The option is a:          *<code>org.apache.camel.component.hbase.mapping.CellMappingStrategyFactory</code> type.          *           * Group: common          */
 DECL|method|cellMappingStrategyFactory ( Object cellMappingStrategyFactory)
 specifier|default
@@ -1330,27 +1288,6 @@ return|return
 operator|(
 name|AdvancedHBaseEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The name of the table.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|tableName (String tableName)
-specifier|default
-name|HBaseEndpointBuilder
-name|tableName
-parameter_list|(
-name|String
-name|tableName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"tableName"
-argument_list|,
-name|tableName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

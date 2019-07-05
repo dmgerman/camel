@@ -120,27 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The sender's email address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|from (String from)
-specifier|default
-name|SesEndpointBuilder
-name|from
-parameter_list|(
-name|String
-name|from
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"from"
-argument_list|,
-name|from
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use the AmazonSimpleEmailService as the client.          *           * The option is a:          *<code>com.amazonaws.services.simpleemail.AmazonSimpleEmailService</code> type.          *           * Group: producer          */
 DECL|method|amazonSESClient (Object amazonSESClient)
 specifier|default

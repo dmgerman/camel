@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -180,48 +170,6 @@ argument_list|(
 literal|"sendMessageOnError"
 argument_list|,
 name|sendMessageOnError
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URI to use such as http://hostname:port/path.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: producer          */
-DECL|method|httpUri (URI httpUri)
-specifier|default
-name|WsEndpointConsumerBuilder
-name|httpUri
-parameter_list|(
-name|URI
-name|httpUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpUri"
-argument_list|,
-name|httpUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URI to use such as http://hostname:port/path.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: producer          */
-DECL|method|httpUri (String httpUri)
-specifier|default
-name|WsEndpointConsumerBuilder
-name|httpUri
-parameter_list|(
-name|String
-name|httpUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpUri"
-argument_list|,
-name|httpUri
 argument_list|)
 expr_stmt|;
 return|return
@@ -822,48 +770,6 @@ argument_list|(
 literal|"useStreaming"
 argument_list|,
 name|useStreaming
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URI to use such as http://hostname:port/path.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: producer          */
-DECL|method|httpUri (URI httpUri)
-specifier|default
-name|WsEndpointProducerBuilder
-name|httpUri
-parameter_list|(
-name|URI
-name|httpUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpUri"
-argument_list|,
-name|httpUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URI to use such as http://hostname:port/path.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: producer          */
-DECL|method|httpUri (String httpUri)
-specifier|default
-name|WsEndpointProducerBuilder
-name|httpUri
-parameter_list|(
-name|String
-name|httpUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpUri"
-argument_list|,
-name|httpUri
 argument_list|)
 expr_stmt|;
 return|return
@@ -1553,48 +1459,6 @@ return|return
 operator|(
 name|AdvancedWsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The URI to use such as http://hostname:port/path.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: producer          */
-DECL|method|httpUri (URI httpUri)
-specifier|default
-name|WsEndpointBuilder
-name|httpUri
-parameter_list|(
-name|URI
-name|httpUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpUri"
-argument_list|,
-name|httpUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URI to use such as http://hostname:port/path.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: producer          */
-DECL|method|httpUri (String httpUri)
-specifier|default
-name|WsEndpointBuilder
-name|httpUri
-parameter_list|(
-name|String
-name|httpUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpUri"
-argument_list|,
-name|httpUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

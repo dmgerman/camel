@@ -136,48 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The action to do.          *           * The option is a:          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          *           * Group: common          */
-DECL|method|action (SoroushAction action)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|action
-parameter_list|(
-name|SoroushAction
-name|action
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"action"
-argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The action to do.          *           * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          *           * Group: common          */
-DECL|method|action (String action)
-specifier|default
-name|SoroushBotEndpointConsumerBuilder
-name|action
-parameter_list|(
-name|String
-name|action
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"action"
-argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Connection timeout in ms when connecting to soroush API.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default
@@ -849,48 +807,6 @@ return|return
 operator|(
 name|AdvancedSoroushBotEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The action to do.          *           * The option is a:          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          *           * Group: common          */
-DECL|method|action (SoroushAction action)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|action
-parameter_list|(
-name|SoroushAction
-name|action
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"action"
-argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The action to do.          *           * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          *           * Group: common          */
-DECL|method|action (String action)
-specifier|default
-name|SoroushBotEndpointProducerBuilder
-name|action
-parameter_list|(
-name|String
-name|action
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"action"
-argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1612,48 +1528,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The action to do.          *           * The option is a:          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          *           * Group: common          */
-DECL|method|action (SoroushAction action)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|action
-parameter_list|(
-name|SoroushAction
-name|action
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"action"
-argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The action to do.          *           * The option will be converted to a          *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code> type.          *           * Group: common          */
-DECL|method|action (String action)
-specifier|default
-name|SoroushBotEndpointBuilder
-name|action
-parameter_list|(
-name|String
-name|action
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"action"
-argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Connection timeout in ms when connecting to soroush API.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectionTimeout ( int connectionTimeout)
 specifier|default
@@ -2099,23 +1973,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.soroushbot.models.SoroushAction</code>      * enum.      */
-DECL|enum|SoroushAction
-enum|enum
-name|SoroushAction
-block|{
-DECL|enumConstant|sendMessage
-name|sendMessage
-block|,
-DECL|enumConstant|getMessage
-name|getMessage
-block|,
-DECL|enumConstant|uploadFile
-name|uploadFile
-block|,
-DECL|enumConstant|downloadFile
-name|downloadFile
-block|;     }
 comment|/**      * Soroush (camel-soroush)      * To integrate with the Soroush chat bot.      *       * Syntax:<code>soroush:action/authorizationToken</code>      * Category: chat      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-soroush      */
 DECL|method|soroushBot (String path)
 specifier|default

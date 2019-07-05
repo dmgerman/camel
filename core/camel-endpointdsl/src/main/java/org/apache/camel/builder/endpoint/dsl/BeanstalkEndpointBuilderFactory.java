@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Connection settings host:port/tube.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionSettings ( String connectionSettings)
-specifier|default
-name|BeanstalkEndpointConsumerBuilder
-name|connectionSettings
-parameter_list|(
-name|String
-name|connectionSettings
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionSettings"
-argument_list|,
-name|connectionSettings
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * put means to put the job into Beanstalk. Job body is specified in the          * Camel message body. Job ID will be returned in beanstalk.jobId          * message header. delete, release, touch or bury expect Job ID in the          * message header beanstalk.jobId. Result of the operation is returned          * in beanstalk.result message header kick expects the number of jobs to          * kick in the message body and returns the number of jobs actually          * kicked out in the message header beanstalk.result.          *           * The option is a:          *<code>org.apache.camel.component.beanstalk.BeanstalkCommand</code>          * type.          *           * Group: common          */
 DECL|method|command ( BeanstalkCommand command)
 specifier|default
@@ -1414,27 +1393,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Connection settings host:port/tube.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionSettings ( String connectionSettings)
-specifier|default
-name|BeanstalkEndpointProducerBuilder
-name|connectionSettings
-parameter_list|(
-name|String
-name|connectionSettings
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionSettings"
-argument_list|,
-name|connectionSettings
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * put means to put the job into Beanstalk. Job body is specified in the          * Camel message body. Job ID will be returned in beanstalk.jobId          * message header. delete, release, touch or bury expect Job ID in the          * message header beanstalk.jobId. Result of the operation is returned          * in beanstalk.result message header kick expects the number of jobs to          * kick in the message body and returns the number of jobs actually          * kicked out in the message header beanstalk.result.          *           * The option is a:          *<code>org.apache.camel.component.beanstalk.BeanstalkCommand</code>          * type.          *           * Group: common          */
 DECL|method|command ( BeanstalkCommand command)
 specifier|default
@@ -1772,27 +1730,6 @@ return|return
 operator|(
 name|AdvancedBeanstalkEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Connection settings host:port/tube.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionSettings ( String connectionSettings)
-specifier|default
-name|BeanstalkEndpointBuilder
-name|connectionSettings
-parameter_list|(
-name|String
-name|connectionSettings
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionSettings"
-argument_list|,
-name|connectionSettings
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

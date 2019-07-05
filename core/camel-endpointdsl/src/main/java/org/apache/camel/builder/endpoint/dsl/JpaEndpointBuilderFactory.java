@@ -210,51 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The JPA annotated class to use as entity.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
-DECL|method|entityType (Class<Object> entityType)
-specifier|default
-name|JpaEndpointConsumerBuilder
-name|entityType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|entityType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"entityType"
-argument_list|,
-name|entityType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The JPA annotated class to use as entity.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
-DECL|method|entityType (String entityType)
-specifier|default
-name|JpaEndpointConsumerBuilder
-name|entityType
-parameter_list|(
-name|String
-name|entityType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"entityType"
-argument_list|,
-name|entityType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|joinTransaction ( boolean joinTransaction)
 specifier|default
@@ -1829,51 +1784,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The JPA annotated class to use as entity.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
-DECL|method|entityType (Class<Object> entityType)
-specifier|default
-name|JpaEndpointProducerBuilder
-name|entityType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|entityType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"entityType"
-argument_list|,
-name|entityType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The JPA annotated class to use as entity.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
-DECL|method|entityType (String entityType)
-specifier|default
-name|JpaEndpointProducerBuilder
-name|entityType
-parameter_list|(
-name|String
-name|entityType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"entityType"
-argument_list|,
-name|entityType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The camel-jpa component will join transaction by default. You can use          * this option to turn this off, for example if you use LOCAL_RESOURCE          * and join transaction doesn't work with your JPA provider. This option          * can also be set globally on the JpaComponent, instead of having to          * set it on all endpoints.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|joinTransaction ( boolean joinTransaction)
 specifier|default
@@ -2602,51 +2512,6 @@ return|return
 operator|(
 name|AdvancedJpaEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The JPA annotated class to use as entity.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: common          */
-DECL|method|entityType (Class<Object> entityType)
-specifier|default
-name|JpaEndpointBuilder
-name|entityType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|entityType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"entityType"
-argument_list|,
-name|entityType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The JPA annotated class to use as entity.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: common          */
-DECL|method|entityType (String entityType)
-specifier|default
-name|JpaEndpointBuilder
-name|entityType
-parameter_list|(
-name|String
-name|entityType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"entityType"
-argument_list|,
-name|entityType
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

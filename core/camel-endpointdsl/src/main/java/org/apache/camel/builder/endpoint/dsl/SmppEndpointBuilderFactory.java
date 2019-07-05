@@ -146,69 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the SMSC server to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|SmppEndpointConsumerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the SMSC server to use.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
-DECL|method|port (Integer port)
-specifier|default
-name|SmppEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the SMSC server to use.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|SmppEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Defines the initial delay in milliseconds after the consumer/producer          * tries to reconnect to the SMSC, after the connection was lost.          *           * The option is a:<code>long</code> type.          *           * Group: common          */
 DECL|method|initialReconnectDelay ( long initialReconnectDelay)
 specifier|default
@@ -1137,69 +1074,6 @@ return|return
 operator|(
 name|AdvancedSmppEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Hostname for the SMSC server to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|SmppEndpointProducerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the SMSC server to use.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
-DECL|method|port (Integer port)
-specifier|default
-name|SmppEndpointProducerBuilder
-name|port
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the SMSC server to use.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|SmppEndpointProducerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -2553,69 +2427,6 @@ return|return
 operator|(
 name|AdvancedSmppEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Hostname for the SMSC server to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|SmppEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the SMSC server to use.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
-DECL|method|port (Integer port)
-specifier|default
-name|SmppEndpointBuilder
-name|port
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the SMSC server to use.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|SmppEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

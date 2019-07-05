@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Kubernetes Master url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|masterUrl (String masterUrl)
-specifier|default
-name|KubernetesHPAEndpointConsumerBuilder
-name|masterUrl
-parameter_list|(
-name|String
-name|masterUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"masterUrl"
-argument_list|,
-name|masterUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Kubernetes API Version to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion ( String apiVersion)
 specifier|default
@@ -978,27 +957,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Kubernetes Master url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|masterUrl (String masterUrl)
-specifier|default
-name|KubernetesHPAEndpointProducerBuilder
-name|masterUrl
-parameter_list|(
-name|String
-name|masterUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"masterUrl"
-argument_list|,
-name|masterUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Kubernetes API Version to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion ( String apiVersion)
 specifier|default
@@ -1630,27 +1588,6 @@ return|return
 operator|(
 name|AdvancedKubernetesHPAEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Kubernetes Master url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|masterUrl (String masterUrl)
-specifier|default
-name|KubernetesHPAEndpointBuilder
-name|masterUrl
-parameter_list|(
-name|String
-name|masterUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"masterUrl"
-argument_list|,
-name|masterUrl
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

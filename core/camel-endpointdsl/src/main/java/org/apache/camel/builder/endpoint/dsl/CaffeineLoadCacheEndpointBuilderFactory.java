@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName ( String cacheName)
-specifier|default
-name|CaffeineLoadCacheEndpointConsumerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Configure if a cache need to be created if it does exist or can't be          * pre-configured.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|createCacheIfNotExist ( boolean createCacheIfNotExist)
 specifier|default
@@ -540,27 +519,6 @@ return|return
 operator|(
 name|AdvancedCaffeineLoadCacheEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName ( String cacheName)
-specifier|default
-name|CaffeineLoadCacheEndpointProducerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1348,27 +1306,6 @@ return|return
 operator|(
 name|AdvancedCaffeineLoadCacheEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * the cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|CaffeineLoadCacheEndpointBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

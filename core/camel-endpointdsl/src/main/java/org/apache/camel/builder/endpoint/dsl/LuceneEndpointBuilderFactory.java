@@ -120,69 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The URL to the lucene server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|host (String host)
-specifier|default
-name|LuceneEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to do such as insert or query.          *           * The option is a:          *<code>org.apache.camel.component.lucene.LuceneOperation</code> type.          *           * Group: producer          */
-DECL|method|operation (LuceneOperation operation)
-specifier|default
-name|LuceneEndpointBuilder
-name|operation
-parameter_list|(
-name|LuceneOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to do such as insert or query.          *           * The option will be converted to a          *<code>org.apache.camel.component.lucene.LuceneOperation</code> type.          *           * Group: producer          */
-DECL|method|operation (String operation)
-specifier|default
-name|LuceneEndpointBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * An Analyzer builds TokenStreams, which analyze text. It thus          * represents a policy for extracting index terms from text. The value          * for analyzer can be any class that extends the abstract class          * org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of          * analyzers out of the box.          *           * The option is a:<code>org.apache.lucene.analysis.Analyzer</code>          * type.          *           * Group: producer          */
 DECL|method|analyzer (Object analyzer)
 specifier|default
@@ -458,17 +395,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.lucene.LuceneOperation</code> enum.      */
-DECL|enum|LuceneOperation
-enum|enum
-name|LuceneOperation
-block|{
-DECL|enumConstant|insert
-name|insert
-block|,
-DECL|enumConstant|query
-name|query
-block|;     }
 comment|/**      * Lucene (camel-lucene)      * To insert or query from Apache Lucene databases.      *       * Syntax:<code>lucene:host:operation</code>      * Category: database,search      * Available as of version: 2.2      * Maven coordinates: org.apache.camel:camel-lucene      */
 DECL|method|lucene (String path)
 specifier|default

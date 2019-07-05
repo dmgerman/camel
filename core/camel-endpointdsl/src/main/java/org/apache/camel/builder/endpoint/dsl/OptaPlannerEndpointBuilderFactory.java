@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Specifies the location to the solver file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|configFile (String configFile)
-specifier|default
-name|OptaPlannerEndpointConsumerBuilder
-name|configFile
-parameter_list|(
-name|String
-name|configFile
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"configFile"
-argument_list|,
-name|configFile
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies the solverId to user for the solver instance key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|solverId (String solverId)
 specifier|default
@@ -429,27 +408,6 @@ return|return
 operator|(
 name|AdvancedOptaPlannerEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Specifies the location to the solver file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|configFile (String configFile)
-specifier|default
-name|OptaPlannerEndpointProducerBuilder
-name|configFile
-parameter_list|(
-name|String
-name|configFile
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"configFile"
-argument_list|,
-name|configFile
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -727,27 +685,6 @@ return|return
 operator|(
 name|AdvancedOptaPlannerEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Specifies the location to the solver file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|configFile (String configFile)
-specifier|default
-name|OptaPlannerEndpointBuilder
-name|configFile
-parameter_list|(
-name|String
-name|configFile
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"configFile"
-argument_list|,
-name|configFile
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

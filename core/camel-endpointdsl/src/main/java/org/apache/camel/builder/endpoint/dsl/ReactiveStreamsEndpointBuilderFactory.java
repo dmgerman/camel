@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|stream (String stream)
-specifier|default
-name|ReactiveStreamsEndpointConsumerBuilder
-name|stream
-parameter_list|(
-name|String
-name|stream
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"stream"
-argument_list|,
-name|stream
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -621,27 +600,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|stream (String stream)
-specifier|default
-name|ReactiveStreamsEndpointProducerBuilder
-name|stream
-parameter_list|(
-name|String
-name|stream
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"stream"
-argument_list|,
-name|stream
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The backpressure strategy to use when pushing events to a slow          * subscriber.          *           * The option is a:          *<code>org.apache.camel.component.reactive.streams.ReactiveStreamsBackpressureStrategy</code> type.          *           * Group: producer          */
 DECL|method|backpressureStrategy ( ReactiveStreamsBackpressureStrategy backpressureStrategy)
 specifier|default
@@ -853,27 +811,6 @@ return|return
 operator|(
 name|AdvancedReactiveStreamsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of the stream channel used by the endpoint to exchange messages.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|stream (String stream)
-specifier|default
-name|ReactiveStreamsEndpointBuilder
-name|stream
-parameter_list|(
-name|String
-name|stream
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"stream"
-argument_list|,
-name|stream
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

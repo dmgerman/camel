@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the Lambda function.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|function (String function)
-specifier|default
-name|LambdaEndpointBuilder
-name|function
-parameter_list|(
-name|String
-name|function
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"function"
-argument_list|,
-name|function
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The operation to perform. It can be listFunctions, getFunction,          * createFunction, deleteFunction or invokeFunction.          *           * The option is a:          *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code>          * type.          *           * Required: true          * Group: producer          */
 DECL|method|operation (LambdaOperations operation)
 specifier|default

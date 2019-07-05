@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * OpenStack host url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|host (String host)
-specifier|default
-name|SwiftEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OpenStack API version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default

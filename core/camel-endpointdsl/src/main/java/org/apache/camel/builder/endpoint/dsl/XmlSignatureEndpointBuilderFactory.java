@@ -130,69 +130,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether to sign or verify.          *           * The option is a:          *<code>org.apache.camel.component.xmlsecurity.XmlCommand</code> type.          *           * Group: producer          */
-DECL|method|command (XmlCommand command)
-specifier|default
-name|XmlSignatureEndpointBuilder
-name|command
-parameter_list|(
-name|XmlCommand
-name|command
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"command"
-argument_list|,
-name|command
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to sign or verify.          *           * The option will be converted to a          *<code>org.apache.camel.component.xmlsecurity.XmlCommand</code> type.          *           * Group: producer          */
-DECL|method|command (String command)
-specifier|default
-name|XmlSignatureEndpointBuilder
-name|command
-parameter_list|(
-name|String
-name|command
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"command"
-argument_list|,
-name|command
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The name part in the URI can be chosen by the user to distinguish          * between different signer/verifier endpoints within the camel context.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|name (String name)
-specifier|default
-name|XmlSignatureEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * You can set a base URI which is used in the URI dereferencing.          * Relative URIs are then concatenated with the base URI.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|baseUri (String baseUri)
 specifier|default
@@ -1445,17 +1382,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.xmlsecurity.XmlCommand</code> enum.      */
-DECL|enum|XmlCommand
-enum|enum
-name|XmlCommand
-block|{
-DECL|enumConstant|sign
-name|sign
-block|,
-DECL|enumConstant|verify
-name|verify
-block|;     }
 comment|/**      * XML Security (camel-xmlsecurity)      * Used to sign and verify exchanges using the XML signature specification.      *       * Syntax:<code>xmlsecurity:command:name</code>      * Category: security,transformation      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-xmlsecurity      */
 DECL|method|xmlSignature (String path)
 specifier|default

@@ -160,48 +160,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To lookup an existing configured CxfRsEndpoint. Must used bean: as          * prefix.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|beanId (String beanId)
-specifier|default
-name|CxfRsEndpointConsumerBuilder
-name|beanId
-parameter_list|(
-name|String
-name|beanId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"beanId"
-argument_list|,
-name|beanId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The service publish address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|address (String address)
-specifier|default
-name|CxfRsEndpointConsumerBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Set the feature list to the CxfRs endpoint.          *           * The option is a:          *<code>java.util.List&lt;org.apache.cxf.feature.Feature&gt;</code>          * type.          *           * Group: common          */
 DECL|method|features (List<Object> features)
 specifier|default
@@ -1227,48 +1185,6 @@ return|return
 operator|(
 name|AdvancedCxfRsEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * To lookup an existing configured CxfRsEndpoint. Must used bean: as          * prefix.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|beanId (String beanId)
-specifier|default
-name|CxfRsEndpointProducerBuilder
-name|beanId
-parameter_list|(
-name|String
-name|beanId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"beanId"
-argument_list|,
-name|beanId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The service publish address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|address (String address)
-specifier|default
-name|CxfRsEndpointProducerBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -2401,48 +2317,6 @@ return|return
 operator|(
 name|AdvancedCxfRsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * To lookup an existing configured CxfRsEndpoint. Must used bean: as          * prefix.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|beanId (String beanId)
-specifier|default
-name|CxfRsEndpointBuilder
-name|beanId
-parameter_list|(
-name|String
-name|beanId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"beanId"
-argument_list|,
-name|beanId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The service publish address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|address (String address)
-specifier|default
-name|CxfRsEndpointBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

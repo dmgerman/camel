@@ -2388,6 +2388,22 @@ name|getEndpointOptions
 argument_list|()
 control|)
 block|{
+comment|// skip all @UriPath parameters as the endpoint DSL is for query parameters
+if|if
+condition|(
+literal|"path"
+operator|.
+name|equals
+argument_list|(
+name|option
+operator|.
+name|getKind
+argument_list|()
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|List
 argument_list|<
 name|JavaClass

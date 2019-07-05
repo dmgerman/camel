@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -141,48 +131,6 @@ return|return
 operator|(
 name|AdvancedHttpEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The url of the HTTP endpoint to call.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|httpUri (URI httpUri)
-specifier|default
-name|HttpEndpointBuilder
-name|httpUri
-parameter_list|(
-name|URI
-name|httpUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpUri"
-argument_list|,
-name|httpUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The url of the HTTP endpoint to call.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|httpUri (String httpUri)
-specifier|default
-name|HttpEndpointBuilder
-name|httpUri
-parameter_list|(
-name|String
-name|httpUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpUri"
-argument_list|,
-name|httpUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

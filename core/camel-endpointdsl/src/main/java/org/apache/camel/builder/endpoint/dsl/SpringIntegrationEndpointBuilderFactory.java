@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The default channel name which is used by the Spring Integration          * Spring context. It will equal to the inputChannel name for the Spring          * Integration consumer and the outputChannel name for the Spring          * Integration provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|defaultChannel ( String defaultChannel)
-specifier|default
-name|SpringIntegrationEndpointConsumerBuilder
-name|defaultChannel
-parameter_list|(
-name|String
-name|defaultChannel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"defaultChannel"
-argument_list|,
-name|defaultChannel
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The exchange pattern that the Spring integration endpoint should use.          * If inOut=true then a reply channel is expected, either from the          * Spring Integration Message header or configured on the endpoint.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|inOut (boolean inOut)
 specifier|default
@@ -474,27 +453,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The default channel name which is used by the Spring Integration          * Spring context. It will equal to the inputChannel name for the Spring          * Integration consumer and the outputChannel name for the Spring          * Integration provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|defaultChannel ( String defaultChannel)
-specifier|default
-name|SpringIntegrationEndpointProducerBuilder
-name|defaultChannel
-parameter_list|(
-name|String
-name|defaultChannel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"defaultChannel"
-argument_list|,
-name|defaultChannel
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The exchange pattern that the Spring integration endpoint should use.          * If inOut=true then a reply channel is expected, either from the          * Spring Integration Message header or configured on the endpoint.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|inOut (boolean inOut)
 specifier|default
@@ -727,27 +685,6 @@ return|return
 operator|(
 name|AdvancedSpringIntegrationEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The default channel name which is used by the Spring Integration          * Spring context. It will equal to the inputChannel name for the Spring          * Integration consumer and the outputChannel name for the Spring          * Integration provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|defaultChannel ( String defaultChannel)
-specifier|default
-name|SpringIntegrationEndpointBuilder
-name|defaultChannel
-parameter_list|(
-name|String
-name|defaultChannel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"defaultChannel"
-argument_list|,
-name|defaultChannel
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

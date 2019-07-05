@@ -146,69 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (LinkedInApiName apiName)
-specifier|default
-name|LinkedInEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|LinkedInApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|LinkedInEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|LinkedInEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * LinkedIn access token to avoid username and password login procedure.          * LinkedIn responds to login forms by using a CAPTCHA. This makes it          * impossible for a standalone, headless process to log in to LinkedIn          * by specifying a username and password. To work around this, obtain a          * LinkedIn access token and provide the token as the setting of the          * accessToken parameter. Obtaining a LinkedIn access token is a          * multi-step procedure. You must configure your LinkedIn application,          * obtain a LinkedIn authorization code, and exchange that code for the          * LinkedIn access token. For details, see:          * https://developer.linkedin.com/docs/oauth2 The default behavior is          * that the access token expires after 60 days. To change this, specify          * a value for the expiryTime paramter. If the access token expires, the          * LinkedIn component tries to log in to LinkedIn by providing a          * username and password, which results in a CAPTCHA so the login fails.          * The LinkedIn component cannot refresh the access token. You must          * manually obtain a new access token each time an access token expires.          * When you update the access token you must restart the application so          * that it uses the new token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -826,69 +763,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (LinkedInApiName apiName)
-specifier|default
-name|LinkedInEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|LinkedInApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|LinkedInEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|LinkedInEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * LinkedIn access token to avoid username and password login procedure.          * LinkedIn responds to login forms by using a CAPTCHA. This makes it          * impossible for a standalone, headless process to log in to LinkedIn          * by specifying a username and password. To work around this, obtain a          * LinkedIn access token and provide the token as the setting of the          * accessToken parameter. Obtaining a LinkedIn access token is a          * multi-step procedure. You must configure your LinkedIn application,          * obtain a LinkedIn authorization code, and exchange that code for the          * LinkedIn access token. For details, see:          * https://developer.linkedin.com/docs/oauth2 The default behavior is          * that the access token expires after 60 days. To change this, specify          * a value for the expiryTime paramter. If the access token expires, the          * LinkedIn component tries to log in to LinkedIn by providing a          * username and password, which results in a CAPTCHA so the login fails.          * The LinkedIn component cannot refresh the access token. You must          * manually obtain a new access token each time an access token expires.          * When you update the access token you must restart the application so          * that it uses the new token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -1424,69 +1298,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (LinkedInApiName apiName)
-specifier|default
-name|LinkedInEndpointBuilder
-name|apiName
-parameter_list|(
-name|LinkedInApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|LinkedInEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|LinkedInEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * LinkedIn access token to avoid username and password login procedure.          * LinkedIn responds to login forms by using a CAPTCHA. This makes it          * impossible for a standalone, headless process to log in to LinkedIn          * by specifying a username and password. To work around this, obtain a          * LinkedIn access token and provide the token as the setting of the          * accessToken parameter. Obtaining a LinkedIn access token is a          * multi-step procedure. You must configure your LinkedIn application,          * obtain a LinkedIn authorization code, and exchange that code for the          * LinkedIn access token. For details, see:          * https://developer.linkedin.com/docs/oauth2 The default behavior is          * that the access token expires after 60 days. To change this, specify          * a value for the expiryTime paramter. If the access token expires, the          * LinkedIn component tries to log in to LinkedIn by providing a          * username and password, which results in a CAPTCHA so the login fails.          * The LinkedIn component cannot refresh the access token. You must          * manually obtain a new access token each time an access token expires.          * When you update the access token you must restart the application so          * that it uses the new token.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -1959,32 +1770,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.linkedin.internal.LinkedInApiName</code>      * enum.      */
-DECL|enum|LinkedInApiName
-enum|enum
-name|LinkedInApiName
-block|{
-DECL|enumConstant|COMMENTS
-name|COMMENTS
-block|,
-DECL|enumConstant|COMPANIES
-name|COMPANIES
-block|,
-DECL|enumConstant|GROUPS
-name|GROUPS
-block|,
-DECL|enumConstant|JOBS
-name|JOBS
-block|,
-DECL|enumConstant|PEOPLE
-name|PEOPLE
-block|,
-DECL|enumConstant|POSTS
-name|POSTS
-block|,
-DECL|enumConstant|SEARCH
-name|SEARCH
-block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.linkedin.api.OAuthScope</code> enum.      */
 DECL|enum|OAuthScope
 enum|enum

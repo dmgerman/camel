@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionBean ( String connectionBean)
-specifier|default
-name|MongoDbEndpointConsumerBuilder
-name|connectionBean
-parameter_list|(
-name|String
-name|connectionBean
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionBean"
-argument_list|,
-name|connectionBean
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the name of the MongoDB collection to bind to this endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|collection (String collection)
 specifier|default
@@ -957,27 +936,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionBean ( String connectionBean)
-specifier|default
-name|MongoDbEndpointProducerBuilder
-name|connectionBean
-parameter_list|(
-name|String
-name|connectionBean
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionBean"
-argument_list|,
-name|connectionBean
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the name of the MongoDB collection to bind to this endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|collection (String collection)
 specifier|default
@@ -1672,27 +1630,6 @@ return|return
 operator|(
 name|AdvancedMongoDbEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of com.mongodb.Mongo to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|connectionBean (String connectionBean)
-specifier|default
-name|MongoDbEndpointBuilder
-name|connectionBean
-parameter_list|(
-name|String
-name|connectionBean
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"connectionBean"
-argument_list|,
-name|connectionBean
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

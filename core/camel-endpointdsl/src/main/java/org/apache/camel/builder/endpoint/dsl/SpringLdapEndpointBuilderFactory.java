@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the Spring LDAP Template bean.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|templateName (String templateName)
-specifier|default
-name|SpringLdapEndpointBuilder
-name|templateName
-parameter_list|(
-name|String
-name|templateName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"templateName"
-argument_list|,
-name|templateName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The LDAP operation to be performed.          *           * The option is a:          *<code>org.apache.camel.component.springldap.LdapOperation</code>          * type.          *           * Required: true          * Group: producer          */
 DECL|method|operation (LdapOperation operation)
 specifier|default

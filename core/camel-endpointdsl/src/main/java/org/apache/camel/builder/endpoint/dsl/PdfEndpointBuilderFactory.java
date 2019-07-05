@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Operation type.          *           * The option is a:          *<code>org.apache.camel.component.pdf.PdfOperation</code> type.          *           * Group: producer          */
-DECL|method|operation (PdfOperation operation)
-specifier|default
-name|PdfEndpointBuilder
-name|operation
-parameter_list|(
-name|PdfOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation type.          *           * The option will be converted to a          *<code>org.apache.camel.component.pdf.PdfOperation</code> type.          *           * Group: producer          */
-DECL|method|operation (String operation)
-specifier|default
-name|PdfEndpointBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Font.          *           * The option is a:<code>org.apache.pdfbox.pdmodel.font.PDFont</code>          * type.          *           * Group: producer          */
 DECL|method|font (Object font)
 specifier|default
@@ -595,20 +553,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>org.apache.camel.component.pdf.PdfOperation</code>      * enum.      */
-DECL|enum|PdfOperation
-enum|enum
-name|PdfOperation
-block|{
-DECL|enumConstant|create
-name|create
-block|,
-DECL|enumConstant|append
-name|append
-block|,
-DECL|enumConstant|extractText
-name|extractText
-block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.pdf.TextProcessingFactory</code> enum.      */
 DECL|enum|TextProcessingFactory
 enum|enum

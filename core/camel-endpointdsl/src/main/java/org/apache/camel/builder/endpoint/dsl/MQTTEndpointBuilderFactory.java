@@ -158,27 +158,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * A logical name to use which is not the topic name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|MQTTEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * SSL connections perform blocking operations against internal thread          * pool unless you call the setBlockingExecutor method to configure that          * executor they will use instead.          *           * The option is a:<code>java.util.concurrent.Executor</code> type.          *           * Group: common          */
 DECL|method|blockingExecutor ( Executor blockingExecutor)
 specifier|default
@@ -1611,27 +1590,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * A logical name to use which is not the topic name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|MQTTEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * SSL connections perform blocking operations against internal thread          * pool unless you call the setBlockingExecutor method to configure that          * executor they will use instead.          *           * The option is a:<code>java.util.concurrent.Executor</code> type.          *           * Group: common          */
 DECL|method|blockingExecutor ( Executor blockingExecutor)
 specifier|default
@@ -3021,27 +2979,6 @@ return|return
 operator|(
 name|AdvancedMQTTEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * A logical name to use which is not the topic name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|MQTTEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

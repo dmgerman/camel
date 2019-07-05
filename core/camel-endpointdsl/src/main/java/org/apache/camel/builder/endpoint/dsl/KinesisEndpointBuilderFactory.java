@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the stream.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|streamName (String streamName)
-specifier|default
-name|KinesisEndpointConsumerBuilder
-name|streamName
-parameter_list|(
-name|String
-name|streamName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"streamName"
-argument_list|,
-name|streamName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Amazon Kinesis client to use for all requests for this endpoint.          *           * The option is a:          *<code>com.amazonaws.services.kinesis.AmazonKinesis</code> type.          *           * Group: common          */
 DECL|method|amazonKinesisClient ( Object amazonKinesisClient)
 specifier|default
@@ -1456,27 +1435,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the stream.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|streamName (String streamName)
-specifier|default
-name|KinesisEndpointProducerBuilder
-name|streamName
-parameter_list|(
-name|String
-name|streamName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"streamName"
-argument_list|,
-name|streamName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Amazon Kinesis client to use for all requests for this endpoint.          *           * The option is a:          *<code>com.amazonaws.services.kinesis.AmazonKinesis</code> type.          *           * Group: common          */
 DECL|method|amazonKinesisClient ( Object amazonKinesisClient)
 specifier|default
@@ -1814,27 +1772,6 @@ return|return
 operator|(
 name|AdvancedKinesisEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of the stream.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|streamName (String streamName)
-specifier|default
-name|KinesisEndpointBuilder
-name|streamName
-parameter_list|(
-name|String
-name|streamName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"streamName"
-argument_list|,
-name|streamName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Appender is the name of the pax appender that need to be configured          * in the PaxLogging service configuration.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|appender (String appender)
-specifier|default
-name|PaxLoggingEndpointBuilder
-name|appender
-parameter_list|(
-name|String
-name|appender
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"appender"
-argument_list|,
-name|appender
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the OSGi PAX Logging component.      */
 DECL|interface|AdvancedPaxLoggingEndpointBuilder

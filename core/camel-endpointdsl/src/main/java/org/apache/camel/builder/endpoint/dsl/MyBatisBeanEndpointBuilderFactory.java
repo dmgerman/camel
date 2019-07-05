@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the bean with the MyBatis annotations. This can either by a          * type alias or a FQN class name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|beanName (String beanName)
-specifier|default
-name|MyBatisBeanEndpointBuilder
-name|beanName
-parameter_list|(
-name|String
-name|beanName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"beanName"
-argument_list|,
-name|beanName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of the method on the bean that has the SQL query to be executed.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|MyBatisBeanEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the MyBatis Bean component.      */
 DECL|interface|AdvancedMyBatisBeanEndpointBuilder

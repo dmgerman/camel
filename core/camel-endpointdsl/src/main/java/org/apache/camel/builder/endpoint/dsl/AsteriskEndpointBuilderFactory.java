@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Logical name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|AsteriskEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The hostname of the asterisk server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|hostname (String hostname)
 specifier|default
@@ -474,27 +453,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Logical name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|AsteriskEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The hostname of the asterisk server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|hostname (String hostname)
 specifier|default
@@ -769,27 +727,6 @@ return|return
 operator|(
 name|AdvancedAsteriskEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Logical name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|AsteriskEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

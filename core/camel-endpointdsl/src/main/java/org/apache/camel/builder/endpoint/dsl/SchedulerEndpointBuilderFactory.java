@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the scheduler.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|name (String name)
-specifier|default
-name|SchedulerEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Number of threads used by the scheduling thread pool. Is by default          * using a single thread.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|concurrentTasks (int concurrentTasks)
 specifier|default

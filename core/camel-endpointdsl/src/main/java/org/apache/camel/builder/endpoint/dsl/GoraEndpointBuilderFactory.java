@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Instance name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|GoraEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The type of the dataStore.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataStoreClass (String dataStoreClass)
 specifier|default
@@ -1020,27 +999,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Instance name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|GoraEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The type of the dataStore.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataStoreClass (String dataStoreClass)
 specifier|default
@@ -1357,27 +1315,6 @@ return|return
 operator|(
 name|AdvancedGoraEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Instance name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|GoraEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

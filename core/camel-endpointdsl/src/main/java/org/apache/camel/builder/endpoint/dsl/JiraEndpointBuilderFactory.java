@@ -136,48 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          *           * The option is a:          *<code>org.apache.camel.component.jira.JiraType</code> type.          *           * Group: common          */
-DECL|method|type (JiraType type)
-specifier|default
-name|JiraEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|JiraType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          *           * The option will be converted to a          *<code>org.apache.camel.component.jira.JiraType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|JiraEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|delay (Integer delay)
 specifier|default
@@ -684,48 +642,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          *           * The option is a:          *<code>org.apache.camel.component.jira.JiraType</code> type.          *           * Group: common          */
-DECL|method|type (JiraType type)
-specifier|default
-name|JiraEndpointProducerBuilder
-name|type
-parameter_list|(
-name|JiraType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          *           * The option will be converted to a          *<code>org.apache.camel.component.jira.JiraType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|JiraEndpointProducerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|delay (Integer delay)
 specifier|default
@@ -1087,48 +1003,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          *           * The option is a:          *<code>org.apache.camel.component.jira.JiraType</code> type.          *           * Group: common          */
-DECL|method|type (JiraType type)
-specifier|default
-name|JiraEndpointBuilder
-name|type
-parameter_list|(
-name|JiraType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform. Consumers: NewIssues, NewComments. Producers:          * AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue,          * Watchers. See this class javadoc description for more information.          *           * The option will be converted to a          *<code>org.apache.camel.component.jira.JiraType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|JiraEndpointBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Time in milliseconds to elapse for the next poll.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|delay (Integer delay)
 specifier|default
@@ -1427,38 +1301,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>org.apache.camel.component.jira.JiraType</code>      * enum.      */
-DECL|enum|JiraType
-enum|enum
-name|JiraType
-block|{
-DECL|enumConstant|ADDCOMMENT
-name|ADDCOMMENT
-block|,
-DECL|enumConstant|ADDISSUE
-name|ADDISSUE
-block|,
-DECL|enumConstant|ATTACH
-name|ATTACH
-block|,
-DECL|enumConstant|DELETEISSUE
-name|DELETEISSUE
-block|,
-DECL|enumConstant|NEWISSUES
-name|NEWISSUES
-block|,
-DECL|enumConstant|NEWCOMMENTS
-name|NEWCOMMENTS
-block|,
-DECL|enumConstant|UPDATEISSUE
-name|UPDATEISSUE
-block|,
-DECL|enumConstant|TRANSITIONISSUE
-name|TRANSITIONISSUE
-block|,
-DECL|enumConstant|WATCHERS
-name|WATCHERS
-block|;     }
 comment|/**      * Jira (camel-jira)      * The jira component interacts with the JIRA issue tracker.      *       * Syntax:<code>jira:type</code>      * Category: api,reporting      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-jira      */
 DECL|method|jira (String path)
 specifier|default

@@ -120,27 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the apiName.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleSheetsStreamEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|accessToken (String accessToken)
 specifier|default

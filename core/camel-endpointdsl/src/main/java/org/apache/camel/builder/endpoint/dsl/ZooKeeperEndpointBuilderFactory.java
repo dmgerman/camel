@@ -136,48 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|serverUrls (String serverUrls)
-specifier|default
-name|ZooKeeperEndpointConsumerBuilder
-name|serverUrls
-parameter_list|(
-name|String
-name|serverUrls
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"serverUrls"
-argument_list|,
-name|serverUrls
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The node in the ZooKeeper server (aka znode).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|ZooKeeperEndpointConsumerBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Not in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
@@ -688,48 +646,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|serverUrls (String serverUrls)
-specifier|default
-name|ZooKeeperEndpointProducerBuilder
-name|serverUrls
-parameter_list|(
-name|String
-name|serverUrls
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"serverUrls"
-argument_list|,
-name|serverUrls
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The node in the ZooKeeper server (aka znode).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|ZooKeeperEndpointProducerBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Not in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 annotation|@
 name|Deprecated
@@ -1092,48 +1008,6 @@ return|return
 operator|(
 name|AdvancedZooKeeperEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The zookeeper server hosts (multiple servers can be separated by          * comma).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|serverUrls (String serverUrls)
-specifier|default
-name|ZooKeeperEndpointBuilder
-name|serverUrls
-parameter_list|(
-name|String
-name|serverUrls
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"serverUrls"
-argument_list|,
-name|serverUrls
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The node in the ZooKeeper server (aka znode).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|ZooKeeperEndpointBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * HTTP method to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|method (String method)
-specifier|default
-name|RestEndpointConsumerBuilder
-name|method
-parameter_list|(
-name|String
-name|method
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"method"
-argument_list|,
-name|method
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The base path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|RestEndpointConsumerBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The uri template.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|uriTemplate (String uriTemplate)
-specifier|default
-name|RestEndpointConsumerBuilder
-name|uriTemplate
-parameter_list|(
-name|String
-name|uriTemplate
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriTemplate"
-argument_list|,
-name|uriTemplate
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Media type such as: 'text/xml', or 'application/json' this REST          * service accepts. By default we accept all kinds of types.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|consumes (String consumes)
 specifier|default
@@ -597,69 +534,6 @@ return|return
 operator|(
 name|AdvancedRestEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * HTTP method to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|method (String method)
-specifier|default
-name|RestEndpointProducerBuilder
-name|method
-parameter_list|(
-name|String
-name|method
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"method"
-argument_list|,
-name|method
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The base path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|RestEndpointProducerBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The uri template.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|uriTemplate (String uriTemplate)
-specifier|default
-name|RestEndpointProducerBuilder
-name|uriTemplate
-parameter_list|(
-name|String
-name|uriTemplate
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriTemplate"
-argument_list|,
-name|uriTemplate
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1063,69 +937,6 @@ return|return
 operator|(
 name|AdvancedRestEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * HTTP method to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|method (String method)
-specifier|default
-name|RestEndpointBuilder
-name|method
-parameter_list|(
-name|String
-name|method
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"method"
-argument_list|,
-name|method
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The base path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|path (String path)
-specifier|default
-name|RestEndpointBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The uri template.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|uriTemplate (String uriTemplate)
-specifier|default
-name|RestEndpointBuilder
-name|uriTemplate
-parameter_list|(
-name|String
-name|uriTemplate
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uriTemplate"
-argument_list|,
-name|uriTemplate
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the executable to be executed. The executable must not be empty          * or null.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|executable (String executable)
-specifier|default
-name|ExecEndpointBuilder
-name|executable
-parameter_list|(
-name|String
-name|executable
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"executable"
-argument_list|,
-name|executable
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The arguments may be one or many whitespace-separated tokens.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|args (String args)
 specifier|default

@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URL to a local resource on the classpath,or a reference to lookup a          * bean in the Registry, or a full URL to a remote resource or resource          * on the file system which contains the XSD to validate against.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|ValidatorEndpointBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to fail if no body exists.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|failOnNullBody (boolean failOnNullBody)
 specifier|default

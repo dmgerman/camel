@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of topic to listen or send to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|EventAdminEndpointConsumerBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to use 'send' or 'synchronous' deliver. Default false (async          * delivery).          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|send (boolean send)
 specifier|default
@@ -453,27 +432,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of topic to listen or send to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|EventAdminEndpointProducerBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to use 'send' or 'synchronous' deliver. Default false (async          * delivery).          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|send (boolean send)
 specifier|default
@@ -685,27 +643,6 @@ return|return
 operator|(
 name|AdvancedEventAdminEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of topic to listen or send to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|EventAdminEndpointBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

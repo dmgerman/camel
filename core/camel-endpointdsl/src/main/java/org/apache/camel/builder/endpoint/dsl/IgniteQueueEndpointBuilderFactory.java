@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The queue name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|name (String name)
-specifier|default
-name|IgniteQueueEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
 specifier|default

@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of endpoint to lookup in the registry to use for polling          * messages used for testing.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|name (String name)
-specifier|default
-name|DataSetTestEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the expected messages should arrive in the same order or can          * be in any order.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|anyOrder (boolean anyOrder)
 specifier|default

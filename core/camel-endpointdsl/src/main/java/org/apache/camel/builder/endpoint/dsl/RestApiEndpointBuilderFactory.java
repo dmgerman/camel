@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The base path.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|path (String path)
-specifier|default
-name|RestApiEndpointBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Optional CamelContext id pattern to only allow Rest APIs from rest          * services within CamelContext's which name matches the pattern.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|contextIdPattern (String contextIdPattern)
-specifier|default
-name|RestApiEndpointBuilder
-name|contextIdPattern
-parameter_list|(
-name|String
-name|contextIdPattern
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"contextIdPattern"
-argument_list|,
-name|contextIdPattern
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Camel Rest API component to use for generating the API of the          * REST services, such as swagger.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|apiComponentName (String apiComponentName)
 specifier|default

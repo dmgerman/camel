@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Action to execute (complete or compensate).          *           * The option is a:          *<code>org.apache.camel.component.saga.SagaEndpoint$SagaEndpointAction</code> type.          *           * Group: producer          */
-DECL|method|action (SagaEndpointAction action)
-specifier|default
-name|SagaEndpointBuilder
-name|action
-parameter_list|(
-name|SagaEndpointAction
-name|action
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"action"
-argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Action to execute (complete or compensate).          *           * The option will be converted to a          *<code>org.apache.camel.component.saga.SagaEndpoint$SagaEndpointAction</code> type.          *           * Group: producer          */
-DECL|method|action (String action)
-specifier|default
-name|SagaEndpointBuilder
-name|action
-parameter_list|(
-name|String
-name|action
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"action"
-argument_list|,
-name|action
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the Saga component.      */
 DECL|interface|AdvancedSagaEndpointBuilder
@@ -259,17 +217,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.saga.SagaEndpoint$SagaEndpointAction</code> enum.      */
-DECL|enum|SagaEndpointAction
-enum|enum
-name|SagaEndpointAction
-block|{
-DECL|enumConstant|COMPLETE
-name|COMPLETE
-block|,
-DECL|enumConstant|COMPENSATE
-name|COMPENSATE
-block|;     }
 comment|/**      * Saga (camel-saga)      * The saga component provides access to advanced options for managing the      * flow in the Saga EIP.      *       * Syntax:<code>saga:action</code>      * Category: core,endpoint      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-saga      */
 DECL|method|saga (String path)
 specifier|default

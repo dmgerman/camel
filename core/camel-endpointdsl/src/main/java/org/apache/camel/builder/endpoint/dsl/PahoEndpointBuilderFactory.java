@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|PahoEndpointConsumerBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoReconnect (boolean autoReconnect)
 specifier|default
@@ -768,27 +747,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|PahoEndpointProducerBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Client will automatically attempt to reconnect to the server if the          * connection is lost.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoReconnect (boolean autoReconnect)
 specifier|default
@@ -1315,27 +1273,6 @@ return|return
 operator|(
 name|AdvancedPahoEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of the topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|topic (String topic)
-specifier|default
-name|PahoEndpointBuilder
-name|topic
-parameter_list|(
-name|String
-name|topic
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topic"
-argument_list|,
-name|topic
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

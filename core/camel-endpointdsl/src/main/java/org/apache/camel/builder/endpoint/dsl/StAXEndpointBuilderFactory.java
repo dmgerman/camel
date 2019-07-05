@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The FQN class name for the ContentHandler implementation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|contentHandlerClass ( String contentHandlerClass)
-specifier|default
-name|StAXEndpointBuilder
-name|contentHandlerClass
-parameter_list|(
-name|String
-name|contentHandlerClass
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"contentHandlerClass"
-argument_list|,
-name|contentHandlerClass
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the StAX component.      */
 DECL|interface|AdvancedStAXEndpointBuilder

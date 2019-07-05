@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.mail.internal.GoogleMailApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleMailApiName apiName)
-specifier|default
-name|GoogleMailEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|GoogleMailApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.mail.internal.GoogleMailApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleMailEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleMailEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -579,69 +516,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.mail.internal.GoogleMailApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleMailApiName apiName)
-specifier|default
-name|GoogleMailEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|GoogleMailApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.mail.internal.GoogleMailApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleMailEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleMailEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -940,69 +814,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.mail.internal.GoogleMailApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (GoogleMailApiName apiName)
-specifier|default
-name|GoogleMailEndpointBuilder
-name|apiName
-parameter_list|(
-name|GoogleMailApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.mail.internal.GoogleMailApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleMailEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleMailEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -1238,32 +1049,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.mail.internal.GoogleMailApiName</code> enum.      */
-DECL|enum|GoogleMailApiName
-enum|enum
-name|GoogleMailApiName
-block|{
-DECL|enumConstant|THREADS
-name|THREADS
-block|,
-DECL|enumConstant|MESSAGES
-name|MESSAGES
-block|,
-DECL|enumConstant|ATTACHMENTS
-name|ATTACHMENTS
-block|,
-DECL|enumConstant|LABELS
-name|LABELS
-block|,
-DECL|enumConstant|HISTORY
-name|HISTORY
-block|,
-DECL|enumConstant|DRAFTS
-name|DRAFTS
-block|,
-DECL|enumConstant|USERS
-name|USERS
-block|;     }
 comment|/**      * Google Mail (camel-google-mail)      * The google-mail component provides access to Google Mail.      *       * Syntax:<code>google-mail:apiName/methodName</code>      * Category: api,cloud,mail      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-google-mail      */
 DECL|method|googleMail (String path)
 specifier|default

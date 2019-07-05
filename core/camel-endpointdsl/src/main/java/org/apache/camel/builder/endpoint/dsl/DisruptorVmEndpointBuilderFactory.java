@@ -148,27 +148,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DisruptorVmEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
@@ -591,27 +570,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DisruptorVmEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The maximum capacity of the Disruptors ringbuffer Will be effectively          * increased to the nearest power of two. Notice: Mind if you use this          * option, then its the first endpoint being created with the queue          * name, that determines the size. To make sure all endpoints use same          * size, then configure the size option on all of them, or the first          * endpoint being created.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
@@ -991,27 +949,6 @@ return|return
 operator|(
 name|AdvancedDisruptorVmEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DisruptorVmEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

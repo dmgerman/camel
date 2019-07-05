@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|IgniteCacheEndpointConsumerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
 specifier|default
@@ -747,27 +726,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|IgniteCacheEndpointProducerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
 specifier|default
@@ -1189,27 +1147,6 @@ return|return
 operator|(
 name|AdvancedIgniteCacheEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The cache name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|IgniteCacheEndpointBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

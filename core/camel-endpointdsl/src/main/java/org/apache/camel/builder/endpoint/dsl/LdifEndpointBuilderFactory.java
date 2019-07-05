@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the LdapConnection bean to pull from the registry. Note          * that this must be of scope prototype to avoid it being shared among          * threads or using a connection that has timed out.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|ldapConnectionName (String ldapConnectionName)
-specifier|default
-name|LdifEndpointBuilder
-name|ldapConnectionName
-parameter_list|(
-name|String
-name|ldapConnectionName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"ldapConnectionName"
-argument_list|,
-name|ldapConnectionName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the LDIF component.      */
 DECL|interface|AdvancedLdifEndpointBuilder

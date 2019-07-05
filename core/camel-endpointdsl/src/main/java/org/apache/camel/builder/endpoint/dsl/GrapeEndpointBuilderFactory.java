@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Maven coordinates to use as default to grab if the message body is          * empty.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|defaultCoordinates ( String defaultCoordinates)
-specifier|default
-name|GrapeEndpointBuilder
-name|defaultCoordinates
-parameter_list|(
-name|String
-name|defaultCoordinates
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"defaultCoordinates"
-argument_list|,
-name|defaultCoordinates
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the Grape component.      */
 DECL|interface|AdvancedGrapeEndpointBuilder

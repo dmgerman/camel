@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The logger name to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|loggerName (String loggerName)
-specifier|default
-name|LogEndpointBuilder
-name|loggerName
-parameter_list|(
-name|String
-name|loggerName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"loggerName"
-argument_list|,
-name|loggerName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * If true, will hide stats when no new messages have been received for          * a time interval, if false, show stats regardless of message traffic.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|groupActiveOnly (Boolean groupActiveOnly)
 specifier|default

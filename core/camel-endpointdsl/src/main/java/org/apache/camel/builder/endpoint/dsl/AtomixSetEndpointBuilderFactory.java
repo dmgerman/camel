@@ -166,27 +166,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The distributed resource name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceName ( String resourceName)
-specifier|default
-name|AtomixSetEndpointConsumerBuilder
-name|resourceName
-parameter_list|(
-name|String
-name|resourceName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceName"
-argument_list|,
-name|resourceName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Atomix instance to use.          *           * The option is a:<code>io.atomix.AtomixClient</code> type.          *           * Group: common          */
 DECL|method|atomix (Object atomix)
 specifier|default
@@ -961,27 +940,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The distributed resource name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceName ( String resourceName)
-specifier|default
-name|AtomixSetEndpointProducerBuilder
-name|resourceName
-parameter_list|(
-name|String
-name|resourceName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceName"
-argument_list|,
-name|resourceName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Atomix instance to use.          *           * The option is a:<code>io.atomix.AtomixClient</code> type.          *           * Group: common          */
 DECL|method|atomix (Object atomix)
 specifier|default
@@ -1671,27 +1629,6 @@ return|return
 operator|(
 name|AdvancedAtomixSetEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The distributed resource name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceName (String resourceName)
-specifier|default
-name|AtomixSetEndpointBuilder
-name|resourceName
-parameter_list|(
-name|String
-name|resourceName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceName"
-argument_list|,
-name|resourceName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

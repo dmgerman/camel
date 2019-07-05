@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Bucket name or ARN.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|bucketNameOrArn (String bucketNameOrArn)
-specifier|default
-name|S3EndpointConsumerBuilder
-name|bucketNameOrArn
-parameter_list|(
-name|String
-name|bucketNameOrArn
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bucketNameOrArn"
-argument_list|,
-name|bucketNameOrArn
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the registry.          *           * The option is a:<code>com.amazonaws.services.s3.AmazonS3</code>          * type.          *           * Group: common          */
 DECL|method|amazonS3Client (Object amazonS3Client)
 specifier|default
@@ -2002,27 +1981,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Bucket name or ARN.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|bucketNameOrArn (String bucketNameOrArn)
-specifier|default
-name|S3EndpointProducerBuilder
-name|bucketNameOrArn
-parameter_list|(
-name|String
-name|bucketNameOrArn
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bucketNameOrArn"
-argument_list|,
-name|bucketNameOrArn
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Reference to a com.amazonaws.services.s3.AmazonS3 in the registry.          *           * The option is a:<code>com.amazonaws.services.s3.AmazonS3</code>          * type.          *           * Group: common          */
 DECL|method|amazonS3Client (Object amazonS3Client)
 specifier|default
@@ -3095,27 +3053,6 @@ return|return
 operator|(
 name|AdvancedS3EndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Bucket name or ARN.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|bucketNameOrArn (String bucketNameOrArn)
-specifier|default
-name|S3EndpointBuilder
-name|bucketNameOrArn
-parameter_list|(
-name|String
-name|bucketNameOrArn
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bucketNameOrArn"
-argument_list|,
-name|bucketNameOrArn
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

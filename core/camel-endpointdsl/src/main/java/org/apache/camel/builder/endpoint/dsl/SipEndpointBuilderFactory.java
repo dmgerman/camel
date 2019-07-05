@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -153,48 +143,6 @@ return|return
 operator|(
 name|AdvancedSipEndpointConsumerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (URI uri)
-specifier|default
-name|SipEndpointConsumerBuilder
-name|uri
-parameter_list|(
-name|URI
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
-specifier|default
-name|SipEndpointConsumerBuilder
-name|uri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1862,48 +1810,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (URI uri)
-specifier|default
-name|SipEndpointProducerBuilder
-name|uri
-parameter_list|(
-name|URI
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
-specifier|default
-name|SipEndpointProducerBuilder
-name|uri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Should connections be cached by the SipStack to reduce cost of          * connection creation. This is useful if the connection is used for          * long running conversations.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|cacheConnections ( boolean cacheConnections)
 specifier|default
@@ -3399,48 +3305,6 @@ return|return
 operator|(
 name|AdvancedSipEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (URI uri)
-specifier|default
-name|SipEndpointBuilder
-name|uri
-parameter_list|(
-name|URI
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * URI of the SIP server to connect to (the username and password can be          * included such as: john:secretmyserver:9999).          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
-specifier|default
-name|SipEndpointBuilder
-name|uri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

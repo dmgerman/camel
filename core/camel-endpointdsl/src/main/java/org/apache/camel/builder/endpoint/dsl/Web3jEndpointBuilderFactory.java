@@ -156,27 +156,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the node address used to communicate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|nodeAddress (String nodeAddress)
-specifier|default
-name|Web3jEndpointConsumerBuilder
-name|nodeAddress
-parameter_list|(
-name|String
-name|nodeAddress
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"nodeAddress"
-argument_list|,
-name|nodeAddress
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Contract address or a list of addresses.          *           * The option is a:<code>java.util.List&lt;java.lang.String&gt;</code>          * type.          *           * Group: common          */
 DECL|method|addresses (List<String> addresses)
 specifier|default
@@ -857,27 +836,6 @@ return|return
 operator|(
 name|AdvancedWeb3jEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Sets the node address used to communicate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|nodeAddress (String nodeAddress)
-specifier|default
-name|Web3jEndpointProducerBuilder
-name|nodeAddress
-parameter_list|(
-name|String
-name|nodeAddress
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"nodeAddress"
-argument_list|,
-name|nodeAddress
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -2130,27 +2088,6 @@ return|return
 operator|(
 name|AdvancedWeb3jEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Sets the node address used to communicate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|nodeAddress (String nodeAddress)
-specifier|default
-name|Web3jEndpointBuilder
-name|nodeAddress
-parameter_list|(
-name|String
-name|nodeAddress
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"nodeAddress"
-argument_list|,
-name|nodeAddress
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

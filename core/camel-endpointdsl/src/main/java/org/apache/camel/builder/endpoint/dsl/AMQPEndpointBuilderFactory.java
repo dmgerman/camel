@@ -162,48 +162,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The kind of destination to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationType ( String destinationType)
-specifier|default
-name|AMQPEndpointConsumerBuilder
-name|destinationType
-parameter_list|(
-name|String
-name|destinationType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationType"
-argument_list|,
-name|destinationType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of the queue or topic to use as destination.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName ( String destinationName)
-specifier|default
-name|AMQPEndpointConsumerBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the JMS client ID to use. Note that this value, if specified,          * must be unique and can only be used by a single JMS connection          * instance. It is typically only required for durable topic          * subscriptions. If using Apache ActiveMQ you may prefer to use Virtual          * Topics instead.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
@@ -2936,48 +2894,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The kind of destination to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationType ( String destinationType)
-specifier|default
-name|AMQPEndpointProducerBuilder
-name|destinationType
-parameter_list|(
-name|String
-name|destinationType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationType"
-argument_list|,
-name|destinationType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of the queue or topic to use as destination.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName ( String destinationName)
-specifier|default
-name|AMQPEndpointProducerBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the JMS client ID to use. Note that this value, if specified,          * must be unique and can only be used by a single JMS connection          * instance. It is typically only required for durable topic          * subscriptions. If using Apache ActiveMQ you may prefer to use Virtual          * Topics instead.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
@@ -5625,48 +5541,6 @@ return|return
 operator|(
 name|AdvancedAMQPEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The kind of destination to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationType (String destinationType)
-specifier|default
-name|AMQPEndpointBuilder
-name|destinationType
-parameter_list|(
-name|String
-name|destinationType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationType"
-argument_list|,
-name|destinationType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of the queue or topic to use as destination.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName (String destinationName)
-specifier|default
-name|AMQPEndpointBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

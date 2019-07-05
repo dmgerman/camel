@@ -110,69 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * This is the address of the Nagios host where checks should be send.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|host (String host)
-specifier|default
-name|NagiosEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The port number of the host.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
-DECL|method|port (int port)
-specifier|default
-name|NagiosEndpointBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The port number of the host.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
-DECL|method|port (String port)
-specifier|default
-name|NagiosEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Connection timeout in millis.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|connectionTimeout (int connectionTimeout)
 specifier|default

@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name has no purpose.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|SplunkEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Splunk app.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|app (String app)
 specifier|default
@@ -1603,27 +1582,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name has no purpose.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|SplunkEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Splunk app.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|app (String app)
 specifier|default
@@ -2255,27 +2213,6 @@ return|return
 operator|(
 name|AdvancedSplunkEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name has no purpose.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|SplunkEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

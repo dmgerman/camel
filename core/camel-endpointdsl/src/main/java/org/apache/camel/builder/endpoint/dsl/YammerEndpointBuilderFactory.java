@@ -210,48 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The function to use.          *           * The option is a:          *<code>org.apache.camel.component.yammer.YammerFunctionType</code>          * type.          *           * Group: common          */
-DECL|method|function ( YammerFunctionType function)
-specifier|default
-name|YammerEndpointConsumerBuilder
-name|function
-parameter_list|(
-name|YammerFunctionType
-name|function
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"function"
-argument_list|,
-name|function
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The function to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.yammer.YammerFunctionType</code>          * type.          *           * Group: common          */
-DECL|method|function (String function)
-specifier|default
-name|YammerEndpointConsumerBuilder
-name|function
-parameter_list|(
-name|String
-name|function
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"function"
-argument_list|,
-name|function
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Set to true if you want to use raw JSON rather than converting to          * POJOs.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|useJson (boolean useJson)
 specifier|default
@@ -1414,48 +1372,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The function to use.          *           * The option is a:          *<code>org.apache.camel.component.yammer.YammerFunctionType</code>          * type.          *           * Group: common          */
-DECL|method|function ( YammerFunctionType function)
-specifier|default
-name|YammerEndpointProducerBuilder
-name|function
-parameter_list|(
-name|YammerFunctionType
-name|function
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"function"
-argument_list|,
-name|function
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The function to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.yammer.YammerFunctionType</code>          * type.          *           * Group: common          */
-DECL|method|function (String function)
-specifier|default
-name|YammerEndpointProducerBuilder
-name|function
-parameter_list|(
-name|String
-name|function
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"function"
-argument_list|,
-name|function
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Set to true if you want to use raw JSON rather than converting to          * POJOs.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|useJson (boolean useJson)
 specifier|default
@@ -1733,48 +1649,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The function to use.          *           * The option is a:          *<code>org.apache.camel.component.yammer.YammerFunctionType</code>          * type.          *           * Group: common          */
-DECL|method|function (YammerFunctionType function)
-specifier|default
-name|YammerEndpointBuilder
-name|function
-parameter_list|(
-name|YammerFunctionType
-name|function
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"function"
-argument_list|,
-name|function
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The function to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.yammer.YammerFunctionType</code>          * type.          *           * Group: common          */
-DECL|method|function (String function)
-specifier|default
-name|YammerEndpointBuilder
-name|function
-parameter_list|(
-name|String
-name|function
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"function"
-argument_list|,
-name|function
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Set to true if you want to use raw JSON rather than converting to          * POJOs.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|useJson (boolean useJson)
 specifier|default
@@ -1989,38 +1863,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.yammer.YammerFunctionType</code> enum.      */
-DECL|enum|YammerFunctionType
-enum|enum
-name|YammerFunctionType
-block|{
-DECL|enumConstant|MESSAGES
-name|MESSAGES
-block|,
-DECL|enumConstant|MY_FEED
-name|MY_FEED
-block|,
-DECL|enumConstant|ALGO
-name|ALGO
-block|,
-DECL|enumConstant|FOLLOWING
-name|FOLLOWING
-block|,
-DECL|enumConstant|SENT
-name|SENT
-block|,
-DECL|enumConstant|PRIVATE
-name|PRIVATE
-block|,
-DECL|enumConstant|RECEIVED
-name|RECEIVED
-block|,
-DECL|enumConstant|USERS
-name|USERS
-block|,
-DECL|enumConstant|CURRENT
-name|CURRENT
-block|;     }
 comment|/**      * Yammer (camel-yammer)      * The yammer component allows you to interact with the Yammer enterprise      * social network.      *       * Syntax:<code>yammer:function</code>      * Category: social      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-yammer      */
 DECL|method|yammer (String path)
 specifier|default

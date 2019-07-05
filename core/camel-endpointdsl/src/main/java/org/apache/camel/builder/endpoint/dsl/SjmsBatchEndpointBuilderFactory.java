@@ -160,27 +160,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The destination name. Only queues are supported, names may be          * prefixed by 'queue:'.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|destinationName (String destinationName)
-specifier|default
-name|SjmsBatchEndpointBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The aggregation strategy to use, which merges all the batched          * messages into a single message.          *           * The option is a:<code>org.apache.camel.AggregationStrategy</code>          * type.          *           * Required: true          * Group: consumer          */
 DECL|method|aggregationStrategy ( AggregationStrategy aggregationStrategy)
 specifier|default

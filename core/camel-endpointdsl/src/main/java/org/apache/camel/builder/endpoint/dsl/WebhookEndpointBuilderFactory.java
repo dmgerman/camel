@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The delegate uri. Must belong to a component that supports webhooks.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|endpointUri (String endpointUri)
-specifier|default
-name|WebhookEndpointBuilder
-name|endpointUri
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"endpointUri"
-argument_list|,
-name|endpointUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Automatically register the webhook at startup and unregister it on          * shutdown.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|webhookAutoRegister ( boolean webhookAutoRegister)
 specifier|default

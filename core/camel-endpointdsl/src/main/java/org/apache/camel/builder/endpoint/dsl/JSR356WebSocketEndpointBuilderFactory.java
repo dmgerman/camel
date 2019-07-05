@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * If a path (/foo) it will deploy locally the endpoint, if an uri it          * will connect to the corresponding server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|websocketPathOrUri ( String websocketPathOrUri)
-specifier|default
-name|JSR356WebSocketEndpointConsumerBuilder
-name|websocketPathOrUri
-parameter_list|(
-name|String
-name|websocketPathOrUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"websocketPathOrUri"
-argument_list|,
-name|websocketPathOrUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * the servlet context to use (represented by its path).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|context (String context)
 specifier|default
@@ -474,27 +453,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * If a path (/foo) it will deploy locally the endpoint, if an uri it          * will connect to the corresponding server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|websocketPathOrUri ( String websocketPathOrUri)
-specifier|default
-name|JSR356WebSocketEndpointProducerBuilder
-name|websocketPathOrUri
-parameter_list|(
-name|String
-name|websocketPathOrUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"websocketPathOrUri"
-argument_list|,
-name|websocketPathOrUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * the servlet context to use (represented by its path).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|context (String context)
 specifier|default
@@ -727,27 +685,6 @@ return|return
 operator|(
 name|AdvancedJSR356WebSocketEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * If a path (/foo) it will deploy locally the endpoint, if an uri it          * will connect to the corresponding server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|websocketPathOrUri ( String websocketPathOrUri)
-specifier|default
-name|JSR356WebSocketEndpointBuilder
-name|websocketPathOrUri
-parameter_list|(
-name|String
-name|websocketPathOrUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"websocketPathOrUri"
-argument_list|,
-name|websocketPathOrUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

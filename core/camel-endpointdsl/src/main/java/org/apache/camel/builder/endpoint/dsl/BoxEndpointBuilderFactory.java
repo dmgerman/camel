@@ -146,69 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (BoxApiName apiName)
-specifier|default
-name|BoxEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|BoxApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|BoxEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|BoxEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Box application client ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
@@ -909,69 +846,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (BoxApiName apiName)
-specifier|default
-name|BoxEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|BoxApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|BoxEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|BoxEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Box application client ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
@@ -1590,69 +1464,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (BoxApiName apiName)
-specifier|default
-name|BoxEndpointBuilder
-name|apiName
-parameter_list|(
-name|BoxApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.box.internal.BoxApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|BoxEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|BoxEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Box application client ID.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
@@ -2208,41 +2019,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.box.internal.BoxApiName</code> enum.      */
-DECL|enum|BoxApiName
-enum|enum
-name|BoxApiName
-block|{
-DECL|enumConstant|COLLABORATIONS
-name|COLLABORATIONS
-block|,
-DECL|enumConstant|COMMENTS
-name|COMMENTS
-block|,
-DECL|enumConstant|EVENT_LOGS
-name|EVENT_LOGS
-block|,
-DECL|enumConstant|FILES
-name|FILES
-block|,
-DECL|enumConstant|FOLDERS
-name|FOLDERS
-block|,
-DECL|enumConstant|GROUPS
-name|GROUPS
-block|,
-DECL|enumConstant|EVENTS
-name|EVENTS
-block|,
-DECL|enumConstant|SEARCH
-name|SEARCH
-block|,
-DECL|enumConstant|TASKS
-name|TASKS
-block|,
-DECL|enumConstant|USERS
-name|USERS
-block|;     }
 comment|/**      * Proxy enum for<code>com.box.sdk.EncryptionAlgorithm</code> enum.      */
 DECL|enum|EncryptionAlgorithm
 enum|enum

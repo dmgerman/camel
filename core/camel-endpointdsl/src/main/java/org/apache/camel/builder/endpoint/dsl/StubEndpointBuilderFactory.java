@@ -160,27 +160,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|StubEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
@@ -729,27 +708,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|StubEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The maximum capacity of the SEDA queue (i.e., the number of messages          * it can hold). Will by default use the defaultSize set on the SEDA          * component.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|size (int size)
 specifier|default
@@ -1255,27 +1213,6 @@ return|return
 operator|(
 name|AdvancedStubEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|StubEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

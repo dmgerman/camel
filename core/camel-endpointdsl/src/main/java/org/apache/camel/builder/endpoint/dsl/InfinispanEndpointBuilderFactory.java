@@ -168,27 +168,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The cache to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|InfinispanEndpointConsumerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies the host of the cache on Infinispan instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hosts (String hosts)
 specifier|default
@@ -979,27 +958,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The cache to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|InfinispanEndpointProducerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies the host of the cache on Infinispan instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|hosts (String hosts)
 specifier|default
@@ -1553,27 +1511,6 @@ return|return
 operator|(
 name|AdvancedInfinispanEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The cache to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|InfinispanEndpointBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -156,27 +156,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the cache.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|JCacheEndpointConsumerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * A Configuration for the Cache.          *           * The option is a:<code>javax.cache.configuration.Configuration</code>          * type.          *           * Group: common          */
 DECL|method|cacheConfiguration ( Object cacheConfiguration)
 specifier|default
@@ -1109,27 +1088,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the cache.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|JCacheEndpointProducerBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * A Configuration for the Cache.          *           * The option is a:<code>javax.cache.configuration.Configuration</code>          * type.          *           * Group: common          */
 DECL|method|cacheConfiguration ( Object cacheConfiguration)
 specifier|default
@@ -1824,27 +1782,6 @@ return|return
 operator|(
 name|AdvancedJCacheEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The name of the cache.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|JCacheEndpointBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

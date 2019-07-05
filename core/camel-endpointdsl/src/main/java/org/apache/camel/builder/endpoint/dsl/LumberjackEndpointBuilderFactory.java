@@ -110,69 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Network interface on which to listen for Lumberjack.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|host (String host)
-specifier|default
-name|LumberjackEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Network port on which to listen for Lumberjack.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
-DECL|method|port (int port)
-specifier|default
-name|LumberjackEndpointBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Network port on which to listen for Lumberjack.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
-DECL|method|port (String port)
-specifier|default
-name|LumberjackEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * SSL configuration.          *           * The option is a:          *<code>org.apache.camel.support.jsse.SSLContextParameters</code> type.          *           * Group: consumer          */
 DECL|method|sslContextParameters ( Object sslContextParameters)
 specifier|default

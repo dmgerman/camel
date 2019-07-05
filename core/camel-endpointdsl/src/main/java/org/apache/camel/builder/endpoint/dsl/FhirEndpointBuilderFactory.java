@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          *           * Group: common          */
-DECL|method|apiName (FhirApiName apiName)
-specifier|default
-name|FhirEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|FhirApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|FhirEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|FhirEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Encoding to use for all request.          *           * The option is a:<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          *           * Group: common          */
 DECL|method|encoding (EncodingEnum encoding)
 specifier|default
@@ -1272,69 +1209,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          *           * Group: common          */
-DECL|method|apiName (FhirApiName apiName)
-specifier|default
-name|FhirEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|FhirApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|FhirEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|FhirEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Encoding to use for all request.          *           * The option is a:<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          *           * Group: common          */
 DECL|method|encoding (EncodingEnum encoding)
 specifier|default
@@ -2326,69 +2200,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          *           * Group: common          */
-DECL|method|apiName (FhirApiName apiName)
-specifier|default
-name|FhirEndpointBuilder
-name|apiName
-parameter_list|(
-name|FhirApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.fhir.internal.FhirApiName</code>          * type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|FhirEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|FhirEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Encoding to use for all request.          *           * The option is a:<code>ca.uhn.fhir.rest.api.EncodingEnum</code> type.          *           * Group: common          */
 DECL|method|encoding (EncodingEnum encoding)
 specifier|default
@@ -3317,50 +3128,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.fhir.internal.FhirApiName</code> enum.      */
-DECL|enum|FhirApiName
-enum|enum
-name|FhirApiName
-block|{
-DECL|enumConstant|CAPABILITIES
-name|CAPABILITIES
-block|,
-DECL|enumConstant|CREATE
-name|CREATE
-block|,
-DECL|enumConstant|DELETE
-name|DELETE
-block|,
-DECL|enumConstant|HISTORY
-name|HISTORY
-block|,
-DECL|enumConstant|LOAD_PAGE
-name|LOAD_PAGE
-block|,
-DECL|enumConstant|META
-name|META
-block|,
-DECL|enumConstant|OPERATION
-name|OPERATION
-block|,
-DECL|enumConstant|PATCH
-name|PATCH
-block|,
-DECL|enumConstant|READ
-name|READ
-block|,
-DECL|enumConstant|SEARCH
-name|SEARCH
-block|,
-DECL|enumConstant|TRANSACTION
-name|TRANSACTION
-block|,
-DECL|enumConstant|UPDATE
-name|UPDATE
-block|,
-DECL|enumConstant|VALIDATE
-name|VALIDATE
-block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.rest.api.EncodingEnum</code> enum.      */
 DECL|enum|EncodingEnum
 enum|enum

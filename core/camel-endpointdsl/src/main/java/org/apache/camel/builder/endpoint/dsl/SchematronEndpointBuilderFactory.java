@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The path to the schematron rules file. Can either be in class path or          * location in the file system.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|path (String path)
-specifier|default
-name|SchematronEndpointBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Flag to abort the route and throw a schematron validation exception.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|abort (boolean abort)
 specifier|default

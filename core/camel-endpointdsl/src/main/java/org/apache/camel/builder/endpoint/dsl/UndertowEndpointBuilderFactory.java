@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -167,48 +157,6 @@ return|return
 operator|(
 name|AdvancedUndertowEndpointConsumerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The url of the HTTP endpoint to use.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|httpURI (URI httpURI)
-specifier|default
-name|UndertowEndpointConsumerBuilder
-name|httpURI
-parameter_list|(
-name|URI
-name|httpURI
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpURI"
-argument_list|,
-name|httpURI
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The url of the HTTP endpoint to use.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|httpURI (String httpURI)
-specifier|default
-name|UndertowEndpointConsumerBuilder
-name|httpURI
-parameter_list|(
-name|String
-name|httpURI
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpURI"
-argument_list|,
-name|httpURI
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -862,48 +810,6 @@ return|return
 operator|(
 name|AdvancedUndertowEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The url of the HTTP endpoint to use.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|httpURI (URI httpURI)
-specifier|default
-name|UndertowEndpointProducerBuilder
-name|httpURI
-parameter_list|(
-name|URI
-name|httpURI
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpURI"
-argument_list|,
-name|httpURI
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The url of the HTTP endpoint to use.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|httpURI (String httpURI)
-specifier|default
-name|UndertowEndpointProducerBuilder
-name|httpURI
-parameter_list|(
-name|String
-name|httpURI
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpURI"
-argument_list|,
-name|httpURI
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1627,48 +1533,6 @@ return|return
 operator|(
 name|AdvancedUndertowEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The url of the HTTP endpoint to use.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|httpURI (URI httpURI)
-specifier|default
-name|UndertowEndpointBuilder
-name|httpURI
-parameter_list|(
-name|URI
-name|httpURI
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpURI"
-argument_list|,
-name|httpURI
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The url of the HTTP endpoint to use.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|httpURI (String httpURI)
-specifier|default
-name|UndertowEndpointBuilder
-name|httpURI
-parameter_list|(
-name|String
-name|httpURI
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"httpURI"
-argument_list|,
-name|httpURI
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

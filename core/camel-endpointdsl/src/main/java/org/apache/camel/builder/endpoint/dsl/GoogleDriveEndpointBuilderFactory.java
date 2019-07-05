@@ -146,69 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleDriveApiName apiName)
-specifier|default
-name|GoogleDriveEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|GoogleDriveApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleDriveEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleDriveEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
@@ -676,69 +613,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleDriveApiName apiName)
-specifier|default
-name|GoogleDriveEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|GoogleDriveApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleDriveEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleDriveEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
@@ -1124,69 +998,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (GoogleDriveApiName apiName)
-specifier|default
-name|GoogleDriveEndpointBuilder
-name|apiName
-parameter_list|(
-name|GoogleDriveApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleDriveEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleDriveEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -1509,50 +1320,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.drive.internal.GoogleDriveApiName</code> enum.      */
-DECL|enum|GoogleDriveApiName
-enum|enum
-name|GoogleDriveApiName
-block|{
-DECL|enumConstant|DRIVE_ABOUT
-name|DRIVE_ABOUT
-block|,
-DECL|enumConstant|DRIVE_APPS
-name|DRIVE_APPS
-block|,
-DECL|enumConstant|DRIVE_CHANGES
-name|DRIVE_CHANGES
-block|,
-DECL|enumConstant|DRIVE_CHANNELS
-name|DRIVE_CHANNELS
-block|,
-DECL|enumConstant|DRIVE_CHILDREN
-name|DRIVE_CHILDREN
-block|,
-DECL|enumConstant|DRIVE_COMMENTS
-name|DRIVE_COMMENTS
-block|,
-DECL|enumConstant|DRIVE_FILES
-name|DRIVE_FILES
-block|,
-DECL|enumConstant|DRIVE_PARENTS
-name|DRIVE_PARENTS
-block|,
-DECL|enumConstant|DRIVE_PERMISSIONS
-name|DRIVE_PERMISSIONS
-block|,
-DECL|enumConstant|DRIVE_PROPERTIES
-name|DRIVE_PROPERTIES
-block|,
-DECL|enumConstant|DRIVE_REALTIME
-name|DRIVE_REALTIME
-block|,
-DECL|enumConstant|DRIVE_REPLIES
-name|DRIVE_REPLIES
-block|,
-DECL|enumConstant|DRIVE_REVISIONS
-name|DRIVE_REVISIONS
-block|;     }
 comment|/**      * Google Drive (camel-google-drive)      * The google-drive component provides access to Google Drive file storage      * service.      *       * Syntax:<code>google-drive:apiName/methodName</code>      * Category: api,cloud,file      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-google-drive      */
 DECL|method|googleDrive (String path)
 specifier|default

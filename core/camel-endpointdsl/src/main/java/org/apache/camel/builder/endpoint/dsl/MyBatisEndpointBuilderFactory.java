@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|statement (String statement)
-specifier|default
-name|MyBatisEndpointConsumerBuilder
-name|statement
-parameter_list|(
-name|String
-name|statement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"statement"
-argument_list|,
-name|statement
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -1351,27 +1330,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|statement (String statement)
-specifier|default
-name|MyBatisEndpointProducerBuilder
-name|statement
-parameter_list|(
-name|String
-name|statement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"statement"
-argument_list|,
-name|statement
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The executor type to be used while executing statements. simple -          * executor does nothing special. reuse - executor reuses prepared          * statements. batch - executor reuses statements and batches updates.          *           * The option is a:<code>org.apache.ibatis.session.ExecutorType</code>          * type.          *           * Group: producer          */
 DECL|method|executorType ( ExecutorType executorType)
 specifier|default
@@ -1667,27 +1625,6 @@ return|return
 operator|(
 name|AdvancedMyBatisEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The statement name in the MyBatis XML mapping file which maps to the          * query, insert, update or delete operation you wish to evaluate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|statement (String statement)
-specifier|default
-name|MyBatisEndpointBuilder
-name|statement
-parameter_list|(
-name|String
-name|statement
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"statement"
-argument_list|,
-name|statement
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

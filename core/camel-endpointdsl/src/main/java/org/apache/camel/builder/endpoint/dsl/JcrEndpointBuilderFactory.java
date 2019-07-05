@@ -136,48 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|JcrEndpointConsumerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Get the base node when accessing the repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|base (String base)
-specifier|default
-name|JcrEndpointConsumerBuilder
-name|base
-parameter_list|(
-name|String
-name|base
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"base"
-argument_list|,
-name|base
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|deep (boolean deep)
 specifier|default
@@ -747,48 +705,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|JcrEndpointProducerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Get the base node when accessing the repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|base (String base)
-specifier|default
-name|JcrEndpointProducerBuilder
-name|base
-parameter_list|(
-name|String
-name|base
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"base"
-argument_list|,
-name|base
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * When isDeep is true, events whose associated parent node is at          * absPath or within its subgraph are received.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|deep (boolean deep)
 specifier|default
@@ -1273,48 +1189,6 @@ return|return
 operator|(
 name|AdvancedJcrEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of the javax.jcr.Repository to lookup from the Camel registry to          * be used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|JcrEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Get the base node when accessing the repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|base (String base)
-specifier|default
-name|JcrEndpointBuilder
-name|base
-parameter_list|(
-name|String
-name|base
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"base"
-argument_list|,
-name|base
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

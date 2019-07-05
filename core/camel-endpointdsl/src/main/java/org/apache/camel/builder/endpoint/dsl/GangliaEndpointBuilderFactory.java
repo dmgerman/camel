@@ -110,69 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Host name for Ganglia server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|host (String host)
-specifier|default
-name|GangliaEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port for Ganglia server.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
-DECL|method|port (int port)
-specifier|default
-name|GangliaEndpointBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port for Ganglia server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
-DECL|method|port (String port)
-specifier|default
-name|GangliaEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Minumum time in seconds before Ganglia will purge the metric value if          * it expires. Set to 0 and the value will remain in Ganglia          * indefinitely until a gmond agent restart.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|dmax (int dmax)
 specifier|default

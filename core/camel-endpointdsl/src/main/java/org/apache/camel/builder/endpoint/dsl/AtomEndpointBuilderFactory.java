@@ -120,27 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The URI to the feed to poll.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|feedUri (String feedUri)
-specifier|default
-name|AtomEndpointBuilder
-name|feedUri
-parameter_list|(
-name|String
-name|feedUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"feedUri"
-argument_list|,
-name|feedUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets whether to add the feed object as a header.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|feedHeader (boolean feedHeader)
 specifier|default

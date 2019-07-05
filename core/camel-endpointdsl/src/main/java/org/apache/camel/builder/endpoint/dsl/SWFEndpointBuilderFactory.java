@@ -146,27 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Activity or workflow.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|SWFEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client.          *           * The option is a:          *<code>com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient</code> type.          *           * Group: common          */
 DECL|method|amazonSWClient (Object amazonSWClient)
 specifier|default
@@ -982,27 +961,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Activity or workflow.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|SWFEndpointProducerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use the given AmazonSimpleWorkflowClient as client.          *           * The option is a:          *<code>com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClient</code> type.          *           * Group: common          */
 DECL|method|amazonSWClient (Object amazonSWClient)
 specifier|default
@@ -1733,27 +1691,6 @@ return|return
 operator|(
 name|AdvancedSWFEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Activity or workflow.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|SWFEndpointBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

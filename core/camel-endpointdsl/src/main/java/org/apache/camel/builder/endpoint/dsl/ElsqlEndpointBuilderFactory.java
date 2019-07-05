@@ -210,48 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the elsql to use (is NAMED in the elsql file).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|elsqlName (String elsqlName)
-specifier|default
-name|ElsqlEndpointConsumerBuilder
-name|elsqlName
-parameter_list|(
-name|String
-name|elsqlName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"elsqlName"
-argument_list|,
-name|elsqlName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The resource file which contains the elsql SQL statements to use. You          * can specify multiple resources separated by comma. The resources are          * loaded on the classpath by default, you can prefix with file: to load          * from file system. Notice you can set this option on the component and          * then you do not have to configure this on the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|ElsqlEndpointConsumerBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to allow using named parameters in the queries.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
 specifier|default
@@ -2051,48 +2009,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the elsql to use (is NAMED in the elsql file).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|elsqlName (String elsqlName)
-specifier|default
-name|ElsqlEndpointProducerBuilder
-name|elsqlName
-parameter_list|(
-name|String
-name|elsqlName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"elsqlName"
-argument_list|,
-name|elsqlName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The resource file which contains the elsql SQL statements to use. You          * can specify multiple resources separated by comma. The resources are          * loaded on the classpath by default, you can prefix with file: to load          * from file system. Notice you can set this option on the component and          * then you do not have to configure this on the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|ElsqlEndpointProducerBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to allow using named parameters in the queries.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowNamedParameters ( boolean allowNamedParameters)
 specifier|default
@@ -2941,48 +2857,6 @@ return|return
 operator|(
 name|AdvancedElsqlEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The name of the elsql to use (is NAMED in the elsql file).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|elsqlName (String elsqlName)
-specifier|default
-name|ElsqlEndpointBuilder
-name|elsqlName
-parameter_list|(
-name|String
-name|elsqlName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"elsqlName"
-argument_list|,
-name|elsqlName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The resource file which contains the elsql SQL statements to use. You          * can specify multiple resources separated by comma. The resources are          * loaded on the classpath by default, you can prefix with file: to load          * from file system. Notice you can set this option on the component and          * then you do not have to configure this on the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|ElsqlEndpointBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

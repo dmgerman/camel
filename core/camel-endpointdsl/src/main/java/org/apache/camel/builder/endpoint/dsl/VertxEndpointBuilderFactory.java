@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the event bus address used to communicate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|address (String address)
-specifier|default
-name|VertxEndpointConsumerBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to use publish/subscribe instead of point to point when          * sending to a vertx endpoint.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|pubSub (Boolean pubSub)
 specifier|default
@@ -453,27 +432,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the event bus address used to communicate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|address (String address)
-specifier|default
-name|VertxEndpointProducerBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to use publish/subscribe instead of point to point when          * sending to a vertx endpoint.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|pubSub (Boolean pubSub)
 specifier|default
@@ -685,27 +643,6 @@ return|return
 operator|(
 name|AdvancedVertxEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Sets the event bus address used to communicate.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|address (String address)
-specifier|default
-name|VertxEndpointBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

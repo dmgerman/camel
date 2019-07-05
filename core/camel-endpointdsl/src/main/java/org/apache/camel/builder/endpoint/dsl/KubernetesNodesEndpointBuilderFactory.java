@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Kubernetes Master url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|masterUrl ( String masterUrl)
-specifier|default
-name|KubernetesNodesEndpointConsumerBuilder
-name|masterUrl
-parameter_list|(
-name|String
-name|masterUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"masterUrl"
-argument_list|,
-name|masterUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Kubernetes API Version to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion ( String apiVersion)
 specifier|default
@@ -978,27 +957,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Kubernetes Master url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|masterUrl ( String masterUrl)
-specifier|default
-name|KubernetesNodesEndpointProducerBuilder
-name|masterUrl
-parameter_list|(
-name|String
-name|masterUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"masterUrl"
-argument_list|,
-name|masterUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Kubernetes API Version to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion ( String apiVersion)
 specifier|default
@@ -1630,27 +1588,6 @@ return|return
 operator|(
 name|AdvancedKubernetesNodesEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Kubernetes Master url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|masterUrl (String masterUrl)
-specifier|default
-name|KubernetesNodesEndpointBuilder
-name|masterUrl
-parameter_list|(
-name|String
-name|masterUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"masterUrl"
-argument_list|,
-name|masterUrl
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

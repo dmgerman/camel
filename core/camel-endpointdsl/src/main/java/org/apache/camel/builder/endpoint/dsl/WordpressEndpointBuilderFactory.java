@@ -146,48 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|WordpressEndpointConsumerBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|operationDetail ( String operationDetail)
-specifier|default
-name|WordpressEndpointConsumerBuilder
-name|operationDetail
-parameter_list|(
-name|String
-name|operationDetail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operationDetail"
-argument_list|,
-name|operationDetail
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Wordpress REST API version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
@@ -699,48 +657,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|WordpressEndpointProducerBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|operationDetail ( String operationDetail)
-specifier|default
-name|WordpressEndpointProducerBuilder
-name|operationDetail
-parameter_list|(
-name|String
-name|operationDetail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operationDetail"
-argument_list|,
-name|operationDetail
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Wordpress REST API version.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default
@@ -1167,48 +1083,6 @@ return|return
 operator|(
 name|AdvancedWordpressEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The endpoint operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|WordpressEndpointBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The second part of an endpoint operation. Needed only when endpoint          * semantic is not enough, like wordpress:post:delete.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|operationDetail (String operationDetail)
-specifier|default
-name|WordpressEndpointBuilder
-name|operationDetail
-parameter_list|(
-name|String
-name|operationDetail
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operationDetail"
-argument_list|,
-name|operationDetail
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

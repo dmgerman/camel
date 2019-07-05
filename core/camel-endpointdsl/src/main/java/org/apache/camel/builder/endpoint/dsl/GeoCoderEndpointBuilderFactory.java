@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The geo address which should be prefixed with address:.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|address (String address)
-specifier|default
-name|GeoCoderEndpointBuilder
-name|address
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"address"
-argument_list|,
-name|address
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The geo latitude and longitude which should be prefixed with latlng:.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|latlng (String latlng)
-specifier|default
-name|GeoCoderEndpointBuilder
-name|latlng
-parameter_list|(
-name|String
-name|latlng
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"latlng"
-argument_list|,
-name|latlng
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to only enrich the Exchange with headers, and leave the body          * as-is.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|headersOnly (boolean headersOnly)
 specifier|default

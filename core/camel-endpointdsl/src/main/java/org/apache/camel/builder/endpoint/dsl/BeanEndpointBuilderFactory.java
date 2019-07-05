@@ -120,27 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the bean to invoke.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|beanName (String beanName)
-specifier|default
-name|BeanEndpointBuilder
-name|beanName
-parameter_list|(
-name|String
-name|beanName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"beanName"
-argument_list|,
-name|beanName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * If enabled, Camel will cache the result of the first Registry          * look-up. Cache can be enabled if the bean in the Registry is defined          * as a singleton scope.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
 DECL|method|cache (Boolean cache)
 specifier|default

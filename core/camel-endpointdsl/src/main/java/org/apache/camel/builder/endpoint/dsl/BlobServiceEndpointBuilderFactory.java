@@ -146,27 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Container or Blob compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|containerOrBlobUri ( String containerOrBlobUri)
-specifier|default
-name|BlobServiceEndpointConsumerBuilder
-name|containerOrBlobUri
-parameter_list|(
-name|String
-name|containerOrBlobUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"containerOrBlobUri"
-argument_list|,
-name|containerOrBlobUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The blob service client.          *           * The option is a:          *<code>com.microsoft.azure.storage.blob.CloudBlob</code> type.          *           * Group: common          */
 DECL|method|azureBlobClient ( Object azureBlobClient)
 specifier|default
@@ -775,27 +754,6 @@ return|return
 operator|(
 name|AdvancedBlobServiceEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Container or Blob compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|containerOrBlobUri ( String containerOrBlobUri)
-specifier|default
-name|BlobServiceEndpointProducerBuilder
-name|containerOrBlobUri
-parameter_list|(
-name|String
-name|containerOrBlobUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"containerOrBlobUri"
-argument_list|,
-name|containerOrBlobUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1561,27 +1519,6 @@ return|return
 operator|(
 name|AdvancedBlobServiceEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Container or Blob compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|containerOrBlobUri ( String containerOrBlobUri)
-specifier|default
-name|BlobServiceEndpointBuilder
-name|containerOrBlobUri
-parameter_list|(
-name|String
-name|containerOrBlobUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"containerOrBlobUri"
-argument_list|,
-name|containerOrBlobUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

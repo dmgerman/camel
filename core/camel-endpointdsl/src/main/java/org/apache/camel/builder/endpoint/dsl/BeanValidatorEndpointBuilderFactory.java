@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Where label is an arbitrary text value describing the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|label (String label)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|label
-parameter_list|(
-name|String
-name|label
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"label"
-argument_list|,
-name|label
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use a custom ConstraintValidatorFactory.          *           * The option is a:          *<code>javax.validation.ConstraintValidatorFactory</code> type.          *           * Group: producer          */
 DECL|method|constraintValidatorFactory ( Object constraintValidatorFactory)
 specifier|default

@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Container Queue compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|containerAndQueueUri ( String containerAndQueueUri)
-specifier|default
-name|QueueServiceEndpointConsumerBuilder
-name|containerAndQueueUri
-parameter_list|(
-name|String
-name|containerAndQueueUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"containerAndQueueUri"
-argument_list|,
-name|containerAndQueueUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The queue service client.          *           * The option is a:          *<code>com.microsoft.azure.storage.queue.CloudQueue</code> type.          *           * Group: common          */
 DECL|method|azureQueueClient ( Object azureQueueClient)
 specifier|default
@@ -492,27 +471,6 @@ return|return
 operator|(
 name|AdvancedQueueServiceEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Container Queue compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|containerAndQueueUri ( String containerAndQueueUri)
-specifier|default
-name|QueueServiceEndpointProducerBuilder
-name|containerAndQueueUri
-parameter_list|(
-name|String
-name|containerAndQueueUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"containerAndQueueUri"
-argument_list|,
-name|containerAndQueueUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -916,27 +874,6 @@ return|return
 operator|(
 name|AdvancedQueueServiceEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Container Queue compact Uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|containerAndQueueUri ( String containerAndQueueUri)
-specifier|default
-name|QueueServiceEndpointBuilder
-name|containerAndQueueUri
-parameter_list|(
-name|String
-name|containerAndQueueUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"containerAndQueueUri"
-argument_list|,
-name|containerAndQueueUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * get, post, put, patch, delete, head, trace, connect, or options.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|verb (String verb)
-specifier|default
-name|SparkEndpointBuilder
-name|verb
-parameter_list|(
-name|String
-name|verb
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"verb"
-argument_list|,
-name|verb
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The content path which support Spark syntax.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|path (String path)
-specifier|default
-name|SparkEndpointBuilder
-name|path
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"path"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Accept type such as: 'text/xml', or 'application/json'. By default we          * accept all kinds of types.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|accept (String accept)
 specifier|default

@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|ApnsEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Configure this property in case you want to statically declare tokens          * related to devices you want to notify. Tokens are separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|tokens (String tokens)
 specifier|default
@@ -1141,27 +1120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|ApnsEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Configure this property in case you want to statically declare tokens          * related to devices you want to notify. Tokens are separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|tokens (String tokens)
 specifier|default
@@ -1352,27 +1310,6 @@ return|return
 operator|(
 name|AdvancedApnsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of the endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|ApnsEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Kubernetes Master url.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|masterUrl (String masterUrl)
-specifier|default
-name|OpenshiftBuildsEndpointBuilder
-name|masterUrl
-parameter_list|(
-name|String
-name|masterUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"masterUrl"
-argument_list|,
-name|masterUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The Kubernetes API Version to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|apiVersion (String apiVersion)
 specifier|default

@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the table currently worked with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|tableName (String tableName)
-specifier|default
-name|DdbEndpointBuilder
-name|tableName
-parameter_list|(
-name|String
-name|tableName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"tableName"
-argument_list|,
-name|tableName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use the AmazonDynamoDB as the client.          *           * The option is a:          *<code>com.amazonaws.services.dynamodbv2.AmazonDynamoDB</code> type.          *           * Group: producer          */
 DECL|method|amazonDDBClient (Object amazonDDBClient)
 specifier|default

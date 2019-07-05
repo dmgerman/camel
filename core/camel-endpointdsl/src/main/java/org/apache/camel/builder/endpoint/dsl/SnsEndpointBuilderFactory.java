@@ -124,27 +124,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Topic name or ARN.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|topicNameOrArn (String topicNameOrArn)
-specifier|default
-name|SnsEndpointBuilder
-name|topicNameOrArn
-parameter_list|(
-name|String
-name|topicNameOrArn
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"topicNameOrArn"
-argument_list|,
-name|topicNameOrArn
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use the AmazonSNS as the client.          *           * The option is a:<code>com.amazonaws.services.sns.AmazonSNS</code>          * type.          *           * Group: producer          */
 DECL|method|amazonSNSClient (Object amazonSNSClient)
 specifier|default

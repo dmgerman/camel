@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleCalendarApiName apiName)
-specifier|default
-name|GoogleCalendarEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|GoogleCalendarApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleCalendarEndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName ( String methodName)
-specifier|default
-name|GoogleCalendarEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
@@ -663,69 +600,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleCalendarApiName apiName)
-specifier|default
-name|GoogleCalendarEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|GoogleCalendarApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleCalendarEndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName ( String methodName)
-specifier|default
-name|GoogleCalendarEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken ( String accessToken)
 specifier|default
@@ -1108,69 +982,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
-DECL|method|apiName ( GoogleCalendarApiName apiName)
-specifier|default
-name|GoogleCalendarEndpointBuilder
-name|apiName
-parameter_list|(
-name|GoogleCalendarApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|GoogleCalendarEndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|GoogleCalendarEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * OAuth 2 access token. This typically expires after an hour so          * refreshToken is recommended for long term usage.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -1490,35 +1301,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.google.calendar.internal.GoogleCalendarApiName</code> enum.      */
-DECL|enum|GoogleCalendarApiName
-enum|enum
-name|GoogleCalendarApiName
-block|{
-DECL|enumConstant|ACL
-name|ACL
-block|,
-DECL|enumConstant|LIST
-name|LIST
-block|,
-DECL|enumConstant|CALENDARS
-name|CALENDARS
-block|,
-DECL|enumConstant|CHANNELS
-name|CHANNELS
-block|,
-DECL|enumConstant|COLORS
-name|COLORS
-block|,
-DECL|enumConstant|FREEBUSY
-name|FREEBUSY
-block|,
-DECL|enumConstant|EVENTS
-name|EVENTS
-block|,
-DECL|enumConstant|SETTINGS
-name|SETTINGS
-block|;     }
 comment|/**      * Google Calendar (camel-google-calendar)      * The google-calendar component provides access to Google Calendar.      *       * Syntax:<code>google-calendar:apiName/methodName</code>      * Category: api,cloud      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-google-calendar      */
 DECL|method|googleCalendar (String path)
 specifier|default

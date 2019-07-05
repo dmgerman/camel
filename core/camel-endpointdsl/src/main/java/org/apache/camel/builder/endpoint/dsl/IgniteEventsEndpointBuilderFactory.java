@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint ID (not used).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|endpointId (String endpointId)
-specifier|default
-name|IgniteEventsEndpointBuilder
-name|endpointId
-parameter_list|(
-name|String
-name|endpointId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"endpointId"
-argument_list|,
-name|endpointId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
 specifier|default

@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Atmos name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|AtmosEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (AtmosOperation operation)
-specifier|default
-name|AtmosEndpointConsumerBuilder
-name|operation
-parameter_list|(
-name|AtmosOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|AtmosEndpointConsumerBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|enableSslValidation ( boolean enableSslValidation)
 specifier|default
@@ -642,69 +579,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Atmos name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|AtmosEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (AtmosOperation operation)
-specifier|default
-name|AtmosEndpointProducerBuilder
-name|operation
-parameter_list|(
-name|AtmosOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|AtmosEndpointProducerBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|enableSslValidation ( boolean enableSslValidation)
 specifier|default
@@ -1066,69 +940,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Atmos name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|AtmosEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (AtmosOperation operation)
-specifier|default
-name|AtmosEndpointBuilder
-name|operation
-parameter_list|(
-name|AtmosOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.atmos.util.AtmosOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|AtmosEndpointBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|enableSslValidation ( boolean enableSslValidation)
 specifier|default
@@ -1427,26 +1238,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.atmos.util.AtmosOperation</code> enum.      */
-DECL|enum|AtmosOperation
-enum|enum
-name|AtmosOperation
-block|{
-DECL|enumConstant|put
-name|put
-block|,
-DECL|enumConstant|del
-name|del
-block|,
-DECL|enumConstant|search
-name|search
-block|,
-DECL|enumConstant|get
-name|get
-block|,
-DECL|enumConstant|move
-name|move
-block|;     }
 comment|/**      * Atmos (camel-atmos)      * The atmos component is used for integrating with EMC's Atomos Storage.      *       * Syntax:<code>atmos:name/operation</code>      * Category: file,cloud      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-atmos      */
 DECL|method|atmos (String path)
 specifier|default

@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The configFile is the name of the QuickFIX/J configuration to use for          * the FIX engine (located as a resource found in your classpath).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|configurationName ( String configurationName)
-specifier|default
-name|QuickfixjEndpointConsumerBuilder
-name|configurationName
-parameter_list|(
-name|String
-name|configurationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"configurationName"
-argument_list|,
-name|configurationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * This option allows to create QuickFIX/J engine on demand. Value true          * means the engine is started when first message is send or there's          * consumer configured in route definition. When false value is used,          * the engine is started at the endpoint creation. When this parameter          * is missing, the value of component's property lazyCreateEngines is          * being used.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|lazyCreateEngine ( boolean lazyCreateEngine)
 specifier|default
@@ -495,27 +474,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The configFile is the name of the QuickFIX/J configuration to use for          * the FIX engine (located as a resource found in your classpath).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|configurationName ( String configurationName)
-specifier|default
-name|QuickfixjEndpointProducerBuilder
-name|configurationName
-parameter_list|(
-name|String
-name|configurationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"configurationName"
-argument_list|,
-name|configurationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * This option allows to create QuickFIX/J engine on demand. Value true          * means the engine is started when first message is send or there's          * consumer configured in route definition. When false value is used,          * the engine is started at the endpoint creation. When this parameter          * is missing, the value of component's property lazyCreateEngines is          * being used.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|lazyCreateEngine ( boolean lazyCreateEngine)
 specifier|default
@@ -769,27 +727,6 @@ return|return
 operator|(
 name|AdvancedQuickfixjEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The configFile is the name of the QuickFIX/J configuration to use for          * the FIX engine (located as a resource found in your classpath).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|configurationName ( String configurationName)
-specifier|default
-name|QuickfixjEndpointBuilder
-name|configurationName
-parameter_list|(
-name|String
-name|configurationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"configurationName"
-argument_list|,
-name|configurationName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -110,69 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname of the SNMP enabled device.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|host (String host)
-specifier|default
-name|SnmpEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number of the SNMP enabled device.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
-DECL|method|port (Integer port)
-specifier|default
-name|SnmpEndpointBuilder
-name|port
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number of the SNMP enabled device.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: consumer          */
-DECL|method|port (String port)
-specifier|default
-name|SnmpEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Defines which values you are interested in. Please have a look at the          * Wikipedia to get a better understanding. You may provide a single OID          * or a coma separated list of OIDs. Example:          * oids=1.3.6.1.2.1.1.3.0,1.3.6.1.2.1.25.3.2.1.5.1,1.3.6.1.2.1.25.3.5.1.1.1,1.3.6.1.2.1.43.5.1.1.11.1.          *           * The option is a:<code>org.apache.camel.component.snmp.OIDList</code>          * type.          *           * Group: consumer          */
 DECL|method|oids (Object oids)
 specifier|default

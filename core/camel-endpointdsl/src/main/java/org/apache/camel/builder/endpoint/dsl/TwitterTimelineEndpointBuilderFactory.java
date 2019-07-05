@@ -210,48 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The timeline type to produce/consume.          *           * The option is a:          *<code>org.apache.camel.component.twitter.data.TimelineType</code>          * type.          *           * Group: common          */
-DECL|method|timelineType ( TimelineType timelineType)
-specifier|default
-name|TwitterTimelineEndpointConsumerBuilder
-name|timelineType
-parameter_list|(
-name|TimelineType
-name|timelineType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"timelineType"
-argument_list|,
-name|timelineType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The timeline type to produce/consume.          *           * The option will be converted to a          *<code>org.apache.camel.component.twitter.data.TimelineType</code>          * type.          *           * Group: common          */
-DECL|method|timelineType ( String timelineType)
-specifier|default
-name|TwitterTimelineEndpointConsumerBuilder
-name|timelineType
-parameter_list|(
-name|String
-name|timelineType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"timelineType"
-argument_list|,
-name|timelineType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The username when using timelineType=user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
@@ -1897,48 +1855,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The timeline type to produce/consume.          *           * The option is a:          *<code>org.apache.camel.component.twitter.data.TimelineType</code>          * type.          *           * Group: common          */
-DECL|method|timelineType ( TimelineType timelineType)
-specifier|default
-name|TwitterTimelineEndpointProducerBuilder
-name|timelineType
-parameter_list|(
-name|TimelineType
-name|timelineType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"timelineType"
-argument_list|,
-name|timelineType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The timeline type to produce/consume.          *           * The option will be converted to a          *<code>org.apache.camel.component.twitter.data.TimelineType</code>          * type.          *           * Group: common          */
-DECL|method|timelineType ( String timelineType)
-specifier|default
-name|TwitterTimelineEndpointProducerBuilder
-name|timelineType
-parameter_list|(
-name|String
-name|timelineType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"timelineType"
-argument_list|,
-name|timelineType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The username when using timelineType=user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
@@ -2321,48 +2237,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The timeline type to produce/consume.          *           * The option is a:          *<code>org.apache.camel.component.twitter.data.TimelineType</code>          * type.          *           * Group: common          */
-DECL|method|timelineType ( TimelineType timelineType)
-specifier|default
-name|TwitterTimelineEndpointBuilder
-name|timelineType
-parameter_list|(
-name|TimelineType
-name|timelineType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"timelineType"
-argument_list|,
-name|timelineType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The timeline type to produce/consume.          *           * The option will be converted to a          *<code>org.apache.camel.component.twitter.data.TimelineType</code>          * type.          *           * Group: common          */
-DECL|method|timelineType (String timelineType)
-specifier|default
-name|TwitterTimelineEndpointBuilder
-name|timelineType
-parameter_list|(
-name|String
-name|timelineType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"timelineType"
-argument_list|,
-name|timelineType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The username when using timelineType=user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|user (String user)
 specifier|default
@@ -2682,29 +2556,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.TimelineType</code> enum.      */
-DECL|enum|TimelineType
-enum|enum
-name|TimelineType
-block|{
-DECL|enumConstant|PUBLIC
-name|PUBLIC
-block|,
-DECL|enumConstant|HOME
-name|HOME
-block|,
-DECL|enumConstant|USER
-name|USER
-block|,
-DECL|enumConstant|MENTIONS
-name|MENTIONS
-block|,
-DECL|enumConstant|RETWEETSOFME
-name|RETWEETSOFME
-block|,
-DECL|enumConstant|UNKNOWN
-name|UNKNOWN
-block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.twitter.data.EndpointType</code> enum.      */
 DECL|enum|EndpointType
 enum|enum

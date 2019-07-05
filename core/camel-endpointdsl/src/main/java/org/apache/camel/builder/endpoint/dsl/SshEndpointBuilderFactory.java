@@ -210,69 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the hostname of the remote SSH server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|SshEndpointConsumerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the port number for the remote SSH server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|SshEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the port number for the remote SSH server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|SshEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies whether a connection to an unknown host should fail or not.          * This value is only checked when the property knownHosts is set.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|failOnUnknownHost ( boolean failOnUnknownHost)
 specifier|default
@@ -1519,69 +1456,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the hostname of the remote SSH server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|SshEndpointProducerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the port number for the remote SSH server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|SshEndpointProducerBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the port number for the remote SSH server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|SshEndpointProducerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies whether a connection to an unknown host should fail or not.          * This value is only checked when the property knownHosts is set.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|failOnUnknownHost ( boolean failOnUnknownHost)
 specifier|default
@@ -2087,69 +1961,6 @@ return|return
 operator|(
 name|AdvancedSshEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Sets the hostname of the remote SSH server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|SshEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the port number for the remote SSH server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|SshEndpointBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the port number for the remote SSH server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|SshEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

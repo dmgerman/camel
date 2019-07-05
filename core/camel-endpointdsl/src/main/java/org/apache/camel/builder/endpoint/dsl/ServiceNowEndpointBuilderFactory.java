@@ -120,27 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The ServiceNow instance name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|instanceName (String instanceName)
-specifier|default
-name|ServiceNowEndpointBuilder
-name|instanceName
-parameter_list|(
-name|String
-name|instanceName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"instanceName"
-argument_list|,
-name|instanceName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Set this parameter to true to return only scorecards where the          * indicator Display field is selected. Set this parameter to all to          * return scorecards with any Display field value. This parameter is          * true by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|display (String display)
 specifier|default

@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The channel used for subscribing/publishing events.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|channel (String channel)
-specifier|default
-name|PubNubEndpointConsumerBuilder
-name|channel
-parameter_list|(
-name|String
-name|channel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"channel"
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * UUID to be used as a device identifier, a default UUID is generated          * if not passed.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uuid (String uuid)
 specifier|default
@@ -663,27 +642,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The channel used for subscribing/publishing events.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|channel (String channel)
-specifier|default
-name|PubNubEndpointProducerBuilder
-name|channel
-parameter_list|(
-name|String
-name|channel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"channel"
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * UUID to be used as a device identifier, a default UUID is generated          * if not passed.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|uuid (String uuid)
 specifier|default
@@ -1084,27 +1042,6 @@ return|return
 operator|(
 name|AdvancedPubNubEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The channel used for subscribing/publishing events.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|channel (String channel)
-specifier|default
-name|PubNubEndpointBuilder
-name|channel
-parameter_list|(
-name|String
-name|channel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"channel"
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

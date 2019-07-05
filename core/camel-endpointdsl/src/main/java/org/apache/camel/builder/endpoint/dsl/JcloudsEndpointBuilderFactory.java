@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What command to execute such as blobstore or compute.          *           * The option is a:          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          *           * Group: common          */
-DECL|method|command (JcloudsCommand command)
-specifier|default
-name|JcloudsEndpointConsumerBuilder
-name|command
-parameter_list|(
-name|JcloudsCommand
-name|command
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"command"
-argument_list|,
-name|command
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What command to execute such as blobstore or compute.          *           * The option will be converted to a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          *           * Group: common          */
-DECL|method|command (String command)
-specifier|default
-name|JcloudsEndpointConsumerBuilder
-name|command
-parameter_list|(
-name|String
-name|command
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"command"
-argument_list|,
-name|command
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The name of the cloud provider that provides the target service (e.g.          * aws-s3 or aws_ec2).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|providerId (String providerId)
-specifier|default
-name|JcloudsEndpointConsumerBuilder
-name|providerId
-parameter_list|(
-name|String
-name|providerId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"providerId"
-argument_list|,
-name|providerId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -492,69 +429,6 @@ return|return
 operator|(
 name|AdvancedJcloudsEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * What command to execute such as blobstore or compute.          *           * The option is a:          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          *           * Group: common          */
-DECL|method|command (JcloudsCommand command)
-specifier|default
-name|JcloudsEndpointProducerBuilder
-name|command
-parameter_list|(
-name|JcloudsCommand
-name|command
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"command"
-argument_list|,
-name|command
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What command to execute such as blobstore or compute.          *           * The option will be converted to a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          *           * Group: common          */
-DECL|method|command (String command)
-specifier|default
-name|JcloudsEndpointProducerBuilder
-name|command
-parameter_list|(
-name|String
-name|command
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"command"
-argument_list|,
-name|command
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The name of the cloud provider that provides the target service (e.g.          * aws-s3 or aws_ec2).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|providerId (String providerId)
-specifier|default
-name|JcloudsEndpointProducerBuilder
-name|providerId
-parameter_list|(
-name|String
-name|providerId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"providerId"
-argument_list|,
-name|providerId
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -940,69 +814,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What command to execute such as blobstore or compute.          *           * The option is a:          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          *           * Group: common          */
-DECL|method|command (JcloudsCommand command)
-specifier|default
-name|JcloudsEndpointBuilder
-name|command
-parameter_list|(
-name|JcloudsCommand
-name|command
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"command"
-argument_list|,
-name|command
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What command to execute such as blobstore or compute.          *           * The option will be converted to a          *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> type.          *           * Group: common          */
-DECL|method|command (String command)
-specifier|default
-name|JcloudsEndpointBuilder
-name|command
-parameter_list|(
-name|String
-name|command
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"command"
-argument_list|,
-name|command
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The name of the cloud provider that provides the target service (e.g.          * aws-s3 or aws_ec2).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|providerId (String providerId)
-specifier|default
-name|JcloudsEndpointBuilder
-name|providerId
-parameter_list|(
-name|String
-name|providerId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"providerId"
-argument_list|,
-name|providerId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The name of the blob container.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: blobstore          */
 DECL|method|container (String container)
 specifier|default
@@ -1133,17 +944,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.jclouds.JcloudsCommand</code> enum.      */
-DECL|enum|JcloudsCommand
-enum|enum
-name|JcloudsCommand
-block|{
-DECL|enumConstant|blobstore
-name|blobstore
-block|,
-DECL|enumConstant|compute
-name|compute
-block|;     }
 comment|/**      * JClouds (camel-jclouds)      * For interacting with cloud compute& blobstore service via jclouds.      *       * Syntax:<code>jclouds:command:providerId</code>      * Category: api,cloud      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-jclouds      */
 DECL|method|jclouds (String path)
 specifier|default

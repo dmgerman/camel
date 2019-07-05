@@ -146,69 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Endpoint mapping type if endpoint mapping is used. rootqname - Offers          * the option to map web service requests based on the qualified name of          * the root element contained in the message. soapaction - Used to map          * web service requests based on the SOAP action specified in the header          * of the message. uri - In order to map web service requests that          * target a specific URI. xpathresult - Used to map web service requests          * based on the evaluation of an XPath expression against the incoming          * message. The result of the evaluation should match the XPath result          * specified in the endpoint URI. beanname - Allows you to reference an          * org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher          * object in order to integrate with existing (legacy) endpoint mappings          * like PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          *           * The option is a:          *<code>org.apache.camel.component.spring.ws.type.EndpointMappingType</code> type.          *           * Group: consumer          */
-DECL|method|type ( EndpointMappingType type)
-specifier|default
-name|SpringWebserviceEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|EndpointMappingType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Endpoint mapping type if endpoint mapping is used. rootqname - Offers          * the option to map web service requests based on the qualified name of          * the root element contained in the message. soapaction - Used to map          * web service requests based on the SOAP action specified in the header          * of the message. uri - In order to map web service requests that          * target a specific URI. xpathresult - Used to map web service requests          * based on the evaluation of an XPath expression against the incoming          * message. The result of the evaluation should match the XPath result          * specified in the endpoint URI. beanname - Allows you to reference an          * org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher          * object in order to integrate with existing (legacy) endpoint mappings          * like PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.          *           * The option will be converted to a          *<code>org.apache.camel.component.spring.ws.type.EndpointMappingType</code> type.          *           * Group: consumer          */
-DECL|method|type (String type)
-specifier|default
-name|SpringWebserviceEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Endpoint mapping key if endpoint mapping is used.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|lookupKey ( String lookupKey)
-specifier|default
-name|SpringWebserviceEndpointConsumerBuilder
-name|lookupKey
-parameter_list|(
-name|String
-name|lookupKey
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"lookupKey"
-argument_list|,
-name|lookupKey
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Option to provide a custom MessageFilter. For example when you want          * to process your headers or attachments by your own.          *           * The option is a:          *<code>org.apache.camel.component.spring.ws.filter.MessageFilter</code> type.          *           * Group: common          */
 DECL|method|messageFilter ( Object messageFilter)
 specifier|default
@@ -649,27 +586,6 @@ return|return
 operator|(
 name|AdvancedSpringWebserviceEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The default Web Service endpoint uri to use for the producer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|webServiceEndpointUri ( String webServiceEndpointUri)
-specifier|default
-name|SpringWebserviceEndpointProducerBuilder
-name|webServiceEndpointUri
-parameter_list|(
-name|String
-name|webServiceEndpointUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"webServiceEndpointUri"
-argument_list|,
-name|webServiceEndpointUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1647,35 +1563,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.spring.ws.type.EndpointMappingType</code> enum.      */
-DECL|enum|EndpointMappingType
-enum|enum
-name|EndpointMappingType
-block|{
-DECL|enumConstant|ROOT_QNAME
-name|ROOT_QNAME
-block|,
-DECL|enumConstant|ACTION
-name|ACTION
-block|,
-DECL|enumConstant|TO
-name|TO
-block|,
-DECL|enumConstant|SOAP_ACTION
-name|SOAP_ACTION
-block|,
-DECL|enumConstant|XPATHRESULT
-name|XPATHRESULT
-block|,
-DECL|enumConstant|URI
-name|URI
-block|,
-DECL|enumConstant|URI_PATH
-name|URI_PATH
-block|,
-DECL|enumConstant|BEANNAME
-name|BEANNAME
-block|;     }
 comment|/**      * Spring WebService (camel-spring-ws)      * The spring-ws component is used for SOAP WebServices using Spring      * WebServices.      *       * Syntax:<code>spring-ws:type:lookupKey:webServiceEndpointUri</code>      * Category: spring,soap,webservice      * Available as of version: 2.6      * Maven coordinates: org.apache.camel:camel-spring-ws      */
 DECL|method|springWebservice (String path)
 specifier|default

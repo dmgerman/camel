@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * ID of the item.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|itemId (String itemId)
-specifier|default
-name|MiloServerEndpointConsumerBuilder
-name|itemId
-parameter_list|(
-name|String
-name|itemId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"itemId"
-argument_list|,
-name|itemId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -411,27 +390,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * ID of the item.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|itemId (String itemId)
-specifier|default
-name|MiloServerEndpointProducerBuilder
-name|itemId
-parameter_list|(
-name|String
-name|itemId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"itemId"
-argument_list|,
-name|itemId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
@@ -601,27 +559,6 @@ return|return
 operator|(
 name|AdvancedMiloServerEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * ID of the item.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|itemId (String itemId)
-specifier|default
-name|MiloServerEndpointBuilder
-name|itemId
-parameter_list|(
-name|String
-name|itemId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"itemId"
-argument_list|,
-name|itemId
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

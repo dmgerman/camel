@@ -210,69 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether to use fixed or delimiter.          *           * The option is a:          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          *           * Group: common          */
-DECL|method|type (FlatpackType type)
-specifier|default
-name|FlatpackEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|FlatpackType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use fixed or delimiter.          *           * The option will be converted to a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|FlatpackEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * URL for loading the flatpack mapping file from classpath or file          * system.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|FlatpackEndpointConsumerBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowShortLines ( boolean allowShortLines)
 specifier|default
@@ -1414,69 +1351,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether to use fixed or delimiter.          *           * The option is a:          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          *           * Group: common          */
-DECL|method|type (FlatpackType type)
-specifier|default
-name|FlatpackEndpointProducerBuilder
-name|type
-parameter_list|(
-name|FlatpackType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use fixed or delimiter.          *           * The option will be converted to a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|FlatpackEndpointProducerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * URL for loading the flatpack mapping file from classpath or file          * system.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|FlatpackEndpointProducerBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowShortLines ( boolean allowShortLines)
 specifier|default
@@ -1901,69 +1775,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Whether to use fixed or delimiter.          *           * The option is a:          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          *           * Group: common          */
-DECL|method|type (FlatpackType type)
-specifier|default
-name|FlatpackEndpointBuilder
-name|type
-parameter_list|(
-name|FlatpackType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use fixed or delimiter.          *           * The option will be converted to a          *<code>org.apache.camel.component.flatpack.FlatpackType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|FlatpackEndpointBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * URL for loading the flatpack mapping file from classpath or file          * system.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|FlatpackEndpointBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for lines to be shorter than expected and ignores the extra          * characters.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|allowShortLines (boolean allowShortLines)
 specifier|default
@@ -2325,17 +2136,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.flatpack.FlatpackType</code> enum.      */
-DECL|enum|FlatpackType
-enum|enum
-name|FlatpackType
-block|{
-DECL|enumConstant|fixed
-name|fixed
-block|,
-DECL|enumConstant|delim
-name|delim
-block|;     }
 comment|/**      * Flatpack (camel-flatpack)      * The flatpack component supports fixed width and delimited file parsing      * via the FlatPack library.      *       * Syntax:<code>flatpack:type:resourceUri</code>      * Category: transformation      * Available as of version: 1.4      * Maven coordinates: org.apache.camel:camel-flatpack      */
 DECL|method|flatpack (String path)
 specifier|default

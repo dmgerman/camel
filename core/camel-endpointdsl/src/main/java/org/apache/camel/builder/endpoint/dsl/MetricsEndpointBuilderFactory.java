@@ -110,69 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Type of metrics.          *           * The option is a:          *<code>org.apache.camel.component.metrics.MetricsType</code> type.          *           * Group: producer          */
-DECL|method|metricsType (MetricsType metricsType)
-specifier|default
-name|MetricsEndpointBuilder
-name|metricsType
-parameter_list|(
-name|MetricsType
-name|metricsType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"metricsType"
-argument_list|,
-name|metricsType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Type of metrics.          *           * The option will be converted to a          *<code>org.apache.camel.component.metrics.MetricsType</code> type.          *           * Group: producer          */
-DECL|method|metricsType (String metricsType)
-specifier|default
-name|MetricsEndpointBuilder
-name|metricsType
-parameter_list|(
-name|String
-name|metricsType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"metricsType"
-argument_list|,
-name|metricsType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of metrics.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|metricsName (String metricsName)
-specifier|default
-name|MetricsEndpointBuilder
-name|metricsName
-parameter_list|(
-name|String
-name|metricsName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"metricsName"
-argument_list|,
-name|metricsName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Action when using timer type.          *           * The option is a:          *<code>org.apache.camel.component.metrics.MetricsTimerAction</code>          * type.          *           * Group: producer          */
 DECL|method|action (MetricsTimerAction action)
 specifier|default
@@ -532,26 +469,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.metrics.MetricsType</code> enum.      */
-DECL|enum|MetricsType
-enum|enum
-name|MetricsType
-block|{
-DECL|enumConstant|gauge
-name|gauge
-block|,
-DECL|enumConstant|counter
-name|counter
-block|,
-DECL|enumConstant|histogram
-name|histogram
-block|,
-DECL|enumConstant|meter
-name|meter
-block|,
-DECL|enumConstant|timer
-name|timer
-block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.metrics.MetricsTimerAction</code> enum.      */
 DECL|enum|MetricsTimerAction
 enum|enum

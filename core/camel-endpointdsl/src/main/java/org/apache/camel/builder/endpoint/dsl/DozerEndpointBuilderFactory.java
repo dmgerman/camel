@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * A human readable name of the mapping.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|name (String name)
-specifier|default
-name|DozerEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The name of a DozerBeanMapperConfiguration bean in the Camel registry          * which should be used for configuring the Dozer mapping. This is an          * alternative to the mappingFile option that can be used for          * fine-grained control over how Dozer is configured. Remember to use a          * # prefix in the value to indicate that the bean is in the Camel          * registry (e.g. #myDozerConfig).          *           * The option is a:          *<code>org.apache.camel.converter.dozer.DozerBeanMapperConfiguration</code> type.          *           * Group: producer          */
 DECL|method|mappingConfiguration ( Object mappingConfiguration)
 specifier|default

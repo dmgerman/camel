@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|security
 operator|.
 name|PrivateKey
@@ -163,48 +153,6 @@ return|return
 operator|(
 name|AdvancedCoAPEndpointConsumerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The URI for the CoAP endpoint.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (URI uri)
-specifier|default
-name|CoAPEndpointConsumerBuilder
-name|uri
-parameter_list|(
-name|URI
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URI for the CoAP endpoint.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
-specifier|default
-name|CoAPEndpointConsumerBuilder
-name|uri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -756,48 +704,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The URI for the CoAP endpoint.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (URI uri)
-specifier|default
-name|CoAPEndpointProducerBuilder
-name|uri
-parameter_list|(
-name|URI
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URI for the CoAP endpoint.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
-specifier|default
-name|CoAPEndpointProducerBuilder
-name|uri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the alias used to query the KeyStore for the private key and          * certificate. This parameter is used when we are enabling TLS with          * certificates on the service side, and similarly on the client side          * when TLS is used with certificates and client authentication. If the          * parameter is not specified then the default behavior is to use the          * first alias in the keystore that contains a key entry. This          * configuration parameter does not apply to configuring TLS via a Raw          * Public Key or a Pre-Shared Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|alias (String alias)
 specifier|default
@@ -1240,48 +1146,6 @@ return|return
 operator|(
 name|AdvancedCoAPEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The URI for the CoAP endpoint.          *           * The option is a:<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (URI uri)
-specifier|default
-name|CoAPEndpointBuilder
-name|uri
-parameter_list|(
-name|URI
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URI for the CoAP endpoint.          *           * The option will be converted to a<code>java.net.URI</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
-specifier|default
-name|CoAPEndpointBuilder
-name|uri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

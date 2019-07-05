@@ -130,27 +130,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the timer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|timerName (String timerName)
-specifier|default
-name|TimerEndpointBuilder
-name|timerName
-parameter_list|(
-name|String
-name|timerName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"timerName"
-argument_list|,
-name|timerName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The number of milliseconds to wait before the first event is          * generated. Should not be used in conjunction with the time option.          * The default value is 1000. You can also specify time values using          * units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds),          * and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
 DECL|method|delay (long delay)
 specifier|default

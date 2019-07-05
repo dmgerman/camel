@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The channel name (syntax #name) or slackuser (syntax userName) to          * send a message directly to an user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|channel (String channel)
-specifier|default
-name|SlackEndpointConsumerBuilder
-name|channel
-parameter_list|(
-name|String
-name|channel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"channel"
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -1183,27 +1162,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The channel name (syntax #name) or slackuser (syntax userName) to          * send a message directly to an user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|channel (String channel)
-specifier|default
-name|SlackEndpointProducerBuilder
-name|channel
-parameter_list|(
-name|String
-name|channel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"channel"
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Use a Slack emoji as an avatar.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|iconEmoji (String iconEmoji)
 specifier|default
@@ -1457,27 +1415,6 @@ return|return
 operator|(
 name|AdvancedSlackEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The channel name (syntax #name) or slackuser (syntax userName) to          * send a message directly to an user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|channel (String channel)
-specifier|default
-name|SlackEndpointBuilder
-name|channel
-parameter_list|(
-name|String
-name|channel
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"channel"
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

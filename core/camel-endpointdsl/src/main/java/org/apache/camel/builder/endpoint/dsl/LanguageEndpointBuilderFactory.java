@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the name of the language to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|languageName (String languageName)
-specifier|default
-name|LanguageEndpointBuilder
-name|languageName
-parameter_list|(
-name|String
-name|languageName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"languageName"
-argument_list|,
-name|languageName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Path to the resource, or a reference to lookup a bean in the Registry          * to use as the resource.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|resourceUri (String resourceUri)
-specifier|default
-name|LanguageEndpointBuilder
-name|resourceUri
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resourceUri"
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the script is binary content or text content. By default the          * script is read as text content (eg java.lang.String).          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|binary (boolean binary)
 specifier|default

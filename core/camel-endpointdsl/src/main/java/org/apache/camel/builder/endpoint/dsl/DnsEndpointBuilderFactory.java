@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The type of the lookup.          *           * The option is a:<code>org.apache.camel.component.dns.DnsType</code>          * type.          *           * Group: producer          */
-DECL|method|dnsType (DnsType dnsType)
-specifier|default
-name|DnsEndpointBuilder
-name|dnsType
-parameter_list|(
-name|DnsType
-name|dnsType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dnsType"
-argument_list|,
-name|dnsType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The type of the lookup.          *           * The option will be converted to a          *<code>org.apache.camel.component.dns.DnsType</code> type.          *           * Group: producer          */
-DECL|method|dnsType (String dnsType)
-specifier|default
-name|DnsEndpointBuilder
-name|dnsType
-parameter_list|(
-name|String
-name|dnsType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dnsType"
-argument_list|,
-name|dnsType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the DNS component.      */
 DECL|interface|AdvancedDnsEndpointBuilder
@@ -259,23 +217,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>org.apache.camel.component.dns.DnsType</code> enum.      */
-DECL|enum|DnsType
-enum|enum
-name|DnsType
-block|{
-DECL|enumConstant|dig
-name|dig
-block|,
-DECL|enumConstant|ip
-name|ip
-block|,
-DECL|enumConstant|lookup
-name|lookup
-block|,
-DECL|enumConstant|wikipedia
-name|wikipedia
-block|;     }
 comment|/**      * DNS (camel-dns)      * To lookup domain information and run DNS queries using DNSJava.      *       * Syntax:<code>dns:dnsType</code>      * Category: networking      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-dns      */
 DECL|method|dns (String path)
 specifier|default

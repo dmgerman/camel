@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the IRC chat server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|hostname (String hostname)
-specifier|default
-name|IrcEndpointConsumerBuilder
-name|hostname
-parameter_list|(
-name|String
-name|hostname
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"hostname"
-argument_list|,
-name|hostname
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|IrcEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|IrcEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to auto re-join when being kicked.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoRejoin (boolean autoRejoin)
 specifier|default
@@ -1234,69 +1171,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname for the IRC chat server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|hostname (String hostname)
-specifier|default
-name|IrcEndpointProducerBuilder
-name|hostname
-parameter_list|(
-name|String
-name|hostname
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"hostname"
-argument_list|,
-name|hostname
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|IrcEndpointProducerBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|IrcEndpointProducerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to auto re-join when being kicked.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoRejoin (boolean autoRejoin)
 specifier|default
@@ -2247,69 +2121,6 @@ return|return
 operator|(
 name|AdvancedIrcEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Hostname for the IRC chat server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|hostname (String hostname)
-specifier|default
-name|IrcEndpointBuilder
-name|hostname
-parameter_list|(
-name|String
-name|hostname
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"hostname"
-argument_list|,
-name|hostname
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|IrcEndpointBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the IRC chat server. If no port is configured then a          * default port of either 6667, 6668 or 6669 is used.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|IrcEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

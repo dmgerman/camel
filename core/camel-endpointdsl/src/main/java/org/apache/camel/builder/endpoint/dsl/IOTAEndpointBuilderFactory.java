@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Component name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|IOTAEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The depth determines how deep the tangle is analysed for getting          * Tips.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|depth (Integer depth)
 specifier|default
@@ -600,27 +579,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Component name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|IOTAEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The depth determines how deep the tangle is analysed for getting          * Tips.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
 DECL|method|depth (Integer depth)
 specifier|default
@@ -979,27 +937,6 @@ return|return
 operator|(
 name|AdvancedIOTAEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Component name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|IOTAEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

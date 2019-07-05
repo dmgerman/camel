@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Type of the endpoint (dataset, datastream).          *           * The option is a:          *<code>org.apache.camel.component.flink.EndpointType</code> type.          *           * Group: producer          */
-DECL|method|endpointType (EndpointType endpointType)
-specifier|default
-name|FlinkEndpointBuilder
-name|endpointType
-parameter_list|(
-name|EndpointType
-name|endpointType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"endpointType"
-argument_list|,
-name|endpointType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Type of the endpoint (dataset, datastream).          *           * The option will be converted to a          *<code>org.apache.camel.component.flink.EndpointType</code> type.          *           * Group: producer          */
-DECL|method|endpointType (String endpointType)
-specifier|default
-name|FlinkEndpointBuilder
-name|endpointType
-parameter_list|(
-name|String
-name|endpointType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"endpointType"
-argument_list|,
-name|endpointType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Indicates if results should be collected or counted.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|collect (boolean collect)
 specifier|default
@@ -469,17 +427,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>org.apache.camel.component.flink.EndpointType</code>      * enum.      */
-DECL|enum|EndpointType
-enum|enum
-name|EndpointType
-block|{
-DECL|enumConstant|dataset
-name|dataset
-block|,
-DECL|enumConstant|datastream
-name|datastream
-block|;     }
 comment|/**      * Apache Flink (camel-flink)      * The flink component can be used to send DataSet jobs to Apache Flink      * cluster.      *       * Syntax:<code>flink:endpointType</code>      * Category: hadoop      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-flink      */
 DECL|method|flink (String path)
 specifier|default

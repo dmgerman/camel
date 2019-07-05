@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the domain currently worked with.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|domainName (String domainName)
-specifier|default
-name|SdbEndpointBuilder
-name|domainName
-parameter_list|(
-name|String
-name|domainName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"domainName"
-argument_list|,
-name|domainName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Amazon AWS Access Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|accessKey (String accessKey)
 specifier|default

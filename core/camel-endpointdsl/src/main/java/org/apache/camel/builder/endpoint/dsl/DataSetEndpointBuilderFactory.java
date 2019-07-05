@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of DataSet to lookup in the registry.          *           * The option is a:          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
-DECL|method|name (Object name)
-specifier|default
-name|DataSetEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|Object
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of DataSet to lookup in the registry.          *           * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DataSetEndpointConsumerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Controls the behaviour of the CamelDataSetIndex header. For          * Consumers: - off = the header will not be set - strict/lenient = the          * header will be set For Producers: - off = the header value will not          * be verified, and will not be set if it is not present = strict = the          * header value must be present and will be verified = lenient = the          * header value will be verified if it is present, and will be set if it          * is not present.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|dataSetIndex (String dataSetIndex)
 specifier|default
@@ -466,48 +424,6 @@ return|return
 operator|(
 name|AdvancedDataSetEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of DataSet to lookup in the registry.          *           * The option is a:          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
-DECL|method|name (Object name)
-specifier|default
-name|DataSetEndpointProducerBuilder
-name|name
-parameter_list|(
-name|Object
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of DataSet to lookup in the registry.          *           * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DataSetEndpointProducerBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1121,48 +1037,6 @@ return|return
 operator|(
 name|AdvancedDataSetEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of DataSet to lookup in the registry.          *           * The option is a:          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
-DECL|method|name (Object name)
-specifier|default
-name|DataSetEndpointBuilder
-name|name
-parameter_list|(
-name|Object
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of DataSet to lookup in the registry.          *           * The option will be converted to a          *<code>org.apache.camel.component.dataset.DataSet</code> type.          *           * Group: common          */
-DECL|method|name (String name)
-specifier|default
-name|DataSetEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

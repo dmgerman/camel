@@ -224,27 +224,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Queue name or ARN.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|queueNameOrArn (String queueNameOrArn)
-specifier|default
-name|SqsEndpointConsumerBuilder
-name|queueNameOrArn
-parameter_list|(
-name|String
-name|queueNameOrArn
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"queueNameOrArn"
-argument_list|,
-name|queueNameOrArn
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The hostname of the Amazon AWS cloud.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|amazonAWSHost (String amazonAWSHost)
 specifier|default
@@ -2142,27 +2121,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Queue name or ARN.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|queueNameOrArn (String queueNameOrArn)
-specifier|default
-name|SqsEndpointProducerBuilder
-name|queueNameOrArn
-parameter_list|(
-name|String
-name|queueNameOrArn
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"queueNameOrArn"
-argument_list|,
-name|queueNameOrArn
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The hostname of the Amazon AWS cloud.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|amazonAWSHost (String amazonAWSHost)
 specifier|default
@@ -3025,27 +2983,6 @@ return|return
 operator|(
 name|AdvancedSqsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Queue name or ARN.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|queueNameOrArn (String queueNameOrArn)
-specifier|default
-name|SqsEndpointBuilder
-name|queueNameOrArn
-parameter_list|(
-name|String
-name|queueNameOrArn
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"queueNameOrArn"
-argument_list|,
-name|queueNameOrArn
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

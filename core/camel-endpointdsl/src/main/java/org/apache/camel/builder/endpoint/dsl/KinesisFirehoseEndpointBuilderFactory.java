@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the stream.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|streamName (String streamName)
-specifier|default
-name|KinesisFirehoseEndpointBuilder
-name|streamName
-parameter_list|(
-name|String
-name|streamName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"streamName"
-argument_list|,
-name|streamName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Amazon Kinesis Firehose client to use for all requests for this          * endpoint.          *           * The option is a:          *<code>com.amazonaws.services.kinesisfirehose.AmazonKinesisFirehose</code> type.          *           * Group: producer          */
 DECL|method|amazonKinesisFirehoseClient ( Object amazonKinesisFirehoseClient)
 specifier|default

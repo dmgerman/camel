@@ -210,27 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the IronMQ queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|queueName (String queueName)
-specifier|default
-name|IronMQEndpointConsumerBuilder
-name|queueName
-parameter_list|(
-name|String
-name|queueName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"queueName"
-argument_list|,
-name|queueName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Reference to a io.iron.ironmq.Client in the Registry.          *           * The option is a:<code>io.iron.ironmq.Client</code> type.          *           * Group: common          */
 DECL|method|client (Object client)
 specifier|default
@@ -1477,27 +1456,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the IronMQ queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|queueName (String queueName)
-specifier|default
-name|IronMQEndpointProducerBuilder
-name|queueName
-parameter_list|(
-name|String
-name|queueName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"queueName"
-argument_list|,
-name|queueName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Reference to a io.iron.ironmq.Client in the Registry.          *           * The option is a:<code>io.iron.ironmq.Client</code> type.          *           * Group: common          */
 DECL|method|client (Object client)
 specifier|default
@@ -1856,27 +1814,6 @@ return|return
 operator|(
 name|AdvancedIronMQEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The name of the IronMQ queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|queueName (String queueName)
-specifier|default
-name|IronMQEndpointBuilder
-name|queueName
-parameter_list|(
-name|String
-name|queueName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"queueName"
-argument_list|,
-name|queueName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

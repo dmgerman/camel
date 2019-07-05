@@ -146,69 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (Olingo2ApiName apiName)
-specifier|default
-name|Olingo2EndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|Olingo2ApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|Olingo2EndpointConsumerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|Olingo2EndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout (int connectTimeout)
 specifier|default
@@ -867,69 +804,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (Olingo2ApiName apiName)
-specifier|default
-name|Olingo2EndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|Olingo2ApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|Olingo2EndpointProducerBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|Olingo2EndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout (int connectTimeout)
 specifier|default
@@ -1506,69 +1380,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What kind of operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (Olingo2ApiName apiName)
-specifier|default
-name|Olingo2EndpointBuilder
-name|apiName
-parameter_list|(
-name|Olingo2ApiName
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What kind of operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code> type.          *           * Group: common          */
-DECL|method|apiName (String apiName)
-specifier|default
-name|Olingo2EndpointBuilder
-name|apiName
-parameter_list|(
-name|String
-name|apiName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"apiName"
-argument_list|,
-name|apiName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What sub operation to use for the selected operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|Olingo2EndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * HTTP connection creation timeout in milliseconds, defaults to 30,000          * (30 seconds).          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|connectTimeout (int connectTimeout)
 specifier|default
@@ -2082,14 +1893,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.olingo2.internal.Olingo2ApiName</code>      * enum.      */
-DECL|enum|Olingo2ApiName
-enum|enum
-name|Olingo2ApiName
-block|{
-DECL|enumConstant|DEFAULT
-name|DEFAULT
-block|;     }
 comment|/**      * Olingo2 (camel-olingo2)      * Communicates with OData 2.0 services using Apache Olingo.      *       * Syntax:<code>olingo2:apiName/methodName</code>      * Category: cloud      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-olingo2      */
 DECL|method|olingo2 (String path)
 specifier|default

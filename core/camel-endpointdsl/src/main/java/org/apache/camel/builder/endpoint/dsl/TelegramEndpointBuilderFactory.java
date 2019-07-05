@@ -210,48 +210,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint type. Currently, only the 'bots' type is supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|TelegramEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The authorization token for using the bot (ask the BotFather).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
-DECL|method|authorizationToken ( String authorizationToken)
-specifier|default
-name|TelegramEndpointConsumerBuilder
-name|authorizationToken
-parameter_list|(
-name|String
-name|authorizationToken
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"authorizationToken"
-argument_list|,
-name|authorizationToken
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -1288,48 +1246,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The endpoint type. Currently, only the 'bots' type is supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|TelegramEndpointProducerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The authorization token for using the bot (ask the BotFather).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
-DECL|method|authorizationToken ( String authorizationToken)
-specifier|default
-name|TelegramEndpointProducerBuilder
-name|authorizationToken
-parameter_list|(
-name|String
-name|authorizationToken
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"authorizationToken"
-argument_list|,
-name|authorizationToken
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The identifier of the chat that will receive the produced messages.          * Chat ids can be first obtained from incoming messages (eg. when a          * telegram user starts a conversation with a bot, its client sends          * automatically a '/start' message containing the chat id). It is an          * optional parameter, as the chat id can be set dynamically for each          * outgoing message (using body or headers).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|chatId (String chatId)
 specifier|default
@@ -1583,48 +1499,6 @@ return|return
 operator|(
 name|AdvancedTelegramEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The endpoint type. Currently, only the 'bots' type is supported.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|TelegramEndpointBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The authorization token for using the bot (ask the BotFather).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
-DECL|method|authorizationToken ( String authorizationToken)
-specifier|default
-name|TelegramEndpointBuilder
-name|authorizationToken
-parameter_list|(
-name|String
-name|authorizationToken
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"authorizationToken"
-argument_list|,
-name|authorizationToken
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

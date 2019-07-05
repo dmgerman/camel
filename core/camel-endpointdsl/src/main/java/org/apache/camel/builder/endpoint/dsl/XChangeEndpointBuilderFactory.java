@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The exchange to connect to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|name (String name)
-specifier|default
-name|XChangeEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The currency.          *           * The option is a:<code>org.knowm.xchange.currency.Currency</code>          * type.          *           * Group: producer          */
 DECL|method|currency (Object currency)
 specifier|default

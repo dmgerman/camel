@@ -150,27 +150,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of websocket endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servicePath ( String servicePath)
-specifier|default
-name|AtmosphereWebsocketEndpointConsumerBuilder
-name|servicePath
-parameter_list|(
-name|String
-name|servicePath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servicePath"
-argument_list|,
-name|servicePath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to send to all (broadcast) or send to a single receiver.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|sendToAll ( boolean sendToAll)
 specifier|default
@@ -1202,27 +1181,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of websocket endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servicePath ( String servicePath)
-specifier|default
-name|AtmosphereWebsocketEndpointProducerBuilder
-name|servicePath
-parameter_list|(
-name|String
-name|servicePath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servicePath"
-argument_list|,
-name|servicePath
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to send to all (broadcast) or send to a single receiver.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|sendToAll ( boolean sendToAll)
 specifier|default
@@ -1770,27 +1728,6 @@ return|return
 operator|(
 name|AdvancedAtmosphereWebsocketEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of websocket endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|servicePath ( String servicePath)
-specifier|default
-name|AtmosphereWebsocketEndpointBuilder
-name|servicePath
-parameter_list|(
-name|String
-name|servicePath
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"servicePath"
-argument_list|,
-name|servicePath
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

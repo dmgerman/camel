@@ -130,69 +130,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto-cms:sign sets sign as the operation.          * Possible values: sign, verify, encrypt, or decrypt.          *           * The option is a:          *<code>org.apache.camel.component.crypto.cms.CryptoOperation</code>          * type.          *           * Group: producer          */
-DECL|method|cryptoOperation ( CryptoOperation cryptoOperation)
-specifier|default
-name|CryptoCmsEndpointBuilder
-name|cryptoOperation
-parameter_list|(
-name|CryptoOperation
-name|cryptoOperation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cryptoOperation"
-argument_list|,
-name|cryptoOperation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto-cms:sign sets sign as the operation.          * Possible values: sign, verify, encrypt, or decrypt.          *           * The option will be converted to a          *<code>org.apache.camel.component.crypto.cms.CryptoOperation</code>          * type.          *           * Group: producer          */
-DECL|method|cryptoOperation (String cryptoOperation)
-specifier|default
-name|CryptoCmsEndpointBuilder
-name|cryptoOperation
-parameter_list|(
-name|String
-name|cryptoOperation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cryptoOperation"
-argument_list|,
-name|cryptoOperation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The name part in the URI can be chosen by the user to distinguish          * between different signer/verifier/encryptor/decryptor endpoints          * within the camel context.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|name (String name)
-specifier|default
-name|CryptoCmsEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Keystore which contains signer private keys, verifier public keys,          * encryptor public keys, decryptor private keys depending on the          * operation. Use either this parameter or the parameter          * 'keyStoreParameters'.          *           * The option is a:<code>java.security.KeyStore</code> type.          *           * Group: common          */
 DECL|method|keyStore (KeyStore keyStore)
 specifier|default
@@ -874,23 +811,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.crypto.cms.CryptoOperation</code> enum.      */
-DECL|enum|CryptoOperation
-enum|enum
-name|CryptoOperation
-block|{
-DECL|enumConstant|sign
-name|sign
-block|,
-DECL|enumConstant|verify
-name|verify
-block|,
-DECL|enumConstant|encrypt
-name|encrypt
-block|,
-DECL|enumConstant|decrypt
-name|decrypt
-block|;     }
 comment|/**      * Crypto CMS (camel-crypto-cms)      * The crypto cms component is used for encrypting data in CMS Enveloped      * Data format, decrypting CMS Enveloped Data, signing data in CMS Signed      * Data format, and verifying CMS Signed Data.      *       * Syntax:<code>crypto-cms:cryptoOperation:name</code>      * Category: security,transformation      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-crypto-cms      */
 DECL|method|cryptoCms (String path)
 specifier|default

@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What git operation to execute.          *           * The option is a:          *<code>org.apache.camel.component.github.GitHubType</code> type.          *           * Group: common          */
-DECL|method|type (GitHubType type)
-specifier|default
-name|GitHubEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|GitHubType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What git operation to execute.          *           * The option will be converted to a          *<code>org.apache.camel.component.github.GitHubType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|GitHubEndpointConsumerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Name of branch.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|branchName (String branchName)
-specifier|default
-name|GitHubEndpointConsumerBuilder
-name|branchName
-parameter_list|(
-name|String
-name|branchName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"branchName"
-argument_list|,
-name|branchName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * GitHub OAuth token, required unless username& password are provided.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|oauthToken (String oauthToken)
 specifier|default
@@ -558,48 +495,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What git operation to execute.          *           * The option is a:          *<code>org.apache.camel.component.github.GitHubType</code> type.          *           * Group: common          */
-DECL|method|type (GitHubType type)
-specifier|default
-name|GitHubEndpointProducerBuilder
-name|type
-parameter_list|(
-name|GitHubType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What git operation to execute.          *           * The option will be converted to a          *<code>org.apache.camel.component.github.GitHubType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|GitHubEndpointProducerBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * GitHub OAuth token, required unless username& password are provided.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|oauthToken (String oauthToken)
 specifier|default
@@ -940,48 +835,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What git operation to execute.          *           * The option is a:          *<code>org.apache.camel.component.github.GitHubType</code> type.          *           * Group: common          */
-DECL|method|type (GitHubType type)
-specifier|default
-name|GitHubEndpointBuilder
-name|type
-parameter_list|(
-name|GitHubType
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * What git operation to execute.          *           * The option will be converted to a          *<code>org.apache.camel.component.github.GitHubType</code> type.          *           * Group: common          */
-DECL|method|type (String type)
-specifier|default
-name|GitHubEndpointBuilder
-name|type
-parameter_list|(
-name|String
-name|type
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"type"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * GitHub OAuth token, required unless username& password are provided.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|oauthToken (String oauthToken)
 specifier|default
@@ -1196,38 +1049,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>org.apache.camel.component.github.GitHubType</code>      * enum.      */
-DECL|enum|GitHubType
-enum|enum
-name|GitHubType
-block|{
-DECL|enumConstant|CLOSEPULLREQUEST
-name|CLOSEPULLREQUEST
-block|,
-DECL|enumConstant|PULLREQUESTCOMMENT
-name|PULLREQUESTCOMMENT
-block|,
-DECL|enumConstant|COMMIT
-name|COMMIT
-block|,
-DECL|enumConstant|PULLREQUEST
-name|PULLREQUEST
-block|,
-DECL|enumConstant|TAG
-name|TAG
-block|,
-DECL|enumConstant|PULLREQUESTSTATE
-name|PULLREQUESTSTATE
-block|,
-DECL|enumConstant|PULLREQUESTFILES
-name|PULLREQUESTFILES
-block|,
-DECL|enumConstant|GETCOMMITFILE
-name|GETCOMMITFILE
-block|,
-DECL|enumConstant|CREATEISSUE
-name|CREATEISSUE
-block|;     }
 comment|/**      * GitHub (camel-github)      * The github component is used for integrating Camel with github.      *       * Syntax:<code>github:type/branchName</code>      * Category: api,file      * Available as of version: 2.15      * Maven coordinates: org.apache.camel:camel-github      */
 DECL|method|gitHub (String path)
 specifier|default

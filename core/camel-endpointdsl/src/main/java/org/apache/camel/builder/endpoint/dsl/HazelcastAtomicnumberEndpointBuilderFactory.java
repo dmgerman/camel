@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the cache.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|cacheName (String cacheName)
-specifier|default
-name|HazelcastAtomicnumberEndpointBuilder
-name|cacheName
-parameter_list|(
-name|String
-name|cacheName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cacheName"
-argument_list|,
-name|cacheName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|reliable (boolean reliable)
 specifier|default

@@ -162,48 +162,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The kind of destination to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationType ( String destinationType)
-specifier|default
-name|SjmsEndpointConsumerBuilder
-name|destinationType
-parameter_list|(
-name|String
-name|destinationType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationType"
-argument_list|,
-name|destinationType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * DestinationName is a JMS queue or topic name. By default, the          * destinationName is interpreted as a queue name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName ( String destinationName)
-specifier|default
-name|SjmsEndpointConsumerBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE.          *           * The option is a:          *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> type.          *           * Group: common          */
 DECL|method|acknowledgementMode ( SessionAcknowledgementType acknowledgementMode)
 specifier|default
@@ -1382,48 +1340,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The kind of destination to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationType ( String destinationType)
-specifier|default
-name|SjmsEndpointProducerBuilder
-name|destinationType
-parameter_list|(
-name|String
-name|destinationType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationType"
-argument_list|,
-name|destinationType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * DestinationName is a JMS queue or topic name. By default, the          * destinationName is interpreted as a queue name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName ( String destinationName)
-specifier|default
-name|SjmsEndpointProducerBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE.          *           * The option is a:          *<code>org.apache.camel.component.sjms.jms.SessionAcknowledgementType</code> type.          *           * Group: common          */
 DECL|method|acknowledgementMode ( SessionAcknowledgementType acknowledgementMode)
 specifier|default
@@ -2454,48 +2370,6 @@ return|return
 operator|(
 name|AdvancedSjmsEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The kind of destination to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationType (String destinationType)
-specifier|default
-name|SjmsEndpointBuilder
-name|destinationType
-parameter_list|(
-name|String
-name|destinationType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationType"
-argument_list|,
-name|destinationType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * DestinationName is a JMS queue or topic name. By default, the          * destinationName is interpreted as a queue name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destinationName (String destinationName)
-specifier|default
-name|SjmsEndpointBuilder
-name|destinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destinationName"
-argument_list|,
-name|destinationName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

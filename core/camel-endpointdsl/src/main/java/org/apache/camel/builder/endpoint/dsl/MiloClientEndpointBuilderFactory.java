@@ -156,27 +156,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The OPC UA server endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|endpointUri (String endpointUri)
-specifier|default
-name|MiloClientEndpointConsumerBuilder
-name|endpointUri
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"endpointUri"
-argument_list|,
-name|endpointUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * A virtual client id to force the creation of a new connection          * instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
@@ -1169,27 +1148,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The OPC UA server endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|endpointUri (String endpointUri)
-specifier|default
-name|MiloClientEndpointProducerBuilder
-name|endpointUri
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"endpointUri"
-argument_list|,
-name|endpointUri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * A virtual client id to force the creation of a new connection          * instance.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|clientId (String clientId)
 specifier|default
@@ -2097,27 +2055,6 @@ return|return
 operator|(
 name|AdvancedMiloClientEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The OPC UA server endpoint.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|endpointUri (String endpointUri)
-specifier|default
-name|MiloClientEndpointBuilder
-name|endpointUri
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"endpointUri"
-argument_list|,
-name|endpointUri
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of either a javax.naming.directory.DirContext, or          * java.util.Hashtable, or Map bean to lookup in the registry. If the          * bean is either a Hashtable or Map then a new          * javax.naming.directory.DirContext instance is created for each use.          * If the bean is a javax.naming.directory.DirContext then the bean is          * used as given. The latter may not be possible in all situations where          * the javax.naming.directory.DirContext must not be shared, and in          * those situations it can be better to use java.util.Hashtable or Map          * instead.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|dirContextName (String dirContextName)
-specifier|default
-name|LdapEndpointBuilder
-name|dirContextName
-parameter_list|(
-name|String
-name|dirContextName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"dirContextName"
-argument_list|,
-name|dirContextName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The base DN for searches.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|base (String base)
 specifier|default

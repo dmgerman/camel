@@ -248,69 +248,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The mail server host name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|MailEndpointConsumerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The port number of the mail server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|MailEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The port number of the mail server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|MailEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -2545,69 +2482,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The mail server host name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|MailEndpointProducerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The port number of the mail server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|MailEndpointProducerBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The port number of the mail server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|MailEndpointProducerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the BCC email address. Separate multiple email addresses with          * comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|bcc (String bcc)
 specifier|default
@@ -3533,69 +3407,6 @@ return|return
 operator|(
 name|AdvancedMailEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The mail server host name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|MailEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The port number of the mail server.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|MailEndpointBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The port number of the mail server.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|MailEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

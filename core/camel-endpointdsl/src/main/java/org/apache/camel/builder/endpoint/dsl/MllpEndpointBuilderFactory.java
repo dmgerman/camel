@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname or IP for connection for the TCP connection. The default          * value is null, which means any local IP address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|hostname (String hostname)
-specifier|default
-name|MllpEndpointConsumerBuilder
-name|hostname
-parameter_list|(
-name|String
-name|hostname
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"hostname"
-argument_list|,
-name|hostname
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the TCP connection.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|MllpEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the TCP connection.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|MllpEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Enable/Disable the automatic generation of a MLLP Acknowledgement          * MLLP Consumers only.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoAck (boolean autoAck)
 specifier|default
@@ -1280,69 +1217,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname or IP for connection for the TCP connection. The default          * value is null, which means any local IP address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|hostname (String hostname)
-specifier|default
-name|MllpEndpointProducerBuilder
-name|hostname
-parameter_list|(
-name|String
-name|hostname
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"hostname"
-argument_list|,
-name|hostname
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the TCP connection.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|MllpEndpointProducerBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the TCP connection.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|MllpEndpointProducerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Enable/Disable the automatic generation of a MLLP Acknowledgement          * MLLP Consumers only.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|autoAck (boolean autoAck)
 specifier|default
@@ -2125,69 +1999,6 @@ return|return
 operator|(
 name|AdvancedMllpEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Hostname or IP for connection for the TCP connection. The default          * value is null, which means any local IP address.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|hostname (String hostname)
-specifier|default
-name|MllpEndpointBuilder
-name|hostname
-parameter_list|(
-name|String
-name|hostname
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"hostname"
-argument_list|,
-name|hostname
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the TCP connection.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
-DECL|method|port (int port)
-specifier|default
-name|MllpEndpointBuilder
-name|port
-parameter_list|(
-name|int
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Port number for the TCP connection.          *           * The option will be converted to a<code>int</code> type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|MllpEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

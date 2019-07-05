@@ -146,27 +146,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Kind of stream to use such as System.in or System.out.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kind (String kind)
-specifier|default
-name|StreamEndpointConsumerBuilder
-name|kind
-parameter_list|(
-name|String
-name|kind
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"kind"
-argument_list|,
-name|kind
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * You can configure the encoding (is a charset name) to use text-based          * streams (for example, message body is a String object). If not          * provided, Camel uses the JVM default Charset.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|encoding (String encoding)
 specifier|default
@@ -972,27 +951,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Kind of stream to use such as System.in or System.out.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kind (String kind)
-specifier|default
-name|StreamEndpointProducerBuilder
-name|kind
-parameter_list|(
-name|String
-name|kind
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"kind"
-argument_list|,
-name|kind
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * You can configure the encoding (is a charset name) to use text-based          * streams (for example, message body is a String object). If not          * provided, Camel uses the JVM default Charset.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|encoding (String encoding)
 specifier|default
@@ -1482,27 +1440,6 @@ return|return
 operator|(
 name|AdvancedStreamEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Kind of stream to use such as System.in or System.out.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kind (String kind)
-specifier|default
-name|StreamEndpointBuilder
-name|kind
-parameter_list|(
-name|String
-name|kind
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"kind"
-argument_list|,
-name|kind
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

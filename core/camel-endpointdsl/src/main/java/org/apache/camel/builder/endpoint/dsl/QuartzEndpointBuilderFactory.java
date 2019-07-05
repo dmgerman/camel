@@ -120,48 +120,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The quartz group name to use. The combination of group name and timer          * name should be unique.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|groupName (String groupName)
-specifier|default
-name|QuartzEndpointBuilder
-name|groupName
-parameter_list|(
-name|String
-name|groupName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"groupName"
-argument_list|,
-name|groupName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The quartz timer name to use. The combination of group name and timer          * name should be unique.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
-DECL|method|triggerName (String triggerName)
-specifier|default
-name|QuartzEndpointBuilder
-name|triggerName
-parameter_list|(
-name|String
-name|triggerName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"triggerName"
-argument_list|,
-name|triggerName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies a cron expression to define when to trigger.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|cron (String cron)
 specifier|default

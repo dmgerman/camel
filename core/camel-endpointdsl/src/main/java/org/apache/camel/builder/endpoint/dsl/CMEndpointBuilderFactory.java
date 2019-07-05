@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * SMS Provider HOST with scheme.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|host (String host)
-specifier|default
-name|CMEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * This is the sender name. The maximum length is 11 characters.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: producer          */
 DECL|method|defaultFrom (String defaultFrom)
 specifier|default

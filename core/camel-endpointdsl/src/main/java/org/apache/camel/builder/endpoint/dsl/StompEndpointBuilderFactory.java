@@ -150,27 +150,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destination (String destination)
-specifier|default
-name|StompEndpointConsumerBuilder
-name|destination
-parameter_list|(
-name|String
-name|destination
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destination"
-argument_list|,
-name|destination
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The URI of the Stomp broker to connect to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|brokerURL (String brokerURL)
 specifier|default
@@ -593,27 +572,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Name of the queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destination (String destination)
-specifier|default
-name|StompEndpointProducerBuilder
-name|destination
-parameter_list|(
-name|String
-name|destination
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destination"
-argument_list|,
-name|destination
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The URI of the Stomp broker to connect to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|brokerURL (String brokerURL)
 specifier|default
@@ -951,27 +909,6 @@ return|return
 operator|(
 name|AdvancedStompEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Name of the queue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|destination (String destination)
-specifier|default
-name|StompEndpointBuilder
-name|destination
-parameter_list|(
-name|String
-name|destination
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"destination"
-argument_list|,
-name|destination
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -136,48 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          *           * The option is a:          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation ( DropboxOperation operation)
-specifier|default
-name|DropboxEndpointConsumerBuilder
-name|operation
-parameter_list|(
-name|DropboxOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          *           * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|DropboxEndpointConsumerBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The access token to make API requests for a specific Dropbox user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -642,48 +600,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          *           * The option is a:          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation ( DropboxOperation operation)
-specifier|default
-name|DropboxEndpointProducerBuilder
-name|operation
-parameter_list|(
-name|DropboxOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          *           * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|DropboxEndpointProducerBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The access token to make API requests for a specific Dropbox user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -1066,48 +982,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          *           * The option is a:          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (DropboxOperation operation)
-specifier|default
-name|DropboxEndpointBuilder
-name|operation
-parameter_list|(
-name|DropboxOperation
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The specific action (typically is a CRUD action) to perform on          * Dropbox remote folder.          *           * The option will be converted to a          *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>          * type.          *           * Group: common          */
-DECL|method|operation (String operation)
-specifier|default
-name|DropboxEndpointBuilder
-name|operation
-parameter_list|(
-name|String
-name|operation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"operation"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The access token to make API requests for a specific Dropbox user.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|accessToken (String accessToken)
 specifier|default
@@ -1427,26 +1301,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.dropbox.util.DropboxOperation</code>      * enum.      */
-DECL|enum|DropboxOperation
-enum|enum
-name|DropboxOperation
-block|{
-DECL|enumConstant|put
-name|put
-block|,
-DECL|enumConstant|del
-name|del
-block|,
-DECL|enumConstant|search
-name|search
-block|,
-DECL|enumConstant|get
-name|get
-block|,
-DECL|enumConstant|move
-name|move
-block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.dropbox.util.DropboxUploadMode</code>      * enum.      */
 DECL|enum|DropboxUploadMode
 enum|enum

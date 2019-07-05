@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Hostname and port for the solr server.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|url (String url)
-specifier|default
-name|SolrEndpointBuilder
-name|url
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"url"
-argument_list|,
-name|url
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Server side must support gzip or deflate for this to have any effect.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|allowCompression (Boolean allowCompression)
 specifier|default

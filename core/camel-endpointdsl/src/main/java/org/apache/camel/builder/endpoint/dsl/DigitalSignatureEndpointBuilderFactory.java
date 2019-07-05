@@ -162,69 +162,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto:sign sets sign as the operation.          *           * The option is a:          *<code>org.apache.camel.component.crypto.CryptoOperation</code> type.          *           * Group: producer          */
-DECL|method|cryptoOperation ( CryptoOperation cryptoOperation)
-specifier|default
-name|DigitalSignatureEndpointBuilder
-name|cryptoOperation
-parameter_list|(
-name|CryptoOperation
-name|cryptoOperation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cryptoOperation"
-argument_list|,
-name|cryptoOperation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Set the Crypto operation from that supplied after the crypto scheme          * in the endpoint uri e.g. crypto:sign sets sign as the operation.          *           * The option will be converted to a          *<code>org.apache.camel.component.crypto.CryptoOperation</code> type.          *           * Group: producer          */
-DECL|method|cryptoOperation ( String cryptoOperation)
-specifier|default
-name|DigitalSignatureEndpointBuilder
-name|cryptoOperation
-parameter_list|(
-name|String
-name|cryptoOperation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cryptoOperation"
-argument_list|,
-name|cryptoOperation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The logical name of this operation.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|name (String name)
-specifier|default
-name|DigitalSignatureEndpointBuilder
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the JCE name of the Algorithm that should be used for the          * signer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|algorithm (String algorithm)
 specifier|default
@@ -900,17 +837,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.crypto.CryptoOperation</code> enum.      */
-DECL|enum|CryptoOperation
-enum|enum
-name|CryptoOperation
-block|{
-DECL|enumConstant|sign
-name|sign
-block|,
-DECL|enumConstant|verify
-name|verify
-block|;     }
 comment|/**      * Crypto (JCE) (camel-crypto)      * The crypto component is used for signing and verifying exchanges using      * the Signature Service of the Java Cryptographic Extension (JCE).      *       * Syntax:<code>crypto:cryptoOperation:name</code>      * Category: security,transformation      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-crypto      */
 DECL|method|digitalSignature (String path)
 specifier|default

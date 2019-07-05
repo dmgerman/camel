@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The name of the Spring Batch job located in the registry.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|jobName (String jobName)
-specifier|default
-name|SpringBatchEndpointBuilder
-name|jobName
-parameter_list|(
-name|String
-name|jobName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"jobName"
-argument_list|,
-name|jobName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Explicitly defines if the jobName should be taken from the headers          * instead of the URI.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|jobFromHeader (boolean jobFromHeader)
 specifier|default

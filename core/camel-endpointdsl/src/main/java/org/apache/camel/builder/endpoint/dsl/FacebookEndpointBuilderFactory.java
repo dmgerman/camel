@@ -176,27 +176,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What operation to perform.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|FacebookEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The unique URL of the achievement.          *           * The option is a:<code>java.net.URL</code> type.          *           * Group: common          */
 DECL|method|achievementURL ( URL achievementURL)
 specifier|default
@@ -3417,27 +3396,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What operation to perform.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|FacebookEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The unique URL of the achievement.          *           * The option is a:<code>java.net.URL</code> type.          *           * Group: common          */
 DECL|method|achievementURL ( URL achievementURL)
 specifier|default
@@ -6573,27 +6531,6 @@ return|return
 operator|(
 name|AdvancedFacebookEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * What operation to perform.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|FacebookEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

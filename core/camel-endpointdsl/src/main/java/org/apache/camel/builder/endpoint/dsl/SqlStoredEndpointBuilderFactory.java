@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the StoredProcedure template to perform.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|template (String template)
-specifier|default
-name|SqlStoredEndpointBuilder
-name|template
-parameter_list|(
-name|String
-name|template
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"template"
-argument_list|,
-name|template
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Enables or disables batch mode.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|batch (boolean batch)
 specifier|default

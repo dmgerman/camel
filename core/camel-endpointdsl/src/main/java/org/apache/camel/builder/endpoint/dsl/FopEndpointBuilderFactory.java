@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The primary output format is PDF but other output formats are also          * supported.          *           * The option is a:          *<code>org.apache.camel.component.fop.FopOutputType</code> type.          *           * Group: producer          */
-DECL|method|outputType (FopOutputType outputType)
-specifier|default
-name|FopEndpointBuilder
-name|outputType
-parameter_list|(
-name|FopOutputType
-name|outputType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"outputType"
-argument_list|,
-name|outputType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The primary output format is PDF but other output formats are also          * supported.          *           * The option will be converted to a          *<code>org.apache.camel.component.fop.FopOutputType</code> type.          *           * Group: producer          */
-DECL|method|outputType (String outputType)
-specifier|default
-name|FopEndpointBuilder
-name|outputType
-parameter_list|(
-name|String
-name|outputType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"outputType"
-argument_list|,
-name|outputType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows to use a custom configured or implementation of          * org.apache.fop.apps.FopFactory.          *           * The option is a:<code>org.apache.fop.apps.FopFactory</code> type.          *           * Group: producer          */
 DECL|method|fopFactory (Object fopFactory)
 specifier|default
@@ -322,41 +280,6 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for<code>org.apache.camel.component.fop.FopOutputType</code>      * enum.      */
-DECL|enum|FopOutputType
-enum|enum
-name|FopOutputType
-block|{
-DECL|enumConstant|pdf
-name|pdf
-block|,
-DECL|enumConstant|ps
-name|ps
-block|,
-DECL|enumConstant|pcl
-name|pcl
-block|,
-DECL|enumConstant|png
-name|png
-block|,
-DECL|enumConstant|jpeg
-name|jpeg
-block|,
-DECL|enumConstant|svg
-name|svg
-block|,
-DECL|enumConstant|xml
-name|xml
-block|,
-DECL|enumConstant|mif
-name|mif
-block|,
-DECL|enumConstant|rtf
-name|rtf
-block|,
-DECL|enumConstant|txt
-name|txt
-block|;     }
 comment|/**      * FOP (camel-fop)      * The fop component allows you to render a message into different output      * formats using Apache FOP.      *       * Syntax:<code>fop:outputType</code>      * Category: transformation      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-fop      */
 DECL|method|fop (String path)
 specifier|default

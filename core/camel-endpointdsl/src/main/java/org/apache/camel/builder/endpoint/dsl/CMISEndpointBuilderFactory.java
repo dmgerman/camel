@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URL to the cmis repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cmsUrl (String cmsUrl)
-specifier|default
-name|CMISEndpointConsumerBuilder
-name|cmsUrl
-parameter_list|(
-name|String
-name|cmsUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cmsUrl"
-argument_list|,
-name|cmsUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Number of nodes to retrieve per page.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|pageSize (int pageSize)
 specifier|default
@@ -663,27 +642,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * URL to the cmis repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cmsUrl (String cmsUrl)
-specifier|default
-name|CMISEndpointProducerBuilder
-name|cmsUrl
-parameter_list|(
-name|String
-name|cmsUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cmsUrl"
-argument_list|,
-name|cmsUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Number of nodes to retrieve per page.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|pageSize (int pageSize)
 specifier|default
@@ -1126,27 +1084,6 @@ return|return
 operator|(
 name|AdvancedCMISEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * URL to the cmis repository.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|cmsUrl (String cmsUrl)
-specifier|default
-name|CMISEndpointBuilder
-name|cmsUrl
-parameter_list|(
-name|String
-name|cmsUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"cmsUrl"
-argument_list|,
-name|cmsUrl
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

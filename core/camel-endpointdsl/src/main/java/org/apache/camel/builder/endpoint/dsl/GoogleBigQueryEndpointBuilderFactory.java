@@ -110,69 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Google Cloud Project Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|projectId (String projectId)
-specifier|default
-name|GoogleBigQueryEndpointBuilder
-name|projectId
-parameter_list|(
-name|String
-name|projectId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"projectId"
-argument_list|,
-name|projectId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * BigQuery Dataset Id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|datasetId (String datasetId)
-specifier|default
-name|GoogleBigQueryEndpointBuilder
-name|datasetId
-parameter_list|(
-name|String
-name|datasetId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"datasetId"
-argument_list|,
-name|datasetId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * BigQuery table id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|tableId (String tableId)
-specifier|default
-name|GoogleBigQueryEndpointBuilder
-name|tableId
-parameter_list|(
-name|String
-name|tableId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"tableId"
-argument_list|,
-name|tableId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * ConnectionFactory to obtain connection to Bigquery Service. If non          * provided the default will be used.          *           * The option is a:          *<code>org.apache.camel.component.google.bigquery.GoogleBigQueryConnectionFactory</code> type.          *           * Group: producer          */
 DECL|method|connectionFactory ( Object connectionFactory)
 specifier|default

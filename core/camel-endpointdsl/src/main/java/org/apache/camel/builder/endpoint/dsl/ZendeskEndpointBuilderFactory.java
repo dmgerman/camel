@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What operation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|ZendeskEndpointConsumerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
@@ -537,27 +516,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * What operation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|ZendeskEndpointProducerBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the name of a parameter to be passed in the exchange In Body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|inBody (String inBody)
 specifier|default
@@ -853,27 +811,6 @@ return|return
 operator|(
 name|AdvancedZendeskEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * What operation to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|methodName (String methodName)
-specifier|default
-name|ZendeskEndpointBuilder
-name|methodName
-parameter_list|(
-name|String
-name|methodName
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"methodName"
-argument_list|,
-name|methodName
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

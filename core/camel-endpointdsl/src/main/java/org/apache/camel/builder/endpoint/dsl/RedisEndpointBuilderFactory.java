@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The host where Redis server is running.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|RedisEndpointConsumerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Redis server port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
-DECL|method|port (Integer port)
-specifier|default
-name|RedisEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Redis server port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|RedisEndpointConsumerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * List of topic names or name patterns to subscribe to. Multiple names          * can be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channels (String channels)
 specifier|default
@@ -684,69 +621,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The host where Redis server is running.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|RedisEndpointProducerBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Redis server port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
-DECL|method|port (Integer port)
-specifier|default
-name|RedisEndpointProducerBuilder
-name|port
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Redis server port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|RedisEndpointProducerBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * List of topic names or name patterns to subscribe to. Multiple names          * can be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|channels (String channels)
 specifier|default
@@ -1105,69 +979,6 @@ return|return
 operator|(
 name|AdvancedRedisEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * The host where Redis server is running.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|host (String host)
-specifier|default
-name|RedisEndpointBuilder
-name|host
-parameter_list|(
-name|String
-name|host
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"host"
-argument_list|,
-name|host
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Redis server port number.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: common          */
-DECL|method|port (Integer port)
-specifier|default
-name|RedisEndpointBuilder
-name|port
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Redis server port number.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: common          */
-DECL|method|port (String port)
-specifier|default
-name|RedisEndpointBuilder
-name|port
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"port"
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
