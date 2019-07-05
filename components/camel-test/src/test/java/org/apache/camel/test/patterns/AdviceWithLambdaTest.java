@@ -114,6 +114,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 comment|// advice the route in one line
 name|AdviceWithRouteBuilder
 operator|.
