@@ -272,7 +272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Region.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Amazon AWS Region. When using this parameter, the configuration will          * expect the capitalized name of the region (for example AP_EAST_1)          * You'll need to use the name Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|SWFEndpointConsumerBuilder
@@ -1087,7 +1087,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Region.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Amazon AWS Region. When using this parameter, the configuration will          * expect the capitalized name of the region (for example AP_EAST_1)          * You'll need to use the name Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|SWFEndpointProducerBuilder
@@ -1820,7 +1820,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Amazon AWS Region.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Amazon AWS Region. When using this parameter, the configuration will          * expect the capitalized name of the region (for example AP_EAST_1)          * You'll need to use the name Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
 name|SWFEndpointBuilder

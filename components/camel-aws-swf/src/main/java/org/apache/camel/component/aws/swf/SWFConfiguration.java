@@ -666,7 +666,7 @@ return|return
 name|region
 return|;
 block|}
-comment|/**      * Amazon AWS Region.      */
+comment|/**      * Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1)      * You'll need to use the name Regions.EU_WEST_1.name()      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
