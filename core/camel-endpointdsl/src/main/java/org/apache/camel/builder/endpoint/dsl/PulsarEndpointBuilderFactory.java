@@ -580,20 +580,20 @@ name|this
 return|;
 block|}
 comment|/**          * The Topic's full URI path including type, tenant and namespace.          * The option is a<code>java.lang.String</code> type.          * @group producer          */
-DECL|method|topic (String topic)
+DECL|method|topicUri (String topicUri)
 specifier|default
 name|PulsarEndpointProducerBuilder
-name|topic
+name|topicUri
 parameter_list|(
 name|String
-name|topic
+name|topicUri
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"topic"
+literal|"topicUri"
 argument_list|,
-name|topic
+name|topicUri
 argument_list|)
 expr_stmt|;
 return|return
