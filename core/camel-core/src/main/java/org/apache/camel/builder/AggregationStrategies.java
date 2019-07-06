@@ -88,6 +88,22 @@ name|processor
 operator|.
 name|aggregate
 operator|.
+name|StringAggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
 name|UseLatestAggregationStrategy
 import|;
 end_import
@@ -425,6 +441,41 @@ argument_list|)
 expr_stmt|;
 return|return
 name|adapter
+return|;
+block|}
+comment|/**      * Creates a {@link StringAggregationStrategy}.      * @since 3.0.0      */
+DECL|method|string ()
+specifier|public
+specifier|static
+name|StringAggregationStrategy
+name|string
+parameter_list|()
+block|{
+return|return
+operator|new
+name|StringAggregationStrategy
+argument_list|()
+return|;
+block|}
+comment|/**      * Creates a {@link StringAggregationStrategy} with delimiter.      * @param delimiter The delimiter to join with.      * @since 3.0.0      */
+DECL|method|string (String delimiter)
+specifier|public
+specifier|static
+name|StringAggregationStrategy
+name|string
+parameter_list|(
+name|String
+name|delimiter
+parameter_list|)
+block|{
+return|return
+name|string
+argument_list|()
+operator|.
+name|delimiter
+argument_list|(
+name|delimiter
+argument_list|)
 return|;
 block|}
 block|}
