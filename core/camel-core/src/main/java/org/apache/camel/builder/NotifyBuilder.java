@@ -3338,7 +3338,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when the provided mock is satisfied based on {@link Exchange}      * being sent to it when they are<b>done</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
+comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is satisfied based on {@link Exchange}      * being sent to it when they are<b>done</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
 DECL|method|whenDoneSatisfied (final NotifyBuilderMatcher matcher)
 specifier|public
 name|NotifyBuilder
@@ -3358,7 +3358,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition when the provided mock endpoint (or other matchers) is satisfied based on {@link Exchange}      * being sent to it when they are<b>received</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
+comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is satisfied based on {@link Exchange}      * being sent to it when they are<b>received</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
 DECL|method|whenReceivedSatisfied (final NotifyBuilderMatcher matcher)
 specifier|public
 name|NotifyBuilder
@@ -3546,9 +3546,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when the provided mock (or other matchers) is<b>not</b> satisfied based on {@link Exchange}      * being sent to it when they are<b>received</b>.      *<p/>      * The idea is that you can use  mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
-annotation|@
-name|Deprecated
+comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is<b>not</b> satisfied based on {@link Exchange}      * being sent to it when they are<b>received</b>.      *<p/>      * The idea is that you can use  mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
 DECL|method|whenReceivedNotSatisfied (final NotifyBuilderMatcher matcher)
 specifier|public
 name|NotifyBuilder
@@ -3568,7 +3566,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition when the provided mock (or other matchers) is<b>not</b> satisfied based on {@link Exchange}      * being sent to it when they are<b>done</b>.      *<p/>      * The idea is that you can use  mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
+comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is<b>not</b> satisfied based on {@link Exchange}      * being sent to it when they are<b>done</b>.      *<p/>      * The idea is that you can use  mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
 DECL|method|whenDoneNotSatisfied (final NotifyBuilderMatcher matcher)
 specifier|public
 name|NotifyBuilder
