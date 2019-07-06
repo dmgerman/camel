@@ -105,10 +105,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SplitterParallelRuntimeExceptionInHasNextOrNext
+DECL|class|SplitterParallelRuntimeExceptionInHasNextOrNextTest
 specifier|public
 class|class
-name|SplitterParallelRuntimeExceptionInHasNextOrNext
+name|SplitterParallelRuntimeExceptionInHasNextOrNextTest
 extends|extends
 name|ContextTestSupport
 block|{

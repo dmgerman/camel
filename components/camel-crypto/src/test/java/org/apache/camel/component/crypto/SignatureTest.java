@@ -343,10 +343,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SignatureTests
+DECL|class|SignatureTest
 specifier|public
 class|class
-name|SignatureTests
+name|SignatureTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -473,6 +473,17 @@ operator|.
 name|toCharArray
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|registry
+operator|.
+name|bind
+argument_list|(
+literal|"someRandom"
+argument_list|,
+operator|new
+name|SecureRandom
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2299,7 +2310,7 @@ decl_stmt|;
 name|InputStream
 name|in
 init|=
-name|SignatureTests
+name|SignatureTest
 operator|.
 name|class
 operator|.

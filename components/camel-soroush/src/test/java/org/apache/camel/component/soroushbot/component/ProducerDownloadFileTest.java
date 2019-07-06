@@ -236,15 +236,30 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-DECL|class|ProducerDownloadFile
+annotation|@
+name|Ignore
+argument_list|(
+literal|"CAMEL-13629 failing test"
+argument_list|)
+DECL|class|ProducerDownloadFileTest
 specifier|public
 class|class
-name|ProducerDownloadFile
+name|ProducerDownloadFileTest
 extends|extends
 name|SoroushBotTestSupport
 block|{

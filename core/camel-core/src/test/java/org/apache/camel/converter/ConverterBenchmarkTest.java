@@ -347,10 +347,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ConverterBenchmark
+DECL|class|ConverterBenchmarkTest
 specifier|public
 class|class
-name|ConverterBenchmark
+name|ConverterBenchmarkTest
 block|{
 annotation|@
 name|Ignore

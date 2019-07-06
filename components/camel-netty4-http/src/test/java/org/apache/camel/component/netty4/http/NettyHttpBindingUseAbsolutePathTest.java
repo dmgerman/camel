@@ -101,10 +101,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyHttpBindingUseAbsolutePath
+DECL|class|NettyHttpBindingUseAbsolutePathTest
 specifier|public
 class|class
-name|NettyHttpBindingUseAbsolutePath
+name|NettyHttpBindingUseAbsolutePathTest
 extends|extends
 name|BaseNettyTest
 block|{

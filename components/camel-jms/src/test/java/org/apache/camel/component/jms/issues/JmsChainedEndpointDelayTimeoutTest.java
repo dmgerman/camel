@@ -133,10 +133,10 @@ comment|/**  * Unit test to assert that timeouts don't trigger twice when JMS In
 end_comment
 
 begin_class
-DECL|class|JmsChainedEndpointDelayTimeout
+DECL|class|JmsChainedEndpointDelayTimeoutTest
 specifier|public
 class|class
-name|JmsChainedEndpointDelayTimeout
+name|JmsChainedEndpointDelayTimeoutTest
 extends|extends
 name|CamelTestSupport
 block|{

@@ -158,7 +158,7 @@ argument_list|(
 name|classes
 operator|=
 block|{
-name|GroupConditionTest2
+name|GroupConditionTestBase
 operator|.
 name|TestConfiguration
 operator|.
@@ -170,13 +170,13 @@ operator|=
 block|{
 literal|"test.group.enabled=false"
 block|,
-literal|"test.group.my-class.enabled=false"
+literal|"test.group.my-class.enabled=true"
 block|}
 argument_list|)
-DECL|class|GroupConditionTest2
+DECL|class|GroupCondition1Test
 specifier|public
 class|class
-name|GroupConditionTest2
+name|GroupCondition1Test
 extends|extends
 name|GroupConditionTestBase
 block|{
@@ -198,7 +198,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|0
+literal|1
 argument_list|,
 name|context
 operator|.

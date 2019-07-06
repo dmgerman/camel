@@ -215,10 +215,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ProducerUploadFile
+DECL|class|ProducerUploadFileTest
 specifier|public
 class|class
-name|ProducerUploadFile
+name|ProducerUploadFileTest
 extends|extends
 name|SoroushBotTestSupport
 block|{
