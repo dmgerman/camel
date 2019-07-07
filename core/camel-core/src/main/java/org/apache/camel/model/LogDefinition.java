@@ -122,16 +122,6 @@ name|Logger
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Logs the defined message to the logger  */
 end_comment
@@ -168,24 +158,6 @@ argument_list|<
 name|LogDefinition
 argument_list|>
 block|{
-annotation|@
-name|XmlTransient
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|LogDefinition
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|XmlAttribute
 argument_list|(
