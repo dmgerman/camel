@@ -52,20 +52,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|methvin
-operator|.
-name|watcher
-operator|.
-name|hashing
-operator|.
-name|FileHasher
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -335,28 +321,6 @@ literal|"consumer"
 argument_list|,
 name|description
 operator|=
-literal|"Watch recursive in current and child directories (including newly created directories)."
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|recursive
-specifier|private
-name|boolean
-name|recursive
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
 literal|"The number of concurrent consumers. Increase this value, if your route is slow to prevent buffering in queue."
 argument_list|,
 name|defaultValue
@@ -367,28 +331,6 @@ DECL|field|concurrentConsumers
 specifier|private
 name|int
 name|concurrentConsumers
-init|=
-literal|1
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"The number of threads polling WatchService. Increase this value, if you see OVERFLOW messages in log."
-argument_list|,
-name|defaultValue
-operator|=
-literal|"1"
-argument_list|)
-DECL|field|pollThreads
-specifier|private
-name|int
-name|pollThreads
 init|=
 literal|1
 decl_stmt|;
@@ -441,62 +383,6 @@ init|=
 name|Integer
 operator|.
 name|MAX_VALUE
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"Reference to io.methvin.watcher.hashing.FileHasher. "
-operator|+
-literal|"This prevents emitting duplicate events on some platforms. "
-operator|+
-literal|"For working with large files and if you dont need detect multiple modifications per second per file, "
-operator|+
-literal|"use #lastModifiedTimeFileHasher. You can also provide custom implementation in registry."
-argument_list|,
-name|defaultValue
-operator|=
-literal|"#murmur3FFileHasher"
-argument_list|)
-DECL|field|fileHasher
-specifier|private
-name|FileHasher
-name|fileHasher
-init|=
-name|FileHasher
-operator|.
-name|DEFAULT_FILE_HASHER
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"Enables or disables file hashing to detect duplicate events. "
-operator|+
-literal|"If you disable this, you can get some events multiple times on some platforms and JDKs. "
-operator|+
-literal|"Check java.nio.file.WatchService limitations for your target platform."
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|useFileHashing
-specifier|private
-name|boolean
-name|useFileHashing
-init|=
-literal|true
 decl_stmt|;
 DECL|method|FileWatchEndpoint ()
 specifier|public
@@ -757,32 +643,6 @@ operator|=
 name|autoCreate
 expr_stmt|;
 block|}
-DECL|method|isRecursive ()
-specifier|public
-name|boolean
-name|isRecursive
-parameter_list|()
-block|{
-return|return
-name|recursive
-return|;
-block|}
-DECL|method|setRecursive (boolean recursive)
-specifier|public
-name|void
-name|setRecursive
-parameter_list|(
-name|boolean
-name|recursive
-parameter_list|)
-block|{
-name|this
-operator|.
-name|recursive
-operator|=
-name|recursive
-expr_stmt|;
-block|}
 DECL|method|getConcurrentConsumers ()
 specifier|public
 name|int
@@ -807,32 +667,6 @@ operator|.
 name|concurrentConsumers
 operator|=
 name|concurrentConsumers
-expr_stmt|;
-block|}
-DECL|method|getPollThreads ()
-specifier|public
-name|int
-name|getPollThreads
-parameter_list|()
-block|{
-return|return
-name|pollThreads
-return|;
-block|}
-DECL|method|setPollThreads (int pollThreads)
-specifier|public
-name|void
-name|setPollThreads
-parameter_list|(
-name|int
-name|pollThreads
-parameter_list|)
-block|{
-name|this
-operator|.
-name|pollThreads
-operator|=
-name|pollThreads
 expr_stmt|;
 block|}
 DECL|method|getQueueSize ()
@@ -885,58 +719,6 @@ operator|.
 name|antInclude
 operator|=
 name|antInclude
-expr_stmt|;
-block|}
-DECL|method|getFileHasher ()
-specifier|public
-name|FileHasher
-name|getFileHasher
-parameter_list|()
-block|{
-return|return
-name|fileHasher
-return|;
-block|}
-DECL|method|setFileHasher (FileHasher fileHasher)
-specifier|public
-name|void
-name|setFileHasher
-parameter_list|(
-name|FileHasher
-name|fileHasher
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fileHasher
-operator|=
-name|fileHasher
-expr_stmt|;
-block|}
-DECL|method|isUseFileHashing ()
-specifier|public
-name|boolean
-name|isUseFileHashing
-parameter_list|()
-block|{
-return|return
-name|useFileHashing
-return|;
-block|}
-DECL|method|setUseFileHashing (boolean useFileHashing)
-specifier|public
-name|void
-name|setUseFileHashing
-parameter_list|(
-name|boolean
-name|useFileHashing
-parameter_list|)
-block|{
-name|this
-operator|.
-name|useFileHashing
-operator|=
-name|useFileHashing
 expr_stmt|;
 block|}
 annotation|@

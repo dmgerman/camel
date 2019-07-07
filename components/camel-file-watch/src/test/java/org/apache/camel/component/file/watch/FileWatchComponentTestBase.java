@@ -382,15 +382,10 @@ operator|+
 name|i
 argument_list|)
 decl_stmt|;
-name|Assume
-operator|.
-name|assumeTrue
-argument_list|(
 name|newFile
 operator|.
 name|createNewFile
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|testFiles
 operator|.
@@ -499,11 +494,15 @@ name|delete
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|()
-throw|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot delete "
+operator|+
+name|childFile
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -516,11 +515,15 @@ name|delete
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|()
-throw|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot delete "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testPath ()
