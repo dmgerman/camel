@@ -362,7 +362,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|NotifyBuilderMatcher
+name|Metadata
 import|;
 end_import
 
@@ -376,7 +376,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Metadata
+name|NotifyBuilderMatcher
 import|;
 end_import
 
