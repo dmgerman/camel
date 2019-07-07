@@ -122,7 +122,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"/foo/bar/baz/xxx?password=admin&autoCreate=true"
+literal|"/foo/bar/baz/xxx?password=admin"
 return|;
 block|}
 annotation|@
@@ -174,6 +174,8 @@ name|getMandatoryEndpoint
 argument_list|(
 name|getFtpUrl
 argument_list|()
+operator|+
+literal|"&autoCreate=true"
 argument_list|)
 decl_stmt|;
 name|endpoint
