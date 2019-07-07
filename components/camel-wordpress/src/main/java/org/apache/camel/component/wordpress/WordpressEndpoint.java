@@ -400,7 +400,7 @@ literal|"Wordpress"
 argument_list|,
 name|syntax
 operator|=
-literal|"wordpress:operationDetail"
+literal|"wordpress:operation"
 argument_list|,
 name|label
 operator|=

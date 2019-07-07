@@ -522,7 +522,7 @@ literal|"Soroush"
 argument_list|,
 name|syntax
 operator|=
-literal|"soroush:action/authorizationToken"
+literal|"soroush:action"
 argument_list|,
 name|label
 operator|=

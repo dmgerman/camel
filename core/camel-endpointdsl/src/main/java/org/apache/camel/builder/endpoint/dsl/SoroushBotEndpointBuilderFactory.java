@@ -1973,7 +1973,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Soroush (camel-soroush)      * To integrate with the Soroush chat bot.      *       * Category: chat      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-soroush      *       * Syntax:<code>soroush:action/authorizationToken</code>      *       * Path parameter: action (required)      * The action to do.      * The value can be one of: sendMessage, getMessage, uploadFile,      * downloadFile      */
+comment|/**      * Soroush (camel-soroush)      * To integrate with the Soroush chat bot.      *       * Category: chat      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-soroush      *       * Syntax:<code>soroush:action</code>      *       * Path parameter: action (required)      * The action to do.      * The value can be one of: sendMessage, getMessage, uploadFile,      * downloadFile      */
 DECL|method|soroushBot (String path)
 specifier|default
 name|SoroushBotEndpointBuilder

@@ -218,7 +218,7 @@ literal|"ChatScript"
 argument_list|,
 name|syntax
 operator|=
-literal|"chatscript:host:port/botname"
+literal|"chatscript:host:port/botName"
 argument_list|,
 name|producerOnly
 operator|=

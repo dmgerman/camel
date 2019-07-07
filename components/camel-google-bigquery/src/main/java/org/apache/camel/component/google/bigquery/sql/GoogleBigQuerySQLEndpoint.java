@@ -138,7 +138,7 @@ literal|"Google BigQuery Standard SQL"
 argument_list|,
 name|syntax
 operator|=
-literal|"google-bigquery-sql:query"
+literal|"google-bigquery-sql:projectId:query"
 argument_list|,
 name|label
 operator|=

@@ -312,7 +312,7 @@ literal|"IPFS"
 argument_list|,
 name|syntax
 operator|=
-literal|"ipfs:host:port/cmd"
+literal|"ipfs:ipfsHost:ipfsPort/ipfsCmd"
 argument_list|,
 name|producerOnly
 operator|=

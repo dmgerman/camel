@@ -256,7 +256,7 @@ literal|"PostgresSQL Replication Slot"
 argument_list|,
 name|syntax
 operator|=
-literal|"pg-replication-slot:host:port/database/slot:plugin"
+literal|"pg-replication-slot:host:port/database/slot:outputPlugin"
 argument_list|,
 name|label
 operator|=

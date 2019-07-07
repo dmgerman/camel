@@ -136,7 +136,7 @@ literal|"Google BigQuery"
 argument_list|,
 name|syntax
 operator|=
-literal|"google-bigquery:projectId:datasetId:tableName"
+literal|"google-bigquery:projectId:datasetId:tableId"
 argument_list|,
 name|label
 operator|=

@@ -129,7 +129,39 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
+literal|"The ipfs host"
+argument_list|)
+DECL|field|ipfsHost
+specifier|private
+name|String
+name|ipfsHost
+init|=
+literal|"127.0.0.1"
+decl_stmt|;
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The ipfs port"
+argument_list|)
+DECL|field|ipfsPort
+specifier|private
+name|int
+name|ipfsPort
+init|=
+literal|5001
+decl_stmt|;
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
 literal|"The ipfs command"
+argument_list|,
+name|enums
+operator|=
+literal|"add,cat,get,version"
 argument_list|)
 DECL|field|ipfsCmd
 specifier|private
@@ -147,20 +179,6 @@ DECL|field|outdir
 specifier|private
 name|Path
 name|outdir
-decl_stmt|;
-DECL|field|ipfsHost
-specifier|private
-name|String
-name|ipfsHost
-init|=
-literal|"127.0.0.1"
-decl_stmt|;
-DECL|field|ipfsPort
-specifier|private
-name|int
-name|ipfsPort
-init|=
-literal|5001
 decl_stmt|;
 DECL|method|IPFSConfiguration (IPFSComponent component)
 specifier|public

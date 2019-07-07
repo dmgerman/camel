@@ -1452,7 +1452,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Wordpress (camel-wordpress)      * Integrates Camel with Wordpress.      *       * Category: cms      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-wordpress      *       * Syntax:<code>wordpress:operationDetail</code>      *       * Path parameter: operation (required)      * The endpoint operation.      * The value can be one of: post, , user      *       * Path parameter: operationDetail      * The second part of an endpoint operation. Needed only when endpoint      * semantic is not enough, like wordpress:post:delete      * The value can be one of: delete      */
+comment|/**      * Wordpress (camel-wordpress)      * Integrates Camel with Wordpress.      *       * Category: cms      * Available as of version: 2.21      * Maven coordinates: org.apache.camel:camel-wordpress      *       * Syntax:<code>wordpress:operation</code>      *       * Path parameter: operation (required)      * The endpoint operation.      * The value can be one of: post, , user      *       * Path parameter: operationDetail      * The second part of an endpoint operation. Needed only when endpoint      * semantic is not enough, like wordpress:post:delete      * The value can be one of: delete      */
 DECL|method|wordpress (String path)
 specifier|default
 name|WordpressEndpointBuilder
