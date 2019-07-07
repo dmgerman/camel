@@ -1889,7 +1889,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|// remove double whitespaces, and trim
 name|String
 name|s
 init|=
@@ -1898,6 +1897,7 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+comment|// remove double whitespaces, and trim
 name|s
 operator|=
 name|s
@@ -1907,6 +1907,18 @@ argument_list|(
 literal|"\\s+"
 argument_list|,
 literal|" "
+argument_list|)
+expr_stmt|;
+comment|// unescape http links
+name|s
+operator|=
+name|s
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\(http:|https:)"
+argument_list|,
+literal|"$1"
 argument_list|)
 expr_stmt|;
 return|return
