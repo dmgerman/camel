@@ -1392,36 +1392,76 @@ literal|"FALSE"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
+comment|// primitive boolean is more strict
+try|try
+block|{
 name|ObjectConverter
 operator|.
 name|toBool
 argument_list|(
 literal|"1"
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw exception"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+try|try
+block|{
 name|ObjectConverter
 operator|.
 name|toBool
 argument_list|(
 literal|""
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw exception"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+try|try
+block|{
 name|ObjectConverter
 operator|.
 name|toBool
 argument_list|(
 literal|"yes"
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw exception"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 block|}
 block|}
 end_class

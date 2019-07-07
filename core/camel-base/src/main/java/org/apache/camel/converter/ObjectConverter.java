@@ -119,11 +119,32 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
-return|return
+if|if
+condition|(
 name|answer
-operator|!=
+operator|==
 literal|null
-operator|&&
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot convert type: "
+operator|+
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" to boolean"
+argument_list|)
+throw|;
+block|}
+return|return
 name|answer
 return|;
 block|}
