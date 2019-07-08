@@ -622,6 +622,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useStreaming
+specifier|private
+name|boolean
+name|useStreaming
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer"
 argument_list|,
 name|defaultValue
@@ -795,22 +811,6 @@ name|Integer
 name|sendTimeout
 init|=
 literal|30000
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer,websocket"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
-DECL|field|useStreaming
-specifier|private
-name|boolean
-name|useStreaming
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1288,7 +1288,9 @@ name|undertowHttpBinding
 operator|=
 operator|new
 name|DefaultUndertowHttpBinding
-argument_list|()
+argument_list|(
+name|useStreaming
+argument_list|)
 expr_stmt|;
 name|undertowHttpBinding
 operator|.
@@ -1564,7 +1566,7 @@ return|return
 name|useStreaming
 return|;
 block|}
-comment|/**      * if {@code true}, text and binary messages coming through a WebSocket will be wrapped as java.io.Reader and      * java.io.InputStream respectively before they are passed to an {@link Exchange}; otherwise they will be passed as      * String and byte[] respectively.      */
+comment|/**      *<p>      * For HTTP endpoint:      * if {@code true}, text and binary messages will be wrapped as {@link java.io.InputStream}      * before they are passed to an {@link Exchange}; otherwise they will be passed as byte[].      *</p>      *      *<p>      * For WebSocket endpoint:      * if {@code true}, text and binary messages will be wrapped as {@link java.io.Reader} and      * {@link java.io.InputStream} respectively before they are passed to an {@link Exchange};      * otherwise they will be passed as String and byte[] respectively.      *</p>      */
 DECL|method|setUseStreaming (boolean useStreaming)
 specifier|public
 name|void

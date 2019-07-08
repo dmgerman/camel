@@ -60,6 +60,29 @@ name|RestUndertowHttpBinding
 extends|extends
 name|DefaultUndertowHttpBinding
 block|{
+DECL|method|RestUndertowHttpBinding ()
+specifier|public
+name|RestUndertowHttpBinding
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|RestUndertowHttpBinding (boolean useStreaming)
+specifier|public
+name|RestUndertowHttpBinding
+parameter_list|(
+name|boolean
+name|useStreaming
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|useStreaming
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|populateCamelHeaders (HttpServerExchange httpExchange, Map<String, Object> headersMap, Exchange exchange)

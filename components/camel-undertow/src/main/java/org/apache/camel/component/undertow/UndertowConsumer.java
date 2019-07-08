@@ -32,6 +32,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URI
@@ -274,6 +294,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -351,6 +383,20 @@ operator|.
 name|util
 operator|.
 name|CollectionStringBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
 import|;
 end_import
 
@@ -981,6 +1027,30 @@ name|camelExchange
 argument_list|)
 expr_stmt|;
 block|}
+name|sendResponse
+argument_list|(
+name|httpExchange
+argument_list|,
+name|camelExchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|sendResponse (HttpServerExchange httpExchange, Exchange camelExchange)
+specifier|private
+name|void
+name|sendResponse
+parameter_list|(
+name|HttpServerExchange
+name|httpExchange
+parameter_list|,
+name|Exchange
+name|camelExchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|NoTypeConversionAvailableException
+block|{
 name|Object
 name|body
 init|=
@@ -1050,6 +1120,49 @@ argument_list|(
 literal|"No response available"
 argument_list|)
 expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|body
+operator|instanceof
+name|InputStream
+condition|)
+block|{
+name|httpExchange
+operator|.
+name|startBlocking
+argument_list|()
+expr_stmt|;
+try|try
+init|(
+name|InputStream
+name|input
+init|=
+operator|(
+name|InputStream
+operator|)
+name|body
+init|;                  OutputStream output = httpExchange.getOutputStream()
+block|)
+block|{
+comment|// flush on each write so that it won't cause OutOfMemoryError
+name|IOHelper
+operator|.
+name|copy
+argument_list|(
+name|input
+argument_list|,
+name|output
+argument_list|,
+name|IOHelper
+operator|.
+name|DEFAULT_BUFFER_SIZE
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1079,7 +1192,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Create an {@link Exchange} from the associated {@link UndertowEndpoint} and set the {@code in} {@link Message}'s      * body to the given {@code message} and {@link UndertowConstants#CONNECTION_KEY} header to the given      * {@code connectionKey}.      *      * @param connectionKey an identifier of {@link WebSocketChannel} through which the {@code message} was received      * @param message the message received via the {@link WebSocketChannel}      */
+end_comment
+
+begin_function
 DECL|method|sendMessage (final String connectionKey, final Object message)
 specifier|public
 name|void
@@ -1180,7 +1299,13 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Send a notification related a WebSocket peer.      *      * @param connectionKey of WebSocket peer      * @param eventType the type of the event      */
+end_comment
+
+begin_function
 DECL|method|sendEventNotification (String connectionKey, EventType eventType)
 specifier|public
 name|void
@@ -1299,6 +1424,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getResponseBody (HttpServerExchange httpExchange, Exchange camelExchange)
 specifier|private
 name|Object
@@ -1368,8 +1496,8 @@ return|return
 name|result
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

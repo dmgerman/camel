@@ -1550,7 +1550,12 @@ name|setUndertowHttpBinding
 argument_list|(
 operator|new
 name|RestUndertowHttpBinding
+argument_list|(
+name|endpoint
+operator|.
+name|isUseStreaming
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
