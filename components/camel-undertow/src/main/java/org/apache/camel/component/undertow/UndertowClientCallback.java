@@ -395,7 +395,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Undertow {@link ClientCallback} that will get notified when the HTTP  * connection is ready or when the client failed to connect. It will also handle  * writing the request and reading the response in  * {@link #writeRequest(ClientExchange, ByteBuffer)} and  * {@link #setupResponseListener(ClientExchange)}. The main entry point is  * {@link #completed(ClientConnection)} or {@link #failed(IOException)} in case  * of errors, every error condition that should terminate Camel {@link Exchange}  * should go to {@link #hasFailedWith(Exception)} and successful execution of  * the exchange should end with {@link #finish(Message)}. Any  * {@link ClientCallback}s that are added here should extend  * {@link ErrorHandlingClientCallback}, best way to do that is to use the  * {@link #on(Consumer)} helper method.  */
+comment|/**  * Undertow {@link ClientCallback} that will get notified when the HTTP  * connection is ready or when the client failed to connect. It will also handle  * writing the request and reading the response in  * {@link #writeRequest(ClientExchange)} and  * {@link #setupResponseListener(ClientExchange)}. The main entry point is  * {@link #completed(ClientConnection)} or {@link #failed(IOException)} in case  * of errors, every error condition that should terminate Camel {@link Exchange}  * should go to {@link #hasFailedWith(Throwable)} and successful execution of  * the exchange should end with {@link #finish(Message)}. Any  * {@link ClientCallback}s that are added here should extend  * {@link ErrorHandlingClientCallback}, best way to do that is to use the  * {@link #on(Consumer)} helper method.  */
 end_comment
 
 begin_class
@@ -533,19 +533,19 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|endpoint
-specifier|private
+specifier|protected
 specifier|final
 name|UndertowEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|exchange
-specifier|private
+specifier|protected
 specifier|final
 name|Exchange
 name|exchange
 decl_stmt|;
 DECL|field|request
-specifier|private
+specifier|protected
 specifier|final
 name|ClientRequest
 name|request
@@ -610,6 +610,8 @@ name|body
 operator|=
 name|body
 expr_stmt|;
+name|this
+operator|.
 name|throwExceptionOnFailure
 operator|=
 name|endpoint
@@ -883,6 +885,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|on (final Consumer<T> consumer)
+specifier|protected
 parameter_list|<
 name|T
 parameter_list|>
@@ -929,8 +932,6 @@ comment|// write the request
 name|writeRequest
 argument_list|(
 name|clientExchange
-argument_list|,
-name|body
 argument_list|)
 expr_stmt|;
 block|}
@@ -1381,17 +1382,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeRequest (final ClientExchange clientExchange, final ByteBuffer body)
+DECL|method|writeRequest (final ClientExchange clientExchange)
+specifier|protected
 name|void
 name|writeRequest
 parameter_list|(
 specifier|final
 name|ClientExchange
 name|clientExchange
-parameter_list|,
-specifier|final
-name|ByteBuffer
-name|body
 parameter_list|)
 block|{
 specifier|final

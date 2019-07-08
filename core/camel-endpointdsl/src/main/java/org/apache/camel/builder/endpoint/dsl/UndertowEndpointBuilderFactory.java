@@ -160,6 +160,48 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * For HTTP endpoint: if true, text and binary messages will be wrapped          * as java.io.InputStream before they are passed to an Exchange;          * otherwise they will be passed as byte. For WebSocket endpoint: if          * true, text and binary messages will be wrapped as java.io.Reader and          * java.io.InputStream respectively before they are passed to an          * Exchange; otherwise they will be passed as String and byte          * respectively.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|useStreaming ( boolean useStreaming)
+specifier|default
+name|UndertowEndpointConsumerBuilder
+name|useStreaming
+parameter_list|(
+name|boolean
+name|useStreaming
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"useStreaming"
+argument_list|,
+name|useStreaming
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * For HTTP endpoint: if true, text and binary messages will be wrapped          * as java.io.InputStream before they are passed to an Exchange;          * otherwise they will be passed as byte. For WebSocket endpoint: if          * true, text and binary messages will be wrapped as java.io.Reader and          * java.io.InputStream respectively before they are passed to an          * Exchange; otherwise they will be passed as String and byte          * respectively.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+DECL|method|useStreaming (String useStreaming)
+specifier|default
+name|UndertowEndpointConsumerBuilder
+name|useStreaming
+parameter_list|(
+name|String
+name|useStreaming
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"useStreaming"
+argument_list|,
+name|useStreaming
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether or not the consumer should write access log.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: consumer          */
 DECL|method|accessLog (Boolean accessLog)
 specifier|default
@@ -349,48 +391,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * For HTTP endpoint: if true, text and binary messages will be wrapped          * as java.io.InputStream before they are passed to an Exchange;          * otherwise they will be passed as byte. For WebSocket endpoint: if          * true, text and binary messages will be wrapped as java.io.Reader and          * java.io.InputStream respectively before they are passed to an          * Exchange; otherwise they will be passed as String and byte          * respectively.          * The option is a<code>boolean</code> type.          * @group consumer          */
-DECL|method|useStreaming ( boolean useStreaming)
-specifier|default
-name|UndertowEndpointConsumerBuilder
-name|useStreaming
-parameter_list|(
-name|boolean
-name|useStreaming
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"useStreaming"
-argument_list|,
-name|useStreaming
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * For HTTP endpoint: if true, text and binary messages will be wrapped          * as java.io.InputStream before they are passed to an Exchange;          * otherwise they will be passed as byte. For WebSocket endpoint: if          * true, text and binary messages will be wrapped as java.io.Reader and          * java.io.InputStream respectively before they are passed to an          * Exchange; otherwise they will be passed as String and byte          * respectively.          * The option will be converted to a<code>boolean</code> type.          * @group consumer          */
-DECL|method|useStreaming (String useStreaming)
-specifier|default
-name|UndertowEndpointConsumerBuilder
-name|useStreaming
-parameter_list|(
-name|String
-name|useStreaming
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"useStreaming"
-argument_list|,
-name|useStreaming
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * if true, the consumer will post notifications to the route when a new          * WebSocket peer connects, disconnects, etc. See          * UndertowConstants.EVENT_TYPE and EventType.          *           * The option is a:<code>boolean</code> type.          *           * Group: websocket          */
 DECL|method|fireWebSocketChannelEvents ( boolean fireWebSocketChannelEvents)
 specifier|default
@@ -427,48 +427,6 @@ argument_list|(
 literal|"fireWebSocketChannelEvents"
 argument_list|,
 name|fireWebSocketChannelEvents
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * if true, text and binary messages coming through a WebSocket will be          * wrapped as java.io.Reader and java.io.InputStream respectively before          * they are passed to an Exchange; otherwise they will be passed as          * String and byte respectively.          *           * The option is a:<code>boolean</code> type.          *           * Group: websocket          */
-DECL|method|useStreaming ( boolean useStreaming)
-specifier|default
-name|UndertowEndpointConsumerBuilder
-name|useStreaming
-parameter_list|(
-name|boolean
-name|useStreaming
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"useStreaming"
-argument_list|,
-name|useStreaming
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * if true, text and binary messages coming through a WebSocket will be          * wrapped as java.io.Reader and java.io.InputStream respectively before          * they are passed to an Exchange; otherwise they will be passed as          * String and byte respectively.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: websocket          */
-DECL|method|useStreaming (String useStreaming)
-specifier|default
-name|UndertowEndpointConsumerBuilder
-name|useStreaming
-parameter_list|(
-name|String
-name|useStreaming
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"useStreaming"
-argument_list|,
-name|useStreaming
 argument_list|)
 expr_stmt|;
 return|return
@@ -852,6 +810,48 @@ return|return
 operator|(
 name|AdvancedUndertowEndpointProducerBuilder
 operator|)
+name|this
+return|;
+block|}
+comment|/**          * For HTTP endpoint: if true, text and binary messages will be wrapped          * as java.io.InputStream before they are passed to an Exchange;          * otherwise they will be passed as byte. For WebSocket endpoint: if          * true, text and binary messages will be wrapped as java.io.Reader and          * java.io.InputStream respectively before they are passed to an          * Exchange; otherwise they will be passed as String and byte          * respectively.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|useStreaming ( boolean useStreaming)
+specifier|default
+name|UndertowEndpointProducerBuilder
+name|useStreaming
+parameter_list|(
+name|boolean
+name|useStreaming
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"useStreaming"
+argument_list|,
+name|useStreaming
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * For HTTP endpoint: if true, text and binary messages will be wrapped          * as java.io.InputStream before they are passed to an Exchange;          * otherwise they will be passed as byte. For WebSocket endpoint: if          * true, text and binary messages will be wrapped as java.io.Reader and          * java.io.InputStream respectively before they are passed to an          * Exchange; otherwise they will be passed as String and byte          * respectively.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+DECL|method|useStreaming (String useStreaming)
+specifier|default
+name|UndertowEndpointProducerBuilder
+name|useStreaming
+parameter_list|(
+name|String
+name|useStreaming
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"useStreaming"
+argument_list|,
+name|useStreaming
+argument_list|)
+expr_stmt|;
+return|return
 name|this
 return|;
 block|}
@@ -1575,6 +1575,48 @@ return|return
 operator|(
 name|AdvancedUndertowEndpointBuilder
 operator|)
+name|this
+return|;
+block|}
+comment|/**          * For HTTP endpoint: if true, text and binary messages will be wrapped          * as java.io.InputStream before they are passed to an Exchange;          * otherwise they will be passed as byte. For WebSocket endpoint: if          * true, text and binary messages will be wrapped as java.io.Reader and          * java.io.InputStream respectively before they are passed to an          * Exchange; otherwise they will be passed as String and byte          * respectively.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|useStreaming (boolean useStreaming)
+specifier|default
+name|UndertowEndpointBuilder
+name|useStreaming
+parameter_list|(
+name|boolean
+name|useStreaming
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"useStreaming"
+argument_list|,
+name|useStreaming
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * For HTTP endpoint: if true, text and binary messages will be wrapped          * as java.io.InputStream before they are passed to an Exchange;          * otherwise they will be passed as byte. For WebSocket endpoint: if          * true, text and binary messages will be wrapped as java.io.Reader and          * java.io.InputStream respectively before they are passed to an          * Exchange; otherwise they will be passed as String and byte          * respectively.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
+DECL|method|useStreaming (String useStreaming)
+specifier|default
+name|UndertowEndpointBuilder
+name|useStreaming
+parameter_list|(
+name|String
+name|useStreaming
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"useStreaming"
+argument_list|,
+name|useStreaming
+argument_list|)
+expr_stmt|;
+return|return
 name|this
 return|;
 block|}
