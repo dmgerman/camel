@@ -1055,6 +1055,17 @@ argument_list|(
 name|template
 argument_list|,
 name|map
+argument_list|,
+name|Collections
+operator|.
+name|singletonMap
+argument_list|(
+literal|"util"
+argument_list|,
+name|MvelHelper
+operator|.
+name|INSTANCE
+argument_list|)
 argument_list|)
 decl_stmt|;
 return|return

@@ -917,7 +917,7 @@ literal|" given the component tries to load `swagger.json` resource from the cla
 operator|+
 literal|" component and endpoint of this Component should contain the scheme, hostname and optionally the"
 operator|+
-literal|" port in the URI syntax (i.e. `\\http://api.example.com:8080`). Overrides component configuration."
+literal|" port in the URI syntax (i.e. `http://api.example.com:8080`). Overrides component configuration."
 operator|+
 literal|" The Swagger specification can be loaded from different sources by prefixing with file: classpath: http: https:."
 operator|+
