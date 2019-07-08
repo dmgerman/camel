@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.watch.utils
+DECL|package|org.apache.camel.component.file.watch
 package|package
 name|org
 operator|.
@@ -17,10 +17,18 @@ operator|.
 name|file
 operator|.
 name|watch
-operator|.
-name|utils
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
 
 begin_import
 import|import
@@ -30,68 +38,74 @@ name|nio
 operator|.
 name|file
 operator|.
-name|WatchService
+name|Path
 import|;
 end_import
 
+begin_import
+import|import
+name|io
+operator|.
+name|methvin
+operator|.
+name|watcher
+operator|.
+name|hashing
+operator|.
+name|FileHasher
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|methvin
+operator|.
+name|watcher
+operator|.
+name|hashing
+operator|.
+name|HashCode
+import|;
+end_import
+
+begin_comment
+comment|/**  * For unit test only!  */
+end_comment
+
 begin_class
-DECL|class|WatchServiceUtils
+DECL|class|TestHasher
 specifier|public
 class|class
-name|WatchServiceUtils
+name|TestHasher
+implements|implements
+name|FileHasher
 block|{
-DECL|method|WatchServiceUtils ()
-specifier|private
-name|WatchServiceUtils
-parameter_list|()
-block|{     }
-comment|/**      * Check if @param watchService is underlying sun.nio.fs.PollingWatchService      * This can happen on OS X, AIX and Solaris prior to version 11      */
-DECL|method|isPollingWatchService (WatchService watchService)
+annotation|@
+name|Override
+DECL|method|hash (Path path)
 specifier|public
-specifier|static
-name|boolean
-name|isPollingWatchService
+name|HashCode
+name|hash
 parameter_list|(
-name|WatchService
-name|watchService
+name|Path
+name|path
 parameter_list|)
+throws|throws
+name|IOException
 block|{
-try|try
-block|{
-comment|// If the WatchService is a PollingWatchService, which it is on OS X, AIX and Solaris prior to version 11
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|pollingWatchService
-init|=
-name|Class
-operator|.
-name|forName
-argument_list|(
-literal|"sun.nio.fs.PollingWatchService"
-argument_list|)
-decl_stmt|;
+comment|// Always return constant
+comment|// This should cause every event is triggered only once (hashcode remains the same), so we can test this.
+comment|// Never use this in production code
 return|return
-name|pollingWatchService
+name|HashCode
 operator|.
-name|isInstance
+name|fromLong
 argument_list|(
-name|watchService
+literal|1L
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|ClassNotFoundException
-name|ignored
-parameter_list|)
-block|{
-comment|// This is expected on JVMs where PollingWatchService is not available
-return|return
-literal|false
-return|;
-block|}
 block|}
 block|}
 end_class
