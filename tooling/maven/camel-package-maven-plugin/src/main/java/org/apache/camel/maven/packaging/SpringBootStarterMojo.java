@@ -595,6 +595,9 @@ literal|"camel-eventadmin"
 block|,
 literal|"camel-paxlogging"
 block|,
+comment|/* extended core */
+literal|"camel-attachments"
+block|,
 comment|/* Java EE -> */
 literal|"camel-cdi"
 block|,

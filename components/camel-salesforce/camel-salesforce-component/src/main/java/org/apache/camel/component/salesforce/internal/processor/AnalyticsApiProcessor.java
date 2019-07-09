@@ -1424,7 +1424,7 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|// copy headers and attachments
+comment|// copy headers
 specifier|final
 name|Message
 name|inboundMessage
@@ -1463,13 +1463,6 @@ operator|.
 name|putAll
 argument_list|(
 name|headers
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|copyAttachments
-argument_list|(
-name|inboundMessage
 argument_list|)
 expr_stmt|;
 comment|// signal exchange completion

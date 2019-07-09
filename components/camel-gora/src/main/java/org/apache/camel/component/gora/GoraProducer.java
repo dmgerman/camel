@@ -586,7 +586,7 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-comment|// preserve headers and attachments
+comment|// preserve headers
 name|exchange
 operator|.
 name|getOut
@@ -600,22 +600,6 @@ name|getIn
 argument_list|()
 operator|.
 name|getHeaders
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setAttachments
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getAttachments
 argument_list|()
 argument_list|)
 expr_stmt|;

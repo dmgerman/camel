@@ -120,7 +120,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|Processor
 import|;
 end_import
 
@@ -132,7 +132,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|attachment
+operator|.
+name|AttachmentMessage
 import|;
 end_import
 
@@ -699,13 +701,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Message
+name|AttachmentMessage
 name|in
 init|=
 name|exchange
 operator|.
-name|getIn
-argument_list|()
+name|getMessage
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -817,13 +823,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Message
+name|AttachmentMessage
 name|in
 init|=
 name|exchange
 operator|.
-name|getIn
-argument_list|()
+name|getMessage
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(

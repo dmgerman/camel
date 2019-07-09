@@ -54,6 +54,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|attachment
+operator|.
+name|AttachmentMessage
+import|;
+end_import
+
 begin_comment
 comment|/**  * Returns the request as the response so it can be analysed (eg. for presence  * of SOAP Headers).   * Also adds 2 attachments to the out message, which could be returned in a soap message by a ws request.  */
 end_comment
@@ -90,7 +104,11 @@ expr_stmt|;
 name|exchange
 operator|.
 name|getOut
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addAttachment
 argument_list|(
@@ -108,7 +126,11 @@ expr_stmt|;
 name|exchange
 operator|.
 name|getOut
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addAttachment
 argument_list|(

@@ -349,17 +349,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|getAttachments
-argument_list|()
-operator|.
-name|putAll
-argument_list|(
-name|that
-operator|.
-name|getAttachments
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

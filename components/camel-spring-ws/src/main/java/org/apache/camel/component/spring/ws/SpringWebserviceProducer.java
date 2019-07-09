@@ -198,6 +198,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|attachment
+operator|.
+name|AttachmentMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|DefaultProducer
@@ -832,7 +846,11 @@ argument_list|(
 name|exchange
 operator|.
 name|getOut
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 argument_list|,
 name|soapMessage
 argument_list|)
@@ -858,7 +876,11 @@ argument_list|(
 name|exchange
 operator|.
 name|getIn
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 argument_list|,
 name|soapMessage
 argument_list|)
@@ -870,12 +892,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Populates soap message headers and attachments from soap response      */
-DECL|method|populateHeaderAndAttachmentsFromResponse (Message inOrOut, SoapMessage soapMessage)
+DECL|method|populateHeaderAndAttachmentsFromResponse (AttachmentMessage inOrOut, SoapMessage soapMessage)
 specifier|private
 name|void
 name|populateHeaderAndAttachmentsFromResponse
 parameter_list|(
-name|Message
+name|AttachmentMessage
 name|inOrOut
 parameter_list|,
 name|SoapMessage
@@ -1073,12 +1095,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Populates message attachments from soap response attachments       */
-DECL|method|populateMessageAttachmentsFromResponse (Message inOrOut, Iterator<Attachment> attachments)
+DECL|method|populateMessageAttachmentsFromResponse (AttachmentMessage inOrOut, Iterator<Attachment> attachments)
 specifier|private
 name|void
 name|populateMessageAttachmentsFromResponse
 parameter_list|(
-name|Message
+name|AttachmentMessage
 name|inOrOut
 parameter_list|,
 name|Iterator
@@ -1106,10 +1128,7 @@ argument_list|()
 decl_stmt|;
 name|inOrOut
 operator|.
-name|getAttachments
-argument_list|()
-operator|.
-name|put
+name|addAttachment
 argument_list|(
 name|attachment
 operator|.

@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.support
+DECL|package|org.apache.camel.attachment
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|attachment
 package|;
 end_package
 
@@ -83,18 +83,6 @@ operator|.
 name|activation
 operator|.
 name|DataSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Attachment
 import|;
 end_import
 

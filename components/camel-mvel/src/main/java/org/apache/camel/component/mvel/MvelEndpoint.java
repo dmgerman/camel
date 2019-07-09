@@ -710,19 +710,6 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|setAttachments
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getAttachments
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|findOrCreateEndpoint (String uri, String newResourceUri)
 specifier|public

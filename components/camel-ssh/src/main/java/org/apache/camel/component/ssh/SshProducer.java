@@ -365,7 +365,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// propagate headers and attachments
+comment|// propagate headers
 name|exchange
 operator|.
 name|getOut
@@ -379,19 +379,6 @@ argument_list|(
 name|in
 operator|.
 name|getHeaders
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setAttachments
-argument_list|(
-name|in
-operator|.
-name|getAttachments
 argument_list|()
 argument_list|)
 expr_stmt|;

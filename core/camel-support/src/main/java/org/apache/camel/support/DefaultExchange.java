@@ -578,18 +578,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// just copy the attachments here
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|copyAttachments
-argument_list|(
-name|getIn
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -663,18 +651,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Just copy the attachments here
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|copyAttachments
-argument_list|(
-name|getOut
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 name|exchange
 operator|.

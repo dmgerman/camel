@@ -1746,7 +1746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether Camel should map the received mail message to Camel          * body/headers. If set to true, the body of the mail message is mapped          * to the body of the Camel IN message and the mail headers are mapped          * to IN headers. If this option is set to false then the IN message          * contains a raw javax.mail.Message. You can retrieve this raw message          * by calling exchange.getIn().getBody(javax.mail.Message.class).          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Specifies whether Camel should map the received mail message to Camel          * body/headers/attachments. If set to true, the body of the mail          * message is mapped to the body of the Camel IN message, the mail          * headers are mapped to IN headers, and the attachments to Camel IN          * attachment message. If this option is set to false then the IN          * message contains a raw javax.mail.Message. You can retrieve this raw          * message by calling          * exchange.getIn().getBody(javax.mail.Message.class).          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|mapMailMessage ( boolean mapMailMessage)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
@@ -1767,7 +1767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies whether Camel should map the received mail message to Camel          * body/headers. If set to true, the body of the mail message is mapped          * to the body of the Camel IN message and the mail headers are mapped          * to IN headers. If this option is set to false then the IN message          * contains a raw javax.mail.Message. You can retrieve this raw message          * by calling exchange.getIn().getBody(javax.mail.Message.class).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Specifies whether Camel should map the received mail message to Camel          * body/headers/attachments. If set to true, the body of the mail          * message is mapped to the body of the Camel IN message, the mail          * headers are mapped to IN headers, and the attachments to Camel IN          * attachment message. If this option is set to false then the IN          * message contains a raw javax.mail.Message. You can retrieve this raw          * message by calling          * exchange.getIn().getBody(javax.mail.Message.class).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|mapMailMessage ( String mapMailMessage)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder

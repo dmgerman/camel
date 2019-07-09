@@ -162,6 +162,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|attachment
+operator|.
 name|Attachment
 import|;
 end_import

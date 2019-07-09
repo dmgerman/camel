@@ -54,6 +54,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|attachment
+operator|.
+name|AttachmentMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|spring
@@ -93,12 +107,12 @@ block|{
 comment|/**      * Add a test marker so the test method is aware which filter we are using.      */
 annotation|@
 name|Override
-DECL|method|doProcessSoapAttachments (Message inOrOut, SoapMessage response)
+DECL|method|doProcessSoapAttachments (AttachmentMessage inOrOut, SoapMessage response)
 specifier|protected
 name|void
 name|doProcessSoapAttachments
 parameter_list|(
-name|Message
+name|AttachmentMessage
 name|inOrOut
 parameter_list|,
 name|SoapMessage

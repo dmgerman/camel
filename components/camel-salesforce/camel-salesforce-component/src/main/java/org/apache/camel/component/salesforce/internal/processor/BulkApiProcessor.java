@@ -2772,7 +2772,7 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|// copy headers and attachments
+comment|// copy headers
 name|Message
 name|inboundMessage
 init|=
@@ -2809,13 +2809,6 @@ operator|.
 name|putAll
 argument_list|(
 name|headers
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|copyAttachments
-argument_list|(
-name|inboundMessage
 argument_list|)
 expr_stmt|;
 comment|// signal exchange completion

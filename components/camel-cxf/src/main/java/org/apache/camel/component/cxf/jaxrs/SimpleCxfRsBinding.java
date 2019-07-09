@@ -320,9 +320,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|attachment
 operator|.
-name|HeaderFilterStrategy
+name|AttachmentMessage
 import|;
 end_import
 
@@ -334,9 +334,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|attachment
 operator|.
 name|DefaultAttachment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
 import|;
 end_import
 
@@ -1567,6 +1581,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|attachment
+operator|.
 name|Attachment
 name|dh
 init|=
@@ -1670,6 +1686,16 @@ literal|null
 condition|)
 block|{
 name|in
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|getMessage
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 operator|.
 name|addAttachmentObject
 argument_list|(

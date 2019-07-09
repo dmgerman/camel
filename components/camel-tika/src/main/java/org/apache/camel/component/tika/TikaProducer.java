@@ -556,22 +556,6 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setAttachments
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getAttachments
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// and set result
 name|exchange
 operator|.

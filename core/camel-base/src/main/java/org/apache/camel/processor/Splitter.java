@@ -901,7 +901,7 @@ name|this
 operator|.
 name|copy
 operator|=
-name|copyExchangeNoAttachments
+name|copyAndPrepareSubExchange
 argument_list|(
 name|exchange
 argument_list|,
@@ -1453,11 +1453,11 @@ return|return
 name|expression
 return|;
 block|}
-DECL|method|copyExchangeNoAttachments (Exchange exchange, boolean preserveExchangeId)
+DECL|method|copyAndPrepareSubExchange (Exchange exchange, boolean preserveExchangeId)
 specifier|private
 specifier|static
 name|Exchange
-name|copyExchangeNoAttachments
+name|copyAndPrepareSubExchange
 parameter_list|(
 name|Exchange
 name|exchange
@@ -1478,17 +1478,6 @@ argument_list|,
 name|preserveExchangeId
 argument_list|)
 decl_stmt|;
-comment|// we do not want attachments for the splitted sub-messages
-name|answer
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setAttachmentObjects
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 comment|// we do not want to copy the message history for splitted sub-messages
 name|answer
 operator|.

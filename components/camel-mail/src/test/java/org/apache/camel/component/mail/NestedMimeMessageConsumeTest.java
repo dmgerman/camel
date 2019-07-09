@@ -108,6 +108,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|attachment
+operator|.
 name|Attachment
 import|;
 end_import
@@ -120,7 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|attachment
+operator|.
+name|AttachmentMessage
 import|;
 end_import
 
@@ -344,7 +360,11 @@ init|=
 name|exchange
 operator|.
 name|getIn
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getAttachmentNames
 argument_list|()
@@ -380,7 +400,11 @@ init|=
 name|exchange
 operator|.
 name|getIn
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 operator|.
 name|getAttachmentObject
 argument_list|(

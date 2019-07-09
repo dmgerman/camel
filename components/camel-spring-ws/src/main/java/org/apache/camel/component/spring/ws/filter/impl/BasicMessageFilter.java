@@ -96,7 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|attachment
+operator|.
+name|AttachmentMessage
 import|;
 end_import
 
@@ -216,7 +218,11 @@ argument_list|(
 name|exchange
 operator|.
 name|getIn
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 argument_list|,
 name|response
 argument_list|)
@@ -244,7 +250,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Message
+name|AttachmentMessage
 name|responseMessage
 init|=
 name|exchange
@@ -255,12 +261,20 @@ condition|?
 name|exchange
 operator|.
 name|getOut
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 else|:
 name|exchange
 operator|.
 name|getIn
-argument_list|()
+argument_list|(
+name|AttachmentMessage
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|processHeaderAndAttachments
 argument_list|(
@@ -272,12 +286,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * If applicable this method adds a SOAP headers and attachments.      *       * @param inOrOut      * @param response      */
-DECL|method|processHeaderAndAttachments (Message inOrOut, WebServiceMessage response)
+DECL|method|processHeaderAndAttachments (AttachmentMessage inOrOut, WebServiceMessage response)
 specifier|protected
 name|void
 name|processHeaderAndAttachments
 parameter_list|(
-name|Message
+name|AttachmentMessage
 name|inOrOut
 parameter_list|,
 name|WebServiceMessage
@@ -316,12 +330,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * If applicable this method adds a SOAP header.      *       * @param inOrOut      * @param soapMessage      */
-DECL|method|processSoapHeader (Message inOrOut, SoapMessage soapMessage)
+DECL|method|processSoapHeader (AttachmentMessage inOrOut, SoapMessage soapMessage)
 specifier|protected
 name|void
 name|processSoapHeader
 parameter_list|(
-name|Message
+name|AttachmentMessage
 name|inOrOut
 parameter_list|,
 name|SoapMessage
@@ -366,12 +380,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * The SOAP header is populated from exchange.getOut().getHeaders() if this      * class is used by the consumer or exchange.getIn().getHeaders() if this      * class is used by the producer. If .getHeaders() contains under a certain      * key a value with the QName object, it is directly added as a new header      * element. If it contains only a String value, it is transformed into a      * header attribute. Following headers are excluded:      */
-DECL|method|doProcessSoapHeader (Message inOrOut, SoapMessage soapMessage)
+DECL|method|doProcessSoapHeader (AttachmentMessage inOrOut, SoapMessage soapMessage)
 specifier|protected
 name|void
 name|doProcessSoapHeader
 parameter_list|(
-name|Message
+name|AttachmentMessage
 name|inOrOut
 parameter_list|,
 name|SoapMessage
@@ -566,17 +580,25 @@ block|}
 block|}
 block|}
 comment|/**      * Populate SOAP attachments from in or out exchange message. This the      * convenient method for overriding.      *       * @param inOrOut      * @param response      */
-DECL|method|doProcessSoapAttachments (Message inOrOut, SoapMessage response)
+DECL|method|doProcessSoapAttachments (AttachmentMessage inOrOut, SoapMessage response)
 specifier|protected
 name|void
 name|doProcessSoapAttachments
 parameter_list|(
-name|Message
+name|AttachmentMessage
 name|inOrOut
 parameter_list|,
 name|SoapMessage
 name|response
 parameter_list|)
+block|{
+if|if
+condition|(
+name|inOrOut
+operator|.
+name|hasAttachments
+argument_list|()
+condition|)
 block|{
 name|Map
 argument_list|<
@@ -629,6 +651,7 @@ name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
