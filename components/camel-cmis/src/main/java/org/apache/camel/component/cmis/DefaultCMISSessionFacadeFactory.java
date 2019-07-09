@@ -48,7 +48,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -105,23 +105,9 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// which we then set on the newly created facade
-name|EndpointHelper
+name|PropertyBindingSupport
 operator|.
-name|setReferenceProperties
-argument_list|(
-name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|facade
-argument_list|,
-name|copy
-argument_list|)
-expr_stmt|;
-name|EndpointHelper
-operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
 name|endpoint
 operator|.
