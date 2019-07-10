@@ -273,9 +273,13 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|,
+name|enums
+operator|=
+literal|"CREATE,MODIFY,DELETE"
+argument_list|,
 name|description
 operator|=
-literal|"Coma separated list of events to watch. Allowed values are: CREATE, MODIFY, DELETE."
+literal|"Comma separated list of events to watch."
 argument_list|,
 name|defaultValue
 operator|=
@@ -367,8 +371,6 @@ DECL|field|concurrentConsumers
 specifier|private
 name|int
 name|concurrentConsumers
-init|=
-literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -389,8 +391,6 @@ DECL|field|pollThreads
 specifier|private
 name|int
 name|pollThreads
-init|=
-literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -437,10 +437,6 @@ DECL|field|queueSize
 specifier|private
 name|int
 name|queueSize
-init|=
-name|Integer
-operator|.
-name|MAX_VALUE
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -467,10 +463,6 @@ DECL|field|fileHasher
 specifier|private
 name|FileHasher
 name|fileHasher
-init|=
-name|FileHasher
-operator|.
-name|DEFAULT_FILE_HASHER
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -495,8 +487,6 @@ DECL|field|useFileHashing
 specifier|private
 name|boolean
 name|useFileHashing
-init|=
-literal|true
 decl_stmt|;
 DECL|method|FileWatchEndpoint ()
 specifier|public
@@ -521,6 +511,46 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+name|setFileHasher
+argument_list|(
+name|component
+operator|.
+name|getFileHasher
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setConcurrentConsumers
+argument_list|(
+name|component
+operator|.
+name|getConcurrentConsumers
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setPollThreads
+argument_list|(
+name|component
+operator|.
+name|getPollThreads
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setQueueSize
+argument_list|(
+name|component
+operator|.
+name|getQueueSize
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setUseFileHashing
+argument_list|(
+name|component
+operator|.
+name|isUseFileHashing
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|FileWatchEndpoint (String uri, String remaining, FileWatchComponent component)
 specifier|public
@@ -536,7 +566,7 @@ name|FileWatchComponent
 name|component
 parameter_list|)
 block|{
-name|super
+name|this
 argument_list|(
 name|uri
 argument_list|,

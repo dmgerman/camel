@@ -687,8 +687,6 @@ operator|.
 name|SYNC
 argument_list|)
 expr_stmt|;
-comment|//testFiles.get(0).toFile().renameTo(new File(testPath(), "hello.txt"));
-comment|//Assert.assertTrue(newFile.createNewFile());
 name|mock
 operator|.
 name|setExpectedCount

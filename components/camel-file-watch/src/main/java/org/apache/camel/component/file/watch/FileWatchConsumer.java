@@ -441,7 +441,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
 literal|"Path must exists when autoCreate = false"
 argument_list|)
@@ -461,7 +461,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
 name|String
 operator|.

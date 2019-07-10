@@ -94,6 +94,44 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * The number of concurrent consumers. Increase this value, if your route is      * slow to prevent buffering in queue.      */
+DECL|field|concurrentConsumers
+specifier|private
+name|Integer
+name|concurrentConsumers
+init|=
+literal|1
+decl_stmt|;
+comment|/**      * Maximum size of queue between WatchService and consumer. Unbounded by      * default.      */
+DECL|field|queueSize
+specifier|private
+name|Integer
+name|queueSize
+init|=
+literal|2147483647
+decl_stmt|;
+comment|/**      * The number of threads polling WatchService. Increase this value, if you      * see OVERFLOW messages in log.      */
+DECL|field|pollThreads
+specifier|private
+name|Integer
+name|pollThreads
+init|=
+literal|1
+decl_stmt|;
+comment|/**      * Reference to io.methvin.watcher.hashing.FileHasher. This prevents      * emitting duplicate events on some platforms. For working with large files      * and if you dont need detect multiple modifications per second per file,      * use #lastModifiedTimeFileHasher. You can also provide custom      * implementation in registry. The option is a      * io.methvin.watcher.hashing.FileHasher type.      */
+DECL|field|fileHasher
+specifier|private
+name|String
+name|fileHasher
+decl_stmt|;
+comment|/**      * Enables or disables file hashing to detect duplicate events. If you      * disable this, you can get some events multiple times on some platforms      * and JDKs. Check java.nio.file.WatchService limitations for your target      * platform.      */
+DECL|field|useFileHashing
+specifier|private
+name|Boolean
+name|useFileHashing
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -110,6 +148,136 @@ name|basicPropertyBinding
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getConcurrentConsumers ()
+specifier|public
+name|Integer
+name|getConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|concurrentConsumers
+return|;
+block|}
+DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
+specifier|public
+name|void
+name|setConcurrentConsumers
+parameter_list|(
+name|Integer
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|concurrentConsumers
+operator|=
+name|concurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getQueueSize ()
+specifier|public
+name|Integer
+name|getQueueSize
+parameter_list|()
+block|{
+return|return
+name|queueSize
+return|;
+block|}
+DECL|method|setQueueSize (Integer queueSize)
+specifier|public
+name|void
+name|setQueueSize
+parameter_list|(
+name|Integer
+name|queueSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queueSize
+operator|=
+name|queueSize
+expr_stmt|;
+block|}
+DECL|method|getPollThreads ()
+specifier|public
+name|Integer
+name|getPollThreads
+parameter_list|()
+block|{
+return|return
+name|pollThreads
+return|;
+block|}
+DECL|method|setPollThreads (Integer pollThreads)
+specifier|public
+name|void
+name|setPollThreads
+parameter_list|(
+name|Integer
+name|pollThreads
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollThreads
+operator|=
+name|pollThreads
+expr_stmt|;
+block|}
+DECL|method|getFileHasher ()
+specifier|public
+name|String
+name|getFileHasher
+parameter_list|()
+block|{
+return|return
+name|fileHasher
+return|;
+block|}
+DECL|method|setFileHasher (String fileHasher)
+specifier|public
+name|void
+name|setFileHasher
+parameter_list|(
+name|String
+name|fileHasher
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileHasher
+operator|=
+name|fileHasher
+expr_stmt|;
+block|}
+DECL|method|getUseFileHashing ()
+specifier|public
+name|Boolean
+name|getUseFileHashing
+parameter_list|()
+block|{
+return|return
+name|useFileHashing
+return|;
+block|}
+DECL|method|setUseFileHashing (Boolean useFileHashing)
+specifier|public
+name|void
+name|setUseFileHashing
+parameter_list|(
+name|Boolean
+name|useFileHashing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useFileHashing
+operator|=
+name|useFileHashing
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean

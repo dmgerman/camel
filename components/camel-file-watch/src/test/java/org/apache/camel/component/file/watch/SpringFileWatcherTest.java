@@ -280,6 +280,15 @@ operator|.
 name|SYNC
 argument_list|)
 expr_stmt|;
+comment|// Adding few millis to avoid fleaky tests
+comment|// The file hasher could sometimes evaluate these two changes as duplicate, as the second modification of file could be done before hashing is done
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 name|Files
 operator|.
 name|write
@@ -355,6 +364,15 @@ argument_list|,
 name|StandardOpenOption
 operator|.
 name|SYNC
+argument_list|)
+expr_stmt|;
+comment|// Adding few millis to avoid fleaky tests
+comment|// The file hasher could sometimes evaluate these two changes as duplicate, as the second modification of file could be done before hashing is done
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
 argument_list|)
 expr_stmt|;
 name|Files
