@@ -98,6 +98,20 @@ name|IntrospectionSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|PropertyBindingSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Component for connecting JMX Notification events to a camel route.  * The endpoint created from this component allows users to specify  * an ObjectName to listen to and any JMX Notifications received from  * that object will flow into the route.  */
 end_comment
@@ -160,22 +174,9 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-comment|// use the helper class to set all of the properties
-name|EndpointHelper
+name|PropertyBindingSupport
 operator|.
-name|setReferenceProperties
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|endpoint
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-name|EndpointHelper
-operator|.
-name|setProperties
+name|bindProperties
 argument_list|(
 name|getCamelContext
 argument_list|()
