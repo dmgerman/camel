@@ -1331,6 +1331,26 @@ name|path
 argument_list|)
 return|;
 block|}
+DECL|method|getObjectById (String id)
+specifier|public
+name|CmisObject
+name|getObjectById
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+return|return
+name|this
+operator|.
+name|session
+operator|.
+name|getObject
+argument_list|(
+name|id
+argument_list|)
+return|;
+block|}
 DECL|method|isObjectTypeVersionable (String objectType)
 specifier|public
 name|boolean

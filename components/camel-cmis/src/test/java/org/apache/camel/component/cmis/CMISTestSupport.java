@@ -622,7 +622,9 @@ control|)
 block|{
 if|if
 condition|(
-literal|"cmis:folder"
+name|CamelCMISConstants
+operator|.
+name|CMIS_FOLDER
 operator|.
 name|equals
 argument_list|(
@@ -954,7 +956,9 @@ name|PropertyIds
 operator|.
 name|OBJECT_TYPE_ID
 argument_list|,
-literal|"cmis:folder"
+name|CamelCMISConstants
+operator|.
+name|CMIS_FOLDER
 argument_list|)
 expr_stmt|;
 name|newFolderProps
@@ -979,7 +983,7 @@ return|;
 block|}
 DECL|method|createTextDocument (Folder newFolder, String content, String fileName)
 specifier|protected
-name|void
+name|Document
 name|createTextDocument
 parameter_list|(
 name|Folder
@@ -1057,7 +1061,9 @@ name|PropertyIds
 operator|.
 name|OBJECT_TYPE_ID
 argument_list|,
-literal|"cmis:document"
+name|CamelCMISConstants
+operator|.
+name|CMIS_DOCUMENT
 argument_list|)
 expr_stmt|;
 name|properties
@@ -1071,6 +1077,7 @@ argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
+return|return
 name|newFolder
 operator|.
 name|createDocument
@@ -1083,7 +1090,7 @@ name|VersioningState
 operator|.
 name|NONE
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|BeforeClass
