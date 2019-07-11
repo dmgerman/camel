@@ -134,7 +134,7 @@ specifier|private
 name|String
 name|produces
 decl_stmt|;
-comment|/**      * Path to the Swagger specification file. The scheme, host base path are      * taken from this specification, but these can be overriden with properties      * on the component or endpoint level. If not given the component tries to      * load swagger.json resource. Note that the host defined on the component      * and endpoint of this Component should contain the scheme, hostname and      * optionally the port in the URI syntax (i.e.      * \https://api.example.com:8080). Can be overridden in endpoint      * configuration.      */
+comment|/**      * Path to the Swagger specification file. The scheme, host base path are      * taken from this specification, but these can be overriden with properties      * on the component or endpoint level. If not given the component tries to      * load swagger.json resource. Note that the host defined on the component      * and endpoint of this Component should contain the scheme, hostname and      * optionally the port in the URI syntax (i.e.      * https://api.example.com:8080). Can be overridden in endpoint      * configuration.      */
 DECL|field|specificationUri
 specifier|private
 name|URI
