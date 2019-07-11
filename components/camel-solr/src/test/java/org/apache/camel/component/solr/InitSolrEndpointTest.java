@@ -216,6 +216,8 @@ operator|+
 literal|"&followRedirects=false&allowCompression=true"
 operator|+
 literal|"&requestHandler=/update"
+operator|+
+literal|"&username=solr&password=SolrRocks"
 return|;
 block|}
 block|}
