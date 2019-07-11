@@ -147,6 +147,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|experimental
+operator|.
+name|categories
+operator|.
+name|Category
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -163,6 +177,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Category
+argument_list|(
+name|Standalone
+operator|.
+name|class
+argument_list|)
 DECL|class|PlatformEventsConsumerIntegrationTest
 specifier|public
 class|class

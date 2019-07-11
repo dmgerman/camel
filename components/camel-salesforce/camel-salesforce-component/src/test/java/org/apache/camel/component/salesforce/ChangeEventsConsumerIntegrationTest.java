@@ -178,11 +178,32 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|experimental
+operator|.
+name|categories
+operator|.
+name|Category
+import|;
+end_import
+
 begin_comment
 comment|/**  * During integration tests setup, Salesforce has been configured to fire change  * events for Account objects. This test merely uses some API calls to trigger  * some change events, and then perform assertion on the received events.  */
 end_comment
 
 begin_class
+annotation|@
+name|Category
+argument_list|(
+name|Standalone
+operator|.
+name|class
+argument_list|)
 DECL|class|ChangeEventsConsumerIntegrationTest
 specifier|public
 class|class
