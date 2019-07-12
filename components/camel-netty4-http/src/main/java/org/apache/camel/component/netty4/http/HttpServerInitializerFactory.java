@@ -709,6 +709,17 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|pipeline
+operator|.
+name|addLast
+argument_list|(
+literal|"streamer"
+argument_list|,
+operator|new
+name|CustomChunkedWriteHandler
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|supportCompressed
