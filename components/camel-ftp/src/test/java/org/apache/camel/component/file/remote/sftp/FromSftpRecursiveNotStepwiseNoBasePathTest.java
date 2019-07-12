@@ -85,10 +85,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|FromSftpRecursiveNotStepwiseNoBasePath
+DECL|class|FromSftpRecursiveNotStepwiseNoBasePathTest
 specifier|public
 class|class
-name|FromSftpRecursiveNotStepwiseNoBasePath
+name|FromSftpRecursiveNotStepwiseNoBasePathTest
 extends|extends
 name|SftpServerTestSupport
 block|{

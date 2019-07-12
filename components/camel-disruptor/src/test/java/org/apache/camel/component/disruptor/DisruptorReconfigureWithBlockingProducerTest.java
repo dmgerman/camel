@@ -78,15 +78,30 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-DECL|class|DisruptorReconfigureWithBlockingProducer
+annotation|@
+name|Ignore
+argument_list|(
+literal|"CAMEL-13629: Flaky test"
+argument_list|)
+DECL|class|DisruptorReconfigureWithBlockingProducerTest
 specifier|public
 class|class
-name|DisruptorReconfigureWithBlockingProducer
+name|DisruptorReconfigureWithBlockingProducerTest
 extends|extends
 name|CamelTestSupport
 block|{

@@ -107,10 +107,10 @@ comment|/**  * Checks that body of type {@link java.io.File} is simply moved avo
 end_comment
 
 begin_class
-DECL|class|FileProducerFileBodyGetsMoved
+DECL|class|FileProducerFileBodyGetsMovedTest
 specifier|public
 class|class
-name|FileProducerFileBodyGetsMoved
+name|FileProducerFileBodyGetsMovedTest
 extends|extends
 name|ContextTestSupport
 block|{

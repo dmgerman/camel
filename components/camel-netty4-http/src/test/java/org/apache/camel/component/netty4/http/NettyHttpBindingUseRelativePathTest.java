@@ -101,10 +101,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyHttpBindingUseRelativePath
+DECL|class|NettyHttpBindingUseRelativePathTest
 specifier|public
 class|class
-name|NettyHttpBindingUseRelativePath
+name|NettyHttpBindingUseRelativePathTest
 extends|extends
 name|BaseNettyTest
 block|{

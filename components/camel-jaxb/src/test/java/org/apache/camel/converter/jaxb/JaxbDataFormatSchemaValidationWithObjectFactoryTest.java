@@ -193,10 +193,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|JaxbDataFormatSchemaValidationTestWithObjectFactory
+DECL|class|JaxbDataFormatSchemaValidationWithObjectFactoryTest
 specifier|public
 class|class
-name|JaxbDataFormatSchemaValidationTestWithObjectFactory
+name|JaxbDataFormatSchemaValidationWithObjectFactoryTest
 extends|extends
 name|CamelTestSupport
 block|{

@@ -126,10 +126,10 @@ name|Parameterized
 operator|.
 name|class
 argument_list|)
-DECL|class|ShardListAtSequenceParametrised
+DECL|class|ShardListAfterSequenceParametrisedTest
 specifier|public
 class|class
-name|ShardListAtSequenceParametrised
+name|ShardListAfterSequenceParametrisedTest
 block|{
 DECL|field|undertest
 specifier|private
@@ -148,9 +148,9 @@ specifier|final
 name|String
 name|expectedShardId
 decl_stmt|;
-DECL|method|ShardListAtSequenceParametrised (String inputSequenceNumber, String expectedShardId)
+DECL|method|ShardListAfterSequenceParametrisedTest (String inputSequenceNumber, String expectedShardId)
 specifier|public
-name|ShardListAtSequenceParametrised
+name|ShardListAfterSequenceParametrisedTest
 parameter_list|(
 name|String
 name|inputSequenceNumber
@@ -265,7 +265,7 @@ index|[]
 block|{
 literal|"15"
 block|,
-literal|"b"
+literal|"c"
 block|}
 argument_list|)
 expr_stmt|;
@@ -279,7 +279,7 @@ index|[]
 block|{
 literal|"16"
 block|,
-literal|"c"
+literal|"d"
 block|}
 argument_list|)
 expr_stmt|;
@@ -396,7 +396,7 @@ name|assertThat
 argument_list|(
 name|undertest
 operator|.
-name|atSeq
+name|afterSeq
 argument_list|(
 name|inputSequenceNumber
 argument_list|)

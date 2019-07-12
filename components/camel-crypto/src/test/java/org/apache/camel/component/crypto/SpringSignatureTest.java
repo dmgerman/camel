@@ -154,7 +154,7 @@ specifier|public
 class|class
 name|SpringSignatureTest
 extends|extends
-name|SignatureTests
+name|SignatureTest
 block|{
 DECL|field|rsaPair
 specifier|private
@@ -185,7 +185,7 @@ argument_list|(
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/crypto/SpringSignatureTests.xml"
+literal|"org/apache/camel/component/crypto/SpringSignatureTest.xml"
 argument_list|)
 argument_list|,
 literal|true
@@ -217,7 +217,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|SignatureTests
+name|SignatureTest
 argument_list|()
 operator|.
 name|getKeyFromKeystore

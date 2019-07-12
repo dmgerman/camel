@@ -149,10 +149,10 @@ comment|/**  * Tests to ensure that arbitrary headers can be stored as raw text 
 end_comment
 
 begin_class
-DECL|class|JdbcAggregateStoreAsText
+DECL|class|JdbcAggregateStoreAsTextTest
 specifier|public
 class|class
-name|JdbcAggregateStoreAsText
+name|JdbcAggregateStoreAsTextTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
