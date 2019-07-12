@@ -130,10 +130,6 @@ name|InputStream
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author<a href="mailto:zfeng@redhat.com">Zheng Feng</a>  */
-end_comment
-
 begin_class
 DECL|class|ChunkedHttpResponse
 specifier|public
