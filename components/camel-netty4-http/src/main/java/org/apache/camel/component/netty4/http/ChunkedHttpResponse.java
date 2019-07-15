@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|netty
@@ -117,16 +127,6 @@ operator|.
 name|stream
 operator|.
 name|ChunkedStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
 import|;
 end_import
 
