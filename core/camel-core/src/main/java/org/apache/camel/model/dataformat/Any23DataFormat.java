@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -57,6 +77,20 @@ operator|.
 name|annotation
 operator|.
 name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElement
 import|;
 end_import
 
@@ -112,7 +146,7 @@ name|Metadata
 argument_list|(
 name|firstVersion
 operator|=
-literal|"1.0.0"
+literal|"3.0.0"
 argument_list|,
 name|label
 operator|=
@@ -150,33 +184,41 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"MODEL"
+literal|"RDFXML"
 argument_list|)
 DECL|field|outputFormat
 specifier|private
-name|String
+name|Any23Type
 name|outputFormat
 decl_stmt|;
 annotation|@
-name|XmlAttribute
+name|XmlElement
 DECL|field|configurations
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|configurations
 decl_stmt|;
 annotation|@
-name|XmlAttribute
+name|XmlElement
 DECL|field|extractors
 specifier|private
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|extractors
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|baseuri
+DECL|field|baseURI
 specifier|private
 name|String
-name|baseuri
+name|baseURI
 decl_stmt|;
 DECL|method|Any23DataFormat ()
 specifier|public
@@ -202,19 +244,19 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|baseuri
+name|baseURI
 operator|=
 name|baseuri
 expr_stmt|;
 block|}
-DECL|method|Any23DataFormat (String baseuri, String outputFormat)
+DECL|method|Any23DataFormat (String baseuri, Any23Type outputFormat)
 specifier|public
 name|Any23DataFormat
 parameter_list|(
 name|String
 name|baseuri
 parameter_list|,
-name|String
+name|Any23Type
 name|outputFormat
 parameter_list|)
 block|{
@@ -230,17 +272,22 @@ operator|=
 name|outputFormat
 expr_stmt|;
 block|}
-DECL|method|Any23DataFormat (String baseuri, String outputFormat, String configurations)
+DECL|method|Any23DataFormat (String baseuri, Any23Type outputFormat, Map<String, String> configurations)
 specifier|public
 name|Any23DataFormat
 parameter_list|(
 name|String
 name|baseuri
 parameter_list|,
-name|String
+name|Any23Type
 name|outputFormat
 parameter_list|,
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|configurations
 parameter_list|)
 block|{
@@ -264,20 +311,28 @@ operator|=
 name|configurations
 expr_stmt|;
 block|}
-DECL|method|Any23DataFormat (String baseuri, String outputFormat, String configurations, String extractors)
+DECL|method|Any23DataFormat (String baseuri, Any23Type outputFormat, Map<String, String> configurations, List<String> extractors)
 specifier|public
 name|Any23DataFormat
 parameter_list|(
 name|String
 name|baseuri
 parameter_list|,
-name|String
+name|Any23Type
 name|outputFormat
 parameter_list|,
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|configurations
 parameter_list|,
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|extractors
 parameter_list|)
 block|{
@@ -311,7 +366,7 @@ expr_stmt|;
 block|}
 DECL|method|getOutputFormat ()
 specifier|public
-name|String
+name|Any23Type
 name|getOutputFormat
 parameter_list|()
 block|{
@@ -319,12 +374,12 @@ return|return
 name|outputFormat
 return|;
 block|}
-DECL|method|setOutputFormat (String outputFormat)
+DECL|method|setOutputFormat (Any23Type outputFormat)
 specifier|public
 name|void
 name|setOutputFormat
 parameter_list|(
-name|String
+name|Any23Type
 name|outputFormat
 parameter_list|)
 block|{
@@ -337,7 +392,12 @@ expr_stmt|;
 block|}
 DECL|method|getConfigurations ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|getConfigurations
 parameter_list|()
 block|{
@@ -345,12 +405,17 @@ return|return
 name|configurations
 return|;
 block|}
-DECL|method|setConfigurations (String configurations)
+DECL|method|setConfigurations (Map<String, String> configurations)
 specifier|public
 name|void
 name|setConfigurations
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|configurations
 parameter_list|)
 block|{
@@ -363,7 +428,10 @@ expr_stmt|;
 block|}
 DECL|method|getExtractors ()
 specifier|public
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|getExtractors
 parameter_list|()
 block|{
@@ -371,12 +439,15 @@ return|return
 name|extractors
 return|;
 block|}
-DECL|method|setExtractors (String extractors)
+DECL|method|setExtractors (List<String> extractors)
 specifier|public
 name|void
 name|setExtractors
 parameter_list|(
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|extractors
 parameter_list|)
 block|{
@@ -387,30 +458,30 @@ operator|=
 name|extractors
 expr_stmt|;
 block|}
-DECL|method|getBaseuri ()
+DECL|method|getBaseURI ()
 specifier|public
 name|String
-name|getBaseuri
+name|getBaseURI
 parameter_list|()
 block|{
 return|return
-name|baseuri
+name|baseURI
 return|;
 block|}
-DECL|method|setBaseuri (String baseuri)
+DECL|method|setBaseURI (String baseURI)
 specifier|public
 name|void
-name|setBaseuri
+name|setBaseURI
 parameter_list|(
 name|String
-name|baseuri
+name|baseURI
 parameter_list|)
 block|{
 name|this
 operator|.
-name|baseuri
+name|baseURI
 operator|=
-name|baseuri
+name|baseURI
 expr_stmt|;
 block|}
 block|}

@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -92,13 +102,6 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-DECL|field|outputFormat
-specifier|private
-name|String
-name|outputFormat
-init|=
-literal|"MODEL"
-decl_stmt|;
 DECL|field|configurations
 specifier|private
 name|String
@@ -106,13 +109,16 @@ name|configurations
 decl_stmt|;
 DECL|field|extractors
 specifier|private
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|extractors
 decl_stmt|;
-DECL|field|baseuri
+DECL|field|baseURI
 specifier|private
 name|String
-name|baseuri
+name|baseURI
 decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
@@ -122,32 +128,6 @@ name|contentTypeHeader
 init|=
 literal|false
 decl_stmt|;
-DECL|method|getOutputFormat ()
-specifier|public
-name|String
-name|getOutputFormat
-parameter_list|()
-block|{
-return|return
-name|outputFormat
-return|;
-block|}
-DECL|method|setOutputFormat (String outputFormat)
-specifier|public
-name|void
-name|setOutputFormat
-parameter_list|(
-name|String
-name|outputFormat
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputFormat
-operator|=
-name|outputFormat
-expr_stmt|;
-block|}
 DECL|method|getConfigurations ()
 specifier|public
 name|String
@@ -176,7 +156,10 @@ expr_stmt|;
 block|}
 DECL|method|getExtractors ()
 specifier|public
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|getExtractors
 parameter_list|()
 block|{
@@ -184,12 +167,15 @@ return|return
 name|extractors
 return|;
 block|}
-DECL|method|setExtractors (String extractors)
+DECL|method|setExtractors (List<String> extractors)
 specifier|public
 name|void
 name|setExtractors
 parameter_list|(
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|extractors
 parameter_list|)
 block|{
@@ -200,30 +186,30 @@ operator|=
 name|extractors
 expr_stmt|;
 block|}
-DECL|method|getBaseuri ()
+DECL|method|getBaseURI ()
 specifier|public
 name|String
-name|getBaseuri
+name|getBaseURI
 parameter_list|()
 block|{
 return|return
-name|baseuri
+name|baseURI
 return|;
 block|}
-DECL|method|setBaseuri (String baseuri)
+DECL|method|setBaseURI (String baseURI)
 specifier|public
 name|void
-name|setBaseuri
+name|setBaseURI
 parameter_list|(
 name|String
-name|baseuri
+name|baseURI
 parameter_list|)
 block|{
 name|this
 operator|.
-name|baseuri
+name|baseURI
 operator|=
-name|baseuri
+name|baseURI
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()

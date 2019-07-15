@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -107,6 +117,22 @@ operator|.
 name|dataformat
 operator|.
 name|ASN1DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
+name|Any23Type
 import|;
 end_import
 
@@ -787,7 +813,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|any23 (String baseuri, String outputformat)
+DECL|method|any23 (String baseuri, Any23Type outputformat)
 specifier|public
 name|T
 name|any23
@@ -795,7 +821,7 @@ parameter_list|(
 name|String
 name|baseuri
 parameter_list|,
-name|String
+name|Any23Type
 name|outputformat
 parameter_list|)
 block|{
@@ -812,7 +838,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|any23 (String baseuri, String outputformat, String configurations)
+DECL|method|any23 (String baseuri, Any23Type outputformat, Map<String, String> configurations)
 specifier|public
 name|T
 name|any23
@@ -820,10 +846,15 @@ parameter_list|(
 name|String
 name|baseuri
 parameter_list|,
-name|String
+name|Any23Type
 name|outputformat
 parameter_list|,
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|configurations
 parameter_list|)
 block|{
@@ -842,7 +873,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|any23 (String baseuri, String outputformat, String configurations, String extractors)
+DECL|method|any23 (String baseuri, Any23Type outputformat, Map<String, String> configurations, List<String> extractors)
 specifier|public
 name|T
 name|any23
@@ -850,13 +881,21 @@ parameter_list|(
 name|String
 name|baseuri
 parameter_list|,
-name|String
+name|Any23Type
 name|outputformat
 parameter_list|,
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|configurations
 parameter_list|,
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|extractors
 parameter_list|)
 block|{
