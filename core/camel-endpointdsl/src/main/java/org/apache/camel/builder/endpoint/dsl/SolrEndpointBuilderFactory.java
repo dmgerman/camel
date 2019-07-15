@@ -509,6 +509,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets password for basic auth plugin enabled servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|password (String password)
+specifier|default
+name|SolrEndpointBuilder
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"password"
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets username for basic auth plugin enabled servers.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|username (String username)
+specifier|default
+name|SolrEndpointBuilder
+name|username
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"username"
+argument_list|,
+name|username
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Set the collection name which the solrCloud server could use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: solrCloud          */
 DECL|method|collection (String collection)
 specifier|default
