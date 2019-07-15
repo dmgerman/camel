@@ -30,7 +30,6 @@ DECL|enumConstant|NQUADS
 DECL|enumConstant|RDFXML
 DECL|enumConstant|JSONLD
 DECL|enumConstant|RDFJSON
-DECL|enumConstant|MODEL
 name|NTRIPLES
 block|,
 name|TURTLE
@@ -42,8 +41,6 @@ block|,
 name|JSONLD
 block|,
 name|RDFJSON
-block|,
-name|MODEL
 block|}
 end_enum
 
