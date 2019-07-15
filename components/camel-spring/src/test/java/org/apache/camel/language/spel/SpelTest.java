@@ -123,6 +123,41 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"#{request.Headers.foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"#{getRequest().Headers.foo}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"#{request.Headers.foo == 'abc'}"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"#{request.headers.bar == 123}"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"#{request.headers.bar> 10}"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"#{6 / -3}"
 argument_list|,
 operator|-
@@ -153,6 +188,21 @@ expr_stmt|;
 name|assertPredicateFails
 argument_list|(
 literal|"#{request.headers['foo'] == 'badString'}"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"#{request.headers.foo.startsWith('a')}"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"#{request.headers.foo == 'abc'}"
+argument_list|)
+expr_stmt|;
+name|assertPredicateFails
+argument_list|(
+literal|"#{request.headers.foo == 'badString'}"
 argument_list|)
 expr_stmt|;
 block|}
