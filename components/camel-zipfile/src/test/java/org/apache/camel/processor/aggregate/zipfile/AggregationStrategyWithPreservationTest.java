@@ -191,6 +191,15 @@ name|EXPECTED_NO_FILES
 init|=
 literal|5
 decl_stmt|;
+DECL|field|TEST_DIR
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TEST_DIR
+init|=
+literal|"target/out_AggregationStrategyWithPreservationTest"
+decl_stmt|;
 annotation|@
 name|Override
 annotation|@
@@ -205,7 +214,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/out"
+name|TEST_DIR
 argument_list|)
 expr_stmt|;
 name|super
@@ -242,13 +251,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
 name|File
 index|[]
 name|files
@@ -256,15 +258,24 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/out"
+name|TEST_DIR
 argument_list|)
 operator|.
 name|listFiles
 argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|files
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be a file in target/out directory"
+literal|"Should be a file in "
+operator|+
+name|TEST_DIR
+operator|+
+literal|" directory"
 argument_list|,
 name|files
 operator|.
@@ -295,21 +306,9 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|"another"
-operator|+
-name|File
-operator|.
-name|separator
-operator|+
-literal|"hello.txt"
+literal|"another/hello.txt"
 argument_list|,
-literal|"other"
-operator|+
-name|File
-operator|.
-name|separator
-operator|+
-literal|"greetings.txt"
+literal|"other/greetings.txt"
 argument_list|,
 literal|"chiau.txt"
 argument_list|,
@@ -361,6 +360,23 @@ name|getNextEntry
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|ze
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Found unexpected entry "
+operator|+
+name|ze
+operator|+
+literal|" in zipfile"
+argument_list|,
 name|expectedZipFiles
 operator|.
 name|remove
@@ -370,20 +386,27 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|fileCount
 operator|++
 expr_stmt|;
 block|}
+block|}
 name|assertTrue
 argument_list|(
-literal|"Zip file should contains "
-operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Zip file should contains %d files, got %d files"
+argument_list|,
 name|AggregationStrategyWithPreservationTest
 operator|.
 name|EXPECTED_NO_FILES
-operator|+
-literal|" files"
+argument_list|,
+name|fileCount
+argument_list|)
 argument_list|,
 name|fileCount
 operator|==
@@ -394,7 +417,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should have found all of the zip files in the file."
+literal|"Should have found all of the zip files in the file. Remaining: "
+operator|+
+name|expectedZipFiles
 argument_list|,
 literal|0
 argument_list|,
@@ -470,7 +495,9 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"file:target/out"
+literal|"file:"
+operator|+
+name|TEST_DIR
 argument_list|)
 operator|.
 name|to

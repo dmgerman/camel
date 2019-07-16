@@ -161,6 +161,15 @@ name|EXPECTED_NO_FILES
 init|=
 literal|3
 decl_stmt|;
+DECL|field|TEST_DIR
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TEST_DIR
+init|=
+literal|"target/out_ZipAggregationStrategyTest"
+decl_stmt|;
 annotation|@
 name|Override
 annotation|@
@@ -175,7 +184,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/out"
+name|TEST_DIR
 argument_list|)
 expr_stmt|;
 name|super
@@ -221,13 +230,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
 name|File
 index|[]
 name|files
@@ -235,22 +237,24 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"target/out"
+name|TEST_DIR
 argument_list|)
 operator|.
 name|listFiles
 argument_list|()
 decl_stmt|;
-name|assertTrue
+name|assertNotNull
 argument_list|(
 name|files
-operator|!=
-literal|null
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be a file in target/out directory"
+literal|"Should be a file in "
+operator|+
+name|TEST_DIR
+operator|+
+literal|" directory"
 argument_list|,
 name|files
 operator|.
@@ -310,10 +314,7 @@ argument_list|()
 control|)
 block|{
 name|fileCount
-operator|=
-name|fileCount
-operator|+
-literal|1
+operator|++
 expr_stmt|;
 block|}
 name|assertEquals
@@ -405,7 +406,9 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"file:target/out"
+literal|"file:"
+operator|+
+name|TEST_DIR
 argument_list|)
 operator|.
 name|to
