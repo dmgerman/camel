@@ -644,7 +644,10 @@ literal|0
 argument_list|,
 name|response
 operator|.
-name|totalHits
+name|getTotalHits
+argument_list|()
+operator|.
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -768,7 +771,10 @@ literal|0
 argument_list|,
 name|response
 operator|.
-name|totalHits
+name|getTotalHits
+argument_list|()
+operator|.
+name|value
 argument_list|)
 expr_stmt|;
 comment|// testing
@@ -802,7 +808,10 @@ literal|0
 argument_list|,
 name|response
 operator|.
-name|totalHits
+name|getTotalHits
+argument_list|()
+operator|.
+name|value
 argument_list|)
 expr_stmt|;
 block|}

@@ -309,15 +309,6 @@ argument_list|,
 literal|"*"
 argument_list|)
 expr_stmt|;
-name|settingsBuilder
-operator|.
-name|put
-argument_list|(
-literal|"discovery.zen.ping.unicast.hosts"
-argument_list|,
-literal|"127.0.0.1:9301,127.0.0.1:9302,127.0.0.1:9303"
-argument_list|)
-expr_stmt|;
 block|}
 argument_list|)
 operator|.
@@ -333,7 +324,7 @@ argument_list|)
 operator|.
 name|numOfNode
 argument_list|(
-literal|3
+literal|1
 argument_list|)
 operator|.
 name|baseHttpPort
@@ -345,9 +336,6 @@ name|basePath
 argument_list|(
 literal|"target/testcluster/"
 argument_list|)
-operator|.
-name|disableESLogger
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// wait for green status
@@ -369,7 +357,7 @@ name|InetAddress
 operator|.
 name|getByName
 argument_list|(
-literal|"localhost"
+literal|"127.0.0.1"
 argument_list|)
 argument_list|,
 name|ES_FIRST_NODE_TRANSPORT_PORT
