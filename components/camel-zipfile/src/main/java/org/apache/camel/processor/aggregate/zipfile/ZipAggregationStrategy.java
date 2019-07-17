@@ -1247,6 +1247,10 @@ argument_list|,
 name|StandardOpenOption
 operator|.
 name|CREATE
+argument_list|,
+name|StandardOpenOption
+operator|.
+name|TRUNCATE_EXISTING
 argument_list|)
 expr_stmt|;
 block|}
