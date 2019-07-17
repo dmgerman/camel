@@ -81,6 +81,8 @@ block|{
 comment|// utility class
 block|}
 comment|/**      * Callback interface invoked on each field in the hierarchy.      */
+annotation|@
+name|FunctionalInterface
 DECL|interface|FieldCallback
 specifier|public
 interface|interface
@@ -101,6 +103,8 @@ name|IllegalAccessException
 function_decl|;
 block|}
 comment|/**      * Action to take on each method.      */
+annotation|@
+name|FunctionalInterface
 DECL|interface|MethodCallback
 specifier|public
 interface|interface
@@ -121,6 +125,8 @@ name|IllegalAccessException
 function_decl|;
 block|}
 comment|/**      * Action to take on each class.      */
+annotation|@
+name|FunctionalInterface
 DECL|interface|ClassCallback
 specifier|public
 interface|interface
