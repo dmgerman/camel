@@ -216,20 +216,6 @@ name|action
 operator|.
 name|search
 operator|.
-name|MultiSearchRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
 name|SearchRequest
 import|;
 end_import
@@ -1196,7 +1182,8 @@ operator|new
 name|SearchRequest
 argument_list|()
 decl_stmt|;
-comment|// Only setup the indexName and indexType if the message header has the setting
+comment|// Only setup the indexName and indexType if the message header has the
+comment|// setting
 name|String
 name|indexName
 init|=
@@ -1313,7 +1300,8 @@ argument_list|>
 operator|)
 name|queryObject
 decl_stmt|;
-comment|// Remove 'query' prefix from the query object for backward compatibility
+comment|// Remove 'query' prefix from the query object for backward
+comment|// compatibility
 if|if
 condition|(
 name|mapQuery
