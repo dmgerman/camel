@@ -60,6 +60,16 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|MongoClient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -165,6 +175,12 @@ name|remove
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|/**      * A connection client provided externally      */
+DECL|field|mongoConnection
+specifier|private
+name|MongoClient
+name|mongoConnection
+decl_stmt|;
 DECL|method|MongoDbComponent ()
 specifier|public
 name|MongoDbComponent
@@ -230,6 +246,13 @@ argument_list|(
 name|remaining
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|setMongoConnection
+argument_list|(
+name|mongoConnection
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -240,6 +263,34 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+comment|/**      * Get the client used for connection      *      * @return the client using for connection to db      */
+DECL|method|getMongoConnection ()
+specifier|public
+name|MongoClient
+name|getMongoConnection
+parameter_list|()
+block|{
+return|return
+name|mongoConnection
+return|;
+block|}
+comment|/**      * Set the client used for connection      *      * @param mongoConnection      */
+DECL|method|setMongoConnection (MongoClient mongoConnection)
+specifier|public
+name|void
+name|setMongoConnection
+parameter_list|(
+name|MongoClient
+name|mongoConnection
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mongoConnection
+operator|=
+name|mongoConnection
+expr_stmt|;
 block|}
 annotation|@
 name|Override
