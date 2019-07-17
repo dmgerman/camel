@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used for binding a bean to the registry  *  * If no name is specified then the bean will have its name auto computed based on the  * class name, field name, or method name where the annotation is configured.  */
+comment|/**  * Used for binding a bean to the registry.  *  * If no name is specified then the bean will have its name auto computed based on the  * class name, field name, or method name where the annotation is configured.  */
 end_comment
 
 begin_annotation_defn
@@ -125,6 +125,15 @@ name|context
 parameter_list|()
 default|default
 literal|""
+function_decl|;
+comment|/**      * Whether to perform bean post processing (dependency injection) on the bean      */
+DECL|method|beanPostProcess ()
+DECL|field|false
+name|boolean
+name|beanPostProcess
+parameter_list|()
+default|default
+literal|false
 function_decl|;
 block|}
 end_annotation_defn
