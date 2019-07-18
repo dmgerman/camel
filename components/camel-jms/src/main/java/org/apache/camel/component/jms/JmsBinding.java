@@ -2438,6 +2438,12 @@ name|equals
 argument_list|(
 literal|"JMSCorrelationID"
 argument_list|)
+operator|&&
+operator|!
+name|endpoint
+operator|.
+name|isUseMessageIDAsCorrelationID
+argument_list|()
 condition|)
 block|{
 name|jmsMessage
