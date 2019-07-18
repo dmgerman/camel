@@ -387,7 +387,6 @@ literal|"undertow:http://localhost:{{port}}?useStreaming=true"
 argument_list|,
 name|e
 lambda|->
-block|{
 name|e
 operator|.
 name|getIn
@@ -397,8 +396,6 @@ name|setBody
 argument_list|(
 literal|"Hello Camel!"
 argument_list|)
-expr_stmt|;
-block|}
 argument_list|)
 decl_stmt|;
 name|consumeStream
