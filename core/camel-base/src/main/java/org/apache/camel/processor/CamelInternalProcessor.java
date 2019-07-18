@@ -1153,7 +1153,7 @@ return|;
 block|}
 comment|/**      * Strategy to determine if we should continue processing the {@link Exchange}.      */
 DECL|method|continueProcessing (Exchange exchange)
-specifier|protected
+specifier|private
 name|boolean
 name|continueProcessing
 parameter_list|(
@@ -1575,7 +1575,6 @@ expr_stmt|;
 block|}
 comment|/**          * Strategy to determine if this policy is allowed to run          *          * @param policy the policy          * @return<tt>true</tt> to run          */
 DECL|method|isRoutePolicyRunAllowed (RoutePolicy policy)
-specifier|protected
 name|boolean
 name|isRoutePolicyRunAllowed
 parameter_list|(
@@ -1772,25 +1771,17 @@ block|{
 if|if
 condition|(
 name|context
-operator|instanceof
-name|StatefulService
+operator|!=
+literal|null
 condition|)
 block|{
-name|StatefulService
-name|ss
-init|=
-operator|(
-name|StatefulService
-operator|)
-name|context
-decl_stmt|;
 return|return
-name|ss
+name|context
 operator|.
 name|isStopping
 argument_list|()
 operator|||
-name|ss
+name|context
 operator|.
 name|isStopped
 argument_list|()
@@ -2378,13 +2369,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|StopWatch
-name|watch
-init|=
-operator|new
-name|StopWatch
-argument_list|()
-decl_stmt|;
 name|debugger
 operator|.
 name|beforeProcess
@@ -2397,7 +2381,9 @@ name|definition
 argument_list|)
 expr_stmt|;
 return|return
-name|watch
+operator|new
+name|StopWatch
+argument_list|()
 return|;
 block|}
 annotation|@
