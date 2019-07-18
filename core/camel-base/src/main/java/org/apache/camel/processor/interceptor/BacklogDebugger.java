@@ -656,16 +656,6 @@ name|class
 argument_list|)
 return|;
 block|}
-DECL|method|getDebugger ()
-specifier|public
-name|Debugger
-name|getDebugger
-parameter_list|()
-block|{
-return|return
-name|debugger
-return|;
-block|}
 DECL|method|getLoggingLevel ()
 specifier|public
 name|String
