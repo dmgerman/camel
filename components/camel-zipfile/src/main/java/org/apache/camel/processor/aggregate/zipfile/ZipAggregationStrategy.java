@@ -944,10 +944,7 @@ name|zipFile
 operator|.
 name|exists
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|zipFile
 operator|.
@@ -955,7 +952,7 @@ name|delete
 argument_list|()
 condition|)
 block|{
-comment|// Delete, because ZipFileSystem needs to create file on its own (with correct END bytes in the file)
+comment|//Delete, because ZipFileSystem needs to create file on its own (with correct END bytes in the file)
 throw|throw
 operator|new
 name|IOException
@@ -966,12 +963,11 @@ name|zipFile
 argument_list|)
 throw|;
 block|}
-block|}
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|env
 init|=
@@ -994,6 +990,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//Intentionally String, it is implemented this way in ZipFileSystem
 try|try
 init|(
 name|FileSystem
@@ -1052,7 +1049,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|env
 init|=
@@ -1067,16 +1064,12 @@ name|put
 argument_list|(
 literal|"useTempFile"
 argument_list|,
-name|Boolean
-operator|.
-name|toString
-argument_list|(
 name|this
 operator|.
 name|useTempFile
 argument_list|)
-argument_list|)
 expr_stmt|;
+comment|//Intentionally boolean, it is implemented this way in ZipFileSystem
 try|try
 init|(
 name|FileSystem
@@ -1162,7 +1155,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|env
 init|=
@@ -1186,16 +1179,12 @@ name|put
 argument_list|(
 literal|"useTempFile"
 argument_list|,
-name|Boolean
-operator|.
-name|toString
-argument_list|(
 name|this
 operator|.
 name|useTempFile
 argument_list|)
-argument_list|)
 expr_stmt|;
+comment|//Intentionally boolean, it is implemented this way in ZipFileSystem
 try|try
 init|(
 name|FileSystem
