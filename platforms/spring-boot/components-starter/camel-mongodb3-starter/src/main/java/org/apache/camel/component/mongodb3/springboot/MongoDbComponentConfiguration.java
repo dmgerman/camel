@@ -92,6 +92,12 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * Set a client used for connection: all endpoints generated from the      * component will share this connection bean. The option is a      * com.mongodb.MongoClient type.      */
+DECL|field|mongoConnection
+specifier|private
+name|String
+name|mongoConnection
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -108,6 +114,32 @@ name|basicPropertyBinding
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getMongoConnection ()
+specifier|public
+name|String
+name|getMongoConnection
+parameter_list|()
+block|{
+return|return
+name|mongoConnection
+return|;
+block|}
+DECL|method|setMongoConnection (String mongoConnection)
+specifier|public
+name|void
+name|setMongoConnection
+parameter_list|(
+name|String
+name|mongoConnection
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mongoConnection
+operator|=
+name|mongoConnection
+expr_stmt|;
+block|}
 DECL|method|getResolvePropertyPlaceholders ()
 specifier|public
 name|Boolean
