@@ -142,13 +142,6 @@ name|indexName
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|indexType
-specifier|private
-name|String
-name|indexType
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
@@ -410,33 +403,6 @@ operator|.
 name|indexName
 operator|=
 name|indexName
-expr_stmt|;
-block|}
-comment|/**      * The type of the index to act against      */
-DECL|method|getIndexType ()
-specifier|public
-name|String
-name|getIndexType
-parameter_list|()
-block|{
-return|return
-name|indexType
-return|;
-block|}
-DECL|method|setIndexType (String indexType)
-specifier|public
-name|void
-name|setIndexType
-parameter_list|(
-name|String
-name|indexType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|indexType
-operator|=
-name|indexType
 expr_stmt|;
 block|}
 comment|/**      * Comma separated list with ip:port formatted remote transport addresses to use.      */

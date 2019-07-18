@@ -830,11 +830,6 @@ name|indices
 argument_list|(
 name|indexName
 argument_list|)
-operator|.
-name|types
-argument_list|(
-literal|"tweet"
-argument_list|)
 decl_stmt|;
 name|SearchSourceBuilder
 name|searchSourceBuilder
@@ -900,7 +895,7 @@ literal|"elasticsearch-rest://elasticsearch?operation=Index&indexName="
 operator|+
 name|TWITTER_ES_INDEX_NAME
 operator|+
-literal|"&indexType=tweet&hostAddresses=localhost:"
+literal|"&hostAddresses=localhost:"
 operator|+
 name|ES_BASE_HTTP_PORT
 argument_list|)
@@ -916,7 +911,7 @@ literal|"elasticsearch-rest://elasticsearch?operation=Search&indexName="
 operator|+
 name|TWITTER_ES_INDEX_NAME
 operator|+
-literal|"&indexType=tweet&hostAddresses=localhost:"
+literal|"&hostAddresses=localhost:"
 operator|+
 name|ES_BASE_HTTP_PORT
 argument_list|)
@@ -932,7 +927,7 @@ literal|"elasticsearch-rest://elasticsearch?operation=Index&indexName="
 operator|+
 name|SPLIT_TWITTER_ES_INDEX_NAME
 operator|+
-literal|"&indexType=tweet&hostAddresses=localhost:"
+literal|"&hostAddresses=localhost:"
 operator|+
 name|ES_BASE_HTTP_PORT
 argument_list|)
@@ -950,7 +945,7 @@ literal|"useScroll=true&scrollKeepAliveMs=50000&operation=Search&indexName="
 operator|+
 name|SPLIT_TWITTER_ES_INDEX_NAME
 operator|+
-literal|"&indexType=tweet&hostAddresses=localhost:"
+literal|"&hostAddresses=localhost:"
 operator|+
 name|ES_BASE_HTTP_PORT
 argument_list|)

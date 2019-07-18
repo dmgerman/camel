@@ -278,27 +278,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type of the index to act against.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|indexType (String indexType)
-specifier|default
-name|ElasticsearchEndpointBuilder
-name|indexType
-parameter_list|(
-name|String
-name|indexType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"indexType"
-argument_list|,
-name|indexType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The time in ms before retry.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|maxRetryTimeout (int maxRetryTimeout)
 specifier|default

@@ -42,12 +42,6 @@ name|PARAM_INDEX_NAME
 init|=
 literal|"indexName"
 decl_stmt|;
-DECL|field|PARAM_INDEX_TYPE
-name|String
-name|PARAM_INDEX_TYPE
-init|=
-literal|"indexType"
-decl_stmt|;
 DECL|field|PARAM_WAIT_FOR_ACTIVE_SHARDS
 name|String
 name|PARAM_WAIT_FOR_ACTIVE_SHARDS

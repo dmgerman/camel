@@ -652,7 +652,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch-rest://elasticsearch?operation=BulkIndex&indexName=twitter&indexType=tweet"
+literal|"elasticsearch-rest://elasticsearch?operation=BulkIndex&indexName=twitter"
 argument_list|)
 expr_stmt|;
 name|from
@@ -662,7 +662,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch-rest://elasticsearch?operation=Bulk&indexName=twitter&indexType=tweet&hostAddresses=localhost:"
+literal|"elasticsearch-rest://elasticsearch?operation=Bulk&indexName=twitter&hostAddresses=localhost:"
 operator|+
 name|ES_BASE_HTTP_PORT
 argument_list|)
