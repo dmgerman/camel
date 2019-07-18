@@ -404,7 +404,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|search (String searchPhrase, int maxNumberOfHits)
+DECL|method|search (String searchPhrase, int maxNumberOfHits, int totalHitsThreshold)
 specifier|public
 name|Hits
 name|search
@@ -414,6 +414,9 @@ name|searchPhrase
 parameter_list|,
 name|int
 name|maxNumberOfHits
+parameter_list|,
+name|int
+name|totalHitsThreshold
 parameter_list|)
 throws|throws
 name|Exception
@@ -425,6 +428,8 @@ name|searchPhrase
 argument_list|,
 name|maxNumberOfHits
 argument_list|,
+name|totalHitsThreshold
+argument_list|,
 name|LuceneConstants
 operator|.
 name|LUCENE_VERSION
@@ -433,7 +438,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-DECL|method|search (String searchPhrase, int maxNumberOfHits, Version luceneVersion, boolean returnLuceneDocs)
+DECL|method|search (String searchPhrase, int maxNumberOfHits, int totalHitsThreshold, Version luceneVersion, boolean returnLuceneDocs)
 specifier|public
 name|Hits
 name|search
@@ -443,6 +448,9 @@ name|searchPhrase
 parameter_list|,
 name|int
 name|maxNumberOfHits
+parameter_list|,
+name|int
+name|totalHitsThreshold
 parameter_list|,
 name|Version
 name|luceneVersion
@@ -468,6 +476,8 @@ argument_list|(
 name|searchPhrase
 argument_list|,
 name|maxNumberOfHits
+argument_list|,
+name|totalHitsThreshold
 argument_list|,
 name|luceneVersion
 argument_list|)
@@ -564,7 +574,7 @@ return|return
 name|searchHits
 return|;
 block|}
-DECL|method|doSearch (String searchPhrase, int maxNumberOfHits, Version luceneVersion)
+DECL|method|doSearch (String searchPhrase, int maxNumberOfHits, int totalHitsThreshold, Version luceneVersion)
 specifier|private
 name|int
 name|doSearch
@@ -574,6 +584,9 @@ name|searchPhrase
 parameter_list|,
 name|int
 name|maxNumberOfHits
+parameter_list|,
+name|int
+name|totalHitsThreshold
 parameter_list|,
 name|Version
 name|luceneVersion
@@ -623,6 +636,8 @@ operator|.
 name|create
 argument_list|(
 name|maxNumberOfHits
+argument_list|,
+name|totalHitsThreshold
 argument_list|)
 decl_stmt|;
 name|indexSearcher

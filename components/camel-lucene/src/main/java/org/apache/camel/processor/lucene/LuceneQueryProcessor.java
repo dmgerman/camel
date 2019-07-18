@@ -166,12 +166,17 @@ specifier|private
 name|int
 name|maxNumberOfHits
 decl_stmt|;
+DECL|field|totalHitsThreshold
+specifier|private
+name|int
+name|totalHitsThreshold
+decl_stmt|;
 DECL|field|luceneVersion
 specifier|private
 name|Version
 name|luceneVersion
 decl_stmt|;
-DECL|method|LuceneQueryProcessor (String indexDirectoryPath, Analyzer analyzer, String defaultSearchPhrase, int maxNumberOfHits)
+DECL|method|LuceneQueryProcessor (String indexDirectoryPath, Analyzer analyzer, String defaultSearchPhrase, int maxNumberOfHits, int totalHitsThreshold)
 specifier|public
 name|LuceneQueryProcessor
 parameter_list|(
@@ -186,6 +191,9 @@ name|defaultSearchPhrase
 parameter_list|,
 name|int
 name|maxNumberOfHits
+parameter_list|,
+name|int
+name|totalHitsThreshold
 parameter_list|)
 block|{
 name|this
@@ -320,6 +328,8 @@ argument_list|(
 name|phrase
 argument_list|,
 name|maxNumberOfHits
+argument_list|,
+name|totalHitsThreshold
 argument_list|,
 name|luceneVersion
 argument_list|,
@@ -503,6 +513,32 @@ block|{
 return|return
 name|luceneVersion
 return|;
+block|}
+DECL|method|getTotalHitsThreshold ()
+specifier|public
+name|int
+name|getTotalHitsThreshold
+parameter_list|()
+block|{
+return|return
+name|totalHitsThreshold
+return|;
+block|}
+DECL|method|setTotalHitsThreshold (int totalHitsThreshold)
+specifier|public
+name|void
+name|setTotalHitsThreshold
+parameter_list|(
+name|int
+name|totalHitsThreshold
+parameter_list|)
+block|{
+name|this
+operator|.
+name|totalHitsThreshold
+operator|=
+name|totalHitsThreshold
+expr_stmt|;
 block|}
 block|}
 end_class

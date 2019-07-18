@@ -351,6 +351,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|20
+argument_list|,
+literal|20
 argument_list|)
 argument_list|)
 operator|.
@@ -642,6 +644,8 @@ argument_list|,
 name|analyzer
 argument_list|,
 literal|null
+argument_list|,
+literal|20
 argument_list|,
 literal|20
 argument_list|)

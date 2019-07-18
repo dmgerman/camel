@@ -126,6 +126,10 @@ DECL|field|maxNumberOfHits
 name|int
 name|maxNumberOfHits
 decl_stmt|;
+DECL|field|totalHitsThreshold
+name|int
+name|totalHitsThreshold
+decl_stmt|;
 DECL|method|LuceneQueryProducer (Endpoint endpoint, LuceneConfiguration config)
 specifier|public
 name|LuceneQueryProducer
@@ -308,6 +312,8 @@ argument_list|(
 name|phrase
 argument_list|,
 name|maxNumberOfHits
+argument_list|,
+name|totalHitsThreshold
 argument_list|,
 name|config
 operator|.
