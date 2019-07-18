@@ -264,7 +264,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Get the client used for connection      *      * @return the client using for connection to db      */
+comment|/**      * Get the connection bean client used for connection.      *      * @return the client used for connection to db      */
 DECL|method|getMongoConnection ()
 specifier|public
 name|MongoClient
@@ -275,7 +275,7 @@ return|return
 name|mongoConnection
 return|;
 block|}
-comment|/**      * Set the client used for connection      *      * @param mongoConnection      */
+comment|/**      * Set a client used for connection: all endpoints generated from the component      * will share this connection bean.      *      * @param mongoConnection the connection bean used as client      */
 DECL|method|setMongoConnection (MongoClient mongoConnection)
 specifier|public
 name|void
