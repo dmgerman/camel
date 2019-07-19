@@ -126,7 +126,7 @@ specifier|private
 name|int
 name|waitTime
 init|=
-literal|5
+literal|10
 decl_stmt|;
 DECL|method|validate ()
 specifier|public
