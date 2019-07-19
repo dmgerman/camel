@@ -144,6 +144,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Assume
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|testcontainers
 operator|.
 name|containers
@@ -161,6 +171,18 @@ operator|.
 name|containers
 operator|.
 name|Network
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|testcontainers
+operator|.
+name|utility
+operator|.
+name|DockerMachineClient
 import|;
 end_import
 
@@ -202,6 +224,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Assume
+operator|.
+name|assumeTrue
+argument_list|(
+literal|"Skipping test because docker not installed"
+argument_list|,
+name|DockerMachineClient
+operator|.
+name|instance
+argument_list|()
+operator|.
+name|isInstalled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|setupResources
