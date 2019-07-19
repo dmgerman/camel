@@ -386,6 +386,22 @@ specifier|private
 name|boolean
 name|cacheScript
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether to use resource content cache or not"
+argument_list|)
+DECL|field|contentCache
+specifier|private
+name|boolean
+name|contentCache
+decl_stmt|;
 DECL|method|LanguageEndpoint ()
 specifier|public
 name|LanguageEndpoint
