@@ -2094,7 +2094,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Endpoint validation passsed at: "
+literal|"Endpoint validation passed at: "
 argument_list|)
 expr_stmt|;
 if|if
