@@ -291,7 +291,7 @@ name|Object
 argument_list|>
 name|continuousQuery
 decl_stmt|;
-DECL|method|InfinispanConsumer (InfinispanEndpoint endpoint, Processor processor, String cacheName, InfinispanConfiguration configuration)
+DECL|method|InfinispanConsumer (InfinispanEndpoint endpoint, Processor processor, String cacheName, InfinispanManager manager, InfinispanConfiguration configuration)
 specifier|public
 name|InfinispanConsumer
 parameter_list|(
@@ -303,6 +303,9 @@ name|processor
 parameter_list|,
 name|String
 name|cacheName
+parameter_list|,
+name|InfinispanManager
+name|manager
 parameter_list|,
 name|InfinispanConfiguration
 name|configuration
@@ -331,16 +334,7 @@ name|this
 operator|.
 name|manager
 operator|=
-operator|new
-name|InfinispanManager
-argument_list|(
-name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|configuration
-argument_list|)
+name|manager
 expr_stmt|;
 block|}
 DECL|method|processEvent (String eventType, boolean isPre, String cacheName, Object key)

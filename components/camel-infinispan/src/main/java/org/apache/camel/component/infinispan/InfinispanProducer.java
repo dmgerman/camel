@@ -176,7 +176,7 @@ specifier|final
 name|InfinispanManager
 name|manager
 decl_stmt|;
-DECL|method|InfinispanProducer (InfinispanEndpoint endpoint, String cacheName, InfinispanConfiguration configuration)
+DECL|method|InfinispanProducer (InfinispanEndpoint endpoint, String cacheName, InfinispanManager manager, InfinispanConfiguration configuration)
 specifier|public
 name|InfinispanProducer
 parameter_list|(
@@ -185,6 +185,9 @@ name|endpoint
 parameter_list|,
 name|String
 name|cacheName
+parameter_list|,
+name|InfinispanManager
+name|manager
 parameter_list|,
 name|InfinispanConfiguration
 name|configuration
@@ -227,58 +230,7 @@ name|this
 operator|.
 name|manager
 operator|=
-operator|new
-name|InfinispanManager
-argument_list|(
-name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|configuration
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 name|manager
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|manager
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|doStop
-argument_list|()
 expr_stmt|;
 block|}
 comment|// ************************************
