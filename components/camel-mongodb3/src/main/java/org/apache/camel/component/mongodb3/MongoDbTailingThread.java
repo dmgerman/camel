@@ -363,8 +363,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-try|try
-init|(
 name|MongoCursor
 argument_list|<
 name|Document
@@ -395,13 +393,11 @@ argument_list|)
 operator|.
 name|iterator
 argument_list|()
-init|)
-block|{
+decl_stmt|;
 name|answer
 operator|=
 name|iterator
 expr_stmt|;
-block|}
 block|}
 return|return
 name|answer
@@ -427,7 +423,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Regenerating cursor with lastVal: {}, waiting {}ms first"
+literal|"Regenerating cursor with lastVal: {}, waiting {} ms first"
 argument_list|,
 name|tailTracking
 operator|.
@@ -569,31 +565,37 @@ name|IllegalStateException
 name|e
 parameter_list|)
 block|{
-comment|// cursor.hasNext() opens socket and waiting for data
-comment|// it throws exception when cursor is closed in another thread
-comment|// there is no way to stop hasNext() before closing cursor
-if|if
-condition|(
-name|keepRunning
-condition|)
-block|{
-throw|throw
-name|e
-throw|;
-block|}
-else|else
-block|{
+comment|// this is happening when the consumer is stopped or the mongo interrupted (ie, junit ending test)
+comment|// as we cannot resume, we shutdown the thread gracefully
 name|log
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Cursor closed exception from MongoDB, will regenerate cursor. This is normal behaviour with tailable cursors."
+literal|"Cursor was closed, likely the consumer was stopped and closed the cursor on purpose."
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cursor
+operator|!=
+literal|null
+condition|)
+block|{
+name|cursor
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
+name|keepRunning
+operator|=
+literal|false
+expr_stmt|;
 block|}
+finally|finally
+block|{
 comment|// the loop finished, persist the lastValue just in case we are shutting down
 comment|// TODO: perhaps add a functionality to persist every N records
 name|tailTracking
@@ -601,6 +603,7 @@ operator|.
 name|persistToStore
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
