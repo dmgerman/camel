@@ -184,7 +184,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"RDFXML"
+literal|"RDF4JMODEL"
 argument_list|)
 DECL|field|outputFormat
 specifier|private

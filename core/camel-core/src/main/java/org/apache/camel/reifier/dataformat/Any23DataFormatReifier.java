@@ -104,6 +104,26 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|doCreateDataFormat (CamelContext camelContext)
+specifier|protected
+name|DataFormat
+name|doCreateDataFormat
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+return|return
+name|super
+operator|.
+name|doCreateDataFormat
+argument_list|(
+name|camelContext
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
 specifier|protected
 name|void

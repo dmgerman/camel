@@ -361,7 +361,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|marshal
+name|unmarshal
 argument_list|()
 operator|.
 name|any23
