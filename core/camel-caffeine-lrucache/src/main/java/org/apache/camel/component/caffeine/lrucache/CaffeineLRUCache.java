@@ -78,6 +78,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ForkJoinPool
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|LongAdder
@@ -569,6 +581,36 @@ argument_list|(
 name|Runnable
 operator|::
 name|run
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|//
+comment|// by default, caffeine uses {@link ForkJoinPool#commonPool()} if an executor is not
+comment|// set which causes troubles in SubstrateVM as the common pool should be created at
+comment|// runtime.
+comment|//
+comment|// https://github.com/quarkusio/quarkus/issues/3300
+comment|//
+comment|// As workaround we can wrap it so a reference to the commonPool is not retained by
+comment|// caffeine's classes.
+comment|//
+name|caffeine
+operator|.
+name|executor
+argument_list|(
+name|task
+lambda|->
+name|ForkJoinPool
+operator|.
+name|commonPool
+argument_list|()
+operator|.
+name|execute
+argument_list|(
+name|task
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
