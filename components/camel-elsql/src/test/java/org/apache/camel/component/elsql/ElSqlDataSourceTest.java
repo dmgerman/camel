@@ -293,7 +293,8 @@ literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// and we should be able the get the project from the map that should be Linux
+comment|// and we should be able the get the project from the map that should be
+comment|// Linux
 name|assertEquals
 argument_list|(
 literal|"Linux"

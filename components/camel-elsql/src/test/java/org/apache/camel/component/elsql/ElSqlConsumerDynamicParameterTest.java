@@ -542,7 +542,8 @@ name|int
 name|nextId
 parameter_list|()
 block|{
-comment|// spring will call this twice, one for initializing query and 2nd for actual value
+comment|// spring will call this twice, one for initializing query and 2nd
+comment|// for actual value
 name|id
 operator|++
 expr_stmt|;
