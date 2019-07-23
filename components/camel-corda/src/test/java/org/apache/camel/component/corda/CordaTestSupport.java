@@ -182,28 +182,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|registry
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-return|return
-name|registry
-return|;
-block|}
 DECL|method|getUrl ()
 specifier|protected
 name|String
