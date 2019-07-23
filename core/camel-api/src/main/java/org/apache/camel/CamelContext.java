@@ -1275,18 +1275,6 @@ name|String
 name|text
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the configured property placeholder prefix token if and only if the CamelContext has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the prefix token or {@code null}      */
-DECL|method|getPropertyPrefixToken ()
-name|String
-name|getPropertyPrefixToken
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the configured property placeholder suffix token if and only if the CamelContext has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the suffix token or {@code null}      */
-DECL|method|getPropertySuffixToken ()
-name|String
-name|getPropertySuffixToken
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the configured properties component or create one if none has been configured.      *      * @return the properties component      */
 DECL|method|getPropertiesComponent ()
 name|PropertiesComponent

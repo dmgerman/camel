@@ -94,6 +94,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|PropertiesComponent
+operator|.
+name|PREFIX_TOKEN
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|PropertiesComponent
+operator|.
+name|SUFFIX_TOKEN
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -190,7 +222,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseUri (String text, PropertiesLookup properties, String prefixToken, String suffixToken, boolean defaultFallbackEnabled)
+DECL|method|parseUri (String text, PropertiesLookup properties, boolean defaultFallbackEnabled)
 specifier|public
 name|String
 name|parseUri
@@ -200,12 +232,6 @@ name|text
 parameter_list|,
 name|PropertiesLookup
 name|properties
-parameter_list|,
-name|String
-name|prefixToken
-parameter_list|,
-name|String
-name|suffixToken
 parameter_list|,
 name|boolean
 name|defaultFallbackEnabled
@@ -220,10 +246,6 @@ operator|new
 name|ParsingContext
 argument_list|(
 name|properties
-argument_list|,
-name|prefixToken
-argument_list|,
-name|suffixToken
 argument_list|,
 name|defaultFallbackEnabled
 argument_list|)
@@ -269,35 +291,17 @@ specifier|final
 name|PropertiesLookup
 name|properties
 decl_stmt|;
-DECL|field|prefixToken
-specifier|private
-specifier|final
-name|String
-name|prefixToken
-decl_stmt|;
-DECL|field|suffixToken
-specifier|private
-specifier|final
-name|String
-name|suffixToken
-decl_stmt|;
 DECL|field|defaultFallbackEnabled
 specifier|private
 specifier|final
 name|boolean
 name|defaultFallbackEnabled
 decl_stmt|;
-DECL|method|ParsingContext (PropertiesLookup properties, String prefixToken, String suffixToken, boolean defaultFallbackEnabled)
+DECL|method|ParsingContext (PropertiesLookup properties, boolean defaultFallbackEnabled)
 name|ParsingContext
 parameter_list|(
 name|PropertiesLookup
 name|properties
-parameter_list|,
-name|String
-name|prefixToken
-parameter_list|,
-name|String
-name|suffixToken
 parameter_list|,
 name|boolean
 name|defaultFallbackEnabled
@@ -308,18 +312,6 @@ operator|.
 name|properties
 operator|=
 name|properties
-expr_stmt|;
-name|this
-operator|.
-name|prefixToken
-operator|=
-name|prefixToken
-expr_stmt|;
-name|this
-operator|.
-name|suffixToken
-operator|=
-name|suffixToken
 expr_stmt|;
 name|this
 operator|.
@@ -558,7 +550,7 @@ name|format
 argument_list|(
 literal|"Missing %s from the text: %s"
 argument_list|,
-name|suffixToken
+name|SUFFIX_TOKEN
 argument_list|,
 name|input
 argument_list|)
@@ -598,7 +590,7 @@ name|format
 argument_list|(
 literal|"Missing %s from the text: %s"
 argument_list|,
-name|prefixToken
+name|PREFIX_TOKEN
 argument_list|,
 name|input
 argument_list|)
@@ -614,7 +606,7 @@ name|substring
 argument_list|(
 name|prefix
 operator|+
-name|prefixToken
+name|PREFIX_TOKEN
 operator|.
 name|length
 argument_list|()
@@ -640,7 +632,7 @@ name|prefix
 argument_list|,
 name|suffix
 operator|+
-name|suffixToken
+name|SUFFIX_TOKEN
 operator|.
 name|length
 argument_list|()
@@ -675,7 +667,7 @@ name|input
 operator|.
 name|indexOf
 argument_list|(
-name|suffixToken
+name|SUFFIX_TOKEN
 argument_list|,
 name|index
 operator|+
@@ -696,7 +688,7 @@ name|input
 argument_list|,
 name|index
 argument_list|,
-name|suffixToken
+name|SUFFIX_TOKEN
 argument_list|)
 condition|)
 do|;
@@ -730,7 +722,7 @@ name|input
 operator|.
 name|lastIndexOf
 argument_list|(
-name|prefixToken
+name|PREFIX_TOKEN
 argument_list|,
 name|index
 operator|-
@@ -751,7 +743,7 @@ name|input
 argument_list|,
 name|index
 argument_list|,
-name|prefixToken
+name|PREFIX_TOKEN
 argument_list|)
 condition|)
 do|;

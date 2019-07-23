@@ -373,7 +373,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|parseUri (String text, PropertiesLookup properties, String prefixToken, String suffixToken, boolean fallback)
+DECL|method|parseUri (String text, PropertiesLookup properties, boolean fallback)
 specifier|public
 name|String
 name|parseUri
@@ -383,12 +383,6 @@ name|text
 parameter_list|,
 name|PropertiesLookup
 name|properties
-parameter_list|,
-name|String
-name|prefixToken
-parameter_list|,
-name|String
-name|suffixToken
 parameter_list|,
 name|boolean
 name|fallback
@@ -407,10 +401,6 @@ argument_list|(
 name|text
 argument_list|,
 name|properties
-argument_list|,
-name|prefixToken
-argument_list|,
-name|suffixToken
 argument_list|,
 name|fallback
 argument_list|)
@@ -762,7 +752,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseUri (String text, PropertiesLookup properties, String prefixToken, String suffixToken, boolean fallback)
+DECL|method|parseUri (String text, PropertiesLookup properties, boolean fallback)
 specifier|public
 name|String
 name|parseUri
@@ -772,12 +762,6 @@ name|text
 parameter_list|,
 name|PropertiesLookup
 name|properties
-parameter_list|,
-name|String
-name|prefixToken
-parameter_list|,
-name|String
-name|suffixToken
 parameter_list|,
 name|boolean
 name|fallback
@@ -807,10 +791,6 @@ name|text
 argument_list|,
 name|properties
 argument_list|,
-name|prefixToken
-argument_list|,
-name|suffixToken
-argument_list|,
 name|fallback
 argument_list|)
 expr_stmt|;
@@ -835,10 +815,6 @@ argument_list|(
 name|text
 argument_list|,
 name|properties
-argument_list|,
-name|prefixToken
-argument_list|,
-name|suffixToken
 argument_list|,
 name|fallback
 argument_list|)

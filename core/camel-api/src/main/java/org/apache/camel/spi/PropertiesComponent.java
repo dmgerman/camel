@@ -84,17 +84,17 @@ name|Component
 extends|,
 name|StaticService
 block|{
-comment|/**      * The default prefix token.      */
-DECL|field|DEFAULT_PREFIX_TOKEN
+comment|/**      * The prefix token.      */
+DECL|field|PREFIX_TOKEN
 name|String
-name|DEFAULT_PREFIX_TOKEN
+name|PREFIX_TOKEN
 init|=
 literal|"{{"
 decl_stmt|;
-comment|/**      * The default suffix token.      */
-DECL|field|DEFAULT_SUFFIX_TOKEN
+comment|/**      * The suffix token.      */
+DECL|field|SUFFIX_TOKEN
 name|String
-name|DEFAULT_SUFFIX_TOKEN
+name|SUFFIX_TOKEN
 init|=
 literal|"}}"
 decl_stmt|;
@@ -105,18 +105,6 @@ name|DEFAULT_CREATED
 init|=
 literal|"PropertiesComponentDefaultCreated"
 decl_stmt|;
-comment|/**      * The value of the prefix token used to identify properties to replace.      * Is default {@link #DEFAULT_PREFIX_TOKEN}      */
-DECL|method|getPrefixToken ()
-name|String
-name|getPrefixToken
-parameter_list|()
-function_decl|;
-comment|/**      * The value of the suffix token used to identify properties to replace.      * Is default {@link #DEFAULT_SUFFIX_TOKEN}      */
-DECL|method|getSuffixToken ()
-name|String
-name|getSuffixToken
-parameter_list|()
-function_decl|;
 comment|/**      * Parses the input text and resolve all property placeholders from within the text.      *      * @param uri  input text      * @return text with resolved property placeholders      * @throws IllegalArgumentException is thrown if error during parsing      */
 DECL|method|parseUri (String uri)
 name|String

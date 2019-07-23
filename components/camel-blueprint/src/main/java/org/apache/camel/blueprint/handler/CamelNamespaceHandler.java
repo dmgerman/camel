@@ -5034,7 +5034,7 @@ name|startsWith
 argument_list|(
 name|PropertiesComponent
 operator|.
-name|DEFAULT_PREFIX_TOKEN
+name|PREFIX_TOKEN
 argument_list|)
 condition|)
 block|{
@@ -5266,7 +5266,7 @@ name|startsWith
 argument_list|(
 name|PropertiesComponent
 operator|.
-name|DEFAULT_PREFIX_TOKEN
+name|PREFIX_TOKEN
 argument_list|)
 condition|)
 block|{
@@ -5498,7 +5498,7 @@ name|startsWith
 argument_list|(
 name|PropertiesComponent
 operator|.
-name|DEFAULT_PREFIX_TOKEN
+name|PREFIX_TOKEN
 argument_list|)
 condition|)
 block|{
@@ -8472,7 +8472,7 @@ name|startsWith
 argument_list|(
 name|PropertiesComponent
 operator|.
-name|DEFAULT_PREFIX_TOKEN
+name|PREFIX_TOKEN
 argument_list|)
 condition|)
 block|{

@@ -209,34 +209,6 @@ name|Boolean
 name|defaultFallbackEnabled
 decl_stmt|;
 annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"{{"
-argument_list|)
-DECL|field|prefixToken
-specifier|private
-name|String
-name|prefixToken
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"}}"
-argument_list|)
-DECL|field|suffixToken
-specifier|private
-name|String
-name|suffixToken
-decl_stmt|;
-annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -399,60 +371,6 @@ operator|.
 name|ignoreMissingLocation
 operator|=
 name|ignoreMissingLocation
-expr_stmt|;
-block|}
-DECL|method|getPrefixToken ()
-specifier|public
-name|String
-name|getPrefixToken
-parameter_list|()
-block|{
-return|return
-name|prefixToken
-return|;
-block|}
-comment|/**      * Sets the value of the prefix token used to identify properties to replace.  Setting a value of      * {@code null} restores the default token {{      */
-DECL|method|setPrefixToken (String prefixToken)
-specifier|public
-name|void
-name|setPrefixToken
-parameter_list|(
-name|String
-name|prefixToken
-parameter_list|)
-block|{
-name|this
-operator|.
-name|prefixToken
-operator|=
-name|prefixToken
-expr_stmt|;
-block|}
-DECL|method|getSuffixToken ()
-specifier|public
-name|String
-name|getSuffixToken
-parameter_list|()
-block|{
-return|return
-name|suffixToken
-return|;
-block|}
-comment|/**      * Sets the value of the suffix token used to identify properties to replace.  Setting a value of      * {@code null} restores the default token }}      */
-DECL|method|setSuffixToken (String suffixToken)
-specifier|public
-name|void
-name|setSuffixToken
-parameter_list|(
-name|String
-name|suffixToken
-parameter_list|)
-block|{
-name|this
-operator|.
-name|suffixToken
-operator|=
-name|suffixToken
 expr_stmt|;
 block|}
 DECL|method|getFunctions ()

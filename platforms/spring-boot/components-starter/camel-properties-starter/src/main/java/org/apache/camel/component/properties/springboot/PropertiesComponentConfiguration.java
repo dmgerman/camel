@@ -161,22 +161,6 @@ name|ignoreMissingLocation
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Sets the value of the prefix token used to identify properties to      * replace. Setting a value of null restores the default token (link      * DEFAULT_PREFIX_TOKEN).      */
-DECL|field|prefixToken
-specifier|private
-name|String
-name|prefixToken
-init|=
-literal|"{{"
-decl_stmt|;
-comment|/**      * Sets the value of the suffix token used to identify properties to      * replace. Setting a value of null restores the default token (link      * DEFAULT_SUFFIX_TOKEN).      */
-DECL|field|suffixToken
-specifier|private
-name|String
-name|suffixToken
-init|=
-literal|"}}"
-decl_stmt|;
 comment|/**      * Sets initial properties which will be used before any locations are      * resolved. The option is a java.util.Properties type.      */
 DECL|field|initialProperties
 specifier|private
@@ -381,58 +365,6 @@ operator|.
 name|ignoreMissingLocation
 operator|=
 name|ignoreMissingLocation
-expr_stmt|;
-block|}
-DECL|method|getPrefixToken ()
-specifier|public
-name|String
-name|getPrefixToken
-parameter_list|()
-block|{
-return|return
-name|prefixToken
-return|;
-block|}
-DECL|method|setPrefixToken (String prefixToken)
-specifier|public
-name|void
-name|setPrefixToken
-parameter_list|(
-name|String
-name|prefixToken
-parameter_list|)
-block|{
-name|this
-operator|.
-name|prefixToken
-operator|=
-name|prefixToken
-expr_stmt|;
-block|}
-DECL|method|getSuffixToken ()
-specifier|public
-name|String
-name|getSuffixToken
-parameter_list|()
-block|{
-return|return
-name|suffixToken
-return|;
-block|}
-DECL|method|setSuffixToken (String suffixToken)
-specifier|public
-name|void
-name|setSuffixToken
-parameter_list|(
-name|String
-name|suffixToken
-parameter_list|)
-block|{
-name|this
-operator|.
-name|suffixToken
-operator|=
-name|suffixToken
 expr_stmt|;
 block|}
 DECL|method|getInitialProperties ()
