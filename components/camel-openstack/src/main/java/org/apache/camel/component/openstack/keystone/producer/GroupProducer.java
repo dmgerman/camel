@@ -661,7 +661,7 @@ name|checkFailure
 argument_list|(
 name|response
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Delete group with ID "
 operator|+
@@ -762,7 +762,7 @@ name|checkFailure
 argument_list|(
 name|response
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 name|String
 operator|.
@@ -970,7 +970,7 @@ name|checkFailure
 argument_list|(
 name|response
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 name|String
 operator|.

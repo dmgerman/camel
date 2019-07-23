@@ -630,16 +630,13 @@ argument_list|,
 name|maxAttemptsCount
 argument_list|)
 expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setFault
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-literal|true
+literal|"Forced rollback"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 comment|// Countdown the latch
 name|latch

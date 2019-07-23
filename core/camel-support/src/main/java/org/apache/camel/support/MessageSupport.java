@@ -935,14 +935,6 @@ argument_list|(
 name|newBody
 argument_list|)
 expr_stmt|;
-name|setFault
-argument_list|(
-name|that
-operator|.
-name|isFault
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// the headers may be the same instance if the end user has made some mistake
 comment|// and set the OUT message with the same header instance of the IN message etc
 name|boolean

@@ -247,17 +247,6 @@ argument_list|(
 literal|"Hi Camel"
 argument_list|)
 expr_stmt|;
-comment|// and then set fault directly on OUT for example as camel-cxf would do
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setFault
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|setException

@@ -1234,7 +1234,7 @@ name|Throwable
 name|t
 parameter_list|)
 function_decl|;
-comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @return true if this exchange failed due to either an exception or fault      * @see Exchange#getException()      * @see Message#setFault(boolean)      * @see Message#isFault()      */
+comment|/**      * Returns true if this exchange failed due to either an exception or fault      *      * @return true if this exchange failed due to either an exception or fault      * @see Exchange#getException()      */
 DECL|method|isFailed ()
 name|boolean
 name|isFailed

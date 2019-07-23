@@ -388,7 +388,7 @@ return|return
 name|operation
 return|;
 block|}
-DECL|method|checkFailure (ActionResponse response, Message msg, String operation)
+DECL|method|checkFailure (ActionResponse response, Exchange exchange, String operation)
 specifier|protected
 name|void
 name|checkFailure
@@ -396,24 +396,13 @@ parameter_list|(
 name|ActionResponse
 name|response
 parameter_list|,
-name|Message
-name|msg
+name|Exchange
+name|exchange
 parameter_list|,
 name|String
 name|operation
 parameter_list|)
 block|{
-name|msg
-operator|.
-name|setFault
-argument_list|(
-operator|!
-name|response
-operator|.
-name|isSuccess
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -423,21 +412,23 @@ name|isSuccess
 argument_list|()
 condition|)
 block|{
-name|msg
+name|exchange
 operator|.
-name|setBody
+name|setException
 argument_list|(
-name|String
-operator|.
-name|format
+operator|new
+name|OpenstackOperationException
 argument_list|(
-literal|" %s was not successful: %s"
-argument_list|,
 name|operation
 argument_list|,
 name|response
 operator|.
 name|getFault
+argument_list|()
+argument_list|,
+name|response
+operator|.
+name|getCode
 argument_list|()
 argument_list|)
 argument_list|)

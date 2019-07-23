@@ -100,30 +100,6 @@ literal|true
 return|;
 block|}
 block|}
-comment|/**      * Return true if there can be a FAULT message      */
-DECL|method|isFaultCapable ()
-specifier|public
-name|boolean
-name|isFaultCapable
-parameter_list|()
-block|{
-switch|switch
-condition|(
-name|this
-condition|)
-block|{
-case|case
-name|InOnly
-case|:
-return|return
-literal|false
-return|;
-default|default:
-return|return
-literal|true
-return|;
-block|}
-block|}
 DECL|method|asEnum (String value)
 specifier|public
 specifier|static

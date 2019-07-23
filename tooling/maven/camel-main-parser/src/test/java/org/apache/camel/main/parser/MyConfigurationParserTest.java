@@ -98,7 +98,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|41
+literal|40
 argument_list|,
 name|list
 operator|.

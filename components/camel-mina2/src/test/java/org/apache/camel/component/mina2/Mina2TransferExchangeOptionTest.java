@@ -330,7 +330,7 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|assertExchange (Exchange exchange, boolean hasFault)
+DECL|method|assertExchange (Exchange exchange, boolean hasException)
 specifier|private
 name|void
 name|assertExchange
@@ -339,13 +339,13 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|boolean
-name|hasFault
+name|hasException
 parameter_list|)
 block|{
 if|if
 condition|(
 operator|!
-name|hasFault
+name|hasException
 condition|)
 block|{
 name|Message
@@ -359,14 +359,6 @@ decl_stmt|;
 name|assertNotNull
 argument_list|(
 name|out
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-name|out
-operator|.
-name|isFault
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -407,14 +399,6 @@ argument_list|(
 name|fault
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|fault
-operator|.
-name|isFault
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertNotNull
 argument_list|(
 name|fault
@@ -425,7 +409,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should get the InterrupteException exception"
+literal|"Should get the InterruptedException exception"
 argument_list|,
 name|fault
 operator|.
@@ -709,16 +693,6 @@ condition|(
 name|setException
 condition|)
 block|{
-name|e
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setFault
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|e
 operator|.
 name|getOut

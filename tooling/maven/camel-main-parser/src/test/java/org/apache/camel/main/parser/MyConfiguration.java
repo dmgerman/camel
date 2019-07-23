@@ -193,11 +193,6 @@ specifier|private
 name|boolean
 name|logExhaustedMessageBody
 decl_stmt|;
-DECL|field|handleFault
-specifier|private
-name|boolean
-name|handleFault
-decl_stmt|;
 DECL|field|autoStartup
 specifier|private
 name|boolean
@@ -1042,33 +1037,6 @@ operator|.
 name|logExhaustedMessageBody
 operator|=
 name|logExhaustedMessageBody
-expr_stmt|;
-block|}
-DECL|method|isHandleFault ()
-specifier|public
-name|boolean
-name|isHandleFault
-parameter_list|()
-block|{
-return|return
-name|handleFault
-return|;
-block|}
-comment|/**      * Sets whether fault handling is enabled or not.      *      * Default is false.      */
-DECL|method|setHandleFault (boolean handleFault)
-specifier|public
-name|void
-name|setHandleFault
-parameter_list|(
-name|boolean
-name|handleFault
-parameter_list|)
-block|{
-name|this
-operator|.
-name|handleFault
-operator|=
-name|handleFault
 expr_stmt|;
 block|}
 DECL|method|isAutoStartup ()

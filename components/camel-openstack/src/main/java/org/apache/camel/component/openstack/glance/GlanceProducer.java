@@ -795,7 +795,7 @@ name|checkFailure
 argument_list|(
 name|response
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Delete image "
 operator|+

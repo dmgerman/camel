@@ -168,16 +168,6 @@ operator|.
 name|getOut
 argument_list|()
 operator|.
-name|setFault
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
 name|setBody
 argument_list|(
 name|fault

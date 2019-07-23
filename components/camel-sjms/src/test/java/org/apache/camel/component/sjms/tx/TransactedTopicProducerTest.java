@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RollbackExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -239,6 +251,8 @@ argument_list|(
 literal|"Hello World 2"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -252,6 +266,20 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -429,16 +457,13 @@ argument_list|(
 literal|"We failed.  Should roll back."
 argument_list|)
 expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setFault
+throw|throw
+operator|new
+name|RollbackExchangeException
 argument_list|(
-literal|true
+name|exchange
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 else|else
 block|{

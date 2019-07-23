@@ -114,6 +114,24 @@ name|component
 operator|.
 name|openstack
 operator|.
+name|common
+operator|.
+name|OpenstackException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|openstack
+operator|.
 name|swift
 operator|.
 name|SwiftConstants
@@ -488,7 +506,7 @@ name|checkFailure
 argument_list|(
 name|out
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Create container "
 operator|+
@@ -688,7 +706,7 @@ name|checkFailure
 argument_list|(
 name|out
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Update container "
 operator|+
@@ -774,7 +792,7 @@ name|checkFailure
 argument_list|(
 name|out
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Delete container "
 operator|+
@@ -940,25 +958,21 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|msg
-operator|.
-name|setFault
-argument_list|(
-operator|!
-name|success
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
 name|success
 condition|)
 block|{
-name|msg
+name|exchange
 operator|.
-name|setBody
+name|setException
+argument_list|(
+operator|new
+name|OpenstackException
 argument_list|(
 literal|"Removing metadata was not successful"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1045,25 +1059,21 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|msg
-operator|.
-name|setFault
-argument_list|(
-operator|!
-name|success
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
 name|success
 condition|)
 block|{
-name|msg
+name|exchange
 operator|.
-name|setBody
+name|setException
+argument_list|(
+operator|new
+name|OpenstackException
 argument_list|(
 literal|"Updating metadata was not successful"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

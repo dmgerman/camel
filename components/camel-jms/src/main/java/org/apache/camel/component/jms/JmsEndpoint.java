@@ -4484,42 +4484,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|setTransferFault (boolean transferFault)
-specifier|public
-name|void
-name|setTransferFault
-parameter_list|(
-name|boolean
-name|transferFault
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setTransferFault
-argument_list|(
-name|transferFault
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|ManagedAttribute
-DECL|method|isTransferFault ()
-specifier|public
-name|boolean
-name|isTransferFault
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|isTransferFault
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|isTestConnectionOnStartup ()
 specifier|public
 name|boolean

@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for request-reply with jms where processing the input could cause: OK, FAULT or Exception  */
+comment|/**  * Unit test for request-reply with jms where processing the input could cause: OK or Exception  */
 end_comment
 
 begin_class
@@ -153,36 +153,6 @@ decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Bye World"
-argument_list|,
-name|out
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testSendFailure ()
-specifier|public
-name|void
-name|testSendFailure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Object
-name|out
-init|=
-name|template
-operator|.
-name|requestBody
-argument_list|(
-literal|"activemq:queue:fault"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"This is a fault message"
 argument_list|,
 name|out
 argument_list|)
@@ -305,19 +275,6 @@ argument_list|(
 name|constant
 argument_list|(
 literal|"Bye World"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"activemq:queue:fault"
-argument_list|)
-operator|.
-name|setFaultBody
-argument_list|(
-name|constant
-argument_list|(
-literal|"This is a fault message"
 argument_list|)
 argument_list|)
 expr_stmt|;

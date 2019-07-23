@@ -81,21 +81,6 @@ name|Exchange
 name|getExchange
 parameter_list|()
 function_decl|;
-comment|/**      * Returns true if this message represents a fault      *      * @return<tt>true</tt> if this is a fault message,<tt>false</tt> for regular messages.      */
-DECL|method|isFault ()
-name|boolean
-name|isFault
-parameter_list|()
-function_decl|;
-comment|/**      * Sets the fault flag on this message      *      * @param fault the fault flag      */
-DECL|method|setFault (boolean fault)
-name|void
-name|setFault
-parameter_list|(
-name|boolean
-name|fault
-parameter_list|)
-function_decl|;
 comment|/**      * Accesses a specific header      *      * @param name  name of header      * @return the value of the given header or<tt>null</tt> if there is no      *         header for the given name      */
 DECL|method|getHeader (String name)
 name|Object

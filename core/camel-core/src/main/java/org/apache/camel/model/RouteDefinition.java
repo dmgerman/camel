@@ -442,11 +442,6 @@ specifier|private
 name|String
 name|logMask
 decl_stmt|;
-DECL|field|handleFault
-specifier|private
-name|String
-name|handleFault
-decl_stmt|;
 DECL|field|delayer
 specifier|private
 name|String
@@ -1065,38 +1060,6 @@ block|{
 name|setMessageHistory
 argument_list|(
 literal|"false"
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Disable handle fault for this route.      *      * @return the builder      */
-DECL|method|noHandleFault ()
-specifier|public
-name|RouteDefinition
-name|noHandleFault
-parameter_list|()
-block|{
-name|setHandleFault
-argument_list|(
-literal|"false"
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Enable handle fault for this route.      *      * @return the builder      */
-DECL|method|handleFault ()
-specifier|public
-name|RouteDefinition
-name|handleFault
-parameter_list|()
-block|{
-name|setHandleFault
-argument_list|(
-literal|"true"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1936,36 +1899,6 @@ operator|.
 name|logMask
 operator|=
 name|logMask
-expr_stmt|;
-block|}
-comment|/**      * Whether handle fault is enabled on this route.      */
-DECL|method|getHandleFault ()
-specifier|public
-name|String
-name|getHandleFault
-parameter_list|()
-block|{
-return|return
-name|handleFault
-return|;
-block|}
-comment|/**      * Whether handle fault is enabled on this route.      */
-annotation|@
-name|XmlAttribute
-DECL|method|setHandleFault (String handleFault)
-specifier|public
-name|void
-name|setHandleFault
-parameter_list|(
-name|String
-name|handleFault
-parameter_list|)
-block|{
-name|this
-operator|.
-name|handleFault
-operator|=
-name|handleFault
 expr_stmt|;
 block|}
 comment|/**      * Whether to slow down processing messages by a given delay in msec.      */

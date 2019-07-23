@@ -47,7 +47,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Called when the processing of the message exchange has failed for some reason.      * The exception which caused the problem is in {@link Exchange#getException()} and      * there could be a fault message via {@link org.apache.camel.Message#isFault()}      *      * @param exchange the exchange being processed      */
+comment|/**      * Called when the processing of the message exchange has failed for some reason.      * The exception which caused the problem is in {@link Exchange#getException()}.      *      * @param exchange the exchange being processed      */
 DECL|method|onFailure (Exchange exchange)
 name|void
 name|onFailure

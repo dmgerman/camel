@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor
+DECL|package|org.apache.camel.component.openstack.common
 package|package
 name|org
 operator|.
@@ -12,9 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|component
 operator|.
-name|processor
+name|openstack
+operator|.
+name|common
 package|;
 end_package
 
@@ -26,70 +28,31 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Exchange
 import|;
 end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|FaultRouteTest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
-import|;
-end_import
-
-begin_comment
-comment|/**  * The spring context test for the FaultRoute  */
-end_comment
 
 begin_class
-DECL|class|SpringFaultRouteTest
+DECL|class|OpenstackException
 specifier|public
 class|class
-name|SpringFaultRouteTest
+name|OpenstackException
 extends|extends
-name|FaultRouteTest
-block|{
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
-throws|throws
 name|Exception
 block|{
-return|return
-name|createSpringCamelContext
+DECL|method|OpenstackException (String message)
+specifier|public
+name|OpenstackException
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
 argument_list|(
-name|this
-argument_list|,
-literal|"org/apache/camel/spring/processor/faultRoute.xml"
+name|message
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 block|}
 end_class

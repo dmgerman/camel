@@ -6717,35 +6717,6 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which sets the body on the FAULT message      *      * @param expression   the expression used to set the body      * @return the builder      */
-DECL|method|setFaultBody (Expression expression)
-specifier|public
-name|Type
-name|setFaultBody
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|)
-block|{
-name|SetFaultBodyDefinition
-name|answer
-init|=
-operator|new
-name|SetFaultBodyDefinition
-argument_list|(
-name|expression
-argument_list|)
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|asType
-argument_list|()
-return|;
-block|}
 comment|/**      * Adds a processor which sets the header on the IN message      *      * @param name  the header name      * @return a expression builder clause to set the header      */
 DECL|method|setHeader (String name)
 specifier|public

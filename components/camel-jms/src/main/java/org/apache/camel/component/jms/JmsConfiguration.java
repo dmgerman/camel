@@ -1895,30 +1895,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"If enabled and you are using Request Reply messaging (InOut) and an Exchange failed with a SOAP fault (not exception) on the consumer side,"
-operator|+
-literal|" then the fault flag on Message#isFault() will be send back in the response as a JMS header with the key"
-operator|+
-literal|" org.apache.camel.component.jms.JmsConstants#JMS_TRANSFER_FAULT#JMS_TRANSFER_FAULT."
-operator|+
-literal|" If the client is Camel, the returned fault flag will be set on the {@link org.apache.camel.Message#setFault(boolean)}."
-operator|+
-literal|" You may want to enable this when using Camel components that support faults such as SOAP based such as cxf or spring-ws."
-argument_list|)
-DECL|field|transferFault
-specifier|private
-name|boolean
-name|transferFault
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
 name|description
 operator|=
 literal|"Specifies whether to test the connection on startup."
@@ -6542,33 +6518,6 @@ operator|.
 name|transferException
 operator|=
 name|transferException
-expr_stmt|;
-block|}
-DECL|method|isTransferFault ()
-specifier|public
-name|boolean
-name|isTransferFault
-parameter_list|()
-block|{
-return|return
-name|transferFault
-return|;
-block|}
-comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an Exchange failed with a SOAP fault (not exception) on the consumer side,      * then the fault flag on {@link org.apache.camel.Message#isFault()} will be send back in the response as a JMS header with the key      * {@link JmsConstants#JMS_TRANSFER_FAULT}.      * If the client is Camel, the returned fault flag will be set on the {@link org.apache.camel.Message#setFault(boolean)}.      *<p>      * You may want to enable this when using Camel components that support faults such as SOAP based such as cxf or spring-ws.      */
-DECL|method|setTransferFault (boolean transferFault)
-specifier|public
-name|void
-name|setTransferFault
-parameter_list|(
-name|boolean
-name|transferFault
-parameter_list|)
-block|{
-name|this
-operator|.
-name|transferFault
-operator|=
-name|transferFault
 expr_stmt|;
 block|}
 DECL|method|isAsyncStartListener ()

@@ -246,75 +246,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testFail ()
-specifier|public
-name|void
-name|testFail
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|sendMessage
-argument_list|()
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Exchange did not complete."
-argument_list|,
-name|doneLatch
-operator|.
-name|await
-argument_list|(
-literal|5
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertNull
-argument_list|(
-literal|"Should not have completed"
-argument_list|,
-name|completed
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Should have received failed notification"
-argument_list|,
-name|failed
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should have propagated the header inside the Synchronization.onFailure() callback"
-argument_list|,
-literal|"bat"
-argument_list|,
-name|baz
-argument_list|)
-expr_stmt|;
-name|assertNull
-argument_list|(
-literal|"The Synchronization.onComplete() callback should have not been invoked"
-argument_list|,
-name|foo
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Received fail: "
-operator|+
-name|failed
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testException ()
 specifier|public
 name|void
@@ -607,45 +538,6 @@ init|=
 name|getName
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|name
-operator|.
-name|equals
-argument_list|(
-literal|"testFail"
-argument_list|)
-condition|)
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Failing test!"
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setFault
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|"testFail() should always fail with a fault!"
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
 if|if
 condition|(
 name|name

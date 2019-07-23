@@ -765,13 +765,6 @@ name|delayer
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|handleFault
-specifier|private
-name|String
-name|handleFault
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|errorHandlerRef
 specifier|private
 name|String
@@ -2611,32 +2604,6 @@ operator|.
 name|delayer
 operator|=
 name|delayer
-expr_stmt|;
-block|}
-DECL|method|getHandleFault ()
-specifier|public
-name|String
-name|getHandleFault
-parameter_list|()
-block|{
-return|return
-name|handleFault
-return|;
-block|}
-DECL|method|setHandleFault (String handleFault)
-specifier|public
-name|void
-name|setHandleFault
-parameter_list|(
-name|String
-name|handleFault
-parameter_list|)
-block|{
-name|this
-operator|.
-name|handleFault
-operator|=
-name|handleFault
 expr_stmt|;
 block|}
 DECL|method|getAutoStartup ()

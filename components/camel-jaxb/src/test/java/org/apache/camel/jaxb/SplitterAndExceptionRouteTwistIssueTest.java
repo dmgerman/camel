@@ -523,9 +523,6 @@ argument_list|(
 literal|"direct:error"
 argument_list|)
 operator|.
-name|handleFault
-argument_list|()
-operator|.
 name|convertBodyTo
 argument_list|(
 name|String
@@ -632,9 +629,6 @@ name|from
 argument_list|(
 literal|"direct:error2"
 argument_list|)
-operator|.
-name|handleFault
-argument_list|()
 operator|.
 name|convertBodyTo
 argument_list|(

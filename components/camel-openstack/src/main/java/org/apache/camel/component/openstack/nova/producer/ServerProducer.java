@@ -771,7 +771,7 @@ name|checkFailure
 argument_list|(
 name|response
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Performing action "
 operator|+
@@ -847,7 +847,7 @@ name|checkFailure
 argument_list|(
 name|response
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Delete server with ID "
 operator|+

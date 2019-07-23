@@ -114,21 +114,6 @@ name|Boolean
 name|isLogExhaustedMessageBody
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether fault handling is enabled or not (default is disabled).      *      * @param handleFault whether to enable fault handling.      */
-DECL|method|setHandleFault (Boolean handleFault)
-name|void
-name|setHandleFault
-parameter_list|(
-name|Boolean
-name|handleFault
-parameter_list|)
-function_decl|;
-comment|/**      * Returns whether fault handling enabled      *      * @return<tt>true</tt> if fault handling is enabled      */
-DECL|method|isHandleFault ()
-name|Boolean
-name|isHandleFault
-parameter_list|()
-function_decl|;
 comment|/**      * Sets a delay value in millis that a message is delayed at every step it takes in the route path,      * slowing the process down to better observe what is occurring      *<p/>      * Is disabled by default      *      * @param delay delay in millis      */
 DECL|method|setDelayer (Long delay)
 name|void

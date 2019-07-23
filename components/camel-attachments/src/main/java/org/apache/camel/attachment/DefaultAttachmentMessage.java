@@ -205,40 +205,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isFault ()
-specifier|public
-name|boolean
-name|isFault
-parameter_list|()
-block|{
-return|return
-name|delegate
-operator|.
-name|isFault
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setFault (boolean fault)
-specifier|public
-name|void
-name|setFault
-parameter_list|(
-name|boolean
-name|fault
-parameter_list|)
-block|{
-name|delegate
-operator|.
-name|setFault
-argument_list|(
-name|fault
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|getHeader (String name)
 specifier|public
 name|Object

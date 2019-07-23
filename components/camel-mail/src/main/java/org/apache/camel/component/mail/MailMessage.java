@@ -533,14 +533,6 @@ name|getMessageId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setFault
-argument_list|(
-name|that
-operator|.
-name|isFault
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 if|if
 condition|(

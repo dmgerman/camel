@@ -3072,21 +3072,6 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|msg
-operator|.
-name|isFault
-argument_list|()
-condition|)
-block|{
-name|out
-operator|=
-name|msg
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// print exception as message and stacktrace
 name|Exception
 name|t
@@ -3134,7 +3119,6 @@ name|TEXT_PLAIN
 argument_list|)
 expr_stmt|;
 return|return;
-block|}
 block|}
 else|else
 block|{

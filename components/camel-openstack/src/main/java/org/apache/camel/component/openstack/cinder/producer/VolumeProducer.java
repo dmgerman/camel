@@ -706,7 +706,7 @@ name|checkFailure
 argument_list|(
 name|out
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Update volume "
 operator|+
@@ -792,7 +792,7 @@ name|checkFailure
 argument_list|(
 name|out
 argument_list|,
-name|msg
+name|exchange
 argument_list|,
 literal|"Delete volume "
 operator|+
