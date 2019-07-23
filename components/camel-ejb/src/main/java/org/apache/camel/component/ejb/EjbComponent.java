@@ -156,6 +156,22 @@ name|Component
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|jndi
+operator|.
+name|JndiBeanRepository
+import|;
+end_import
+
 begin_comment
 comment|/**  * EJB component to invoke EJBs like the {@link org.apache.camel.component.bean.BeanComponent}.  */
 end_comment
@@ -231,11 +247,11 @@ name|remaining
 argument_list|)
 expr_stmt|;
 comment|// plugin registry to lookup in jndi for the EJBs
-name|Registry
+name|JndiBeanRepository
 name|registry
 init|=
 operator|new
-name|JndiRegistry
+name|JndiBeanRepository
 argument_list|(
 name|getContext
 argument_list|()

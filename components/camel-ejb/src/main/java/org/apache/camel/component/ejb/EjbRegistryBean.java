@@ -54,9 +54,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Registry
+name|jndi
+operator|.
+name|JndiBeanRepository
 import|;
 end_import
 
@@ -74,14 +76,14 @@ name|RegistryBean
 block|{
 DECL|field|registry
 specifier|private
-name|Registry
+name|JndiBeanRepository
 name|registry
 decl_stmt|;
-DECL|method|EjbRegistryBean (Registry registry, CamelContext context, String name)
+DECL|method|EjbRegistryBean (JndiBeanRepository registry, CamelContext context, String name)
 specifier|public
 name|EjbRegistryBean
 parameter_list|(
-name|Registry
+name|JndiBeanRepository
 name|registry
 parameter_list|,
 name|CamelContext
