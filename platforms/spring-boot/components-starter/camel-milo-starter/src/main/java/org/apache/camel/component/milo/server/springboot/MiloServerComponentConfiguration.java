@@ -44,6 +44,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -184,10 +194,13 @@ specifier|private
 name|String
 name|hostname
 decl_stmt|;
-comment|/**      * Security policies. The option is a      * java.util.Set<org.eclipse.milo.opcua.stack.core.security.SecurityPolicy>      * type.      */
+comment|/**      * Security policies      */
 DECL|field|securityPolicies
 specifier|private
-name|String
+name|Set
+argument_list|<
+name|SecurityPolicy
+argument_list|>
 name|securityPolicies
 decl_stmt|;
 comment|/**      * Security policies by URI or name      */
@@ -481,7 +494,10 @@ expr_stmt|;
 block|}
 DECL|method|getSecurityPolicies ()
 specifier|public
-name|String
+name|Set
+argument_list|<
+name|SecurityPolicy
+argument_list|>
 name|getSecurityPolicies
 parameter_list|()
 block|{
@@ -489,12 +505,15 @@ return|return
 name|securityPolicies
 return|;
 block|}
-DECL|method|setSecurityPolicies (String securityPolicies)
+DECL|method|setSecurityPolicies (Set<SecurityPolicy> securityPolicies)
 specifier|public
 name|void
 name|setSecurityPolicies
 parameter_list|(
-name|String
+name|Set
+argument_list|<
+name|SecurityPolicy
+argument_list|>
 name|securityPolicies
 parameter_list|)
 block|{

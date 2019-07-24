@@ -22,11 +22,37 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|websocket
+operator|.
+name|WebSocketFactory
 import|;
 end_import
 
@@ -172,10 +198,15 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To configure a map which contains custom WebSocketFactory for sub      * protocols. The key in the map is the sub protocol. The default key is      * reserved for the default implementation. The option is a      * java.util.Map<java.lang.String,org.apache.camel.component.websocket.WebSocketFactory> type.      */
+comment|/**      * To configure a map which contains custom WebSocketFactory for sub      * protocols. The key in the map is the sub protocol. The default key is      * reserved for the default implementation.      */
 DECL|field|socketFactory
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|WebSocketFactory
+argument_list|>
 name|socketFactory
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -508,7 +539,12 @@ expr_stmt|;
 block|}
 DECL|method|getSocketFactory ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|WebSocketFactory
+argument_list|>
 name|getSocketFactory
 parameter_list|()
 block|{
@@ -516,12 +552,17 @@ return|return
 name|socketFactory
 return|;
 block|}
-DECL|method|setSocketFactory (String socketFactory)
+DECL|method|setSocketFactory (Map<String, WebSocketFactory> socketFactory)
 specifier|public
 name|void
 name|setSocketFactory
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|WebSocketFactory
+argument_list|>
 name|socketFactory
 parameter_list|)
 block|{

@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -316,16 +326,26 @@ name|immediate
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Specify arguments for configuring the different RabbitMQ concepts, a      * different prefix is required for each: Exchange: arg.exchange. Queue:      * arg.queue. Binding: arg.binding. For example to declare a queue with      * message ttl argument:      * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000.      * The option is a java.util.Map<java.lang.String,java.lang.Object> type.      */
+comment|/**      * Specify arguments for configuring the different RabbitMQ concepts, a      * different prefix is required for each: Exchange: arg.exchange. Queue:      * arg.queue. Binding: arg.binding. For example to declare a queue with      * message ttl argument:      * http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000      */
 DECL|field|args
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|args
 decl_stmt|;
-comment|/**      * Connection client properties (client info used in negotiating with the      * server). The option is a java.util.Map<java.lang.String,java.lang.Object>      * type.      */
+comment|/**      * Connection client properties (client info used in negotiating with the      * server)      */
 DECL|field|clientProperties
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|clientProperties
 decl_stmt|;
 comment|/**      * Enables SSL on connection, accepted value are true, TLS and 'SSLv3      */
@@ -1252,7 +1272,12 @@ expr_stmt|;
 block|}
 DECL|method|getArgs ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getArgs
 parameter_list|()
 block|{
@@ -1260,12 +1285,17 @@ return|return
 name|args
 return|;
 block|}
-DECL|method|setArgs (String args)
+DECL|method|setArgs (Map<String, Object> args)
 specifier|public
 name|void
 name|setArgs
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|args
 parameter_list|)
 block|{
@@ -1278,7 +1308,12 @@ expr_stmt|;
 block|}
 DECL|method|getClientProperties ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getClientProperties
 parameter_list|()
 block|{
@@ -1286,12 +1321,17 @@ return|return
 name|clientProperties
 return|;
 block|}
-DECL|method|setClientProperties (String clientProperties)
+DECL|method|setClientProperties (Map<String, Object> clientProperties)
 specifier|public
 name|void
 name|setClientProperties
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|clientProperties
 parameter_list|)
 block|{

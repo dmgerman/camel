@@ -204,16 +204,21 @@ specifier|private
 name|String
 name|cacheManagerConfiguration
 decl_stmt|;
-comment|/**      * The default cache configuration to be used to create caches. The option      * is a org.ehcache.config.CacheConfiguration<?,?> type.      */
+comment|/**      * The default cache configuration to be used to create caches. The option      * is a org.ehcache.config.CacheConfiguration type.      */
 DECL|field|cacheConfiguration
 specifier|private
 name|String
 name|cacheConfiguration
 decl_stmt|;
-comment|/**      * A map of caches configurations to be used to create caches. The option is      * a      * java.util.Map<java.lang.String,org.ehcache.config.CacheConfiguration<?,?>> type.      */
+comment|/**      * A map of caches configurations to be used to create caches.      */
 DECL|field|cachesConfigurations
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|CacheConfiguration
+argument_list|>
 name|cachesConfigurations
 decl_stmt|;
 comment|/**      * URI pointing to the Ehcache XML configuration file's location      */
@@ -344,7 +349,12 @@ expr_stmt|;
 block|}
 DECL|method|getCachesConfigurations ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|CacheConfiguration
+argument_list|>
 name|getCachesConfigurations
 parameter_list|()
 block|{
@@ -352,12 +362,17 @@ return|return
 name|cachesConfigurations
 return|;
 block|}
-DECL|method|setCachesConfigurations (String cachesConfigurations)
+DECL|method|setCachesConfigurations ( Map<String, CacheConfiguration> cachesConfigurations)
 specifier|public
 name|void
 name|setCachesConfigurations
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|CacheConfiguration
+argument_list|>
 name|cachesConfigurations
 parameter_list|)
 block|{

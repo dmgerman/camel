@@ -664,7 +664,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( Map<String, Object> configurations)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -690,7 +690,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( String configurations)
 specifier|default
 name|AdvancedEhcacheEndpointConsumerBuilder
@@ -1223,7 +1223,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( Map<String, Object> configurations)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1249,7 +1249,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( String configurations)
 specifier|default
 name|AdvancedEhcacheEndpointProducerBuilder
@@ -1681,7 +1681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( Map<String, Object> configurations)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder
@@ -1707,7 +1707,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&lt;java.lang.Object,          * java.lang.Object&gt;&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * A map of cache configuration to be used to create caches.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String,          * org.ehcache.config.CacheConfiguration&gt;</code> type.          *           * Group: advanced          */
 DECL|method|configurations ( String configurations)
 specifier|default
 name|AdvancedEhcacheEndpointBuilder

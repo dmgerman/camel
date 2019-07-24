@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -416,16 +426,26 @@ specifier|private
 name|SalesforceEndpointConfigNestedConfiguration
 name|config
 decl_stmt|;
-comment|/**      * Used to set any properties that can be configured on the underlying HTTP      * client. Have a look at properties of SalesforceHttpClient and the Jetty      * HttpClient for all available options. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
+comment|/**      * Used to set any properties that can be configured on the underlying HTTP      * client. Have a look at properties of SalesforceHttpClient and the Jetty      * HttpClient for all available options.      */
 DECL|field|httpClientProperties
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|httpClientProperties
 decl_stmt|;
-comment|/**      * Used to set any properties that can be configured on the      * LongPollingTransport used by the BayeuxClient (CometD) used by the      * streaming api. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
+comment|/**      * Used to set any properties that can be configured on the      * LongPollingTransport used by the BayeuxClient (CometD) used by the      * streaming api      */
 DECL|field|longPollingTransportProperties
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|longPollingTransportProperties
 decl_stmt|;
 comment|/**      * SSL parameters to use, see SSLContextParameters class for all available      * options. The option is a      * org.apache.camel.support.jsse.SSLContextParameters type.      */
@@ -482,16 +502,22 @@ name|isHttpProxySecure
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * A list of addresses for which HTTP proxy server should be used. The      * option is a java.util.Set<java.lang.String> type.      */
+comment|/**      * A list of addresses for which HTTP proxy server should be used.      */
 DECL|field|httpProxyIncludedAddresses
 specifier|private
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|httpProxyIncludedAddresses
 decl_stmt|;
-comment|/**      * A list of addresses for which HTTP proxy server should not be used. The      * option is a java.util.Set<java.lang.String> type.      */
+comment|/**      * A list of addresses for which HTTP proxy server should not be used.      */
 DECL|field|httpProxyExcludedAddresses
 specifier|private
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|httpProxyExcludedAddresses
 decl_stmt|;
 comment|/**      * Used in authentication against the HTTP proxy server, needs to match the      * URI of the proxy server in order for the httpProxyUsername and      * httpProxyPassword to be used for authentication.      */
@@ -851,7 +877,12 @@ expr_stmt|;
 block|}
 DECL|method|getHttpClientProperties ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getHttpClientProperties
 parameter_list|()
 block|{
@@ -859,12 +890,17 @@ return|return
 name|httpClientProperties
 return|;
 block|}
-DECL|method|setHttpClientProperties (String httpClientProperties)
+DECL|method|setHttpClientProperties (Map<String, Object> httpClientProperties)
 specifier|public
 name|void
 name|setHttpClientProperties
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|httpClientProperties
 parameter_list|)
 block|{
@@ -877,7 +913,12 @@ expr_stmt|;
 block|}
 DECL|method|getLongPollingTransportProperties ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getLongPollingTransportProperties
 parameter_list|()
 block|{
@@ -885,12 +926,17 @@ return|return
 name|longPollingTransportProperties
 return|;
 block|}
-DECL|method|setLongPollingTransportProperties ( String longPollingTransportProperties)
+DECL|method|setLongPollingTransportProperties ( Map<String, Object> longPollingTransportProperties)
 specifier|public
 name|void
 name|setLongPollingTransportProperties
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|longPollingTransportProperties
 parameter_list|)
 block|{
@@ -1111,7 +1157,10 @@ expr_stmt|;
 block|}
 DECL|method|getHttpProxyIncludedAddresses ()
 specifier|public
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|getHttpProxyIncludedAddresses
 parameter_list|()
 block|{
@@ -1119,12 +1168,15 @@ return|return
 name|httpProxyIncludedAddresses
 return|;
 block|}
-DECL|method|setHttpProxyIncludedAddresses (String httpProxyIncludedAddresses)
+DECL|method|setHttpProxyIncludedAddresses ( Set<String> httpProxyIncludedAddresses)
 specifier|public
 name|void
 name|setHttpProxyIncludedAddresses
 parameter_list|(
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|httpProxyIncludedAddresses
 parameter_list|)
 block|{
@@ -1137,7 +1189,10 @@ expr_stmt|;
 block|}
 DECL|method|getHttpProxyExcludedAddresses ()
 specifier|public
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|getHttpProxyExcludedAddresses
 parameter_list|()
 block|{
@@ -1145,12 +1200,15 @@ return|return
 name|httpProxyExcludedAddresses
 return|;
 block|}
-DECL|method|setHttpProxyExcludedAddresses (String httpProxyExcludedAddresses)
+DECL|method|setHttpProxyExcludedAddresses ( Set<String> httpProxyExcludedAddresses)
 specifier|public
 name|void
 name|setHttpProxyExcludedAddresses
 parameter_list|(
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|httpProxyExcludedAddresses
 parameter_list|)
 block|{

@@ -301,11 +301,6 @@ argument_list|)
 DECL|field|configuration
 specifier|private
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 name|configuration
 decl_stmt|;
 annotation|@
@@ -322,11 +317,6 @@ argument_list|<
 name|String
 argument_list|,
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 argument_list|>
 name|configurations
 decl_stmt|;
@@ -990,11 +980,6 @@ argument_list|<
 name|String
 argument_list|,
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 argument_list|>
 name|getConfigurations
 parameter_list|()
@@ -1003,7 +988,7 @@ return|return
 name|configurations
 return|;
 block|}
-DECL|method|setConfigurations (Map<String, CacheConfiguration<?, ?>> configurations)
+DECL|method|setConfigurations (Map<String, CacheConfiguration> configurations)
 specifier|public
 name|void
 name|setConfigurations
@@ -1013,11 +998,6 @@ argument_list|<
 name|String
 argument_list|,
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 argument_list|>
 name|configurations
 parameter_list|)
@@ -1036,7 +1016,7 @@ name|configurations
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addConfigurations (Map<String, CacheConfiguration<?, ?>> configurations)
+DECL|method|addConfigurations (Map<String, CacheConfiguration> configurations)
 specifier|public
 name|void
 name|addConfigurations
@@ -1046,11 +1026,6 @@ argument_list|<
 name|String
 argument_list|,
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 argument_list|>
 name|configurations
 parameter_list|)

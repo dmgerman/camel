@@ -744,17 +744,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The default cache configuration to be used to create caches.      */
-DECL|method|setCacheConfiguration (CacheConfiguration<?, ?> cacheConfiguration)
+DECL|method|setCacheConfiguration (CacheConfiguration cacheConfiguration)
 specifier|public
 name|void
 name|setCacheConfiguration
 parameter_list|(
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 name|cacheConfiguration
 parameter_list|)
 block|{
@@ -771,11 +766,6 @@ block|}
 DECL|method|getCacheConfiguration ()
 specifier|public
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 name|getCacheConfiguration
 parameter_list|()
 block|{
@@ -795,11 +785,6 @@ argument_list|<
 name|String
 argument_list|,
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 argument_list|>
 name|getCachesConfigurations
 parameter_list|()
@@ -812,7 +797,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * A map of caches configurations to be used to create caches.      */
-DECL|method|setCachesConfigurations (Map<String, CacheConfiguration<?, ?>> configurations)
+DECL|method|setCachesConfigurations (Map<String, CacheConfiguration> configurations)
 specifier|public
 name|void
 name|setCachesConfigurations
@@ -822,11 +807,6 @@ argument_list|<
 name|String
 argument_list|,
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 argument_list|>
 name|configurations
 parameter_list|)
@@ -839,7 +819,7 @@ name|configurations
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addCachesConfigurations (Map<String, CacheConfiguration<?, ?>> configurations)
+DECL|method|addCachesConfigurations (Map<String, CacheConfiguration> configurations)
 specifier|public
 name|void
 name|addCachesConfigurations
@@ -849,11 +829,6 @@ argument_list|<
 name|String
 argument_list|,
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 argument_list|>
 name|configurations
 parameter_list|)

@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -132,10 +142,15 @@ specifier|private
 name|String
 name|saxonConfiguration
 decl_stmt|;
-comment|/**      * To set custom Saxon configuration properties. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
+comment|/**      * To set custom Saxon configuration properties      */
 DECL|field|saxonConfigurationProperties
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|saxonConfigurationProperties
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
@@ -312,7 +327,12 @@ expr_stmt|;
 block|}
 DECL|method|getSaxonConfigurationProperties ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getSaxonConfigurationProperties
 parameter_list|()
 block|{
@@ -320,12 +340,17 @@ return|return
 name|saxonConfigurationProperties
 return|;
 block|}
-DECL|method|setSaxonConfigurationProperties ( String saxonConfigurationProperties)
+DECL|method|setSaxonConfigurationProperties ( Map<String, Object> saxonConfigurationProperties)
 specifier|public
 name|void
 name|setSaxonConfigurationProperties
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|saxonConfigurationProperties
 parameter_list|)
 block|{

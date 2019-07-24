@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -140,16 +150,22 @@ name|encodeElementsAppliesToChildResourcesOnly
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If provided, specifies the elements which should be encoded, to the      * exclusion of all others. Valid values for this field would include:      * Patient - Encode patient and all its children Patient.name - Encode only      * the patient's name Patient.name.family - Encode only the patient's family      * name .text - Encode the text element on any resource (only the very first      * position may contain a wildcard) .(mandatory) - This is a special case      * which causes any mandatory fields (min 0) to be encoded. The option is a      * java.util.Set<java.lang.String> type.      */
+comment|/**      * If provided, specifies the elements which should be encoded, to the      * exclusion of all others. Valid values for this field would include:      * Patient - Encode patient and all its children Patient.name - Encode only      * the patient's name Patient.name.family - Encode only the patient's family      * name .text - Encode the text element on any resource (only the very first      * position may contain a wildcard) .(mandatory) - This is a special case      * which causes any mandatory fields (min 0) to be encoded      */
 DECL|field|encodeElements
 specifier|private
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|encodeElements
 decl_stmt|;
-comment|/**      * If provided, specifies the elements which should NOT be encoded. Valid      * values for this field would include: Patient - Don't encode patient and      * all its children Patient.name - Don't encode the patient's name      * Patient.name.family - Don't encode the patient's family name .text -      * Don't encode the text element on any resource (only the very first      * position may contain a wildcard) DSTU2 note: Note that values including      * meta, such as Patient.meta will work for DSTU2 parsers, but values with      * subelements on meta such as Patient.meta.lastUpdated will only work in      * DSTU3 mode. The option is a java.util.Set<java.lang.String> type.      */
+comment|/**      * If provided, specifies the elements which should NOT be encoded. Valid      * values for this field would include: Patient - Don't encode patient and      * all its children Patient.name - Don't encode the patient's name      * Patient.name.family - Don't encode the patient's family name .text -      * Don't encode the text element on any resource (only the very first      * position may contain a wildcard) DSTU2 note: Note that values including      * meta, such as Patient.meta will work for DSTU2 parsers, but values with      * subelements on meta such as Patient.meta.lastUpdated will only work in      * DSTU3 mode.      */
 DECL|field|dontEncodeElements
 specifier|private
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|dontEncodeElements
 decl_stmt|;
 comment|/**      * If set to true (which is the default), resource references containing a      * version will have the version removed when the resource is encoded. This      * is generally good behaviour because in most situations, references from      * one resource to another should be to the resource by ID, not by ID and      * version. In some cases though, it may be desirable to preserve the      * version in resource links. In that case, this value should be set to      * false. This method provides the ability to globally disable reference      * encoding. If finer-grained control is needed, use      * setDontStripVersionsFromReferencesAtPaths(List)      */
@@ -333,7 +349,10 @@ expr_stmt|;
 block|}
 DECL|method|getEncodeElements ()
 specifier|public
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|getEncodeElements
 parameter_list|()
 block|{
@@ -341,12 +360,15 @@ return|return
 name|encodeElements
 return|;
 block|}
-DECL|method|setEncodeElements (String encodeElements)
+DECL|method|setEncodeElements (Set<String> encodeElements)
 specifier|public
 name|void
 name|setEncodeElements
 parameter_list|(
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|encodeElements
 parameter_list|)
 block|{
@@ -359,7 +381,10 @@ expr_stmt|;
 block|}
 DECL|method|getDontEncodeElements ()
 specifier|public
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|getDontEncodeElements
 parameter_list|()
 block|{
@@ -367,12 +392,15 @@ return|return
 name|dontEncodeElements
 return|;
 block|}
-DECL|method|setDontEncodeElements (String dontEncodeElements)
+DECL|method|setDontEncodeElements (Set<String> dontEncodeElements)
 specifier|public
 name|void
 name|setDontEncodeElements
 parameter_list|(
+name|Set
+argument_list|<
 name|String
+argument_list|>
 name|dontEncodeElements
 parameter_list|)
 block|{

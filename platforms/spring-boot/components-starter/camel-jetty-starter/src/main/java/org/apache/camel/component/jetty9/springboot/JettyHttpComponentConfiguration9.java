@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -43,6 +53,20 @@ operator|.
 name|boot
 operator|.
 name|ComponentConfigurationPropertiesCommon
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|server
+operator|.
+name|Connector
 import|;
 end_import
 
@@ -116,16 +140,26 @@ specifier|private
 name|String
 name|errorHandler
 decl_stmt|;
-comment|/**      * A map which contains per port number specific SSL connectors. The option      * is a java.util.Map<java.lang.Integer,org.eclipse.jetty.server.Connector>      * type.      */
+comment|/**      * A map which contains per port number specific SSL connectors.      */
 DECL|field|sslSocketConnectors
 specifier|private
-name|String
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
 name|sslSocketConnectors
 decl_stmt|;
-comment|/**      * A map which contains per port number specific HTTP connectors. Uses the      * same principle as sslSocketConnectors. The option is a      * java.util.Map<java.lang.Integer,org.eclipse.jetty.server.Connector> type.      */
+comment|/**      * A map which contains per port number specific HTTP connectors. Uses the      * same principle as sslSocketConnectors.      */
 DECL|field|socketConnectors
 specifier|private
-name|String
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
 name|socketConnectors
 decl_stmt|;
 comment|/**      * To set a value for minimum number of threads in HttpClient thread pool.      * Notice that both a min and max size must be configured.      */
@@ -190,16 +224,26 @@ specifier|private
 name|String
 name|mbContainer
 decl_stmt|;
-comment|/**      * A map which contains general SSL connector properties. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
+comment|/**      * A map which contains general SSL connector properties.      */
 DECL|field|sslSocketConnectorProperties
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|sslSocketConnectorProperties
 decl_stmt|;
-comment|/**      * A map which contains general HTTP connector properties. Uses the same      * principle as sslSocketConnectorProperties. The option is a      * java.util.Map<java.lang.String,java.lang.Object> type.      */
+comment|/**      * A map which contains general HTTP connector properties. Uses the same      * principle as sslSocketConnectorProperties.      */
 DECL|field|socketConnectorProperties
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|socketConnectorProperties
 decl_stmt|;
 comment|/**      * Allows to set a timeout in millis when using Jetty as consumer (server).      * By default Jetty uses 30000. You can use a value of = 0 to never expire.      * If a timeout occurs then the request will be expired and Jetty will      * return back a http error 503 to the client. This option is only in use      * when using Jetty with the Asynchronous Routing Engine.      */
@@ -420,7 +464,12 @@ expr_stmt|;
 block|}
 DECL|method|getSslSocketConnectors ()
 specifier|public
-name|String
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
 name|getSslSocketConnectors
 parameter_list|()
 block|{
@@ -428,12 +477,17 @@ return|return
 name|sslSocketConnectors
 return|;
 block|}
-DECL|method|setSslSocketConnectors (String sslSocketConnectors)
+DECL|method|setSslSocketConnectors ( Map<Integer, Connector> sslSocketConnectors)
 specifier|public
 name|void
 name|setSslSocketConnectors
 parameter_list|(
-name|String
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
 name|sslSocketConnectors
 parameter_list|)
 block|{
@@ -446,7 +500,12 @@ expr_stmt|;
 block|}
 DECL|method|getSocketConnectors ()
 specifier|public
-name|String
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
 name|getSocketConnectors
 parameter_list|()
 block|{
@@ -454,12 +513,17 @@ return|return
 name|socketConnectors
 return|;
 block|}
-DECL|method|setSocketConnectors (String socketConnectors)
+DECL|method|setSocketConnectors (Map<Integer, Connector> socketConnectors)
 specifier|public
 name|void
 name|setSocketConnectors
 parameter_list|(
-name|String
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
 name|socketConnectors
 parameter_list|)
 block|{
@@ -732,7 +796,12 @@ expr_stmt|;
 block|}
 DECL|method|getSslSocketConnectorProperties ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getSslSocketConnectorProperties
 parameter_list|()
 block|{
@@ -740,12 +809,17 @@ return|return
 name|sslSocketConnectorProperties
 return|;
 block|}
-DECL|method|setSslSocketConnectorProperties ( String sslSocketConnectorProperties)
+DECL|method|setSslSocketConnectorProperties ( Map<String, Object> sslSocketConnectorProperties)
 specifier|public
 name|void
 name|setSslSocketConnectorProperties
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|sslSocketConnectorProperties
 parameter_list|)
 block|{
@@ -758,7 +832,12 @@ expr_stmt|;
 block|}
 DECL|method|getSocketConnectorProperties ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getSocketConnectorProperties
 parameter_list|()
 block|{
@@ -766,12 +845,17 @@ return|return
 name|socketConnectorProperties
 return|;
 block|}
-DECL|method|setSocketConnectorProperties (String socketConnectorProperties)
+DECL|method|setSocketConnectorProperties ( Map<String, Object> socketConnectorProperties)
 specifier|public
 name|void
 name|setSocketConnectorProperties
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|Object
+argument_list|>
 name|socketConnectorProperties
 parameter_list|)
 block|{

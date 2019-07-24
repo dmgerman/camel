@@ -338,11 +338,6 @@ argument_list|<
 name|String
 argument_list|,
 name|CacheConfiguration
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
 argument_list|>
 name|configurations
 decl_stmt|;

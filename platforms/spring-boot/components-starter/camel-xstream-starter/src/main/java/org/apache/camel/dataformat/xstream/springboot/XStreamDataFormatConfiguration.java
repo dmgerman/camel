@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -141,22 +151,39 @@ name|String
 argument_list|>
 name|converters
 decl_stmt|;
-comment|/**      * Alias a Class to a shorter name to be used in XML elements. The option is      * a java.util.Map<java.lang.String,java.lang.String> type.      */
+comment|/**      * Alias a Class to a shorter name to be used in XML elements.      */
 DECL|field|aliases
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|aliases
 decl_stmt|;
-comment|/**      * Prevents a field from being serialized. To omit a field you must always      * provide the declaring type and not necessarily the type that is      * converted. The option is a      * java.util.Map<java.lang.String,java.lang.String[]> type.      */
+comment|/**      * Prevents a field from being serialized. To omit a field you must always      * provide the declaring type and not necessarily the type that is      * converted.      */
 DECL|field|omitFields
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
 name|omitFields
 decl_stmt|;
-comment|/**      * Adds a default implicit collection which is used for any unmapped XML      * tag. The option is a java.util.Map<java.lang.String,java.lang.String[]>      * type.      */
+comment|/**      * Adds a default implicit collection which is used for any unmapped XML      * tag.      */
 DECL|field|implicitCollections
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
 name|implicitCollections
 decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
@@ -331,7 +358,12 @@ expr_stmt|;
 block|}
 DECL|method|getAliases ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|getAliases
 parameter_list|()
 block|{
@@ -339,12 +371,17 @@ return|return
 name|aliases
 return|;
 block|}
-DECL|method|setAliases (String aliases)
+DECL|method|setAliases (Map<String, String> aliases)
 specifier|public
 name|void
 name|setAliases
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+argument_list|>
 name|aliases
 parameter_list|)
 block|{
@@ -357,7 +394,13 @@ expr_stmt|;
 block|}
 DECL|method|getOmitFields ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
 name|getOmitFields
 parameter_list|()
 block|{
@@ -365,12 +408,18 @@ return|return
 name|omitFields
 return|;
 block|}
-DECL|method|setOmitFields (String omitFields)
+DECL|method|setOmitFields (Map<String, String[]> omitFields)
 specifier|public
 name|void
 name|setOmitFields
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
 name|omitFields
 parameter_list|)
 block|{
@@ -383,7 +432,13 @@ expr_stmt|;
 block|}
 DECL|method|getImplicitCollections ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
 name|getImplicitCollections
 parameter_list|()
 block|{
@@ -391,12 +446,18 @@ return|return
 name|implicitCollections
 return|;
 block|}
-DECL|method|setImplicitCollections (String implicitCollections)
+DECL|method|setImplicitCollections (Map<String, String[]> implicitCollections)
 specifier|public
 name|void
 name|setImplicitCollections
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
 name|implicitCollections
 parameter_list|)
 block|{

@@ -22,11 +22,37 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|quickfixj
+operator|.
+name|QuickfixjConfiguration
 import|;
 end_import
 
@@ -110,10 +136,15 @@ specifier|private
 name|String
 name|messageStoreFactory
 decl_stmt|;
-comment|/**      * To use the given map of pre configured QuickFix configurations mapped to      * the key. The option is a      * java.util.Map<java.lang.String,org.apache.camel.component.quickfixj.QuickfixjConfiguration> type.      */
+comment|/**      * To use the given map of pre configured QuickFix configurations mapped to      * the key      */
 DECL|field|configurations
 specifier|private
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|QuickfixjConfiguration
+argument_list|>
 name|configurations
 decl_stmt|;
 comment|/**      * If set to true, the engines will be created and started when needed (when      * first message is send)      */
@@ -220,7 +251,12 @@ expr_stmt|;
 block|}
 DECL|method|getConfigurations ()
 specifier|public
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|QuickfixjConfiguration
+argument_list|>
 name|getConfigurations
 parameter_list|()
 block|{
@@ -228,12 +264,17 @@ return|return
 name|configurations
 return|;
 block|}
-DECL|method|setConfigurations (String configurations)
+DECL|method|setConfigurations ( Map<String, QuickfixjConfiguration> configurations)
 specifier|public
 name|void
 name|setConfigurations
 parameter_list|(
+name|Map
+argument_list|<
 name|String
+argument_list|,
+name|QuickfixjConfiguration
+argument_list|>
 name|configurations
 parameter_list|)
 block|{
