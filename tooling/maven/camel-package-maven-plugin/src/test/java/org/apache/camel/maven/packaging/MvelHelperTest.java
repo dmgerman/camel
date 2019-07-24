@@ -222,6 +222,43 @@ name|ParameterizedTest
 annotation|@
 name|MethodSource
 argument_list|(
+literal|"curlyBracketEscapeCases"
+argument_list|)
+DECL|method|shouldcurlyBracket (final String given, final String expected)
+specifier|public
+name|void
+name|shouldcurlyBracket
+parameter_list|(
+specifier|final
+name|String
+name|given
+parameter_list|,
+specifier|final
+name|String
+name|expected
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|MvelHelper
+operator|.
+name|escape
+argument_list|(
+name|given
+argument_list|)
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+name|expected
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ParameterizedTest
+annotation|@
+name|MethodSource
+argument_list|(
 literal|"urlEscapeCases"
 argument_list|)
 DECL|method|shouldUrls (final String given, final String expected)
@@ -279,7 +316,30 @@ name|arguments
 argument_list|(
 literal|"some ${expression} here"
 argument_list|,
-literal|"some \\${expression} here"
+literal|"some \\$\\{expression\\} here"
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|curlyBracketEscapeCases ()
+specifier|static
+name|Stream
+argument_list|<
+name|Arguments
+argument_list|>
+name|curlyBracketEscapeCases
+parameter_list|()
+block|{
+return|return
+name|Stream
+operator|.
+name|of
+argument_list|(
+name|arguments
+argument_list|(
+literal|"some {expression} here"
+argument_list|,
+literal|"some \\{expression\\} here"
 argument_list|)
 argument_list|)
 return|;
@@ -309,7 +369,7 @@ name|arguments
 argument_list|(
 literal|"some ${expression} here"
 argument_list|,
-literal|"some \\${expression} here"
+literal|"some \\$\\{expression\\} here"
 argument_list|)
 argument_list|,
 name|arguments
