@@ -160,21 +160,6 @@ name|FromFtpRemoteFileFilterTest
 extends|extends
 name|FtpServerTestSupport
 block|{
-DECL|method|getFtpUrl ()
-specifier|private
-name|String
-name|getFtpUrl
-parameter_list|()
-block|{
-return|return
-literal|"ftp://admin@localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/filefilter?password=admin&filter=#myFilter"
-return|;
-block|}
 annotation|@
 name|BindToRegistry
 argument_list|(
@@ -190,6 +175,21 @@ name|MyFileFilter
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|method|getFtpUrl ()
+specifier|private
+name|String
+name|getFtpUrl
+parameter_list|()
+block|{
+return|return
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/filefilter?password=admin&filter=#myFilter"
+return|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -229,7 +229,8 @@ literal|"aix"
 argument_list|)
 condition|)
 block|{
-comment|// skip testing on AIX as it have an issue with this test with the file filter
+comment|// skip testing on AIX as it have an issue with this test with the
+comment|// file filter
 return|return;
 block|}
 name|MockEndpoint
@@ -270,7 +271,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// prepares the FTP Server by creating files on the server that we want to unit
+comment|// prepares the FTP Server by creating files on the server that we want
+comment|// to unit
 comment|// test that we can pool
 name|sendFile
 argument_list|(

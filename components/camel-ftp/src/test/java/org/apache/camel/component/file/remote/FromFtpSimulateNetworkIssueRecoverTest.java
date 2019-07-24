@@ -134,6 +134,20 @@ specifier|static
 name|int
 name|rollback
 decl_stmt|;
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"myPoll"
+argument_list|)
+DECL|field|strategy
+specifier|private
+name|MyPollStrategy
+name|strategy
+init|=
+operator|new
+name|MyPollStrategy
+argument_list|()
+decl_stmt|;
 DECL|method|getFtpUrl ()
 specifier|private
 name|String
@@ -149,20 +163,6 @@ operator|+
 literal|"/recover?password=admin&pollStrategy=#myPoll"
 return|;
 block|}
-annotation|@
-name|BindToRegistry
-argument_list|(
-literal|"myPoll"
-argument_list|)
-DECL|field|strategy
-specifier|private
-name|MyPollStrategy
-name|strategy
-init|=
-operator|new
-name|MyPollStrategy
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testFtpRecover ()

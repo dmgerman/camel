@@ -108,6 +108,20 @@ name|FtpProducerExpressionTest
 extends|extends
 name|FtpServerTestSupport
 block|{
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"myguidgenerator"
+argument_list|)
+DECL|field|guid
+specifier|private
+name|MyGuidGenerator
+name|guid
+init|=
+operator|new
+name|MyGuidGenerator
+argument_list|()
+decl_stmt|;
 DECL|method|getFtpUrl ()
 specifier|private
 name|String
@@ -123,20 +137,6 @@ operator|+
 literal|"/filelanguage?password=admin"
 return|;
 block|}
-annotation|@
-name|BindToRegistry
-argument_list|(
-literal|"myguidgenerator"
-argument_list|)
-DECL|field|guid
-specifier|private
-name|MyGuidGenerator
-name|guid
-init|=
-operator|new
-name|MyGuidGenerator
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Override
 annotation|@
@@ -326,7 +326,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// need one extra subdirectory (=foo) to be able to start with .. in the fileName option
+comment|// need one extra subdirectory (=foo) to be able to start with .. in the
+comment|// fileName option
 name|String
 name|url
 init|=

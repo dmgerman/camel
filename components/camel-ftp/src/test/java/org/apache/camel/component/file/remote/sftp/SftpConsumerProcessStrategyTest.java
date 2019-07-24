@@ -277,7 +277,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//noop
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -327,7 +327,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//noop
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -377,7 +377,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//noop
+comment|// noop
 block|}
 DECL|method|getInvoked ()
 name|int

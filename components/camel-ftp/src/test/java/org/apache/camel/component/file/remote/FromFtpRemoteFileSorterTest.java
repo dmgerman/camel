@@ -118,6 +118,20 @@ name|FromFtpRemoteFileSorterTest
 extends|extends
 name|FtpServerTestSupport
 block|{
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"mySorter"
+argument_list|)
+DECL|field|sorter
+specifier|private
+name|MyRemoteFileSorter
+name|sorter
+init|=
+operator|new
+name|MyRemoteFileSorter
+argument_list|()
+decl_stmt|;
 DECL|method|getFtpUrl ()
 specifier|private
 name|String
@@ -133,20 +147,6 @@ operator|+
 literal|"/sorter?password=admin&sorter=#mySorter"
 return|;
 block|}
-annotation|@
-name|BindToRegistry
-argument_list|(
-literal|"mySorter"
-argument_list|)
-DECL|field|sorter
-specifier|private
-name|MyRemoteFileSorter
-name|sorter
-init|=
-operator|new
-name|MyRemoteFileSorter
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Override
 annotation|@
@@ -218,7 +218,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// prepares the FTP Server by creating files on the server that we want to unit
+comment|// prepares the FTP Server by creating files on the server that we want
+comment|// to unit
 comment|// test that we can pool
 name|sendFile
 argument_list|(
