@@ -28,9 +28,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|JndiRegistry
+name|BindToRegistry
 import|;
 end_import
 
@@ -107,11 +105,14 @@ extends|extends
 name|FileToFtpsExplicitSSLWithClientAuthTest
 block|{
 annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
+name|BindToRegistry
+argument_list|(
+literal|"sslContextParameters"
+argument_list|)
+DECL|method|createSslContextParams ()
+specifier|public
+name|SSLContextParameters
+name|createSslContextParams
 parameter_list|()
 throws|throws
 name|Exception
@@ -200,25 +201,8 @@ argument_list|(
 name|tmp
 argument_list|)
 expr_stmt|;
-name|JndiRegistry
-name|registry
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|registry
-operator|.
-name|bind
-argument_list|(
-literal|"sslContextParameters"
-argument_list|,
-name|sslContextParameters
-argument_list|)
-expr_stmt|;
 return|return
-name|registry
+name|sslContextParameters
 return|;
 block|}
 DECL|method|getFtpUrl ()

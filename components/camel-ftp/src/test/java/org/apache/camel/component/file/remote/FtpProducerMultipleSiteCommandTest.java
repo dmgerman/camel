@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|IOConverter
@@ -77,36 +89,17 @@ extends|extends
 name|FtpServerTestSupport
 block|{
 annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|jndi
-operator|.
-name|bind
+name|BindToRegistry
 argument_list|(
 literal|"site"
-argument_list|,
-literal|"help site\nhelp site"
 argument_list|)
-expr_stmt|;
-return|return
-name|jndi
-return|;
-block|}
+DECL|field|site
+specifier|private
+name|String
+name|site
+init|=
+literal|"help site\nhelp site"
+decl_stmt|;
 DECL|method|getFtpUrl ()
 specifier|private
 name|String

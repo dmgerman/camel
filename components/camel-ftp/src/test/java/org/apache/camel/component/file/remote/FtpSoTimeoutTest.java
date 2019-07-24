@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelExecutionException
 import|;
 end_import
@@ -297,11 +309,14 @@ block|}
 return|;
 block|}
 annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
+name|BindToRegistry
+argument_list|(
+literal|"myftpclient"
+argument_list|)
+DECL|method|createFtpClient ()
+specifier|public
+name|FTPClient
+name|createFtpClient
 parameter_list|()
 throws|throws
 name|Exception
@@ -320,25 +335,8 @@ argument_list|(
 literal|300
 argument_list|)
 expr_stmt|;
-name|JndiRegistry
-name|registry
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|registry
-operator|.
-name|bind
-argument_list|(
-literal|"myftpclient"
-argument_list|,
-name|ftpClient
-argument_list|)
-expr_stmt|;
 return|return
-name|registry
+name|ftpClient
 return|;
 block|}
 comment|// --- Tests
