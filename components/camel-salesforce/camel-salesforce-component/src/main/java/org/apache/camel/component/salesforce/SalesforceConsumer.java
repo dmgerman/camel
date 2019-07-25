@@ -2063,6 +2063,13 @@ expr_stmt|;
 block|}
 block|}
 comment|// subscribe to topic
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|subscriptionHelper
+argument_list|)
+expr_stmt|;
 name|subscriptionHelper
 operator|.
 name|subscribe

@@ -2253,14 +2253,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// also start the helper to connect to Salesforce
-name|ServiceHelper
-operator|.
-name|startService
-argument_list|(
-name|subscriptionHelper
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|subscriptionHelper
