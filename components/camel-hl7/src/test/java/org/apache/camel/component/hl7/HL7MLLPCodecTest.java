@@ -112,6 +112,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -178,23 +190,19 @@ name|HL7MLLPCodecTest
 extends|extends
 name|HL7TestSupport
 block|{
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"hl7codec"
+argument_list|)
+DECL|method|addCodec ()
+specifier|public
+name|HL7MLLPCodec
+name|addCodec
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-comment|// START SNIPPET: e1
 name|HL7MLLPCodec
 name|codec
 init|=
@@ -216,18 +224,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|jndi
-operator|.
-name|bind
-argument_list|(
-literal|"hl7codec"
-argument_list|,
-name|codec
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: e1
 return|return
-name|jndi
+name|codec
 return|;
 block|}
 DECL|method|createRouteBuilder ()
