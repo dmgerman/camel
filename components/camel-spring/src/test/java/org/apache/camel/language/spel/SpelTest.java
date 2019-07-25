@@ -88,6 +88,13 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
+literal|"#{message.body}"
+argument_list|,
+literal|"<hello id='m123'>world!</hello>"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
 literal|"#{request.Headers['foo']}"
 argument_list|,
 literal|"abc"
@@ -203,6 +210,11 @@ expr_stmt|;
 name|assertPredicateFails
 argument_list|(
 literal|"#{request.headers.foo == 'badString'}"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"#{message.headers.foo == 'abc'}"
 argument_list|)
 expr_stmt|;
 block|}

@@ -217,7 +217,7 @@ name|setBody
 argument_list|(
 name|spel
 argument_list|(
-literal|"Hello #{request.body}! What a beautiful #{request.headers['dayOrNight']}"
+literal|"Hello #{message.body}! What a beautiful #{request.headers['dayOrNight']}"
 argument_list|)
 argument_list|)
 operator|.

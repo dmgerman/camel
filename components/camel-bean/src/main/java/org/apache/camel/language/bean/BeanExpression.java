@@ -1628,8 +1628,14 @@ argument_list|(
 name|resultExchange
 argument_list|)
 expr_stmt|;
+comment|// the response is always stored in OUT
 name|result
 operator|=
+name|resultExchange
+operator|.
+name|hasOut
+argument_list|()
+condition|?
 name|resultExchange
 operator|.
 name|getOut
@@ -1637,6 +1643,8 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
+else|:
+literal|null
 expr_stmt|;
 comment|// propagate properties and headers from result
 if|if

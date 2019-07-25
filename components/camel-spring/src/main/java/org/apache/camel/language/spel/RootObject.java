@@ -170,6 +170,21 @@ name|getIn
 argument_list|()
 return|;
 block|}
+DECL|method|getMessage ()
+specifier|public
+name|Message
+name|getMessage
+parameter_list|()
+block|{
+return|return
+name|exchange
+operator|.
+name|getMessage
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Deprecated
 DECL|method|getResponse ()
 specifier|public
 name|Message

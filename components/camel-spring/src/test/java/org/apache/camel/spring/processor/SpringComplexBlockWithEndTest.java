@@ -352,7 +352,7 @@ parameter_list|)
 block|{
 name|newExchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
