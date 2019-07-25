@@ -39,6 +39,16 @@ name|MQTT_TOPIC
 init|=
 literal|"CamelMqttTopic"
 decl_stmt|;
+comment|/**      * Header indicating a QoS of a MQTT message.      */
+DECL|field|MQTT_QOS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MQTT_QOS
+init|=
+literal|"CamelMqttQoS"
+decl_stmt|;
 DECL|field|DEFAULT_BROKER_URL
 specifier|public
 specifier|static

@@ -884,6 +884,20 @@ argument_list|,
 name|topic
 argument_list|)
 expr_stmt|;
+name|paho
+operator|.
+name|setHeader
+argument_list|(
+name|PahoConstants
+operator|.
+name|MQTT_QOS
+argument_list|,
+name|mqttMessage
+operator|.
+name|getQos
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setIn
@@ -1014,7 +1028,7 @@ return|return
 name|retained
 return|;
 block|}
-comment|/**      * Retain option      *       * @param retained true/false      */
+comment|/**      * Retain option      *      * @param retained true/false      */
 DECL|method|setRetained (boolean retained)
 specifier|public
 name|void
@@ -1151,7 +1165,7 @@ return|return
 name|autoReconnect
 return|;
 block|}
-comment|/**      * Client will automatically attempt to reconnect to the server if the connection is lost       * @param autoReconnect      */
+comment|/**      * Client will automatically attempt to reconnect to the server if the connection is lost      * @param autoReconnect      */
 DECL|method|setAutoReconnect (boolean autoReconnect)
 specifier|public
 specifier|synchronized
