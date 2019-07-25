@@ -591,7 +591,7 @@ argument_list|(
 literal|"prop"
 argument_list|)
 DECL|method|loadRegProperties ()
-specifier|protected
+specifier|public
 name|Properties
 name|loadRegProperties
 parameter_list|()
