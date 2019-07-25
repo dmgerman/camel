@@ -580,7 +580,7 @@ argument_list|()
 decl_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody

@@ -245,44 +245,14 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// if the result of the polled exchange has output we should create a new exchange and
-comment|// use the output as input to the next processor
-if|if
-condition|(
-name|exchange
+comment|// prepare for processing where message should be IN
+name|ExchangeHelper
 operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
-comment|// lets create a new exchange
-name|Exchange
-name|newExchange
-init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|createExchange
-argument_list|()
-decl_stmt|;
-name|newExchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|copyFrom
+name|prepareOutToIn
 argument_list|(
 name|exchange
-operator|.
-name|getOut
-argument_list|()
 argument_list|)
 expr_stmt|;
-name|exchange
-operator|=
-name|newExchange
-expr_stmt|;
-block|}
 name|getProcessor
 argument_list|()
 operator|.

@@ -257,42 +257,6 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"log:org.apache.camel.TEST?showOut=true"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"log:org.apache.camel.TEST?showOut=true&showHeaders=true"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"log:org.apache.camel.TEST?showOut=true&showBodyType=true"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"log:org.apache.camel.TEST?showOut=true&showBody=true"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
 literal|"log:org.apache.camel.TEST?showAll=true"
 argument_list|,
 literal|"Hello World"
@@ -375,7 +339,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"log:org.apache.camel.TEST?showHeaders=true&showOut=true"
+literal|"log:org.apache.camel.TEST?showHeaders=true"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -384,7 +348,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"log:org.apache.camel.TEST?showProperties=true&showHeaders=true&showOut=true"
+literal|"log:org.apache.camel.TEST?showProperties=true&showHeaders=true"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -489,78 +453,6 @@ literal|"log:org.apache.camel.TEST?maxChars=50&showAll=true&multiline=true"
 argument_list|,
 literal|"Hello World this is a very long string that is going to be chopped by maxchars"
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testSendExchangeWithOut ()
-specifier|public
-name|void
-name|testSendExchangeWithOut
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Endpoint
-name|endpoint
-init|=
-name|resolveMandatoryEndpoint
-argument_list|(
-literal|"log:org.apache.camel.TEST?showAll=true&multiline=true"
-argument_list|)
-decl_stmt|;
-name|Exchange
-name|exchange
-init|=
-name|endpoint
-operator|.
-name|createExchange
-argument_list|()
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|22
-argument_list|)
-expr_stmt|;
-name|Producer
-name|producer
-init|=
-name|endpoint
-operator|.
-name|createProducer
-argument_list|()
-decl_stmt|;
-name|producer
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-name|producer
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|producer
-operator|.
-name|stop
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -992,14 +884,6 @@ argument_list|(
 name|formatter
 operator|.
 name|isShowBody
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-name|formatter
-operator|.
-name|isShowOut
 argument_list|()
 argument_list|)
 expr_stmt|;

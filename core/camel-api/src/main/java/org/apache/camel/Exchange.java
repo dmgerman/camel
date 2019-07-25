@@ -1168,17 +1168,21 @@ name|Message
 name|in
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange.      *<p/>      *<br/><b>Important:</b> If you want to change the current message, then use {@link #getIn()} instead as it will      * ensure headers etc. is kept and propagated when routing continues. Bottom line end users should rarely use      * this method.      *<p/>      *<br/>If you want to test whether an OUT message have been set or not, use the {@link #hasOut()} method.      *<p/>      * See also the class java doc for this {@link Exchange} for more details and this      *<a href="http://camel.apache.org/using-getin-or-getout-methods-on-exchange.html">FAQ entry</a>.      *      * @return the response      * @see #getIn()      */
+comment|/**      * Returns the outbound message, lazily creating one if one has not already      * been associated with this exchange.      *<p/>      *<br/><b>Important:</b> If you want to change the current message, then use {@link #getIn()} instead as it will      * ensure headers etc. is kept and propagated when routing continues. Bottom line end users should rarely use      * this method.      *<p/>      *<br/>If you want to test whether an OUT message have been set or not, use the {@link #hasOut()} method.      *<p/>      * See also the class java doc for this {@link Exchange} for more details and this      *<a href="http://camel.apache.org/using-getin-or-getout-methods-on-exchange.html">FAQ entry</a>.      *      * @return the response      * @see #getIn()      * @deprecated use {@link #getMessage()}      */
+annotation|@
+name|Deprecated
 DECL|method|getOut ()
 name|Message
 name|getOut
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the outbound request message as the given type      *<p/>      *<br/><b>Important:</b> If you want to change the current message, then use {@link #getIn()} instead as it will      * ensure headers etc. is kept and propagated when routing continues. Bottom line end users should rarely use      * this method.      *<p/>      *<br/>If you want to test whether an OUT message have been set or not, use the {@link #hasOut()} method.      *<p/>      * See also the class java doc for this {@link Exchange} for more details and this      *<a href="http://camel.apache.org/using-getin-or-getout-methods-on-exchange.html">FAQ entry</a>.      *      * @param type the given type      * @return the message as the given type or<tt>null</tt> if not possible to covert to given type      * @see #getIn(Class)      */
+comment|/**      * Returns the outbound request message as the given type      *<p/>      *<br/><b>Important:</b> If you want to change the current message, then use {@link #getIn()} instead as it will      * ensure headers etc. is kept and propagated when routing continues. Bottom line end users should rarely use      * this method.      *<p/>      *<br/>If you want to test whether an OUT message have been set or not, use the {@link #hasOut()} method.      *<p/>      * See also the class java doc for this {@link Exchange} for more details and this      *<a href="http://camel.apache.org/using-getin-or-getout-methods-on-exchange.html">FAQ entry</a>.      *      * @param type the given type      * @return the message as the given type or<tt>null</tt> if not possible to covert to given type      * @see #getIn(Class)      * @deprecated use {@link #getMessage(Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|getOut (Class<T> type)
-parameter_list|<
+argument_list|<
 name|T
-parameter_list|>
+argument_list|>
 name|T
 name|getOut
 parameter_list|(
@@ -1189,13 +1193,17 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether an OUT message has been set or not.      *      * @return<tt>true</tt> if an OUT message exists,<tt>false</tt> otherwise.      */
+comment|/**      * Returns whether an OUT message has been set or not.      *      * @return<tt>true</tt> if an OUT message exists,<tt>false</tt> otherwise.      * @deprecated use {@link #getMessage()}      */
+annotation|@
+name|Deprecated
 DECL|method|hasOut ()
 name|boolean
 name|hasOut
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the outbound message      *      * @param out the outbound message      */
+comment|/**      * Sets the outbound message      *      * @param out the outbound message      * @deprecated use {@link #setMessage(Message)}      */
+annotation|@
+name|Deprecated
 DECL|method|setOut (Message out)
 name|void
 name|setOut

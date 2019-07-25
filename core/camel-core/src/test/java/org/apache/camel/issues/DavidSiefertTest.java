@@ -339,7 +339,7 @@ name|output
 init|=
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 decl_stmt|;
 name|output

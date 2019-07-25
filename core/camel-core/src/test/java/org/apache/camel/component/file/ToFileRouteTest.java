@@ -279,7 +279,7 @@ comment|// do some business logic here
 comment|// set the output to the file
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -291,7 +291,7 @@ comment|// set the output filename using java code logic, notice that this is do
 comment|// a special header property of the out exchange
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader

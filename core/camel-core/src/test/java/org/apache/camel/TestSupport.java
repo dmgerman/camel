@@ -670,6 +670,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Asserts the Out message on the exchange contains the expected value      */
+annotation|@
+name|Deprecated
 DECL|method|assertOutMessageHeader (Exchange exchange, String name, Object expected)
 specifier|public
 specifier|static
@@ -800,6 +802,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Asserts that the given exchange has an OUT message of the given body value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the expected class type      */
+annotation|@
+name|Deprecated
 DECL|method|assertOutMessageBodyEquals (Exchange exchange, Object expected)
 specifier|public
 specifier|static

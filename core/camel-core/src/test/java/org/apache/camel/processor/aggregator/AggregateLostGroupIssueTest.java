@@ -238,7 +238,7 @@ name|Exception
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -249,7 +249,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader

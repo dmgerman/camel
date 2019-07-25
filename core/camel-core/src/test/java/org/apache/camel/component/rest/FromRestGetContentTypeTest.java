@@ -182,7 +182,7 @@ literal|"{ \"name\" : \"Donald\" }"
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -195,7 +195,7 @@ literal|"application/json"
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader

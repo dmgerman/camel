@@ -216,7 +216,7 @@ name|assertEquals
 argument_list|(
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -231,7 +231,7 @@ name|assertEquals
 argument_list|(
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -248,7 +248,7 @@ name|assertEquals
 argument_list|(
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -265,7 +265,7 @@ name|assertEquals
 argument_list|(
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader

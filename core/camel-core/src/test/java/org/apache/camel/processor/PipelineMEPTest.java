@@ -452,7 +452,7 @@ comment|// we operate on the original exchange in this processor
 comment|// (= we are the first node in the route after the from consumer)
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody

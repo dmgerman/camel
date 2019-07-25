@@ -609,7 +609,7 @@ name|class
 argument_list|,
 name|answerEx
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -761,7 +761,7 @@ literal|"{name:XOrderResponse}"
 argument_list|,
 name|answerEx
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -903,7 +903,7 @@ literal|"<XOrderResponse/>"
 argument_list|,
 name|answerEx
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -1045,7 +1045,7 @@ literal|"name=XOrderResponse"
 argument_list|,
 name|answerEx
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody

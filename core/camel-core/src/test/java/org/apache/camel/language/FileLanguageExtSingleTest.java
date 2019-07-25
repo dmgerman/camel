@@ -363,7 +363,7 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader

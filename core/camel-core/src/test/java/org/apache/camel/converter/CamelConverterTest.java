@@ -242,7 +242,7 @@ literal|"bar"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -332,7 +332,7 @@ literal|true
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody

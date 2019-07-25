@@ -381,7 +381,7 @@ argument_list|)
 expr_stmt|;
 name|innerExchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody

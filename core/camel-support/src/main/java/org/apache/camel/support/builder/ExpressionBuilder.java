@@ -861,6 +861,8 @@ block|}
 return|;
 block|}
 comment|/**      * Returns an expression for the out header value with the given name      *<p/>      * Will fallback and look in properties if not found in headers.      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
+annotation|@
+name|Deprecated
 DECL|method|outHeaderExpression (final String headerName)
 specifier|public
 specifier|static
@@ -974,6 +976,8 @@ block|}
 return|;
 block|}
 comment|/**      * Returns an expression for the outbound message headers      *      * @return an expression object which will return the headers, will be<tt>null</tt> if the      * exchange is not out capable.      */
+annotation|@
+name|Deprecated
 DECL|method|outHeadersExpression ()
 specifier|public
 specifier|static
@@ -3203,6 +3207,8 @@ block|}
 return|;
 block|}
 comment|/**      * Returns the expression for the out messages body      */
+annotation|@
+name|Deprecated
 DECL|method|outBodyExpression ()
 specifier|public
 specifier|static
@@ -3263,6 +3269,8 @@ block|}
 return|;
 block|}
 comment|/**      * Returns the expression for the exchanges outbound message body converted      * to the given type      */
+annotation|@
+name|Deprecated
 DECL|method|outBodyExpression (final Class<T> type)
 specifier|public
 specifier|static
@@ -3569,6 +3577,8 @@ block|}
 return|;
 block|}
 comment|/**      * Returns the expression for the OUT message      */
+annotation|@
+name|Deprecated
 DECL|method|outMessageExpression ()
 specifier|public
 specifier|static
@@ -3611,6 +3621,8 @@ block|}
 return|;
 block|}
 comment|/**      * Returns a functional expression for the OUT message      */
+annotation|@
+name|Deprecated
 DECL|method|outMessageExpression (final Function<Message, Object> function)
 specifier|public
 specifier|static

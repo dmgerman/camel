@@ -644,32 +644,13 @@ operator|)
 condition|)
 block|{
 comment|// prepare for next run
-if|if
-condition|(
-name|exchange
+name|ExchangeHelper
 operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
-name|exchange
-operator|.
-name|setIn
+name|prepareOutToIn
 argument_list|(
 name|exchange
-operator|.
-name|getOut
-argument_list|()
 argument_list|)
 expr_stmt|;
-name|exchange
-operator|.
-name|setOut
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 comment|// get the next processor
 name|AsyncProcessor
 name|processor

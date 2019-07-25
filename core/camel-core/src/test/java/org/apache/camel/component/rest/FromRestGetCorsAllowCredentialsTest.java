@@ -220,7 +220,7 @@ name|CORS_ACCESS_CONTROL_ALLOW_ORIGIN
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -237,7 +237,7 @@ name|CORS_ACCESS_CONTROL_ALLOW_METHODS
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -254,7 +254,7 @@ name|CORS_ACCESS_CONTROL_ALLOW_HEADERS
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -271,7 +271,7 @@ name|CORS_ACCESS_CONTROL_MAX_AGE
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -286,7 +286,7 @@ literal|"true"
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -384,7 +384,7 @@ name|CORS_ACCESS_CONTROL_ALLOW_METHODS
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -401,7 +401,7 @@ name|CORS_ACCESS_CONTROL_ALLOW_HEADERS
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -418,7 +418,7 @@ name|CORS_ACCESS_CONTROL_MAX_AGE
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -433,7 +433,7 @@ literal|"true"
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -448,7 +448,7 @@ literal|"mydomain"
 argument_list|,
 name|out
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader

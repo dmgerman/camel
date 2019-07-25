@@ -286,7 +286,7 @@ literal|4
 argument_list|,
 name|results
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -345,7 +345,7 @@ literal|"Hello World"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -358,7 +358,7 @@ literal|3
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -419,7 +419,7 @@ literal|"headerValue"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -434,7 +434,7 @@ literal|3
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -526,7 +526,7 @@ literal|1
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody

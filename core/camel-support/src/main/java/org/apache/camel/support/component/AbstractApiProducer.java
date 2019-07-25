@@ -402,29 +402,12 @@ decl_stmt|;
 comment|// producer returns a single response, even for methods with List return types
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
 argument_list|(
 name|result
-argument_list|)
-expr_stmt|;
-comment|// copy headers
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setHeaders
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|interceptResult

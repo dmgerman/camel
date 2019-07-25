@@ -239,7 +239,7 @@ block|{
 comment|// mutate the message
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -290,7 +290,7 @@ name|Exception
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody

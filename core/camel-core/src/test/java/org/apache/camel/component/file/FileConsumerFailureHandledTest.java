@@ -702,7 +702,7 @@ throw|;
 block|}
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody

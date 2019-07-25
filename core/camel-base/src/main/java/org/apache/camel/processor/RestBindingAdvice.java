@@ -1315,7 +1315,7 @@ expr_stmt|;
 comment|// the content-type is not something we can process so its a HTTP_ERROR 415
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -1365,7 +1365,7 @@ expr_stmt|;
 comment|// the response type is not accepted by the client so its a HTTP_ERROR 406
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -1641,7 +1641,7 @@ block|{
 comment|// this is a bad request, the client did not include a message body
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -1655,7 +1655,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -1705,7 +1705,7 @@ block|{
 comment|// this is a bad request, the client did not include some of the required query parameters
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -1719,7 +1719,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -1768,7 +1768,7 @@ block|{
 comment|// this is a bad request, the client did not include some of the required http headers
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader
@@ -1782,7 +1782,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -2012,28 +2012,7 @@ name|code
 init|=
 name|exchange
 operator|.
-name|hasOut
-argument_list|()
-condition|?
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|Exchange
-operator|.
-name|HTTP_RESPONSE_CODE
-argument_list|,
-name|Integer
-operator|.
-name|class
-argument_list|)
-else|:
-name|exchange
-operator|.
-name|getIn
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -2419,40 +2398,15 @@ block|}
 comment|// is the body empty
 if|if
 condition|(
-operator|(
 name|exchange
 operator|.
-name|hasOut
-argument_list|()
-operator|&&
-name|exchange
-operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
 argument_list|()
 operator|==
 literal|null
-operator|)
-operator|||
-operator|(
-operator|!
-name|exchange
-operator|.
-name|hasOut
-argument_list|()
-operator|&&
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-operator|==
-literal|null
-operator|)
 condition|)
 block|{
 return|return;
@@ -2664,17 +2618,7 @@ name|target
 init|=
 name|exchange
 operator|.
-name|hasOut
-argument_list|()
-condition|?
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-else|:
-name|exchange
-operator|.
-name|getIn
+name|getMessage
 argument_list|()
 decl_stmt|;
 if|if
@@ -2861,17 +2805,7 @@ name|msg
 init|=
 name|exchange
 operator|.
-name|hasOut
-argument_list|()
-condition|?
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-else|:
-name|exchange
-operator|.
-name|getIn
+name|getMessage
 argument_list|()
 decl_stmt|;
 comment|// use default value if none has been configured

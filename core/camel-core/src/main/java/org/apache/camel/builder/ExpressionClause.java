@@ -424,6 +424,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * A functional expression of an outbound message      */
+annotation|@
+name|Deprecated
 DECL|method|outMessage (final Function<Message, Object> function)
 specifier|public
 name|T
@@ -825,6 +827,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * A functional expression of an outbound message body      */
+annotation|@
+name|Deprecated
 DECL|method|outBody (final Function<Object, Object> function)
 specifier|public
 name|T
@@ -877,6 +881,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A functional expression of an outbound message body and headers      */
+annotation|@
+name|Deprecated
 DECL|method|outBody (final BiFunction<Object, Map<String, Object>, Object> function)
 specifier|public
 name|T
@@ -966,6 +972,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A functional expression of an outbound message body converted to the expected type      */
+annotation|@
+name|Deprecated
 DECL|method|outBody (Class<B> expectedType, final Function<B, Object> function)
 specifier|public
 parameter_list|<
@@ -1029,6 +1037,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * A functional expression of an outbound message body converted to the expected type and headers      */
+annotation|@
+name|Deprecated
 DECL|method|outBody (Class<B> expectedType, final BiFunction<B, Map<String, Object>, Object> function)
 specifier|public
 parameter_list|<

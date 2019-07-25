@@ -123,25 +123,6 @@ operator|||
 name|exceptionHandled
 condition|)
 block|{
-comment|// We need to write a warning message when the exception and fault message be set at the same time
-name|Message
-name|msg
-init|=
-name|exchange
-operator|.
-name|hasOut
-argument_list|()
-condition|?
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-else|:
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-decl_stmt|;
 comment|// The Exchange.ERRORHANDLED_HANDLED property is only set if satisfactory handling was done
 comment|// by the error handler. It's still an exception, the exchange still failed.
 if|if
@@ -164,9 +145,15 @@ operator|.
 name|append
 argument_list|(
 literal|"Message exchange has failed: "
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|message
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|" for exchange: "
 argument_list|)
 operator|.
@@ -313,54 +300,6 @@ block|}
 block|}
 return|return
 literal|true
-return|;
-block|}
-comment|/**      * Strategy method to create the next exchange from the previous exchange.      *<p/>      * Remember to copy the original exchange id otherwise correlation of ids in the log is a problem      *      * @param previousExchange the previous exchange      * @return a new exchange      */
-DECL|method|createNextExchange (Exchange previousExchange)
-specifier|public
-specifier|static
-name|Exchange
-name|createNextExchange
-parameter_list|(
-name|Exchange
-name|previousExchange
-parameter_list|)
-block|{
-name|Exchange
-name|answer
-init|=
-name|previousExchange
-decl_stmt|;
-comment|// now lets set the input of the next exchange to the output of the
-comment|// previous message if it is not null
-if|if
-condition|(
-name|answer
-operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
-name|answer
-operator|.
-name|setIn
-argument_list|(
-name|answer
-operator|.
-name|getOut
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
-name|setOut
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|answer
 return|;
 block|}
 block|}

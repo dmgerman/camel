@@ -1027,6 +1027,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|safeSetOutHeaders (Exchange exchange, boolean allowSerializedHeaders)
 specifier|private
 name|Map

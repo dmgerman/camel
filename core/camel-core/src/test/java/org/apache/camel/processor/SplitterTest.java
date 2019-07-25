@@ -532,7 +532,7 @@ name|out
 init|=
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -918,7 +918,7 @@ name|out
 init|=
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 decl_stmt|;
 name|assertMessageHeader
@@ -1047,7 +1047,7 @@ name|out
 init|=
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 decl_stmt|;
 name|assertMessageHeader
@@ -1176,7 +1176,7 @@ name|out
 init|=
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 decl_stmt|;
 name|assertMessageHeader

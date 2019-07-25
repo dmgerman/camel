@@ -235,7 +235,7 @@ name|assertNull
 argument_list|(
 name|response
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -294,7 +294,7 @@ literal|"Value2"
 argument_list|,
 name|response
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader

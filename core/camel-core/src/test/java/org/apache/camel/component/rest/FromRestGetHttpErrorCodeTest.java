@@ -216,7 +216,7 @@ literal|404
 argument_list|,
 name|reply
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -233,7 +233,7 @@ literal|"text/plain"
 argument_list|,
 name|reply
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader

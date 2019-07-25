@@ -709,7 +709,7 @@ expr_stmt|;
 comment|// we need to setup the body as a response
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody

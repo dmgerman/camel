@@ -1777,7 +1777,7 @@ literal|"HelloHello"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -2071,7 +2071,7 @@ literal|"HelloHello"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -2138,7 +2138,7 @@ literal|"HelloHello"
 argument_list|,
 name|reply
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -2331,7 +2331,7 @@ literal|"HelloHello"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -2573,7 +2573,7 @@ literal|"HelloHello"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -2881,7 +2881,7 @@ literal|"HelloHello"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -3032,7 +3032,7 @@ literal|"ByeBye"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody

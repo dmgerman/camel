@@ -1964,31 +1964,12 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|exchange
-operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
 return|return
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 return|;
-block|}
-else|else
-block|{
-comment|// if this endpoint had no out (like a mock endpoint) just take the in
-return|return
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-return|;
-block|}
 block|}
 comment|/**      * Copy the outbound data in 'source' to the inbound data in 'result'.      */
 DECL|method|copyOutToIn (Exchange result, Exchange source)

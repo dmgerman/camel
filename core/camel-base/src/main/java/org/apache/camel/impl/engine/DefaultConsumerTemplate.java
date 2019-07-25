@@ -1136,40 +1136,16 @@ argument_list|)
 throw|;
 block|}
 comment|// okay no fault then return the response
-if|if
-condition|(
-name|result
-operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
-comment|// use OUT as the response
 name|answer
 operator|=
 name|result
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// use IN as the response
-name|answer
-operator|=
-name|result
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 return|return
 name|answer

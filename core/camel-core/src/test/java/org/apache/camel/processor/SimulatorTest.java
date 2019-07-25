@@ -293,7 +293,7 @@ name|text
 init|=
 name|response
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getMandatoryBody

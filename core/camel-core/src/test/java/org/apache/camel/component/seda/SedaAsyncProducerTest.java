@@ -344,7 +344,7 @@ name|response
 init|=
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -427,7 +427,7 @@ expr_stmt|;
 comment|// set the response
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
