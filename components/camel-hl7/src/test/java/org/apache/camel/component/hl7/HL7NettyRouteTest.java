@@ -734,7 +734,8 @@ operator|new
 name|HL7DataFormat
 argument_list|()
 decl_stmt|;
-comment|// we setup or HL7 listener on port 8888 (using the hl7codec) and in sync mode so we can return a response
+comment|// we setup or HL7 listener on port 8888 (using the hl7codec)
+comment|// and in sync mode so we can return a response
 name|from
 argument_list|(
 literal|"netty4:tcp://127.0.0.1:"
@@ -744,8 +745,10 @@ argument_list|()
 operator|+
 literal|"?sync=true&decoder=#hl7decoder&encoder=#hl7encoder"
 argument_list|)
-comment|// we use the HL7 data format to unmarshal from HL7 stream to the HAPI Message model
-comment|// this ensures that the camel message has been enriched with hl7 specific headers to
+comment|// we use the HL7 data format to unmarshal from HL7 stream
+comment|// to the HAPI Message model
+comment|// this ensures that the camel message has been enriched
+comment|// with hl7 specific headers to
 comment|// make the routing much easier (see below)
 operator|.
 name|unmarshal
@@ -756,7 +759,8 @@ comment|// using choice as the content base router
 operator|.
 name|choice
 argument_list|()
-comment|// where we choose that A19 queries invoke the handleA19 method on our hl7service bean
+comment|// where we choose that A19 queries invoke the handleA19
+comment|// method on our hl7service bean
 operator|.
 name|when
 argument_list|(
@@ -782,7 +786,8 @@ name|to
 argument_list|(
 literal|"mock:a19"
 argument_list|)
-comment|// and A01 should invoke the handleA01 method on our hl7service bean
+comment|// and A01 should invoke the handleA01 method on our
+comment|// hl7service bean
 operator|.
 name|when
 argument_list|(
@@ -845,7 +850,8 @@ class|class
 name|MyHL7BusinessLogic
 block|{
 comment|// This is a plain POJO that has NO imports whatsoever on Apache Camel.
-comment|// its a plain POJO only importing the HAPI library so we can much easier work with the HL7 format.
+comment|// its a plain POJO only importing the HAPI library so we can much
+comment|// easier work with the HL7 format.
 DECL|method|handleA19 (Message msg)
 specifier|public
 name|Message

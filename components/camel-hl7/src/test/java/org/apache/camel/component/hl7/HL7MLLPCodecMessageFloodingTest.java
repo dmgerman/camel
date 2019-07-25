@@ -485,7 +485,8 @@ operator|.
 name|read
 argument_list|()
 expr_stmt|;
-comment|// read second end byte
+comment|// read second end
+comment|// byte
 if|if
 condition|(
 name|response

@@ -300,7 +300,8 @@ argument_list|()
 operator|+
 literal|"?sync=true&decoder=#hl7decoder&encoder=#hl7encoder"
 argument_list|)
-comment|// because HL7 message contains a bunch of control chars then the logger do not log all of the data
+comment|// because HL7 message contains a bunch of control chars
+comment|// then the logger do not log all of the data
 operator|.
 name|log
 argument_list|(

@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to demonstrate the HL7MLLPCodec is message format agnostic (don't require the HAPI library).  * The message format can be java.lang.String.  */
+comment|/**  * Unit test to demonstrate the HL7MLLPCodec is message format agnostic (don't  * require the HAPI library). The message format can be java.lang.String.  */
 end_comment
 
 begin_class
