@@ -468,9 +468,6 @@ argument_list|(
 literal|"%abc%"
 argument_list|)
 operator|.
-name|toBuilder
-argument_list|()
-operator|.
 name|build
 argument_list|()
 return|;
@@ -522,9 +519,6 @@ name|like
 argument_list|(
 literal|"%A"
 argument_list|)
-operator|.
-name|toBuilder
-argument_list|()
 operator|.
 name|build
 argument_list|()
