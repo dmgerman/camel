@@ -2439,11 +2439,17 @@ argument_list|(
 literal|"JMSCorrelationID"
 argument_list|)
 operator|&&
+operator|(
+name|endpoint
+operator|==
+literal|null
+operator|||
 operator|!
 name|endpoint
 operator|.
 name|isUseMessageIDAsCorrelationID
 argument_list|()
+operator|)
 condition|)
 block|{
 name|jmsMessage
@@ -2695,6 +2701,11 @@ name|value
 operator|==
 literal|null
 operator|&&
+operator|(
+name|endpoint
+operator|!=
+literal|null
+operator|&&
 name|endpoint
 operator|.
 name|getConfiguration
@@ -2704,6 +2715,7 @@ name|getAllowAdditionalHeaders
 argument_list|()
 operator|!=
 literal|null
+operator|)
 condition|)
 block|{
 name|Iterator
