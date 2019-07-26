@@ -866,48 +866,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the exchange has an out message, show the out message.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
-DECL|method|showOut (boolean showOut)
-specifier|default
-name|LogEndpointBuilder
-name|showOut
-parameter_list|(
-name|boolean
-name|showOut
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"showOut"
-argument_list|,
-name|showOut
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If the exchange has an out message, show the out message.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: formatting          */
-DECL|method|showOut (String showOut)
-specifier|default
-name|LogEndpointBuilder
-name|showOut
-parameter_list|(
-name|String
-name|showOut
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"showOut"
-argument_list|,
-name|showOut
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Show the exchange properties.          *           * The option is a:<code>boolean</code> type.          *           * Group: formatting          */
 DECL|method|showProperties (boolean showProperties)
 specifier|default
