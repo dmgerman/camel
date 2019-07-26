@@ -799,7 +799,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|outHeader
+name|header
 argument_list|(
 name|InfinispanConstants
 operator|.
@@ -826,7 +826,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|outHeader
+name|header
 argument_list|(
 name|InfinispanConstants
 operator|.
@@ -855,7 +855,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|outHeader
+name|header
 argument_list|(
 name|InfinispanConstants
 operator|.
@@ -876,7 +876,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|outHeader
+name|header
 argument_list|(
 name|InfinispanConstants
 operator|.
@@ -896,7 +896,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|outHeader
+name|header
 argument_list|(
 name|InfinispanConstants
 operator|.
@@ -917,7 +917,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|outHeader
+name|header
 argument_list|(
 name|InfinispanConstants
 operator|.
@@ -934,7 +934,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|outHeader
+name|header
 argument_list|(
 name|InfinispanConstants
 operator|.
