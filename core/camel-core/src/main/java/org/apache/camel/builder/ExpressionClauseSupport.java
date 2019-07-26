@@ -531,23 +531,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * An expression of an inbound message      */
-DECL|method|outMessage ()
-specifier|public
-name|T
-name|outMessage
-parameter_list|()
-block|{
-return|return
-name|expression
-argument_list|(
-name|ExpressionBuilder
-operator|.
-name|outMessageExpression
-argument_list|()
-argument_list|)
-return|;
-block|}
 comment|/**      * An expression of an inbound message body      */
 DECL|method|body ()
 specifier|public
@@ -592,48 +575,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * An expression of an outbound message body      */
-DECL|method|outBody ()
-specifier|public
-name|T
-name|outBody
-parameter_list|()
-block|{
-return|return
-name|expression
-argument_list|(
-name|ExpressionBuilder
-operator|.
-name|outBodyExpression
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * An expression of an outbound message body converted to the expected type      */
-DECL|method|outBody (Class<?> expectedType)
-specifier|public
-name|T
-name|outBody
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|expectedType
-parameter_list|)
-block|{
-return|return
-name|expression
-argument_list|(
-name|ExpressionBuilder
-operator|.
-name|outBodyExpression
-argument_list|(
-name|expectedType
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * An expression of an inbound message header of the given name      */
 DECL|method|header (String name)
 specifier|public
@@ -668,45 +609,6 @@ argument_list|(
 name|ExpressionBuilder
 operator|.
 name|headersExpression
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * An expression of an outbound message header of the given name      */
-DECL|method|outHeader (String name)
-specifier|public
-name|T
-name|outHeader
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|expression
-argument_list|(
-name|ExpressionBuilder
-operator|.
-name|outHeaderExpression
-argument_list|(
-name|name
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * An expression of the outbound headers      */
-DECL|method|outHeaders ()
-specifier|public
-name|T
-name|outHeaders
-parameter_list|()
-block|{
-return|return
-name|expression
-argument_list|(
-name|ExpressionBuilder
-operator|.
-name|outHeadersExpression
 argument_list|()
 argument_list|)
 return|;

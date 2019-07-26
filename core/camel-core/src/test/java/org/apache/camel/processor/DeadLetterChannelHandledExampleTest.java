@@ -70,18 +70,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|OutHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -381,8 +369,8 @@ specifier|static
 class|class
 name|OrderService
 block|{
-comment|/**          * This method handle our order input and return the order          *          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          * @throws OrderFailedException is thrown if the order cannot be processed          */
-DECL|method|handleOrder (@eaders Map<?, ?> in, @Body String payload, @OutHeaders Map<String, Object> out)
+comment|/**          * This method handle our order input and return the order          *          * @param headers      the in headers          * @param payload the in payload          * @return the out payload          * @throws OrderFailedException is thrown if the order cannot be processed          */
+DECL|method|handleOrder (@eaders Map headers, @Body String payload)
 specifier|public
 name|Object
 name|handleOrder
@@ -390,38 +378,23 @@ parameter_list|(
 annotation|@
 name|Headers
 name|Map
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
-name|in
+name|headers
 parameter_list|,
 annotation|@
 name|Body
 name|String
 name|payload
-parameter_list|,
-annotation|@
-name|OutHeaders
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|out
 parameter_list|)
 throws|throws
 name|OrderFailedException
 block|{
-name|out
+name|headers
 operator|.
 name|put
 argument_list|(
 literal|"customerid"
 argument_list|,
-name|in
+name|headers
 operator|.
 name|get
 argument_list|(
@@ -449,7 +422,7 @@ throw|;
 block|}
 else|else
 block|{
-name|out
+name|headers
 operator|.
 name|put
 argument_list|(
@@ -463,8 +436,8 @@ literal|"Order OK"
 return|;
 block|}
 block|}
-comment|/**          * This method creates the response to the caller if the order could not be processed          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          */
-DECL|method|orderFailed (@eaders Map<?, ?> in, @Body String payload, @OutHeaders Map<String, Object> out)
+comment|/**          * This method creates the response to the caller if the order could not be processed          * @param headers      the in headers          * @param payload the in payload          * @return the out payload          */
+DECL|method|orderFailed (@eaders Map headers, @Body String payload)
 specifier|public
 name|Object
 name|orderFailed
@@ -472,36 +445,21 @@ parameter_list|(
 annotation|@
 name|Headers
 name|Map
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
-name|in
+name|headers
 parameter_list|,
 annotation|@
 name|Body
 name|String
 name|payload
-parameter_list|,
-annotation|@
-name|OutHeaders
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|out
 parameter_list|)
 block|{
-name|out
+name|headers
 operator|.
 name|put
 argument_list|(
 literal|"customerid"
 argument_list|,
-name|in
+name|headers
 operator|.
 name|get
 argument_list|(
@@ -509,7 +467,7 @@ literal|"customerid"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|out
+name|headers
 operator|.
 name|put
 argument_list|(

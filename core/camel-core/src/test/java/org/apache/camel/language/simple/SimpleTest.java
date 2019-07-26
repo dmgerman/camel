@@ -1570,74 +1570,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSimpleOutExpressions ()
-specifier|public
-name|void
-name|testSimpleOutExpressions
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setHeader
-argument_list|(
-literal|"quote"
-argument_list|,
-literal|"Camel rocks"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${out.body}"
-argument_list|,
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${out.header.quote}"
-argument_list|,
-literal|"Camel rocks"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${out.header:quote}"
-argument_list|,
-literal|"Camel rocks"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${out.headers.quote}"
-argument_list|,
-literal|"Camel rocks"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${out.headers:quote}"
-argument_list|,
-literal|"Camel rocks"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testSimpleExchangePropertyExpressions ()
 specifier|public
 name|void
@@ -3480,30 +3412,6 @@ argument_list|(
 literal|"${date:in.header.birthday+24h:yyyyMMdd}"
 argument_list|,
 literal|"19740421"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${date:out.header.birthday}"
-argument_list|,
-name|outHeaderCalendar
-operator|.
-name|getTime
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${date:out.header.birthday:yyyyMMdd}"
-argument_list|,
-literal|"19750521"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"${date:out.header.birthday+24h:yyyyMMdd}"
-argument_list|,
-literal|"19750522"
 argument_list|)
 expr_stmt|;
 name|assertExpression

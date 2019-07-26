@@ -395,20 +395,6 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * An expression of an outbound message      */
-DECL|method|outMessage ()
-specifier|public
-name|T
-name|outMessage
-parameter_list|()
-block|{
-return|return
-name|delegate
-operator|.
-name|outMessage
-argument_list|()
-return|;
-block|}
 comment|/**      * A functional expression of an outbound message      */
 DECL|method|outMessage (final Function<Message, Object> function)
 specifier|public
@@ -796,20 +782,6 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * An expression of an outbound message body      */
-DECL|method|outBody ()
-specifier|public
-name|T
-name|outBody
-parameter_list|()
-block|{
-return|return
-name|delegate
-operator|.
-name|outBody
-argument_list|()
-return|;
-block|}
 comment|/**      * A functional expression of an outbound message body      */
 DECL|method|outBody (final Function<Object, Object> function)
 specifier|public
@@ -926,28 +898,6 @@ argument_list|)
 return|;
 block|}
 block|}
-argument_list|)
-return|;
-block|}
-comment|/**      * An expression of an outbound message body converted to the expected type      */
-DECL|method|outBody (Class<?> expectedType)
-specifier|public
-name|T
-name|outBody
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|expectedType
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|outBody
-argument_list|(
-name|expectedType
 argument_list|)
 return|;
 block|}
@@ -1122,39 +1072,6 @@ return|return
 name|delegate
 operator|.
 name|headers
-argument_list|()
-return|;
-block|}
-comment|/**      * An expression of an outbound message header of the given name      */
-DECL|method|outHeader (String name)
-specifier|public
-name|T
-name|outHeader
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|delegate
-operator|.
-name|outHeader
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
-comment|/**      * An expression of the outbound headers      */
-DECL|method|outHeaders ()
-specifier|public
-name|T
-name|outHeaders
-parameter_list|()
-block|{
-return|return
-name|delegate
-operator|.
-name|outHeaders
 argument_list|()
 return|;
 block|}
