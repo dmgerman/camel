@@ -102,20 +102,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|JndiRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -311,10 +297,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Use the cacheManager registered in CamelContext. See
-comment|// createRegistry(). Set cacheName
-comment|// During the test JndiRegistry is used, so we add the
-comment|// cacheManager to JNDI. In Spring context a bean works.
 name|JCachePolicy
 name|jcachePolicy
 init|=
