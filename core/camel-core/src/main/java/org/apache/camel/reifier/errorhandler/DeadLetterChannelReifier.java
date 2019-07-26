@@ -226,6 +226,11 @@ argument_list|()
 argument_list|,
 name|definition
 operator|.
+name|isUseOriginalBody
+argument_list|()
+argument_list|,
+name|definition
+operator|.
 name|getRetryWhilePolicy
 argument_list|(
 name|routeContext

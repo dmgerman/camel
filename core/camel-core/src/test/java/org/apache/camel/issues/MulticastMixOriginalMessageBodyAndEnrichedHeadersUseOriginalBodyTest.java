@@ -46,30 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ClaimCheckOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -77,10 +53,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MulticastMixOriginalMessageBodyAndEnrichedHeadersUseOriginalMessageTest
+DECL|class|MulticastMixOriginalMessageBodyAndEnrichedHeadersUseOriginalBodyTest
 specifier|public
 class|class
-name|MulticastMixOriginalMessageBodyAndEnrichedHeadersUseOriginalMessageTest
+name|MulticastMixOriginalMessageBodyAndEnrichedHeadersUseOriginalBodyTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -98,11 +74,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"CAMEL-13175"
-argument_list|)
 DECL|method|testMulticastMixOriginalAndHeaders ()
 specifier|public
 name|void
@@ -142,7 +113,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|useOriginalMessage
+name|useOriginalBody
 argument_list|()
 operator|.
 name|handled

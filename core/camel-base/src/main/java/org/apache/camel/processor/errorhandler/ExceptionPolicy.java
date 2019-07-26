@@ -147,6 +147,11 @@ specifier|private
 name|boolean
 name|useOriginalInMessage
 decl_stmt|;
+DECL|field|useOriginalInBody
+specifier|private
+name|boolean
+name|useOriginalInBody
+decl_stmt|;
 DECL|field|hasOutputs
 specifier|private
 name|boolean
@@ -200,7 +205,7 @@ name|String
 argument_list|>
 name|exceptions
 decl_stmt|;
-DECL|method|ExceptionPolicy (String id, String routeId, boolean useOriginalInMessage, boolean hasOutputs, Predicate handledPolicy, Predicate continuedPolicy, Predicate retryWhilePolicy, Processor onRedelivery, Processor onExceptionOccurred, String redeliveryPolicyRef, Map<RedeliveryOption, String> redeliveryPolicy, List<String> exceptions)
+DECL|method|ExceptionPolicy (String id, String routeId, boolean useOriginalInMessage, boolean useOriginalInBody, boolean hasOutputs, Predicate handledPolicy, Predicate continuedPolicy, Predicate retryWhilePolicy, Processor onRedelivery, Processor onExceptionOccurred, String redeliveryPolicyRef, Map<RedeliveryOption, String> redeliveryPolicy, List<String> exceptions)
 specifier|public
 name|ExceptionPolicy
 parameter_list|(
@@ -212,6 +217,9 @@ name|routeId
 parameter_list|,
 name|boolean
 name|useOriginalInMessage
+parameter_list|,
+name|boolean
+name|useOriginalInBody
 parameter_list|,
 name|boolean
 name|hasOutputs
@@ -266,6 +274,12 @@ operator|.
 name|useOriginalInMessage
 operator|=
 name|useOriginalInMessage
+expr_stmt|;
+name|this
+operator|.
+name|useOriginalInBody
+operator|=
+name|useOriginalInBody
 expr_stmt|;
 name|this
 operator|.
@@ -342,14 +356,24 @@ return|return
 name|routeId
 return|;
 block|}
-DECL|method|getUseOriginalInMessage ()
+DECL|method|isUseOriginalInMessage ()
 specifier|public
 name|boolean
-name|getUseOriginalInMessage
+name|isUseOriginalInMessage
 parameter_list|()
 block|{
 return|return
 name|useOriginalInMessage
+return|;
+block|}
+DECL|method|isUseOriginalInBody ()
+specifier|public
+name|boolean
+name|isUseOriginalInBody
+parameter_list|()
+block|{
+return|return
+name|useOriginalInBody
 return|;
 block|}
 DECL|method|getExceptions ()

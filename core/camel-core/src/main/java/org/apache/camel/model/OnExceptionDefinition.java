@@ -459,6 +459,18 @@ name|Boolean
 name|useOriginalMessagePolicy
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|name
+operator|=
+literal|"useOriginalBody"
+argument_list|)
+DECL|field|useOriginalBodyPolicy
+specifier|private
+name|Boolean
+name|useOriginalBodyPolicy
+decl_stmt|;
+annotation|@
 name|XmlElementRef
 DECL|field|outputs
 specifier|private
@@ -807,6 +819,32 @@ name|this
 argument_list|)
 throw|;
 block|}
+comment|// you cannot turn on both of them
+if|if
+condition|(
+name|useOriginalMessagePolicy
+operator|!=
+literal|null
+operator|&&
+name|useOriginalMessagePolicy
+operator|&&
+name|useOriginalBodyPolicy
+operator|!=
+literal|null
+operator|&&
+name|useOriginalBodyPolicy
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot set both useOriginalMessage and useOriginalBody on: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 comment|// validate that at least some option is set as you cannot just have onException(Exception.class);
 if|if
 condition|(
@@ -835,6 +873,8 @@ argument_list|,
 name|redeliveryPolicyType
 argument_list|,
 name|useOriginalMessagePolicy
+argument_list|,
+name|useOriginalBodyPolicy
 argument_list|,
 name|onRedeliveryRef
 argument_list|,
@@ -1899,7 +1939,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Will use the original input {@link org.apache.camel.Message} when an {@link org.apache.camel.Exchange}      * is moved to the dead letter queue.      *<p/>      *<b>Notice:</b> this only applies when all redeliveries attempt have failed and the {@link org.apache.camel.Exchange}      * is doomed for failure.      *<br/>      * Instead of using the current inprogress {@link org.apache.camel.Exchange} IN message we use the original      * IN message instead. This allows you to store the original input in the dead letter queue instead of the inprogress      * snapshot of the IN message.      * For instance if you route transform the IN body during routing and then failed. With the original exchange      * store in the dead letter queue it might be easier to manually re submit the {@link org.apache.camel.Exchange}      * again as the IN message is the same as when Camel received it.      * So you should be able to send the {@link org.apache.camel.Exchange} to the same input.      *<p/>      * By default this feature is off.      *      * @return the builder      */
+comment|/**      * Will use the original input {@link org.apache.camel.Message} (original body and headers) when an {@link org.apache.camel.Exchange}      * is moved to the dead letter queue.      *<p/>      *<b>Notice:</b> this only applies when all redeliveries attempt have failed and the {@link org.apache.camel.Exchange}      * is doomed for failure.      *<br/>      * Instead of using the current inprogress {@link org.apache.camel.Exchange} IN message we use the original      * IN message instead. This allows you to store the original input in the dead letter queue instead of the inprogress      * snapshot of the IN message.      * For instance if you route transform the IN body during routing and then failed. With the original exchange      * store in the dead letter queue it might be easier to manually re submit the {@link org.apache.camel.Exchange}      * again as the IN message is the same as when Camel received it.      * So you should be able to send the {@link org.apache.camel.Exchange} to the same input.      *<p/>      * The difference between useOriginalMessage and useOriginalBody is that the former includes both the original      * body and headers, where as the latter only includes the original body. You can use the latter to enrich      * the message with custom headers and include the original message body. The former wont let you do this, as its      * using the original message body and headers as they are.      *<p/>      * You cannot enable both useOriginalMessage and useOriginalBody.      *<p/>      * By default this feature is off.      *      * @return the builder      * @see #useOriginalBody()      */
 DECL|method|useOriginalMessage ()
 specifier|public
 name|OnExceptionDefinition
@@ -1907,6 +1947,24 @@ name|useOriginalMessage
 parameter_list|()
 block|{
 name|setUseOriginalMessagePolicy
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Will use the original input {@link org.apache.camel.Message} body (original body only) when an {@link org.apache.camel.Exchange}      * is moved to the dead letter queue.      *<p/>      *<b>Notice:</b> this only applies when all redeliveries attempt have failed and the {@link org.apache.camel.Exchange}      * is doomed for failure.      *<br/>      * Instead of using the current inprogress {@link org.apache.camel.Exchange} IN message we use the original      * IN message instead. This allows you to store the original input in the dead letter queue instead of the inprogress      * snapshot of the IN message.      * For instance if you route transform the IN body during routing and then failed. With the original exchange      * store in the dead letter queue it might be easier to manually re submit the {@link org.apache.camel.Exchange}      * again as the IN message is the same as when Camel received it.      * So you should be able to send the {@link org.apache.camel.Exchange} to the same input.      *<p/>      * The difference between useOriginalMessage and useOriginalBody is that the former includes both the original      * body and headers, where as the latter only includes the original body. You can use the latter to enrich      * the message with custom headers and include the original message body. The former wont let you do this, as its      * using the original message body and headers as they are.      *<p/>      * You cannot enable both useOriginalMessage and useOriginalBody.      *<p/>      * By default this feature is off.      *      * @return the builder      * @see #useOriginalMessage()      */
+DECL|method|useOriginalBody ()
+specifier|public
+name|OnExceptionDefinition
+name|useOriginalBody
+parameter_list|()
+block|{
+name|setUseOriginalBodyPolicy
 argument_list|(
 name|Boolean
 operator|.
@@ -2431,6 +2489,32 @@ operator|.
 name|useOriginalMessagePolicy
 operator|=
 name|useOriginalMessagePolicy
+expr_stmt|;
+block|}
+DECL|method|getUseOriginalBodyPolicy ()
+specifier|public
+name|Boolean
+name|getUseOriginalBodyPolicy
+parameter_list|()
+block|{
+return|return
+name|useOriginalBodyPolicy
+return|;
+block|}
+DECL|method|setUseOriginalBodyPolicy (Boolean useOriginalBodyPolicy)
+specifier|public
+name|void
+name|setUseOriginalBodyPolicy
+parameter_list|(
+name|Boolean
+name|useOriginalBodyPolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useOriginalBodyPolicy
+operator|=
+name|useOriginalBodyPolicy
 expr_stmt|;
 block|}
 comment|// Implementation methods

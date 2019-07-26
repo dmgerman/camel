@@ -107,6 +107,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"When a message is moved to dead letter channel is it the original message body or recent message body"
+argument_list|)
+DECL|method|isDeadLetterUseOriginalBody ()
+name|boolean
+name|isDeadLetterUseOriginalBody
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Does this error handler handle new exceptions which may occur during error handling"
 argument_list|)
 DECL|method|isDeadLetterHandleNewException ()

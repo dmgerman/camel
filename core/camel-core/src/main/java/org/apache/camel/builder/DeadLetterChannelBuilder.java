@@ -284,6 +284,9 @@ argument_list|,
 name|isUseOriginalMessage
 argument_list|()
 argument_list|,
+name|isUseOriginalBody
+argument_list|()
+argument_list|,
 name|getRetryWhilePolicy
 argument_list|(
 name|routeContext

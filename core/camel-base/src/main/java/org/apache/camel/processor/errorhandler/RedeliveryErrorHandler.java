@@ -593,6 +593,12 @@ specifier|final
 name|boolean
 name|useOriginalMessagePolicy
 decl_stmt|;
+DECL|field|useOriginalBodyPolicy
+specifier|protected
+specifier|final
+name|boolean
+name|useOriginalBodyPolicy
+decl_stmt|;
 DECL|field|redeliveryEnabled
 specifier|protected
 name|boolean
@@ -628,7 +634,7 @@ specifier|final
 name|Processor
 name|onExceptionProcessor
 decl_stmt|;
-DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean deadLetterHandleNewException, boolean useOriginalMessagePolicy, Predicate retryWhile, ScheduledExecutorService executorService, Processor onPrepareProcessor, Processor onExceptionProcessor)
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean deadLetterHandleNewException, boolean useOriginalMessagePolicy, boolean useOriginalBodyPolicy, Predicate retryWhile, ScheduledExecutorService executorService, Processor onPrepareProcessor, Processor onExceptionProcessor)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -658,6 +664,9 @@ name|deadLetterHandleNewException
 parameter_list|,
 name|boolean
 name|useOriginalMessagePolicy
+parameter_list|,
+name|boolean
+name|useOriginalBodyPolicy
 parameter_list|,
 name|Predicate
 name|retryWhile
@@ -774,6 +783,12 @@ operator|.
 name|useOriginalMessagePolicy
 operator|=
 name|useOriginalMessagePolicy
+expr_stmt|;
+name|this
+operator|.
+name|useOriginalBodyPolicy
+operator|=
+name|useOriginalBodyPolicy
 expr_stmt|;
 name|this
 operator|.
@@ -1563,6 +1578,16 @@ return|return
 name|useOriginalMessagePolicy
 return|;
 block|}
+DECL|method|isUseOriginalBodyPolicy ()
+specifier|public
+name|boolean
+name|isUseOriginalBodyPolicy
+parameter_list|()
+block|{
+return|return
+name|useOriginalBodyPolicy
+return|;
+block|}
 DECL|method|isDeadLetterHandleNewException ()
 specifier|public
 name|boolean
@@ -1675,6 +1700,10 @@ DECL|field|useOriginalInMessage
 name|boolean
 name|useOriginalInMessage
 decl_stmt|;
+DECL|field|useOriginalInBody
+name|boolean
+name|useOriginalInBody
+decl_stmt|;
 DECL|method|RedeliveryState (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|RedeliveryState
@@ -1711,6 +1740,12 @@ operator|.
 name|useOriginalInMessage
 operator|=
 name|useOriginalMessagePolicy
+expr_stmt|;
+name|this
+operator|.
+name|useOriginalInBody
+operator|=
+name|useOriginalBodyPolicy
 expr_stmt|;
 name|this
 operator|.
@@ -3122,7 +3157,14 @@ name|useOriginalInMessage
 operator|=
 name|exceptionPolicy
 operator|.
-name|getUseOriginalInMessage
+name|isUseOriginalInMessage
+argument_list|()
+expr_stmt|;
+name|useOriginalInBody
+operator|=
+name|exceptionPolicy
+operator|.
+name|isUseOriginalInBody
 argument_list|()
 expr_stmt|;
 comment|// route specific failure handler?
@@ -3628,7 +3670,24 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// prepare original IN body if it should be moved instead of current body
+comment|// prepare original IN message/body if it should be moved instead of current message/body
+if|if
+condition|(
+name|useOriginalInMessage
+operator|||
+name|useOriginalInBody
+condition|)
+block|{
+name|Message
+name|original
+init|=
+name|ExchangeHelper
+operator|.
+name|getOriginalInMessage
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|useOriginalInMessage
@@ -3641,16 +3700,6 @@ argument_list|(
 literal|"Using the original IN message instead of current"
 argument_list|)
 expr_stmt|;
-name|Message
-name|original
-init|=
-name|ExchangeHelper
-operator|.
-name|getOriginalInMessage
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
 name|exchange
 operator|.
 name|setIn
@@ -3658,6 +3707,30 @@ argument_list|(
 name|original
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Using the original IN message body instead of current"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|original
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|exchange
