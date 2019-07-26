@@ -4125,13 +4125,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"The method createJndiContext() in camel-test is deprecated. You can add beans directly to the registry with the bind method on org.apache.camel.spi.Registry"
-argument_list|)
-expr_stmt|;
 name|Properties
 name|properties
 init|=
