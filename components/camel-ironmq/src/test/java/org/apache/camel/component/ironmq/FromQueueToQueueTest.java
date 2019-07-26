@@ -214,6 +214,7 @@ argument_list|(
 literal|"ironMock"
 argument_list|)
 DECL|field|mock
+specifier|private
 name|IronMQClientMock
 name|mock
 init|=
