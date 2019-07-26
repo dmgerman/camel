@@ -866,7 +866,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// the response can either be in OUT or IN
 name|org
 operator|.
 name|apache
@@ -878,17 +877,7 @@ name|msg
 init|=
 name|exchange
 operator|.
-name|hasOut
-argument_list|()
-condition|?
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-else|:
-name|exchange
-operator|.
-name|getIn
+name|getMessage
 argument_list|()
 decl_stmt|;
 name|Message

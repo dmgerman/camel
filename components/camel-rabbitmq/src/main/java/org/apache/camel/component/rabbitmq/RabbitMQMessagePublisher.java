@@ -390,17 +390,7 @@ name|message
 init|=
 name|camelExchange
 operator|.
-name|hasOut
-argument_list|()
-condition|?
-name|camelExchange
-operator|.
-name|getOut
-argument_list|()
-else|:
-name|camelExchange
-operator|.
-name|getIn
+name|getMessage
 argument_list|()
 decl_stmt|;
 comment|// Remove the SERIALIZE_HEADER in case it was previously set
