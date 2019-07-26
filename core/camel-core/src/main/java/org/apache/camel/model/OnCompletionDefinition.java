@@ -693,7 +693,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Will use the original input body when an {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      *      * @return the builder      */
+comment|/**      * Will use the original input message body when an {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      *      * @return the builder      */
 DECL|method|useOriginalBody ()
 specifier|public
 name|OnCompletionDefinition
@@ -989,7 +989,7 @@ return|return
 name|useOriginalMessagePolicy
 return|;
 block|}
-comment|/**      * Will use the original input body when an {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      */
+comment|/**      * Will use the original input message body when an {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      */
 DECL|method|setUseOriginalMessagePolicy (Boolean useOriginalMessagePolicy)
 specifier|public
 name|void
