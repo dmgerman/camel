@@ -1327,6 +1327,17 @@ argument_list|,
 literal|415
 argument_list|)
 expr_stmt|;
+comment|// set empty response body as http error code indicate the problem
+name|exchange
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 comment|// stop routing and return
 name|exchange
 operator|.
@@ -1375,6 +1386,17 @@ operator|.
 name|HTTP_RESPONSE_CODE
 argument_list|,
 literal|406
+argument_list|)
+expr_stmt|;
+comment|// set empty response body as http error code indicate the problem
+name|exchange
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// stop routing and return
