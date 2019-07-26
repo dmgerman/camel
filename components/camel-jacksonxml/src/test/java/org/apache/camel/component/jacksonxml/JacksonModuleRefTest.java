@@ -44,20 +44,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|JndiRegistry
-import|;
-end_import
-
 begin_class
 DECL|class|JacksonModuleRefTest
 specifier|public
