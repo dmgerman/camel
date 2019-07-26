@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -132,7 +144,34 @@ name|CacheManagerFromRegistryTest
 extends|extends
 name|JCachePolicyTestBase
 block|{
-comment|//Register cacheManager in CamelContext. Set cacheName
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"cachemanager-hzsecond"
+argument_list|)
+DECL|field|cc
+specifier|private
+name|CacheManager
+name|cc
+init|=
+name|Caching
+operator|.
+name|getCachingProvider
+argument_list|()
+operator|.
+name|getCacheManager
+argument_list|(
+name|URI
+operator|.
+name|create
+argument_list|(
+literal|"hzsecond"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+comment|// Register cacheManager in CamelContext. Set cacheName
 annotation|@
 name|Test
 DECL|method|testCacheManagerFromContext ()
@@ -150,7 +189,7 @@ init|=
 name|randomString
 argument_list|()
 decl_stmt|;
-comment|//Send exchange
+comment|// Send exchange
 name|Object
 name|responseBody
 init|=
@@ -166,7 +205,8 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
-comment|//Verify the cacheManager "hzsecond" registered in the CamelContext was used
+comment|// Verify the cacheManager "hzsecond" registered in the CamelContext was
+comment|// used
 name|assertNull
 argument_list|(
 name|lookupCache
@@ -271,8 +311,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//Use the cacheManager registered in CamelContext. See createRegistry(). Set cacheName
-comment|//During the test JndiRegistry is used, so we add the cacheManager to JNDI. In Spring context a bean works.
+comment|// Use the cacheManager registered in CamelContext. See
+comment|// createRegistry(). Set cacheName
+comment|// During the test JndiRegistry is used, so we add the
+comment|// cacheManager to JNDI. In Spring context a bean works.
 name|JCachePolicy
 name|jcachePolicy
 init|=
@@ -304,53 +346,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|registry
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-comment|//Register another CacheManager in registry
-name|registry
-operator|.
-name|bind
-argument_list|(
-literal|"cachemanager-hzsecond"
-argument_list|,
-name|Caching
-operator|.
-name|getCachingProvider
-argument_list|()
-operator|.
-name|getCacheManager
-argument_list|(
-name|URI
-operator|.
-name|create
-argument_list|(
-literal|"hzsecond"
-argument_list|)
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|registry
 return|;
 block|}
 annotation|@
@@ -422,7 +417,8 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//We need to shutdown the second instance using the Hazelcast api. close(URI,ClassLoader) doesn't do that.
+comment|// We need to shutdown the second instance using the Hazelcast api.
+comment|// close(URI,ClassLoader) doesn't do that.
 name|HazelcastInstanceFactory
 operator|.
 name|getHazelcastInstance
