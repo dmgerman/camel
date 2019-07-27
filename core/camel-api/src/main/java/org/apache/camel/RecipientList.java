@@ -110,14 +110,6 @@ specifier|public
 annotation_defn|@interface
 name|RecipientList
 block|{
-comment|/**      * Id of {@link CamelContext} to use      */
-DECL|method|context ()
-name|String
-name|context
-parameter_list|()
-default|default
-literal|""
-function_decl|;
 comment|/**      * Delimiter used if the Expression returned multiple endpoints. Can be turned off using the value<tt>false</tt>.      *<p/>      * The default value is ,      */
 DECL|method|delimiter ()
 name|String

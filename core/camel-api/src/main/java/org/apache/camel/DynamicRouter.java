@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Indicates that this method is to be used as a   *<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router</a> routing the incoming message  * through a series of processing steps.  *  * When a message {@link Exchange} is received from an {@link Endpoint} then the  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  * mechanism is used to map the incoming {@link Message} to the method parameters.  *  * The return value of the method is then converted to either a {@link java.util.Collection} or array of objects where each  * element is converted to an {@link org.apache.camel.Endpoint} or a {@link String}, or if it is not a collection/array then it is converted  * to an {@link org.apache.camel.Endpoint} or {@link String}.  *  * Then for each endpoint or URI the message is routed in a pipes and filter fashion.  *  * @see org.apache.camel.RoutingSlip  */
+comment|/**  * Indicates that this method is to be used as a   *<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router</a> routing the incoming message  * through a series of processing steps.  *  * When a message {@link Exchange} is received from an {@link Endpoint} then the  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  * mechanism is used to map the incoming {@link Message} to the method parameters.  *  * The return value of the method is then converted to either a {@link java.util.Collection} or array of objects where each  * element is converted to an {@link org.apache.camel.Endpoint} or a {@link String}, or if it is not a collection/array then it is converted  * to an {@link org.apache.camel.Endpoint} or {@link String}.  *  * Then for each endpoint or URI the message is routed in a pipes and filter fashion.  */
 end_comment
 
 begin_annotation_defn
@@ -110,14 +110,6 @@ specifier|public
 annotation_defn|@interface
 name|DynamicRouter
 block|{
-comment|/**      * Id of {@link CamelContext} to use      */
-DECL|method|context ()
-name|String
-name|context
-parameter_list|()
-default|default
-literal|""
-function_decl|;
 comment|/**      * Sets the uri delimiter to use      */
 DECL|method|delimiter ()
 name|String

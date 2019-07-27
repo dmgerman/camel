@@ -424,6 +424,8 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|MultiCamelContextTest
 specifier|public
 class|class

@@ -326,6 +326,8 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|MultiCamelContextReusedRouteCdi20Test
 specifier|public
 class|class

@@ -638,6 +638,8 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|MultiContextEventNotifierTest
 specifier|public
 class|class

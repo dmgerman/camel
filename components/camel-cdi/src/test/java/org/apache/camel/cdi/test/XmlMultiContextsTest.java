@@ -377,6 +377,8 @@ name|ImportResource
 argument_list|(
 literal|"imported-context.xml"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|XmlMultiContextsTest
 specifier|public
 class|class

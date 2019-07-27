@@ -136,14 +136,6 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Id of {@link CamelContext} to use      */
-DECL|method|context ()
-name|String
-name|context
-parameter_list|()
-default|default
-literal|""
-function_decl|;
 comment|/**      * Whether to use bean parameter binding      */
 DECL|method|binding ()
 DECL|field|true

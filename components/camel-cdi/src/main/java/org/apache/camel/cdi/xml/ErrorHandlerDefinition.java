@@ -179,6 +179,7 @@ specifier|private
 name|Boolean
 name|useOriginalMessage
 decl_stmt|;
+comment|// TODO: add useOriginalBody
 annotation|@
 name|XmlAttribute
 DECL|field|transactionTemplateRef

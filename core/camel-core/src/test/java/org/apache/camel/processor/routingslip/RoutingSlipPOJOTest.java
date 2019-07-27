@@ -249,11 +249,6 @@ name|MyRoutingSlipPOJO
 block|{
 annotation|@
 name|RoutingSlip
-argument_list|(
-name|context
-operator|=
-literal|"camel-1"
-argument_list|)
 DECL|method|doSomething (String body)
 specifier|public
 name|String

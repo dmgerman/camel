@@ -110,14 +110,6 @@ specifier|public
 annotation_defn|@interface
 name|RoutingSlip
 block|{
-comment|/**      * Id of {@link CamelContext} to use      */
-DECL|method|context ()
-name|String
-name|context
-parameter_list|()
-default|default
-literal|""
-function_decl|;
 comment|/**      * Sets the uri delimiter to use      */
 DECL|method|delimiter ()
 name|String

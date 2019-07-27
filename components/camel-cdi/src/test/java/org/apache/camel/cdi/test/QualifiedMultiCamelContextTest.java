@@ -460,6 +460,8 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|QualifiedMultiCamelContextTest
 specifier|public
 class|class
