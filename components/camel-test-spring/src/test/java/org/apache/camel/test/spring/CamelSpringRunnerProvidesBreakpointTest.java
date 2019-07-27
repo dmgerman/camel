@@ -171,14 +171,6 @@ name|getDebugger
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|camelContext2
-operator|.
-name|getDebugger
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|start
 operator|.
 name|sendBody

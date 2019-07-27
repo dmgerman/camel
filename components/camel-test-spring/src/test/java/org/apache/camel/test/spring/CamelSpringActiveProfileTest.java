@@ -177,10 +177,6 @@ argument_list|(
 name|value
 operator|=
 literal|"direct:start"
-argument_list|,
-name|context
-operator|=
-literal|"camelContext"
 argument_list|)
 DECL|field|start
 specifier|protected

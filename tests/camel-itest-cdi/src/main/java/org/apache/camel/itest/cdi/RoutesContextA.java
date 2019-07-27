@@ -195,10 +195,6 @@ argument_list|(
 name|value
 operator|=
 literal|"mock:A.b"
-argument_list|,
-name|context
-operator|=
-literal|"contextA"
 argument_list|)
 DECL|field|b
 name|MockEndpoint

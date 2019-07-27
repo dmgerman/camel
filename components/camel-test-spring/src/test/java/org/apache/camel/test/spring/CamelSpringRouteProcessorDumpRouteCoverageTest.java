@@ -185,11 +185,6 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|camelContext2
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 comment|// there should be files
 name|String
 index|[]

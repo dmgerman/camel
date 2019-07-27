@@ -70,10 +70,6 @@ argument_list|(
 name|value
 operator|=
 literal|"mock:seda:result"
-argument_list|,
-name|context
-operator|=
-literal|"IsMockEndpoints"
 argument_list|)
 DECL|field|mockSeda
 specifier|private
@@ -86,10 +82,6 @@ argument_list|(
 name|value
 operator|=
 literal|"mock:bar"
-argument_list|,
-name|context
-operator|=
-literal|"IsMockEndpoints"
 argument_list|)
 DECL|field|mockBar
 specifier|private
@@ -102,10 +94,6 @@ argument_list|(
 name|value
 operator|=
 literal|"mock:baz"
-argument_list|,
-name|context
-operator|=
-literal|"IsMockEndpoints"
 argument_list|)
 DECL|field|mockBaz
 specifier|private
