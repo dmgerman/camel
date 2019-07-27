@@ -179,7 +179,13 @@ specifier|private
 name|Boolean
 name|useOriginalMessage
 decl_stmt|;
-comment|// TODO: add useOriginalBody
+annotation|@
+name|XmlAttribute
+DECL|field|useOriginalBody
+specifier|private
+name|Boolean
+name|useOriginalBody
+decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|transactionTemplateRef
@@ -371,6 +377,32 @@ operator|.
 name|useOriginalMessage
 operator|=
 name|useOriginalMessage
+expr_stmt|;
+block|}
+DECL|method|getUseOriginalBody ()
+specifier|public
+name|Boolean
+name|getUseOriginalBody
+parameter_list|()
+block|{
+return|return
+name|useOriginalBody
+return|;
+block|}
+DECL|method|setUseOriginalBody (Boolean useOriginalBody)
+specifier|public
+name|void
+name|setUseOriginalBody
+parameter_list|(
+name|Boolean
+name|useOriginalBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useOriginalBody
+operator|=
+name|useOriginalBody
 expr_stmt|;
 block|}
 DECL|method|getTransactionTemplateRef ()
