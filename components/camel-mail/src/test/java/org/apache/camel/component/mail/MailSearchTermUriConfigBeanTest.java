@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -55,11 +67,14 @@ extends|extends
 name|MailSearchTermUriConfigTest
 block|{
 annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
+name|BindToRegistry
+argument_list|(
+literal|"mySearchTerm"
+argument_list|)
+DECL|method|addSearchTerm ()
+specifier|public
+name|SimpleSearchTerm
+name|addSearchTerm
 parameter_list|()
 throws|throws
 name|Exception
@@ -78,25 +93,8 @@ argument_list|(
 literal|"Camel"
 argument_list|)
 expr_stmt|;
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|jndi
-operator|.
-name|bind
-argument_list|(
-literal|"mySearchTerm"
-argument_list|,
-name|mySearchTerm
-argument_list|)
-expr_stmt|;
 return|return
-name|jndi
+name|mySearchTerm
 return|;
 block|}
 DECL|method|createRouteBuilder ()
