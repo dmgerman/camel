@@ -357,7 +357,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// we override the doWriteExceptionResponse as we only want to alter the binding how exceptions is
+comment|// we override the doWriteExceptionResponse as we only want to alter
+comment|// the binding how exceptions is
 comment|// written back to the client.
 comment|// we just return HTTP 200 so the client thinks its okay
 name|response

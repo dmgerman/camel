@@ -552,7 +552,7 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//JAXB 2.2 uses a slightly different message
+comment|// JAXB 2.2 uses a slightly different message
 name|boolean
 name|b
 init|=

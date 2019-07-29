@@ -604,7 +604,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// The other form date can be get from the message header
+comment|// The other form date can be get from the message
+comment|// header
 name|exchange
 operator|.
 name|getOut

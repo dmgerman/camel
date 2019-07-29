@@ -657,8 +657,10 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// Set the jetty temp directory which store the file for multi part form
-comment|// camel-jetty will clean up the file after it handled the request.
+comment|// Set the jetty temp directory which store the file for multi
+comment|// part form
+comment|// camel-jetty will clean up the file after it handled the
+comment|// request.
 comment|// The option works rightly from Camel 2.4.0
 name|getContext
 argument_list|()
@@ -739,10 +741,14 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-comment|// This assert is wrong, but the correct content-type (application/octet-stream)
-comment|// will not be returned until Jetty makes it available - currently the content-type
-comment|// returned is just the default for FileDataHandler (for the implentation being used)
-comment|//assertEquals("Get a wrong content type", "text/plain", data.getContentType());
+comment|// This assert is wrong, but the correct content-type
+comment|// (application/octet-stream)
+comment|// will not be returned until Jetty makes it available -
+comment|// currently the content-type
+comment|// returned is just the default for FileDataHandler (for
+comment|// the implentation being used)
+comment|// assertEquals("Get a wrong content type",
+comment|// "text/plain", data.getContentType());
 name|assertEquals
 argument_list|(
 literal|"Got the wrong name"
@@ -773,7 +779,8 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// The other form date can be get from the message header
+comment|// The other form date can be get from the message
+comment|// header
 name|exchange
 operator|.
 name|getOut
@@ -794,7 +801,8 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
-comment|// Test to ensure that setting a multipartFilterRef overrides the enableMultipartFilter=false parameter
+comment|// Test to ensure that setting a multipartFilterRef overrides
+comment|// the enableMultipartFilter=false parameter
 name|from
 argument_list|(
 literal|"jetty://http://localhost:{{port}}/test2?multipartFilterRef=myMultipartFilter&enableMultipartFilter=false"
@@ -860,7 +868,8 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-comment|// The other form date can be get from the message header
+comment|// The other form date can be get from the message
+comment|// header
 name|exchange
 operator|.
 name|getOut
