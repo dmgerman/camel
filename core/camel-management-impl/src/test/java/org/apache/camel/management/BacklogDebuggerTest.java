@@ -4642,6 +4642,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|setDebugging
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"seda:start?concurrentConsumers=2"

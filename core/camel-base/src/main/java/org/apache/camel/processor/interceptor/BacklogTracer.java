@@ -365,28 +365,6 @@ name|context
 argument_list|)
 return|;
 block|}
-comment|/**      * A helper method to return the BacklogTracer instance if one is enabled      *      * @return the backlog tracer or null if none can be found      */
-DECL|method|getBacklogTracer (CamelContext context)
-specifier|public
-specifier|static
-name|BacklogTracer
-name|getBacklogTracer
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-return|return
-name|context
-operator|.
-name|getExtension
-argument_list|(
-name|BacklogTracer
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
 comment|/**      * Whether or not to trace the given processor definition.      *      * @param definition the processor definition      * @param exchange   the exchange      * @return<tt>true</tt> to trace,<tt>false</tt> to skip tracing      */
 DECL|method|shouldTrace (NamedNode definition, Exchange exchange)
 specifier|public

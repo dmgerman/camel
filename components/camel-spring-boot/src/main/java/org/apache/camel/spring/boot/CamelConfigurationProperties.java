@@ -312,11 +312,23 @@ specifier|private
 name|boolean
 name|streamCachingStatisticsEnabled
 decl_stmt|;
+comment|/**      * Sets whether backlog tracing is enabled or not.      *      * Default is false.      */
+DECL|field|backlogTracing
+specifier|private
+name|boolean
+name|backlogTracing
+decl_stmt|;
 comment|/**      * Sets whether tracing is enabled or not.      *      * Default is false.      */
 DECL|field|tracing
 specifier|private
 name|boolean
 name|tracing
+decl_stmt|;
+comment|/**      * Tracing pattern to match which node EIPs to trace.      * For example to match all To EIP nodes, use to*.      * The pattern matches by node and route id's      * Multiple patterns can be separated by comma.      */
+DECL|field|tracingPattern
+specifier|private
+name|String
+name|tracingPattern
 decl_stmt|;
 comment|/**      * Sets whether message history is enabled or not.      *      * Default is true.      */
 DECL|field|messageHistory

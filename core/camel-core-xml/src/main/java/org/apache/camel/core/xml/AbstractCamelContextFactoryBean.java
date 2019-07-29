@@ -5308,6 +5308,13 @@ name|String
 name|getTrace
 parameter_list|()
 function_decl|;
+DECL|method|getTracePattern ()
+specifier|public
+specifier|abstract
+name|String
+name|getTracePattern
+parameter_list|()
+function_decl|;
 DECL|method|getMessageHistory ()
 specifier|public
 specifier|abstract
@@ -5664,6 +5671,30 @@ argument_list|(
 name|context
 argument_list|,
 name|getTrace
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getTracePattern
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|context
+operator|.
+name|setTracingPattern
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|context
+argument_list|,
+name|getTracePattern
 argument_list|()
 argument_list|)
 argument_list|)

@@ -896,6 +896,13 @@ name|trace
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|tracePattern
+specifier|private
+name|String
+name|tracePattern
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|messageHistory
 specifier|private
 name|String
@@ -3088,6 +3095,32 @@ operator|.
 name|trace
 operator|=
 name|trace
+expr_stmt|;
+block|}
+DECL|method|getTracePattern ()
+specifier|public
+name|String
+name|getTracePattern
+parameter_list|()
+block|{
+return|return
+name|tracePattern
+return|;
+block|}
+DECL|method|setTracePattern (String tracePattern)
+specifier|public
+name|void
+name|setTracePattern
+parameter_list|(
+name|String
+name|tracePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tracePattern
+operator|=
+name|tracePattern
 expr_stmt|;
 block|}
 DECL|method|getMessageHistory ()

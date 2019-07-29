@@ -534,6 +534,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|setBacklogTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"

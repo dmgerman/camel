@@ -565,6 +565,24 @@ operator|.
 name|Default
 condition|)
 block|{
+if|if
+condition|(
+name|multiline
+condition|)
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"  %s: "
+argument_list|,
+name|label
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|String
 operator|.
@@ -576,6 +594,8 @@ name|label
 argument_list|)
 return|;
 block|}
+block|}
+elseif|else
 if|if
 condition|(
 name|style

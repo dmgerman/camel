@@ -199,10 +199,20 @@ specifier|private
 name|boolean
 name|streamCachingStatisticsEnabled
 decl_stmt|;
+DECL|field|backlogTracing
+specifier|private
+name|boolean
+name|backlogTracing
+decl_stmt|;
 DECL|field|tracing
 specifier|private
 name|boolean
 name|tracing
+decl_stmt|;
+DECL|field|tracingPattern
+specifier|private
+name|String
+name|tracingPattern
 decl_stmt|;
 DECL|field|messageHistory
 specifier|private
@@ -991,6 +1001,60 @@ operator|.
 name|tracing
 operator|=
 name|tracing
+expr_stmt|;
+block|}
+DECL|method|getTracingPattern ()
+specifier|public
+name|String
+name|getTracingPattern
+parameter_list|()
+block|{
+return|return
+name|tracingPattern
+return|;
+block|}
+comment|/**      * Tracing pattern to match which node EIPs to trace.      * For example to match all To EIP nodes, use to*.      * The pattern matches by node and route id's      * Multiple patterns can be separated by comma.      */
+DECL|method|setTracingPattern (String tracingPattern)
+specifier|public
+name|void
+name|setTracingPattern
+parameter_list|(
+name|String
+name|tracingPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tracingPattern
+operator|=
+name|tracingPattern
+expr_stmt|;
+block|}
+DECL|method|isBacklogTracing ()
+specifier|public
+name|boolean
+name|isBacklogTracing
+parameter_list|()
+block|{
+return|return
+name|backlogTracing
+return|;
+block|}
+comment|/**      * Sets whether backlog tracing is enabled or not.      *      * Default is false.      */
+DECL|method|setBacklogTracing (boolean backlogTracing)
+specifier|public
+name|void
+name|setBacklogTracing
+parameter_list|(
+name|boolean
+name|backlogTracing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backlogTracing
+operator|=
+name|backlogTracing
 expr_stmt|;
 block|}
 DECL|method|isMessageHistory ()
@@ -1990,6 +2054,29 @@ operator|.
 name|tracing
 operator|=
 name|tracing
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Sets whether backlog tracing is enabled or not.      *      * Default is false.      */
+DECL|method|withBacklogTracing (boolean backlogTracing)
+specifier|public
+name|T
+name|withBacklogTracing
+parameter_list|(
+name|boolean
+name|backlogTracing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backlogTracing
+operator|=
+name|backlogTracing
 expr_stmt|;
 return|return
 operator|(

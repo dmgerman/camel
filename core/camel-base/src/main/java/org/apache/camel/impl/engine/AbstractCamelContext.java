@@ -1452,6 +1452,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Tracer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Transformer
 import|;
 end_import
@@ -2110,6 +2124,15 @@ name|Boolean
 operator|.
 name|TRUE
 decl_stmt|;
+DECL|field|backlogTrace
+specifier|private
+name|Boolean
+name|backlogTrace
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 DECL|field|trace
 specifier|private
 name|Boolean
@@ -2117,7 +2140,12 @@ name|trace
 init|=
 name|Boolean
 operator|.
-name|TRUE
+name|FALSE
+decl_stmt|;
+DECL|field|tracePattern
+specifier|private
+name|String
+name|tracePattern
 decl_stmt|;
 DECL|field|debug
 specifier|private
@@ -2126,7 +2154,7 @@ name|debug
 init|=
 name|Boolean
 operator|.
-name|TRUE
+name|FALSE
 decl_stmt|;
 DECL|field|messageHistory
 specifier|private
@@ -2636,6 +2664,11 @@ DECL|field|debugger
 specifier|private
 name|Debugger
 name|debugger
+decl_stmt|;
+DECL|field|tracer
+specifier|private
+name|Tracer
+name|tracer
 decl_stmt|;
 DECL|field|stopWatch
 specifier|private
@@ -9986,6 +10019,58 @@ return|return
 name|trace
 return|;
 block|}
+DECL|method|getTracingPattern ()
+specifier|public
+name|String
+name|getTracingPattern
+parameter_list|()
+block|{
+return|return
+name|tracePattern
+return|;
+block|}
+DECL|method|setTracingPattern (String tracePattern)
+specifier|public
+name|void
+name|setTracingPattern
+parameter_list|(
+name|String
+name|tracePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tracePattern
+operator|=
+name|tracePattern
+expr_stmt|;
+block|}
+DECL|method|isBacklogTracing ()
+specifier|public
+name|Boolean
+name|isBacklogTracing
+parameter_list|()
+block|{
+return|return
+name|backlogTrace
+return|;
+block|}
+DECL|method|setBacklogTracing (Boolean backlogTrace)
+specifier|public
+name|void
+name|setBacklogTracing
+parameter_list|(
+name|Boolean
+name|backlogTrace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backlogTrace
+operator|=
+name|backlogTrace
+expr_stmt|;
+block|}
 DECL|method|setDebugging (Boolean debug)
 specifier|public
 name|void
@@ -12132,12 +12217,29 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|isBacklogTracing
+argument_list|()
+condition|)
+block|{
+comment|// tracing is added in the DefaultChannel so we can enable it on the fly
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Backlog Tracing is enabled on CamelContext: {}"
+argument_list|,
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|isTracing
 argument_list|()
 condition|)
 block|{
-comment|// tracing is added in the DefaultChannel so we can enable it on the
-comment|// fly
+comment|// tracing is added in the DefaultChannel so we can enable it on the fly
 name|log
 operator|.
 name|info
@@ -17674,6 +17776,72 @@ argument_list|(
 name|debugger
 argument_list|)
 expr_stmt|;
+comment|// enable debugging if we set a custom debugger
+name|setDebugging
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTracer ()
+specifier|public
+name|Tracer
+name|getTracer
+parameter_list|()
+block|{
+if|if
+condition|(
+name|tracer
+operator|==
+literal|null
+condition|)
+block|{
+synchronized|synchronized
+init|(
+name|lock
+init|)
+block|{
+if|if
+condition|(
+name|tracer
+operator|==
+literal|null
+condition|)
+block|{
+name|setTracer
+argument_list|(
+name|createTracer
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
+name|tracer
+return|;
+block|}
+DECL|method|setTracer (Tracer tracer)
+specifier|public
+name|void
+name|setTracer
+parameter_list|(
+name|Tracer
+name|tracer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tracer
+operator|=
+name|tracer
+expr_stmt|;
+comment|// enable tracing if we set a custom tracer
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getUuidGenerator ()
 specifier|public
@@ -18733,6 +18901,13 @@ specifier|protected
 specifier|abstract
 name|BeanProcessorFactory
 name|createBeanProcessorFactory
+parameter_list|()
+function_decl|;
+DECL|method|createTracer ()
+specifier|protected
+specifier|abstract
+name|Tracer
+name|createTracer
 parameter_list|()
 function_decl|;
 DECL|method|createLanguageResolver ()

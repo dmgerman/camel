@@ -267,6 +267,18 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      */

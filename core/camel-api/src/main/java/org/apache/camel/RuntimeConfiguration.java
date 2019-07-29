@@ -39,7 +39,7 @@ name|Boolean
 name|isStreamCaching
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether tracing is enabled or not (default is enabled).      *      * @param tracing whether to enable tracing.      */
+comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *      * @param tracing whether to enable tracing.      */
 DECL|method|setTracing (Boolean tracing)
 name|void
 name|setTracing
@@ -52,6 +52,36 @@ comment|/**      * Returns whether tracing enabled      *      * @return<tt>true
 DECL|method|isTracing ()
 name|Boolean
 name|isTracing
+parameter_list|()
+function_decl|;
+comment|/**      * Tracing pattern to match which node EIPs to trace.      * For example to match all To EIP nodes, use to*.      * The pattern matches by node and route id's      * Multiple patterns can be separated by comma.      */
+DECL|method|getTracingPattern ()
+name|String
+name|getTracingPattern
+parameter_list|()
+function_decl|;
+comment|/**      * Tracing pattern to match which node EIPs to trace.      * For example to match all To EIP nodes, use to*.      * The pattern matches by node and route id's      * Multiple patterns can be separated by comma.      */
+DECL|method|setTracingPattern (String tracePattern)
+name|void
+name|setTracingPattern
+parameter_list|(
+name|String
+name|tracePattern
+parameter_list|)
+function_decl|;
+comment|/**      * Sets whether backlog tracing is enabled or not (default is disabled).      *      * @param backlogTrace whether to enable backlog tracing.      * @see #setTracing(Boolean)      */
+DECL|method|setBacklogTracing (Boolean backlogTrace)
+name|void
+name|setBacklogTracing
+parameter_list|(
+name|Boolean
+name|backlogTrace
+parameter_list|)
+function_decl|;
+comment|/**      * Returns whether backlog tracing enabled      *      * @return<tt>true</tt> if backlog tracing is enabled      */
+DECL|method|isBacklogTracing ()
+name|Boolean
+name|isBacklogTracing
 parameter_list|()
 function_decl|;
 comment|/**      * Sets whether debugging is enabled or not (default is enabled).      *      * @param debugging whether to enable debugging.      */

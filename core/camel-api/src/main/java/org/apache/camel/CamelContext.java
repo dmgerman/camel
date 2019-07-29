@@ -414,6 +414,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Tracer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Transformer
 import|;
 end_import
@@ -1582,6 +1596,21 @@ name|setDebugger
 parameter_list|(
 name|Debugger
 name|debugger
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current {@link Tracer}      *      * @return the tracer      */
+DECL|method|getTracer ()
+name|Tracer
+name|getTracer
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link Tracer}      */
+DECL|method|setTracer (Tracer tracer)
+name|void
+name|setTracer
+parameter_list|(
+name|Tracer
+name|tracer
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the current {@link UuidGenerator}      *      * @return the uuidGenerator      */

@@ -301,6 +301,24 @@ name|MESSAGE_HISTORY_OUTPUT
 init|=
 literal|"[%-18.18s] [%-18.18s] [%-78.78s] [%10.10s]"
 decl_stmt|;
+DECL|field|TRACING_HEADER
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TRACING_HEADER
+init|=
+literal|"%-8s %-20s %-20s %-40s %-12s"
+decl_stmt|;
+DECL|field|TRACING_OUTPUT
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TRACING_OUTPUT
+init|=
+literal|"[%-6.6s] [%-18.18s] [%-18.18s] [%-38.38s] [%10.10s]"
+decl_stmt|;
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|MessageHelper ()
 specifier|private
@@ -2310,7 +2328,7 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|doDumpMessageHistoryStacktrace (Exchange exchange, ExchangeFormatter exchangeFormatter, boolean logStackTrace)
-specifier|public
+specifier|private
 specifier|static
 name|String
 name|doDumpMessageHistoryStacktrace
@@ -2389,7 +2407,7 @@ literal|"-----------------------------------------------------------------------
 argument_list|)
 expr_stmt|;
 name|String
-name|goMessageHistoryHeaeder
+name|goMessageHistoryHeader
 init|=
 name|exchange
 operator|.
@@ -2411,13 +2429,13 @@ name|String
 operator|.
 name|format
 argument_list|(
-name|goMessageHistoryHeaeder
+name|goMessageHistoryHeader
 operator|==
 literal|null
 condition|?
 name|MESSAGE_HISTORY_HEADER
 else|:
-name|goMessageHistoryHeaeder
+name|goMessageHistoryHeader
 argument_list|,
 literal|"RouteId"
 argument_list|,
@@ -2467,6 +2485,8 @@ condition|)
 block|{
 name|label
 operator|=
+literal|"from["
+operator|+
 name|URISupport
 operator|.
 name|sanitizeUri
@@ -2478,6 +2498,8 @@ argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

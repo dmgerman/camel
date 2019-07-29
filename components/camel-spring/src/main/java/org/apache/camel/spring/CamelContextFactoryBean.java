@@ -1053,6 +1053,13 @@ name|trace
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|tracePattern
+specifier|private
+name|String
+name|tracePattern
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 annotation|@
 name|Metadata
 argument_list|(
@@ -3435,6 +3442,33 @@ operator|.
 name|trace
 operator|=
 name|trace
+expr_stmt|;
+block|}
+DECL|method|getTracePattern ()
+specifier|public
+name|String
+name|getTracePattern
+parameter_list|()
+block|{
+return|return
+name|tracePattern
+return|;
+block|}
+comment|/**      * Tracing pattern to match which node EIPs to trace.      * For example to match all To EIP nodes, use to*.      * The pattern matches by node and route id's      * Multiple patterns can be separated by comma.      */
+DECL|method|setTracePattern (String tracePattern)
+specifier|public
+name|void
+name|setTracePattern
+parameter_list|(
+name|String
+name|tracePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tracePattern
+operator|=
+name|tracePattern
 expr_stmt|;
 block|}
 DECL|method|getMessageHistory ()
