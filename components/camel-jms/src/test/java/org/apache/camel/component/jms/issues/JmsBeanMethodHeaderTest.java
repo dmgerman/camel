@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Body
 import|;
 end_import
@@ -183,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for sending the bean method name as a key over the JMS wire, that we now support this.  */
+comment|/**  * Unit test for sending the bean method name as a key over the JMS wire, that  * we now support this.  */
 end_comment
 
 begin_class
@@ -194,6 +206,20 @@ name|JmsBeanMethodHeaderTest
 extends|extends
 name|CamelTestSupport
 block|{
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"approveService"
+argument_list|)
+DECL|field|service
+specifier|private
+name|ApproveService
+name|service
+init|=
+operator|new
+name|ApproveService
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testPlainHeader ()
@@ -410,7 +436,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// the big one from jms to jms to test that we do not lost the bean method name
+comment|// the big one from jms to jms to test that we do not lost the bean
+comment|// method name
 name|MockEndpoint
 name|mock
 init|=
@@ -489,37 +516,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|camelContext
-return|;
-block|}
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|reg
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|reg
-operator|.
-name|bind
-argument_list|(
-literal|"approveService"
-argument_list|,
-operator|new
-name|ApproveService
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|reg
 return|;
 block|}
 DECL|method|createRouteBuilder ()

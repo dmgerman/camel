@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -219,38 +231,19 @@ extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|jndi
-operator|.
-name|bind
+name|BindToRegistry
 argument_list|(
 literal|"myMessageConverter"
-argument_list|,
+argument_list|)
+DECL|field|conv
+specifier|private
+name|MyMessageConverter
+name|conv
+init|=
 operator|new
 name|MyMessageConverter
 argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|jndi
-return|;
-block|}
+decl_stmt|;
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -479,7 +472,8 @@ name|JMSException
 throws|,
 name|MessageConversionException
 block|{
-comment|// just return the underlying JMS message directly so we can test that this converter is used
+comment|// just return the underlying JMS message directly so we can test
+comment|// that this converter is used
 return|return
 name|message
 return|;

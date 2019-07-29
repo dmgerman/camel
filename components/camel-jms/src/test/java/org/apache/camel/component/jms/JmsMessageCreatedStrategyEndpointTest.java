@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -186,38 +198,19 @@ init|=
 literal|"activemq"
 decl_stmt|;
 annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|jndi
-operator|.
-name|bind
+name|BindToRegistry
 argument_list|(
 literal|"myStrategy"
-argument_list|,
+argument_list|)
+DECL|field|strategy
+specifier|private
+name|MyMessageCreatedStrategy
+name|strategy
+init|=
 operator|new
 name|MyMessageCreatedStrategy
 argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|jndi
-return|;
-block|}
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testMessageCreatedStrategy ()
@@ -252,7 +245,8 @@ argument_list|,
 literal|"Carlsberg"
 argument_list|)
 expr_stmt|;
-comment|// must remember to use this on the producer side as its in use when sending
+comment|// must remember to use this on the producer side as its in use when
+comment|// sending
 name|template
 operator|.
 name|sendBody
