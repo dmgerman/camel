@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -224,6 +236,20 @@ name|Mina2VMCustomCodecTest
 extends|extends
 name|BaseMina2Test
 block|{
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"myCodec"
+argument_list|)
+DECL|field|codec1
+specifier|private
+name|MyCodec
+name|codec1
+init|=
+operator|new
+name|MyCodec
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testMyCodec ()
@@ -424,37 +450,6 @@ parameter_list|)
 block|{
 comment|// ok
 block|}
-block|}
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|jndi
-operator|.
-name|bind
-argument_list|(
-literal|"myCodec"
-argument_list|,
-operator|new
-name|MyCodec
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|jndi
-return|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
