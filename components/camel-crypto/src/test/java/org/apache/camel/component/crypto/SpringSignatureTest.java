@@ -361,23 +361,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createRouteBuilders ()
 specifier|protected
 name|RouteBuilder
