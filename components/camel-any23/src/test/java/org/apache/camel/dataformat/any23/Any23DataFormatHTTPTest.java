@@ -133,10 +133,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|Any23DataFormatDefaultTest
+DECL|class|Any23DataFormatHTTPTest
 specifier|public
 class|class
-name|Any23DataFormatDefaultTest
+name|Any23DataFormatHTTPTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -170,29 +170,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|String
-name|contenhtml
-init|=
-name|Any23TestSupport
-operator|.
-name|loadFileAsString
-argument_list|(
-operator|new
-name|File
-argument_list|(
-literal|"src/test/resources/org/apache/camel/dataformat/any23/microformat/vcard.html"
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-name|contenhtml
-argument_list|)
-expr_stmt|;
+comment|//String contenhtml = Any23TestSupport.loadFileAsString(new File("src/test/resources/org/apache/camel/dataformat/any23/microformat/vcard.html"));
+comment|//template.sendBody("direct:start", contenhtml);
 name|List
 argument_list|<
 name|Exchange
@@ -264,7 +243,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"http://dbpedia.org/page/Ecuador"
 argument_list|)
 operator|.
 name|unmarshal
