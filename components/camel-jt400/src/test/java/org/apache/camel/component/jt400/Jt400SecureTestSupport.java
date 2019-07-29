@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Useful base class for JT400 secured component unit tests. It creates a mock  * secured connection pool, registers it under the ID {@code "mockPool"} and releases it  * after the test runs.  */
+comment|/**  * Useful base class for JT400 secured component unit tests. It creates a mock  * secured connection pool, registers it under the ID {@code "mockPool"} and  * releases it after the test runs.  */
 end_comment
 
 begin_class
