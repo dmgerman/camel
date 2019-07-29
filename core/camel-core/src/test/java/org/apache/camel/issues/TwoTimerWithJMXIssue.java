@@ -120,6 +120,16 @@ name|InterceptStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * Trying to reproduce CAMEL-927.  */
 end_comment
@@ -151,6 +161,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFromWithNoOutputs ()
 specifier|public
 name|void
@@ -230,6 +242,11 @@ argument_list|(
 literal|"timer://kickoff_1?period=250"
 argument_list|)
 operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"timer://kickoff_2?period=250&delay=10"
