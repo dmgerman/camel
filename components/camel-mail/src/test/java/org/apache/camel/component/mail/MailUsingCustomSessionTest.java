@@ -240,7 +240,8 @@ name|void
 name|testEndpointConfigurationWithCustomSession
 parameter_list|()
 block|{
-comment|// Verify that the mail session bound to the bean registry is identical to the session tied to the endpoint configuration
+comment|// Verify that the mail session bound to the bean registry is identical
+comment|// to the session tied to the endpoint configuration
 name|assertSame
 argument_list|(
 name|mailSession

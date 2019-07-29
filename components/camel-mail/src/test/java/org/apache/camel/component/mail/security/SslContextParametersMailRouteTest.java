@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test of integration between the mail component and JSSE Configuration Utility.  * This test does not easily automate.  This test is therefore ignored and the  * source is maintained here for easier development in the future.  */
+comment|/**  * Test of integration between the mail component and JSSE Configuration  * Utility. This test does not easily automate. This test is therefore ignored  * and the source is maintained here for easier development in the future.  */
 end_comment
 
 begin_class

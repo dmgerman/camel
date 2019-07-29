@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a test that checks integration of the sort term in Camel. The actual sorting logic is tested in the  * SortUtilTest.  */
+comment|/**  * This is a test that checks integration of the sort term in Camel. The actual  * sorting logic is tested in the SortUtilTest.  */
 end_comment
 
 begin_class
@@ -430,7 +430,8 @@ operator|.
 name|expunge
 argument_list|()
 expr_stmt|;
-comment|// inserts 3 messages, one with earlier, one with later sent date and one with invalid subject (not returned in search)
+comment|// inserts 3 messages, one with earlier, one with later sent date and
+comment|// one with invalid subject (not returned in search)
 name|Message
 index|[]
 name|messages

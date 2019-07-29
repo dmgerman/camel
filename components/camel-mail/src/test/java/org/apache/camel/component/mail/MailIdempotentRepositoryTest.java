@@ -300,7 +300,8 @@ name|getNewMessageCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// they get deleted after processing by default so we should be back to 0
+comment|// they get deleted after processing by default so we should be back to
+comment|// 0
 name|assertEquals
 argument_list|(
 literal|0
