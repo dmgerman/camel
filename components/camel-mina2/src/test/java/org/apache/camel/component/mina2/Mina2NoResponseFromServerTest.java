@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to test what happens if remote server closes session but doesn't reply  */
+comment|/**  * Unit test to test what happens if remote server closes session but doesn't  * reply  */
 end_comment
 
 begin_class
