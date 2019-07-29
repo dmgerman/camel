@@ -280,6 +280,10 @@ name|assertTrue
 import|;
 end_import
 
+begin_comment
+comment|// tag::example[]
+end_comment
+
 begin_class
 annotation|@
 name|RunWith
@@ -557,6 +561,10 @@ comment|// noop
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// end::example[]
+end_comment
 
 end_unit
 
