@@ -26,7 +26,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|PipelineDefinition
+name|AdviceWithDefinition
 import|;
 end_import
 
@@ -433,11 +433,11 @@ operator|.
 name|getOriginalRoute
 argument_list|()
 decl_stmt|;
-name|PipelineDefinition
+name|AdviceWithDefinition
 name|answer
 init|=
 operator|new
-name|PipelineDefinition
+name|AdviceWithDefinition
 argument_list|()
 decl_stmt|;
 if|if
@@ -772,11 +772,11 @@ operator|.
 name|getOriginalRoute
 argument_list|()
 decl_stmt|;
-name|PipelineDefinition
+name|AdviceWithDefinition
 name|answer
 init|=
 operator|new
-name|PipelineDefinition
+name|AdviceWithDefinition
 argument_list|()
 decl_stmt|;
 if|if
@@ -952,11 +952,11 @@ operator|.
 name|getOriginalRoute
 argument_list|()
 decl_stmt|;
-name|PipelineDefinition
+name|AdviceWithDefinition
 name|answer
 init|=
 operator|new
-name|PipelineDefinition
+name|AdviceWithDefinition
 argument_list|()
 decl_stmt|;
 if|if

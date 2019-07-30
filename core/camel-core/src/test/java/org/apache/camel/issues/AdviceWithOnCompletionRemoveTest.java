@@ -81,10 +81,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|AdviceWithOnExceptionRemoveTest
+DECL|class|AdviceWithOnCompletionRemoveTest
 specifier|public
 class|class
-name|AdviceWithOnExceptionRemoveTest
+name|AdviceWithOnCompletionRemoveTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -102,10 +102,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAdviceOnExceptionRemove ()
+DECL|method|testAdviceOnCompletionRemove ()
 specifier|public
 name|void
-name|testAdviceOnExceptionRemove
+name|testAdviceOnCompletionRemove
 parameter_list|()
 throws|throws
 name|Exception
@@ -133,9 +133,9 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|0
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -160,7 +160,7 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:dead"
+literal|"mock:done"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -196,7 +196,7 @@ name|Exception
 block|{
 name|weaveById
 argument_list|(
-literal|"myException"
+literal|"myCompletion"
 argument_list|)
 operator|.
 name|remove
@@ -211,8 +211,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
@@ -222,42 +220,16 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"Forced"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAdviceOnExceptionReplace ()
+DECL|method|testAdviceOnCompletionReplace ()
 specifier|public
 name|void
-name|testAdviceOnExceptionReplace
+name|testAdviceOnCompletionReplace
 parameter_list|()
 throws|throws
 name|Exception
@@ -285,9 +257,9 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|0
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -312,7 +284,7 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:dead"
+literal|"mock:done"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -322,7 +294,7 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:dead2"
+literal|"mock:done2"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -358,27 +330,18 @@ name|Exception
 block|{
 name|weaveById
 argument_list|(
-literal|"myException"
+literal|"myCompletion"
 argument_list|)
 operator|.
 name|replace
 argument_list|()
 operator|.
-name|onException
-argument_list|(
-name|Exception
-operator|.
-name|class
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|true
-argument_list|)
+name|onCompletion
+argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"mock:dead2"
+literal|"mock:done2"
 argument_list|)
 expr_stmt|;
 block|}
@@ -427,21 +390,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|onException
-argument_list|(
-name|Exception
-operator|.
-name|class
-argument_list|)
+name|onCompletion
+argument_list|()
 operator|.
 name|id
 argument_list|(
-literal|"myException"
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|true
+literal|"myCompletion"
 argument_list|)
 operator|.
 name|transform
@@ -454,7 +408,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:dead"
+literal|"mock:done"
 argument_list|)
 expr_stmt|;
 name|from
@@ -490,15 +444,6 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:a"
-argument_list|)
-operator|.
-name|throwException
-argument_list|(
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Forced"
-argument_list|)
 argument_list|)
 operator|.
 name|to

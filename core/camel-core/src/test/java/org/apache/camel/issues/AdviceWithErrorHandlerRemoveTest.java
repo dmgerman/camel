@@ -81,10 +81,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|AdviceWithOnExceptionRemoveTest
+DECL|class|AdviceWithErrorHandlerRemoveTest
 specifier|public
 class|class
-name|AdviceWithOnExceptionRemoveTest
+name|AdviceWithErrorHandlerRemoveTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -102,10 +102,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAdviceOnExceptionRemove ()
+DECL|method|testAdviceErrorHandlerRemove ()
 specifier|public
 name|void
-name|testAdviceOnExceptionRemove
+name|testAdviceErrorHandlerRemove
 parameter_list|()
 throws|throws
 name|Exception
@@ -194,13 +194,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|weaveById
-argument_list|(
-literal|"myException"
-argument_list|)
-operator|.
-name|remove
+name|getOriginalRoute
 argument_list|()
+operator|.
+name|errorHandler
+argument_list|(
+name|noErrorHandler
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -254,10 +255,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAdviceOnExceptionReplace ()
+DECL|method|testAdviceErrorHandlerReplace ()
 specifier|public
 name|void
-name|testAdviceOnExceptionReplace
+name|testAdviceErrorHandlerReplace
 parameter_list|()
 throws|throws
 name|Exception
@@ -356,12 +357,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|weaveById
-argument_list|(
-literal|"myException"
-argument_list|)
-operator|.
-name|replace
+comment|// override errorHandler by using on exception
+name|weaveAddFirst
 argument_list|()
 operator|.
 name|onException
@@ -427,36 +424,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|onException
-argument_list|(
-name|Exception
-operator|.
-name|class
-argument_list|)
-operator|.
-name|id
-argument_list|(
-literal|"myException"
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|transform
-argument_list|(
-name|constant
-argument_list|(
-literal|"Bye World"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:dead"
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:bar"
@@ -485,6 +452,14 @@ operator|.
 name|routeId
 argument_list|(
 literal|"foo"
+argument_list|)
+operator|.
+name|errorHandler
+argument_list|(
+name|deadLetterChannel
+argument_list|(
+literal|"mock:dead"
+argument_list|)
 argument_list|)
 operator|.
 name|to

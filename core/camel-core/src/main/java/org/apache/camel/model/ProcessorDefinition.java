@@ -947,11 +947,23 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// validate that top-level is only added on the route (eg top level)
+comment|// validate that top-level is only added on the route (eg top level) (or still allow if using advice-with)
 name|boolean
 name|parentIsRoute
 init|=
 name|RouteDefinition
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+operator|||
+name|AdviceWithDefinition
 operator|.
 name|class
 operator|.
