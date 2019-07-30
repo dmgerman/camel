@@ -2827,6 +2827,21 @@ operator|=
 name|createCamelContext
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|camelContext
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Created CamelContext is null"
+argument_list|)
+throw|;
+block|}
 name|postProcessCamelContext
 argument_list|(
 name|camelContext
