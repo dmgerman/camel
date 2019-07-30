@@ -74,6 +74,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -166,6 +180,13 @@ DECL|field|skipSendToOriginalEndpoint
 specifier|private
 name|Boolean
 name|skipSendToOriginalEndpoint
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|afterUri
+specifier|private
+name|String
+name|afterUri
 decl_stmt|;
 DECL|method|InterceptSendToEndpointDefinition ()
 specifier|public
@@ -302,6 +323,25 @@ argument_list|(
 name|Boolean
 operator|.
 name|TRUE
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * After sending to the endpoint then send the message to this url which allows to process its result.      *      * @return the builder      */
+DECL|method|afterUrl (String url)
+specifier|public
+name|InterceptSendToEndpointDefinition
+name|afterUrl
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|setAfterUri
+argument_list|(
+name|url
 argument_list|)
 expr_stmt|;
 return|return
@@ -542,6 +582,33 @@ operator|.
 name|uri
 operator|=
 name|uri
+expr_stmt|;
+block|}
+DECL|method|getAfterUri ()
+specifier|public
+name|String
+name|getAfterUri
+parameter_list|()
+block|{
+return|return
+name|afterUri
+return|;
+block|}
+comment|/**      * After sending to the endpoint then send the message to this uri which allows to process its result.      */
+DECL|method|setAfterUri (String afterProcessor)
+specifier|public
+name|void
+name|setAfterUri
+parameter_list|(
+name|String
+name|afterProcessor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|afterUri
+operator|=
+name|afterProcessor
 expr_stmt|;
 block|}
 block|}

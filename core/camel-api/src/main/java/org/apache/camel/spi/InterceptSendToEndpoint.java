@@ -58,10 +58,24 @@ name|Endpoint
 name|getOriginalEndpoint
 parameter_list|()
 function_decl|;
-comment|/**      * The processor for routing in a detour      */
+comment|/**      * The processor for routing in a detour before sending to the original endpoint.      *      * @deprecated use {@link #getBefore()}      */
+annotation|@
+name|Deprecated
 DECL|method|getDetour ()
 name|Processor
 name|getDetour
+parameter_list|()
+function_decl|;
+comment|/**      * The processor for routing in a detour before sending to the original endpoint.      */
+DECL|method|getBefore ()
+name|Processor
+name|getBefore
+parameter_list|()
+function_decl|;
+comment|/**      * The processor for routing after sending to the original endpoint.      */
+DECL|method|getAfter ()
+name|Processor
+name|getAfter
 parameter_list|()
 function_decl|;
 comment|/**      * Whether to skip sending after the detour to the original endpoint.      */

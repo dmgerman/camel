@@ -393,7 +393,7 @@ argument_list|)
 expr_stmt|;
 name|proxy
 operator|.
-name|setDetour
+name|setBefore
 argument_list|(
 name|producer
 argument_list|)
