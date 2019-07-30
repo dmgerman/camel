@@ -279,8 +279,10 @@ argument_list|(
 name|ksp
 argument_list|)
 expr_stmt|;
-comment|// NOTE: Needed since the client uses a loose trust configuration when no ssl context
-comment|// is provided.  We turn on WANT client-auth to prefer using authentication
+comment|// NOTE: Needed since the client uses a loose trust configuration when
+comment|// no ssl context
+comment|// is provided. We turn on WANT client-auth to prefer using
+comment|// authentication
 name|SSLContextServerParameters
 name|scsp
 init|=

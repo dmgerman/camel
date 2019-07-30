@@ -226,7 +226,8 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// needClientAuth=true so we can get the client certificate details
+comment|// needClientAuth=true so we can get the client certificate
+comment|// details
 name|from
 argument_list|(
 literal|"netty4:tcp://localhost:{{port}}?sync=true&ssl=true&passphrase=changeit&keyStoreResource=#ksf&trustStoreResource=#tsf"

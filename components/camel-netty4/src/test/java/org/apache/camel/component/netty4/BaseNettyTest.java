@@ -458,13 +458,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//Force GC to bring up leaks
+comment|// Force GC to bring up leaks
 name|System
 operator|.
 name|gc
 argument_list|()
 expr_stmt|;
-comment|//Kick leak detection logging
+comment|// Kick leak detection logging
 name|ByteBufAllocator
 operator|.
 name|DEFAULT

@@ -218,7 +218,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//Will fail unless the buffer was increased correctly
+comment|// Will fail unless the buffer was increased correctly
 name|sendMessage
 argument_list|(
 literal|2048
