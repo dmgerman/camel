@@ -285,7 +285,8 @@ DECL|method|CustomHeaderFilterStrategy ()
 name|CustomHeaderFilterStrategy
 parameter_list|()
 block|{
-comment|// allow all outbound headers to pass through but only filter out below inbound header
+comment|// allow all outbound headers to pass through but only filter out
+comment|// below inbound header
 name|getInFilter
 argument_list|()
 operator|.

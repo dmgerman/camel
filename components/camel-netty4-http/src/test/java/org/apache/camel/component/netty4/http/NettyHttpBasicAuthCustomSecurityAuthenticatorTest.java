@@ -193,7 +193,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// wait a little bit before next as the connection was closed when denied
+comment|// wait a little bit before next as the connection was closed when
+comment|// denied
 name|Thread
 operator|.
 name|sleep

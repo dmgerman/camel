@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|EndpointInject
 import|;
 end_import
@@ -109,18 +121,6 @@ operator|.
 name|Exchange
 operator|.
 name|HTTP_QUERY
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|BindToRegistry
 import|;
 end_import
 
