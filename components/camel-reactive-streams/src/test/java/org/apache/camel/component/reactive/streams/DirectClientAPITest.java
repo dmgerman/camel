@@ -1231,7 +1231,7 @@ argument_list|(
 operator|-
 name|val
 argument_list|)
-argument_list|;                             return
+argument_list|;             return
 name|exchange
 argument_list|;
 block|}
@@ -1352,7 +1352,7 @@ block|}
 end_for
 
 begin_function
-unit|}       @
+unit|}      @
 name|Test
 DECL|method|testDirectCallFromCamelWithConversion ()
 specifier|public
