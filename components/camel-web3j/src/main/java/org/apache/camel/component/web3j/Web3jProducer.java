@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|InvokeOnHeader
+name|Message
 import|;
 end_import
 
@@ -80,7 +80,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
+name|spi
+operator|.
+name|InvokeOnHeader
 import|;
 end_import
 
@@ -1247,10 +1249,6 @@ operator|.
 name|Voter
 import|;
 end_import
-
-begin_comment
-comment|/**  * The web3j producer.  */
-end_comment
 
 begin_class
 DECL|class|Web3jProducer

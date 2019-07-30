@@ -4,13 +4,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 package|;
 end_package
 
@@ -62,8 +64,20 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
 begin_comment
-comment|/**  * Marks a method as being invoked for a specific header value.  *  * @see Message#getHeader(String)  */
+comment|/**  * Marks a method as being invoked for a specific header value.  *<p/>  * This can be used by Component implementations that uses org.apache.camel.support.HeaderSelectorProducer.  *  * @see Message#getHeader(String)  */
 end_comment
 
 begin_annotation_defn
@@ -86,8 +100,7 @@ specifier|public
 annotation_defn|@interface
 name|InvokeOnHeaders
 block|{
-comment|// TODO: Move to spi as its more for component developers
-comment|/**      * Name of headers      */
+comment|/**      * Name of headers.      */
 DECL|method|value ()
 name|InvokeOnHeader
 index|[]

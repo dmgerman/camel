@@ -68,6 +68,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|InvokeOnHeader
 import|;
 end_import
