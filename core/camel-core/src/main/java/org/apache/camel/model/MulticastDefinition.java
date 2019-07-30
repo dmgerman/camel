@@ -696,7 +696,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      * Multicast will by default not share unit of work between the parent exchange and each multicasted exchange.      * This means each sub exchange has its own individual unit of work.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      * Multicast will by default not share unit of work between the parent exchange and each multicasted exchange.      * This means each sub exchange has its own individual unit of work.      *      * @return the builder.      */
 DECL|method|shareUnitOfWork ()
 specifier|public
 name|MulticastDefinition

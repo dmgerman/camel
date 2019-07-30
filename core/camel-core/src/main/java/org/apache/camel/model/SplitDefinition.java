@@ -667,7 +667,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      * Splitter will by default not share unit of work between the parent exchange and each splitted exchange.      * This means each splitted exchange has its own individual unit of work.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      * Splitter will by default not share unit of work between the parent exchange and each splitted exchange.      * This means each splitted exchange has its own individual unit of work.      *      * @return the builder.      */
 DECL|method|shareUnitOfWork ()
 specifier|public
 name|SplitDefinition
