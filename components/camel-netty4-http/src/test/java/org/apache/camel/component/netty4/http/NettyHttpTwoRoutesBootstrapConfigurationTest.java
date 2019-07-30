@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -88,23 +100,18 @@ name|NettyServerBootstrapConfiguration
 name|bootstrapConfiguration
 decl_stmt|;
 annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
+name|BindToRegistry
+argument_list|(
+literal|"myBootstrapOptions"
+argument_list|)
+DECL|method|loadNettyBootstrapConf ()
+specifier|public
+name|NettyServerBootstrapConfiguration
+name|loadNettyBootstrapConf
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
 comment|// create NettyServerBootstrapConfiguration instance where we can configure the bootstrap
 comment|// option we want to use in our Camel routes. This allows us to configure this once,
 comment|// and also explicit
@@ -142,18 +149,8 @@ argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
-comment|// register the configuration in the registry with this key
-name|jndi
-operator|.
-name|bind
-argument_list|(
-literal|"myBootstrapOptions"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
 return|return
-name|jndi
+name|bootstrapConfiguration
 return|;
 block|}
 annotation|@
