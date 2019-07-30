@@ -946,7 +946,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|//Thread.sleep(3000);
+comment|// Thread.sleep(3000);
 name|int
 name|replicas
 init|=
