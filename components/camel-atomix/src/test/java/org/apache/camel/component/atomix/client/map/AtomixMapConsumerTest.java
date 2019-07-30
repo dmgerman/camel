@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|BindToRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Component
 import|;
 end_import
@@ -226,9 +238,12 @@ comment|// ************************************
 comment|// Setup
 comment|// ************************************
 annotation|@
-name|Override
+name|BindToRegistry
+argument_list|(
+literal|"atomix-map"
+argument_list|)
 DECL|method|createComponents ()
-specifier|protected
+specifier|public
 name|Map
 argument_list|<
 name|String
