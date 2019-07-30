@@ -32,15 +32,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|inject
 operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
-name|ContextName
+name|Named
 import|;
 end_import
 
@@ -61,11 +57,6 @@ end_import
 begin_class
 annotation|@
 name|ApplicationScoped
-annotation|@
-name|ContextName
-argument_list|(
-literal|"first"
-argument_list|)
 DECL|class|FirstCamelContextBean
 specifier|public
 class|class

@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -65,20 +75,6 @@ operator|.
 name|cdi
 operator|.
 name|CdiCamelExtension
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
-name|ContextName
 import|;
 end_import
 
@@ -408,7 +404,7 @@ end_class
 
 begin_class
 annotation|@
-name|ContextName
+name|Named
 argument_list|(
 literal|"first"
 argument_list|)
@@ -428,7 +424,7 @@ operator|=
 literal|"direct:inbound"
 argument_list|)
 annotation|@
-name|ContextName
+name|Named
 argument_list|(
 literal|"second"
 argument_list|)

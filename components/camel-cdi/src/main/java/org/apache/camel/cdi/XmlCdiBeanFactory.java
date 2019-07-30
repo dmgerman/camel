@@ -1367,18 +1367,6 @@ name|addAll
 argument_list|(
 name|annotations
 argument_list|,
-name|ContextName
-operator|.
-name|Literal
-operator|.
-name|of
-argument_list|(
-name|factory
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-argument_list|,
 name|NamedLiteral
 operator|.
 name|of
@@ -1966,7 +1954,6 @@ argument_list|(
 name|ANY
 argument_list|)
 expr_stmt|;
-comment|// FIXME: should add @ContextName if the Camel context bean has it
 name|annotations
 operator|.
 name|add

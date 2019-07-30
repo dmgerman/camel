@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -68,25 +78,11 @@ name|CdiEventEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
-name|ContextName
-import|;
-end_import
-
 begin_class
 annotation|@
 name|ApplicationScoped
 annotation|@
-name|ContextName
+name|Named
 argument_list|(
 literal|"second"
 argument_list|)
@@ -100,7 +96,7 @@ block|{
 annotation|@
 name|Inject
 annotation|@
-name|ContextName
+name|Named
 argument_list|(
 literal|"second"
 argument_list|)

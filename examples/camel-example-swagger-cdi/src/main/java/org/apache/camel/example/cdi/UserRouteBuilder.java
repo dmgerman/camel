@@ -20,15 +20,13 @@ end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|enterprise
 operator|.
-name|camel
+name|context
 operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|ApplicationScoped
 import|;
 end_import
 
@@ -40,9 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cdi
+name|builder
 operator|.
-name|ContextName
+name|RouteBuilder
 import|;
 end_import
 
@@ -104,10 +102,7 @@ end_comment
 
 begin_class
 annotation|@
-name|ContextName
-argument_list|(
-literal|"myCamel"
-argument_list|)
+name|ApplicationScoped
 DECL|class|UserRouteBuilder
 specifier|public
 class|class

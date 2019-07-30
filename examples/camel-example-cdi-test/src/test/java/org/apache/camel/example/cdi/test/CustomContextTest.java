@@ -56,13 +56,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|inject
 operator|.
-name|camel
-operator|.
-name|CamelContext
+name|Named
 import|;
 end_import
 
@@ -74,9 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cdi
-operator|.
-name|ContextName
+name|CamelContext
 import|;
 end_import
 
@@ -205,7 +201,7 @@ block|}
 annotation|@
 name|Default
 annotation|@
-name|ContextName
+name|Named
 argument_list|(
 literal|"camel-test-cdi"
 argument_list|)

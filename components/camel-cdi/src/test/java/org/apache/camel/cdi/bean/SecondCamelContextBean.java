@@ -42,15 +42,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|inject
 operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
-name|ContextName
+name|Named
 import|;
 end_import
 
@@ -72,7 +68,7 @@ begin_class
 annotation|@
 name|ApplicationScoped
 annotation|@
-name|ContextName
+name|Named
 argument_list|(
 literal|"second"
 argument_list|)

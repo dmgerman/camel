@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -89,20 +99,6 @@ operator|.
 name|cdi
 operator|.
 name|CdiCamelExtension
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
-name|ContextName
 import|;
 end_import
 
@@ -306,11 +302,6 @@ name|value
 operator|=
 literal|"mock:outbound"
 argument_list|)
-annotation|@
-name|ContextName
-argument_list|(
-literal|"first"
-argument_list|)
 DECL|field|outbound
 specifier|private
 name|MockEndpoint
@@ -324,11 +315,6 @@ argument_list|(
 name|value
 operator|=
 literal|"direct:inbound"
-argument_list|)
-annotation|@
-name|ContextName
-argument_list|(
-literal|"first"
 argument_list|)
 DECL|field|inbound
 specifier|private
@@ -439,7 +425,7 @@ end_class
 
 begin_class
 annotation|@
-name|ContextName
+name|Named
 argument_list|(
 literal|"first"
 argument_list|)
@@ -458,11 +444,6 @@ name|value
 operator|=
 literal|"direct:inbound"
 argument_list|)
-annotation|@
-name|ContextName
-argument_list|(
-literal|"first"
-argument_list|)
 DECL|field|inbound
 name|Endpoint
 name|inbound
@@ -475,11 +456,6 @@ argument_list|(
 name|value
 operator|=
 literal|"mock:outbound"
-argument_list|)
-annotation|@
-name|ContextName
-argument_list|(
-literal|"first"
 argument_list|)
 DECL|field|outbound
 name|MockEndpoint

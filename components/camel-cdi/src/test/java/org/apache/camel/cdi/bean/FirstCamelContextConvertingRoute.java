@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|context
+operator|.
+name|ApplicationScoped
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -42,20 +54,6 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|ContextName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
 name|pojo
 operator|.
 name|TypeConverterOutput
@@ -64,10 +62,7 @@ end_import
 
 begin_class
 annotation|@
-name|ContextName
-argument_list|(
-literal|"first"
-argument_list|)
+name|ApplicationScoped
 DECL|class|FirstCamelContextConvertingRoute
 specifier|public
 class|class

@@ -18,23 +18,21 @@ name|javax
 operator|.
 name|enterprise
 operator|.
-name|event
+name|context
 operator|.
-name|Observes
+name|ApplicationScoped
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|enterprise
 operator|.
-name|camel
+name|event
 operator|.
-name|cdi
-operator|.
-name|ContextName
+name|Observes
 import|;
 end_import
 
@@ -70,10 +68,7 @@ end_import
 
 begin_class
 annotation|@
-name|ContextName
-argument_list|(
-literal|"Server1"
-argument_list|)
+name|ApplicationScoped
 DECL|class|ClientApplication
 specifier|public
 class|class

@@ -14,6 +14,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|context
+operator|.
+name|ApplicationScoped
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -27,6 +39,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ApplicationScoped
 DECL|class|ClientRoute
 specifier|public
 class|class
