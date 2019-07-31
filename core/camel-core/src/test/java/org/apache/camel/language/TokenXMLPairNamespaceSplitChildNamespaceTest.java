@@ -262,7 +262,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|3
+literal|4
 argument_list|)
 expr_stmt|;
 name|mock
