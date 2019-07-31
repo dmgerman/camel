@@ -262,8 +262,6 @@ name|EKSEndpointBuilderFactory
 extends|,
 name|EhcacheEndpointBuilderFactory
 extends|,
-name|EjbEndpointBuilderFactory
-extends|,
 name|ElasticsearchEndpointBuilderFactory
 extends|,
 name|ElsqlEndpointBuilderFactory
