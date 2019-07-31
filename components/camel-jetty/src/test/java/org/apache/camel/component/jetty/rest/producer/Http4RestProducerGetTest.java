@@ -182,7 +182,7 @@ comment|// use camel-http4 as rest client
 operator|.
 name|producerComponent
 argument_list|(
-literal|"http4"
+literal|"http"
 argument_list|)
 expr_stmt|;
 name|from

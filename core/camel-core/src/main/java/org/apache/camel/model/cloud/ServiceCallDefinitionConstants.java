@@ -41,7 +41,7 @@ specifier|final
 name|String
 name|DEFAULT_COMPONENT
 init|=
-literal|"http4"
+literal|"http"
 decl_stmt|;
 DECL|field|DEFAULT_SERVICE_CALL_CONFIG_ID
 specifier|public

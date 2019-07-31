@@ -312,7 +312,7 @@ name|getClientURI
 parameter_list|()
 block|{
 return|return
-literal|"http4://localhost:%d/TestResource/some-id?sslContextParameters=#clientSSLContextParameters"
+literal|"http://localhost:%d/TestResource/some-id?sslContextParameters=#clientSSLContextParameters"
 return|;
 block|}
 DECL|method|decorateRestConfiguration (RestConfigurationDefinition restConfig)

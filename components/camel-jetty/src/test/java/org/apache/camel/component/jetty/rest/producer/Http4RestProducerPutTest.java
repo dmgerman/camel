@@ -146,7 +146,7 @@ argument_list|()
 operator|.
 name|producerComponent
 argument_list|(
-literal|"http4"
+literal|"http"
 argument_list|)
 operator|.
 name|component

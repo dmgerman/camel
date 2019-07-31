@@ -100,7 +100,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http4://localhost:{{port}}/test"
+literal|"http://localhost:{{port}}/test"
 argument_list|,
 name|data
 argument_list|,
@@ -149,7 +149,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http4://localhost:{{port}}/test?deleteWithBody=true"
+literal|"http://localhost:{{port}}/test?deleteWithBody=true"
 argument_list|,
 name|data
 argument_list|,

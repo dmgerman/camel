@@ -446,7 +446,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port
 operator|+
@@ -478,7 +478,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port
 operator|+
@@ -510,7 +510,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port
 operator|+
@@ -542,7 +542,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port
 operator|+
@@ -574,7 +574,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port
 operator|+
@@ -606,7 +606,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port
 operator|+
