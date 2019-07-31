@@ -113,7 +113,7 @@ specifier|public
 interface|interface
 name|HttpEndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint for the HTTP4 component.      */
+comment|/**      * Builder for endpoint for the HTTP component.      */
 DECL|interface|HttpEndpointBuilder
 specifier|public
 interface|interface
@@ -387,7 +387,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the HTTP4 component.      */
+comment|/**      * Advanced builder for endpoint for the HTTP component.      */
 DECL|interface|AdvancedHttpEndpointBuilder
 specifier|public
 interface|interface
@@ -1073,7 +1073,7 @@ block|,
 DECL|enumConstant|PATCH
 name|PATCH
 block|;     }
-comment|/**      * HTTP4 (camel-http4)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http4      *       * Syntax:<code>http:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
+comment|/**      * HTTP (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http      *       * Syntax:<code>http:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
 DECL|method|http (String path)
 specifier|default
 name|HttpEndpointBuilder
