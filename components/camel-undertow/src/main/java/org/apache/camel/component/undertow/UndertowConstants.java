@@ -70,6 +70,24 @@ name|EVENT_TYPE_ENUM
 init|=
 literal|"websocket.eventTypeEnum"
 decl_stmt|;
+DECL|field|CHANNEL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CHANNEL
+init|=
+literal|"websocket.channel"
+decl_stmt|;
+DECL|field|EXCHANGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|EXCHANGE
+init|=
+literal|"websocket.exchange"
+decl_stmt|;
 comment|/**      * WebSocket peers related events the {@link UndertowConsumer} sends to the Camel route.      */
 DECL|enum|EventType
 specifier|public

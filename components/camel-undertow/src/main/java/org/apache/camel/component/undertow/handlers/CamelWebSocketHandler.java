@@ -625,6 +625,10 @@ operator|.
 name|CONNECTION_KEY
 argument_list|)
 argument_list|,
+literal|null
+argument_list|,
+name|channel
+argument_list|,
 name|EventType
 operator|.
 name|ONCLOSE
@@ -1053,12 +1057,18 @@ name|consumer
 expr_stmt|;
 block|}
 block|}
-DECL|method|sendEventNotificationIfNeeded (String connectionKey, EventType eventType)
+DECL|method|sendEventNotificationIfNeeded (String connectionKey, WebSocketHttpExchange transportExchange, WebSocketChannel channel, EventType eventType)
 name|void
 name|sendEventNotificationIfNeeded
 parameter_list|(
 name|String
 name|connectionKey
+parameter_list|,
+name|WebSocketHttpExchange
+name|transportExchange
+parameter_list|,
+name|WebSocketChannel
+name|channel
 parameter_list|,
 name|EventType
 name|eventType
@@ -1097,6 +1107,10 @@ operator|.
 name|sendEventNotification
 argument_list|(
 name|connectionKey
+argument_list|,
+name|transportExchange
+argument_list|,
+name|channel
 argument_list|,
 name|eventType
 argument_list|)
@@ -1780,6 +1794,8 @@ name|sendMessage
 argument_list|(
 name|connectionKey
 argument_list|,
+name|channel
+argument_list|,
 name|outMsg
 argument_list|)
 expr_stmt|;
@@ -1923,6 +1939,8 @@ name|sendMessage
 argument_list|(
 name|connectionKey
 argument_list|,
+name|channel
+argument_list|,
 name|outMsg
 argument_list|)
 expr_stmt|;
@@ -2024,6 +2042,10 @@ expr_stmt|;
 name|sendEventNotificationIfNeeded
 argument_list|(
 name|connectionKey
+argument_list|,
+name|exchange
+argument_list|,
+name|channel
 argument_list|,
 name|EventType
 operator|.

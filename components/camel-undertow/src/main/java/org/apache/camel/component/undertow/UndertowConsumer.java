@@ -252,6 +252,20 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|undertow
+operator|.
+name|websockets
+operator|.
+name|spi
+operator|.
+name|WebSocketHttpExchange
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1203,11 +1217,11 @@ block|}
 end_class
 
 begin_comment
-comment|/**      * Create an {@link Exchange} from the associated {@link UndertowEndpoint} and set the {@code in} {@link Message}'s      * body to the given {@code message} and {@link UndertowConstants#CONNECTION_KEY} header to the given      * {@code connectionKey}.      *      * @param connectionKey an identifier of {@link WebSocketChannel} through which the {@code message} was received      * @param message the message received via the {@link WebSocketChannel}      */
+comment|/**      * Create an {@link Exchange} from the associated {@link UndertowEndpoint} and set the {@code in} {@link Message}'s      * body to the given {@code message} and {@link UndertowConstants#CONNECTION_KEY} header to the given      * {@code connectionKey}.      *      * @param connectionKey an identifier of {@link WebSocketChannel} through which the {@code message} was received      * @param channel the {@link WebSocketChannel} through which the {@code message} was received      * @param message the message received via the {@link WebSocketChannel}      */
 end_comment
 
 begin_function
-DECL|method|sendMessage (final String connectionKey, final Object message)
+DECL|method|sendMessage (final String connectionKey, WebSocketChannel channel, final Object message)
 specifier|public
 name|void
 name|sendMessage
@@ -1215,6 +1229,9 @@ parameter_list|(
 specifier|final
 name|String
 name|connectionKey
+parameter_list|,
+name|WebSocketChannel
+name|channel
 parameter_list|,
 specifier|final
 name|Object
@@ -1246,6 +1263,28 @@ argument_list|,
 name|connectionKey
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|channel
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|UndertowConstants
+operator|.
+name|CHANNEL
+argument_list|,
+name|channel
+argument_list|)
+expr_stmt|;
+block|}
 name|exchange
 operator|.
 name|getIn
@@ -1310,17 +1349,23 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Send a notification related a WebSocket peer.      *      * @param connectionKey of WebSocket peer      * @param eventType the type of the event      */
+comment|/**      * Send a notification related a WebSocket peer.      *      * @param connectionKey of WebSocket peer      * @param transportExchange the exchange for the websocket transport, only available for ON_OPEN events      * @param channel the {@link WebSocketChannel} through which the {@code message} was received      * @param eventType the type of the event      */
 end_comment
 
 begin_function
-DECL|method|sendEventNotification (String connectionKey, EventType eventType)
+DECL|method|sendEventNotification (String connectionKey, WebSocketHttpExchange transportExchange, WebSocketChannel channel, EventType eventType)
 specifier|public
 name|void
 name|sendEventNotification
 parameter_list|(
 name|String
 name|connectionKey
+parameter_list|,
+name|WebSocketHttpExchange
+name|transportExchange
+parameter_list|,
+name|WebSocketChannel
+name|channel
 parameter_list|,
 name|EventType
 name|eventType
@@ -1381,6 +1426,44 @@ argument_list|,
 name|eventType
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|channel
+operator|!=
+literal|null
+condition|)
+block|{
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|UndertowConstants
+operator|.
+name|CHANNEL
+argument_list|,
+name|channel
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|transportExchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|UndertowConstants
+operator|.
+name|EXCHANGE
+argument_list|,
+name|transportExchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// send exchange using the async routing engine
 name|getAsyncProcessor
 argument_list|()
