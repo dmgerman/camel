@@ -416,7 +416,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"completionTimeout"
+literal|"completionTimeoutExpression"
 argument_list|)
 DECL|field|completionTimeoutExpression
 specifier|private
@@ -428,7 +428,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"completionSize"
+literal|"completionSizeExpression"
 argument_list|)
 DECL|field|completionSizeExpression
 specifier|private
