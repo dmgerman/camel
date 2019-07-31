@@ -336,53 +336,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
-DECL|method|parameters ( Map<String, Object> parameters)
-specifier|default
-name|JpaEndpointConsumerBuilder
-name|parameters
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"parameters"
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
-DECL|method|parameters (String parameters)
-specifier|default
-name|JpaEndpointConsumerBuilder
-name|parameters
-parameter_list|(
-name|String
-name|parameters
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"parameters"
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The JPA persistence unit used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|persistenceUnit ( String persistenceUnit)
 specifier|default
@@ -464,48 +417,6 @@ argument_list|(
 literal|"resultClass"
 argument_list|,
 name|resultClass
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|sharedEntityManager ( boolean sharedEntityManager)
-specifier|default
-name|JpaEndpointConsumerBuilder
-name|sharedEntityManager
-parameter_list|(
-name|boolean
-name|sharedEntityManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"sharedEntityManager"
-argument_list|,
-name|sharedEntityManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|sharedEntityManager ( String sharedEntityManager)
-specifier|default
-name|JpaEndpointConsumerBuilder
-name|sharedEntityManager
-parameter_list|(
-name|String
-name|sharedEntityManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"sharedEntityManager"
-argument_list|,
-name|sharedEntityManager
 argument_list|)
 expr_stmt|;
 return|return
@@ -1589,6 +1500,53 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|parameters ( Map<String, Object> parameters)
+specifier|default
+name|AdvancedJpaEndpointConsumerBuilder
+name|parameters
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"parameters"
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: consumer (advanced)          */
+DECL|method|parameters (String parameters)
+specifier|default
+name|AdvancedJpaEndpointConsumerBuilder
+name|parameters
+parameter_list|(
+name|String
+name|parameters
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"parameters"
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing          * you to provide your custom implementation to control error handling          * usually occurred during the poll operation before an Exchange have          * been created and being routed in Camel.          *           * The option is a:          *<code>org.apache.camel.spi.PollingConsumerPollStrategy</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|pollStrategy ( PollingConsumerPollStrategy pollStrategy)
 specifier|default
@@ -1714,6 +1672,48 @@ argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
 name|entityManagerProperties
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|sharedEntityManager ( boolean sharedEntityManager)
+specifier|default
+name|AdvancedJpaEndpointConsumerBuilder
+name|sharedEntityManager
+parameter_list|(
+name|boolean
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sharedEntityManager"
+argument_list|,
+name|sharedEntityManager
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|sharedEntityManager ( String sharedEntityManager)
+specifier|default
+name|AdvancedJpaEndpointConsumerBuilder
+name|sharedEntityManager
+parameter_list|(
+name|String
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sharedEntityManager"
+argument_list|,
+name|sharedEntityManager
 argument_list|)
 expr_stmt|;
 return|return
@@ -1910,53 +1910,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
-DECL|method|parameters ( Map<String, Object> parameters)
-specifier|default
-name|JpaEndpointProducerBuilder
-name|parameters
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"parameters"
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
-DECL|method|parameters (String parameters)
-specifier|default
-name|JpaEndpointProducerBuilder
-name|parameters
-parameter_list|(
-name|String
-name|parameters
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"parameters"
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The JPA persistence unit used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|persistenceUnit ( String persistenceUnit)
 specifier|default
@@ -2038,48 +1991,6 @@ argument_list|(
 literal|"resultClass"
 argument_list|,
 name|resultClass
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|sharedEntityManager ( boolean sharedEntityManager)
-specifier|default
-name|JpaEndpointProducerBuilder
-name|sharedEntityManager
-parameter_list|(
-name|boolean
-name|sharedEntityManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"sharedEntityManager"
-argument_list|,
-name|sharedEntityManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|sharedEntityManager ( String sharedEntityManager)
-specifier|default
-name|JpaEndpointProducerBuilder
-name|sharedEntityManager
-parameter_list|(
-name|String
-name|sharedEntityManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"sharedEntityManager"
-argument_list|,
-name|sharedEntityManager
 argument_list|)
 expr_stmt|;
 return|return
@@ -2254,48 +2165,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If set to true, then Camel will use the EntityManager from the header          * JpaConstants.ENTITY_MANAGER instead of the configured entity manager          * on the component/endpoint. This allows end users to control which          * entity manager will be in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|usePassedInEntityManager ( boolean usePassedInEntityManager)
-specifier|default
-name|JpaEndpointProducerBuilder
-name|usePassedInEntityManager
-parameter_list|(
-name|boolean
-name|usePassedInEntityManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"usePassedInEntityManager"
-argument_list|,
-name|usePassedInEntityManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If set to true, then Camel will use the EntityManager from the header          * JpaConstants.ENTITY_MANAGER instead of the configured entity manager          * on the component/endpoint. This allows end users to control which          * entity manager will be in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|usePassedInEntityManager ( String usePassedInEntityManager)
-specifier|default
-name|JpaEndpointProducerBuilder
-name|usePassedInEntityManager
-parameter_list|(
-name|String
-name|usePassedInEntityManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"usePassedInEntityManager"
-argument_list|,
-name|usePassedInEntityManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Indicates to use entityManager.persist(entity) instead of          * entityManager.merge(entity). Note: entityManager.persist(entity)          * doesn't work for detached entities (where the EntityManager has to          * execute an UPDATE instead of an INSERT query)!.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|usePersist (boolean usePersist)
 specifier|default
@@ -2357,6 +2226,48 @@ return|return
 operator|(
 name|JpaEndpointProducerBuilder
 operator|)
+name|this
+return|;
+block|}
+comment|/**          * If set to true, then Camel will use the EntityManager from the header          * JpaConstants.ENTITY_MANAGER instead of the configured entity manager          * on the component/endpoint. This allows end users to control which          * entity manager will be in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|usePassedInEntityManager ( boolean usePassedInEntityManager)
+specifier|default
+name|AdvancedJpaEndpointProducerBuilder
+name|usePassedInEntityManager
+parameter_list|(
+name|boolean
+name|usePassedInEntityManager
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"usePassedInEntityManager"
+argument_list|,
+name|usePassedInEntityManager
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If set to true, then Camel will use the EntityManager from the header          * JpaConstants.ENTITY_MANAGER instead of the configured entity manager          * on the component/endpoint. This allows end users to control which          * entity manager will be in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|usePassedInEntityManager ( String usePassedInEntityManager)
+specifier|default
+name|AdvancedJpaEndpointProducerBuilder
+name|usePassedInEntityManager
+parameter_list|(
+name|String
+name|usePassedInEntityManager
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"usePassedInEntityManager"
+argument_list|,
+name|usePassedInEntityManager
+argument_list|)
+expr_stmt|;
+return|return
 name|this
 return|;
 block|}
@@ -2443,6 +2354,48 @@ argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
 name|entityManagerProperties
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|sharedEntityManager ( boolean sharedEntityManager)
+specifier|default
+name|AdvancedJpaEndpointProducerBuilder
+name|sharedEntityManager
+parameter_list|(
+name|boolean
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sharedEntityManager"
+argument_list|,
+name|sharedEntityManager
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|sharedEntityManager ( String sharedEntityManager)
+specifier|default
+name|AdvancedJpaEndpointProducerBuilder
+name|sharedEntityManager
+parameter_list|(
+name|String
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sharedEntityManager"
+argument_list|,
+name|sharedEntityManager
 argument_list|)
 expr_stmt|;
 return|return
@@ -2641,53 +2594,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: common          */
-DECL|method|parameters (Map<String, Object> parameters)
-specifier|default
-name|JpaEndpointBuilder
-name|parameters
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"parameters"
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * This key/value mapping is used for building the query parameters. It          * is expected to be of the generic type java.util.Map where the keys          * are the named parameters of a given JPA query and the values are          * their corresponding effective values you want to select for. When          * it's used for producer, Simple expression can be used as a parameter          * value. It allows you to retrieve parameter values from the message          * body, header and etc.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: common          */
-DECL|method|parameters (String parameters)
-specifier|default
-name|JpaEndpointBuilder
-name|parameters
-parameter_list|(
-name|String
-name|parameters
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"parameters"
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The JPA persistence unit used by default.          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: common          */
 DECL|method|persistenceUnit (String persistenceUnit)
 specifier|default
@@ -2769,48 +2675,6 @@ argument_list|(
 literal|"resultClass"
 argument_list|,
 name|resultClass
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|sharedEntityManager ( boolean sharedEntityManager)
-specifier|default
-name|JpaEndpointBuilder
-name|sharedEntityManager
-parameter_list|(
-name|boolean
-name|sharedEntityManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"sharedEntityManager"
-argument_list|,
-name|sharedEntityManager
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|sharedEntityManager ( String sharedEntityManager)
-specifier|default
-name|JpaEndpointBuilder
-name|sharedEntityManager
-parameter_list|(
-name|String
-name|sharedEntityManager
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"sharedEntityManager"
-argument_list|,
-name|sharedEntityManager
 argument_list|)
 expr_stmt|;
 return|return
@@ -2924,6 +2788,48 @@ argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
 name|entityManagerProperties
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|sharedEntityManager ( boolean sharedEntityManager)
+specifier|default
+name|AdvancedJpaEndpointBuilder
+name|sharedEntityManager
+parameter_list|(
+name|boolean
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sharedEntityManager"
+argument_list|,
+name|sharedEntityManager
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to use Spring's SharedEntityManager for the          * consumer/producer. Note in most cases joinTransaction should be set          * to false as this is not an EXTENDED EntityManager.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|sharedEntityManager ( String sharedEntityManager)
+specifier|default
+name|AdvancedJpaEndpointBuilder
+name|sharedEntityManager
+parameter_list|(
+name|String
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sharedEntityManager"
+argument_list|,
+name|sharedEntityManager
 argument_list|)
 expr_stmt|;
 return|return

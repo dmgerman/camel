@@ -469,6 +469,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|sharedEntityManager
 specifier|private
 name|boolean
@@ -600,6 +605,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
 name|optionalPrefix
 operator|=
 literal|"consumer."
@@ -738,7 +747,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|usePassedInEntityManager
 specifier|private
