@@ -1205,23 +1205,70 @@ return|return
 name|copy
 return|;
 block|}
-comment|/**      * Copies the results of a message exchange from the source exchange to the result exchange      * which will copy the message contents, exchange properties and the exception.      * Notice the {@link ExchangePattern} is<b>not</b> copied/altered.      *      * @param result the result exchange which will have the output and error state added      * @param source the source exchange which is not modified      */
-DECL|method|copyResults (Exchange result, Exchange source)
+comment|/**      * Copies the results of a message exchange from the source exchange to the result exchange      * which will copy the message contents, exchange properties and the exception.      * Notice the {@link ExchangePattern} is<b>not</b> copied/altered.      *      * @param target the target exchange which will have the output and error state added (result)      * @param source the source exchange which is not modified      */
+DECL|method|copyResults (Exchange target, Exchange source)
 specifier|public
 specifier|static
 name|void
 name|copyResults
 parameter_list|(
 name|Exchange
-name|result
+name|target
 parameter_list|,
 name|Exchange
 name|source
 parameter_list|)
 block|{
-comment|// --------------------------------------------------------------------
-comment|//  TODO: merge logic with that of copyResultsPreservePattern()
-comment|// --------------------------------------------------------------------
+name|doCopyResults
+argument_list|(
+name|target
+argument_list|,
+name|source
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.      *      * @param target the target exchange which will have the output and error state added (result)      * @param source source exchange.      */
+DECL|method|copyResultsPreservePattern (Exchange target, Exchange source)
+specifier|public
+specifier|static
+name|void
+name|copyResultsPreservePattern
+parameter_list|(
+name|Exchange
+name|target
+parameter_list|,
+name|Exchange
+name|source
+parameter_list|)
+block|{
+name|doCopyResults
+argument_list|(
+name|target
+argument_list|,
+name|source
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doCopyResults (Exchange result, Exchange source, boolean preserverPattern)
+specifier|private
+specifier|static
+name|void
+name|doCopyResults
+parameter_list|(
+name|Exchange
+name|result
+parameter_list|,
+name|Exchange
+name|source
+parameter_list|,
+name|boolean
+name|preserverPattern
+parameter_list|)
+block|{
 if|if
 condition|(
 name|result
@@ -1288,28 +1335,38 @@ return|return;
 block|}
 if|if
 condition|(
-name|result
-operator|!=
-name|source
-condition|)
-block|{
-name|result
-operator|.
-name|setException
-argument_list|(
-name|source
-operator|.
-name|getException
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
 name|source
 operator|.
 name|hasOut
 argument_list|()
 condition|)
+block|{
+if|if
+condition|(
+name|preserverPattern
+condition|)
+block|{
+comment|// exchange pattern sensitive
+name|Message
+name|resultMessage
+init|=
+name|getResultMessage
+argument_list|(
+name|result
+argument_list|)
+decl_stmt|;
+name|resultMessage
+operator|.
+name|copyFrom
+argument_list|(
+name|source
+operator|.
+name|getOut
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|result
 operator|.
@@ -1324,6 +1381,7 @@ name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1356,6 +1414,9 @@ comment|// have created any OUT; such as a mock:endpoint
 comment|// so lets assume the last IN is the OUT
 if|if
 condition|(
+operator|!
+name|preserverPattern
+operator|&&
 name|result
 operator|.
 name|getPattern
@@ -1437,133 +1498,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-comment|/**      * Copies the<code>source</code> exchange to<code>target</code> exchange      * preserving the {@link ExchangePattern} of<code>target</code>.      *      * @param result target exchange.      * @param source source exchange.      */
-DECL|method|copyResultsPreservePattern (Exchange result, Exchange source)
-specifier|public
-specifier|static
-name|void
-name|copyResultsPreservePattern
-parameter_list|(
-name|Exchange
-name|result
-parameter_list|,
-name|Exchange
-name|source
-parameter_list|)
-block|{
-comment|// --------------------------------------------------------------------
-comment|//  TODO: merge logic with that of copyResults()
-comment|// --------------------------------------------------------------------
-if|if
-condition|(
-name|result
-operator|==
-name|source
-condition|)
-block|{
-comment|// we just need to ensure MEP is as expected (eg copy result to OUT if out capable)
-comment|// and the result is not failed
-if|if
-condition|(
-name|result
-operator|.
-name|getPattern
-argument_list|()
-operator|==
-name|ExchangePattern
-operator|.
-name|InOptionalOut
-condition|)
-block|{
-comment|// keep as is
-block|}
-elseif|else
-if|if
-condition|(
-name|result
-operator|.
-name|getPattern
-argument_list|()
-operator|.
-name|isOutCapable
-argument_list|()
-operator|&&
-operator|!
-name|result
-operator|.
-name|hasOut
-argument_list|()
-operator|&&
-operator|!
-name|result
-operator|.
-name|isFailed
-argument_list|()
-condition|)
-block|{
-comment|// copy IN to OUT as we expect a OUT response
-name|result
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|copyFrom
-argument_list|(
-name|source
-operator|.
-name|getIn
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-return|return;
-block|}
-comment|// copy in message
-name|result
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|copyFrom
-argument_list|(
-name|source
-operator|.
-name|getIn
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// copy out message
-if|if
-condition|(
-name|source
-operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
-comment|// exchange pattern sensitive
-name|Message
-name|resultMessage
-init|=
-name|getResultMessage
-argument_list|(
-name|result
-argument_list|)
-decl_stmt|;
-name|resultMessage
-operator|.
-name|copyFrom
-argument_list|(
-name|source
-operator|.
-name|getOut
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|// copy exception
 name|result
 operator|.
 name|setException
@@ -1574,29 +1508,6 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// copy properties
-if|if
-condition|(
-name|source
-operator|.
-name|hasProperties
-argument_list|()
-condition|)
-block|{
-name|result
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|putAll
-argument_list|(
-name|source
-operator|.
-name|getProperties
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Returns the message where to write results in an      * exchange-pattern-sensitive way.      *      * @param exchange message exchange.      * @return result message.      */
 DECL|method|getResultMessage (Exchange exchange)
