@@ -71,6 +71,7 @@ end_import
 begin_class
 annotation|@
 name|Ignore
+comment|// on purpose to ignore
 DECL|class|MyNettyTest
 specifier|public
 class|class
