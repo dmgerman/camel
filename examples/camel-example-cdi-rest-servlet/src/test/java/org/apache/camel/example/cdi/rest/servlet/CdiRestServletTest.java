@@ -256,6 +256,18 @@ name|is
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|startsWith
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
@@ -408,9 +420,9 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|equalTo
+name|startsWith
 argument_list|(
-literal|"Hello Antonin, I'm CamelContext(hello)!\n"
+literal|"Hello Antonin"
 argument_list|)
 argument_list|)
 argument_list|)
