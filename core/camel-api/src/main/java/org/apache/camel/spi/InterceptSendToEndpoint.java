@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an endpoint when sending to it, is intercepted and is routed in a detour  */
+comment|/**  * This is an endpoint when sending to it, is intercepted and is routed in a detour, with the following flow:  * before, send to original endpoint (can be skipped), after (optional).  */
 end_comment
 
 begin_interface
@@ -58,27 +58,19 @@ name|Endpoint
 name|getOriginalEndpoint
 parameter_list|()
 function_decl|;
-comment|/**      * The processor for routing in a detour before sending to the original endpoint.      *      * @deprecated use {@link #getBefore()}      */
-annotation|@
-name|Deprecated
-DECL|method|getDetour ()
-name|Processor
-name|getDetour
-parameter_list|()
-function_decl|;
 comment|/**      * The processor for routing in a detour before sending to the original endpoint.      */
 DECL|method|getBefore ()
 name|Processor
 name|getBefore
 parameter_list|()
 function_decl|;
-comment|/**      * The processor for routing after sending to the original endpoint.      */
+comment|/**      * The processor (optional) for routing after sending to the original endpoint.      */
 DECL|method|getAfter ()
 name|Processor
 name|getAfter
 parameter_list|()
 function_decl|;
-comment|/**      * Whether to skip sending after the detour to the original endpoint.      */
+comment|/**      * Whether to skip sending to the original endpoint.      */
 DECL|method|isSkip ()
 name|boolean
 name|isSkip

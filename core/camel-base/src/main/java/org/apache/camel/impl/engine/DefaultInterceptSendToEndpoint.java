@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an endpoint when sending to it, is intercepted and is routed in a detour  */
+comment|/**  * This is an endpoint when sending to it, is intercepted and is routed in a detour (before and optionally after).  */
 end_comment
 
 begin_class
@@ -239,23 +239,6 @@ operator|=
 name|skip
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-DECL|method|setDetour (Processor detour)
-specifier|public
-name|void
-name|setDetour
-parameter_list|(
-name|Processor
-name|detour
-parameter_list|)
-block|{
-name|setBefore
-argument_list|(
-name|detour
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|setBefore (Processor before)
 specifier|public
 name|void
@@ -306,19 +289,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getDetour ()
-specifier|public
-name|Processor
-name|getDetour
-parameter_list|()
-block|{
-return|return
-name|getBefore
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getBefore ()
 specifier|public
 name|Processor
@@ -365,6 +335,8 @@ return|return
 name|skip
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
@@ -378,6 +350,8 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointKey ()
 specifier|public
 name|String
@@ -391,6 +365,8 @@ name|getEndpointKey
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange ()
 specifier|public
 name|Exchange
@@ -404,6 +380,8 @@ name|createExchange
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|Exchange
@@ -422,6 +400,8 @@ name|pattern
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -435,6 +415,8 @@ name|getCamelContext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -480,6 +462,8 @@ name|skip
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -500,6 +484,8 @@ name|processor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
@@ -515,6 +501,8 @@ name|createPollingConsumer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|configureProperties (Map<String, Object> options)
 specifier|public
 name|void
@@ -537,6 +525,8 @@ name|options
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext context)
 specifier|public
 name|void
@@ -554,6 +544,8 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLenientProperties ()
 specifier|public
 name|boolean
@@ -567,6 +559,8 @@ name|isLenientProperties
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -580,6 +574,8 @@ name|isSingleton
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -596,6 +592,8 @@ name|delegate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void
