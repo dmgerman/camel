@@ -126,7 +126,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port
 operator|+
@@ -203,7 +203,7 @@ argument_list|)
 operator|.
 name|producerComponent
 argument_list|(
-literal|"http4"
+literal|"http"
 argument_list|)
 expr_stmt|;
 name|rest

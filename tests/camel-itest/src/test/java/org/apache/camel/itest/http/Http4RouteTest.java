@@ -145,7 +145,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port1
 operator|+
@@ -439,7 +439,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port1
 operator|+
@@ -453,7 +453,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http4://localhost:"
+literal|"http://localhost:"
 operator|+
 name|port2
 operator|+

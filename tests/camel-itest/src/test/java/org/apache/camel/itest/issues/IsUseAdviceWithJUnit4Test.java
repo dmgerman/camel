@@ -99,7 +99,7 @@ specifier|private
 name|String
 name|providerEndPointURI
 init|=
-literal|"http4://fakeeeeWebsite.com:80"
+literal|"http://fakeeeeWebsite.com:80"
 decl_stmt|;
 DECL|field|timerEndPointURI
 specifier|private
