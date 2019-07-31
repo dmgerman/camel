@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.stream
+DECL|package|org.apache.camel.support.builder
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|support
 operator|.
-name|stream
+name|builder
 package|;
 end_package
 
@@ -68,15 +68,27 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|converter
+operator|.
+name|stream
+operator|.
+name|CachedOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ExchangeHelper
 import|;
 end_import
-
-begin_comment
-comment|// TODO: We can move this under org.apache.camel.support to have them all under the same package name
-end_comment
 
 begin_comment
 comment|/**  * Utility to hide the complexity of choosing which OutputStream  * implementation to choose.  *<p/>  * Itself masquerades as an OutputStream, but really delegates to a  * CachedOutputStream of a ByteArrayOutputStream.  */

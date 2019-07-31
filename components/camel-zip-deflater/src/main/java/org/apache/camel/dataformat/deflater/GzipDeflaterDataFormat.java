@@ -82,9 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|support
 operator|.
-name|stream
+name|builder
 operator|.
 name|OutputStreamBuilder
 import|;
