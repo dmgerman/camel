@@ -544,17 +544,6 @@ literal|"jms"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// camel-ejb does not work in spring-boot
-name|assertFalse
-argument_list|(
-name|names
-operator|.
-name|contains
-argument_list|(
-literal|"ejb"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// camel-pax-logging does not work in spring-boot
 name|assertFalse
 argument_list|(
@@ -712,17 +701,6 @@ operator|.
 name|contains
 argument_list|(
 literal|"jms"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// camel-ejb does not work in spring-boot
-name|assertFalse
-argument_list|(
-name|names
-operator|.
-name|contains
-argument_list|(
-literal|"ejb"
 argument_list|)
 argument_list|)
 expr_stmt|;

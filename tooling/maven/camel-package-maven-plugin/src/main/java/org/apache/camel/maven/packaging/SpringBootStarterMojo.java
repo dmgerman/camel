@@ -601,8 +601,6 @@ block|,
 comment|/* Java EE -> */
 literal|"camel-cdi"
 block|,
-literal|"camel-ejb"
-block|,
 comment|/* Microprofile -> */
 literal|"camel-microprofile-config"
 block|,

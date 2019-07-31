@@ -282,17 +282,6 @@ literal|"paxlogging"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// camel-ejb does not work in Karaf
-name|assertFalse
-argument_list|(
-name|names
-operator|.
-name|contains
-argument_list|(
-literal|"ejb"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test
