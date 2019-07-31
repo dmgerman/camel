@@ -1207,7 +1207,7 @@ argument_list|(
 operator|-
 name|i
 argument_list|)
-argument_list|;                          return
+argument_list|;              return
 name|e
 argument_list|;
 block|}
