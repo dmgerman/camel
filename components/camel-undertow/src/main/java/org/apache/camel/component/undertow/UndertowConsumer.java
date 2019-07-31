@@ -1217,7 +1217,7 @@ block|}
 end_class
 
 begin_comment
-comment|/**      * Create an {@link Exchange} from the associated {@link UndertowEndpoint} and set the {@code in} {@link Message}'s      * body to the given {@code message} and {@link UndertowConstants#CONNECTION_KEY} header to the given      * {@code connectionKey}.      *      * @param connectionKey an identifier of {@link WebSocketChannel} through which the {@code message} was received      * @param channel the {@link WebSocketChannel} through which the {@code message} was received      * @param message the message received via the {@link WebSocketChannel}      */
+comment|/**      * Create an {@link Exchange} from the associated {@link UndertowEndpoint} and set the {@code in} {@link Message}'s      * body to the given {@code message} and {@link UndertowConstants#CONNECTION_KEY} header to the given      * {@code connectionKey}.      *      * @param connectionKey an identifier of {@link WebSocketChannel} through which the {@code message} was received      * @param channel       the {@link WebSocketChannel} through which the {@code message} was received      * @param message       the message received via the {@link WebSocketChannel}      */
 end_comment
 
 begin_function
@@ -1349,7 +1349,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Send a notification related a WebSocket peer.      *      * @param connectionKey of WebSocket peer      * @param transportExchange the exchange for the websocket transport, only available for ON_OPEN events      * @param channel the {@link WebSocketChannel} through which the {@code message} was received      * @param eventType the type of the event      */
+comment|/**      * Send a notification related a WebSocket peer.      *      * @param connectionKey     of WebSocket peer      * @param transportExchange the exchange for the websocket transport, only available for ON_OPEN events      * @param channel           the {@link WebSocketChannel} through which the {@code message} was received      * @param eventType         the type of the event      */
 end_comment
 
 begin_function

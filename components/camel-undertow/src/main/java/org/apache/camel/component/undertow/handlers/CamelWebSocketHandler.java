@@ -649,7 +649,7 @@ name|callback
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Send the given {@code message} to the given {@code channel} and report the outcome to the given {@code callback}      * within the given {@code timeoutMillis}.      *      * @param channel      *            the channel to sent the {@code message} to      * @param message      *            the message to send      * @param callback      *            where to report the outcome      * @param timeoutMillis      *            the timeout in milliseconds      * @throws IOException      */
+comment|/**      * Send the given {@code message} to the given {@code channel} and report the outcome to the given {@code callback}      * within the given {@code timeoutMillis}.      *      * @param channel       the channel to sent the {@code message} to      * @param message       the message to send      * @param callback      where to report the outcome      * @param timeoutMillis the timeout in milliseconds      * @throws IOException      */
 DECL|method|send (WebSocketChannel channel, Object message, ExtendedWebSocketCallback callback, long timeoutMillis)
 specifier|private
 specifier|static
@@ -864,7 +864,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** {@inheritDoc} */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|handleRequest (HttpServerExchange exchange)
@@ -888,7 +888,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Send the given {@code message} to one or more channels selected using the given {@code peerFilter} within the      * given {@code timeout} and report the outcome to the given {@code camelExchange} and {@code camelCallback}.      *      * @param peerFilter      *            a {@link Predicate} to apply to the set of peers obtained via {@link #delegate}'s      *            {@link WebSocketProtocolHandshakeHandler#getPeerConnections()}      * @param message      *            the message to send      * @param camelExchange to notify about the outcome      * @param camelCallback to notify about the outcome      * @param timeout      *            in milliseconds      * @return {@code true} if the execution finished synchronously or {@code false} otherwise      * @throws IOException      */
+comment|/**      * Send the given {@code message} to one or more channels selected using the given {@code peerFilter} within the      * given {@code timeout} and report the outcome to the given {@code camelExchange} and {@code camelCallback}.      *      * @param peerFilter    a {@link Predicate} to apply to the set of peers obtained via {@link #delegate}'s      *                      {@link WebSocketProtocolHandshakeHandler#getPeerConnections()}      * @param message       the message to send      * @param camelExchange to notify about the outcome      * @param camelCallback to notify about the outcome      * @param timeout       in milliseconds      * @return {@code true} if the execution finished synchronously or {@code false} otherwise      * @throws IOException      */
 DECL|method|send (Predicate<WebSocketChannel> peerFilter, Object message, final int timeout, final Exchange camelExchange, final AsyncCallback camelCallback)
 specifier|public
 name|boolean
