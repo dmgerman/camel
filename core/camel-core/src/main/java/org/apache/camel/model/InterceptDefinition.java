@@ -426,44 +426,6 @@ return|return
 name|intercepted
 return|;
 block|}
-DECL|method|getInterceptedProcessor (int index)
-specifier|public
-name|Processor
-name|getInterceptedProcessor
-parameter_list|(
-name|int
-name|index
-parameter_list|)
-block|{
-comment|// avoid out of bounds
-if|if
-condition|(
-name|index
-operator|<=
-name|intercepted
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-condition|)
-block|{
-return|return
-name|intercepted
-operator|.
-name|get
-argument_list|(
-name|index
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
-block|}
 block|}
 end_class
 
