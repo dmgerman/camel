@@ -257,7 +257,7 @@ specifier|private
 name|String
 name|uri
 decl_stmt|;
-comment|/**          * The Camel component to use for calling the service. The default is http4 component.          */
+comment|/**          * The Camel component to use for calling the service. The default is http component.          */
 DECL|field|component
 specifier|private
 name|String
