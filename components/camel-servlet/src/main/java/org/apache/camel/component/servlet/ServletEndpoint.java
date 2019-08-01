@@ -648,7 +648,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"You cannot create producer with servlet endpoint, please consider to use http or http4 endpoint."
+literal|"You cannot create producer with servlet endpoint, please consider to use http endpoint."
 argument_list|)
 throw|;
 block|}
