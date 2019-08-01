@@ -162,6 +162,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|SimpleRegistry
@@ -544,20 +558,19 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRegistry ()
+DECL|method|createCamelRegistry ()
 specifier|public
-name|JndiRegistry
-name|createRegistry
+name|Registry
+name|createCamelRegistry
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JndiRegistry
+name|SimpleRegistry
 name|registry
 init|=
-name|super
-operator|.
-name|createRegistry
+operator|new
+name|SimpleRegistry
 argument_list|()
 decl_stmt|;
 name|registry
