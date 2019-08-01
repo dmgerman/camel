@@ -78,7 +78,7 @@ begin_class
 annotation|@
 name|CloudServiceFactory
 argument_list|(
-literal|"http4-service-expression,https4-service-expression"
+literal|"http-service-expression,https-service-expression"
 argument_list|)
 DECL|class|Http4ServiceExpressionFactory
 specifier|public
