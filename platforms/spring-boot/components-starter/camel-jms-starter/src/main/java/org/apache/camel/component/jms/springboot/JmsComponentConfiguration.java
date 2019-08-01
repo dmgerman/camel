@@ -3681,6 +3681,15 @@ name|formatDateHeadersToIso8601
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * Sets delivery delay to use for send calls for JMS.          */
+DECL|field|deliveryDelay
+specifier|private
+name|Long
+name|deliveryDelay
+init|=
+operator|-
+literal|1L
+decl_stmt|;
 DECL|method|getConsumerType ()
 specifier|public
 name|ConsumerType
@@ -5993,6 +6002,32 @@ operator|.
 name|formatDateHeadersToIso8601
 operator|=
 name|formatDateHeadersToIso8601
+expr_stmt|;
+block|}
+DECL|method|getDeliveryDelay ()
+specifier|public
+name|Long
+name|getDeliveryDelay
+parameter_list|()
+block|{
+return|return
+name|deliveryDelay
+return|;
+block|}
+DECL|method|setDeliveryDelay (Long deliveryDelay)
+specifier|public
+name|void
+name|setDeliveryDelay
+parameter_list|(
+name|Long
+name|deliveryDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deliveryDelay
+operator|=
+name|deliveryDelay
 expr_stmt|;
 block|}
 block|}

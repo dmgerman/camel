@@ -3062,6 +3062,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets delivery delay to use for send calls for JMS.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
+DECL|method|deliveryDelay (long deliveryDelay)
+specifier|default
+name|ActiveMQEndpointProducerBuilder
+name|deliveryDelay
+parameter_list|(
+name|long
+name|deliveryDelay
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"deliveryDelay"
+argument_list|,
+name|deliveryDelay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets delivery delay to use for send calls for JMS.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
+DECL|method|deliveryDelay ( String deliveryDelay)
+specifier|default
+name|ActiveMQEndpointProducerBuilder
+name|deliveryDelay
+parameter_list|(
+name|String
+name|deliveryDelay
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"deliveryDelay"
+argument_list|,
+name|deliveryDelay
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Specifies the delivery mode to be used. Possibles values are those          * defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT          * = 2.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|deliveryMode ( Integer deliveryMode)
 specifier|default

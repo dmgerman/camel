@@ -2397,6 +2397,31 @@ specifier|private
 name|boolean
 name|formatDateHeadersToIso8601
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|,
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets delivery delay to use for send calls for JMS. "
+operator|+
+literal|"This option requires JMS 2.0 compliant broker."
+argument_list|)
+DECL|field|deliveryDelay
+specifier|private
+name|long
+name|deliveryDelay
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -3520,6 +3545,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|template
+operator|.
+name|setDeliveryDelay
+argument_list|(
+name|deliveryDelay
+argument_list|)
+expr_stmt|;
 return|return
 name|template
 return|;
@@ -3905,7 +3937,7 @@ operator|=
 name|acceptMessagesWhileStopping
 expr_stmt|;
 block|}
-comment|/**      * Whether the {@link DefaultMessageListenerContainer} used in the reply managers for request-reply messaging allow       * the {@link DefaultMessageListenerContainer#runningAllowed()} flag to quick stop in case {@link JmsConfiguration#isAcceptMessagesWhileStopping()}      * is enabled, and {@link org.apache.camel.CamelContext} is currently being stopped. This quick stop ability is enabled by      * default in the regular JMS consumers but to enable for reply managers you must enable this flag.      */
+comment|/**      * Whether the {@link DefaultMessageListenerContainer} used in the reply managers for request-reply messaging allow      * the {@link DefaultMessageListenerContainer#runningAllowed()} flag to quick stop in case {@link JmsConfiguration#isAcceptMessagesWhileStopping()}      * is enabled, and {@link org.apache.camel.CamelContext} is currently being stopped. This quick stop ability is enabled by      * default in the regular JMS consumers but to enable for reply managers you must enable this flag.      */
 DECL|method|isAllowReplyManagerQuickStop ()
 specifier|public
 name|boolean
@@ -6937,7 +6969,7 @@ operator|=
 name|selector
 expr_stmt|;
 block|}
-comment|/**      * Use this JMS property to correlate messages in InOut exchange pattern (request-reply)      * instead of JMSCorrelationID property. This allows you to exchange messages with       * systems that do not correlate messages using JMSCorrelationID JMS property. If used      * JMSCorrelationID will not be used or set by Camel. The value of here named property      * will be generated if not supplied in the header of the message under the same name.      */
+comment|/**      * Use this JMS property to correlate messages in InOut exchange pattern (request-reply)      * instead of JMSCorrelationID property. This allows you to exchange messages with      * systems that do not correlate messages using JMSCorrelationID JMS property. If used      * JMSCorrelationID will not be used or set by Camel. The value of here named property      * will be generated if not supplied in the header of the message under the same name.      */
 DECL|method|setCorrelationProperty (final String correlationProperty)
 specifier|public
 name|void
@@ -7126,6 +7158,33 @@ operator|.
 name|formatDateHeadersToIso8601
 operator|=
 name|formatDateHeadersToIso8601
+expr_stmt|;
+block|}
+DECL|method|getDeliveryDelay ()
+specifier|public
+name|long
+name|getDeliveryDelay
+parameter_list|()
+block|{
+return|return
+name|deliveryDelay
+return|;
+block|}
+comment|/**      * Sets delivery delay to use for send calls for JMS.      */
+DECL|method|setDeliveryDelay (long deliveryDelay)
+specifier|public
+name|void
+name|setDeliveryDelay
+parameter_list|(
+name|long
+name|deliveryDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deliveryDelay
+operator|=
+name|deliveryDelay
 expr_stmt|;
 block|}
 block|}
