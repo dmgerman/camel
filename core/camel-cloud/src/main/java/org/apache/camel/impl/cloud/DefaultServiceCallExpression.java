@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Support class for custom implementations of ServiceCall EIP components.  *<p/>  * Below are some examples how to call a service and what Camel endpoint URI is constructed based on the input:  *<pre>  serviceCall("myService") -> http4://hostname:port  serviceCall("myService/foo") -> http4://hostname:port/foo  serviceCall("http4:myService/foo") -> http4:hostname:port/foo  serviceCall("myService", "http4:myService.host:myService.port/foo") -> http4:hostname:port/foo  serviceCall("myService", "netty4:tcp:myService?connectTimeout=1000") -> netty:tcp:hostname:port?connectTimeout=1000  *</pre>  */
+comment|/**  * Support class for custom implementations of ServiceCall EIP components.  *<p/>  * Below are some examples how to call a service and what Camel endpoint URI is constructed based on the input:  *<pre>  serviceCall("myService") -> http://hostname:port  serviceCall("myService/foo") -> http://hostname:port/foo  serviceCall("http:myService/foo") -> http:hostname:port/foo  serviceCall("myService", "http:myService.host:myService.port/foo") -> http:hostname:port/foo  serviceCall("myService", "netty4:tcp:myService?connectTimeout=1000") -> netty:tcp:hostname:port?connectTimeout=1000  *</pre>  */
 end_comment
 
 begin_class
@@ -336,7 +336,7 @@ condition|)
 block|{
 name|scheme
 operator|=
-literal|"http4"
+literal|"http"
 expr_stmt|;
 block|}
 elseif|else
@@ -349,14 +349,14 @@ condition|)
 block|{
 name|scheme
 operator|=
-literal|"https4"
+literal|"https"
 expr_stmt|;
 block|}
 else|else
 block|{
 name|scheme
 operator|=
-literal|"http4"
+literal|"http"
 expr_stmt|;
 block|}
 block|}
