@@ -961,28 +961,6 @@ argument_list|(
 literal|"http"
 argument_list|)
 expr_stmt|;
-comment|// `http4` component transforms the endpoint uri from `http4://` to
-comment|// `https4://` we need to accommodate for that otherwise we'll end up
-comment|// configuring the wrong component's properties in
-comment|// RestSwaggerDelegateHttpsTest
-name|producers
-operator|.
-name|replaceAll
-argument_list|(
-name|c
-lambda|->
-literal|"http4"
-operator|.
-name|equals
-argument_list|(
-name|c
-argument_list|)
-condition|?
-literal|"https4"
-else|:
-name|c
-argument_list|)
-expr_stmt|;
 return|return
 name|producers
 return|;
