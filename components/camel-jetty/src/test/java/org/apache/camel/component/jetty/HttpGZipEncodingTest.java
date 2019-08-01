@@ -164,7 +164,7 @@ name|Ignore
 argument_list|(
 literal|"TODO: investigate for Camel 3.0.  The test actally works fine, but the "
 operator|+
-literal|"test needs to be verified as http4 supports gzip by default, so some tests may "
+literal|"test needs to be verified as http supports gzip by default, so some tests may "
 operator|+
 literal|"have to be changed to stay meaningful."
 argument_list|)

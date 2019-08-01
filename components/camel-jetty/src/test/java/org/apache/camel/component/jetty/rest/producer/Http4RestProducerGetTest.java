@@ -178,7 +178,7 @@ argument_list|(
 name|getPort
 argument_list|()
 argument_list|)
-comment|// use camel-http4 as rest client
+comment|// use camel-http as rest client
 operator|.
 name|producerComponent
 argument_list|(
