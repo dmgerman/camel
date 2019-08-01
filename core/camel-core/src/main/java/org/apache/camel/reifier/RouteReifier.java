@@ -652,6 +652,11 @@ argument_list|)
 expr_stmt|;
 comment|// inject this route into the advice route builder so it can access this route
 comment|// and offer features to manipulate the route directly
+name|boolean
+name|logRoutesAsXml
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
 name|builder
@@ -659,17 +664,27 @@ operator|instanceof
 name|AdviceWithRouteBuilder
 condition|)
 block|{
-operator|(
+name|AdviceWithRouteBuilder
+name|arb
+init|=
 operator|(
 name|AdviceWithRouteBuilder
 operator|)
 name|builder
-operator|)
+decl_stmt|;
+name|arb
 operator|.
 name|setOriginalRoute
 argument_list|(
 name|definition
 argument_list|)
+expr_stmt|;
+name|logRoutesAsXml
+operator|=
+name|arb
+operator|.
+name|isLogRouteAsXml
+argument_list|()
 expr_stmt|;
 block|}
 comment|// configure and prepare the routes from the builder
@@ -765,6 +780,20 @@ block|}
 name|String
 name|beforeAsXml
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|logRoutesAsXml
+operator|&&
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
+name|beforeAsXml
+operator|=
 name|ModelHelper
 operator|.
 name|dumpModelAsXml
@@ -773,7 +802,8 @@ name|camelContext
 argument_list|,
 name|definition
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// stop and remove this existing route
 name|camelContext
 operator|.
@@ -860,6 +890,14 @@ name|merged
 argument_list|)
 expr_stmt|;
 comment|// log the merged route at info level to make it easier to end users to spot any mistakes they may have made
+if|if
+condition|(
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|info
@@ -869,6 +907,17 @@ argument_list|,
 name|merged
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|logRoutesAsXml
+operator|&&
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|String
 name|afterAsXml
 init|=
@@ -892,6 +941,7 @@ argument_list|,
 name|afterAsXml
 argument_list|)
 expr_stmt|;
+block|}
 comment|// If the camel context is started then we start the route
 if|if
 condition|(

@@ -234,6 +234,13 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|logRouteAsXml
+specifier|private
+name|boolean
+name|logRouteAsXml
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Advices this route with the route builder using a lambda expression.      * It can be used as following:      *<pre>      * AdviceWithRouteBuilder.adviceWith(context, "myRoute", a ->      *     a.weaveAddLast().to("mock:result");      *</pre>      *<p/>      *<b>Important:</b> It is recommended to only advice a given route once (you can of course advice multiple routes).      * If you do it multiple times, then it may not work as expected, especially when any kind of error handling is involved.      * The Camel team plan for Camel 3.0 to support this as internal refactorings in the routing engine is needed to support this properly.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param camelContext the camel context      * @param routeId      either the route id as a string value, or<tt>null</tt> to chose the 1st route, or you can specify a number for the n'th route.      * @param builder      the advice with route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      */
 DECL|method|adviceWith (CamelContext camelContext, Object routeId, ThrowingConsumer<AdviceWithRouteBuilder, Exception> builder)
 specifier|public
@@ -468,6 +475,34 @@ block|{
 return|return
 name|originalRoute
 return|;
+block|}
+comment|/**      * Whether to log the adviced routes before/after as XML.      * This is usable to know how the route was adviced and changed.      * However marshalling the route model to XML costs CPU resources      * and you can then turn this off by not logging.      *      * This is default enabled.      */
+DECL|method|isLogRouteAsXml ()
+specifier|public
+name|boolean
+name|isLogRouteAsXml
+parameter_list|()
+block|{
+return|return
+name|logRouteAsXml
+return|;
+block|}
+comment|/**      * Sets whether to log the adviced routes before/after as XML.      * This is usable to know how the route was adviced and changed.      * However marshalling the route model to XML costs CPU resources      * and you can then turn this off by not logging.      *      * This is default enabled.      */
+DECL|method|setLogRouteAsXml (boolean logRouteAsXml)
+specifier|public
+name|void
+name|setLogRouteAsXml
+parameter_list|(
+name|boolean
+name|logRouteAsXml
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logRouteAsXml
+operator|=
+name|logRouteAsXml
+expr_stmt|;
 block|}
 comment|/**      * Gets a list of additional tasks to execute after the {@link #configure()} method has been executed      * during the advice process.      *      * @return a list of additional {@link AdviceWithTask} tasks to be executed during the advice process.      */
 DECL|method|getAdviceWithTasks ()
