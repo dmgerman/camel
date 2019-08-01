@@ -84,6 +84,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|SimpleRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -175,20 +203,19 @@ name|db
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|createRegistry ()
+DECL|method|createCamelRegistry ()
 specifier|protected
-name|JndiRegistry
-name|createRegistry
+name|Registry
+name|createCamelRegistry
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JndiRegistry
-name|jndi
+name|Registry
+name|reg
 init|=
-name|super
-operator|.
-name|createRegistry
+operator|new
+name|SimpleRegistry
 argument_list|()
 decl_stmt|;
 comment|// START SNIPPET: e2
@@ -215,7 +242,7 @@ name|build
 argument_list|()
 expr_stmt|;
 comment|// END SNIPPET: e2
-name|jndi
+name|reg
 operator|.
 name|bind
 argument_list|(
@@ -225,7 +252,7 @@ name|db
 argument_list|)
 expr_stmt|;
 return|return
-name|jndi
+name|reg
 return|;
 block|}
 annotation|@
