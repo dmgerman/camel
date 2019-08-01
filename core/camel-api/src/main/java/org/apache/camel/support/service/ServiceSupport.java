@@ -398,6 +398,34 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// need to stop as some resources may have been started during startup
+try|try
+block|{
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e2
+parameter_list|)
+block|{
+comment|// ignore
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Error while stopping service after it failed to start: "
+operator|+
+name|this
+operator|+
+literal|". This exception is ignored"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|status
 operator|=
 name|FAILED
@@ -436,6 +464,24 @@ init|(
 name|lock
 init|)
 block|{
+if|if
+condition|(
+name|status
+operator|==
+name|FAILED
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Service: {} failed and regarded as already stopped"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 name|status
