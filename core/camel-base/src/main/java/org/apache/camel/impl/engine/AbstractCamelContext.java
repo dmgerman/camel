@@ -11618,6 +11618,25 @@ block|}
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error starting CamelContext ("
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") due to exception thrown: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 name|RuntimeCamelException
 operator|.
