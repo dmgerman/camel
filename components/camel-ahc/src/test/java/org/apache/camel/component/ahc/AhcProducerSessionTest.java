@@ -387,15 +387,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-argument_list|(
-literal|"Failing cookie test with Jetty 9.4"
-argument_list|)
 DECL|method|testProducerInstanceSession ()
 specifier|public
 name|void
@@ -440,15 +431,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-argument_list|(
-literal|"Failing cookie test with Jetty 9.4"
-argument_list|)
 DECL|method|testProducerExchangeSession ()
 specifier|public
 name|void
