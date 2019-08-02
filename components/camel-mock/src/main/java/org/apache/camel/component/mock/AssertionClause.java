@@ -413,6 +413,13 @@ name|currentIndex
 operator|=
 name|index
 expr_stmt|;
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
 name|Object
 name|value
 init|=
@@ -443,6 +450,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|PredicateAssertHelper
 operator|.

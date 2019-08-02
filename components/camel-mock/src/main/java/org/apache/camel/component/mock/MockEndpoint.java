@@ -2055,22 +2055,23 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Caught on "
+literal|"Caught exception on "
 operator|+
 name|getEndpointUri
 argument_list|()
 operator|+
-literal|" Exception: "
+literal|" due to: "
 operator|+
 name|failure
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|failure
 argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Failed due to caught exception: "
-operator|+
 name|failure
 argument_list|)
 expr_stmt|;
@@ -4898,6 +4899,17 @@ name|int
 name|index
 parameter_list|)
 block|{
+if|if
+condition|(
+name|index
+operator|<
+name|getReceivedExchanges
+argument_list|()
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
 name|applyAssertionOn
 argument_list|(
 name|MockEndpoint
@@ -4913,6 +4925,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 specifier|public
 name|void
 name|run
@@ -4927,7 +4940,10 @@ literal|0
 init|;
 name|i
 operator|<
-name|getReceivedCounter
+name|getReceivedExchanges
+argument_list|()
+operator|.
+name|size
 argument_list|()
 condition|;
 name|i
@@ -6478,6 +6494,48 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|message
+operator|instanceof
+name|Throwable
+condition|)
+block|{
+name|Throwable
+name|cause
+init|=
+operator|(
+name|Throwable
+operator|)
+name|message
+decl_stmt|;
+name|String
+name|msg
+init|=
+literal|"Caught exception on "
+operator|+
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|" due to: "
+operator|+
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+decl_stmt|;
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|msg
+argument_list|,
+name|cause
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|AssertionError
@@ -6490,6 +6548,7 @@ operator|+
 name|message
 argument_list|)
 throw|;
+block|}
 block|}
 DECL|method|getExpectedMinimumCount ()
 specifier|public
