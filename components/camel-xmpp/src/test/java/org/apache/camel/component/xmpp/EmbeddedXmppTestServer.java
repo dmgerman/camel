@@ -114,6 +114,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|AvailablePortFinder
@@ -699,12 +713,12 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|bindSSLContextTo (JndiRegistry registry)
+DECL|method|bindSSLContextTo (Registry registry)
 specifier|public
 name|void
 name|bindSSLContextTo
 parameter_list|(
-name|JndiRegistry
+name|Registry
 name|registry
 parameter_list|)
 throws|throws
