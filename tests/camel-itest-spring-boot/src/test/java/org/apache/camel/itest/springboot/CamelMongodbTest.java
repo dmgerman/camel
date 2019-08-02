@@ -112,10 +112,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelMongodb3Test
+DECL|class|CamelMongodbTest
 specifier|public
 class|class
-name|CamelMongodb3Test
+name|CamelMongodbTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
@@ -159,7 +159,7 @@ name|module
 argument_list|(
 name|inferModuleName
 argument_list|(
-name|CamelMongodb3Test
+name|CamelMongodbTest
 operator|.
 name|class
 argument_list|)
