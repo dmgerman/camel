@@ -133,6 +133,30 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|javax
+operator|.
+name|crypto
+operator|.
+name|Cipher
+operator|.
+name|DECRYPT_MODE
+import|;
+end_import
+
+begin_import
+import|import static
+name|javax
+operator|.
+name|crypto
+operator|.
+name|Cipher
+operator|.
+name|ENCRYPT_MODE
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -265,30 +289,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|javax
-operator|.
-name|crypto
-operator|.
-name|Cipher
-operator|.
-name|DECRYPT_MODE
-import|;
-end_import
-
-begin_import
-import|import static
-name|javax
-operator|.
-name|crypto
-operator|.
-name|Cipher
-operator|.
-name|ENCRYPT_MODE
 import|;
 end_import
 
