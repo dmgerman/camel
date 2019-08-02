@@ -22,18 +22,17 @@ begin_comment
 comment|/**  * Assertion task that supports fail fast mode by running the assertion asap on the n'th received message.  */
 end_comment
 
-begin_class
-DECL|class|AssertionTask
+begin_interface
+DECL|interface|AssertionTask
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|AssertionTask
-implements|implements
+extends|extends
 name|Runnable
 block|{
 comment|/**      * Asserts on the n'th received message      *      * @param index the n'th received message      */
 DECL|method|assertOnIndex (int index)
-specifier|abstract
+specifier|public
 name|void
 name|assertOnIndex
 parameter_list|(
@@ -42,7 +41,7 @@ name|index
 parameter_list|)
 function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 
