@@ -486,6 +486,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -882,6 +894,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -1181,7 +1207,7 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 comment|// CHECKSTYLE:ON
-comment|/**      * Use the RouteBuilder or not      * @return<tt>true</tt> then {@link CamelContext} will be auto started,      *<tt>false</tt> then {@link CamelContext} will<b>not</b> be auto started (you will have to start it manually)      */
+comment|/**      * Use the RouteBuilder or not      *      * @return<tt>true</tt> then {@link CamelContext} will be auto started,      *<tt>false</tt> then {@link CamelContext} will<b>not</b> be auto started (you will have to start it manually)      */
 DECL|method|isUseRouteBuilder ()
 specifier|public
 name|boolean
@@ -1285,7 +1311,7 @@ name|fromEndpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *<p>      * - Match by route id      * - Match by route input endpoint uri      *<p>      * The matching is using exact match, by wildcard and regular expression.      *<p>      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *<p>      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *<p>      * Exclude takes precedence over include.      */
 DECL|method|getRouteFilterIncludePattern ()
 specifier|public
 name|String
@@ -1296,7 +1322,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      */
+comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *<p>      * - Match by route id      * - Match by route input endpoint uri      *<p>      * The matching is using exact match, by wildcard and regular expression.      *<p>      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *<p>      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *<p>      * Exclude takes precedence over include.      */
 DECL|method|getRouteFilterExcludePattern ()
 specifier|public
 name|String
@@ -3557,7 +3583,7 @@ name|applyCamelPostProcessor
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Applies the {@link CamelBeanPostProcessor} to this instance.      *      * Derived classes using IoC / DI frameworks may wish to turn this into a NoOp such as for CDI      * we would just use CDI to inject this      */
+comment|/**      * Applies the {@link CamelBeanPostProcessor} to this instance.      *<p>      * Derived classes using IoC / DI frameworks may wish to turn this into a NoOp such as for CDI      * we would just use CDI to inject this      */
 DECL|method|applyCamelPostProcessor ()
 specifier|protected
 name|void
@@ -4081,7 +4107,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
-comment|/**      * Override to use a custom {@link Registry}.      *      * However if you need to bind beans to the registry then this is possible already with the bind method on registry,"      * and there is no need to override this method.      */
+comment|/**      * Override to use a custom {@link Registry}.      *<p>      * However if you need to bind beans to the registry then this is possible already with the bind method on registry,"      * and there is no need to override this method.      */
 DECL|method|createCamelRegistry ()
 specifier|protected
 name|Registry
@@ -4376,7 +4402,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the {@link MockEndpoint} using a URI of the form<code>mock:someName</code>, optionally      * creating it if it does not exist.      *      * @param uri      the URI which typically starts with "mock:" and has some name      * @param create   whether or not to allow the endpoint to be created if it doesn't exist      * @return the mock endpoint or an {@link NoSuchEndpointException} is thrown if it could not be resolved      * @throws NoSuchEndpointException is the mock endpoint does not exists      */
+comment|/**      * Resolves the {@link MockEndpoint} using a URI of the form<code>mock:someName</code>, optionally      * creating it if it does not exist. This implementation will lookup existing mock endpoints and match      * on the mock queue name, eg mock:foo and mock:foo?retainFirst=5 would match as the queue name is foo.      *      * @param uri    the URI which typically starts with "mock:" and has some name      * @param create whether or not to allow the endpoint to be created if it doesn't exist      * @return the mock endpoint or an {@link NoSuchEndpointException} is thrown if it could not be resolved      * @throws NoSuchEndpointException is the mock endpoint does not exists      */
 DECL|method|getMockEndpoint (String uri, boolean create)
 specifier|protected
 name|MockEndpoint
@@ -4391,6 +4417,180 @@ parameter_list|)
 throws|throws
 name|NoSuchEndpointException
 block|{
+comment|// look for existing mock endpoints that has the same queue name, and to do that we need to
+comment|// normalize uri and strip out query parameters and whatnot
+name|String
+name|n
+decl_stmt|;
+try|try
+block|{
+name|n
+operator|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+comment|// strip query
+name|int
+name|idx
+init|=
+name|n
+operator|.
+name|indexOf
+argument_list|(
+literal|'?'
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|idx
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|n
+operator|=
+name|n
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|idx
+argument_list|)
+expr_stmt|;
+block|}
+specifier|final
+name|String
+name|target
+init|=
+name|n
+decl_stmt|;
+comment|// lookup endpoints in registry and try to find it
+name|MockEndpoint
+name|found
+init|=
+operator|(
+name|MockEndpoint
+operator|)
+name|context
+operator|.
+name|getEndpointRegistry
+argument_list|()
+operator|.
+name|values
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|e
+lambda|->
+name|e
+operator|instanceof
+name|MockEndpoint
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|e
+lambda|->
+block|{
+name|String
+name|t
+operator|=
+name|e
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|;
+comment|// strip query
+name|int
+name|idx2
+operator|=
+name|t
+operator|.
+name|indexOf
+argument_list|(
+literal|'?'
+argument_list|)
+argument_list|;                     if
+operator|(
+name|idx2
+operator|!=
+operator|-
+literal|1
+operator|)
+block|{
+name|t
+operator|=
+name|t
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|idx2
+argument_list|)
+block|;                     }
+return|return
+name|t
+operator|.
+name|startsWith
+argument_list|(
+name|target
+argument_list|)
+return|;
+block|}
+block|)
+operator|.
+name|findFirst
+argument_list|()
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+end_class
+
+begin_if
+if|if
+condition|(
+name|found
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|found
+return|;
+block|}
+end_if
+
+begin_if
 if|if
 condition|(
 name|create
@@ -4409,30 +4609,6 @@ return|;
 block|}
 else|else
 block|{
-name|Endpoint
-name|endpoint
-init|=
-name|context
-operator|.
-name|hasEndpoint
-argument_list|(
-name|uri
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|endpoint
-operator|instanceof
-name|MockEndpoint
-condition|)
-block|{
-return|return
-operator|(
-name|MockEndpoint
-operator|)
-name|endpoint
-return|;
-block|}
 throw|throw
 operator|new
 name|NoSuchEndpointException
@@ -4448,10 +4624,16 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-block|}
+end_if
+
+begin_comment
+unit|}
 comment|/**      * Sends a message to the given endpoint URI with the body value      *      * @param endpointUri the URI of the endpoint to send to      * @param body        the body for the message      */
+end_comment
+
+begin_function
 DECL|method|sendBody (String endpointUri, final Object body)
-specifier|protected
+unit|protected
 name|void
 name|sendBody
 parameter_list|(
@@ -4501,7 +4683,13 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Sends a message to the given endpoint URI with the body value and specified headers      *      * @param endpointUri the URI of the endpoint to send to      * @param body        the body for the message      * @param headers     any headers to set on the message      */
+end_comment
+
+begin_function
 DECL|method|sendBody (String endpointUri, final Object body, final Map<String, Object> headers)
 specifier|protected
 name|void
@@ -4596,7 +4784,13 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Sends messages to the given endpoint for each of the specified bodies      *      * @param endpointUri the endpoint URI to send to      * @param bodies      the bodies to send, one per message      */
+end_comment
+
+begin_function
 DECL|method|sendBodies (String endpointUri, Object... bodies)
 specifier|protected
 name|void
@@ -4627,7 +4821,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Creates an exchange with the given body      */
+end_comment
+
+begin_function
 DECL|method|createExchangeWithBody (Object body)
 specifier|protected
 name|Exchange
@@ -4646,7 +4846,13 @@ name|body
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Asserts that the given language name and expression evaluates to the      * given value on a specific exchange      */
+end_comment
+
+begin_function
 DECL|method|assertExpression (Exchange exchange, String languageName, String expressionText, Object expectedValue)
 specifier|protected
 name|void
@@ -4706,7 +4912,13 @@ name|expectedValue
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Asserts that the given language name and predicate expression evaluates      * to the expected value on the message exchange      */
+end_comment
+
+begin_function
 DECL|method|assertPredicate (String languageName, String expressionText, Exchange exchange, boolean expected)
 specifier|protected
 name|void
@@ -4766,7 +4978,13 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Asserts that the language name can be resolved      */
+end_comment
+
+begin_function
 DECL|method|assertResolveLanguage (String languageName)
 specifier|protected
 name|Language
@@ -4799,7 +5017,13 @@ return|return
 name|language
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      */
+end_comment
+
+begin_function
 DECL|method|assertMockEndpointsSatisfied ()
 specifier|protected
 name|void
@@ -4816,7 +5040,13 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Asserts that all the expectations of the Mock endpoints are valid      */
+end_comment
+
+begin_function
 DECL|method|assertMockEndpointsSatisfied (long timeout, TimeUnit unit)
 specifier|protected
 name|void
@@ -4843,7 +5073,13 @@ name|unit
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Reset all Mock endpoints.      */
+end_comment
+
+begin_function
 DECL|method|resetMocks ()
 specifier|protected
 name|void
@@ -4858,6 +5094,9 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|assertValidContext (CamelContext context)
 specifier|protected
 name|void
@@ -4875,6 +5114,9 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getMandatoryEndpoint (String uri, Class<T> type)
 specifier|protected
 parameter_list|<
@@ -4920,6 +5162,9 @@ return|return
 name|endpoint
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getMandatoryEndpoint (String uri)
 specifier|protected
 name|Endpoint
@@ -4952,7 +5197,13 @@ return|return
 name|endpoint
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Disables the JMX agent. Must be called before the {@link #setUp()} method.      */
+end_comment
+
+begin_function
 DECL|method|disableJMX ()
 specifier|protected
 name|void
@@ -4971,7 +5222,13 @@ literal|"true"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Enables the JMX agent. Must be called before the {@link #setUp()} method.      */
+end_comment
+
+begin_function
 DECL|method|enableJMX ()
 specifier|protected
 name|void
@@ -4990,7 +5247,13 @@ literal|"false"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Single step debugs and Camel invokes this method before entering the given processor      */
+end_comment
+
+begin_function
 DECL|method|debugBefore (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, String id, String label)
 specifier|protected
 name|void
@@ -5015,7 +5278,13 @@ name|String
 name|label
 parameter_list|)
 block|{     }
+end_function
+
+begin_comment
 comment|/**      * Single step debugs and Camel invokes this method after processing the given processor      */
+end_comment
+
+begin_function
 DECL|method|debugAfter (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, String id, String label, long timeTaken)
 specifier|protected
 name|void
@@ -5043,7 +5312,13 @@ name|long
 name|timeTaken
 parameter_list|)
 block|{     }
+end_function
+
+begin_comment
 comment|/**      * To easily debug by overriding the<tt>debugBefore</tt> and<tt>debugAfter</tt> methods.      */
+end_comment
+
+begin_class
 DECL|class|DebugBreakpoint
 specifier|private
 class|class
@@ -5145,8 +5420,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
