@@ -2328,7 +2328,7 @@ block|,
 DECL|enumConstant|MongoIterable
 name|MongoIterable
 block|;     }
-comment|/**      * MongoDB (camel-mongodb3)      * Component for working with documents stored in MongoDB database.      *       * Category: database,nosql      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-mongodb3      *       * Syntax:<code>mongodb3:connectionBean</code>      *       * Path parameter: connectionBean (required)      * Name of com.mongodb.Mongo to use.      */
+comment|/**      * MongoDB (camel-mongodb)      * Component for working with documents stored in MongoDB database.      *       * Category: database,nosql      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-mongodb      *       * Syntax:<code>mongodb:connectionBean</code>      *       * Path parameter: connectionBean (required)      * Name of com.mongodb.Mongo to use.      */
 DECL|method|mongoDb (String path)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -2356,7 +2356,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"mongodb3"
+literal|"mongodb"
 argument_list|,
 name|path
 argument_list|)
