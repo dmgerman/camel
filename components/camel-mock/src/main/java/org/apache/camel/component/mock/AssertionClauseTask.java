@@ -18,6 +18,10 @@ name|mock
 package|;
 end_package
 
+begin_comment
+comment|/**  * An {@link AssertionClause} that bridges with fail fast mode ({@link AssertionTask}).  */
+end_comment
+
 begin_class
 DECL|class|AssertionClauseTask
 specifier|public
