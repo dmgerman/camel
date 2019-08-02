@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoSuchHeaderException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -862,24 +850,19 @@ comment|// Check as much of the string as possible - but the ExchangeID at the e
 name|String
 name|expectedErrorString
 init|=
+literal|"Caught exception on "
+operator|+
 name|dataSetUriWithDataSetIndexSetToStrict
 operator|+
-literal|" Failed due to caught exception: "
+literal|" due to:"
 operator|+
-name|NoSuchHeaderException
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|": No '"
+literal|" No '"
 operator|+
 name|Exchange
 operator|.
 name|DATASET_INDEX
 operator|+
-literal|"' header available of type: java.lang.Long. Exchange"
+literal|"' header available of type: java.lang.Long"
 decl_stmt|;
 name|String
 name|actualErrorString
@@ -1697,18 +1680,13 @@ comment|// Check as much of the string as possible - but the ExchangeID at the e
 name|String
 name|expectedErrorString
 init|=
+literal|"Caught exception on "
+operator|+
 name|dataSetUri
 operator|+
-literal|" Failed due to caught exception: "
+literal|" due to: "
 operator|+
-name|AssertionError
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|": Header: "
+literal|"Header: "
 operator|+
 name|Exchange
 operator|.
@@ -1729,8 +1707,6 @@ literal|2
 operator|+
 literal|10
 operator|)
-operator|+
-literal|" on Exchange"
 decl_stmt|;
 name|String
 name|actualErrorString
@@ -2083,18 +2059,13 @@ comment|// Check as much of the string as possible - but the ExchangeID at the e
 name|String
 name|expectedErrorString
 init|=
+literal|"Caught exception on "
+operator|+
 name|dataSetUriWithDataSetIndexSetToLenient
 operator|+
-literal|" Failed due to caught exception: "
+literal|" due to: "
 operator|+
-name|AssertionError
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|": Header: "
+literal|"Header: "
 operator|+
 name|Exchange
 operator|.
@@ -2115,8 +2086,6 @@ literal|2
 operator|+
 literal|10
 operator|)
-operator|+
-literal|" on Exchange"
 decl_stmt|;
 name|String
 name|actualErrorString
@@ -2331,18 +2300,13 @@ comment|// Check as much of the string as possible - but the ExchangeID at the e
 name|String
 name|expectedErrorString
 init|=
+literal|"Caught exception on "
+operator|+
 name|dataSetUriWithDataSetIndexSetToStrict
 operator|+
-literal|" Failed due to caught exception: "
+literal|" due to: "
 operator|+
-name|AssertionError
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|": Header: "
+literal|"Header: "
 operator|+
 name|Exchange
 operator|.
@@ -2363,8 +2327,6 @@ literal|2
 operator|+
 literal|10
 operator|)
-operator|+
-literal|" on Exchange"
 decl_stmt|;
 name|String
 name|actualErrorString

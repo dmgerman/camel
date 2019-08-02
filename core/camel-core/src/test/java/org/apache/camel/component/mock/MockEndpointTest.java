@@ -4331,7 +4331,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock
@@ -4350,6 +4350,15 @@ argument_list|(
 literal|"direct:a"
 argument_list|,
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:a"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

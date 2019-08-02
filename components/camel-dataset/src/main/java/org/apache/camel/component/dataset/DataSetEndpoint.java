@@ -308,10 +308,6 @@ name|label
 operator|=
 literal|"core,testing"
 argument_list|,
-name|excludeProperties
-operator|=
-literal|"failFast"
-argument_list|,
 name|lenientProperties
 operator|=
 literal|true
@@ -508,12 +504,6 @@ argument_list|)
 expr_stmt|;
 comment|// optimize as we dont need to copy the exchange
 name|setCopyOnExchange
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// fail fast mode is not possible with dataset endpoints
-name|setFailFast
 argument_list|(
 literal|false
 argument_list|)
@@ -1409,12 +1399,6 @@ name|createReporter
 argument_list|()
 expr_stmt|;
 block|}
-comment|// fail fast mode is not possible with dataset endpoints
-name|setFailFast
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|info
