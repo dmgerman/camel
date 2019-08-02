@@ -902,10 +902,14 @@ literal|"DailyApiRequests"
 argument_list|)
 decl_stmt|;
 comment|// for JSON value will be Integer, for XML (no type information) it will be String
-name|assertEquals
+comment|// This number can be different per org, and future releases,
+comment|// so let's just make sure it's greater than zero
+name|assertTrue
 argument_list|(
-literal|"15000"
-argument_list|,
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 name|String
 operator|.
 name|valueOf
@@ -917,6 +921,9 @@ argument_list|(
 literal|"Max"
 argument_list|)
 argument_list|)
+argument_list|)
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
