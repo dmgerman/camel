@@ -325,6 +325,8 @@ specifier|public
 name|DefaultErrorHandlerBuilder
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
@@ -399,6 +401,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean

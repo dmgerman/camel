@@ -120,6 +120,8 @@ name|value
 expr_stmt|;
 block|}
 comment|/**    * Get the integer value of this enum value, as defined in the Thrift IDL.    */
+annotation|@
+name|Override
 DECL|method|getValue ()
 specifier|public
 name|int

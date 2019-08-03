@@ -335,6 +335,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createCamelHttpClient (HttpClientTransport transport, SslContextFactory sslContextFactory)
 specifier|protected
 name|CamelHttpClient
@@ -357,6 +359,8 @@ name|sslContextFactory
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (URI endpointUri, URI httpUri)
 specifier|protected
 name|JettyHttpEndpoint
@@ -386,6 +390,8 @@ name|httpUri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConnectorJettyInternal (Server server, JettyHttpEndpoint endpoint, SslContextFactory sslcf)
 specifier|protected
 name|AbstractConnector

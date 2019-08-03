@@ -378,6 +378,8 @@ operator|=
 name|m
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doFlush ()
 specifier|protected
 name|void
@@ -388,6 +390,8 @@ name|IOException
 block|{
 comment|// do nothing here
 block|}
+annotation|@
+name|Override
 DECL|method|doClose ()
 specifier|protected
 name|void
@@ -410,6 +414,8 @@ name|commitOutputMessage
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onWrite ()
 specifier|protected
 name|void

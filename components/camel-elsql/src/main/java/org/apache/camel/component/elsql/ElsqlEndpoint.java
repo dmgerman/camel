@@ -980,6 +980,8 @@ operator|=
 name|resourceUri
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDataSource ()
 specifier|public
 name|DataSource
@@ -991,6 +993,8 @@ name|dataSource
 return|;
 block|}
 comment|/**      * Sets the DataSource to use to communicate with the database.      */
+annotation|@
+name|Override
 DECL|method|setDataSource (final DataSource dataSource)
 specifier|public
 name|void

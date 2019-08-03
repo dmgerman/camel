@@ -184,6 +184,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext
@@ -381,6 +383,8 @@ specifier|private
 name|int
 name|count
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -464,6 +468,8 @@ name|MyAfterProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

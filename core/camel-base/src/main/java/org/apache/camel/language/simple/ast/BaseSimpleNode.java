@@ -72,6 +72,8 @@ operator|=
 name|token
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getToken ()
 specifier|public
 name|SimpleToken

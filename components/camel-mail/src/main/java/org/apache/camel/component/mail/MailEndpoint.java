@@ -485,6 +485,8 @@ name|DEFAULT_CONSUMER_DELAY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -546,6 +548,8 @@ name|sender
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -668,6 +672,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -804,6 +810,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -815,6 +823,8 @@ name|headerFilterStrategy
 return|;
 block|}
 comment|/**      * To use a custom {@link org.apache.camel.spi.HeaderFilterStrategy} to filter headers.      */
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void

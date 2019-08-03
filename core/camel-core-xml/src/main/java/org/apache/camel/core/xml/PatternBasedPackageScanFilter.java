@@ -251,6 +251,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests if a given class matches the patterns in this filter. Patterns are      * specified by {@link AntPathMatcher}      *<p>      * if no include or exclude patterns are set then all classes match.      *<p>      * If the filter contains only include filters, then the candidate class      * must match one of the include patterns to match the filter and return      * true.      *<p>      * If the filter contains only exclude filters, then the filter will return      * true unless the candidate class matches an exclude pattern.      *<p>      * if this contains both include and exclude filters, then the above rules      * apply with excludes taking precedence over includes i.e. an include      * pattern of java.util.* and an exclude pattern of java.util.jar.* will      * include a file only if it is in the util pkg and not in the util.jar      * package.      *       * @return true if candidate class matches according to the above rules      */
+annotation|@
+name|Override
 DECL|method|matches (Class<?> candidateClass)
 specifier|public
 name|boolean

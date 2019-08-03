@@ -969,6 +969,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onPingFrame (byte[] payload)
 specifier|public
 name|void

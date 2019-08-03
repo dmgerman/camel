@@ -267,6 +267,8 @@ operator|=
 name|noLocal
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close ()
 specifier|public
 name|void
@@ -331,6 +333,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageListener ()
 specifier|public
 name|MessageListener
@@ -343,6 +347,8 @@ return|return
 name|messageListener
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageListener (MessageListener messageListener)
 specifier|public
 name|void
@@ -378,6 +384,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|receive ()
 specifier|public
 name|Message
@@ -402,6 +410,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive (long timeoutMillis)
 specifier|public
 name|Message
@@ -431,6 +441,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveNoWait ()
 specifier|public
 name|Message
@@ -477,6 +489,8 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageSelector ()
 specifier|public
 name|String

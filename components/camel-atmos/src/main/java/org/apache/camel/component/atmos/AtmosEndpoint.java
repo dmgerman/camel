@@ -374,6 +374,8 @@ name|configuration
 expr_stmt|;
 block|}
 comment|/**      * Create one of the camel producer available based on the configuration      *      * @return the camel producer      * @throws Exception      */
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -515,6 +517,8 @@ throw|;
 block|}
 block|}
 comment|/**      * Create one of the camel consumer available based on the configuration      *      * @param processor the given processor      * @return the camel consumer      * @throws Exception      */
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

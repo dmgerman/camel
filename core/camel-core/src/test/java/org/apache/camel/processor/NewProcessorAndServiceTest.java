@@ -202,6 +202,8 @@ specifier|private
 name|boolean
 name|started
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -224,6 +226,8 @@ literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -235,6 +239,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

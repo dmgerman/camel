@@ -426,6 +426,8 @@ name|getClient
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 specifier|abstract

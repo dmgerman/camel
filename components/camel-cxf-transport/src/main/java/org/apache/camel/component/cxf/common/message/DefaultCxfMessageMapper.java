@@ -194,6 +194,8 @@ name|CXF_HTTP_RESPONSE
 init|=
 literal|"HTTP.RESPONSE"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createCxfMessageFromCamelExchange (Exchange camelExchange, HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|Message
@@ -626,6 +628,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|propagateResponseHeadersToCamel (Message cxfMessage, Exchange exchange, HeaderFilterStrategy strategy)
 specifier|public
 name|void

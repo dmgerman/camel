@@ -312,6 +312,8 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getComments (IRepositoryIdProvider repository, int pullRequestId)
 specifier|public
 name|List

@@ -228,6 +228,8 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
@@ -322,6 +324,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean
@@ -360,6 +364,8 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getFailureProcessor ()
 specifier|public
 name|Processor
@@ -459,6 +465,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createLogger ()
 specifier|protected
 name|CamelLogger

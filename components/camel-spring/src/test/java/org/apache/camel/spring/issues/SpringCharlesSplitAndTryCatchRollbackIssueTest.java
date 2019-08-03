@@ -70,6 +70,8 @@ name|SpringCharlesSplitAndTryCatchRollbackIssueTest
 extends|extends
 name|CharlesSplitAndTryCatchRollbackIssueTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

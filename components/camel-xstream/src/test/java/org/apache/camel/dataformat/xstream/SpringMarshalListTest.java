@@ -92,6 +92,8 @@ name|SpringMarshalListTest
 extends|extends
 name|MarshalListTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

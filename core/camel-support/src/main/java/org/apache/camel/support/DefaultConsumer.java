@@ -312,6 +312,8 @@ return|return
 name|consumerToString
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoute ()
 specifier|public
 name|Route
@@ -322,6 +324,8 @@ return|return
 name|route
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRoute (Route route)
 specifier|public
 name|void
@@ -439,6 +443,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -449,6 +455,8 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
@@ -554,6 +562,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -579,6 +589,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

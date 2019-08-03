@@ -390,6 +390,8 @@ return|return
 name|repository
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 specifier|abstract

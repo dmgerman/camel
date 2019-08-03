@@ -110,6 +110,8 @@ argument_list|<
 name|SOAPMessage
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|invoke (SOAPMessage message)
 specifier|public
 name|SOAPMessage

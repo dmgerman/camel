@@ -70,6 +70,8 @@ name|SpringTryProcessorOnWhenTest
 extends|extends
 name|TryProcessorOnWhenTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

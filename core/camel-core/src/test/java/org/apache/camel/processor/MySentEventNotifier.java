@@ -115,6 +115,8 @@ return|return
 name|events
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent event)
 specifier|public
 name|void

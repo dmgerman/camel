@@ -108,6 +108,8 @@ specifier|public
 name|CamelConnectionFactory
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -118,6 +120,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -136,6 +140,8 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|createActiveMQConnection (Transport transport, JMSStatsImpl stats)
 specifier|protected
 name|CamelConnection

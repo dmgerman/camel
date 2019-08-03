@@ -38,6 +38,8 @@ name|ChoiceWithSimpleExpressionTest
 extends|extends
 name|ChoiceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

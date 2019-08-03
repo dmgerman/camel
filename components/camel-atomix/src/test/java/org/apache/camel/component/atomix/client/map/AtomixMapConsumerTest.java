@@ -238,6 +238,8 @@ comment|// ************************************
 comment|// Setup
 comment|// ************************************
 annotation|@
+name|Override
+annotation|@
 name|BindToRegistry
 argument_list|(
 literal|"atomix-map"

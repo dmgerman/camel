@@ -263,6 +263,8 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInputStream ()
 specifier|public
 name|InputStream
@@ -299,6 +301,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getReader ()
 specifier|public
 name|Reader
@@ -313,6 +317,8 @@ name|text
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -347,6 +353,8 @@ return|return
 name|encoding
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeExternal (ObjectOutput out)
 specifier|public
 name|void
@@ -489,6 +497,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|readExternal (ObjectInput in)
 specifier|public
 name|void

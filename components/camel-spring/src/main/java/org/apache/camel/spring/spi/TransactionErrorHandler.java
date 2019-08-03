@@ -399,6 +399,8 @@ name|transactionTemplate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean

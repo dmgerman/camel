@@ -126,6 +126,8 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e2
 block|}
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

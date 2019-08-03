@@ -638,6 +638,8 @@ operator|=
 name|blueprintContainer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContextWithId (String camelContextId)
 specifier|protected
 name|CamelContext

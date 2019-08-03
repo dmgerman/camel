@@ -120,6 +120,8 @@ return|return
 name|getHeadersCount
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaders ()
 specifier|public
 name|Set
@@ -136,6 +138,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close (MessageContext messagecontext)
 specifier|public
 name|void
@@ -145,6 +149,8 @@ name|MessageContext
 name|messagecontext
 parameter_list|)
 block|{              }
+annotation|@
+name|Override
 DECL|method|handleFault (SOAPMessageContext messagecontext)
 specifier|public
 name|boolean
@@ -161,6 +167,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleMessage (SOAPMessageContext messagecontext)
 specifier|public
 name|boolean
@@ -216,6 +224,8 @@ return|return
 name|messageCount
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

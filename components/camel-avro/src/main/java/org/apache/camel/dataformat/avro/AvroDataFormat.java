@@ -424,6 +424,8 @@ return|return
 literal|"avro"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -434,6 +436,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -711,6 +715,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream outputStream)
 specifier|public
 name|void
@@ -792,6 +798,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object

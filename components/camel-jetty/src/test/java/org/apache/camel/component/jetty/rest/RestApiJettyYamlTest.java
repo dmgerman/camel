@@ -54,6 +54,8 @@ extends|extends
 name|RestApiJettyTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testApi ()
 specifier|public

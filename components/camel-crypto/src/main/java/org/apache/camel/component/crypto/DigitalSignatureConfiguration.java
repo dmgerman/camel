@@ -470,6 +470,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -480,6 +482,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

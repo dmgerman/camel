@@ -70,6 +70,8 @@ name|SpringTryCatchWithSplitIssueTest
 extends|extends
 name|TryCatchWithSplitIssueTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

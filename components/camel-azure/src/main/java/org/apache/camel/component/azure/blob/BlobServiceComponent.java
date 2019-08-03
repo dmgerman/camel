@@ -204,6 +204,8 @@ name|BlobServiceConfiguration
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

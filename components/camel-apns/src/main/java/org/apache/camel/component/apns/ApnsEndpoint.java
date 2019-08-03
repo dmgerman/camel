@@ -339,6 +339,8 @@ return|return
 name|consumers
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -370,6 +372,8 @@ return|return
 name|apnsConsumer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer

@@ -480,6 +480,8 @@ operator|=
 name|lock
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|get (K key)
 specifier|public
 name|V
@@ -545,6 +547,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|put (K key, V value, long timeoutMillis)
 specifier|public
 name|V
@@ -633,6 +637,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|putIfAbsent (K key, V value, long timeoutMillis)
 specifier|public
 name|V
@@ -735,6 +741,8 @@ comment|// conditional on map being changed
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|remove (K key)
 specifier|public
 name|V
@@ -799,6 +807,8 @@ comment|// conditional on map being changed
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|size ()
 specifier|public
 name|int

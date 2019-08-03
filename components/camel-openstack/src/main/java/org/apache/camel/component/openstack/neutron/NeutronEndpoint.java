@@ -675,6 +675,8 @@ operator|=
 name|host
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConfig ()
 specifier|public
 name|Config
@@ -702,6 +704,8 @@ operator|=
 name|config
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getApiVersion ()
 specifier|public
 name|String

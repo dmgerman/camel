@@ -86,6 +86,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      */
+annotation|@
+name|Override
 DECL|method|applyGetResults (Message message, HBaseData data)
 specifier|public
 name|void
@@ -116,6 +118,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      */
+annotation|@
+name|Override
 DECL|method|applyScanResults (Message message, HBaseData data)
 specifier|public
 name|void

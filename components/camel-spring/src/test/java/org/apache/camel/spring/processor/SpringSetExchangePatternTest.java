@@ -70,6 +70,8 @@ name|SpringSetExchangePatternTest
 extends|extends
 name|SetExchangePatternTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

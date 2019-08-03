@@ -151,6 +151,8 @@ operator|=
 name|docFlavor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocFlavor ()
 specifier|public
 name|DocFlavor
@@ -161,6 +163,8 @@ return|return
 name|docFlavor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributes ()
 specifier|public
 name|DocAttributeSet
@@ -171,6 +175,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPrintData ()
 specifier|public
 name|Object
@@ -184,6 +190,8 @@ name|getStreamForBytes
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getReaderForText ()
 specifier|public
 name|Reader
@@ -342,6 +350,8 @@ name|reader
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getStreamForBytes ()
 specifier|public
 name|InputStream

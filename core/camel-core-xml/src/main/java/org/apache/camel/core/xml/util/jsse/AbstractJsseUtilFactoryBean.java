@@ -53,6 +53,8 @@ argument_list|<
 name|T
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 specifier|abstract
@@ -62,6 +64,8 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -72,6 +76,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 specifier|abstract

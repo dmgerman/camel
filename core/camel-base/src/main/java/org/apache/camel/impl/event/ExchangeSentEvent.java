@@ -126,6 +126,8 @@ operator|=
 name|timeTaken
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -136,6 +138,8 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimeTaken ()
 specifier|public
 name|long

@@ -63,6 +63,8 @@ operator|=
 name|channelHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newChannelHandler ()
 specifier|public
 name|ChannelHandler

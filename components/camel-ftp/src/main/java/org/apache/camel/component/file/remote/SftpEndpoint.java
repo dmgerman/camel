@@ -316,6 +316,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildProducer ()
 specifier|protected
 name|GenericFileProducer
@@ -369,6 +371,8 @@ name|SftpDefaultMoveExistingFileStrategy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRemoteFileOperations ()
 specifier|public
 name|RemoteFileOperations

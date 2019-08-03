@@ -308,6 +308,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Support to lookup the Object with filter with the (name=NAME) and class type      */
+annotation|@
+name|Override
 DECL|method|lookupByNameAndType (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -431,6 +433,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * It's only support to look up the ServiceReference with Class name or service PID      */
+annotation|@
+name|Override
 DECL|method|lookupByName (String name)
 specifier|public
 name|Object
@@ -586,6 +590,8 @@ return|return
 name|service
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findByTypeWithName (Class<T> type)
 specifier|public
 parameter_list|<
@@ -784,6 +790,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findByType (Class<T> type)
 specifier|public
 parameter_list|<

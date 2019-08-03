@@ -1142,6 +1142,8 @@ name|converter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -1153,6 +1155,8 @@ name|camelContext
 return|;
 block|}
 comment|/**      * Sets the {@link CamelContext}<b>and also</b> initializes this loader.      *<p/>      * The reason why {@link #init(org.apache.camel.CamelContext, com.github.dozermapper.core.Mapper)} is also called      * is because making using Dozer in Spring XML files easier, as no need to use the init-method attribute.      *      * @param camelContext the CamelContext      */
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

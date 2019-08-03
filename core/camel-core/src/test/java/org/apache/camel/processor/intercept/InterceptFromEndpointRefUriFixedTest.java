@@ -44,6 +44,8 @@ name|InterceptFromEndpointRefUriFixedTest
 extends|extends
 name|InterceptFromEndpointRefUriTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

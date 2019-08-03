@@ -134,6 +134,8 @@ operator|.
 name|getPort2
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getApplicationContextFiles ()
 specifier|protected
 name|String

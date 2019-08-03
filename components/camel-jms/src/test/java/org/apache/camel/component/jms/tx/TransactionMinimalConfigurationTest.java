@@ -112,6 +112,8 @@ name|TransactionMinimalConfigurationTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext
@@ -257,6 +259,8 @@ specifier|private
 name|int
 name|count
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

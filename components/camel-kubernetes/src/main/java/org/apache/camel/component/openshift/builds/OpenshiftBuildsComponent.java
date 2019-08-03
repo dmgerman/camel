@@ -97,6 +97,8 @@ name|OpenshiftBuildsComponent
 extends|extends
 name|AbstractKubernetesComponent
 block|{
+annotation|@
+name|Override
 DECL|method|doCreateEndpoint (String uri, String remaining, KubernetesConfiguration config)
 specifier|protected
 name|AbstractKubernetesEndpoint

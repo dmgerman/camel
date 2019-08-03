@@ -184,6 +184,8 @@ return|return
 name|delayer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDelay ()
 specifier|public
 name|Long
@@ -197,6 +199,8 @@ name|getDelayValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|constantDelay (Integer millis)
 specifier|public
 name|void
@@ -224,6 +228,8 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDelayedCount ()
 specifier|public
 name|int
@@ -237,6 +243,8 @@ name|getDelayedCount
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAsyncDelayed ()
 specifier|public
 name|Boolean

@@ -96,6 +96,8 @@ name|ConditionSupport
 implements|implements
 name|Condition
 block|{
+annotation|@
+name|Override
 DECL|method|matchProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|boolean
@@ -115,6 +117,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|matchEvent (Exchange exchange, ExchangeEvent event)
 specifier|public
 name|boolean

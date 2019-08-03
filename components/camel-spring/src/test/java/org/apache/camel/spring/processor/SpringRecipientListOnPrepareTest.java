@@ -70,6 +70,8 @@ name|SpringRecipientListOnPrepareTest
 extends|extends
 name|RecipientListOnPrepareTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

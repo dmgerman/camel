@@ -673,6 +673,8 @@ name|UserInfo
 extends|,
 name|UIKeyboardInteractive
 block|{     }
+annotation|@
+name|Override
 DECL|method|setEndpoint (GenericFileEndpoint<SftpRemoteFile> endpoint)
 specifier|public
 name|void
@@ -695,6 +697,8 @@ operator|)
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|connect (RemoteFileConfiguration configuration, Exchange exchange)
 specifier|public
 specifier|synchronized
@@ -2402,6 +2406,8 @@ operator|=
 name|loggingLevel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled (int level)
 specifier|public
 name|boolean
@@ -2507,6 +2513,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|log (int level, String message)
 specifier|public
 name|void
@@ -2591,6 +2599,8 @@ break|break;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isConnected ()
 specifier|public
 specifier|synchronized
@@ -2620,6 +2630,8 @@ name|isConnected
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|disconnect ()
 specifier|public
 specifier|synchronized
@@ -2666,6 +2678,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|forceDisconnect ()
 specifier|public
 specifier|synchronized
@@ -2745,6 +2759,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|deleteFile (String name)
 specifier|public
 specifier|synchronized
@@ -2814,6 +2830,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|renameFile (String from, String to)
 specifier|public
 specifier|synchronized
@@ -2911,6 +2929,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|buildDirectory (String directory, boolean absolute)
 specifier|public
 specifier|synchronized
@@ -3212,6 +3232,8 @@ return|return
 name|success
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCurrentDirectory ()
 specifier|public
 specifier|synchronized
@@ -3268,6 +3290,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|changeCurrentDirectory (String path)
 specifier|public
 specifier|synchronized
@@ -3676,6 +3700,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|changeToParentDirectory ()
 specifier|public
 specifier|synchronized
@@ -3735,6 +3761,8 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|listFiles ()
 specifier|public
 specifier|synchronized
@@ -3754,6 +3782,8 @@ literal|"."
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|listFiles (String path)
 specifier|public
 specifier|synchronized
@@ -3880,6 +3910,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveFile (String name, Exchange exchange, long size)
 specifier|public
 specifier|synchronized
@@ -3944,6 +3976,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|releaseRetrievedFileResources (Exchange exchange)
 specifier|public
 specifier|synchronized
@@ -4815,6 +4849,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|storeFile (String name, Exchange exchange, long size)
 specifier|public
 specifier|synchronized
@@ -5509,6 +5545,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|existsFile (String name)
 specifier|public
 specifier|synchronized
@@ -5812,6 +5850,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendNoop ()
 specifier|public
 specifier|synchronized
@@ -5862,6 +5902,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendSiteCommand (String command)
 specifier|public
 specifier|synchronized

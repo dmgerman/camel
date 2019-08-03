@@ -94,6 +94,8 @@ name|Mina2ReverseProtocolHandler
 extends|extends
 name|IoHandlerAdapter
 block|{
+annotation|@
+name|Override
 DECL|method|exceptionCaught (IoSession session, Throwable cause)
 specifier|public
 name|void
@@ -118,6 +120,8 @@ name|closeNow
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|messageReceived (IoSession session, Object message)
 specifier|public
 name|void

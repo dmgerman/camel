@@ -269,6 +269,8 @@ name|MyTracer
 implements|implements
 name|InterceptStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor

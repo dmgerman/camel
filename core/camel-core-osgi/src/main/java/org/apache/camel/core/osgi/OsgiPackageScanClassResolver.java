@@ -198,6 +198,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|find (PackageScanFilter test, String packageName, Set<Class<?>> classes)
 specifier|public
 name|void

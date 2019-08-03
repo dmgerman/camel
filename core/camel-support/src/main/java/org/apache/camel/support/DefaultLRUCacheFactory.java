@@ -118,6 +118,8 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified maximumCacheSize, and will stop on eviction.      *      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
+annotation|@
+name|Override
 DECL|method|createLRUCache (int maximumCacheSize)
 specifier|public
 parameter_list|<
@@ -156,6 +158,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified maximumCacheSize, and will stop on eviction.      *      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
+annotation|@
+name|Override
 DECL|method|createLRUCache (int maximumCacheSize, Consumer<V> onEvict)
 specifier|public
 parameter_list|<
@@ -204,6 +208,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize, and will stop on eviction.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
+annotation|@
+name|Override
 DECL|method|createLRUCache (int initialCapacity, int maximumCacheSize)
 specifier|public
 parameter_list|<
@@ -249,6 +255,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize,load factor and ordering mode.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize the max capacity.      * @param stopOnEviction   whether to stop service on eviction.      * @throws IllegalArgumentException if the initial capacity is negative      */
+annotation|@
+name|Override
 DECL|method|createLRUCache (int initialCapacity, int maximumCacheSize, boolean stopOnEviction)
 specifier|public
 parameter_list|<
@@ -301,6 +309,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Constructs an empty<tt>LRUSoftCache</tt> instance with the      * specified maximumCacheSize, and will stop on eviction.      *      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
+annotation|@
+name|Override
 DECL|method|createLRUSoftCache (int maximumCacheSize)
 specifier|public
 parameter_list|<
@@ -438,6 +448,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Constructs an empty<tt>LRUWeakCache</tt> instance with the      * specified maximumCacheSize, and will stop on eviction.      *      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
+annotation|@
+name|Override
 DECL|method|createLRUWeakCache (int maximumCacheSize)
 specifier|public
 parameter_list|<

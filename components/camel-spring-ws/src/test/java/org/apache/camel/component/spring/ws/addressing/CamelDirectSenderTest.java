@@ -248,6 +248,8 @@ name|MockEndpoint
 name|endpointCamelDirect
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

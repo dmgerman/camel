@@ -104,6 +104,8 @@ operator|=
 name|stompEndpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean

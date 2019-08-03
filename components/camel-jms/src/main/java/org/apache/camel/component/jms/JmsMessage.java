@@ -629,6 +629,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getHeader (String name)
 specifier|public
 name|Object

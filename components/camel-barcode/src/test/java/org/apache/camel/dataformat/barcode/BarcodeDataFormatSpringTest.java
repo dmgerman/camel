@@ -78,6 +78,8 @@ name|BarcodeDataFormatSpringTest
 extends|extends
 name|BarcodeDataFormatCamelTest
 block|{
+annotation|@
+name|Override
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
 name|boolean
@@ -88,6 +90,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseRouteBuilder ()
 specifier|public
 name|boolean

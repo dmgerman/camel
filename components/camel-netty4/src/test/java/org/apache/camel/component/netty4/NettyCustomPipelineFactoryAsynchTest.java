@@ -549,6 +549,8 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initChannel (Channel ch)
 specifier|protected
 name|void

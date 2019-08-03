@@ -102,6 +102,8 @@ specifier|static
 name|boolean
 name|isX509DataPresent
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|validateMessage (SoapMessage soapMessage, MessageContext messageContext)
 specifier|protected
 name|void

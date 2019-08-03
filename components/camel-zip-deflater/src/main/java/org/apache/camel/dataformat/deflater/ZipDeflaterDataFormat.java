@@ -269,6 +269,8 @@ operator|=
 name|compressionLevel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (final Exchange exchange, final Object graph, final OutputStream stream)
 specifier|public
 name|void
@@ -366,6 +368,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (final Exchange exchange, final InputStream inputStream)
 specifier|public
 name|Object

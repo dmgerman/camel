@@ -307,6 +307,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -365,6 +367,8 @@ name|MyCodec
 implements|implements
 name|ProtocolCodecFactory
 block|{
+annotation|@
+name|Override
 DECL|method|getEncoder (IoSession session)
 specifier|public
 name|ProtocolEncoder
@@ -419,6 +423,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDecoder (IoSession session)
 specifier|public
 name|ProtocolDecoder

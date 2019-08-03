@@ -440,6 +440,8 @@ literal|"bindy-kvp"
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -599,6 +601,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object
@@ -1055,6 +1059,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createModelFactory (FormatFactory formatFactory)
 specifier|protected
 name|BindyAbstractFactory

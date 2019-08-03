@@ -40,6 +40,8 @@ name|MainListenerSupport
 implements|implements
 name|MainListener
 block|{
+annotation|@
+name|Override
 DECL|method|configure (CamelContext context)
 specifier|public
 name|void
@@ -51,6 +53,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|beforeStart (MainSupport main)
 specifier|public
 name|void
@@ -62,6 +66,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|afterStart (MainSupport main)
 specifier|public
 name|void
@@ -73,6 +79,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|beforeStop (MainSupport main)
 specifier|public
 name|void
@@ -84,6 +92,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|afterStop (MainSupport main)
 specifier|public
 name|void

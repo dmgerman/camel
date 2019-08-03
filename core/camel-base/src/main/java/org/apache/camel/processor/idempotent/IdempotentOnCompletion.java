@@ -186,6 +186,8 @@ operator|=
 name|removeOnFailure
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onComplete (Exchange exchange)
 specifier|public
 name|void
@@ -226,6 +228,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onFailure (Exchange exchange)
 specifier|public
 name|void

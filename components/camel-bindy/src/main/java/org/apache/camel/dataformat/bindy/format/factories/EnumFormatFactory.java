@@ -167,6 +167,8 @@ operator|=
 name|clazz
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|format (final T object)
 specifier|public
 name|String
@@ -186,6 +188,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (final String string)
 specifier|public
 name|T

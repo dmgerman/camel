@@ -414,6 +414,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEndpoint (GenericFileEndpoint<File> endpoint)
 specifier|public
 name|void
@@ -436,6 +438,8 @@ operator|)
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|deleteFile (String name)
 specifier|public
 name|boolean
@@ -465,6 +469,8 @@ name|file
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|renameFile (String from, String to)
 specifier|public
 name|boolean
@@ -570,6 +576,8 @@ return|return
 name|renamed
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|existsFile (String name)
 specifier|public
 name|boolean
@@ -814,6 +822,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildDirectory (String directory, boolean absolute)
 specifier|public
 name|boolean
@@ -1062,6 +1072,8 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|listFiles ()
 specifier|public
 name|List
@@ -1078,6 +1090,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|listFiles (String path)
 specifier|public
 name|List
@@ -1097,6 +1111,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|changeCurrentDirectory (String path)
 specifier|public
 name|void
@@ -1110,6 +1126,8 @@ name|GenericFileOperationFailedException
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|changeToParentDirectory ()
 specifier|public
 name|void
@@ -1120,6 +1138,8 @@ name|GenericFileOperationFailedException
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getCurrentDirectory ()
 specifier|public
 name|String
@@ -1133,6 +1153,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveFile (String name, Exchange exchange, long size)
 specifier|public
 name|boolean
@@ -1170,6 +1192,8 @@ name|GenericFileOperationFailedException
 block|{
 comment|// noop as we used type converters to read the body content for java.io.File
 block|}
+annotation|@
+name|Override
 DECL|method|storeFile (String fileName, Exchange exchange, long size)
 specifier|public
 name|boolean

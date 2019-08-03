@@ -85,6 +85,8 @@ specifier|private
 name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -112,6 +114,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseRouteBuilder ()
 specifier|public
 name|boolean

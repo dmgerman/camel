@@ -54,6 +54,8 @@ name|AllowAllHostnameVerifier
 implements|implements
 name|HostnameVerifier
 block|{
+annotation|@
+name|Override
 DECL|method|verify (String s, SSLSession sslSession)
 specifier|public
 name|boolean

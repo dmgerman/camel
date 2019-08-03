@@ -571,6 +571,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes)
 specifier|public
 name|void
@@ -641,6 +643,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|suspend (CamelContext context, List<RouteStartupOrder> routes)
 specifier|public
 name|void
@@ -678,6 +682,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
 specifier|public
 name|void
@@ -719,6 +725,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|shutdown (CamelContext context, RouteStartupOrder route, long timeout, TimeUnit timeUnit, boolean abortAfterTimeout)
 specifier|public
 name|boolean
@@ -774,6 +782,8 @@ literal|false
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|suspend (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit)
 specifier|public
 name|void
@@ -1296,6 +1306,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -1327,6 +1339,8 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -1337,6 +1351,8 @@ return|return
 name|timeout
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
@@ -1353,6 +1369,8 @@ operator|=
 name|timeUnit
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimeUnit ()
 specifier|public
 name|TimeUnit
@@ -1363,6 +1381,8 @@ return|return
 name|timeUnit
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
 specifier|public
 name|void
@@ -1379,6 +1399,8 @@ operator|=
 name|shutdownNowOnTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isShutdownNowOnTimeout ()
 specifier|public
 name|boolean
@@ -1389,6 +1411,8 @@ return|return
 name|shutdownNowOnTimeout
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isShutdownRoutesInReverseOrder ()
 specifier|public
 name|boolean
@@ -1399,6 +1423,8 @@ return|return
 name|shutdownRoutesInReverseOrder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setShutdownRoutesInReverseOrder (boolean shutdownRoutesInReverseOrder)
 specifier|public
 name|void
@@ -1415,6 +1441,8 @@ operator|=
 name|shutdownRoutesInReverseOrder
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSuppressLoggingOnTimeout ()
 specifier|public
 name|boolean
@@ -1425,6 +1453,8 @@ return|return
 name|suppressLoggingOnTimeout
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSuppressLoggingOnTimeout (boolean suppressLoggingOnTimeout)
 specifier|public
 name|void
@@ -1441,6 +1471,8 @@ operator|=
 name|suppressLoggingOnTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLogInflightExchangesOnTimeout ()
 specifier|public
 name|boolean
@@ -1451,6 +1483,8 @@ return|return
 name|logInflightExchangesOnTimeout
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogInflightExchangesOnTimeout (boolean logInflightExchangesOnTimeout)
 specifier|public
 name|void
@@ -1467,6 +1501,8 @@ operator|=
 name|logInflightExchangesOnTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -1477,6 +1513,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -2265,6 +2303,8 @@ operator|=
 name|logInflightExchangesOnTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

@@ -228,6 +228,8 @@ return|return
 name|producer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

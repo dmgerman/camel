@@ -453,6 +453,8 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -81,6 +81,8 @@ name|statisticsEnabled
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processExchange (Exchange exchange)
 specifier|public
 name|void
@@ -106,6 +108,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|completedExchange (Exchange exchange, long time)
 specifier|public
 name|void
@@ -136,6 +140,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|failedExchange (Exchange exchange)
 specifier|public
 name|void
@@ -153,6 +159,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStatisticsEnabled ()
 specifier|public
 name|boolean
@@ -172,6 +180,8 @@ name|isStatisticsEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
 specifier|public
 name|void

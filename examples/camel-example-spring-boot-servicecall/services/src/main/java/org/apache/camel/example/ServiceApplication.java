@@ -112,6 +112,8 @@ name|Service1Route
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void
@@ -190,6 +192,8 @@ name|Service2Route
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

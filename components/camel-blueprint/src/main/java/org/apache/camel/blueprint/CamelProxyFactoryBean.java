@@ -293,6 +293,8 @@ specifier|private
 name|ExtendedBlueprintContainer
 name|blueprintContainer
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 name|Object
@@ -303,6 +305,8 @@ return|return
 name|serviceProxy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class
@@ -318,6 +322,8 @@ operator|.
 name|class
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContextWithId (String camelContextId)
 specifier|protected
 name|CamelContext
@@ -407,6 +413,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void
@@ -614,6 +622,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|destroy ()
 specifier|public
 name|void

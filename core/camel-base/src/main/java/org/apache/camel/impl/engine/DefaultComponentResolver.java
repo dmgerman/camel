@@ -180,6 +180,8 @@ specifier|private
 name|FactoryFinder
 name|factoryFinder
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|resolveComponent (String name, CamelContext context)
 specifier|public
 name|Component

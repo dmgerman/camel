@@ -1433,6 +1433,8 @@ operator|=
 name|completionOnNewCorrelationGroup
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorService ()
 specifier|public
 name|ExecutorService
@@ -1443,6 +1445,8 @@ return|return
 name|executorService
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorService (ExecutorService executorService)
 specifier|public
 name|void
@@ -1511,6 +1515,8 @@ operator|=
 name|parallelProcessing
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorServiceRef ()
 specifier|public
 name|String
@@ -1521,6 +1527,8 @@ return|return
 name|executorServiceRef
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorServiceRef (String executorServiceRef)
 specifier|public
 name|void
@@ -2449,6 +2457,8 @@ name|this
 return|;
 block|}
 comment|/**      * If using parallelProcessing you can specify a custom thread pool to be used.      * In fact also if you are not using parallelProcessing this custom thread pool is used to send out aggregated exchanges as well.      */
+annotation|@
+name|Override
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|AggregateDefinition
@@ -2468,6 +2478,8 @@ name|this
 return|;
 block|}
 comment|/**      * If using parallelProcessing you can specify a custom thread pool to be used.      * In fact also if you are not using parallelProcessing this custom thread pool is used to send out aggregated exchanges as well.      */
+annotation|@
+name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|AggregateDefinition

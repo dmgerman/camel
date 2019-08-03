@@ -87,6 +87,8 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent event)
 specifier|public
 name|void

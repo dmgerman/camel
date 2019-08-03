@@ -594,6 +594,8 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -681,6 +683,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -809,6 +813,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getDelay ()
 specifier|public
 name|long

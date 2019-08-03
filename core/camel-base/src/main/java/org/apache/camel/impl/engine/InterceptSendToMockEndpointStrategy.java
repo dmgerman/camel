@@ -211,6 +211,8 @@ operator|=
 name|skip
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|registerEndpoint (String uri, Endpoint endpoint)
 specifier|public
 name|Endpoint

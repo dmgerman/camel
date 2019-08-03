@@ -70,6 +70,8 @@ specifier|volatile
 name|boolean
 name|shutdown
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|shutdown ()
 specifier|public
 name|void
@@ -81,6 +83,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|shutdownNow ()
 specifier|public
 name|List
@@ -95,6 +99,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isShutdown ()
 specifier|public
 name|boolean
@@ -105,6 +111,8 @@ return|return
 name|shutdown
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isTerminated ()
 specifier|public
 name|boolean
@@ -115,6 +123,8 @@ return|return
 name|shutdown
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|awaitTermination (long time, TimeUnit unit)
 specifier|public
 name|boolean
@@ -134,6 +144,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|execute (Runnable runnable)
 specifier|public
 name|void

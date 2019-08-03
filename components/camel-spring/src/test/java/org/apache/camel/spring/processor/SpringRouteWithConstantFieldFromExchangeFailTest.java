@@ -70,6 +70,8 @@ name|SpringRouteWithConstantFieldFromExchangeFailTest
 extends|extends
 name|RouteWithConstantFieldFromExchangeFailTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

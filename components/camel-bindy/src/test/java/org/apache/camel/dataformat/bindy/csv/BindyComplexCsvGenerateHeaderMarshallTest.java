@@ -580,6 +580,8 @@ name|ContextConfig
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

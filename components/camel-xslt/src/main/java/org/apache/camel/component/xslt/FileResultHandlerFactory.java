@@ -66,6 +66,8 @@ name|FileResultHandlerFactory
 implements|implements
 name|ResultHandlerFactory
 block|{
+annotation|@
+name|Override
 DECL|method|createResult (Exchange exchange)
 specifier|public
 name|ResultHandler

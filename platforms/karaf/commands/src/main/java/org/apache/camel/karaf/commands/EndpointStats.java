@@ -300,6 +300,8 @@ name|decode
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|execute ()
 specifier|public
 name|Object

@@ -153,6 +153,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -169,6 +171,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -179,6 +183,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveClass (String name)
 specifier|public
 name|Class
@@ -237,6 +243,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveClass (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -314,6 +322,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveClass (String name, ClassLoader loader)
 specifier|public
 name|Class
@@ -338,6 +348,8 @@ name|loader
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveClass (String name, Class<T> type, ClassLoader loader)
 specifier|public
 parameter_list|<
@@ -376,6 +388,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveMandatoryClass (String name)
 specifier|public
 name|Class
@@ -420,6 +434,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveMandatoryClass (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -475,6 +491,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveMandatoryClass (String name, ClassLoader loader)
 specifier|public
 name|Class
@@ -524,6 +542,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveMandatoryClass (String name, Class<T> type, ClassLoader loader)
 specifier|public
 parameter_list|<
@@ -584,6 +604,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadResourceAsStream (String uri)
 specifier|public
 name|InputStream
@@ -605,6 +627,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadResourceAsURL (String uri)
 specifier|public
 name|URL
@@ -626,6 +650,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadResourcesAsURL (String uri)
 specifier|public
 name|Enumeration
@@ -645,6 +671,8 @@ name|uri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadAllResourcesAsURL (String uri)
 specifier|public
 name|Enumeration

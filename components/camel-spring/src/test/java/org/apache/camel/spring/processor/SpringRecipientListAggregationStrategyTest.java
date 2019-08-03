@@ -70,6 +70,8 @@ name|SpringRecipientListAggregationStrategyTest
 extends|extends
 name|RecipientListAggregationStrategyTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

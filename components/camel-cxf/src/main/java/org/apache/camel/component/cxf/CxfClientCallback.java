@@ -285,6 +285,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleResponse (Map<String, Object> ctx, Object[] res)
 specifier|public
 name|void
@@ -467,6 +469,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|handleException (Map<String, Object> ctx, Throwable ex)
 specifier|public
 name|void

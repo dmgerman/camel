@@ -49,6 +49,8 @@ extends|extends
 name|MulticastStopOnExceptionWithOnExceptionTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testMulticastStopOnExceptionStop ()
 specifier|public

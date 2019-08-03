@@ -85,6 +85,8 @@ extends|extends
 name|ContextTestSupport
 block|{
 comment|// Need to bind the CustomerSchemaFactory
+annotation|@
+name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry

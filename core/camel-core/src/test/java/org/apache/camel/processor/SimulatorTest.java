@@ -134,6 +134,8 @@ name|SimulatorTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createJndiContext ()
 specifier|protected
 name|Context
@@ -311,6 +313,8 @@ name|containedText
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

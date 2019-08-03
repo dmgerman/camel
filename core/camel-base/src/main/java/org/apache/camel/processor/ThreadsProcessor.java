@@ -477,6 +477,8 @@ operator|=
 name|rejectedPolicy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -660,6 +662,8 @@ return|return
 name|executorService
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -670,6 +674,8 @@ return|return
 literal|"Threads"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -680,6 +686,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -706,6 +714,8 @@ return|return
 name|rejectedPolicy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -722,6 +732,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -738,6 +750,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doShutdown ()
 specifier|protected
 name|void

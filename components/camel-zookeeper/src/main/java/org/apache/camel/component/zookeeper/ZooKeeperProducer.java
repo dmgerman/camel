@@ -443,6 +443,8 @@ name|getConnectionManager
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -1088,6 +1090,8 @@ name|AsyncSetDataCallback
 implements|implements
 name|StatCallback
 block|{
+annotation|@
+name|Override
 DECL|method|processResult (int rc, String node, Object ctx, Stat statistics)
 specifier|public
 name|void

@@ -112,6 +112,8 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onMessage (Message<Object> objectMessage)
 specifier|public
 name|void

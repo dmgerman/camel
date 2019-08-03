@@ -268,6 +268,8 @@ return|return
 name|transactionTemplate
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean
@@ -278,6 +280,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
@@ -789,6 +793,8 @@ return|;
 block|}
 comment|// Implementation
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|createLogger ()
 specifier|protected
 name|CamelLogger

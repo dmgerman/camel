@@ -575,6 +575,8 @@ specifier|private
 name|String
 name|exchangeFormatterRef
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 name|RedeliveryPolicy
@@ -1118,6 +1120,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class

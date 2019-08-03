@@ -233,6 +233,8 @@ name|locale
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|format (Float object)
 specifier|public
 name|String
@@ -277,6 +279,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String string)
 specifier|public
 name|Float

@@ -252,6 +252,8 @@ specifier|volatile
 name|String
 name|state
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -265,6 +267,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -278,6 +282,8 @@ operator|=
 literal|"start"
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

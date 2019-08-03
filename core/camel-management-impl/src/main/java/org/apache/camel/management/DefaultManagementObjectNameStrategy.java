@@ -919,6 +919,8 @@ block|{
 comment|// ignore, use the default "localhost"
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -929,6 +931,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -945,6 +949,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectName (Object managedObject)
 specifier|public
 name|ObjectName
@@ -1618,6 +1624,8 @@ return|return
 name|objectName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForCamelContext (String managementName, String name)
 specifier|public
 name|ObjectName
@@ -1712,6 +1720,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForCamelContext (CamelContext context)
 specifier|public
 name|ObjectName
@@ -2013,6 +2023,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForEndpoint (Endpoint endpoint)
 specifier|public
 name|ObjectName
@@ -2110,6 +2122,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForDataFormat (CamelContext context, DataFormat dataFormat)
 specifier|public
 name|ObjectName
@@ -2238,6 +2252,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForComponent (Component component, String name)
 specifier|public
 name|ObjectName
@@ -2335,6 +2351,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForProcessor (CamelContext context, Processor processor, NamedNode definition)
 specifier|public
 name|ObjectName
@@ -2441,6 +2459,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForStep (CamelContext context, Processor processor, NamedNode definition)
 specifier|public
 name|ObjectName
@@ -2547,6 +2567,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForErrorHandler (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory builder)
 specifier|public
 name|ObjectName
@@ -2850,6 +2872,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForConsumer (CamelContext context, Consumer consumer)
 specifier|public
 name|ObjectName
@@ -2991,6 +3015,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForProducer (CamelContext context, Producer producer)
 specifier|public
 name|ObjectName
@@ -3132,6 +3158,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForTracer (CamelContext context, Service tracer)
 specifier|public
 name|ObjectName
@@ -3233,6 +3261,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForEventNotifier (CamelContext context, EventNotifier eventNotifier)
 specifier|public
 name|ObjectName
@@ -3369,6 +3399,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForRoute (Route route)
 specifier|public
 name|ObjectName
@@ -3479,6 +3511,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForService (CamelContext context, Service service)
 specifier|public
 name|ObjectName
@@ -3607,6 +3641,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForClusterService (CamelContext context, CamelClusterService service)
 specifier|public
 name|ObjectName
@@ -3735,6 +3771,8 @@ name|buffer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectNameForThreadPool (CamelContext context, ThreadPoolExecutor threadPool, String id, String sourceId)
 specifier|public
 name|ObjectName

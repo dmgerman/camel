@@ -147,6 +147,8 @@ literal|true
 return|;
 block|}
 comment|// START SNIPPET: example
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -394,6 +396,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testXmlDeclaration ()

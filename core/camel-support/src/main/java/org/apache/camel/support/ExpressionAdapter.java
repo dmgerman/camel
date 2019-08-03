@@ -41,6 +41,8 @@ name|ExpressionAdapter
 extends|extends
 name|ExpressionSupport
 block|{
+annotation|@
+name|Override
 DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected
 name|String
@@ -55,6 +57,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<

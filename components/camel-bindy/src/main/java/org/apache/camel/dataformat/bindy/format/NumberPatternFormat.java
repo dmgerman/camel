@@ -210,6 +210,8 @@ operator|=
 name|rounding
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|format (T object)
 specifier|public
 name|String
@@ -251,6 +253,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String string)
 specifier|public
 specifier|abstract
@@ -396,6 +400,8 @@ return|return
 name|format
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPattern ()
 specifier|public
 name|String

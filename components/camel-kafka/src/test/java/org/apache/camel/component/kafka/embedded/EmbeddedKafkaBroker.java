@@ -443,6 +443,8 @@ name|MODULE$
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|before ()
 specifier|public
 name|void
@@ -715,6 +717,8 @@ return|return
 name|port
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|after ()
 specifier|public
 name|void

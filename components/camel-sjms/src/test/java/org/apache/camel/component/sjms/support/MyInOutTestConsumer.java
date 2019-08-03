@@ -413,6 +413,8 @@ name|randomLong
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onMessage (Message message)
 specifier|public
 name|void

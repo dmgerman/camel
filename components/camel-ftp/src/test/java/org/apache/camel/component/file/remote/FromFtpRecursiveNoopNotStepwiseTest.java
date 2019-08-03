@@ -28,6 +28,8 @@ name|FromFtpRecursiveNoopNotStepwiseTest
 extends|extends
 name|FromFtpRecursiveNoopTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

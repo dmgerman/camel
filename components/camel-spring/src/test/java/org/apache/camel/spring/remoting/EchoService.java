@@ -26,6 +26,8 @@ name|EchoService
 implements|implements
 name|Echo
 block|{
+annotation|@
+name|Override
 DECL|method|echo (String name)
 specifier|public
 name|String

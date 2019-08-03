@@ -124,6 +124,8 @@ operator|=
 name|unwrapParameterFlag
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleMessage (Message message)
 specifier|public
 name|void

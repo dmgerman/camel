@@ -74,6 +74,8 @@ name|SpringAggregateSimplePredicateEagerTest
 extends|extends
 name|AggregateSimplePredicateEagerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

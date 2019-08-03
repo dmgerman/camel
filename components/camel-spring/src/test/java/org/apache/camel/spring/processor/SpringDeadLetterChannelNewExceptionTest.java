@@ -70,6 +70,8 @@ name|SpringDeadLetterChannelNewExceptionTest
 extends|extends
 name|DeadLetterChannelNewExceptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

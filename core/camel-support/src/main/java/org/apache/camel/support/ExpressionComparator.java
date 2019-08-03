@@ -86,6 +86,8 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare (Exchange e1, Exchange e2)
 specifier|public
 name|int

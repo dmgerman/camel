@@ -69,6 +69,8 @@ extends|extends
 name|FileConsumerSharedThreadPollTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testSharedThreadPool ()
 specifier|public

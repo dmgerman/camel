@@ -70,6 +70,8 @@ name|SpringNormalizerTest
 extends|extends
 name|NormalizerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

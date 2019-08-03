@@ -508,6 +508,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
@@ -617,6 +619,8 @@ block|}
 block|}
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
@@ -653,6 +657,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedOperation
 argument_list|(
@@ -699,6 +705,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|confirm (String key)
 specifier|public
 name|boolean
@@ -713,6 +721,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedOperation
 argument_list|(

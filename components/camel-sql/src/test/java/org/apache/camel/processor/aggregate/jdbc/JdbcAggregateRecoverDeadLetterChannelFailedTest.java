@@ -76,6 +76,8 @@ name|JdbcAggregateRecoverDeadLetterChannelFailedTest
 extends|extends
 name|AbstractJdbcAggregationTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|configureJdbcAggregationRepository ()
 name|void
 name|configureJdbcAggregationRepository

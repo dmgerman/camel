@@ -63,6 +63,8 @@ specifier|private
 name|Object
 name|body
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getBody (GenericFile<T> file)
 specifier|public
 name|Object
@@ -79,6 +81,8 @@ return|return
 name|body
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBody (GenericFile<T> file, Object body)
 specifier|public
 name|void
@@ -101,6 +105,8 @@ operator|=
 name|body
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadContent (Exchange exchange, GenericFile<?> file)
 specifier|public
 name|void

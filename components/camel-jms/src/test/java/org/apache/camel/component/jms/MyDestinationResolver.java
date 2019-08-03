@@ -72,6 +72,8 @@ name|MyDestinationResolver
 implements|implements
 name|DestinationResolver
 block|{
+annotation|@
+name|Override
 DECL|method|resolveDestinationName (Session session, String destinationName, boolean pubSubDomain)
 specifier|public
 name|Destination

@@ -80,6 +80,8 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|chooseProcessor (AsyncProcessor[] processors, Exchange exchange)
 specifier|protected
 name|AsyncProcessor

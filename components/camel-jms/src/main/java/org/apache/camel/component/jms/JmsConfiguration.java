@@ -2603,6 +2603,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (final String destinationName, final MessageCreator messageCreator)
 specifier|public
 name|void
@@ -2667,6 +2669,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (final Destination destination, final MessageCreator messageCreator)
 specifier|public
 name|void

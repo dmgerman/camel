@@ -161,6 +161,8 @@ name|sipPublisher
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processRequest (RequestEvent requestEvent)
 specifier|public
 name|void
@@ -173,6 +175,8 @@ block|{
 comment|// The SipPublishListener associated with the SipPublisher
 comment|// may not accept incoming requests
 block|}
+annotation|@
+name|Override
 DECL|method|processResponse (ResponseEvent responseReceivedEvent)
 specifier|public
 name|void
@@ -186,6 +190,8 @@ comment|// The SipPublishListener sends InOnly requests to the Presence Agent
 comment|// and only receives ACKs from the Presence Agent to satisfy the
 comment|// Sip handshakeand. Hence any responses are not further processed.
 block|}
+annotation|@
+name|Override
 DECL|method|processTimeout (javax.sip.TimeoutEvent timeoutEvent)
 specifier|public
 name|void
@@ -216,6 +222,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processDialogTerminated (DialogTerminatedEvent dialogTerminatedEvent)
 specifier|public
 name|void
@@ -242,6 +250,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processIOException (IOExceptionEvent ioExceptionEvent)
 specifier|public
 name|void
@@ -268,6 +278,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processTransactionTerminated (TransactionTerminatedEvent transactionTerminatedEvent)
 specifier|public
 name|void

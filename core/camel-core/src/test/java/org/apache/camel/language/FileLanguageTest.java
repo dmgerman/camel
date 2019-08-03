@@ -244,6 +244,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
@@ -1160,6 +1162,8 @@ literal|"tar.gz"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange ()
 specifier|public
 name|Exchange

@@ -255,6 +255,8 @@ return|return
 literal|"org/apache/camel/test/cxf/blueprint/CxfConsumerSoap12Beans.xml"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
 name|boolean

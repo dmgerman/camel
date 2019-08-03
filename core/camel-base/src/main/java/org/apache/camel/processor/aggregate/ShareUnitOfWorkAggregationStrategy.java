@@ -334,6 +334,8 @@ name|newExchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange

@@ -490,6 +490,8 @@ name|isCharacters
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isWhiteSpace ()
 specifier|public
 name|boolean
@@ -503,6 +505,8 @@ name|isWhiteSpace
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributeValue (String namespaceURI, String localName)
 specifier|public
 name|String
@@ -526,6 +530,8 @@ name|localName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributeCount ()
 specifier|public
 name|int
@@ -539,6 +545,8 @@ name|getAttributeCount
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributeName (int index)
 specifier|public
 name|QName
@@ -557,6 +565,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributeNamespace (int index)
 specifier|public
 name|String
@@ -575,6 +585,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributeLocalName (int index)
 specifier|public
 name|String
@@ -593,6 +605,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributePrefix (int index)
 specifier|public
 name|String
@@ -611,6 +625,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributeType (int index)
 specifier|public
 name|String
@@ -629,6 +645,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttributeValue (int index)
 specifier|public
 name|String
@@ -647,6 +665,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAttributeSpecified (int index)
 specifier|public
 name|boolean
@@ -665,6 +685,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaceCount ()
 specifier|public
 name|int
@@ -690,6 +712,8 @@ name|getNamespaceCount
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespacePrefix (int index)
 specifier|public
 name|String
@@ -742,6 +766,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaceURI (int index)
 specifier|public
 name|String
@@ -797,6 +823,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaceContext ()
 specifier|public
 name|NamespaceContext
@@ -810,6 +838,8 @@ name|getNamespaceContext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEventType ()
 specifier|public
 name|int
@@ -823,6 +853,8 @@ name|getEventType
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getText ()
 specifier|public
 name|String
@@ -836,6 +868,8 @@ name|getText
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTextCharacters ()
 specifier|public
 name|char
@@ -850,6 +884,8 @@ name|getTextCharacters
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTextCharacters (int sourceStart, char[] target, int targetStart, int length)
 specifier|public
 name|int
@@ -886,6 +922,8 @@ name|length
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTextStart ()
 specifier|public
 name|int
@@ -899,6 +937,8 @@ name|getTextStart
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTextLength ()
 specifier|public
 name|int
@@ -912,6 +952,8 @@ name|getTextLength
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEncoding ()
 specifier|public
 name|String
@@ -925,6 +967,8 @@ name|getEncoding
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasText ()
 specifier|public
 name|boolean
@@ -938,6 +982,8 @@ name|hasText
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLocation ()
 specifier|public
 name|Location
@@ -951,6 +997,8 @@ name|getLocation
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getName ()
 specifier|public
 name|QName
@@ -964,6 +1012,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLocalName ()
 specifier|public
 name|String
@@ -977,6 +1027,8 @@ name|getLocalName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasName ()
 specifier|public
 name|boolean
@@ -990,6 +1042,8 @@ name|hasName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaceURI ()
 specifier|public
 name|String
@@ -1003,6 +1057,8 @@ name|getNamespaceURI
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPrefix ()
 specifier|public
 name|String
@@ -1016,6 +1072,8 @@ name|getPrefix
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion ()
 specifier|public
 name|String
@@ -1029,6 +1087,8 @@ name|getVersion
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStandalone ()
 specifier|public
 name|boolean
@@ -1042,6 +1102,8 @@ name|isStandalone
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|standaloneSet ()
 specifier|public
 name|boolean
@@ -1055,6 +1117,8 @@ name|standaloneSet
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCharacterEncodingScheme ()
 specifier|public
 name|String
@@ -1068,6 +1132,8 @@ name|getCharacterEncodingScheme
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPITarget ()
 specifier|public
 name|String
@@ -1081,6 +1147,8 @@ name|getPITarget
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPIData ()
 specifier|public
 name|String

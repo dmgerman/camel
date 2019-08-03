@@ -224,6 +224,8 @@ return|return
 name|backlogDebugger
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -237,6 +239,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelManagementName ()
 specifier|public
 name|String
@@ -250,6 +254,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLoggingLevel ()
 specifier|public
 name|String
@@ -263,6 +269,8 @@ name|getLoggingLevel
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLoggingLevel (String level)
 specifier|public
 name|void
@@ -280,6 +288,8 @@ name|level
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -293,6 +303,8 @@ name|isEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|enableDebugger ()
 specifier|public
 name|void
@@ -305,6 +317,8 @@ name|enableDebugger
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|disableDebugger ()
 specifier|public
 name|void
@@ -317,6 +331,8 @@ name|disableDebugger
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addBreakpoint (String nodeId)
 specifier|public
 name|void
@@ -334,6 +350,8 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addConditionalBreakpoint (String nodeId, String language, String predicate)
 specifier|public
 name|void
@@ -361,6 +379,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeBreakpoint (String nodeId)
 specifier|public
 name|void
@@ -378,6 +398,8 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeAllBreakpoints ()
 specifier|public
 name|void
@@ -390,6 +412,8 @@ name|removeAllBreakpoints
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBreakpoints ()
 specifier|public
 name|Set
@@ -406,6 +430,8 @@ name|getBreakpoints
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resumeBreakpoint (String nodeId)
 specifier|public
 name|void
@@ -423,6 +449,8 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageBodyOnBreakpoint (String nodeId, Object body)
 specifier|public
 name|void
@@ -445,6 +473,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageBodyOnBreakpoint (String nodeId, Object body, String type)
 specifier|public
 name|void
@@ -506,6 +536,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|removeMessageBodyOnBreakpoint (String nodeId)
 specifier|public
 name|void
@@ -523,6 +555,8 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageHeaderOnBreakpoint (String nodeId, String headerName, Object value)
 specifier|public
 name|void
@@ -568,6 +602,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageHeaderOnBreakpoint (String nodeId, String headerName, Object value, String type)
 specifier|public
 name|void
@@ -634,6 +670,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|removeMessageHeaderOnBreakpoint (String nodeId, String headerName)
 specifier|public
 name|void
@@ -656,6 +694,8 @@ name|headerName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resumeAll ()
 specifier|public
 name|void
@@ -668,6 +708,8 @@ name|resumeAll
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stepBreakpoint (String nodeId)
 specifier|public
 name|void
@@ -685,6 +727,8 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleStepMode ()
 specifier|public
 name|boolean
@@ -698,6 +742,8 @@ name|isSingleStepMode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|step ()
 specifier|public
 name|void
@@ -710,6 +756,8 @@ name|step
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSuspendedBreakpointNodeIds ()
 specifier|public
 name|Set
@@ -726,6 +774,8 @@ name|getSuspendedBreakpointNodeIds
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|disableBreakpoint (String nodeId)
 specifier|public
 name|void
@@ -743,6 +793,8 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|enableBreakpoint (String nodeId)
 specifier|public
 name|void
@@ -760,6 +812,8 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBodyMaxChars ()
 specifier|public
 name|int
@@ -773,6 +827,8 @@ name|getBodyMaxChars
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBodyMaxChars (int bodyMaxChars)
 specifier|public
 name|void
@@ -790,6 +846,8 @@ name|bodyMaxChars
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isBodyIncludeStreams ()
 specifier|public
 name|boolean
@@ -803,6 +861,8 @@ name|isBodyIncludeStreams
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBodyIncludeStreams (boolean bodyIncludeStreams)
 specifier|public
 name|void
@@ -820,6 +880,8 @@ name|bodyIncludeStreams
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isBodyIncludeFiles ()
 specifier|public
 name|boolean
@@ -833,6 +895,8 @@ name|isBodyIncludeFiles
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBodyIncludeFiles (boolean bodyIncludeFiles)
 specifier|public
 name|void
@@ -850,6 +914,8 @@ name|bodyIncludeFiles
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpTracedMessagesAsXml (String nodeId)
 specifier|public
 name|String
@@ -868,6 +934,8 @@ name|nodeId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDebugCounter ()
 specifier|public
 name|long
@@ -881,6 +949,8 @@ name|getDebugCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetDebugCounter ()
 specifier|public
 name|void
@@ -893,6 +963,8 @@ name|resetDebugCounter
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|validateConditionalBreakpoint (String language, String predicate)
 specifier|public
 name|String
@@ -969,6 +1041,8 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getFallbackTimeout ()
 specifier|public
 name|long
@@ -982,6 +1056,8 @@ name|getFallbackTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setFallbackTimeout (long fallbackTimeout)
 specifier|public
 name|void

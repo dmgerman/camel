@@ -83,6 +83,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Reads characters into a portion of an array.      *       * @exception IOException      *                If an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|read (char cbuf[], int off, int len)
 specifier|public
 name|int

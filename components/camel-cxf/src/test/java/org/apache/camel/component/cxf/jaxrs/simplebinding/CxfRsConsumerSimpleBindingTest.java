@@ -578,6 +578,8 @@ name|CloseableHttpClient
 name|httpclient
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -627,6 +629,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown ()
 specifier|public
@@ -647,6 +651,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -289,6 +289,8 @@ name|MyAggregationStrategy
 implements|implements
 name|AggregationStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange

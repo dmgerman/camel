@@ -208,6 +208,8 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onEvent (EventIterator events)
 specifier|public
 name|void

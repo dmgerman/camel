@@ -196,6 +196,8 @@ operator|=
 name|config
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -215,6 +217,8 @@ literal|"You cannot create a consumer for a Printer endpoint"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -233,6 +237,8 @@ name|config
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

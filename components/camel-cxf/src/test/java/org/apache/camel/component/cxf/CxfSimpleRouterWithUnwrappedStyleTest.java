@@ -143,6 +143,8 @@ name|SERVICE_CLASS
 operator|+
 literal|"&wrappedStyle=false"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|configureFactory (ServerFactoryBean svrBean)
 specifier|protected
 name|void
@@ -163,6 +165,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -204,6 +208,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCXFClient ()
 specifier|protected
 name|HelloService
@@ -270,6 +276,8 @@ name|client
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testOnwayInvocation ()
 specifier|public
@@ -281,6 +289,8 @@ name|Exception
 block|{
 comment|// ignore the invocation without parameter, as the document-literal doesn't support the invocation without parameter.
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testInvokingServiceFromCXFClient ()

@@ -74,6 +74,8 @@ name|SpringAggregateExpressionTimeoutPerGroupTest
 extends|extends
 name|AggregateExpressionTimeoutPerGroupTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

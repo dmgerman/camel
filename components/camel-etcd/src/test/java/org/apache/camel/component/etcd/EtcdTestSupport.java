@@ -169,6 +169,8 @@ block|}
 block|}
 block|}
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
 name|boolean

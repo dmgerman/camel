@@ -53,6 +53,8 @@ literal|"org.apache.camel.spring:"
 operator|+
 literal|"org.apache.camel.util.spring:"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getPackages ()
 specifier|protected
 name|String

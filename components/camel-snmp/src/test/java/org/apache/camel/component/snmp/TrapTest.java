@@ -602,6 +602,8 @@ block|}
 block|}
 block|}
 comment|/**      * RouteBuilders for the SNMP TRAP producer and consumer      */
+annotation|@
+name|Override
 DECL|method|createRouteBuilders ()
 specifier|protected
 name|RoutesBuilder

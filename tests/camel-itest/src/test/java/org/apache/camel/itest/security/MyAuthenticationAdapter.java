@@ -94,6 +94,8 @@ name|MyAuthenticationAdapter
 extends|extends
 name|DefaultAuthenticationAdapter
 block|{
+annotation|@
+name|Override
 DECL|method|convertToAuthentication (Subject subject)
 specifier|protected
 name|Authentication

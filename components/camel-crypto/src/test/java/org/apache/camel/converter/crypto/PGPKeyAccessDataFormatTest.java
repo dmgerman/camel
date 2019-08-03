@@ -56,6 +56,8 @@ name|PGPKeyAccessDataFormatTest
 extends|extends
 name|CamelTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

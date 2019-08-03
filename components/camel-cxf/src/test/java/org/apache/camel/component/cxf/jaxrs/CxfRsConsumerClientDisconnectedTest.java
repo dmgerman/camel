@@ -214,6 +214,8 @@ argument_list|()
 operator|+
 literal|"&dataFormat=PAYLOAD&resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

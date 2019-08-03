@@ -194,6 +194,8 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|rollback (Consumer consumer, Endpoint endpoint, int retryCounter, Exception cause)
 specifier|public
 name|boolean
@@ -371,6 +373,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -379,6 +383,8 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

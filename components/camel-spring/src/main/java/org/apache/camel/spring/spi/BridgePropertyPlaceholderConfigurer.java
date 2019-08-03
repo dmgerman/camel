@@ -636,6 +636,8 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolvePlaceholder (String placeholderName)
 specifier|public
 name|String

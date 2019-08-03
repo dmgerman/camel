@@ -266,6 +266,8 @@ name|MyCustomStrategy
 implements|implements
 name|ParameterMappingStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|getDefaultParameterTypeExpression (Class<?> parameterType)
 specifier|public
 name|Expression

@@ -105,6 +105,8 @@ operator|=
 name|source
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContext ()
 specifier|public
 name|CamelContext

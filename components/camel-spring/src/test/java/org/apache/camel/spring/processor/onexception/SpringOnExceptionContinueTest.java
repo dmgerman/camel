@@ -74,6 +74,8 @@ name|SpringOnExceptionContinueTest
 extends|extends
 name|OnExceptionContinueTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

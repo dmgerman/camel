@@ -313,6 +313,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -338,6 +340,8 @@ name|SplitAggregate
 implements|implements
 name|AggregationStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange

@@ -165,6 +165,8 @@ argument_list|<
 name|Byte
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|format (Byte object)
 specifier|public
 name|String
@@ -183,6 +185,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String string)
 specifier|public
 name|Byte

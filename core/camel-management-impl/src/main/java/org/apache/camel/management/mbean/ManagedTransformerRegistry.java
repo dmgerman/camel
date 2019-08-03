@@ -268,6 +268,8 @@ operator|=
 name|transformerRegistry
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (ManagementStrategy strategy)
 specifier|public
 name|void
@@ -295,6 +297,8 @@ return|return
 name|transformerRegistry
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource ()
 specifier|public
 name|String
@@ -308,6 +312,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDynamicSize ()
 specifier|public
 name|Integer
@@ -321,6 +327,8 @@ name|dynamicSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStaticSize ()
 specifier|public
 name|Integer
@@ -334,6 +342,8 @@ name|staticSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSize ()
 specifier|public
 name|Integer
@@ -347,6 +357,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumCacheSize ()
 specifier|public
 name|Integer
@@ -360,6 +372,8 @@ name|getMaximumCacheSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|purge ()
 specifier|public
 name|void
@@ -372,6 +386,8 @@ name|purge
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

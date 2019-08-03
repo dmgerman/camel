@@ -177,6 +177,8 @@ argument_list|<
 name|Object
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|setEndpoint (GenericFileEndpoint<Object> endpoint)
 specifier|public
 name|void
@@ -189,6 +191,8 @@ argument_list|>
 name|endpoint
 parameter_list|)
 block|{         }
+annotation|@
+name|Override
 DECL|method|deleteFile (String name)
 specifier|public
 name|boolean
@@ -207,6 +211,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|existsFile (String name)
 specifier|public
 name|boolean
@@ -248,6 +254,8 @@ operator|<=
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|renameFile (String from, String to)
 specifier|public
 name|boolean
@@ -266,6 +274,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildDirectory (String directory, boolean absolute)
 specifier|public
 name|boolean
@@ -284,6 +294,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveFile (String name, Exchange exchange, long size)
 specifier|public
 name|boolean
@@ -305,6 +317,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|releaseRetrievedFileResources (Exchange exchange)
 specifier|public
 name|void
@@ -318,6 +332,8 @@ name|GenericFileOperationFailedException
 block|{
 comment|// No-op
 block|}
+annotation|@
+name|Override
 DECL|method|storeFile (String name, Exchange exchange, long size)
 specifier|public
 name|boolean
@@ -339,6 +355,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCurrentDirectory ()
 specifier|public
 name|String
@@ -351,6 +369,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|changeCurrentDirectory (String path)
 specifier|public
 name|void
@@ -362,6 +382,8 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{         }
+annotation|@
+name|Override
 DECL|method|changeToParentDirectory ()
 specifier|public
 name|void
@@ -370,6 +392,8 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 block|{         }
+annotation|@
+name|Override
 DECL|method|listFiles ()
 specifier|public
 name|List
@@ -385,6 +409,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|listFiles (String path)
 specifier|public
 name|List

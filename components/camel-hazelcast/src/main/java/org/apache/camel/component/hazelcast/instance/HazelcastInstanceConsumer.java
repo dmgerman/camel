@@ -210,6 +210,8 @@ name|HazelcastMembershipListener
 implements|implements
 name|MembershipListener
 block|{
+annotation|@
+name|Override
 DECL|method|memberAdded (MembershipEvent event)
 specifier|public
 name|void
@@ -231,6 +233,8 @@ name|ADDED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|memberRemoved (MembershipEvent event)
 specifier|public
 name|void
@@ -252,6 +256,8 @@ name|REMOVED
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|memberAttributeChanged (MemberAttributeEvent event)
 specifier|public
 name|void

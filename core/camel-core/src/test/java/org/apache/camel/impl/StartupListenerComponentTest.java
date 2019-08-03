@@ -196,6 +196,8 @@ specifier|private
 name|int
 name|invoked
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onCamelContextStarted (CamelContext context, boolean alreadyStarted)
 specifier|public
 name|void

@@ -130,6 +130,8 @@ name|DefaultEventFactory
 implements|implements
 name|EventFactory
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContextStartingEvent (CamelContext context)
 specifier|public
 name|CamelEvent
@@ -147,6 +149,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextStartedEvent (CamelContext context)
 specifier|public
 name|CamelEvent
@@ -164,6 +168,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextStoppingEvent (CamelContext context)
 specifier|public
 name|CamelEvent
@@ -181,6 +187,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextStoppedEvent (CamelContext context)
 specifier|public
 name|CamelEvent
@@ -198,6 +206,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextStartupFailureEvent (CamelContext context, Throwable cause)
 specifier|public
 name|CamelEvent
@@ -220,6 +230,8 @@ name|cause
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextStopFailureEvent (CamelContext context, Throwable cause)
 specifier|public
 name|CamelEvent
@@ -242,6 +254,8 @@ name|cause
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Throwable cause)
 specifier|public
 name|CamelEvent
@@ -269,6 +283,8 @@ name|cause
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createServiceStopFailureEvent (CamelContext context, Object service, Throwable cause)
 specifier|public
 name|CamelEvent
@@ -296,6 +312,8 @@ name|cause
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteStartedEvent (Route route)
 specifier|public
 name|CamelEvent
@@ -313,6 +331,8 @@ name|route
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteStoppedEvent (Route route)
 specifier|public
 name|CamelEvent
@@ -330,6 +350,8 @@ name|route
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteAddedEvent (Route route)
 specifier|public
 name|CamelEvent
@@ -347,6 +369,8 @@ name|route
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteRemovedEvent (Route route)
 specifier|public
 name|CamelEvent
@@ -364,6 +388,8 @@ name|route
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchangeCreatedEvent (Exchange exchange)
 specifier|public
 name|CamelEvent
@@ -381,6 +407,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchangeCompletedEvent (Exchange exchange)
 specifier|public
 name|CamelEvent
@@ -398,6 +426,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchangeFailedEvent (Exchange exchange)
 specifier|public
 name|CamelEvent
@@ -415,6 +445,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchangeFailureHandlingEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
 name|CamelEvent
@@ -473,6 +505,8 @@ name|deadLetterUri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
 name|CamelEvent
@@ -531,6 +565,8 @@ name|deadLetterUri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchangeRedeliveryEvent (Exchange exchange, int attempt)
 specifier|public
 name|CamelEvent
@@ -553,6 +589,8 @@ name|attempt
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchangeSendingEvent (Exchange exchange, Endpoint endpoint)
 specifier|public
 name|CamelEvent
@@ -575,6 +613,8 @@ name|endpoint
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchangeSentEvent (Exchange exchange, Endpoint endpoint, long timeTaken)
 specifier|public
 name|CamelEvent
@@ -602,6 +642,8 @@ name|timeTaken
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createStepStartedEvent (Exchange exchange, String stepId)
 specifier|public
 name|CamelEvent
@@ -624,6 +666,8 @@ name|stepId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createStepCompletedEvent (Exchange exchange, String stepId)
 specifier|public
 name|CamelEvent
@@ -646,6 +690,8 @@ name|stepId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createStepFailedEvent (Exchange exchange, String stepId)
 specifier|public
 name|CamelEvent
@@ -668,6 +714,8 @@ name|stepId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextSuspendingEvent (CamelContext context)
 specifier|public
 name|CamelEvent
@@ -685,6 +733,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextSuspendedEvent (CamelContext context)
 specifier|public
 name|CamelEvent
@@ -702,6 +752,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextResumingEvent (CamelContext context)
 specifier|public
 name|CamelEvent
@@ -719,6 +771,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextResumedEvent (CamelContext context)
 specifier|public
 name|CamelEvent
@@ -736,6 +790,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextResumeFailureEvent (CamelContext context, Throwable cause)
 specifier|public
 name|CamelEvent

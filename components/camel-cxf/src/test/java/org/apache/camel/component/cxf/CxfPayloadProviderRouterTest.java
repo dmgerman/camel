@@ -369,6 +369,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testPublishEndpointUrl ()
 specifier|public

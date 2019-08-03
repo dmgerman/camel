@@ -110,6 +110,8 @@ name|Ordered
 implements|,
 name|SynchronizationRouteAware
 block|{
+annotation|@
+name|Override
 DECL|method|onComplete (Exchange exchange)
 specifier|public
 name|void
@@ -125,6 +127,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onFailure (Exchange exchange)
 specifier|public
 name|void
@@ -151,6 +155,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|allowHandover ()
 specifier|public
 name|boolean
@@ -162,6 +168,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOrder ()
 specifier|public
 name|int
@@ -173,6 +181,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onBeforeRoute (Route route, Exchange exchange)
 specifier|public
 name|void
@@ -187,6 +197,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onAfterRoute (Route route, Exchange exchange)
 specifier|public
 name|void

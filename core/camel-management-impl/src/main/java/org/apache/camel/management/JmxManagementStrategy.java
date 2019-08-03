@@ -176,6 +176,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|manageObject (Object managedObject)
 specifier|public
 name|void
@@ -217,6 +219,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|unmanageObject (Object managedObject)
 specifier|public
 name|void
@@ -256,6 +260,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isManaged (Object managedObject)
 specifier|public
 name|boolean
@@ -316,6 +322,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isManagedName (Object name)
 specifier|public
 name|boolean
@@ -404,6 +412,8 @@ name|doStartManagementStrategy
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createManagementObjectNameStrategy (String domain)
 specifier|protected
 name|ManagementObjectNameStrategy
@@ -421,6 +431,8 @@ name|domain
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createManagementObjectStrategy ()
 specifier|protected
 name|ManagementObjectStrategy

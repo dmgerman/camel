@@ -194,6 +194,8 @@ specifier|public
 name|SecurityAuthenticatorSupport
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -210,6 +212,8 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getName ()
 specifier|public
 name|String
@@ -220,6 +224,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRoleClassNames (String roleClassNames)
 specifier|public
 name|void

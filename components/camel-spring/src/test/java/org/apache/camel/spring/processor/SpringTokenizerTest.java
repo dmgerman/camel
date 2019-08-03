@@ -70,6 +70,8 @@ name|SpringTokenizerTest
 extends|extends
 name|SplitterMethodCallTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -199,6 +199,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String

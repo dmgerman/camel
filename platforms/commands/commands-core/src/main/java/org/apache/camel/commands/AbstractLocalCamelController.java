@@ -419,6 +419,8 @@ name|AbstractCamelController
 implements|implements
 name|LocalCamelController
 block|{
+annotation|@
+name|Override
 DECL|method|getLocalCamelContext (String name)
 specifier|public
 name|CamelContext
@@ -1464,6 +1466,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContextStatsAsXml (String camelContextName, boolean fullStats, boolean includeProcessors)
 specifier|public
 name|String
@@ -1641,6 +1645,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2017,6 +2023,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|startContext (String camelContextName)
 specifier|public
 name|void
@@ -2074,6 +2082,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|stopContext (String camelContextName)
 specifier|public
 name|void
@@ -2107,6 +2117,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|suspendContext (String camelContextName)
 specifier|public
 name|void
@@ -2140,6 +2152,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|resumeContext (String camelContextName)
 specifier|public
 name|void
@@ -2173,6 +2187,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getRoutes (String camelContextName)
 specifier|public
 name|List
@@ -2201,6 +2217,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoutes (String camelContextName, String filter)
 specifier|public
 name|List
@@ -2650,6 +2668,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetRouteStats (String camelContextName)
 specifier|public
 name|void
@@ -2804,6 +2824,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|startRoute (String camelContextName, String routeId)
 specifier|public
 name|void
@@ -2845,6 +2867,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|stopRoute (String camelContextName, String routeId)
 specifier|public
 name|void
@@ -2886,6 +2910,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|suspendRoute (String camelContextName, String routeId)
 specifier|public
 name|void
@@ -2927,6 +2953,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|resumeRoute (String camelContextName, String routeId)
 specifier|public
 name|void
@@ -2968,6 +2996,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteModelAsXml (String routeId, String camelContextName)
 specifier|public
 name|String
@@ -3391,6 +3421,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestModelAsXml (String camelContextName)
 specifier|public
 name|String
@@ -3483,6 +3515,8 @@ name|def
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestApiDocAsJson (String camelContextName)
 specifier|public
 name|String
@@ -3525,6 +3559,8 @@ name|apiDocAsJson
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoints (String camelContextName)
 specifier|public
 name|List
@@ -3716,6 +3752,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointRuntimeStatistics (String camelContextName)
 specifier|public
 name|List
@@ -4077,6 +4115,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestServices (String camelContextName)
 specifier|public
 name|List

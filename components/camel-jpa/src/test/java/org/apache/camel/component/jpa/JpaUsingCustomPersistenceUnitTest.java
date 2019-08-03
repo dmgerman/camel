@@ -40,6 +40,8 @@ name|JpaUsingCustomPersistenceUnitTest
 extends|extends
 name|JpaTest
 block|{
+annotation|@
+name|Override
 DECL|method|getEndpointUri ()
 specifier|protected
 name|String

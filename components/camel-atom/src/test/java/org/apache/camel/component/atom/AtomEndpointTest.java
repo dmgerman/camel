@@ -44,6 +44,8 @@ name|AtomEndpointTest
 extends|extends
 name|AtomPollingConsumerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

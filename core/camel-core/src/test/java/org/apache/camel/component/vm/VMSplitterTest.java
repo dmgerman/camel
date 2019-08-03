@@ -100,6 +100,8 @@ name|VMSplitterTest
 extends|extends
 name|AbstractVmTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry

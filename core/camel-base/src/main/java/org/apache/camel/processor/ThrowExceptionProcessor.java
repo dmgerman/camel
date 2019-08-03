@@ -266,6 +266,8 @@ operator|=
 name|message
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -438,6 +440,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
@@ -478,6 +482,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -488,6 +494,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -539,6 +547,8 @@ return|return
 name|message
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -549,6 +559,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -565,6 +577,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

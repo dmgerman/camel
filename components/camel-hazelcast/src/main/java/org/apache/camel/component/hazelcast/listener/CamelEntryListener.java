@@ -126,6 +126,8 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|entryAdded (EntryEvent<Object, Object> event)
 specifier|public
 name|void
@@ -160,6 +162,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|entryEvicted (EntryEvent<Object, Object> event)
 specifier|public
 name|void
@@ -194,6 +198,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|mapEvicted (MapEvent mapEvent)
 specifier|public
 name|void
@@ -205,6 +211,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|mapCleared (MapEvent mapEvent)
 specifier|public
 name|void
@@ -216,6 +224,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|entryRemoved (EntryEvent<Object, Object> event)
 specifier|public
 name|void
@@ -250,6 +260,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|entryUpdated (EntryEvent<Object, Object> event)
 specifier|public
 name|void

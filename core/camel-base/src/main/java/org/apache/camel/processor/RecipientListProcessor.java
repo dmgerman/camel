@@ -511,6 +511,8 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIndex ()
 specifier|public
 name|int
@@ -521,6 +523,8 @@ return|return
 name|index
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchange ()
 specifier|public
 name|Exchange
@@ -531,6 +535,8 @@ return|return
 name|exchange
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProducer ()
 specifier|public
 name|Producer
@@ -541,6 +547,8 @@ return|return
 name|producer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
@@ -551,6 +559,8 @@ return|return
 name|prepared
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|begin ()
 specifier|public
 name|void
@@ -629,6 +639,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|done ()
 specifier|public
 name|void
@@ -1391,6 +1403,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1433,6 +1447,8 @@ name|producerCache
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -1454,6 +1470,8 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doShutdown ()
 specifier|protected
 name|void

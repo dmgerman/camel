@@ -174,6 +174,8 @@ operator|=
 name|messageAsXml
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUid ()
 specifier|public
 name|long
@@ -184,6 +186,8 @@ return|return
 name|uid
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimestamp ()
 specifier|public
 name|Date
@@ -194,6 +198,8 @@ return|return
 name|timestamp
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -204,6 +210,8 @@ return|return
 name|routeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getToNode ()
 specifier|public
 name|String
@@ -214,6 +222,8 @@ return|return
 name|toNode
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangeId ()
 specifier|public
 name|String
@@ -224,6 +234,8 @@ return|return
 name|exchangeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageAsXml ()
 specifier|public
 name|String
@@ -255,6 +267,8 @@ literal|"]"
 return|;
 block|}
 comment|/**      * Dumps the event message as XML using the {@link #ROOT_TAG} as root tag.      *<p/>      * The<tt>timestamp</tt> tag is formatted in the format defined by {@link #TIMESTAMP_FORMAT}      *      * @return xml representation of this event      */
+annotation|@
+name|Override
 DECL|method|toXml (int indent)
 specifier|public
 name|String

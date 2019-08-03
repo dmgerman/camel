@@ -99,6 +99,8 @@ extends|extends
 name|FromRestGetTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testFromRestModel ()
 specifier|public

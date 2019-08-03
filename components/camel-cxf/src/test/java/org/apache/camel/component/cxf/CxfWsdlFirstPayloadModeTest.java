@@ -165,6 +165,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testInvokingServiceWithCamelProducer ()
 specifier|public
@@ -176,6 +178,8 @@ name|Exception
 block|{
 comment|// this test does not apply to PAYLOAD mode
 block|}
+annotation|@
+name|Override
 DECL|method|verifyJaxwsHandlers (JaxwsTestHandler fromHandler, JaxwsTestHandler toHandler)
 specifier|protected
 name|void

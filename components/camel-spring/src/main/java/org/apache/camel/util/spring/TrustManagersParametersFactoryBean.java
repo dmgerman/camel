@@ -213,6 +213,8 @@ name|camelContextId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

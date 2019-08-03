@@ -188,6 +188,8 @@ return|return
 name|fallbackTypeConverters
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 specifier|public
 name|void
@@ -217,6 +219,8 @@ name|typeConverter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addTypeConverters (TypeConverters typeConverters)
 specifier|public
 name|void
@@ -228,6 +232,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|removeTypeConverter (Class<?> toType, Class<?> fromType)
 specifier|public
 name|boolean
@@ -251,6 +257,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addFallbackTypeConverter (TypeConverter typeConverter, boolean canPromote)
 specifier|public
 name|void
@@ -271,6 +279,8 @@ name|typeConverter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookup (Class<?> toType, Class<?> fromType)
 specifier|public
 name|TypeConverter
@@ -293,6 +303,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|listAllTypeConvertersFromTo ()
 specifier|public
 name|List
@@ -310,6 +322,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInjector (Injector injector)
 specifier|public
 name|void
@@ -321,6 +335,8 @@ parameter_list|)
 block|{
 comment|// do nothing
 block|}
+annotation|@
+name|Override
 DECL|method|getInjector ()
 specifier|public
 name|Injector
@@ -331,6 +347,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics ()
 specifier|public
 name|Statistics
@@ -341,6 +359,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size ()
 specifier|public
 name|int
@@ -354,6 +374,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExistsLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -366,6 +388,8 @@ operator|.
 name|WARN
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTypeConverterExistsLoggingLevel (LoggingLevel loggingLevel)
 specifier|public
 name|void
@@ -377,6 +401,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExists ()
 specifier|public
 name|TypeConverterExists
@@ -389,6 +415,8 @@ operator|.
 name|Override
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTypeConverterExists (TypeConverterExists typeConverterExists)
 specifier|public
 name|void
@@ -421,6 +449,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -432,6 +462,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -442,6 +474,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -450,6 +484,8 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

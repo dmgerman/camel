@@ -122,6 +122,8 @@ name|order
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compare (CharSequence first, CharSequence second)
 specifier|public
 name|int

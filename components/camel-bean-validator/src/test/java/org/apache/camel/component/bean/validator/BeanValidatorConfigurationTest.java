@@ -372,6 +372,8 @@ name|MyMessageInterpolator
 implements|implements
 name|MessageInterpolator
 block|{
+annotation|@
+name|Override
 DECL|method|interpolate (String messageTemplate, Context context)
 specifier|public
 name|String
@@ -388,6 +390,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|interpolate (String messageTemplate, Context context, Locale locale)
 specifier|public
 name|String
@@ -414,6 +418,8 @@ name|MyTraversableResolver
 implements|implements
 name|TraversableResolver
 block|{
+annotation|@
+name|Override
 DECL|method|isCascadable (Object traversableObject, Node traversableProperty, Class<?> rootBeanType, Path pathToTraversableObject, ElementType elementType)
 specifier|public
 name|boolean
@@ -442,6 +448,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isReachable (Object traversableObject, Node traversableProperty, Class<?> rootBeanType, Path pathToTraversableObject, ElementType elementType)
 specifier|public
 name|boolean
@@ -477,6 +485,8 @@ name|MyConstraintValidatorFactory
 implements|implements
 name|ConstraintValidatorFactory
 block|{
+annotation|@
+name|Override
 DECL|method|getInstance (Class<T> key)
 specifier|public
 parameter_list|<

@@ -70,6 +70,8 @@ name|SpringInheritErrorHandlerTrueTest
 extends|extends
 name|InheritErrorHandlerTrueTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

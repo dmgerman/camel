@@ -127,6 +127,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|resolveClass (ObjectStreamClass desc)
 specifier|protected
 name|Class

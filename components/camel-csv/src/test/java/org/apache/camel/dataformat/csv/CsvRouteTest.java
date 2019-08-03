@@ -959,6 +959,8 @@ expr_stmt|;
 block|}
 comment|// END SNIPPET : unmarshalResult
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

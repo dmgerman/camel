@@ -694,6 +694,8 @@ return|return
 literal|"hl7"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object body, OutputStream outputStream)
 specifier|public
 name|void
@@ -762,6 +764,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object

@@ -74,6 +74,8 @@ name|OnExceptionWithTwoBeansTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry

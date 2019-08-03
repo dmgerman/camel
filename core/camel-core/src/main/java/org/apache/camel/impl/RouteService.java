@@ -243,6 +243,8 @@ return|return
 name|routeDefinition
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStartupOrder ()
 specifier|public
 name|Integer
@@ -276,6 +278,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAutoStartup ()
 specifier|public
 name|boolean
@@ -351,6 +355,8 @@ operator|&&
 name|isAutoStartup
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isContextScopedErrorHandler ()
 specifier|public
 name|boolean
@@ -426,6 +432,8 @@ literal|true
 return|;
 block|}
 comment|/**      * Gather all other kind of route scoped services from the given route, except error handler      */
+annotation|@
+name|Override
 DECL|method|doGetRouteScopedServices (List<Service> services)
 specifier|protected
 name|void

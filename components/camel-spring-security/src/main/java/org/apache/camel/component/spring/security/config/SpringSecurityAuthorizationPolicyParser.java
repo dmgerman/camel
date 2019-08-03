@@ -124,6 +124,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEligibleAttribute (String attributeName)
 specifier|protected
 name|boolean
@@ -173,6 +175,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|postProcess (BeanDefinitionBuilder builder, Element element)
 specifier|protected
 name|void

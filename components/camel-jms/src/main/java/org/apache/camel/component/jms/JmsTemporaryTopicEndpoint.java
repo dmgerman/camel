@@ -172,6 +172,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This endpoint is a singleton so that the temporary destination instances are shared across all      * producers and consumers of the same endpoint URI      *      * @return true      */
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -182,6 +184,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getJmsDestination (Session session)
 specifier|public
 specifier|synchronized

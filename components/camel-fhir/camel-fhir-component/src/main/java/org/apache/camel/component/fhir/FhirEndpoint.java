@@ -603,6 +603,8 @@ operator|=
 name|endpointConfiguration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -619,6 +621,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -686,6 +690,8 @@ name|getHelper
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getThreadProfileName ()
 specifier|protected
 name|String

@@ -237,6 +237,8 @@ operator|.
 name|SOAP_12_BINDING
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getActivationNamespaces ()
 specifier|public
 name|List
@@ -250,6 +252,8 @@ return|return
 name|ACTIVATION_NS
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|filter (Direction direction, List<Header> headers)
 specifier|public
 name|void

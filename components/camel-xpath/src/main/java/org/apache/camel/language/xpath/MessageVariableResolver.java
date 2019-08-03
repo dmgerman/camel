@@ -266,6 +266,8 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveVariable (QName name)
 specifier|public
 name|Object

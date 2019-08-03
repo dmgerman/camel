@@ -168,6 +168,8 @@ name|useTransactionErrorHandler
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext
@@ -867,6 +869,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

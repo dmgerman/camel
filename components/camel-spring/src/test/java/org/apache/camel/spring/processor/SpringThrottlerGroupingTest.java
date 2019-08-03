@@ -70,6 +70,8 @@ name|SpringThrottlerGroupingTest
 extends|extends
 name|ThrottlingGroupingTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

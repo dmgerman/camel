@@ -188,6 +188,8 @@ operator|=
 name|slip
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext (Exchange exchange)
 specifier|public
 name|boolean
@@ -257,6 +259,8 @@ name|hasNext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next (Exchange exchange)
 specifier|public
 name|Object

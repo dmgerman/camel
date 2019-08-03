@@ -538,6 +538,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -548,6 +550,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -573,6 +577,8 @@ return|return
 name|factory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object body, OutputStream stream)
 specifier|public
 name|void
@@ -611,6 +617,8 @@ name|models
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
 name|Object

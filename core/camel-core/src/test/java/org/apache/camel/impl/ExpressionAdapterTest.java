@@ -94,6 +94,8 @@ name|MyExpression
 extends|extends
 name|ExpressionAdapter
 block|{
+annotation|@
+name|Override
 DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected
 name|String
@@ -107,6 +109,8 @@ return|return
 literal|"foo"
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

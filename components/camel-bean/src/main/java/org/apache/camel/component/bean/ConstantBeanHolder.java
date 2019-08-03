@@ -259,6 +259,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBean ()
 specifier|public
 name|Object
@@ -269,6 +271,8 @@ return|return
 name|bean
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
@@ -311,6 +315,8 @@ operator|.
 name|processor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportProcessor ()
 specifier|public
 name|boolean
@@ -321,6 +327,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanInfo ()
 specifier|public
 name|BeanInfo
@@ -331,6 +339,8 @@ return|return
 name|beanInfo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanInfo (Object bean)
 specifier|public
 name|BeanInfo

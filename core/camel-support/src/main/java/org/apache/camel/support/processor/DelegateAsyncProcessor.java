@@ -248,6 +248,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|AsyncProcessor
@@ -295,6 +297,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -311,6 +315,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -327,6 +333,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doShutdown ()
 specifier|protected
 name|void
@@ -343,6 +351,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
@@ -368,6 +378,8 @@ name|callback
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext ()
 specifier|public
 name|boolean
@@ -380,6 +392,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next ()
 specifier|public
 name|List

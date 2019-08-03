@@ -38,6 +38,8 @@ specifier|public
 class|class
 name|MyHelloBean
 block|{
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

@@ -455,6 +455,8 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (CamelContext camelContext, NettyServerBootstrapConfiguration configuration, ChannelInitializer<Channel> pipelineFactory)
 specifier|public
 name|void
@@ -492,6 +494,8 @@ operator|=
 name|pipelineFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (ThreadFactory threadFactory, NettyServerBootstrapConfiguration configuration, ChannelInitializer<Channel> pipelineFactory)
 specifier|public
 name|void
@@ -529,6 +533,8 @@ operator|=
 name|pipelineFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addChannel (Channel channel)
 specifier|public
 name|void
@@ -546,6 +552,8 @@ name|channel
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeChannel (Channel channel)
 specifier|public
 name|void
@@ -563,6 +571,8 @@ name|channel
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addConsumer (NettyConsumer consumer)
 specifier|public
 name|void
@@ -574,6 +584,8 @@ parameter_list|)
 block|{
 comment|// does not allow sharing
 block|}
+annotation|@
+name|Override
 DECL|method|removeConsumer (NettyConsumer consumer)
 specifier|public
 name|void

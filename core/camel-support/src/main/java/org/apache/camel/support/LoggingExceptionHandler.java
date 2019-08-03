@@ -233,6 +233,8 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleException (Throwable exception)
 specifier|public
 name|void
@@ -252,6 +254,8 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleException (String message, Throwable exception)
 specifier|public
 name|void
@@ -274,6 +278,8 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleException (String message, Exchange exchange, Throwable exception)
 specifier|public
 name|void

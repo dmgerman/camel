@@ -402,6 +402,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanId ()
 specifier|public
 name|String
@@ -412,6 +414,8 @@ return|return
 name|beanId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBeanId (String id)
 specifier|public
 name|void
@@ -499,6 +503,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setProperties (Map<String, Object> properties)
 specifier|public
 name|void

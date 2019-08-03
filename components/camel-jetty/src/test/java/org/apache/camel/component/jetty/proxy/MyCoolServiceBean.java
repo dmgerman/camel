@@ -28,6 +28,8 @@ name|MyCoolServiceBean
 implements|implements
 name|MyCoolService
 block|{
+annotation|@
+name|Override
 DECL|method|hello (String name)
 specifier|public
 name|String

@@ -406,6 +406,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Invoked whenever we should be polled      */
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

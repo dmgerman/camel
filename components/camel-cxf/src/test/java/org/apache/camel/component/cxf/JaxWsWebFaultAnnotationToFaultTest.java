@@ -199,6 +199,8 @@ name|MESSAGE
 init|=
 literal|"this is our test message for the exception"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

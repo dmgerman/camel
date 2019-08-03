@@ -70,6 +70,8 @@ name|SpringDynamicRouterTest
 extends|extends
 name|DynamicRouterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

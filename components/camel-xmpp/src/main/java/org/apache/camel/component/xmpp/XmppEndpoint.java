@@ -780,6 +780,8 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -920,6 +922,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -1927,6 +1931,8 @@ return|return
 name|serviceName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -1938,6 +1944,8 @@ name|headerFilterStrategy
 return|;
 block|}
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void

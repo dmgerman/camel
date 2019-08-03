@@ -116,6 +116,8 @@ name|JaxWSCamelConduitTest
 extends|extends
 name|JaxWSCamelTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

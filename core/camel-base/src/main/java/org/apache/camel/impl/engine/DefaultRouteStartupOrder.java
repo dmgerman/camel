@@ -161,6 +161,8 @@ operator|=
 name|routeService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStartupOrder ()
 specifier|public
 name|int
@@ -171,6 +173,8 @@ return|return
 name|startupOrder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoute ()
 specifier|public
 name|Route
@@ -181,6 +185,8 @@ return|return
 name|route
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInputs ()
 specifier|public
 name|List
@@ -215,6 +221,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getServices ()
 specifier|public
 name|List

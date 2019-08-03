@@ -333,6 +333,8 @@ operator|=
 name|remaining
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -352,6 +354,8 @@ literal|"An LDAP Consumer would be the LDAP server itself! No such support here"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer

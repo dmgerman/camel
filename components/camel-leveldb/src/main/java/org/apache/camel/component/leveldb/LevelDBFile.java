@@ -626,6 +626,8 @@ return|return
 name|options
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -915,6 +917,8 @@ literal|"Can't find implementation of org.iq80.leveldb.DBFactory"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

@@ -962,6 +962,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|next ()
 specifier|public
 name|List
@@ -991,6 +993,8 @@ name|processors
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext ()
 specifier|public
 name|boolean

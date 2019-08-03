@@ -68,6 +68,8 @@ name|SpringXMLTokenSplitTest
 extends|extends
 name|XMLTokenSplitTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -606,6 +606,8 @@ name|MyOtherOtherBuilderBean
 extends|extends
 name|MyOtherBuilderBean
 block|{
+annotation|@
+name|Override
 DECL|method|setName (String name)
 specifier|public
 name|MyOtherOtherBuilderBean

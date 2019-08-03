@@ -560,6 +560,8 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processPdu (CommandResponderEvent event)
 specifier|public
 name|void

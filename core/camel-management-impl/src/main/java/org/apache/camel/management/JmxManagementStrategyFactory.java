@@ -106,6 +106,8 @@ name|JmxManagementStrategyFactory
 implements|implements
 name|ManagementStrategyFactory
 block|{
+annotation|@
+name|Override
 DECL|method|create (CamelContext context, Map<String, Object> options)
 specifier|public
 name|ManagementStrategy

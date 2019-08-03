@@ -74,6 +74,8 @@ name|SpringAggregateSimpleTimeoutTest
 extends|extends
 name|AggregateSimpleTimeoutTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

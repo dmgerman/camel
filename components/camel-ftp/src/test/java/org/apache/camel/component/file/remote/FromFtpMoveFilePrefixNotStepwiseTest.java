@@ -32,6 +32,8 @@ name|FromFtpMoveFilePrefixNotStepwiseTest
 extends|extends
 name|FromFtpMoveFilePrefixTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

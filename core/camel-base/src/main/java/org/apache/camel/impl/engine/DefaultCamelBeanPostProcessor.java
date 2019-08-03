@@ -418,6 +418,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|postProcessBeforeInitialization (Object bean, String beanName)
 specifier|public
 name|Object
@@ -584,6 +586,8 @@ return|return
 name|bean
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|postProcessAfterInitialization (Object bean, String beanName)
 specifier|public
 name|Object

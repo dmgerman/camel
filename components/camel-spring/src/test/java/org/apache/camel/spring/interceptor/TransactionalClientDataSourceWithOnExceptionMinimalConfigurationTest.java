@@ -58,6 +58,8 @@ name|TransactionalClientDataSourceWithOnExceptionMinimalConfigurationTest
 extends|extends
 name|TransactionalClientDataSourceWithOnExceptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

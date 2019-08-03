@@ -274,6 +274,8 @@ name|InterceptStrategy
 implements|,
 name|Ordered
 block|{
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, final Processor target, Processor nextTarget)
 specifier|public
 name|Processor
@@ -364,6 +366,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOrder ()
 specifier|public
 name|int
@@ -385,6 +389,8 @@ name|InterceptStrategy
 implements|,
 name|Ordered
 block|{
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, final Processor target, Processor nextTarget)
 specifier|public
 name|Processor
@@ -475,6 +481,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOrder ()
 specifier|public
 name|int

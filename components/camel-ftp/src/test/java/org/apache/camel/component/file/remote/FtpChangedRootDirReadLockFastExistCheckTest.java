@@ -32,6 +32,8 @@ name|FtpChangedRootDirReadLockFastExistCheckTest
 extends|extends
 name|FtpChangedRootDirReadLockTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

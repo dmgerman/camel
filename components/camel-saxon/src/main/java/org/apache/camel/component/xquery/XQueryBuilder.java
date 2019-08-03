@@ -909,6 +909,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -959,6 +961,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1556,6 +1560,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
@@ -2142,6 +2148,8 @@ block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 comment|/**      * Configures the namespace context from the given DOM element      */
+annotation|@
+name|Override
 DECL|method|setNamespaces (Map<String, String> namespaces)
 specifier|public
 name|void
@@ -2172,6 +2180,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaces ()
 specifier|public
 name|Map

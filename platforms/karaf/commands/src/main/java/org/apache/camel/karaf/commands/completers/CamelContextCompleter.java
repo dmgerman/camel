@@ -168,6 +168,8 @@ name|CamelControllerImpl
 implements|implements
 name|Completer
 block|{
+annotation|@
+name|Override
 DECL|method|complete (Session session, CommandLine commandLine, List<String> candidates)
 specifier|public
 name|int

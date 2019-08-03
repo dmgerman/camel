@@ -70,6 +70,8 @@ name|SpringIdempotentConsumerRemoveOnFailureTest
 extends|extends
 name|IdempotentConsumerRemoveOnFailureTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

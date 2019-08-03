@@ -101,6 +101,8 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testDefaultConsumerBridgeErrorHandler ()
 specifier|public

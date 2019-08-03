@@ -56,6 +56,8 @@ name|RssConverterTest
 extends|extends
 name|RssDataFormatTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

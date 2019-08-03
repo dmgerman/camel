@@ -102,6 +102,8 @@ name|SpringAggregateControllerTest
 extends|extends
 name|AggregateControllerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

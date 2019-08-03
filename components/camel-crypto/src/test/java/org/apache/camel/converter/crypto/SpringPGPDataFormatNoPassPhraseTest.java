@@ -76,6 +76,8 @@ name|SpringPGPDataFormatNoPassPhraseTest
 extends|extends
 name|AbstractPGPDataFormatTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

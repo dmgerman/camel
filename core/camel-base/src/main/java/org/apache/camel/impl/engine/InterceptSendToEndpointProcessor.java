@@ -261,6 +261,8 @@ operator|=
 name|skip
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -659,6 +661,8 @@ name|doneSync
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -672,6 +676,8 @@ name|isSingleton
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -702,6 +708,8 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

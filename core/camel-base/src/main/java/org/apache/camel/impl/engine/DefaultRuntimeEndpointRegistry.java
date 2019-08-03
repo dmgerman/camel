@@ -404,6 +404,8 @@ specifier|private
 name|EndpointUtilizationStatistics
 name|outputUtilization
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -414,6 +416,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -430,6 +434,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -440,6 +446,8 @@ return|return
 name|enabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEnabled (boolean enabled)
 specifier|public
 name|void
@@ -1838,6 +1846,8 @@ operator|=
 name|hits
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUri ()
 specifier|public
 name|String
@@ -1848,6 +1858,8 @@ return|return
 name|uri
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -1858,6 +1870,8 @@ return|return
 name|routeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDirection ()
 specifier|public
 name|String
@@ -1868,6 +1882,8 @@ return|return
 name|direction
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHits ()
 specifier|public
 name|long

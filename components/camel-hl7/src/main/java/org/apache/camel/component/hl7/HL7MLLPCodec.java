@@ -115,6 +115,8 @@ operator|new
 name|HL7MLLPConfig
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getDecoder (IoSession session)
 specifier|public
 name|ProtocolDecoder
@@ -134,6 +136,8 @@ name|config
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEncoder (IoSession session)
 specifier|public
 name|ProtocolEncoder

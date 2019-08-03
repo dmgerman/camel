@@ -926,6 +926,8 @@ decl_stmt|;
 comment|// CxfBinding Methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * This method is called by {@link CxfProducer#process(Exchange)}. It populates      * the CXF exchange and invocation context (i.e. request/response) contexts, it       * but does not create and populate a CXF message as a ClientImpl's invoke method      * will create a new CXF Message.  That method will put all properties from the       * CXF exchange and request context to the CXF message.      */
+annotation|@
+name|Override
 DECL|method|populateCxfRequestFromExchange ( org.apache.cxf.message.Exchange cxfExchange, Exchange camelExchange, Map<String, Object> requestContext)
 specifier|public
 name|void
@@ -1276,6 +1278,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * This method is called by {@link CxfProducer#process(Exchange)}.  It propagates       * information from CXF Exchange to Camel Exchange.  The CXF Exchange contains a       * request from a CXF server.      */
+annotation|@
+name|Override
 DECL|method|populateExchangeFromCxfResponse (Exchange camelExchange, org.apache.cxf.message.Exchange cxfExchange, Map<String, Object> responseContext)
 specifier|public
 name|void
@@ -1587,6 +1591,8 @@ name|camelAttachment
 return|;
 block|}
 comment|/**      * This method is called by {@link CxfConsumer}.      */
+annotation|@
+name|Override
 DECL|method|populateExchangeFromCxfRequest (org.apache.cxf.message.Exchange cxfExchange, Exchange camelExchange)
 specifier|public
 name|void
@@ -2234,6 +2240,8 @@ block|}
 block|}
 block|}
 comment|/**      * This method is called by {@link CxfConsumer} to populate a CXF response exchange       * from a Camel exchange.      */
+annotation|@
+name|Override
 DECL|method|populateCxfResponseFromExchange (Exchange camelExchange, org.apache.cxf.message.Exchange cxfExchange)
 specifier|public
 name|void
@@ -3076,6 +3084,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -3086,6 +3096,8 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
@@ -6219,6 +6231,8 @@ name|node
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copyJaxWsContext (org.apache.cxf.message.Exchange cxfExchange, Map<String, Object> context)
 specifier|public
 name|void
@@ -6322,6 +6336,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|extractJaxWsContext (org.apache.cxf.message.Exchange cxfExchange, Map<String, Object> context)
 specifier|public
 name|void

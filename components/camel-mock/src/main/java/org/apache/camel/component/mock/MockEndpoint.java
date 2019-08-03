@@ -1536,6 +1536,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getExchanges ()
 specifier|public
 name|List
@@ -1550,6 +1552,8 @@ name|getReceivedExchanges
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -1569,6 +1573,8 @@ literal|"You cannot consume from this endpoint"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -5916,6 +5922,8 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|doInit ()
 specifier|protected
 name|void
@@ -7065,6 +7073,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLenientProperties ()
 specifier|public
 name|boolean

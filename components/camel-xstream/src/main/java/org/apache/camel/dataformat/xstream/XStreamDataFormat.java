@@ -557,6 +557,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createHierarchicalStreamWriter (Exchange exchange, Object body, OutputStream stream)
 specifier|protected
 name|HierarchicalStreamWriter
@@ -631,6 +633,8 @@ name|xmlWriter
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createHierarchicalStreamReader (Exchange exchange, InputStream stream)
 specifier|protected
 name|HierarchicalStreamReader

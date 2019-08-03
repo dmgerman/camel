@@ -239,6 +239,8 @@ return|return
 literal|"rests"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLabel ()
 specifier|public
 name|String
@@ -254,6 +256,8 @@ return|;
 block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getRests ()
 specifier|public
 name|List
@@ -268,6 +272,8 @@ name|rests
 return|;
 block|}
 comment|/**      * The rest services      */
+annotation|@
+name|Override
 DECL|method|setRests (List<RestDefinition> rests)
 specifier|public
 name|void

@@ -634,6 +634,8 @@ operator|=
 name|routeId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -644,6 +646,8 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEndpoint (Endpoint endpoint)
 specifier|public
 name|void
@@ -660,6 +664,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoute ()
 specifier|public
 name|NamedNode
@@ -670,6 +676,8 @@ return|return
 name|route
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -690,6 +698,8 @@ return|return
 name|runtimeRoute
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -700,6 +710,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveEndpoint (String uri)
 specifier|public
 name|Endpoint
@@ -720,6 +732,8 @@ name|uri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveEndpoint (String uri, String ref)
 specifier|public
 name|Endpoint
@@ -889,6 +903,8 @@ name|endpoint
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|lookup (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -922,6 +938,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookupByType (Class<T> type)
 specifier|public
 parameter_list|<
@@ -989,6 +1007,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|commit ()
 specifier|public
 name|Route
@@ -1321,6 +1341,8 @@ return|return
 name|runtimeRoute
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addEventDrivenProcessor (Processor processor)
 specifier|public
 name|void
@@ -1338,6 +1360,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInterceptStrategies ()
 specifier|public
 name|List
@@ -1351,6 +1375,8 @@ return|return
 name|interceptStrategies
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInterceptStrategies (List<InterceptStrategy> interceptStrategies)
 specifier|public
 name|void
@@ -1370,6 +1396,8 @@ operator|=
 name|interceptStrategies
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addInterceptStrategy (InterceptStrategy interceptStrategy)
 specifier|public
 name|void
@@ -1388,6 +1416,8 @@ name|interceptStrategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManagementInterceptStrategy (ManagementInterceptStrategy interceptStrategy)
 specifier|public
 name|void
@@ -1404,6 +1434,8 @@ operator|=
 name|interceptStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementInterceptStrategy ()
 specifier|public
 name|ManagementInterceptStrategy
@@ -1414,6 +1446,8 @@ return|return
 name|managementInterceptStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isRouteAdded ()
 specifier|public
 name|boolean
@@ -1424,6 +1458,8 @@ return|return
 name|routeAdded
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIsRouteAdded (boolean routeAdded)
 specifier|public
 name|void
@@ -1440,6 +1476,8 @@ operator|=
 name|routeAdded
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTracing (Boolean tracing)
 specifier|public
 name|void
@@ -1456,6 +1494,8 @@ operator|=
 name|tracing
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isTracing ()
 specifier|public
 name|Boolean
@@ -1572,6 +1612,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setDebugging (Boolean debugging)
 specifier|public
 name|void
@@ -1588,6 +1630,8 @@ operator|=
 name|debugging
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDebugging ()
 specifier|public
 name|Boolean
@@ -1617,6 +1661,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageHistory (Boolean messageHistory)
 specifier|public
 name|void
@@ -1633,6 +1679,8 @@ operator|=
 name|messageHistory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isMessageHistory ()
 specifier|public
 name|Boolean
@@ -1662,6 +1710,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setLogMask (Boolean logMask)
 specifier|public
 name|void
@@ -1678,6 +1728,8 @@ operator|=
 name|logMask
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLogMask ()
 specifier|public
 name|Boolean
@@ -1707,6 +1759,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setLogExhaustedMessageBody (Boolean logExhaustedMessageBody)
 specifier|public
 name|void
@@ -1723,6 +1777,8 @@ operator|=
 name|logExhaustedMessageBody
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLogExhaustedMessageBody ()
 specifier|public
 name|Boolean
@@ -1752,6 +1808,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setStreamCaching (Boolean cache)
 specifier|public
 name|void
@@ -1768,6 +1826,8 @@ operator|=
 name|cache
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStreamCaching ()
 specifier|public
 name|Boolean
@@ -1797,6 +1857,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setDelayer (Long delay)
 specifier|public
 name|void
@@ -1813,6 +1875,8 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDelayer ()
 specifier|public
 name|Long
@@ -1842,6 +1906,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setAutoStartup (Boolean autoStartup)
 specifier|public
 name|void
@@ -1858,6 +1924,8 @@ operator|=
 name|autoStartup
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAutoStartup ()
 specifier|public
 name|Boolean
@@ -1880,6 +1948,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStartupOrder (Integer startupOrder)
 specifier|public
 name|void
@@ -1908,6 +1978,8 @@ return|return
 name|startupOrder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setErrorHandlerFactory (ErrorHandlerFactory errorHandlerFactory)
 specifier|public
 name|void
@@ -1936,6 +2008,8 @@ return|return
 name|errorHandlerFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
 specifier|public
 name|void
@@ -1952,6 +2026,8 @@ operator|=
 name|shutdownRoute
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAllowUseOriginalMessage (Boolean allowUseOriginalMessage)
 specifier|public
 name|void
@@ -1971,6 +2047,8 @@ name|allowUseOriginalMessage
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAllowUseOriginalMessage ()
 specifier|public
 name|Boolean
@@ -1986,6 +2064,8 @@ name|isAllowUseOriginalMessage
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getShutdownRoute ()
 specifier|public
 name|ShutdownRoute
@@ -2015,6 +2095,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|void
@@ -2031,6 +2113,8 @@ operator|=
 name|shutdownRunningTask
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getShutdownRunningTask ()
 specifier|public
 name|ShutdownRunningTask
@@ -2060,6 +2144,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setRoutePolicyList (List<RoutePolicy> routePolicyList)
 specifier|public
 name|void
@@ -2079,6 +2165,8 @@ operator|=
 name|routePolicyList
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoutePolicyList ()
 specifier|public
 name|List
@@ -2240,6 +2328,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addAdvice (CamelInternalProcessorAdvice<?> advice)
 specifier|public
 name|void
@@ -2260,6 +2350,8 @@ name|advice
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addProperty (String key, Object value)
 specifier|public
 name|void

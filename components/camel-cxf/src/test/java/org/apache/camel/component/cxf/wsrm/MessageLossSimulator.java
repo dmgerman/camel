@@ -346,6 +346,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|handleMessage (Message message)
 specifier|public
 name|void

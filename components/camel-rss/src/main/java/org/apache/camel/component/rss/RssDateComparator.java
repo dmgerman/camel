@@ -65,6 +65,8 @@ argument_list|<
 name|SyndEntry
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|compare (SyndEntry s1, SyndEntry s2)
 specifier|public
 name|int

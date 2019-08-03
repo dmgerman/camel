@@ -87,6 +87,8 @@ implements|implements
 name|InitialContextFactory
 block|{
 comment|/**      * Creates a new context with the given environment.      *      * @param  environment  the environment, must not be<tt>null</tt>      * @return the created context.      * @throws NamingException is thrown if creation failed.      */
+annotation|@
+name|Override
 DECL|method|getInitialContext (Hashtable<?, ?> environment)
 specifier|public
 name|Context

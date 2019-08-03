@@ -179,6 +179,8 @@ name|EchoServiceImpl
 implements|implements
 name|MyService
 block|{
+annotation|@
+name|Override
 DECL|method|echo (String st)
 specifier|public
 name|String

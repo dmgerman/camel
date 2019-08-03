@@ -70,6 +70,8 @@ name|SpringShutdownCompleteAllTasksTest
 extends|extends
 name|ShutdownCompleteAllTasksTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

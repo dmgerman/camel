@@ -121,6 +121,8 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBook (Long id)
 specifier|public
 name|Book
@@ -225,6 +227,8 @@ name|id
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addBook (Book book)
 specifier|public
 name|Book

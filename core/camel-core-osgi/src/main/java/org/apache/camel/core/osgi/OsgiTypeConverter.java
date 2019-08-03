@@ -621,6 +621,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addingService (ServiceReference<TypeConverterLoader> serviceReference)
 specifier|public
 name|Object
@@ -728,6 +730,8 @@ return|return
 name|loader
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|modifiedService (ServiceReference<TypeConverterLoader> serviceReference, Object o)
 specifier|public
 name|void
@@ -743,6 +747,8 @@ name|Object
 name|o
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|removedService (ServiceReference<TypeConverterLoader> serviceReference, Object o)
 specifier|public
 name|void
@@ -897,6 +903,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|allowNull ()
 specifier|public
 name|boolean
@@ -911,6 +919,8 @@ name|allowNull
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -941,6 +951,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -976,6 +988,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -1008,6 +1022,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -1045,6 +1061,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tryConvertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -1080,6 +1098,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tryConvertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -1110,6 +1130,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 specifier|public
 name|void
@@ -1144,6 +1166,8 @@ name|typeConverter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addTypeConverters (TypeConverters typeConverters)
 specifier|public
 name|void
@@ -1162,6 +1186,8 @@ name|typeConverters
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeTypeConverter (Class<?> toType, Class<?> fromType)
 specifier|public
 name|boolean
@@ -1192,6 +1218,8 @@ name|fromType
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addFallbackTypeConverter (TypeConverter typeConverter, boolean canPromote)
 specifier|public
 name|void
@@ -1215,6 +1243,8 @@ name|canPromote
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookup (Class<?> toType, Class<?> fromType)
 specifier|public
 name|TypeConverter
@@ -1245,6 +1275,8 @@ name|fromType
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|listAllTypeConvertersFromTo ()
 specifier|public
 name|List
@@ -1266,6 +1298,8 @@ name|listAllTypeConvertersFromTo
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInjector (Injector injector)
 specifier|public
 name|void
@@ -1284,6 +1318,8 @@ name|injector
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInjector ()
 specifier|public
 name|Injector
@@ -1298,6 +1334,8 @@ name|getInjector
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics ()
 specifier|public
 name|Statistics
@@ -1312,6 +1350,8 @@ name|getStatistics
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size ()
 specifier|public
 name|int
@@ -1326,6 +1366,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExistsLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -1340,6 +1382,8 @@ name|getTypeConverterExistsLoggingLevel
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTypeConverterExistsLoggingLevel (LoggingLevel loggingLevel)
 specifier|public
 name|void
@@ -1358,6 +1402,8 @@ name|loggingLevel
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExists ()
 specifier|public
 name|TypeConverterExists
@@ -1372,6 +1418,8 @@ name|getTypeConverterExists
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTypeConverterExists (TypeConverterExists typeConverterExists)
 specifier|public
 name|void

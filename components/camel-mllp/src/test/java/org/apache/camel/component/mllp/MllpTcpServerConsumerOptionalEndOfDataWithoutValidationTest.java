@@ -266,6 +266,8 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testInitialMessageWithoutEndOfDataByte ()
 specifier|public
@@ -300,6 +302,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testMessageWithoutEndOfDataByte ()

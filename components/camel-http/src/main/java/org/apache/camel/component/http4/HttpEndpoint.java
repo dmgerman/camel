@@ -1039,6 +1039,8 @@ operator|=
 name|clientConnectionManager
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -1076,6 +1078,8 @@ literal|"Cannot consume from http endpoint"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
@@ -1681,6 +1685,8 @@ operator|=
 name|cookieStore
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCookieHandler (CookieHandler cookieHandler)
 specifier|public
 name|void

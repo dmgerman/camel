@@ -70,6 +70,8 @@ name|SpringOnExceptionContinueToRouteTest
 extends|extends
 name|OnExceptionContinueToRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

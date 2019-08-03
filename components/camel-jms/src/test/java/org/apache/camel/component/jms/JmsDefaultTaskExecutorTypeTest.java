@@ -726,6 +726,8 @@ return|return
 name|nextThreadCount
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

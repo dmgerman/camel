@@ -58,6 +58,8 @@ name|TransactionalClientDataSourceTransactedWithChoiceRedeliveryTest
 extends|extends
 name|TransactionalClientDataSourceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

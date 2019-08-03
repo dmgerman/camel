@@ -74,6 +74,8 @@ name|SpringOnExceptionOccurredProcessorTest
 extends|extends
 name|OnExceptionOccurredProcessorTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -490,6 +490,8 @@ operator|=
 name|headerName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLanguage ()
 specifier|public
 name|String

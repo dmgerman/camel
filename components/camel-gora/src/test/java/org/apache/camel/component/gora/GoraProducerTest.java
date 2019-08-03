@@ -250,6 +250,8 @@ argument_list|>
 name|mockDatastore
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

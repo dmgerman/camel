@@ -63,6 +63,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|sayHi (String text)
 specifier|public
 name|String

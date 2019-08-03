@@ -634,6 +634,8 @@ name|data
 return|;
 block|}
 comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      */
+annotation|@
+name|Override
 DECL|method|applyGetResults (Message message, HBaseData data)
 specifier|public
 name|void
@@ -758,6 +760,8 @@ block|}
 block|}
 block|}
 comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      */
+annotation|@
+name|Override
 DECL|method|applyScanResults (Message message, HBaseData data)
 specifier|public
 name|void

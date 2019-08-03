@@ -70,6 +70,8 @@ name|SpringOnCompletionModeTest
 extends|extends
 name|OnCompletionModeTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

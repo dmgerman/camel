@@ -99,6 +99,8 @@ specifier|private
 name|MessageEndpoint
 name|consumerMessageEndpoint
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|invoke (MessageContext messageContext)
 specifier|public
 name|void

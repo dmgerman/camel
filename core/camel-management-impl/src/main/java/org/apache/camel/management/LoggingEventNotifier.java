@@ -95,6 +95,8 @@ specifier|private
 name|String
 name|logName
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
@@ -132,6 +134,8 @@ name|isInfoEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
@@ -175,6 +179,8 @@ operator|=
 name|logName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

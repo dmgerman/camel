@@ -416,6 +416,8 @@ name|MySuperBean
 extends|extends
 name|MyBean
 block|{
+annotation|@
+name|Override
 DECL|method|hello (String name)
 specifier|public
 name|String

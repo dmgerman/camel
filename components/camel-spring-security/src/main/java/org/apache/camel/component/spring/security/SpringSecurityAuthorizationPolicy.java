@@ -427,6 +427,8 @@ name|useThreadSecurityContext
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|void
@@ -439,6 +441,8 @@ name|NamedNode
 name|definition
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|wrap (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
@@ -740,6 +744,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -763,6 +769,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void
@@ -971,6 +979,8 @@ operator|.
 name|authenticationManager
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setApplicationEventPublisher (ApplicationEventPublisher applicationEventPublisher)
 specifier|public
 name|void

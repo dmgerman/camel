@@ -528,6 +528,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//START SNIPPET: RouteConfig
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

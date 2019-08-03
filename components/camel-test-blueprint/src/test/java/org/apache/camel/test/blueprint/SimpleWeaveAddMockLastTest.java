@@ -76,6 +76,8 @@ return|return
 literal|"org/apache/camel/test/blueprint/SimpleWeaveAddMockLastTest.xml"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseAdviceWith ()
 specifier|public
 name|boolean

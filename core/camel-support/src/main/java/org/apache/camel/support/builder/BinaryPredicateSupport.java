@@ -166,6 +166,8 @@ operator|+
 name|right
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
@@ -184,6 +186,8 @@ operator|==
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|matchesReturningFailureMessage (Exchange exchange)
 specifier|public
 name|String
@@ -284,6 +288,8 @@ name|String
 name|getOperationText
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getLeft ()
 specifier|public
 name|Expression
@@ -294,6 +300,8 @@ return|return
 name|left
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRight ()
 specifier|public
 name|Expression
@@ -304,6 +312,8 @@ return|return
 name|right
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOperator ()
 specifier|public
 name|String

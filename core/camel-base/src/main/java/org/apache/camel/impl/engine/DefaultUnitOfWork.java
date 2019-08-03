@@ -827,6 +827,8 @@ operator|=
 name|parentUnitOfWork
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createChildUnitOfWork (Exchange childExchange)
 specifier|public
 name|UnitOfWork
@@ -856,6 +858,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -867,6 +871,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void
@@ -918,6 +924,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addSynchronization (Synchronization synchronization)
 specifier|public
 specifier|synchronized
@@ -960,6 +968,8 @@ name|synchronization
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeSynchronization (Synchronization synchronization)
 specifier|public
 specifier|synchronized
@@ -986,6 +996,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|containsSynchronization (Synchronization synchronization)
 specifier|public
 specifier|synchronized
@@ -1009,6 +1021,8 @@ name|synchronization
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|handoverSynchronization (Exchange target)
 specifier|public
 name|void
@@ -1169,6 +1183,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|done (Exchange exchange)
 specifier|public
 name|void
@@ -1404,6 +1420,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -1432,6 +1450,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOriginalInMessage ()
 specifier|public
 name|Message
@@ -1463,6 +1483,8 @@ return|return
 name|originalInMessage
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isTransacted ()
 specifier|public
 name|boolean
@@ -1481,6 +1503,8 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isTransactedBy (Object key)
 specifier|public
 name|boolean
@@ -1500,6 +1524,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|beginTransactedBy (Object key)
 specifier|public
 name|void
@@ -1518,6 +1544,8 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|endTransactedBy (Object key)
 specifier|public
 name|void
@@ -1536,6 +1564,8 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteContext ()
 specifier|public
 name|RouteContext
@@ -1549,6 +1579,8 @@ name|peek
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|pushRouteContext (RouteContext routeContext)
 specifier|public
 name|void
@@ -1566,6 +1598,8 @@ name|routeContext
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|popRouteContext ()
 specifier|public
 name|RouteContext
@@ -1579,6 +1613,8 @@ name|pollFirst
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeProcess (Processor processor, Exchange exchange, AsyncCallback callback)
 specifier|public
 name|AsyncCallback
@@ -1599,6 +1635,8 @@ return|return
 name|callback
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterProcess (Processor processor, Exchange exchange, AsyncCallback callback, boolean doneSync)
 specifier|public
 name|void

@@ -1246,6 +1246,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals (Object object)
 specifier|public
 name|boolean

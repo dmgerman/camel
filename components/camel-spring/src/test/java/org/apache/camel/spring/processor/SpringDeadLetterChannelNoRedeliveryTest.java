@@ -70,6 +70,8 @@ name|SpringDeadLetterChannelNoRedeliveryTest
 extends|extends
 name|DeadLetterChannelNoRedeliveryTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

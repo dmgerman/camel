@@ -160,6 +160,8 @@ name|SERVICE_CLASS
 operator|+
 literal|"&dataFormat=RAW"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

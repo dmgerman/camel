@@ -348,6 +348,8 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSystemProp (String key, String value)
 specifier|protected
 name|void
@@ -388,6 +390,8 @@ name|NULL_VALUE_MARKER
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|restoreSystemProperties ()
 specifier|protected
 name|void
@@ -456,6 +460,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testEndpoint ()
@@ -609,6 +615,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testEndpointWithoutHttps ()
 specifier|public
@@ -686,6 +694,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testHelloEndpoint ()
@@ -823,6 +833,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testHelloEndpointWithoutHttps ()
 specifier|public
@@ -871,6 +883,8 @@ name|expected
 parameter_list|)
 block|{         }
 block|}
+annotation|@
+name|Override
 DECL|method|invokeHttpEndpoint ()
 specifier|protected
 name|void

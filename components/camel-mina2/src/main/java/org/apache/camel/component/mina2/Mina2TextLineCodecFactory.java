@@ -227,6 +227,8 @@ name|delimiter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEncoder (IoSession session)
 specifier|public
 name|ProtocolEncoder
@@ -242,6 +244,8 @@ return|return
 name|encoder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDecoder (IoSession session)
 specifier|public
 name|ProtocolDecoder

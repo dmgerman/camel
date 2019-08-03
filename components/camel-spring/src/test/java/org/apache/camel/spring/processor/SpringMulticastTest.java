@@ -70,6 +70,8 @@ name|SpringMulticastTest
 extends|extends
 name|MulticastTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

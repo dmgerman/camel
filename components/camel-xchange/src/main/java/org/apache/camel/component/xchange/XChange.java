@@ -199,6 +199,8 @@ operator|=
 name|delegate
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangeSpecification ()
 specifier|public
 name|ExchangeSpecification
@@ -212,6 +214,8 @@ name|getExchangeSpecification
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangeMetaData ()
 specifier|public
 name|ExchangeMetaData
@@ -225,6 +229,8 @@ name|getExchangeMetaData
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangeSymbols ()
 specifier|public
 name|List
@@ -241,6 +247,8 @@ name|getExchangeSymbols
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNonceFactory ()
 specifier|public
 name|SynchronizedValueFactory
@@ -257,6 +265,8 @@ name|getNonceFactory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDefaultExchangeSpecification ()
 specifier|public
 name|ExchangeSpecification
@@ -270,6 +280,8 @@ name|getDefaultExchangeSpecification
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applySpecification (ExchangeSpecification exchangeSpecification)
 specifier|public
 name|void
@@ -287,6 +299,8 @@ name|exchangeSpecification
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMarketDataService ()
 specifier|public
 name|MarketDataService
@@ -300,6 +314,8 @@ name|getMarketDataService
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTradeService ()
 specifier|public
 name|TradeService
@@ -313,6 +329,8 @@ name|getTradeService
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAccountService ()
 specifier|public
 name|AccountService
@@ -326,6 +344,8 @@ name|getAccountService
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remoteInit ()
 specifier|public
 name|void

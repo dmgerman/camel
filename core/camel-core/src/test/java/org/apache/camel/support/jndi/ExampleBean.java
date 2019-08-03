@@ -39,6 +39,8 @@ specifier|private
 name|double
 name|price
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

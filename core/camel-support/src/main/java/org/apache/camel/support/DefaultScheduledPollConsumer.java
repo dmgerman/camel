@@ -157,6 +157,8 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 name|int

@@ -138,6 +138,8 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConsumer ()
 specifier|public
 name|ScheduledPollConsumer
@@ -148,6 +150,8 @@ return|return
 name|consumer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDelay ()
 specifier|public
 name|long
@@ -162,6 +166,8 @@ name|getDelay
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -180,6 +186,8 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInitialDelay ()
 specifier|public
 name|long
@@ -194,6 +202,8 @@ name|getInitialDelay
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInitialDelay (long initialDelay)
 specifier|public
 name|void
@@ -212,6 +222,8 @@ name|initialDelay
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseFixedDelay ()
 specifier|public
 name|boolean
@@ -226,6 +238,8 @@ name|isUseFixedDelay
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUseFixedDelay (boolean useFixedDelay)
 specifier|public
 name|void
@@ -244,6 +258,8 @@ name|useFixedDelay
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimeUnit ()
 specifier|public
 name|String
@@ -261,6 +277,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeUnit (String timeUnit)
 specifier|public
 name|void
@@ -284,6 +302,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSchedulerStarted ()
 specifier|public
 name|boolean
@@ -298,6 +318,8 @@ name|isSchedulerStarted
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|startScheduler ()
 specifier|public
 name|void
@@ -311,6 +333,8 @@ name|startScheduler
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSchedulerClassName ()
 specifier|public
 name|String
@@ -331,6 +355,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBackoffMultiplier ()
 specifier|public
 name|int
@@ -345,6 +371,8 @@ name|getBackoffMultiplier
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBackoffIdleThreshold ()
 specifier|public
 name|int
@@ -359,6 +387,8 @@ name|getBackoffIdleThreshold
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBackoffErrorThreshold ()
 specifier|public
 name|int
@@ -373,6 +403,8 @@ name|getBackoffErrorThreshold
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBackoffCounter ()
 specifier|public
 name|int

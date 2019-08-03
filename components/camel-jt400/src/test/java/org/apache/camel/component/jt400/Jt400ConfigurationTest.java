@@ -52,6 +52,8 @@ name|Jt400Configuration
 name|jt400Configuration
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

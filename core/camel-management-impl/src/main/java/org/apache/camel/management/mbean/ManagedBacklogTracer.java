@@ -217,6 +217,8 @@ name|isEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -230,6 +232,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelManagementName ()
 specifier|public
 name|String
@@ -243,6 +247,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEnabled (boolean enabled)
 specifier|public
 name|void
@@ -260,6 +266,8 @@ name|enabled
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -273,6 +281,8 @@ name|isEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBacklogSize ()
 specifier|public
 name|int
@@ -286,6 +296,8 @@ name|getBacklogSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBacklogSize (int backlogSize)
 specifier|public
 name|void
@@ -303,6 +315,8 @@ name|backlogSize
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isRemoveOnDump ()
 specifier|public
 name|boolean
@@ -316,6 +330,8 @@ name|isRemoveOnDump
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRemoveOnDump (boolean removeOnDump)
 specifier|public
 name|void
@@ -333,6 +349,8 @@ name|removeOnDump
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTracePattern (String pattern)
 specifier|public
 name|void
@@ -350,6 +368,8 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTracePattern ()
 specifier|public
 name|String
@@ -363,6 +383,8 @@ name|getTracePattern
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTraceFilter (String predicate)
 specifier|public
 name|void
@@ -380,6 +402,8 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceFilter ()
 specifier|public
 name|String
@@ -393,6 +417,8 @@ name|getTraceFilter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceCounter ()
 specifier|public
 name|long
@@ -406,6 +432,8 @@ name|getTraceCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetTraceCounter ()
 specifier|public
 name|void
@@ -418,6 +446,8 @@ name|resetTraceCounter
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBodyMaxChars ()
 specifier|public
 name|int
@@ -431,6 +461,8 @@ name|getBodyMaxChars
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBodyMaxChars (int bodyMaxChars)
 specifier|public
 name|void
@@ -448,6 +480,8 @@ name|bodyMaxChars
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isBodyIncludeStreams ()
 specifier|public
 name|boolean
@@ -461,6 +495,8 @@ name|isBodyIncludeStreams
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBodyIncludeStreams (boolean bodyIncludeStreams)
 specifier|public
 name|void
@@ -478,6 +514,8 @@ name|bodyIncludeStreams
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isBodyIncludeFiles ()
 specifier|public
 name|boolean
@@ -491,6 +529,8 @@ name|isBodyIncludeFiles
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBodyIncludeFiles (boolean bodyIncludeFiles)
 specifier|public
 name|void
@@ -508,6 +548,8 @@ name|bodyIncludeFiles
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpTracedMessages (String nodeOrRouteId)
 specifier|public
 name|List
@@ -529,6 +571,8 @@ name|nodeOrRouteId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpAllTracedMessages ()
 specifier|public
 name|List
@@ -545,6 +589,8 @@ name|dumpAllTracedMessages
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpTracedMessagesAsXml (String nodeOrRouteId)
 specifier|public
 name|String
@@ -563,6 +609,8 @@ name|nodeOrRouteId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpAllTracedMessagesAsXml ()
 specifier|public
 name|String
@@ -576,6 +624,8 @@ name|dumpAllTracedMessagesAsXml
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear ()
 specifier|public
 name|void

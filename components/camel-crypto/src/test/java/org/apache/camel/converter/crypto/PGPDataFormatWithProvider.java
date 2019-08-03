@@ -26,6 +26,8 @@ name|PGPDataFormatWithProvider
 extends|extends
 name|PGPDataFormatTest
 block|{
+annotation|@
+name|Override
 DECL|method|getProvider ()
 specifier|protected
 name|String

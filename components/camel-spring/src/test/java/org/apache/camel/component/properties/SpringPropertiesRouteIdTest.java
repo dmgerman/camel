@@ -60,6 +60,8 @@ name|SpringPropertiesRouteIdTest
 extends|extends
 name|PropertiesRouteIdTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

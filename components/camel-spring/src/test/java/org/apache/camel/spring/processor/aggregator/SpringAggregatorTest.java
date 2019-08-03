@@ -74,6 +74,8 @@ name|SpringAggregatorTest
 extends|extends
 name|AggregatorTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

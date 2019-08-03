@@ -253,6 +253,8 @@ name|usePersist
 parameter_list|()
 function_decl|;
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown ()
 specifier|public

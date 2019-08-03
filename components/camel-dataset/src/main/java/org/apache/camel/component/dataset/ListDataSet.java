@@ -155,6 +155,8 @@ block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 comment|/**      * Creates the message body for a given message.  If the messageIndex is greater than the size      * of the list, use the modulus.      */
+annotation|@
+name|Override
 DECL|method|createMessageBody (long messageIndex)
 specifier|protected
 name|Object

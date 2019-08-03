@@ -60,6 +60,8 @@ name|SpringOptionalPropertiesDslTest
 extends|extends
 name|OptionalPropertiesDslTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

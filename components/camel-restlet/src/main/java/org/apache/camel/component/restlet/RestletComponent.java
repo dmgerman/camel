@@ -2620,6 +2620,8 @@ operator|=
 name|controllerSleepTimeMs
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -2633,6 +2635,8 @@ name|headerFilterStrategy
 return|;
 block|}
 comment|/**      * To use a custom {@link org.apache.camel.spi.HeaderFilterStrategy} to filter header to and from Camel message.      */
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void

@@ -148,6 +148,8 @@ return|return
 name|policy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaxInflightExchanges ()
 specifier|public
 name|int
@@ -162,6 +164,8 @@ name|getMaxInflightExchanges
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaxInflightExchanges (int maxInflightExchanges)
 specifier|public
 name|void
@@ -180,6 +184,8 @@ name|maxInflightExchanges
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getResumePercentOfMax ()
 specifier|public
 name|int
@@ -194,6 +200,8 @@ name|getResumePercentOfMax
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setResumePercentOfMax (int resumePercentOfMax)
 specifier|public
 name|void
@@ -212,6 +220,8 @@ name|resumePercentOfMax
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getScope ()
 specifier|public
 name|String
@@ -229,6 +239,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScope (String scope)
 specifier|public
 name|void
@@ -254,6 +266,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLoggingLevel ()
 specifier|public
 name|String
@@ -271,6 +285,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLoggingLevel (String loggingLevel)
 specifier|public
 name|void

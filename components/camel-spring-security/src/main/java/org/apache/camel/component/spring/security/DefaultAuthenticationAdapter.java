@@ -64,6 +64,8 @@ name|DefaultAuthenticationAdapter
 implements|implements
 name|AuthenticationAdapter
 block|{
+annotation|@
+name|Override
 DECL|method|toAuthentication (Subject subject)
 specifier|public
 name|Authentication

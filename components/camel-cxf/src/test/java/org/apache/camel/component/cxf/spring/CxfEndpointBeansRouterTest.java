@@ -200,6 +200,8 @@ name|CxfEndpointBeansRouterTest
 extends|extends
 name|AbstractSpringBeanTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|getApplicationContextFiles ()
 specifier|protected
 name|String

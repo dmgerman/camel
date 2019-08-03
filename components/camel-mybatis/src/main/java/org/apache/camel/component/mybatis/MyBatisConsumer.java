@@ -241,6 +241,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|MyBatisEndpoint
@@ -435,6 +437,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
 name|int

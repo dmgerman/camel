@@ -97,6 +97,8 @@ specifier|private
 name|Endpoint
 name|injected
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

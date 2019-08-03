@@ -308,6 +308,8 @@ name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -328,6 +330,8 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()
@@ -639,6 +643,8 @@ name|getV
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -96,6 +96,8 @@ name|classResolver
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|decode (ChannelHandlerContext ctx, ByteBuf in)
 specifier|public
 name|Object

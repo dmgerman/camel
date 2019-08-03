@@ -237,6 +237,8 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|Override
 DECL|method|write (SplunkEvent event)
 specifier|public
 name|void
@@ -257,6 +259,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write (String event)
 specifier|public
 name|void
@@ -422,6 +426,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isConnected ()
 specifier|public
 name|boolean

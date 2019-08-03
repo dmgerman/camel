@@ -311,6 +311,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Execute sql of exchange and set results on output      */
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

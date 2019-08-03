@@ -744,6 +744,8 @@ specifier|private
 name|WatchedEvent
 name|watchedEvent
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

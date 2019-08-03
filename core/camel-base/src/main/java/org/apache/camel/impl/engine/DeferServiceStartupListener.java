@@ -274,6 +274,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getOrder ()
 specifier|public
 name|int

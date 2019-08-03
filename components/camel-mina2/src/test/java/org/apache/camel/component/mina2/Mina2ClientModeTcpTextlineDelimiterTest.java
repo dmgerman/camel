@@ -271,6 +271,8 @@ name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -455,6 +457,8 @@ name|ServerHandler
 extends|extends
 name|IoHandlerAdapter
 block|{
+annotation|@
+name|Override
 DECL|method|sessionOpened (IoSession session)
 specifier|public
 name|void

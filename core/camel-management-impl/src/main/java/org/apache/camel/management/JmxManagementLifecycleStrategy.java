@@ -1443,6 +1443,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -1453,6 +1455,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -1469,6 +1473,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onContextStart (CamelContext context)
 specifier|public
 name|void
@@ -2079,6 +2085,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onContextStop (CamelContext context)
 specifier|public
 name|void
@@ -2246,6 +2254,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onComponentAdd (String name, Component component)
 specifier|public
 name|void
@@ -2331,6 +2341,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onComponentRemove (String name, Component component)
 specifier|public
 name|void
@@ -2393,6 +2405,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * If the endpoint is an instance of ManagedResource then register it with the      * mbean server, if it is not then wrap the endpoint in a {@link ManagedEndpoint} and      * register that with the mbean server.      *      * @param endpoint the Endpoint attempted to be added      */
+annotation|@
+name|Override
 DECL|method|onEndpointAdd (Endpoint endpoint)
 specifier|public
 name|void
@@ -2498,6 +2512,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onEndpointRemove (Endpoint endpoint)
 specifier|public
 name|void
@@ -2558,6 +2574,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onServiceAdd (CamelContext context, Service service, Route route)
 specifier|public
 name|void
@@ -2697,6 +2715,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onServiceRemove (CamelContext context, Service service, Route route)
 specifier|public
 name|void
@@ -3613,6 +3633,8 @@ return|return
 name|managedObject
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onRoutesAdd (Collection<Route> routes)
 specifier|public
 name|void
@@ -3864,6 +3886,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onRoutesRemove (Collection<Route> routes)
 specifier|public
 name|void
@@ -3974,6 +3998,8 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
@@ -4072,6 +4098,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
@@ -4149,6 +4177,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|void
@@ -4271,6 +4301,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPool)
 specifier|public
 name|void
@@ -4359,6 +4391,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public
 name|void

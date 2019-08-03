@@ -2358,6 +2358,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -2371,6 +2373,8 @@ name|completed
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -7630,6 +7634,8 @@ operator|=
 name|parameterName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doProcess (String arg, LinkedList<String> remainingArgs)
 specifier|protected
 name|void
@@ -7690,6 +7696,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getInformation ()
 specifier|public
 name|String

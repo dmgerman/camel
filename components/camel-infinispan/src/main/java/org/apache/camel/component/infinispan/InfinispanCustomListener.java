@@ -73,6 +73,8 @@ return|return
 name|infinispanConsumer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInfinispanConsumer (InfinispanConsumer infinispanConsumer)
 specifier|public
 name|void

@@ -148,6 +148,8 @@ specifier|private
 name|String
 name|headerName
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -183,6 +185,8 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression
@@ -529,6 +533,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

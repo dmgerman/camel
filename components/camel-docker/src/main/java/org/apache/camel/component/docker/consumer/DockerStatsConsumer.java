@@ -439,6 +439,8 @@ argument_list|,
 name|Statistics
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|onNext (Statistics statistics)
 specifier|public
 name|void

@@ -333,6 +333,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEntryFilter (Date lastUpdate)
 specifier|protected
 name|EntryFilter

@@ -110,6 +110,8 @@ return|return
 name|myProcessor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

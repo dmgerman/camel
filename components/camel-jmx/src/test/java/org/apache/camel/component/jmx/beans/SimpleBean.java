@@ -176,6 +176,8 @@ specifier|private
 name|long
 name|mLongNumber
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getStringValue ()
 specifier|public
 name|String
@@ -186,6 +188,8 @@ return|return
 name|mStringValue
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStringValue (String aStringValue)
 specifier|public
 name|void
@@ -235,6 +239,8 @@ name|acn
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMonitorNumber ()
 specifier|public
 name|Integer
@@ -245,6 +251,8 @@ return|return
 name|mMonitorNumber
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMonitorNumber (Integer aNumber)
 specifier|public
 name|void
@@ -259,6 +267,8 @@ operator|=
 name|aNumber
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLongNumber ()
 specifier|public
 name|Long
@@ -269,6 +279,8 @@ return|return
 name|mLongNumber
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLongNumber (Long aNumber)
 specifier|public
 name|void
@@ -331,6 +343,8 @@ operator|=
 name|aTimestamp
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|userData (String aUserData)
 specifier|public
 name|void
@@ -371,6 +385,8 @@ name|n
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|touch ()
 specifier|public
 name|void
@@ -401,6 +417,8 @@ name|n
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|triggerConnectionNotification ()
 specifier|public
 name|void
@@ -440,6 +458,8 @@ name|n
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|triggerMBeanServerNotification ()
 specifier|public
 name|void
@@ -485,6 +505,8 @@ name|n
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|triggerRelationNotification ()
 specifier|public
 name|void
@@ -587,6 +609,8 @@ name|n
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|triggerTimerNotification ()
 specifier|public
 name|void

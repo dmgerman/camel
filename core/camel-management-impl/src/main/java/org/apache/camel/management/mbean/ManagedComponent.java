@@ -468,6 +468,8 @@ return|return
 name|component
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getComponentName ()
 specifier|public
 name|String
@@ -478,6 +480,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getState ()
 specifier|public
 name|String
@@ -522,6 +526,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -538,6 +544,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelManagementName ()
 specifier|public
 name|String
@@ -554,6 +562,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInstance ()
 specifier|public
 name|Object

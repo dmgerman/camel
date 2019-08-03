@@ -92,6 +92,8 @@ name|SpringXStreamConfigurationTest
 extends|extends
 name|XStreamConfigurationTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

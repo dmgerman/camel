@@ -70,6 +70,8 @@ name|SpringOnCompletionRouteScopeOverrideGlobalScopeTest
 extends|extends
 name|OnCompletionRouteScopeOverrideGlobalScopeTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

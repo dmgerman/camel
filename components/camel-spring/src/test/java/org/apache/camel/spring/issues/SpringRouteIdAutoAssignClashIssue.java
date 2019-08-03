@@ -74,6 +74,8 @@ name|SpringRouteIdAutoAssignClashIssue
 extends|extends
 name|RouteIdAutoAssignClashIssue
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

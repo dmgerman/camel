@@ -1101,6 +1101,8 @@ implements|implements
 name|Converter
 block|{
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
@@ -1125,6 +1127,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (HierarchicalStreamReader reader, UnmarshallingContext context)
 specifier|public
 name|Object
@@ -1194,6 +1198,8 @@ return|return
 name|order
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Object object, HierarchicalStreamWriter writer, MarshallingContext context)
 specifier|public
 name|void
@@ -1311,6 +1317,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Object source, HierarchicalStreamWriter writer, MarshallingContext context)
 specifier|public
 name|void
@@ -1326,6 +1334,8 @@ name|MarshallingContext
 name|context
 parameter_list|)
 block|{         }
+annotation|@
+name|Override
 DECL|method|unmarshal (HierarchicalStreamReader reader, UnmarshallingContext context)
 specifier|public
 name|Object
@@ -1342,6 +1352,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1406,6 +1418,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Object source, HierarchicalStreamWriter writer, MarshallingContext context)
 specifier|public
 name|void
@@ -1421,6 +1435,8 @@ name|MarshallingContext
 name|context
 parameter_list|)
 block|{         }
+annotation|@
+name|Override
 DECL|method|unmarshal (HierarchicalStreamReader reader, UnmarshallingContext context)
 specifier|public
 name|Object
@@ -1437,6 +1453,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

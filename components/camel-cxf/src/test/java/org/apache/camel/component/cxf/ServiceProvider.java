@@ -100,6 +100,8 @@ argument_list|<
 name|Source
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|invoke (Source m)
 specifier|public
 name|Source

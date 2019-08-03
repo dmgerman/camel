@@ -227,6 +227,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendUri ()
 specifier|protected
 name|String
@@ -237,6 +239,8 @@ return|return
 literal|"irc://{{camelTo}}@{{non.ssl.server}}?channels={{channel1}}"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fromUri ()
 specifier|protected
 name|String
@@ -247,6 +251,8 @@ return|return
 literal|"irc://{{camelFrom}}@{{non.ssl.server}}?&channels={{channel1}}"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

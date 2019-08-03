@@ -223,6 +223,8 @@ specifier|public
 name|IrcComponent
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|public
 name|IrcEndpoint
@@ -863,6 +865,8 @@ name|hostname
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Deprecated
 DECL|method|preProcessUri (String uri)

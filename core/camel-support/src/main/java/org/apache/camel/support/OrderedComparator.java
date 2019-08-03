@@ -136,6 +136,8 @@ return|return
 name|INSTANCE_REVERSE
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare (Object o1, Object o2)
 specifier|public
 name|int

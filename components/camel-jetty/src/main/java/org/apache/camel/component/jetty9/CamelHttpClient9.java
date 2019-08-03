@@ -119,6 +119,8 @@ name|sslContextFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasThreadPool ()
 specifier|protected
 name|boolean
@@ -132,6 +134,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setThreadPoolOrExecutor (Executor pool)
 specifier|protected
 name|void
@@ -147,6 +151,8 @@ name|pool
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setProxy (String host, int port)
 specifier|public
 name|void

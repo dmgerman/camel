@@ -77,6 +77,8 @@ implements|implements
 name|InterceptStrategy
 block|{
 comment|// Just simply return the target processor
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor

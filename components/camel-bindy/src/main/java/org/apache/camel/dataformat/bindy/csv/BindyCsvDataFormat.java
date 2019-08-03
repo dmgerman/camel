@@ -462,6 +462,8 @@ literal|"bindy-csv"
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -853,6 +855,8 @@ return|return
 name|canReturnEmptyListOfModels
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object

@@ -373,6 +373,8 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|performInvocation (Exchange cxfExchange, final Object serviceObject, Method method, Object[] paramArray)
 specifier|protected
 name|Object

@@ -386,6 +386,8 @@ name|exceptionPolicyStrategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -432,6 +434,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -1364,6 +1368,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setExceptionPolicy (ExceptionPolicyStrategy exceptionPolicy)
 specifier|public
 name|void
@@ -1468,6 +1474,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext ()
 specifier|public
 name|boolean

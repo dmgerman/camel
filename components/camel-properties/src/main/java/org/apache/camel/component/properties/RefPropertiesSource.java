@@ -138,6 +138,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLocation ()
 specifier|public
 name|PropertiesLocation

@@ -93,6 +93,8 @@ specifier|private
 name|WebServiceContext
 name|context
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|echo (String text)
 specifier|public
 name|String

@@ -103,6 +103,8 @@ name|noAccess
 init|=
 literal|"<?xml version=\"1.0\"?><reply><status>Access denied</status></reply>"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

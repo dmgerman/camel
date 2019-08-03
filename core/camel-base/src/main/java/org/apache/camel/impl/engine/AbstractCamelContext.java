@@ -2840,6 +2840,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doInit ()
 specifier|public
 name|void
@@ -2867,6 +2869,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|adapt (Class<T> type)
 specifier|public
 parameter_list|<
@@ -3058,6 +3062,8 @@ name|module
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isVetoStarted ()
 specifier|public
 name|boolean
@@ -3097,6 +3103,8 @@ operator|=
 name|initialization
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getName ()
 specifier|public
 name|String
@@ -3111,6 +3119,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -3131,6 +3141,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNameStrategy ()
 specifier|public
 name|CamelContextNameStrategy
@@ -3169,6 +3181,8 @@ return|return
 name|nameStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNameStrategy (CamelContextNameStrategy nameStrategy)
 specifier|public
 name|void
@@ -3188,6 +3202,8 @@ name|nameStrategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementNameStrategy ()
 specifier|public
 name|ManagementNameStrategy
@@ -3226,6 +3242,8 @@ return|return
 name|managementNameStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManagementNameStrategy (ManagementNameStrategy managementNameStrategy)
 specifier|public
 name|void
@@ -3245,6 +3263,8 @@ name|managementNameStrategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementName ()
 specifier|public
 name|String
@@ -3255,6 +3275,8 @@ return|return
 name|managementName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManagementName (String managementName)
 specifier|public
 name|void
@@ -3271,6 +3293,8 @@ operator|=
 name|managementName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasComponent (String componentName)
 specifier|public
 name|Component
@@ -3289,6 +3313,8 @@ name|componentName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addComponent (String componentName, final Component component)
 specifier|public
 name|void
@@ -3418,6 +3444,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getComponent (String name)
 specifier|public
 name|Component
@@ -3438,6 +3466,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getComponent (String name, boolean autoCreateComponents)
 specifier|public
 name|Component
@@ -3461,6 +3491,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getComponent (String name, boolean autoCreateComponents, boolean autoStart)
 specifier|public
 name|Component
@@ -3793,6 +3825,8 @@ return|return
 name|component
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getComponent (String name, Class<T> componentType)
 specifier|public
 parameter_list|<
@@ -3946,6 +3980,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeComponent (String componentName)
 specifier|public
 name|Component
@@ -4045,6 +4081,8 @@ return|;
 block|}
 comment|// Endpoint Management Methods
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getEndpointRegistry ()
 specifier|public
 name|EndpointRegistry
@@ -4058,6 +4096,8 @@ return|return
 name|endpoints
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoints ()
 specifier|public
 name|Collection
@@ -4079,6 +4119,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointMap ()
 specifier|public
 name|Map
@@ -4144,6 +4186,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasEndpoint (String uri)
 specifier|public
 name|Endpoint
@@ -4165,6 +4209,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addEndpoint (String uri, Endpoint endpoint)
 specifier|public
 name|Endpoint
@@ -4243,6 +4289,8 @@ return|return
 name|oldEndpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeEndpoint (Endpoint endpoint)
 specifier|public
 name|void
@@ -4263,6 +4311,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeEndpoints (String uri)
 specifier|public
 name|Collection
@@ -4443,6 +4493,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint (String uri)
 specifier|public
 name|Endpoint
@@ -4928,6 +4980,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint (String uri, Map<String, Object> parameters)
 specifier|public
 name|Endpoint
@@ -5431,6 +5485,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint (String name, Class<T> endpointType)
 specifier|public
 parameter_list|<
@@ -5536,6 +5592,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|registerEndpointCallback (EndpointStrategy strategy)
 specifier|public
 name|void
@@ -5890,6 +5948,8 @@ return|return
 name|routeController
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteStartupOrder ()
 specifier|public
 name|List
@@ -5903,6 +5963,8 @@ return|return
 name|routeStartupOrder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoutes ()
 specifier|public
 name|List
@@ -5947,6 +6009,8 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getRoute (String id)
 specifier|public
 name|Route
@@ -5995,6 +6059,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor (String id)
 specifier|public
 name|Processor
@@ -6050,6 +6116,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor (String id, Class<T> type)
 specifier|public
 parameter_list|<
@@ -6152,6 +6220,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addRoutes (final RoutesBuilder builder)
 specifier|public
 name|void
@@ -6281,6 +6351,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isSetupRoutes ()
 specifier|public
 name|boolean
@@ -6852,6 +6924,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|removeRoute (String routeId)
 specifier|public
 specifier|synchronized
@@ -7349,6 +7423,8 @@ name|e
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addService (Object object)
 specifier|public
 name|void
@@ -7368,6 +7444,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addService (Object object, boolean stopOnShutdown)
 specifier|public
 name|void
@@ -7725,6 +7803,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|removeService (Object object)
 specifier|public
 name|boolean
@@ -7803,6 +7883,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasService (Object object)
 specifier|public
 name|boolean
@@ -7954,6 +8036,8 @@ return|return
 name|set
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|deferStartService (Object object, boolean stopOnShutdown)
 specifier|public
 name|void
@@ -8073,6 +8157,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addStartupListener (StartupListener listener)
 specifier|public
 name|void
@@ -8803,6 +8889,8 @@ return|;
 block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|resolveLanguage (String language)
 specifier|public
 name|Language
@@ -8951,6 +9039,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolvePropertyPlaceholders (String text)
 specifier|public
 name|String
@@ -9068,6 +9158,8 @@ return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getTypeConverter ()
 specifier|public
 name|TypeConverter
@@ -9125,6 +9217,8 @@ name|typeConverter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterRegistry ()
 specifier|public
 name|TypeConverterRegistry
@@ -9163,6 +9257,8 @@ return|return
 name|typeConverterRegistry
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTypeConverterRegistry (TypeConverterRegistry typeConverterRegistry)
 specifier|public
 name|void
@@ -9200,6 +9296,8 @@ name|typeConverterRegistry
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getInjector ()
 specifier|public
 name|Injector
@@ -9238,6 +9336,8 @@ return|return
 name|injector
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInjector (Injector injector)
 specifier|public
 name|void
@@ -9257,6 +9357,8 @@ name|injector
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanPostProcessor ()
 specifier|public
 name|CamelBeanPostProcessor
@@ -9314,6 +9416,8 @@ name|beanPostProcessor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementMBeanAssembler ()
 specifier|public
 name|ManagementMBeanAssembler
@@ -9485,6 +9589,8 @@ operator|=
 name|autoCreateComponents
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRegistry ()
 specifier|public
 name|Registry
@@ -9523,6 +9629,8 @@ return|return
 name|registry
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRegistry (Class<T> type)
 specifier|public
 parameter_list|<
@@ -9570,6 +9678,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRegistry (Registry registry)
 specifier|public
 name|void
@@ -9606,6 +9716,8 @@ operator|=
 name|registry
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLifecycleStrategies ()
 specifier|public
 name|List
@@ -9619,6 +9731,8 @@ return|return
 name|lifecycleStrategies
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addLifecycleStrategy (LifecycleStrategy lifecycleStrategy)
 specifier|public
 name|void
@@ -9637,6 +9751,8 @@ name|lifecycleStrategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setupRoutes (boolean done)
 specifier|public
 name|void
@@ -9668,6 +9784,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getRestConfiguration ()
 specifier|public
 name|RestConfiguration
@@ -9683,6 +9801,8 @@ literal|""
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
 specifier|public
 name|void
@@ -9702,6 +9822,8 @@ name|restConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestConfigurations ()
 specifier|public
 name|Collection
@@ -9718,6 +9840,8 @@ name|values
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addRestConfiguration (RestConfiguration restConfiguration)
 specifier|public
 name|void
@@ -9740,6 +9864,8 @@ name|restConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestConfiguration (String component, boolean defaultIfNotExist)
 specifier|public
 name|RestConfiguration
@@ -9837,6 +9963,8 @@ return|return
 name|config
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInterceptStrategies ()
 specifier|public
 name|List
@@ -9869,6 +9997,8 @@ operator|=
 name|interceptStrategies
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addInterceptStrategy (InterceptStrategy interceptStrategy)
 specifier|public
 name|void
@@ -9887,6 +10017,8 @@ name|interceptStrategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoutePolicyFactories ()
 specifier|public
 name|List
@@ -9919,6 +10051,8 @@ operator|=
 name|routePolicyFactories
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addRoutePolicyFactory (RoutePolicyFactory routePolicyFactory)
 specifier|public
 name|void
@@ -9937,6 +10071,8 @@ name|routePolicyFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogListeners ()
 specifier|public
 name|Set
@@ -9950,6 +10086,8 @@ return|return
 name|logListeners
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addLogListener (LogListener listener)
 specifier|public
 name|void
@@ -9967,6 +10105,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStreamCaching (Boolean cache)
 specifier|public
 name|void
@@ -9983,6 +10123,8 @@ operator|=
 name|cache
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStreamCaching ()
 specifier|public
 name|Boolean
@@ -9993,6 +10135,8 @@ return|return
 name|streamCache
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTracing (Boolean tracing)
 specifier|public
 name|void
@@ -10009,6 +10153,8 @@ operator|=
 name|tracing
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isTracing ()
 specifier|public
 name|Boolean
@@ -10019,6 +10165,8 @@ return|return
 name|trace
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTracingPattern ()
 specifier|public
 name|String
@@ -10029,6 +10177,8 @@ return|return
 name|tracePattern
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTracingPattern (String tracePattern)
 specifier|public
 name|void
@@ -10045,6 +10195,8 @@ operator|=
 name|tracePattern
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isBacklogTracing ()
 specifier|public
 name|Boolean
@@ -10055,6 +10207,8 @@ return|return
 name|backlogTrace
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBacklogTracing (Boolean backlogTrace)
 specifier|public
 name|void
@@ -10071,6 +10225,8 @@ operator|=
 name|backlogTrace
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDebugging (Boolean debug)
 specifier|public
 name|void
@@ -10087,6 +10243,8 @@ operator|=
 name|debug
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDebugging ()
 specifier|public
 name|Boolean
@@ -10097,6 +10255,8 @@ return|return
 name|debug
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageHistory (Boolean messageHistory)
 specifier|public
 name|void
@@ -10113,6 +10273,8 @@ operator|=
 name|messageHistory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isMessageHistory ()
 specifier|public
 name|Boolean
@@ -10123,6 +10285,8 @@ return|return
 name|messageHistory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogMask (Boolean logMask)
 specifier|public
 name|void
@@ -10139,6 +10303,8 @@ operator|=
 name|logMask
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLogMask ()
 specifier|public
 name|Boolean
@@ -10153,6 +10319,8 @@ operator|&&
 name|logMask
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLogExhaustedMessageBody ()
 specifier|public
 name|Boolean
@@ -10163,6 +10331,8 @@ return|return
 name|logExhaustedMessageBody
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogExhaustedMessageBody (Boolean logExhaustedMessageBody)
 specifier|public
 name|void
@@ -10179,6 +10349,8 @@ operator|=
 name|logExhaustedMessageBody
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDelayer ()
 specifier|public
 name|Long
@@ -10189,6 +10361,8 @@ return|return
 name|delay
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDelayer (Long delay)
 specifier|public
 name|void
@@ -10205,6 +10379,8 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducerTemplate ()
 specifier|public
 name|ProducerTemplate
@@ -10218,6 +10394,8 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducerTemplate (int maximumCacheSize)
 specifier|public
 name|ProducerTemplate
@@ -10271,6 +10449,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createFluentProducerTemplate ()
 specifier|public
 name|FluentProducerTemplate
@@ -10284,6 +10464,8 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createFluentProducerTemplate (int maximumCacheSize)
 specifier|public
 name|FluentProducerTemplate
@@ -10337,6 +10519,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumerTemplate ()
 specifier|public
 name|ConsumerTemplate
@@ -10350,6 +10534,8 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumerTemplate (int maximumCacheSize)
 specifier|public
 name|ConsumerTemplate
@@ -10403,6 +10589,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getErrorHandlerFactory ()
 specifier|public
 name|ErrorHandlerFactory
@@ -10413,6 +10601,8 @@ return|return
 name|errorHandlerFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setErrorHandlerFactory (ErrorHandlerFactory errorHandlerFactory)
 specifier|public
 name|void
@@ -10429,6 +10619,8 @@ operator|=
 name|errorHandlerFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getErrorHandlerExecutorService ()
 specifier|public
 name|ScheduledExecutorService
@@ -10627,6 +10819,8 @@ name|pollingConsumerServicePool
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUnitOfWorkFactory ()
 specifier|public
 name|UnitOfWorkFactory
@@ -10665,6 +10859,8 @@ return|return
 name|unitOfWorkFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUnitOfWorkFactory (UnitOfWorkFactory unitOfWorkFactory)
 specifier|public
 name|void
@@ -10684,6 +10880,8 @@ name|unitOfWorkFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRuntimeEndpointRegistry ()
 specifier|public
 name|RuntimeEndpointRegistry
@@ -10694,6 +10892,8 @@ return|return
 name|runtimeEndpointRegistry
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRuntimeEndpointRegistry (RuntimeEndpointRegistry runtimeEndpointRegistry)
 specifier|public
 name|void
@@ -10713,6 +10913,8 @@ name|runtimeEndpointRegistry
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUptime ()
 specifier|public
 name|String
@@ -10745,6 +10947,8 @@ name|delta
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUptimeMillis ()
 specifier|public
 name|long
@@ -10776,6 +10980,8 @@ name|getTime
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion ()
 specifier|public
 name|String
@@ -11955,6 +12161,8 @@ block|}
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 specifier|synchronized
@@ -12910,6 +13118,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 specifier|synchronized
@@ -16007,6 +16217,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Gets the properties component in use, eventually creating it.      */
+annotation|@
+name|Override
 DECL|method|getPropertiesComponent ()
 specifier|public
 name|PropertiesComponent
@@ -16020,6 +16232,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPropertiesComponent (boolean autoCreate)
 specifier|public
 name|PropertiesComponent
@@ -16186,6 +16400,8 @@ return|return
 name|globalOptions
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setGlobalOptions (Map<String, String> globalOptions)
 specifier|public
 name|void
@@ -16207,6 +16423,8 @@ operator|=
 name|globalOptions
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDefaultFactoryFinder ()
 specifier|public
 name|FactoryFinder
@@ -16250,6 +16468,8 @@ return|return
 name|defaultFactoryFinder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFactoryFinderResolver ()
 specifier|public
 name|FactoryFinderResolver
@@ -16287,6 +16507,8 @@ return|return
 name|factoryFinderResolver
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setFactoryFinderResolver (FactoryFinderResolver factoryFinderResolver)
 specifier|public
 name|void
@@ -16306,6 +16528,8 @@ name|factoryFinderResolver
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFactoryFinder (String path)
 specifier|public
 name|FactoryFinder
@@ -16352,6 +16576,8 @@ name|path
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getClassResolver ()
 specifier|public
 name|ClassResolver
@@ -16390,6 +16616,8 @@ return|return
 name|classResolver
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setClassResolver (ClassResolver classResolver)
 specifier|public
 name|void
@@ -16409,6 +16637,8 @@ name|classResolver
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPackageScanClassResolver ()
 specifier|public
 name|PackageScanClassResolver
@@ -16447,6 +16677,8 @@ return|return
 name|packageScanClassResolver
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setPackageScanClassResolver (PackageScanClassResolver packageScanClassResolver)
 specifier|public
 name|void
@@ -16466,6 +16698,8 @@ name|packageScanClassResolver
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getComponentNames ()
 specifier|public
 name|List
@@ -16487,6 +16721,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLanguageNames ()
 specifier|public
 name|List
@@ -16508,6 +16744,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getModelJAXBContextFactory ()
 specifier|public
 name|ModelJAXBContextFactory
@@ -16546,6 +16784,8 @@ return|return
 name|modelJAXBContextFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setModelJAXBContextFactory (final ModelJAXBContextFactory modelJAXBContextFactory)
 specifier|public
 name|void
@@ -16566,6 +16806,8 @@ name|modelJAXBContextFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNodeIdFactory ()
 specifier|public
 name|NodeIdFactory
@@ -16604,6 +16846,8 @@ return|return
 name|nodeIdFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNodeIdFactory (NodeIdFactory idFactory)
 specifier|public
 name|void
@@ -16623,6 +16867,8 @@ name|idFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementStrategy ()
 specifier|public
 name|ManagementStrategy
@@ -16633,6 +16879,8 @@ return|return
 name|managementStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManagementStrategy (ManagementStrategy managementStrategy)
 specifier|public
 name|void
@@ -16649,6 +16897,8 @@ operator|=
 name|managementStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|disableJMX ()
 specifier|public
 name|void
@@ -16706,6 +16956,8 @@ return|return
 name|disableJMX
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setupManagement (Map<String, Object> options)
 specifier|public
 name|void
@@ -16920,6 +17172,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getInflightRepository ()
 specifier|public
 name|InflightRepository
@@ -16958,6 +17212,8 @@ return|return
 name|inflightRepository
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInflightRepository (InflightRepository repository)
 specifier|public
 name|void
@@ -16977,6 +17233,8 @@ name|repository
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAsyncProcessorAwaitManager ()
 specifier|public
 name|AsyncProcessorAwaitManager
@@ -17015,6 +17273,8 @@ return|return
 name|asyncProcessorAwaitManager
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAsyncProcessorAwaitManager (AsyncProcessorAwaitManager asyncProcessorAwaitManager)
 specifier|public
 name|void
@@ -17034,6 +17294,8 @@ name|asyncProcessorAwaitManager
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAutoStartup (Boolean autoStartup)
 specifier|public
 name|void
@@ -17050,6 +17312,8 @@ operator|=
 name|autoStartup
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAutoStartup ()
 specifier|public
 name|Boolean
@@ -17064,6 +17328,8 @@ operator|&&
 name|autoStartup
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLoadTypeConverters ()
 specifier|public
 name|Boolean
@@ -17078,6 +17344,8 @@ operator|&&
 name|loadTypeConverters
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLoadTypeConverters (Boolean loadTypeConverters)
 specifier|public
 name|void
@@ -17094,6 +17362,8 @@ operator|=
 name|loadTypeConverters
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isTypeConverterStatisticsEnabled ()
 specifier|public
 name|Boolean
@@ -17108,6 +17378,8 @@ operator|&&
 name|typeConverterStatisticsEnabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTypeConverterStatisticsEnabled (Boolean typeConverterStatisticsEnabled)
 specifier|public
 name|void
@@ -17124,6 +17396,8 @@ operator|=
 name|typeConverterStatisticsEnabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseMDCLogging ()
 specifier|public
 name|Boolean
@@ -17138,6 +17412,8 @@ operator|&&
 name|useMDCLogging
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUseMDCLogging (Boolean useMDCLogging)
 specifier|public
 name|void
@@ -17154,6 +17430,8 @@ operator|=
 name|useMDCLogging
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseDataType ()
 specifier|public
 name|Boolean
@@ -17182,6 +17460,8 @@ operator|=
 name|useDataType
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseBreadcrumb ()
 specifier|public
 name|Boolean
@@ -17196,6 +17476,8 @@ operator|&&
 name|useBreadcrumb
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUseBreadcrumb (Boolean useBreadcrumb)
 specifier|public
 name|void
@@ -17212,6 +17494,8 @@ operator|=
 name|useBreadcrumb
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getApplicationContextClassLoader ()
 specifier|public
 name|ClassLoader
@@ -17222,6 +17506,8 @@ return|return
 name|applicationContextClassLoader
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setApplicationContextClassLoader (ClassLoader classLoader)
 specifier|public
 name|void
@@ -17236,6 +17522,8 @@ operator|=
 name|classLoader
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDataFormatResolver ()
 specifier|public
 name|DataFormatResolver
@@ -17274,6 +17562,8 @@ return|return
 name|dataFormatResolver
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDataFormatResolver (DataFormatResolver dataFormatResolver)
 specifier|public
 name|void
@@ -17293,6 +17583,8 @@ name|dataFormatResolver
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveDataFormat (String name)
 specifier|public
 name|DataFormat
@@ -17340,6 +17632,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createDataFormat (String name)
 specifier|public
 name|DataFormat
@@ -17437,6 +17731,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getShutdownStrategy ()
 specifier|public
 name|ShutdownStrategy
@@ -17475,6 +17771,8 @@ return|return
 name|shutdownStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setShutdownStrategy (ShutdownStrategy shutdownStrategy)
 specifier|public
 name|void
@@ -17494,6 +17792,8 @@ name|shutdownStrategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getShutdownRoute ()
 specifier|public
 name|ShutdownRoute
@@ -17504,6 +17804,8 @@ return|return
 name|shutdownRoute
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
 specifier|public
 name|void
@@ -17520,6 +17822,8 @@ operator|=
 name|shutdownRoute
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getShutdownRunningTask ()
 specifier|public
 name|ShutdownRunningTask
@@ -17530,6 +17834,8 @@ return|return
 name|shutdownRunningTask
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|void
@@ -17546,6 +17852,8 @@ operator|=
 name|shutdownRunningTask
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAllowUseOriginalMessage (Boolean allowUseOriginalMessage)
 specifier|public
 name|void
@@ -17562,6 +17870,8 @@ operator|=
 name|allowUseOriginalMessage
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAllowUseOriginalMessage ()
 specifier|public
 name|Boolean
@@ -17576,6 +17886,8 @@ operator|&&
 name|allowUseOriginalMessage
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorServiceManager ()
 specifier|public
 name|ExecutorServiceManager
@@ -17616,6 +17928,8 @@ operator|.
 name|executorServiceManager
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorServiceManager (ExecutorServiceManager executorServiceManager)
 specifier|public
 name|void
@@ -17639,6 +17953,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessorFactory ()
 specifier|public
 name|ProcessorFactory
@@ -17677,6 +17993,8 @@ return|return
 name|processorFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setProcessorFactory (ProcessorFactory processorFactory)
 specifier|public
 name|void
@@ -17696,6 +18014,8 @@ name|processorFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageHistoryFactory ()
 specifier|public
 name|MessageHistoryFactory
@@ -17734,6 +18054,8 @@ return|return
 name|messageHistoryFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMessageHistoryFactory (MessageHistoryFactory messageHistoryFactory)
 specifier|public
 name|void
@@ -17753,6 +18075,8 @@ name|messageHistoryFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDebugger ()
 specifier|public
 name|Debugger
@@ -17763,6 +18087,8 @@ return|return
 name|debugger
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDebugger (Debugger debugger)
 specifier|public
 name|void
@@ -17802,6 +18128,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTracer ()
 specifier|public
 name|Tracer
@@ -17840,6 +18168,8 @@ return|return
 name|tracer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTracer (Tracer tracer)
 specifier|public
 name|void
@@ -17862,6 +18192,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUuidGenerator ()
 specifier|public
 name|UuidGenerator
@@ -17900,6 +18232,8 @@ return|return
 name|uuidGenerator
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUuidGenerator (UuidGenerator uuidGenerator)
 specifier|public
 name|void
@@ -17919,6 +18253,8 @@ name|uuidGenerator
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStreamCachingStrategy ()
 specifier|public
 name|StreamCachingStrategy
@@ -17957,6 +18293,8 @@ return|return
 name|streamCachingStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStreamCachingStrategy (StreamCachingStrategy streamCachingStrategy)
 specifier|public
 name|void
@@ -17980,6 +18318,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestRegistry ()
 specifier|public
 name|RestRegistry
@@ -18018,6 +18358,8 @@ return|return
 name|restRegistry
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRestRegistry (RestRegistry restRegistry)
 specifier|public
 name|void
@@ -18393,6 +18735,8 @@ name|headersMapFactory
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getReactiveExecutor ()
 specifier|public
 name|ReactiveExecutor
@@ -18431,6 +18775,8 @@ return|return
 name|reactiveExecutor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setReactiveExecutor (ReactiveExecutor reactiveExecutor)
 specifier|public
 name|void

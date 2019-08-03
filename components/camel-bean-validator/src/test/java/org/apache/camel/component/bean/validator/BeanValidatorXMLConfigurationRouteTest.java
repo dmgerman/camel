@@ -28,6 +28,8 @@ name|BeanValidatorXMLConfigurationRouteTest
 extends|extends
 name|BeanValidatorRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCar (String manufacturer, String licencePlate)
 name|Car
 name|createCar

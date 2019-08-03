@@ -378,6 +378,8 @@ name|MyRedeliverProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -450,6 +452,8 @@ name|MyIORedeliverProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -486,6 +490,8 @@ name|ThrowExceptionProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -524,6 +530,8 @@ name|ThrowIOExceptionProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

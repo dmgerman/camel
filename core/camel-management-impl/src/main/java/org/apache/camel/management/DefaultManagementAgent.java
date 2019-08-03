@@ -1455,6 +1455,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setRegistryPort (Integer port)
 specifier|public
 name|void
@@ -1469,6 +1471,8 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRegistryPort ()
 specifier|public
 name|Integer
@@ -1479,6 +1483,8 @@ return|return
 name|registryPort
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setConnectorPort (Integer port)
 specifier|public
 name|void
@@ -1493,6 +1499,8 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConnectorPort ()
 specifier|public
 name|Integer
@@ -1503,6 +1511,8 @@ return|return
 name|connectorPort
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMBeanServerDefaultDomain (String domain)
 specifier|public
 name|void
@@ -1517,6 +1527,8 @@ operator|=
 name|domain
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMBeanServerDefaultDomain ()
 specifier|public
 name|String
@@ -1527,6 +1539,8 @@ return|return
 name|mBeanServerDefaultDomain
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMBeanObjectDomainName (String domainName)
 specifier|public
 name|void
@@ -1541,6 +1555,8 @@ operator|=
 name|domainName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMBeanObjectDomainName ()
 specifier|public
 name|String
@@ -1551,6 +1567,8 @@ return|return
 name|mBeanObjectDomainName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setServiceUrlPath (String url)
 specifier|public
 name|void
@@ -1565,6 +1583,8 @@ operator|=
 name|url
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getServiceUrlPath ()
 specifier|public
 name|String
@@ -1575,6 +1595,8 @@ return|return
 name|serviceUrlPath
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCreateConnector (Boolean flag)
 specifier|public
 name|void
@@ -1589,6 +1611,8 @@ operator|=
 name|flag
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCreateConnector ()
 specifier|public
 name|Boolean
@@ -1599,6 +1623,8 @@ return|return
 name|createConnector
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUsePlatformMBeanServer (Boolean flag)
 specifier|public
 name|void
@@ -1613,6 +1639,8 @@ operator|=
 name|flag
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUsePlatformMBeanServer ()
 specifier|public
 name|Boolean
@@ -1623,6 +1651,8 @@ return|return
 name|usePlatformMBeanServer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOnlyRegisterProcessorWithCustomId ()
 specifier|public
 name|Boolean
@@ -1633,6 +1663,8 @@ return|return
 name|onlyRegisterProcessorWithCustomId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setOnlyRegisterProcessorWithCustomId (Boolean onlyRegisterProcessorWithCustomId)
 specifier|public
 name|void
@@ -1649,6 +1681,8 @@ operator|=
 name|onlyRegisterProcessorWithCustomId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMBeanServer (MBeanServer mbeanServer)
 specifier|public
 name|void
@@ -1663,6 +1697,8 @@ operator|=
 name|mbeanServer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMBeanServer ()
 specifier|public
 name|MBeanServer
@@ -1673,6 +1709,8 @@ return|return
 name|server
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRegisterAlways ()
 specifier|public
 name|Boolean
@@ -1687,6 +1725,8 @@ operator|&&
 name|registerAlways
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRegisterAlways (Boolean registerAlways)
 specifier|public
 name|void
@@ -1703,6 +1743,8 @@ operator|=
 name|registerAlways
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRegisterNewRoutes ()
 specifier|public
 name|Boolean
@@ -1717,6 +1759,8 @@ operator|&&
 name|registerNewRoutes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRegisterNewRoutes (Boolean registerNewRoutes)
 specifier|public
 name|void
@@ -1733,6 +1777,8 @@ operator|=
 name|registerNewRoutes
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMask ()
 specifier|public
 name|Boolean
@@ -1747,6 +1793,8 @@ operator|&&
 name|mask
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMask (Boolean mask)
 specifier|public
 name|void
@@ -1763,6 +1811,8 @@ operator|=
 name|mask
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIncludeHostName ()
 specifier|public
 name|Boolean
@@ -1777,6 +1827,8 @@ operator|&&
 name|includeHostName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIncludeHostName (Boolean includeHostName)
 specifier|public
 name|void
@@ -1793,6 +1845,8 @@ operator|=
 name|includeHostName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUseHostIPAddress ()
 specifier|public
 name|Boolean
@@ -1807,6 +1861,8 @@ operator|&&
 name|useHostIPAddress
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUseHostIPAddress (Boolean useHostIPAddress)
 specifier|public
 name|void
@@ -1823,6 +1879,8 @@ operator|=
 name|useHostIPAddress
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementNamePattern ()
 specifier|public
 name|String
@@ -1833,6 +1891,8 @@ return|return
 name|managementNamePattern
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManagementNamePattern (String managementNamePattern)
 specifier|public
 name|void
@@ -1849,6 +1909,8 @@ operator|=
 name|managementNamePattern
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLoadStatisticsEnabled ()
 specifier|public
 name|Boolean
@@ -1859,6 +1921,8 @@ return|return
 name|loadStatisticsEnabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLoadStatisticsEnabled (Boolean loadStatisticsEnabled)
 specifier|public
 name|void
@@ -1875,6 +1939,8 @@ operator|=
 name|loadStatisticsEnabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointRuntimeStatisticsEnabled ()
 specifier|public
 name|Boolean
@@ -1885,6 +1951,8 @@ return|return
 name|endpointRuntimeStatisticsEnabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEndpointRuntimeStatisticsEnabled (Boolean endpointRuntimeStatisticsEnabled)
 specifier|public
 name|void
@@ -1901,6 +1969,8 @@ operator|=
 name|endpointRuntimeStatisticsEnabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatisticsLevel ()
 specifier|public
 name|ManagementStatisticsLevel
@@ -1911,6 +1981,8 @@ return|return
 name|statisticsLevel
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStatisticsLevel (ManagementStatisticsLevel statisticsLevel)
 specifier|public
 name|void
@@ -1927,6 +1999,8 @@ operator|=
 name|statisticsLevel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -1937,6 +2011,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -1953,6 +2029,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|register (Object obj, ObjectName name)
 specifier|public
 name|void
@@ -1977,6 +2055,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|register (Object obj, ObjectName name, boolean forceRegistration)
 specifier|public
 name|void
@@ -2058,6 +2138,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|unregister (ObjectName name)
 specifier|public
 name|void
@@ -2115,6 +2197,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isRegistered (ObjectName name)
 specifier|public
 name|boolean
@@ -2167,6 +2251,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newProxyClient (ObjectName name, Class<T> mbean)
 specifier|public
 parameter_list|<
@@ -2231,6 +2317,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -2312,6 +2400,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

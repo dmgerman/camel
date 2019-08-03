@@ -825,6 +825,8 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|start (BundleContext context)
 specifier|public
 name|void
@@ -899,6 +901,8 @@ literal|"Camel activator started"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop (BundleContext context)
 specifier|public
 name|void
@@ -1055,6 +1059,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addingBundle (Bundle bundle, BundleEvent event)
 specifier|public
 name|Object
@@ -1289,6 +1295,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|modifiedBundle (Bundle bundle, BundleEvent event, Object object)
 specifier|public
 name|void
@@ -1304,6 +1312,8 @@ name|Object
 name|object
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|removedBundle (Bundle bundle, BundleEvent event, Object object)
 specifier|public
 name|void
@@ -2461,6 +2471,8 @@ operator|=
 name|components
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveComponent (String name, CamelContext context)
 specifier|public
 name|Component
@@ -2491,6 +2503,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|register ()
 specifier|public
 name|void
@@ -2569,6 +2583,8 @@ operator|=
 name|languages
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveLanguage (String name, CamelContext context)
 specifier|public
 name|Language
@@ -2597,6 +2613,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|register ()
 specifier|public
 name|void
@@ -2680,6 +2698,8 @@ operator|=
 name|path
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveLanguage (String name, CamelContext context)
 specifier|public
 name|Language
@@ -2717,6 +2737,8 @@ name|context
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|register ()
 specifier|public
 name|void
@@ -3006,6 +3028,8 @@ operator|=
 name|typeConverterloader
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
 specifier|synchronized
@@ -3052,6 +3076,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|register ()
 specifier|public
 name|void
@@ -3106,6 +3132,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
 name|void

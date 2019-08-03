@@ -52,6 +52,8 @@ name|NamespaceHandler
 extends|extends
 name|NamespaceHandlerSupport
 block|{
+annotation|@
+name|Override
 DECL|method|init ()
 specifier|public
 name|void

@@ -128,6 +128,8 @@ name|configurer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|configureHttpClient (HttpClient client)
 specifier|public
 name|HttpClient

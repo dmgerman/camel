@@ -166,6 +166,8 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
@@ -204,6 +206,8 @@ name|processor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean

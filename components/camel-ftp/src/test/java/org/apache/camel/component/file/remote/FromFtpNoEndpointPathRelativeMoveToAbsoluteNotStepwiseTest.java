@@ -28,6 +28,8 @@ name|FromFtpNoEndpointPathRelativeMoveToAbsoluteNotStepwiseTest
 extends|extends
 name|FromFtpNoEndpointPathRelativeMoveToAbsoluteTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

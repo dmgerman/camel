@@ -363,6 +363,8 @@ block|}
 comment|// *************************************************************************
 comment|// Utilities
 comment|// *************************************************************************
+annotation|@
+name|Override
 DECL|method|postProcessFactoryParameters (CamelContext camelContext, Map<String, Object> parameters)
 specifier|protected
 name|void

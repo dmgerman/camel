@@ -674,6 +674,8 @@ init|=
 literal|1000
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"

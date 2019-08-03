@@ -535,6 +535,8 @@ specifier|private
 name|int
 name|eventCounter
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|handleNotification (Notification notification, Object handback)
 specifier|public
 name|void

@@ -278,6 +278,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -387,6 +389,8 @@ name|MyHeaderFilterStrategy
 implements|implements
 name|HeaderFilterStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|applyFilterToCamelHeaders (String s, Object o, Exchange exchange)
 specifier|public
 name|boolean
@@ -406,6 +410,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyFilterToExternalHeaders (String s, Object o, Exchange exchange)
 specifier|public
 name|boolean

@@ -931,6 +931,8 @@ name|CloseProducerCallback
 implements|implements
 name|ReleaseProducerCallback
 block|{
+annotation|@
+name|Override
 DECL|method|release (MessageProducerResources producer)
 specifier|public
 name|void
@@ -959,6 +961,8 @@ name|ReturnProducerCallback
 implements|implements
 name|ReleaseProducerCallback
 block|{
+annotation|@
+name|Override
 DECL|method|release (MessageProducerResources producer)
 specifier|public
 name|void

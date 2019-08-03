@@ -260,6 +260,8 @@ name|FooInterceptStrategy
 implements|implements
 name|InterceptStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, final Processor target, Processor nextTarget)
 specifier|public
 name|Processor
@@ -358,6 +360,8 @@ name|BarInterceptStrategy
 implements|implements
 name|InterceptStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, final Processor target, Processor nextTarget)
 specifier|public
 name|Processor

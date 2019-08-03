@@ -168,6 +168,8 @@ literal|"xmlns:ns2=\"http://cxf.component.camel.apache.org/\" xmlns:xsd=\"http:/
 operator|+
 literal|"<ns1:echo><ns2:arg0 xsi:type=\"xsd:string\">Hello World!</ns2:arg0></ns1:echo></soap:Body></soap:Envelope>"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|checkRequest (String expect, String request)
 specifier|protected
 name|void
@@ -207,6 +209,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testInvokingServiceFromClient ()

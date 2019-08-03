@@ -194,6 +194,8 @@ name|ref
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -215,6 +217,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExpression (final String expression)
 specifier|public
 name|Expression
@@ -353,6 +357,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

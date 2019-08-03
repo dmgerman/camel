@@ -74,6 +74,8 @@ name|SpringAggregateSimplePredicateTest
 extends|extends
 name|AggregateSimplePredicateTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

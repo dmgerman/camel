@@ -162,6 +162,8 @@ operator|=
 name|classLoader
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|findClass (String name)
 specifier|protected
 name|Class
@@ -194,6 +196,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findResource (String name)
 specifier|protected
 name|URL
@@ -248,6 +252,8 @@ name|resource
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 block|{
@@ -285,6 +291,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadClass (String name, boolean resolve)
 specifier|protected
 name|Class

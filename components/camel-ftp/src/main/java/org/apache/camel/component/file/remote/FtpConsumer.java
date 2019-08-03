@@ -658,6 +658,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doPollDirectory (String absolutePath, String dirName, List<GenericFile<FTPFile>> fileList, int depth)
 specifier|protected
 name|boolean

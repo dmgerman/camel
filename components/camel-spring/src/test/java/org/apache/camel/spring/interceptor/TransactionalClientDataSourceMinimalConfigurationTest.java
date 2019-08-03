@@ -133,6 +133,8 @@ specifier|protected
 name|JdbcTemplate
 name|jdbc
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

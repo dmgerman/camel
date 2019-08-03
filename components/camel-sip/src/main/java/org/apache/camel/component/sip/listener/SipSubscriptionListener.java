@@ -368,6 +368,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processRequest (RequestEvent requestReceivedEvent)
 specifier|public
 name|void
@@ -669,6 +671,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processResponse (ResponseEvent responseReceivedEvent)
 specifier|public
 name|void
@@ -741,6 +745,8 @@ block|}
 return|return;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processIOException (IOExceptionEvent exceptionEvent)
 specifier|public
 name|void
@@ -767,6 +773,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processTransactionTerminated ( TransactionTerminatedEvent transactionTerminatedEvent)
 specifier|public
 name|void
@@ -793,6 +801,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processDialogTerminated ( DialogTerminatedEvent dialogTerminatedEvent)
 specifier|public
 name|void
@@ -819,6 +829,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processTimeout (javax.sip.TimeoutEvent timeoutEvent)
 specifier|public
 name|void

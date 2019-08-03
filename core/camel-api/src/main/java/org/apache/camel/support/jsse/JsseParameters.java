@@ -192,6 +192,8 @@ name|CamelContext
 name|context
 decl_stmt|;
 comment|/**      * @see #setCamelContext(CamelContext)      */
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -203,6 +205,8 @@ name|context
 return|;
 block|}
 comment|/**      * Sets the optional {@link CamelContext} used for integration with core capabilities      * such as Camel Property Placeholders and {@link ClassResolver}.      *      * @param context the context to use      */
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext context)
 specifier|public
 name|void

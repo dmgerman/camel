@@ -795,6 +795,8 @@ name|JcrConsumerSessionListenerChecker
 implements|implements
 name|Runnable
 block|{
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

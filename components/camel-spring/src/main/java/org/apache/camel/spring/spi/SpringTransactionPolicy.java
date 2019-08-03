@@ -302,6 +302,8 @@ operator|=
 name|transactionManager
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|void
@@ -314,6 +316,8 @@ name|NamedNode
 name|definition
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|wrap (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor

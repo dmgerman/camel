@@ -1573,6 +1573,8 @@ name|RuntimeCamelCatalog
 name|createRuntimeCamelCatalog
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|doStartStandardServices ()
 specifier|protected
 name|void
@@ -1592,6 +1594,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStartEagerServices ()
 specifier|protected
 name|void
@@ -1611,6 +1615,8 @@ name|doStartEagerServices
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|bindDataFormats ()
 specifier|protected
 name|void
@@ -1703,6 +1709,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|shutdownRouteService (BaseRouteService routeService)
 specifier|protected
 specifier|synchronized
@@ -1749,6 +1757,8 @@ name|routeService
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStreamCachingInUse ()
 specifier|protected
 name|boolean

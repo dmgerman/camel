@@ -114,6 +114,8 @@ operator|=
 name|entries
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void

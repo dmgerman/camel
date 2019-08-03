@@ -74,6 +74,8 @@ name|SpringCustomRefLoadBalanceTest
 extends|extends
 name|CustomRefLoadBalanceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -1214,6 +1214,8 @@ block|}
 block|}
 block|}
 comment|/**      * Determine the QName of the method parameter of the method that matches      * either soapAction and type or if not possible only the type      *       * @param soapAction      * @param type      * @return matching QName throws RuntimeException if no matching QName was      *         found      */
+annotation|@
+name|Override
 DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 specifier|public
 name|QName
@@ -1405,6 +1407,8 @@ return|return
 name|qName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findExceptionForFaultName (QName faultName)
 specifier|public
 name|Class

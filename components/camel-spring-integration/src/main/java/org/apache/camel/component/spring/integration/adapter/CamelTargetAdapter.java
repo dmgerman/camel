@@ -455,6 +455,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleMessage (Message<?> message)
 specifier|public
 name|void

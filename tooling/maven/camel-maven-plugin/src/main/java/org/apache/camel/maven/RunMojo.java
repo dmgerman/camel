@@ -1097,6 +1097,8 @@ name|String
 name|extraPluginDependencyArtifactId
 decl_stmt|;
 comment|/**      * Execute goal.      *      * @throws MojoExecutionException execution of the main class or one of the      *                 threads it generated failed.      * @throws MojoFailureException something bad happened...      */
+annotation|@
+name|Override
 DECL|method|execute ()
 specifier|public
 name|void
@@ -2037,6 +2039,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|uncaughtException (Thread thread, Throwable throwable)
 specifier|public
 name|void
@@ -4191,6 +4195,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Examine the plugin dependencies to find the executable artifact.      *      * @return an artifact which refers to the actual executable tool (not a POM)      * @throws MojoExecutionException      */
+annotation|@
+name|Override
 DECL|method|findExecutableArtifact ()
 specifier|protected
 name|Artifact

@@ -475,6 +475,8 @@ literal|true
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

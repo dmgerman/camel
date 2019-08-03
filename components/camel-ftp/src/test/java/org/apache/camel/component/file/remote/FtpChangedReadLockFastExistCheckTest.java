@@ -32,6 +32,8 @@ name|FtpChangedReadLockFastExistCheckTest
 extends|extends
 name|FtpChangedReadLockTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

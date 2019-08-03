@@ -311,6 +311,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The main ServerSocket.accept() loop      *<p/>      * NOTE:  When a connection is received, the Socket is checked after a brief delay in an attempt to determine if this is a load-balancer probe.  The test is done before the      * ConsumerClientSocketThread is created to avoid creating a large number of short lived threads, which is what can occur if the load balancer polling interval is very short.      */
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

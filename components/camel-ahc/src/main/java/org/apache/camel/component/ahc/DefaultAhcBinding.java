@@ -471,6 +471,8 @@ operator|new
 name|HttpProtocolHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|prepareRequest (AhcEndpoint endpoint, Exchange exchange)
 specifier|public
 name|Request

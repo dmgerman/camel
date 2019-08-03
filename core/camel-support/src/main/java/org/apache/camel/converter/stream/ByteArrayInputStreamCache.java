@@ -180,6 +180,8 @@ block|{
 comment|// ignore
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|writeTo (OutputStream os)
 specifier|public
 name|void
@@ -201,6 +203,8 @@ name|os
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy (Exchange exchange)
 specifier|public
 name|StreamCache
@@ -261,6 +265,8 @@ name|byteArrayForCopy
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|inMemory ()
 specifier|public
 name|boolean

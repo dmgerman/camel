@@ -1232,6 +1232,8 @@ name|init
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createTypeConverter ()
 specifier|protected
 name|TypeConverter
@@ -1258,6 +1260,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createTypeConverterRegistry ()
 specifier|protected
 name|TypeConverterRegistry
@@ -1288,6 +1292,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createInjector ()
 specifier|protected
 name|Injector
@@ -1330,6 +1336,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createBeanPostProcessor ()
 specifier|protected
 name|CamelBeanPostProcessor
@@ -1344,6 +1352,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createComponentResolver ()
 specifier|protected
 name|ComponentResolver
@@ -1356,6 +1366,8 @@ name|DefaultComponentResolver
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|Registry
@@ -1368,6 +1380,8 @@ name|DefaultRegistry
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createUuidGenerator ()
 specifier|protected
 name|UuidGenerator
@@ -1380,6 +1394,8 @@ name|DefaultUuidGenerator
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createModelJAXBContextFactory ()
 specifier|protected
 name|ModelJAXBContextFactory
@@ -1392,6 +1408,8 @@ name|DefaultModelJAXBContextFactory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createNodeIdFactory ()
 specifier|protected
 name|NodeIdFactory
@@ -1404,6 +1422,8 @@ name|DefaultNodeIdFactory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createFactoryFinderResolver ()
 specifier|protected
 name|FactoryFinderResolver
@@ -1416,6 +1436,8 @@ name|DefaultFactoryFinderResolver
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createClassResolver ()
 specifier|protected
 name|ClassResolver
@@ -1430,6 +1452,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProcessorFactory ()
 specifier|protected
 name|ProcessorFactory
@@ -1442,6 +1466,8 @@ name|DefaultProcessorFactory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createDataFormatResolver ()
 specifier|protected
 name|DataFormatResolver
@@ -1454,6 +1480,8 @@ name|DefaultDataFormatResolver
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createMessageHistoryFactory ()
 specifier|protected
 name|MessageHistoryFactory
@@ -1466,6 +1494,8 @@ name|DefaultMessageHistoryFactory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createInflightRepository ()
 specifier|protected
 name|InflightRepository
@@ -1478,6 +1508,8 @@ name|DefaultInflightRepository
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createAsyncProcessorAwaitManager ()
 specifier|protected
 name|AsyncProcessorAwaitManager
@@ -1490,6 +1522,8 @@ name|DefaultAsyncProcessorAwaitManager
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteController ()
 specifier|protected
 name|RouteController
@@ -1504,6 +1538,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createHealthCheckRegistry ()
 specifier|protected
 name|HealthCheckRegistry
@@ -1518,6 +1554,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createShutdownStrategy ()
 specifier|protected
 name|ShutdownStrategy
@@ -1532,6 +1570,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPackageScanClassResolver ()
 specifier|protected
 name|PackageScanClassResolver
@@ -1587,6 +1627,8 @@ return|return
 name|packageScanClassResolver
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExecutorServiceManager ()
 specifier|protected
 name|ExecutorServiceManager
@@ -1601,6 +1643,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducerServicePool ()
 specifier|protected
 name|ServicePool
@@ -1627,6 +1671,8 @@ literal|100
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPollingConsumerServicePool ()
 specifier|protected
 name|ServicePool
@@ -1653,6 +1699,8 @@ literal|100
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createUnitOfWorkFactory ()
 specifier|protected
 name|UnitOfWorkFactory
@@ -1665,6 +1713,8 @@ name|DefaultUnitOfWorkFactory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRuntimeCamelCatalog ()
 specifier|protected
 name|RuntimeCamelCatalog
@@ -1681,6 +1731,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContextNameStrategy ()
 specifier|protected
 name|CamelContextNameStrategy
@@ -1693,6 +1745,8 @@ name|DefaultCamelContextNameStrategy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createManagementNameStrategy ()
 specifier|protected
 name|ManagementNameStrategy
@@ -1707,6 +1761,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createHeadersMapFactory ()
 specifier|protected
 name|HeadersMapFactory
@@ -1724,6 +1780,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createBeanProxyFactory ()
 specifier|protected
 name|BeanProxyFactory
@@ -1741,6 +1799,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createBeanProcessorFactory ()
 specifier|protected
 name|BeanProcessorFactory
@@ -1758,6 +1818,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createTracer ()
 specifier|protected
 name|Tracer
@@ -1865,6 +1927,8 @@ return|return
 name|tracer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createLanguageResolver ()
 specifier|protected
 name|LanguageResolver
@@ -1877,6 +1941,8 @@ name|DefaultLanguageResolver
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRestRegistryFactory ()
 specifier|protected
 name|RestRegistryFactory
@@ -1894,6 +1960,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpointRegistry (Map<EndpointKey, Endpoint> endpoints)
 specifier|protected
 name|EndpointRegistry
@@ -1921,6 +1989,8 @@ name|endpoints
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createStreamCachingStrategy ()
 specifier|protected
 name|StreamCachingStrategy
@@ -1933,6 +2003,8 @@ name|DefaultStreamCachingStrategy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createReactiveExecutor ()
 specifier|protected
 name|ReactiveExecutor

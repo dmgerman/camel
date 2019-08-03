@@ -179,6 +179,8 @@ name|ok
 init|=
 literal|"<?xml version=\"1.0\"?><reply><status>ok</status></reply>"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

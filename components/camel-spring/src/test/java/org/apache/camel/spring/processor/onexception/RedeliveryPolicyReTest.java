@@ -62,6 +62,8 @@ name|RedeliveryPolicyReTest
 extends|extends
 name|DeadLetterChannelHandledExampleTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

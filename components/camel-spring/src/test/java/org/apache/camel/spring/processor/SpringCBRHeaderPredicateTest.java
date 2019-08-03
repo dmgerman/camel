@@ -70,6 +70,8 @@ name|SpringCBRHeaderPredicateTest
 extends|extends
 name|CBRHeaderPredicateTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

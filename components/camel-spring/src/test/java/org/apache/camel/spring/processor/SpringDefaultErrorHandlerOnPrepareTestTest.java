@@ -70,6 +70,8 @@ name|SpringDefaultErrorHandlerOnPrepareTestTest
 extends|extends
 name|DefaultErrorHandlerOnPrepareTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

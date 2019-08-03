@@ -74,6 +74,8 @@ name|SpringAggregationStrategyBeanAdapterRefTest
 extends|extends
 name|AggregationStrategyBeanAdapterRefTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

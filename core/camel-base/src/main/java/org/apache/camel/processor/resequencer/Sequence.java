@@ -186,6 +186,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Returns this sequence's comparator.      *       * @return this sequence's comparator.      */
+annotation|@
+name|Override
 DECL|method|comparator ()
 specifier|public
 name|SequenceElementComparator
@@ -200,6 +202,8 @@ name|comparator
 return|;
 block|}
 comment|/**      * Returns the next higher element in the sequence to the given element. If      * the given element doesn't exist or if it is the last element in the      * sequence<code>null</code> is returned.<strong>Please note that this      * method is provided for compatibility with Java 5 SE. On a Java 6 SE      * platform the same method implemented by the {@link TreeSet}      * class should be used for better performance.</strong>      *       * @param e an element which is compared to elements of this sequence.      * @return an element of this sequence or<code>null</code>.      */
+annotation|@
+name|Override
 DECL|method|higher (E e)
 specifier|public
 name|E
@@ -256,6 +260,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Returns the next lower element in the sequence to the given element. If      * the given element doesn't exist or if it is the first element in the      * sequence<code>null</code> is returned.<strong>Please note that this      * method is provided for compatibility with Java 5 SE. On a Java 6 SE      * platform the same method implemented by the {@link TreeSet}      * class should be used for better performance.</strong>      *       * @param e an element which is compared to elements of this sequence.      * @return an element of this sequence or<code>null</code>.      */
+annotation|@
+name|Override
 DECL|method|lower (E e)
 specifier|public
 name|E

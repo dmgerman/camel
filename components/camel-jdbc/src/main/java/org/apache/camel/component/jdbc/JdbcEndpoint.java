@@ -393,6 +393,8 @@ operator|=
 name|dataSource
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -412,6 +414,8 @@ literal|"Not supported"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer

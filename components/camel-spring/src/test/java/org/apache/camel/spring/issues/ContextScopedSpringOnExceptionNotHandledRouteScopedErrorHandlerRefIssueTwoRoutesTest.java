@@ -74,6 +74,8 @@ name|ContextScopedSpringOnExceptionNotHandledRouteScopedErrorHandlerRefIssueTwoR
 extends|extends
 name|ContextScopedOnExceptionNotHandledRouteScopedErrorHandlerRefIssueTwoRoutesTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

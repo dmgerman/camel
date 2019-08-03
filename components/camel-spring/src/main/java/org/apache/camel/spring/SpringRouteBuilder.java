@@ -269,6 +269,8 @@ name|applicationContext
 return|;
 block|}
 comment|/**      * Sets the application context to use to lookup beans      */
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

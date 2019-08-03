@@ -154,6 +154,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sends the {@link Exchange}'s in body to the AS/400 data queue. If the      * endpoint's format is set to {@link org.apache.camel.component.jt400.Jt400Configuration.Format#binary}, the data queue entry's      * data will be sent as a<code>byte[]</code>. If the endpoint's format is      * set to {@link org.apache.camel.component.jt400.Jt400Configuration.Format#text}, the data queue entry's data will be sent as a      *<code>String</code>.      *<p/>      * If the endpoint is configured to publish to a {@link KeyedDataQueue},      * then the {@link org.apache.camel.Message} header<code>KEY</code> must be set.      */
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

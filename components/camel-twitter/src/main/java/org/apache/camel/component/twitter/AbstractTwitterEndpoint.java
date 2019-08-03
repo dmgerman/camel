@@ -230,6 +230,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|configureConsumer (Consumer consumer)
 specifier|public
 name|void
@@ -249,6 +251,8 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedAttribute
 DECL|method|getProperties ()

@@ -41,6 +41,8 @@ name|PGPDataFormatElGamalTest
 extends|extends
 name|PGPDataFormatTest
 block|{
+annotation|@
+name|Override
 DECL|method|getKeyFileName ()
 specifier|protected
 name|String
@@ -51,6 +53,8 @@ return|return
 literal|"org/apache/camel/component/crypto/pubring-ElGamal.gpg"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKeyFileNameSec ()
 specifier|protected
 name|String

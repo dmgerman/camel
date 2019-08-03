@@ -162,6 +162,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -234,6 +236,8 @@ name|ProcessorFail
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -261,6 +265,8 @@ name|ProcessorHandle
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

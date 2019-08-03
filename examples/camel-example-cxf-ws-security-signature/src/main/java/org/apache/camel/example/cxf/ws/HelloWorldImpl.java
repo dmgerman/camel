@@ -74,6 +74,8 @@ implements|implements
 name|HelloWorld
 block|{
 annotation|@
+name|Override
+annotation|@
 name|WebMethod
 DECL|method|sayHello (@ebParamname = R) String toWhom)
 specifier|public

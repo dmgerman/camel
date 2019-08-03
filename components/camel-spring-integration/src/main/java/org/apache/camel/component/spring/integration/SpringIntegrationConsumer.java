@@ -279,6 +279,8 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -300,6 +302,8 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -476,6 +480,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleMessage (org.springframework.messaging.Message<?> siInMessage)
 specifier|public
 name|void

@@ -623,6 +623,8 @@ operator|=
 name|bundleStateService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doInit ()
 specifier|public
 name|void

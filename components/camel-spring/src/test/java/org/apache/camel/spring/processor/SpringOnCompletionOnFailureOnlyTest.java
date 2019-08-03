@@ -70,6 +70,8 @@ name|SpringOnCompletionOnFailureOnlyTest
 extends|extends
 name|OnCompletionOnFailureOnlyTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

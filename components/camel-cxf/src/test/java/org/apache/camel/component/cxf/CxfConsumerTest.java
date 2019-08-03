@@ -300,6 +300,8 @@ literal|true
 return|;
 block|}
 comment|// START SNIPPET: example
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

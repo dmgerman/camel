@@ -152,6 +152,8 @@ operator|=
 name|deadLetterUri
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFailureHandler ()
 specifier|public
 name|Processor
@@ -162,6 +164,8 @@ return|return
 name|failureHandler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDeadLetterChannel ()
 specifier|public
 name|boolean
@@ -172,6 +176,8 @@ return|return
 name|deadLetterChannel
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDeadLetterUri ()
 specifier|public
 name|String

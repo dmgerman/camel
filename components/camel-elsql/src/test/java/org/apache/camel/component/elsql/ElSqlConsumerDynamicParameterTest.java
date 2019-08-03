@@ -232,6 +232,8 @@ name|MyIdGenerator
 argument_list|()
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown ()
 specifier|public

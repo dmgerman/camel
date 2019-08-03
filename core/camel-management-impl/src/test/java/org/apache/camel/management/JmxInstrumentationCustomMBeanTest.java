@@ -158,6 +158,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -402,6 +404,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testCounters ()
 specifier|public
@@ -467,6 +471,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testMBeansRegistered ()
@@ -667,6 +673,8 @@ name|CustomComponent
 extends|extends
 name|DefaultComponent
 block|{
+annotation|@
+name|Override
 DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

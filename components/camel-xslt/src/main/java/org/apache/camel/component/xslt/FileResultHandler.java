@@ -115,6 +115,8 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getResult ()
 specifier|public
 name|Result
@@ -125,6 +127,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBody (Message in)
 specifier|public
 name|void

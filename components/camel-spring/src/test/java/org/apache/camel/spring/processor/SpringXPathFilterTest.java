@@ -70,6 +70,8 @@ name|SpringXPathFilterTest
 extends|extends
 name|XPathFilterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

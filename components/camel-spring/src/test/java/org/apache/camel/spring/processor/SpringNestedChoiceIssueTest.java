@@ -70,6 +70,8 @@ name|SpringNestedChoiceIssueTest
 extends|extends
 name|NestedChoiceIssueTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

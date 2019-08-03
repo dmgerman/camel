@@ -279,6 +279,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getDestination ()
 specifier|public
 name|CamelDestination
@@ -301,6 +303,8 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close ()
 specifier|public
 name|void
@@ -344,6 +348,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|send (Destination destination, Message message, int deliveryMode, int priority, long timeToLive)
 specifier|public
 name|void
@@ -480,6 +486,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|checkClosed ()
 specifier|protected
 name|void

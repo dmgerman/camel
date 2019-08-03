@@ -334,6 +334,8 @@ name|ldapConnectionName
 expr_stmt|;
 block|}
 comment|/**      * Process the body. There are two options:      *<ol>      *<li>A String body that is the LDIF content. This needs to start with      * "version: 1".</li>      *<li>A String body that is a URL to ready the LDIF content from</li>      *</ol>      */
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

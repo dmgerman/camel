@@ -741,6 +741,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -752,6 +754,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|setCheckInterval (long checkInterval)
 specifier|public
 name|void
@@ -763,6 +767,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|setReadLockLoggingLevel (LoggingLevel readLockLoggingLevel)
 specifier|public
 name|void
@@ -779,6 +785,8 @@ operator|=
 name|readLockLoggingLevel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMarkerFiler (boolean markerFile)
 specifier|public
 name|void
@@ -790,6 +798,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|setDeleteOrphanLockFiles (boolean deleteOrphanLockFiles)
 specifier|public
 name|void
@@ -801,6 +811,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -811,6 +823,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

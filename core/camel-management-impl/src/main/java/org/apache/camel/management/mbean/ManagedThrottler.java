@@ -174,6 +174,8 @@ return|return
 name|throttler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumRequestsPerPeriod ()
 specifier|public
 name|long
@@ -187,6 +189,8 @@ name|getCurrentMaximumRequestsPerPeriod
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaximumRequestsPerPeriod (long maximumRequestsPerPeriod)
 specifier|public
 name|void
@@ -207,6 +211,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimePeriodMillis ()
 specifier|public
 name|long
@@ -220,6 +226,8 @@ name|getTimePeriodMillis
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimePeriodMillis (long timePeriodMillis)
 specifier|public
 name|void
@@ -237,6 +245,8 @@ name|timePeriodMillis
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAsyncDelayed ()
 specifier|public
 name|Boolean
@@ -250,6 +260,8 @@ name|isAsyncDelayed
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isCallerRunsWhenRejected ()
 specifier|public
 name|Boolean
@@ -263,6 +275,8 @@ name|isCallerRunsWhenRejected
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isRejectExecution ()
 specifier|public
 name|Boolean

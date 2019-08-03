@@ -143,6 +143,8 @@ operator|=
 name|applicationContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newInstance (Class<T> type)
 specifier|public
 parameter_list|<

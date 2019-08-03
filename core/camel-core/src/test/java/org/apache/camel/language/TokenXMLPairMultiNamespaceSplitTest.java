@@ -77,6 +77,8 @@ extends|extends
 name|TokenXMLPairNamespaceSplitTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testTokenXMLPair ()
 specifier|public
@@ -171,6 +173,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Ignore
 annotation|@

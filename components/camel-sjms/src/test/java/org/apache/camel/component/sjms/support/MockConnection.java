@@ -148,6 +148,8 @@ operator|=
 name|returnBadSessionNTimes
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createSession (boolean transacted, int acknowledgeMode)
 specifier|public
 name|Session

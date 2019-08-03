@@ -279,6 +279,8 @@ operator|=
 name|sender
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent eventObject)
 specifier|public
 name|void
@@ -360,6 +362,8 @@ literal|"Sending notification done"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled (CamelEvent eventObject)
 specifier|public
 name|boolean

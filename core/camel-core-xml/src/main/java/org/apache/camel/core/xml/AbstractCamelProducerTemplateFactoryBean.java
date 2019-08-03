@@ -214,6 +214,8 @@ specifier|private
 name|Integer
 name|maximumCacheSize
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 name|ProducerTemplate
@@ -315,6 +317,8 @@ return|return
 name|template
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class
@@ -330,6 +334,8 @@ operator|.
 name|class
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|destroy ()
 specifier|public
 name|void

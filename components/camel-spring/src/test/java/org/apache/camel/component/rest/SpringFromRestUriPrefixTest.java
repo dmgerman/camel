@@ -56,6 +56,8 @@ name|SpringFromRestUriPrefixTest
 extends|extends
 name|FromRestUriPrefixTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

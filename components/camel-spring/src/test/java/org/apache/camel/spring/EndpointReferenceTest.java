@@ -324,6 +324,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|SpringCamelContext
@@ -490,6 +492,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

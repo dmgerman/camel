@@ -188,6 +188,8 @@ specifier|private
 name|long
 name|routeResumeRepeatInterval
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onInit (Route route)
 specifier|public
 name|void

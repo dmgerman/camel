@@ -124,6 +124,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Gets the<CODE>Topic</CODE> associated with this subscriber.      *      * @return this subscriber's<CODE>Topic</CODE>      * @throws javax.jms.JMSException if the JMS provider fails to get the topic      *             for this topic subscriber due to some internal error.      */
+annotation|@
+name|Override
 DECL|method|getTopic ()
 specifier|public
 name|Topic
@@ -146,6 +148,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Gets the<CODE>NoLocal</CODE> attribute for this subscriber. The default      * value for this attribute is false.      *      * @return true if locally published messages are being inhibited      * @throws JMSException if the JMS provider fails to get the<CODE>NoLocal      *</CODE> attribute for this topic subscriber due to      *             some internal error.      */
+annotation|@
+name|Override
 DECL|method|getNoLocal ()
 specifier|public
 name|boolean

@@ -56,6 +56,8 @@ name|SpringFromRestGetEmbeddedRouteTest
 extends|extends
 name|FromRestGetEmbeddedRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

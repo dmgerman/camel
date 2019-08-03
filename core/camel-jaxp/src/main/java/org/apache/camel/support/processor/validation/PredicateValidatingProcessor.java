@@ -182,6 +182,8 @@ operator|=
 name|predicate
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -272,6 +274,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String

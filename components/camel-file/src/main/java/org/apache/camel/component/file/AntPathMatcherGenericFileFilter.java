@@ -77,6 +77,8 @@ name|includes
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|accept (GenericFile<T> file)
 specifier|public
 name|boolean

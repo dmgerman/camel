@@ -70,6 +70,8 @@ name|SpringRouteStartupOrderTest
 extends|extends
 name|RouteStartupOrderTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

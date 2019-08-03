@@ -1938,6 +1938,8 @@ operator|.
 name|class
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanForType (Class<S> clazz)
 specifier|protected
 parameter_list|<
@@ -2188,6 +2190,8 @@ name|builders
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initBeanPostProcessor (SpringCamelContext context)
 specifier|protected
 name|void
@@ -2282,6 +2286,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|postProcessBeforeInit (RouteBuilder builder)
 specifier|protected
 name|void
@@ -2387,6 +2393,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initCustomRegistry (SpringCamelContext context)
 specifier|protected
 name|void
@@ -2944,6 +2952,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContext (boolean create)
 specifier|public
 name|SpringCamelContext
@@ -2998,6 +3008,8 @@ operator|=
 name|context
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoutes ()
 specifier|public
 name|List
@@ -3012,6 +3024,8 @@ name|routes
 return|;
 block|}
 comment|/**      * Contains the Camel routes      */
+annotation|@
+name|Override
 DECL|method|setRoutes (List<RouteDefinition> routes)
 specifier|public
 name|void
@@ -3031,6 +3045,8 @@ operator|=
 name|routes
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRests ()
 specifier|public
 name|List
@@ -3045,6 +3061,8 @@ name|rests
 return|;
 block|}
 comment|/**      * Contains the rest services defined using the rest-dsl      */
+annotation|@
+name|Override
 DECL|method|setRests (List<RestDefinition> rests)
 specifier|public
 name|void
@@ -3064,6 +3082,8 @@ operator|=
 name|rests
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestConfiguration ()
 specifier|public
 name|RestConfigurationDefinition
@@ -3091,6 +3111,8 @@ operator|=
 name|restConfiguration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoints ()
 specifier|public
 name|List
@@ -3124,6 +3146,8 @@ operator|=
 name|endpoints
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRedeliveryPolicies ()
 specifier|public
 name|List
@@ -3137,6 +3161,8 @@ return|return
 name|redeliveryPolicies
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIntercepts ()
 specifier|public
 name|List
@@ -3170,6 +3196,8 @@ operator|=
 name|intercepts
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInterceptFroms ()
 specifier|public
 name|List
@@ -3203,6 +3231,8 @@ operator|=
 name|interceptFroms
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInterceptSendToEndpoints ()
 specifier|public
 name|List
@@ -3265,6 +3295,8 @@ operator|=
 name|globalOptions
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPackages ()
 specifier|public
 name|String
@@ -3294,6 +3326,8 @@ operator|=
 name|packages
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPackageScan ()
 specifier|public
 name|PackageScanDefinition
@@ -3305,6 +3339,8 @@ name|packageScan
 return|;
 block|}
 comment|/**      * Sets the package scanning information. Package scanning allows for the      * automatic discovery of certain camel classes at runtime for inclusion      * e.g. {@link org.apache.camel.builder.RouteBuilder} implementations      *      * @param packageScan the package scan      */
+annotation|@
+name|Override
 DECL|method|setPackageScan (PackageScanDefinition packageScan)
 specifier|public
 name|void
@@ -3321,6 +3357,8 @@ operator|=
 name|packageScan
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContextScan ()
 specifier|public
 name|ContextScanDefinition
@@ -3332,6 +3370,8 @@ name|contextScan
 return|;
 block|}
 comment|/**      * Sets the context scanning (eg Spring's ApplicationContext) information.      * Context scanning allows for the automatic discovery of Camel routes runtime for inclusion      * e.g. {@link org.apache.camel.builder.RouteBuilder} implementations      *      * @param contextScan the context scan      */
+annotation|@
+name|Override
 DECL|method|setContextScan (ContextScanDefinition contextScan)
 specifier|public
 name|void
@@ -3348,6 +3388,8 @@ operator|=
 name|contextScan
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelPropertyPlaceholder ()
 specifier|public
 name|CamelPropertyPlaceholderDefinition
@@ -3375,6 +3417,8 @@ operator|=
 name|camelPropertyPlaceholder
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelStreamCachingStrategy ()
 specifier|public
 name|CamelStreamCachingStrategyDefinition
@@ -3417,6 +3461,8 @@ operator|=
 name|agent
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTrace ()
 specifier|public
 name|String
@@ -3444,6 +3490,8 @@ operator|=
 name|trace
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTracePattern ()
 specifier|public
 name|String
@@ -3471,6 +3519,8 @@ operator|=
 name|tracePattern
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageHistory ()
 specifier|public
 name|String
@@ -3498,6 +3548,8 @@ operator|=
 name|messageHistory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogMask ()
 specifier|public
 name|String
@@ -3525,6 +3577,8 @@ operator|=
 name|logMask
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogExhaustedMessageBody ()
 specifier|public
 name|String
@@ -3552,6 +3606,8 @@ operator|=
 name|logExhaustedMessageBody
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStreamCache ()
 specifier|public
 name|String
@@ -3579,6 +3635,8 @@ operator|=
 name|streamCache
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDelayer ()
 specifier|public
 name|String
@@ -3606,6 +3664,8 @@ operator|=
 name|delayer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAutoStartup ()
 specifier|public
 name|String
@@ -3660,6 +3720,8 @@ operator|=
 name|shutdownEager
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUseMDCLogging ()
 specifier|public
 name|String
@@ -3687,6 +3749,8 @@ operator|=
 name|useMDCLogging
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUseDataType ()
 specifier|public
 name|String
@@ -3714,6 +3778,8 @@ operator|=
 name|useDataType
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUseBreadcrumb ()
 specifier|public
 name|String
@@ -3741,6 +3807,8 @@ operator|=
 name|useBreadcrumb
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAllowUseOriginalMessage ()
 specifier|public
 name|String
@@ -3768,6 +3836,8 @@ operator|=
 name|allowUseOriginalMessage
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRuntimeEndpointRegistryEnabled ()
 specifier|public
 name|String
@@ -3795,6 +3865,8 @@ operator|=
 name|runtimeEndpointRegistryEnabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementNamePattern ()
 specifier|public
 name|String
@@ -3822,6 +3894,8 @@ operator|=
 name|managementNamePattern
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getThreadNamePattern ()
 specifier|public
 name|String
@@ -3878,6 +3952,8 @@ operator|=
 name|loadTypeConverters
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterStatisticsEnabled ()
 specifier|public
 name|Boolean
@@ -3905,6 +3981,8 @@ operator|=
 name|typeConverterStatisticsEnabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExists ()
 specifier|public
 name|TypeConverterExists
@@ -3932,6 +4010,8 @@ operator|=
 name|typeConverterExists
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExistsLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -3959,6 +4039,8 @@ operator|=
 name|typeConverterExistsLoggingLevel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelJMXAgent ()
 specifier|public
 name|CamelJMXAgentDefinition
@@ -3969,6 +4051,8 @@ return|return
 name|camelJMXAgent
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBuilderRefs ()
 specifier|public
 name|List
@@ -4002,6 +4086,8 @@ operator|=
 name|builderRefs
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteRefs ()
 specifier|public
 name|List
@@ -4035,6 +4121,8 @@ operator|=
 name|routeRefs
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRestRefs ()
 specifier|public
 name|List
@@ -4068,6 +4156,8 @@ operator|=
 name|restRefs
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getErrorHandlerRef ()
 specifier|public
 name|String
@@ -4112,6 +4202,8 @@ operator|=
 name|dataFormats
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDataFormats ()
 specifier|public
 name|DataFormatsDefinition
@@ -4139,6 +4231,8 @@ operator|=
 name|transformers
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTransformers ()
 specifier|public
 name|TransformersDefinition
@@ -4166,6 +4260,8 @@ operator|=
 name|validators
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValidators ()
 specifier|public
 name|ValidatorsDefinition
@@ -4420,6 +4516,8 @@ operator|=
 name|onExceptions
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOnExceptions ()
 specifier|public
 name|List
@@ -4433,6 +4531,8 @@ return|return
 name|onExceptions
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOnCompletions ()
 specifier|public
 name|List
@@ -4466,6 +4566,8 @@ operator|=
 name|onCompletions
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getShutdownRoute ()
 specifier|public
 name|ShutdownRoute
@@ -4493,6 +4595,8 @@ operator|=
 name|shutdownRoute
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getShutdownRunningTask ()
 specifier|public
 name|ShutdownRunningTask
@@ -4520,6 +4624,8 @@ operator|=
 name|shutdownRunningTask
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getThreadPoolProfiles ()
 specifier|public
 name|List
@@ -4586,6 +4692,8 @@ operator|=
 name|threadPools
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDependsOn ()
 specifier|public
 name|String

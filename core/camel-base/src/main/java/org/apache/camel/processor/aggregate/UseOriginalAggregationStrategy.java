@@ -139,6 +139,8 @@ name|propagateException
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange

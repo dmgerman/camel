@@ -70,6 +70,8 @@ name|SpringDeadLetterChannelLogExhaustedMessageHistoryTest
 extends|extends
 name|DeadLetterChannelLogExhaustedMessageHistoryTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

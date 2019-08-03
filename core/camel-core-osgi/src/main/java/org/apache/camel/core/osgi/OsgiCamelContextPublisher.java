@@ -304,6 +304,8 @@ operator|=
 name|bundleContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
@@ -447,6 +449,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean

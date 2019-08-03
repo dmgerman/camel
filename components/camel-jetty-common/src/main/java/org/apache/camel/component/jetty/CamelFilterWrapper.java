@@ -142,6 +142,8 @@ operator|=
 name|wrapped
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doFilter (ServletRequest request, ServletResponse response, FilterChain chain)
 specifier|public
 name|void
@@ -200,6 +202,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|destroy ()
 specifier|public
 name|void
@@ -212,6 +216,8 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (FilterConfig config)
 specifier|public
 name|void

@@ -189,6 +189,8 @@ name|doCheeseCalled
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doCheese ()
 specifier|public
 name|void

@@ -34,6 +34,8 @@ extends|extends
 name|FtpsServerTestSupport
 block|{
 comment|/*      * @see org.apache.camel.component.file.remote.FtpServerSecureTestSupport#getClientAuth()      */
+annotation|@
+name|Override
 DECL|method|getClientAuth ()
 specifier|protected
 name|String
@@ -45,6 +47,8 @@ literal|"false"
 return|;
 block|}
 comment|/*      * @see org.apache.camel.component.file.remote.FtpServerSecureTestSupport#useImplicit()      */
+annotation|@
+name|Override
 DECL|method|useImplicit ()
 specifier|protected
 name|boolean
@@ -56,6 +60,8 @@ literal|false
 return|;
 block|}
 comment|/*      * @see org.apache.camel.component.file.remote.FtpServerSecureTestSupport#getAuthValue()      */
+annotation|@
+name|Override
 DECL|method|getAuthValue ()
 specifier|protected
 name|String

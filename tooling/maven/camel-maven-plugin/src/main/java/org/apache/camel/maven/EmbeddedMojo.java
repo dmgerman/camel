@@ -322,6 +322,8 @@ name|String
 name|mainClass
 decl_stmt|;
 comment|/**      * This method will run the mojo      */
+annotation|@
+name|Override
 DECL|method|execute ()
 specifier|public
 name|void

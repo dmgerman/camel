@@ -84,6 +84,8 @@ name|SpringPollEnricherRefTest
 extends|extends
 name|PollEnricherTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

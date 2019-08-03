@@ -541,6 +541,8 @@ name|bus
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUriPrefixes ()
 specifier|public
 name|Set
@@ -580,6 +582,8 @@ operator|=
 name|headerFilterStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -590,6 +594,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext c)
 specifier|public
 name|void
@@ -604,6 +610,8 @@ operator|=
 name|c
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDestination (EndpointInfo ei, Bus b)
 specifier|public
 name|Destination
@@ -636,6 +644,8 @@ name|checkException
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConduit (EndpointInfo targetInfo, Bus b)
 specifier|public
 name|Conduit
@@ -661,6 +671,8 @@ name|b
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConduit (EndpointInfo localInfo, EndpointReferenceType target, Bus b)
 specifier|public
 name|Conduit

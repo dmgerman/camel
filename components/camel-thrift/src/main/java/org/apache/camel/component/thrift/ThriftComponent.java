@@ -157,6 +157,8 @@ specifier|private
 name|boolean
 name|useGlobalSslContextParameters
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

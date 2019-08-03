@@ -74,6 +74,8 @@ name|SpringOnExceptionContinueSubRouteTest
 extends|extends
 name|OnExceptionContinueSubRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

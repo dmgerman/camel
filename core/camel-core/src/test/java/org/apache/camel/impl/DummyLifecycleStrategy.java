@@ -203,6 +203,8 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onContextStart (CamelContext context)
 specifier|public
 name|void
@@ -222,6 +224,8 @@ literal|"onContextStart"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onContextStop (CamelContext context)
 specifier|public
 name|void
@@ -239,6 +243,8 @@ literal|"onContextStop"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onComponentAdd (String name, Component component)
 specifier|public
 name|void
@@ -259,6 +265,8 @@ literal|"onComponentAdd"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onComponentRemove (String name, Component component)
 specifier|public
 name|void
@@ -279,6 +287,8 @@ literal|"onComponentRemove"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onEndpointAdd (Endpoint endpoint)
 specifier|public
 name|void
@@ -296,6 +306,8 @@ literal|"onEndpointAdd"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onEndpointRemove (Endpoint endpoint)
 specifier|public
 name|void
@@ -313,6 +325,8 @@ literal|"onEndpointRemove"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onServiceAdd (CamelContext context, Service service, Route route)
 specifier|public
 name|void
@@ -336,6 +350,8 @@ literal|"onServiceAdd"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onServiceRemove (CamelContext context, Service service, Route route)
 specifier|public
 name|void
@@ -359,6 +375,8 @@ literal|"onServiceRemove"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onRoutesAdd (Collection<Route> routes)
 specifier|public
 name|void
@@ -379,6 +397,8 @@ literal|"onRoutesAdd"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onRoutesRemove (Collection<Route> routes)
 specifier|public
 name|void
@@ -399,6 +419,8 @@ literal|"onRoutesRemove"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public
 name|void
@@ -416,6 +438,8 @@ literal|"onRouteContextCreate"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
@@ -439,6 +463,8 @@ literal|"onErrorHandlerAdd"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
@@ -462,6 +488,8 @@ literal|"onErrorHandlerRemove"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|void
@@ -494,6 +522,8 @@ literal|"onThreadPoolAdd"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPool)
 specifier|public
 name|void

@@ -405,6 +405,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Deprecated
 DECL|method|preProcessUri (String uri)
 specifier|protected

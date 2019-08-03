@@ -2848,6 +2848,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|listAllTypeConvertersFromTo ()
 specifier|public
 name|List
@@ -3475,6 +3477,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExistsLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -3485,6 +3489,8 @@ return|return
 name|typeConverterExistsLoggingLevel
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTypeConverterExistsLoggingLevel (LoggingLevel typeConverterExistsLoggingLevel)
 specifier|public
 name|void
@@ -3501,6 +3507,8 @@ operator|=
 name|typeConverterExistsLoggingLevel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExists ()
 specifier|public
 name|TypeConverterExists
@@ -3511,6 +3519,8 @@ return|return
 name|typeConverterExists
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTypeConverterExists (TypeConverterExists typeConverterExists)
 specifier|public
 name|void

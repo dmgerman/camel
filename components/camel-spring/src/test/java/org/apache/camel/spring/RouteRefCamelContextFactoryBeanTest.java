@@ -137,6 +137,8 @@ block|}
 block|}
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addRoutesToCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -157,6 +159,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

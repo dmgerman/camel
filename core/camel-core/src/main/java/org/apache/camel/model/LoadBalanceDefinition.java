@@ -609,6 +609,8 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Uses a custom load balancer      *      * @param loadBalancer  the load balancer      * @return the builder      */
+annotation|@
+name|Override
 DECL|method|loadBalance (LoadBalancer loadBalancer)
 specifier|public
 name|LoadBalanceDefinition

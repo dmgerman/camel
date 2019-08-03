@@ -377,6 +377,8 @@ name|ObjectFactory
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDataFormat ()
 specifier|public
 name|SoapJaxbDataFormat

@@ -294,6 +294,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
@@ -312,6 +314,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|CometdEndpoint
@@ -342,6 +346,8 @@ return|return
 name|service
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBayeux (BayeuxServerImpl bayeux)
 specifier|public
 name|void

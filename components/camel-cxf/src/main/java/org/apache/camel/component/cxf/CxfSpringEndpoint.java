@@ -785,6 +785,8 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getBeanId ()
 specifier|public
 name|String
@@ -796,6 +798,8 @@ name|beanId
 return|;
 block|}
 comment|// this property will be set by spring
+annotation|@
+name|Override
 DECL|method|setBeanId (String id)
 specifier|public
 name|void
@@ -1140,6 +1144,8 @@ name|getNamespaceURI
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext ctx)
 specifier|public
 name|void

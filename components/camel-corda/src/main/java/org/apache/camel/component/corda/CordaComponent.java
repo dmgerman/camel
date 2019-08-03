@@ -170,6 +170,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, final String remaining, final Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

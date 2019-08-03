@@ -494,6 +494,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -588,6 +590,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression

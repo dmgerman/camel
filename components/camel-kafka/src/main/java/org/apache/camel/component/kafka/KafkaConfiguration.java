@@ -6347,6 +6347,8 @@ operator|=
 name|reconnectBackoffMaxMs
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -6358,6 +6360,8 @@ name|headerFilterStrategy
 return|;
 block|}
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void

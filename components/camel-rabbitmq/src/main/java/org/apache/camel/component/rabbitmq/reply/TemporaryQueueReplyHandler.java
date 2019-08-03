@@ -201,6 +201,8 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onReply (String correlationId, AMQP.BasicProperties properties, byte[] reply)
 specifier|public
 name|void
@@ -257,6 +259,8 @@ name|holder
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onTimeout (String correlationId)
 specifier|public
 name|void

@@ -434,6 +434,8 @@ name|valid
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRegistry ()
 specifier|protected
 name|JndiRegistry
@@ -487,6 +489,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -782,6 +786,8 @@ name|MyOrderAggregationStrategy
 implements|implements
 name|AggregationStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange

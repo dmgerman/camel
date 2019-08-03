@@ -596,6 +596,8 @@ name|camelContext
 return|;
 block|}
 comment|// prepare the message for send out , not actually send out the message
+annotation|@
+name|Override
 DECL|method|prepare (Message message)
 specifier|public
 name|void
@@ -652,6 +654,8 @@ name|os
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close ()
 specifier|public
 name|void
@@ -691,6 +695,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getLogger ()
 specifier|protected
 name|java
@@ -707,6 +713,8 @@ return|return
 name|JUL_LOG
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanName ()
 specifier|public
 name|String

@@ -404,6 +404,8 @@ return|return
 name|invoked
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|void
@@ -452,6 +454,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|wrap (final RouteContext routeContext, final Processor processor)
 specifier|public
 name|Processor

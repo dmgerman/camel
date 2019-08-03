@@ -87,6 +87,8 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -136,6 +138,8 @@ return|return
 literal|"Stop"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -146,6 +150,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void

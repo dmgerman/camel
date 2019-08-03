@@ -101,6 +101,8 @@ operator|=
 name|bundleContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveDefaultFactoryFinder (ClassResolver classResolver)
 specifier|public
 name|FactoryFinder
@@ -119,6 +121,8 @@ literal|"META-INF/services/org/apache/camel/"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveFactoryFinder (ClassResolver classResolver, String resourcePath)
 specifier|public
 name|FactoryFinder

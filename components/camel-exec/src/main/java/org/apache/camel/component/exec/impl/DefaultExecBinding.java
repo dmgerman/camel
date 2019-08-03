@@ -221,6 +221,8 @@ name|class
 argument_list|)
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -596,6 +598,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeOutput (Exchange exchange, ExecResult result)
 specifier|public
 name|void

@@ -514,6 +514,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getProtocol ()
 specifier|public
 name|String
@@ -525,6 +527,8 @@ name|protocol
 return|;
 block|}
 comment|/**      * The protocol to use which is either http, https or proxy - a consumer only option.      */
+annotation|@
+name|Override
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void

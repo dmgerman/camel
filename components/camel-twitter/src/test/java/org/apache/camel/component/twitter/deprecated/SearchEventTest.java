@@ -267,6 +267,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -372,6 +374,8 @@ name|TwitterHandler
 implements|implements
 name|InvocationHandler
 block|{
+annotation|@
+name|Override
 DECL|method|invoke (Object proxy, Method method, Object[] args)
 specifier|public
 name|Object

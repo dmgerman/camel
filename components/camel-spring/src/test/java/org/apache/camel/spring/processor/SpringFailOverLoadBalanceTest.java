@@ -70,6 +70,8 @@ name|SpringFailOverLoadBalanceTest
 extends|extends
 name|FailOverLoadBalanceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

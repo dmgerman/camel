@@ -2362,6 +2362,8 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -2372,6 +2374,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

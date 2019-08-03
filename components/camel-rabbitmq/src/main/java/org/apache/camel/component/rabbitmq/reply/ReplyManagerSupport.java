@@ -386,6 +386,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScheduledExecutorService (ScheduledExecutorService executorService)
 specifier|public
 name|void
@@ -402,6 +404,8 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEndpoint (RabbitMQEndpoint endpoint)
 specifier|public
 name|void
@@ -418,6 +422,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setReplyTo (String replyTo)
 specifier|public
 name|void
@@ -449,6 +455,8 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getReplyTo ()
 specifier|public
 name|String
@@ -529,6 +537,8 @@ return|return
 name|replyTo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|registerReply (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
 specifier|public
 name|String
@@ -644,6 +654,8 @@ name|long
 name|requestTimeout
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|cancelCorrelationId (String correlationId)
 specifier|public
 name|void
@@ -751,6 +763,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processReply (ReplyHolder holder)
 specifier|public
 name|void

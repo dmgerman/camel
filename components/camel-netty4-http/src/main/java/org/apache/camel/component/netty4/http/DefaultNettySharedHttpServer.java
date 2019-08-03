@@ -272,6 +272,8 @@ name|threadPattern
 init|=
 name|DEFAULT_PATTERN
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setNettyServerBootstrapConfiguration (NettySharedHttpServerBootstrapConfiguration configuration)
 specifier|public
 name|void
@@ -288,6 +290,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -304,6 +308,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPort ()
 specifier|public
 name|int
@@ -324,6 +330,8 @@ operator|-
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConsumerChannelFactory ()
 specifier|public
 name|HttpServerConsumerChannelFactory
@@ -334,6 +342,8 @@ return|return
 name|channelFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getServerBootstrapFactory ()
 specifier|public
 name|NettyServerBootstrapFactory
@@ -344,6 +354,8 @@ return|return
 name|bootstrapFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConsumersSize ()
 specifier|public
 name|int
@@ -372,6 +384,8 @@ literal|1
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setStartServer (boolean startServer)
 specifier|public
 name|void
@@ -388,6 +402,8 @@ operator|=
 name|startServer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setThreadNamePattern (String pattern)
 specifier|public
 name|void
@@ -404,6 +420,8 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

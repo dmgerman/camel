@@ -59,6 +59,8 @@ specifier|private
 name|String
 name|queueName
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

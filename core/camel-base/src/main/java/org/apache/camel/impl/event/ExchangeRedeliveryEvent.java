@@ -95,6 +95,8 @@ operator|=
 name|attempt
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttempt ()
 specifier|public
 name|int

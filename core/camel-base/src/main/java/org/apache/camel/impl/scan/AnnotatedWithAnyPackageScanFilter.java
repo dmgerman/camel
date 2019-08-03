@@ -154,6 +154,8 @@ operator|=
 name|checkMetaAnnotations
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches (Class<?> type)
 specifier|public
 name|boolean

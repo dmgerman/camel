@@ -289,6 +289,8 @@ name|MyAuthenticator
 implements|implements
 name|SecurityAuthenticator
 block|{
+annotation|@
+name|Override
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -300,6 +302,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getName ()
 specifier|public
 name|String

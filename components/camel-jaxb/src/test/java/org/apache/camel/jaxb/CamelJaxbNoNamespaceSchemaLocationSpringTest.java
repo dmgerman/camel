@@ -90,6 +90,8 @@ name|CamelJaxbNoNamespaceSchemaLocationSpringTest
 extends|extends
 name|CamelJaxbNoNamespaceSchemaTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

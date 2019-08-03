@@ -366,6 +366,8 @@ literal|false
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
@@ -382,6 +384,8 @@ return|return
 name|copyMessage
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -406,6 +410,8 @@ name|copyMessage
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
@@ -422,6 +428,8 @@ return|return
 name|nodePattern
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedAttribute
 argument_list|(

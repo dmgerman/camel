@@ -325,6 +325,8 @@ name|consumerEndpointUri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -402,6 +404,8 @@ literal|"Cannot produce from this endpoint"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -436,6 +440,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getComponent ()
 specifier|public
 name|MasterComponent

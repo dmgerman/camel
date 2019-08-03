@@ -171,6 +171,8 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (ManagementStrategy strategy)
 specifier|public
 name|void
@@ -188,6 +190,8 @@ name|strategy
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|AggregateProcessor
@@ -216,6 +220,8 @@ name|getDefinition
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCorrelationExpressionLanguage ()
 specifier|public
 name|String
@@ -254,6 +260,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCorrelationExpression ()
 specifier|public
 name|String
@@ -292,6 +300,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionTimeout ()
 specifier|public
 name|long
@@ -305,6 +315,8 @@ name|getCompletionTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionTimeoutLanguage ()
 specifier|public
 name|String
@@ -343,6 +355,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionTimeoutExpression ()
 specifier|public
 name|String
@@ -381,6 +395,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionInterval ()
 specifier|public
 name|long
@@ -394,6 +410,8 @@ name|getCompletionInterval
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionTimeoutCheckerInterval ()
 specifier|public
 name|long
@@ -407,6 +425,8 @@ name|getCompletionTimeoutCheckerInterval
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionSize ()
 specifier|public
 name|int
@@ -420,6 +440,8 @@ name|getCompletionSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionSizeExpressionLanguage ()
 specifier|public
 name|String
@@ -458,6 +480,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionSizeExpression ()
 specifier|public
 name|String
@@ -496,6 +520,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isCompletionFromBatchConsumer ()
 specifier|public
 name|boolean
@@ -509,6 +535,8 @@ name|isCompletionFromBatchConsumer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isCompletionOnNewCorrelationGroup ()
 specifier|public
 name|boolean
@@ -522,6 +550,8 @@ name|isCompletionOnNewCorrelationGroup
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreInvalidCorrelationKeys ()
 specifier|public
 name|boolean
@@ -535,6 +565,8 @@ name|isIgnoreInvalidCorrelationKeys
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCloseCorrelationKeyOnCompletion ()
 specifier|public
 name|Integer
@@ -548,6 +580,8 @@ name|getCloseCorrelationKeyOnCompletion
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isParallelProcessing ()
 specifier|public
 name|boolean
@@ -561,6 +595,8 @@ name|isParallelProcessing
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isOptimisticLocking ()
 specifier|public
 name|boolean
@@ -574,6 +610,8 @@ name|isOptimisticLocking
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEagerCheckCompletion ()
 specifier|public
 name|boolean
@@ -627,6 +665,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletionPredicate ()
 specifier|public
 name|String
@@ -665,6 +705,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isDiscardOnCompletionTimeout ()
 specifier|public
 name|boolean
@@ -678,6 +720,8 @@ name|isDiscardOnCompletionTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isForceCompletionOnStop ()
 specifier|public
 name|boolean
@@ -691,6 +735,8 @@ name|isCompletionFromBatchConsumer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isCompleteAllOnStop ()
 specifier|public
 name|boolean
@@ -704,6 +750,8 @@ name|isCompleteAllOnStop
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInProgressCompleteExchanges ()
 specifier|public
 name|int
@@ -717,6 +765,8 @@ name|getInProgressCompleteExchanges
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|aggregationRepositoryGroups ()
 specifier|public
 name|int
@@ -758,6 +808,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|forceCompletionOfGroup (String key)
 specifier|public
 name|int
@@ -796,6 +848,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|forceCompletionOfAllGroups ()
 specifier|public
 name|int
@@ -829,6 +883,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getClosedCorrelationKeysCacheSize ()
 specifier|public
 name|int
@@ -842,6 +898,8 @@ name|getClosedCorrelationKeysCacheSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearClosedCorrelationKeysCache ()
 specifier|public
 name|void
@@ -854,6 +912,8 @@ name|clearClosedCorrelationKeysCache
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTotalIn ()
 specifier|public
 name|long
@@ -870,6 +930,8 @@ name|getTotalIn
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTotalCompleted ()
 specifier|public
 name|long
@@ -886,6 +948,8 @@ name|getTotalCompleted
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedBySize ()
 specifier|public
 name|long
@@ -902,6 +966,8 @@ name|getCompletedBySize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByStrategy ()
 specifier|public
 name|long
@@ -918,6 +984,8 @@ name|getCompletedByStrategy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByInterval ()
 specifier|public
 name|long
@@ -934,6 +1002,8 @@ name|getCompletedByInterval
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByTimeout ()
 specifier|public
 name|long
@@ -950,6 +1020,8 @@ name|getCompletedByTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByPredicate ()
 specifier|public
 name|long
@@ -966,6 +1038,8 @@ name|getCompletedByPredicate
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByBatchConsumer ()
 specifier|public
 name|long
@@ -982,6 +1056,8 @@ name|getCompletedByBatchConsumer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByForce ()
 specifier|public
 name|long
@@ -998,6 +1074,8 @@ name|getCompletedByForce
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetStatistics ()
 specifier|public
 name|void

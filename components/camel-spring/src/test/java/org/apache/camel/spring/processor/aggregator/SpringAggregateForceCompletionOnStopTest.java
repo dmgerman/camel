@@ -74,6 +74,8 @@ name|SpringAggregateForceCompletionOnStopTest
 extends|extends
 name|AggregateForceCompletionOnStopTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

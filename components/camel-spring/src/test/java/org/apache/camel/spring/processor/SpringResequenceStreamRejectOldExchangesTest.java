@@ -70,6 +70,8 @@ name|SpringResequenceStreamRejectOldExchangesTest
 extends|extends
 name|ResequenceStreamRejectOldExchangesTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

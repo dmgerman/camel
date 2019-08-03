@@ -173,6 +173,8 @@ operator|+
 name|text
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected
 name|String
@@ -188,6 +190,8 @@ operator|+
 name|text
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<

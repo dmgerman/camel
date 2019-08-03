@@ -333,6 +333,8 @@ return|return
 name|git
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 specifier|abstract

@@ -238,6 +238,8 @@ literal|"copenhagen.txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -287,6 +289,8 @@ name|?
 argument_list|>
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|compare (RemoteFile<?> o1, RemoteFile<?> o2)
 specifier|public
 name|int

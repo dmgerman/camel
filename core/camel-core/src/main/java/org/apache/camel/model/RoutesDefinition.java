@@ -357,6 +357,8 @@ return|return
 literal|"routes"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLabel ()
 specifier|public
 name|String
@@ -372,6 +374,8 @@ return|;
 block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getRoutes ()
 specifier|public
 name|List
@@ -385,6 +389,8 @@ return|return
 name|routes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRoutes (List<RouteDefinition> routes)
 specifier|public
 name|void

@@ -210,6 +210,8 @@ name|getApplicationContextClassLoader
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveClass (ObjectStreamClass classDesc)
 specifier|protected
 name|Class
@@ -251,6 +253,8 @@ name|inLoader
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveProxyClass (String[] interfaces)
 specifier|protected
 name|Class

@@ -589,12 +589,16 @@ name|isVetoStarted
 parameter_list|()
 function_decl|;
 comment|/**      * Starts the {@link CamelContext} (<b>important:</b> the start method is not blocked, see more details      *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>.      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws RuntimeCamelException is thrown if starting failed      */
+annotation|@
+name|Override
 DECL|method|start ()
 name|void
 name|start
 parameter_list|()
 function_decl|;
 comment|/**      * Stop and shutdown the {@link CamelContext} (will stop all routes/components/endpoints etc and clear internal state/cache).      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws RuntimeCamelException is thrown if stopping failed      */
+annotation|@
+name|Override
 DECL|method|stop ()
 name|void
 name|stop
@@ -658,6 +662,8 @@ name|getVersion
 parameter_list|()
 function_decl|;
 comment|/**      * Get the status of this CamelContext      *      * @return the status      */
+annotation|@
+name|Override
 DECL|method|getStatus ()
 name|ServiceStatus
 name|getStatus

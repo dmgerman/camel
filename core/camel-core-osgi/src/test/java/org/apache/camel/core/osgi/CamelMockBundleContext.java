@@ -261,6 +261,8 @@ name|bundle
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getService (@uppressWarningsR) ServiceReference reference)
 specifier|public
 name|Object
@@ -491,6 +493,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getServiceReference (String clazz)
 specifier|public
 name|ServiceReference
@@ -680,6 +684,8 @@ block|}
 block|}
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
@@ -769,6 +775,8 @@ name|srs
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

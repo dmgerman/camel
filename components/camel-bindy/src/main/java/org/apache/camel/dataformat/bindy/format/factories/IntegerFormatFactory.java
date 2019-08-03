@@ -183,6 +183,8 @@ argument_list|<
 name|Integer
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|format (Integer object)
 specifier|public
 name|String
@@ -201,6 +203,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String string)
 specifier|public
 name|Integer

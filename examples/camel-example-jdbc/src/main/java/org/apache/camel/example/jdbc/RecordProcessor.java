@@ -98,6 +98,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process (Exchange msg)
 specifier|public
 name|void

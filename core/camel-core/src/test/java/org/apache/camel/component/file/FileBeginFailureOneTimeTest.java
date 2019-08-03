@@ -305,6 +305,8 @@ specifier|volatile
 name|int
 name|invoked
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|prepareOnStartup (GenericFileOperations<File> fileGenericFileOperations, GenericFileEndpoint<File> fileGenericFileEndpoint)
 specifier|public
 name|void
@@ -325,6 +327,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{         }
+annotation|@
+name|Override
 DECL|method|begin (GenericFileOperations<File> fileGenericFileOperations, GenericFileEndpoint<File> fileGenericFileEndpoint, Exchange exchange, GenericFile<File> fileGenericFile)
 specifier|public
 name|boolean
@@ -376,6 +380,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort (GenericFileOperations<File> fileGenericFileOperations, GenericFileEndpoint<File> fileGenericFileEndpoint, Exchange exchange, GenericFile<File> fileGenericFile)
 specifier|public
 name|void
@@ -407,6 +413,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|commit (GenericFileOperations<File> fileGenericFileOperations, GenericFileEndpoint<File> fileGenericFileEndpoint, Exchange exchange, GenericFile<File> fileGenericFile)
 specifier|public
 name|void
@@ -436,6 +444,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{         }
+annotation|@
+name|Override
 DECL|method|rollback (GenericFileOperations<File> fileGenericFileOperations, GenericFileEndpoint<File> fileGenericFileEndpoint, Exchange exchange, GenericFile<File> fileGenericFile)
 specifier|public
 name|void

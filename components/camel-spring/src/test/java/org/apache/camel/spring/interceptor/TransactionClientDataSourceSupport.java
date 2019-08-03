@@ -114,6 +114,8 @@ name|useTransactionErrorHandler
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

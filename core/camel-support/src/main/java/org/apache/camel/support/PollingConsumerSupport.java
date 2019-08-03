@@ -153,6 +153,8 @@ operator|+
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint

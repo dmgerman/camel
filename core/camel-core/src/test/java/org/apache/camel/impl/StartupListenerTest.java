@@ -140,6 +140,8 @@ specifier|private
 name|boolean
 name|alreadyStarted
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onCamelContextStarted (CamelContext context, boolean alreadyStarted)
 specifier|public
 name|void

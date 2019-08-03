@@ -106,6 +106,8 @@ name|SimpleWeaveAddMockLastTest
 extends|extends
 name|CamelTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|isUseAdviceWith ()
 specifier|public
 name|boolean

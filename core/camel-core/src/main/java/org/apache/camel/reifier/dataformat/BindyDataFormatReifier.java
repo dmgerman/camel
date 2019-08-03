@@ -130,6 +130,8 @@ name|definition
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doCreateDataFormat (CamelContext camelContext)
 specifier|protected
 name|DataFormat

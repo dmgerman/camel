@@ -152,6 +152,8 @@ specifier|private
 name|LoggingFeature
 name|loggingFeature
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getBlueprintContainer ()
 specifier|public
 name|BlueprintContainer
@@ -162,6 +164,8 @@ return|return
 name|blueprintContainer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBlueprintContainer (BlueprintContainer blueprintContainer)
 specifier|public
 name|void
@@ -178,6 +182,8 @@ operator|=
 name|blueprintContainer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBundleContext ()
 specifier|public
 name|BundleContext
@@ -188,6 +194,8 @@ return|return
 name|bundleContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBundleContext (BundleContext bundleContext)
 specifier|public
 name|void

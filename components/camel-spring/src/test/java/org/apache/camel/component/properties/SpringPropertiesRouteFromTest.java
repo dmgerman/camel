@@ -60,6 +60,8 @@ name|SpringPropertiesRouteFromTest
 extends|extends
 name|PropertiesRouteFromTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

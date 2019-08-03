@@ -261,6 +261,8 @@ specifier|private
 name|Endpoint
 name|endpoint
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 name|Endpoint
@@ -334,6 +336,8 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class

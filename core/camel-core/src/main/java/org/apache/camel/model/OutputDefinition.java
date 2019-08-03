@@ -170,6 +170,8 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getOutputs ()
 specifier|public
 name|List

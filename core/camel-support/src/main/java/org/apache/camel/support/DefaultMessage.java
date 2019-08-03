@@ -174,6 +174,8 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeader (String name)
 specifier|public
 name|Object
@@ -206,6 +208,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getHeader (String name, Object defaultValue)
 specifier|public
 name|Object
@@ -239,6 +243,8 @@ else|:
 name|defaultValue
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeader (String name, Supplier<Object> defaultValueSupplier)
 specifier|public
 name|Object
@@ -296,6 +302,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -422,6 +430,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -553,6 +563,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -714,6 +726,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setHeader (String name, Object value)
 specifier|public
 name|void
@@ -749,6 +763,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeHeader (String name)
 specifier|public
 name|Object
@@ -778,6 +794,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeHeaders (String pattern)
 specifier|public
 name|boolean
@@ -800,6 +818,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeHeaders (String pattern, String... excludePatterns)
 specifier|public
 name|boolean
@@ -934,6 +954,8 @@ return|return
 name|matches
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaders ()
 specifier|public
 name|Map
@@ -962,6 +984,8 @@ return|return
 name|headers
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setHeaders (Map<String, Object> headers)
 specifier|public
 name|void
@@ -1029,6 +1053,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|hasHeaders ()
 specifier|public
 name|boolean
@@ -1059,6 +1085,8 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newInstance ()
 specifier|public
 name|DefaultMessage

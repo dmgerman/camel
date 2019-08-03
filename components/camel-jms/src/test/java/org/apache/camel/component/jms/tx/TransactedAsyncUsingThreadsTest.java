@@ -134,6 +134,8 @@ specifier|static
 name|String
 name|thread2
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext

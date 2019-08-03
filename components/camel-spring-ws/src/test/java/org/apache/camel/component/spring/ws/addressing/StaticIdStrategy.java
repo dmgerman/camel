@@ -76,6 +76,8 @@ name|StaticIdStrategy
 extends|extends
 name|UuidMessageIdStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|newMessageId (SoapMessage message)
 specifier|public
 name|URI

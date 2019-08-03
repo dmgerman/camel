@@ -197,6 +197,8 @@ operator|=
 name|bundleContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveLanguage (String name, CamelContext context)
 specifier|public
 name|Language

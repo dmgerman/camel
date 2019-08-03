@@ -410,6 +410,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Invoked by Spring-WS when a {@link WebServiceMessage} is received      */
+annotation|@
+name|Override
 DECL|method|invoke (MessageContext messageContext)
 specifier|public
 name|void

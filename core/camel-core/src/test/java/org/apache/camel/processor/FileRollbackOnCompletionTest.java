@@ -190,6 +190,8 @@ name|FileRollback
 implements|implements
 name|Synchronization
 block|{
+annotation|@
+name|Override
 DECL|method|onComplete (Exchange exchange)
 specifier|public
 name|void
@@ -201,6 +203,8 @@ parameter_list|)
 block|{
 comment|// this method is invoked when the Exchange completed with no failure
 block|}
+annotation|@
+name|Override
 DECL|method|onFailure (Exchange exchange)
 specifier|public
 name|void

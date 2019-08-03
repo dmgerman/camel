@@ -74,6 +74,8 @@ name|SpringRefDataFormatTest
 extends|extends
 name|RefDataFormatTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

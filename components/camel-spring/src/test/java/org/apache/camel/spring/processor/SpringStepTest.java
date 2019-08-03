@@ -70,6 +70,8 @@ name|SpringStepTest
 extends|extends
 name|StepTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

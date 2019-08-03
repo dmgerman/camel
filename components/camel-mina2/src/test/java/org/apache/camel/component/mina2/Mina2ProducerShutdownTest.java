@@ -259,6 +259,8 @@ name|AssertShutdownHook
 extends|extends
 name|Thread
 block|{
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

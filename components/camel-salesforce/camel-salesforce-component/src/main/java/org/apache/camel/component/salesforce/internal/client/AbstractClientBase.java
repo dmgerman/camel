@@ -817,6 +817,8 @@ operator|=
 name|terminationTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void

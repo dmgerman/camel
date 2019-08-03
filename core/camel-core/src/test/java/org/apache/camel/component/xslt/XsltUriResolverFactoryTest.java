@@ -733,6 +733,8 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolve (String href, String base)
 specifier|public
 name|Source

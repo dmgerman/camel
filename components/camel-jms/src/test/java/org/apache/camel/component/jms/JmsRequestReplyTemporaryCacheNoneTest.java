@@ -153,6 +153,8 @@ name|componentName
 init|=
 literal|"activemq"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

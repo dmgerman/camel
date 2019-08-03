@@ -113,6 +113,8 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testNonWellFormedXml ()
 specifier|public

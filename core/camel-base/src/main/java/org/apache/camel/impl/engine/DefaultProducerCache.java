@@ -470,6 +470,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEventNotifierEnabled ()
 specifier|public
 name|boolean
@@ -480,6 +482,8 @@ return|return
 name|eventNotifierEnabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
 specifier|public
 name|void
@@ -533,6 +537,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource ()
 specifier|public
 name|Object
@@ -543,6 +549,8 @@ return|return
 name|source
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|acquireProducer (Endpoint endpoint)
 specifier|public
 name|AsyncProducer
@@ -603,6 +611,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|releaseProducer (Endpoint endpoint, AsyncProducer producer)
 specifier|public
 name|void
@@ -625,6 +635,8 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (Endpoint endpoint, Exchange exchange, Processor resultProcessor)
 specifier|public
 name|Exchange
@@ -871,6 +883,8 @@ name|future
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncSendExchange (Endpoint endpoint, ExchangePattern pattern, Processor processor, Processor resultProcessor, Exchange exchange, CompletableFuture<Exchange> future)
 specifier|public
 name|CompletableFuture
@@ -1115,6 +1129,8 @@ return|return
 name|future
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doInAsyncProducer (Endpoint endpoint, Exchange exchange, AsyncCallback callback, AsyncProducerCallback producerCallback)
 specifier|public
 name|boolean
@@ -1530,6 +1546,8 @@ name|endpoint
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1578,6 +1596,8 @@ name|statistics
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -1610,6 +1630,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|size ()
 specifier|public
 name|int
@@ -1637,6 +1659,8 @@ return|return
 name|size
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCapacity ()
 specifier|public
 name|int
@@ -1647,6 +1671,8 @@ return|return
 name|maxCacheSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHits ()
 specifier|public
 name|long
@@ -1660,6 +1686,8 @@ name|getHits
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMisses ()
 specifier|public
 name|long
@@ -1673,6 +1701,8 @@ name|getMisses
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEvicted ()
 specifier|public
 name|long
@@ -1686,6 +1716,8 @@ name|getEvicted
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetCacheStatistics ()
 specifier|public
 name|void
@@ -1711,6 +1743,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|purge ()
 specifier|public
 specifier|synchronized
@@ -1761,6 +1795,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|cleanUp ()
 specifier|public
 name|void
@@ -1773,6 +1809,8 @@ name|cleanUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointUtilizationStatistics ()
 specifier|public
 name|EndpointUtilizationStatistics

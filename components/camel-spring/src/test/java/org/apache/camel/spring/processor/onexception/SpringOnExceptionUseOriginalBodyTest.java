@@ -74,6 +74,8 @@ name|SpringOnExceptionUseOriginalBodyTest
 extends|extends
 name|OnExceptionUseOriginalBodyTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

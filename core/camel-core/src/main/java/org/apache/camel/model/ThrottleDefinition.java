@@ -552,6 +552,8 @@ name|this
 return|;
 block|}
 comment|/**      * To use a custom thread pool (ScheduledExecutorService) by the throttler.      *      * @param executorService  the custom thread pool (must be scheduled)      * @return the builder      */
+annotation|@
+name|Override
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ThrottleDefinition
@@ -571,6 +573,8 @@ name|this
 return|;
 block|}
 comment|/**      * To use a custom thread pool (ScheduledExecutorService) by the throttler.      *      * @param executorServiceRef the reference id of the thread pool (must be scheduled)      * @return the builder      */
+annotation|@
+name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|ThrottleDefinition
@@ -690,6 +694,8 @@ operator|=
 name|callerRunsWhenRejected
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorService ()
 specifier|public
 name|ExecutorService
@@ -700,6 +706,8 @@ return|return
 name|executorService
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorService (ExecutorService executorService)
 specifier|public
 name|void
@@ -716,6 +724,8 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorServiceRef ()
 specifier|public
 name|String
@@ -726,6 +736,8 @@ return|return
 name|executorServiceRef
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorServiceRef (String executorServiceRef)
 specifier|public
 name|void

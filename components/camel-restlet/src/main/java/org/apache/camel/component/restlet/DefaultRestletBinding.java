@@ -822,6 +822,8 @@ specifier|private
 name|boolean
 name|autoCloseStream
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|populateExchangeFromRestletRequest (Request request, Response response, Exchange exchange)
 specifier|public
 name|void
@@ -1437,6 +1439,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|populateRestletRequestFromExchange (Request request, Exchange exchange)
 specifier|public
 name|void
@@ -3016,6 +3020,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|populateRestletResponseFromExchange (Exchange exchange, Response response)
 specifier|public
 name|void
@@ -3829,6 +3835,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|populateExchangeFromRestletResponse (Exchange exchange, Response response)
 specifier|public
 name|void
@@ -5487,6 +5495,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -5497,6 +5507,8 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void

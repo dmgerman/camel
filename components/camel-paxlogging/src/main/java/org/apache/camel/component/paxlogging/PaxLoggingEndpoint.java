@@ -229,6 +229,8 @@ name|getAppender
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getComponent ()
 specifier|public
 name|PaxLoggingComponent
@@ -245,6 +247,8 @@ name|getComponent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -264,6 +268,8 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

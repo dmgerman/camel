@@ -68,6 +68,8 @@ name|JmsInOutFixedReplyQueueTimeoutUseMessageIDAsCorrelationIDTest
 extends|extends
 name|JmsInOutFixedReplyQueueTimeoutTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

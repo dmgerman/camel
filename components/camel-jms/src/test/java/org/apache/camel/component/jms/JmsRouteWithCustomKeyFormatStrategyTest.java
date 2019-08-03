@@ -84,6 +84,8 @@ operator|new
 name|MyCustomKeyFormatStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getUri ()
 specifier|protected
 name|String
@@ -152,6 +154,8 @@ name|MyCustomKeyFormatStrategy
 implements|implements
 name|JmsKeyFormatStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|encodeKey (String key)
 specifier|public
 name|String
@@ -169,6 +173,8 @@ operator|+
 literal|"BAR"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|decodeKey (String key)
 specifier|public
 name|String

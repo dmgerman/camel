@@ -116,6 +116,8 @@ name|Service
 argument_list|>
 name|childServices
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -279,6 +281,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

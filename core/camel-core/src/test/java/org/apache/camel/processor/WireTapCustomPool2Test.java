@@ -140,6 +140,8 @@ name|ExecutorService
 name|pool
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown ()
 specifier|public
@@ -240,6 +242,8 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -853,6 +853,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseUri (String uri)
 specifier|public
 name|String
@@ -871,6 +873,8 @@ name|propertiesLookup
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveProperty (String key)
 specifier|public
 name|Optional
@@ -902,6 +906,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadProperties ()
 specifier|public
 name|Properties
@@ -1107,6 +1113,8 @@ name|defaultFallbackEnabled
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1335,6 +1343,8 @@ name|locations
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addLocation (String location)
 specifier|public
 name|void
@@ -1422,6 +1432,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
+annotation|@
+name|Override
 DECL|method|setLocation (String location)
 specifier|public
 name|void
@@ -1563,6 +1575,8 @@ name|ignoreMissingLocation
 return|;
 block|}
 comment|/**      * Whether to silently ignore if a location cannot be located, such as a properties file not found.      */
+annotation|@
+name|Override
 DECL|method|setIgnoreMissingLocation (boolean ignoreMissingLocation)
 specifier|public
 name|void
@@ -1590,6 +1604,8 @@ name|initialProperties
 return|;
 block|}
 comment|/**      * Sets initial properties which will be used before any locations are resolved.      */
+annotation|@
+name|Override
 DECL|method|setInitialProperties (Properties initialProperties)
 specifier|public
 name|void
@@ -1617,6 +1633,8 @@ name|overrideProperties
 return|;
 block|}
 comment|/**      * Sets a special list of override properties that take precedence      * and will use first, if a property exist.      */
+annotation|@
+name|Override
 DECL|method|setOverrideProperties (Properties overrideProperties)
 specifier|public
 name|void
@@ -1761,6 +1779,8 @@ operator|=
 name|environmentVariableMode
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addPropertiesSource (PropertiesSource propertiesSource)
 specifier|public
 name|void

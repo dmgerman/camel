@@ -136,6 +136,8 @@ return|return
 name|producerCache
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource ()
 specifier|public
 name|String
@@ -166,6 +168,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSize ()
 specifier|public
 name|Integer
@@ -179,6 +183,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumCacheSize ()
 specifier|public
 name|Integer
@@ -192,6 +198,8 @@ name|getCapacity
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHits ()
 specifier|public
 name|Long
@@ -205,6 +213,8 @@ name|getHits
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMisses ()
 specifier|public
 name|Long
@@ -218,6 +228,8 @@ name|getMisses
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEvicted ()
 specifier|public
 name|Long
@@ -231,6 +243,8 @@ name|getEvicted
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetStatistics ()
 specifier|public
 name|void
@@ -243,6 +257,8 @@ name|resetCacheStatistics
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|purge ()
 specifier|public
 name|void
@@ -255,6 +271,8 @@ name|purge
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEventNotifierEnabled ()
 specifier|public
 name|Boolean

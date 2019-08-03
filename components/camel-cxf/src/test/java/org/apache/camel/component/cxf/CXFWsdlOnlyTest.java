@@ -268,6 +268,8 @@ operator|.
 name|getPort4
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
 name|boolean
@@ -278,6 +280,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext
@@ -350,6 +354,8 @@ literal|"org/apache/camel/component/cxf/WsdlOnlyBeans.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|assertValidContext (CamelContext context)
 specifier|protected
 name|void

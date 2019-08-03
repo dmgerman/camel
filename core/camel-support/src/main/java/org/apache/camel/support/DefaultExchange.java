@@ -498,6 +498,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|copy ()
 specifier|public
 name|Exchange
@@ -795,6 +797,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContext ()
 specifier|public
 name|CamelContext
@@ -805,6 +809,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProperty (String name)
 specifier|public
 name|Object
@@ -834,6 +840,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProperty (String name, Object defaultValue)
 specifier|public
 name|Object
@@ -864,6 +872,8 @@ else|:
 name|defaultValue
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -957,6 +967,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1055,6 +1067,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setProperty (String name, Object value)
 specifier|public
 name|void
@@ -1107,6 +1121,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|removeProperty (String name)
 specifier|public
 name|Object
@@ -1137,6 +1153,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeProperties (String pattern)
 specifier|public
 name|boolean
@@ -1159,6 +1177,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeProperties (String pattern, String... excludePatterns)
 specifier|public
 name|boolean
@@ -1305,6 +1325,8 @@ return|return
 name|matches
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProperties ()
 specifier|public
 name|Map
@@ -1333,6 +1355,8 @@ return|return
 name|properties
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasProperties ()
 specifier|public
 name|boolean
@@ -1372,6 +1396,8 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIn ()
 specifier|public
 name|Message
@@ -1404,6 +1430,8 @@ return|return
 name|in
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIn (Class<T> type)
 specifier|public
 parameter_list|<
@@ -1463,6 +1491,8 @@ name|in
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIn (Message in)
 specifier|public
 name|void
@@ -1484,6 +1514,8 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOut ()
 specifier|public
 name|Message
@@ -1533,6 +1565,8 @@ return|return
 name|out
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOut (Class<T> type)
 specifier|public
 parameter_list|<
@@ -1603,6 +1637,8 @@ name|out
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasOut ()
 specifier|public
 name|boolean
@@ -1615,6 +1651,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setOut (Message out)
 specifier|public
 name|void
@@ -1636,6 +1674,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessage ()
 specifier|public
 name|Message
@@ -1653,6 +1693,8 @@ name|getIn
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessage (Class<T> type)
 specifier|public
 parameter_list|<
@@ -1683,6 +1725,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMessage (Message message)
 specifier|public
 name|void
@@ -1713,6 +1757,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getException ()
 specifier|public
 name|Exception
@@ -1723,6 +1769,8 @@ return|return
 name|exception
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getException (Class<T> type)
 specifier|public
 parameter_list|<
@@ -1749,6 +1797,8 @@ name|exception
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setException (Throwable t)
 specifier|public
 name|void
@@ -1828,6 +1878,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getPattern ()
 specifier|public
 name|ExchangePattern
@@ -1838,6 +1890,8 @@ return|return
 name|pattern
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setPattern (ExchangePattern pattern)
 specifier|public
 name|void
@@ -1854,6 +1908,8 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFromEndpoint ()
 specifier|public
 name|Endpoint
@@ -1864,6 +1920,8 @@ return|return
 name|fromEndpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setFromEndpoint (Endpoint fromEndpoint)
 specifier|public
 name|void
@@ -1880,6 +1938,8 @@ operator|=
 name|fromEndpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFromRouteId ()
 specifier|public
 name|String
@@ -1890,6 +1950,8 @@ return|return
 name|fromRouteId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setFromRouteId (String fromRouteId)
 specifier|public
 name|void
@@ -1906,6 +1968,8 @@ operator|=
 name|fromRouteId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangeId ()
 specifier|public
 name|String
@@ -1929,6 +1993,8 @@ return|return
 name|exchangeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExchangeId (String id)
 specifier|public
 name|void
@@ -1945,6 +2011,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isFailed ()
 specifier|public
 name|boolean
@@ -1957,6 +2025,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isTransacted ()
 specifier|public
 name|boolean
@@ -1990,6 +2060,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isExternalRedelivered ()
 specifier|public
 name|Boolean
@@ -2069,6 +2141,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isRollbackOnly ()
 specifier|public
 name|boolean
@@ -2105,6 +2179,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUnitOfWork ()
 specifier|public
 name|UnitOfWork
@@ -2115,6 +2191,8 @@ return|return
 name|unitOfWork
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUnitOfWork (UnitOfWork unitOfWork)
 specifier|public
 name|void
@@ -2172,6 +2250,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addOnCompletion (Synchronization onCompletion)
 specifier|public
 name|void
@@ -2225,6 +2305,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|containsOnCompletion (Synchronization onCompletion)
 specifier|public
 name|boolean
@@ -2268,6 +2350,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|handoverCompletions (Exchange target)
 specifier|public
 name|void
@@ -2329,6 +2413,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|handoverCompletions ()
 specifier|public
 name|List

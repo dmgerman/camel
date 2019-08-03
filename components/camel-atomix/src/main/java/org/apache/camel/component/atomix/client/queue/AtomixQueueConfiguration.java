@@ -147,6 +147,8 @@ block|}
 comment|// ****************************************
 comment|// Copy
 comment|// ****************************************
+annotation|@
+name|Override
 DECL|method|copy ()
 specifier|public
 name|AtomixQueueConfiguration

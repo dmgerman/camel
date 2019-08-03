@@ -351,6 +351,8 @@ name|DefaultEndpoint
 implements|implements
 name|MultipleConsumersSupport
 block|{
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -361,6 +363,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isMultipleConsumersSupported ()
 specifier|public
 name|boolean
@@ -371,6 +375,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -383,6 +389,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -427,6 +435,8 @@ name|DefaultEndpoint
 implements|implements
 name|MultipleConsumersSupport
 block|{
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -437,6 +447,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isMultipleConsumersSupported ()
 specifier|public
 name|boolean
@@ -447,6 +459,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -459,6 +473,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

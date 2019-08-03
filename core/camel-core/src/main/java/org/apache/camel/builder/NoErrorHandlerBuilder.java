@@ -94,6 +94,8 @@ name|NoErrorHandlerBuilder
 extends|extends
 name|ErrorHandlerBuilderSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor
@@ -200,6 +202,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean

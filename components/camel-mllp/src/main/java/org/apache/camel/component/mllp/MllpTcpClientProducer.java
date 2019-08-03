@@ -2946,6 +2946,8 @@ operator|=
 name|endpointKey
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newThread (Runnable r)
 specifier|public
 name|Thread

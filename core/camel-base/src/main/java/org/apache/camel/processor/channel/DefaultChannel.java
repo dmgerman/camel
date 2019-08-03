@@ -407,6 +407,8 @@ name|routeScoped
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getOutput ()
 specifier|public
 name|Processor
@@ -503,6 +505,8 @@ operator|=
 name|output
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNextProcessor ()
 specifier|public
 name|Processor
@@ -530,6 +534,8 @@ operator|=
 name|errorHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getErrorHandler ()
 specifier|public
 name|Processor
@@ -540,6 +546,8 @@ return|return
 name|errorHandler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessorDefinition ()
 specifier|public
 name|NamedNode
@@ -566,6 +574,8 @@ operator|=
 name|definition
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteContext ()
 specifier|public
 name|RouteContext

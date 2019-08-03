@@ -134,6 +134,8 @@ return|return
 name|producer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
@@ -150,6 +152,8 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

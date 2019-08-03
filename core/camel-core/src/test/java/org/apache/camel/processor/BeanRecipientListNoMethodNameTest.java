@@ -38,6 +38,8 @@ name|BeanRecipientListNoMethodNameTest
 extends|extends
 name|BeanRecipientListTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

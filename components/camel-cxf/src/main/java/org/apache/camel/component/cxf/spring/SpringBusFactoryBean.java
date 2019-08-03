@@ -93,6 +93,8 @@ specifier|private
 name|SpringBusFactory
 name|bf
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 name|Bus
@@ -135,6 +137,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class
@@ -187,6 +191,8 @@ operator|=
 name|includeDefaultBus
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -197,6 +203,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEagerInit ()
 specifier|public
 name|boolean
@@ -207,6 +215,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isPrototype ()
 specifier|public
 name|boolean

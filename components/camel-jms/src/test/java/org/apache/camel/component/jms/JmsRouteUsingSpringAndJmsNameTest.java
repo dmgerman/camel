@@ -50,6 +50,8 @@ name|JmsRouteUsingSpringAndJmsNameTest
 extends|extends
 name|JmsRouteUsingSpringTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext

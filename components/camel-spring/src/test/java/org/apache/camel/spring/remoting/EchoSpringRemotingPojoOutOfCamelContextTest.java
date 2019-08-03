@@ -54,6 +54,8 @@ name|EchoSpringRemotingPojoOutOfCamelContextTest
 extends|extends
 name|EchoSpringRemotingPojoTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

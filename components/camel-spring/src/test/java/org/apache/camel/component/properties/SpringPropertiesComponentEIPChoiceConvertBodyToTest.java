@@ -56,6 +56,8 @@ name|SpringPropertiesComponentEIPChoiceConvertBodyToTest
 extends|extends
 name|PropertiesComponentEIPChoiceConvertBodyToTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

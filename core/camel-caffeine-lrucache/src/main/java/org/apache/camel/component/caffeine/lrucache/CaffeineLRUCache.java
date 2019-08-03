@@ -811,6 +811,8 @@ name|o
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|putAll (Map<? extends K, ? extends V> map)
 specifier|public
 name|void
@@ -966,6 +968,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Gets the number of cache hits      */
+annotation|@
+name|Override
 DECL|method|getHits ()
 specifier|public
 name|long
@@ -980,6 +984,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Gets the number of cache misses.      */
+annotation|@
+name|Override
 DECL|method|getMisses ()
 specifier|public
 name|long
@@ -994,6 +1000,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Gets the number of evicted entries.      */
+annotation|@
+name|Override
 DECL|method|getEvicted ()
 specifier|public
 name|long
@@ -1008,6 +1016,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns the maxCacheSize.      */
+annotation|@
+name|Override
 DECL|method|getMaxCacheSize ()
 specifier|public
 name|int
@@ -1019,6 +1029,8 @@ name|maxCacheSize
 return|;
 block|}
 comment|/**      * Rest the cache statistics such as hits and misses.      */
+annotation|@
+name|Override
 DECL|method|resetStatistics ()
 specifier|public
 name|void
@@ -1041,6 +1053,8 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|cleanUp ()
 specifier|public
 name|void

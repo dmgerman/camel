@@ -140,6 +140,8 @@ name|DefaultQueueBrowseStrategy
 implements|implements
 name|QueueBrowseStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|browse (JmsOperations template, String queue, final JmsQueueEndpoint endpoint)
 specifier|public
 name|List

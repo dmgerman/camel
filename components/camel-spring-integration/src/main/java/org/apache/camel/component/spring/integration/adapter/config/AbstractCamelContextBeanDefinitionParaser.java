@@ -597,6 +597,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doParse (Element element, ParserContext ctx, BeanDefinitionBuilder bean)
 specifier|protected
 name|void

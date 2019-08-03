@@ -2014,6 +2014,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 specifier|public
 name|void

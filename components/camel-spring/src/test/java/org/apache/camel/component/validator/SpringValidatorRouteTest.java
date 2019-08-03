@@ -56,6 +56,8 @@ name|SpringValidatorRouteTest
 extends|extends
 name|ValidatorRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

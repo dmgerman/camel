@@ -285,6 +285,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|assemble (MBeanServer mBeanServer, Object obj, ObjectName name)
 specifier|public
 name|ModelMBean

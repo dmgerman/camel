@@ -67,6 +67,8 @@ argument_list|<
 name|Object
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|getValue (Exchange exchange)
 specifier|public
 name|Object

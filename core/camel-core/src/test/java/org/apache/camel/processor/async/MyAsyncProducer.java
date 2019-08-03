@@ -199,6 +199,8 @@ literal|"MyProducer"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|MyAsyncEndpoint
@@ -215,6 +217,8 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean

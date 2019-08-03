@@ -209,6 +209,8 @@ init|=
 literal|"org.apache.camel.spring.scan"
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

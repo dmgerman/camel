@@ -29,6 +29,8 @@ name|BaseSomething
 extends|extends
 name|BaseFoundationClass
 block|{
+annotation|@
+name|Override
 DECL|method|doSomething (String name)
 specifier|public
 specifier|abstract

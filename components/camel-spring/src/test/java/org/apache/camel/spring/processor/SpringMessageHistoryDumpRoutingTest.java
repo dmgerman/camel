@@ -70,6 +70,8 @@ name|SpringMessageHistoryDumpRoutingTest
 extends|extends
 name|MessageHistoryDumpRoutingTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

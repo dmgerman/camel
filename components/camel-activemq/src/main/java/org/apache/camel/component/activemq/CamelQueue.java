@@ -98,6 +98,8 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQueueName ()
 specifier|public
 name|String
@@ -111,6 +113,8 @@ name|getUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createSender (ActiveMQSession session)
 specifier|public
 name|QueueSender
@@ -137,6 +141,8 @@ name|session
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createReceiver (ActiveMQSession session, String messageSelector)
 specifier|public
 name|QueueReceiver

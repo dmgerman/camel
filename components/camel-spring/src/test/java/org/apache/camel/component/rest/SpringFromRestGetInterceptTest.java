@@ -56,6 +56,8 @@ name|SpringFromRestGetInterceptTest
 extends|extends
 name|FromRestGetInterceptTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -103,6 +103,8 @@ name|responseContent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|validateQuery (HttpRequest request)
 specifier|protected
 name|boolean

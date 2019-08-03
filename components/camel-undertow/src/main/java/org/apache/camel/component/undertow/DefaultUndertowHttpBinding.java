@@ -646,6 +646,8 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -672,6 +674,8 @@ return|return
 name|transferException
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTransferException (Boolean transferException)
 specifier|public
 name|void

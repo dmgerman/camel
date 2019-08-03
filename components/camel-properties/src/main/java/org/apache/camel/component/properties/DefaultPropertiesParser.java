@@ -259,6 +259,8 @@ name|text
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseProperty (String key, String value, PropertiesLookup properties)
 specifier|public
 name|String

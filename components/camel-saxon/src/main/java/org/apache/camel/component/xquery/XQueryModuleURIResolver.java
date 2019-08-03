@@ -112,6 +112,8 @@ operator|=
 name|xqueryComponent
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolve (String moduleURI, String baseURI, String[] locations)
 specifier|public
 name|StreamSource

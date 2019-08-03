@@ -26,6 +26,8 @@ name|AhcProduceSSLContextParametersGetTest
 extends|extends
 name|AhcProduceGetTest
 block|{
+annotation|@
+name|Override
 DECL|method|getTestServerEndpointUri ()
 specifier|protected
 name|String
@@ -41,6 +43,8 @@ operator|+
 literal|"?sslContextParameters=#sslContextParameters"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAhcEndpointUri ()
 specifier|protected
 name|String

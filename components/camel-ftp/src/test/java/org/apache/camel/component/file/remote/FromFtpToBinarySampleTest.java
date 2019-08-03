@@ -85,6 +85,8 @@ block|{
 comment|// this is a noop test
 block|}
 comment|// START SNIPPET: e1
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

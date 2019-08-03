@@ -339,6 +339,8 @@ operator|=
 name|managementAgent
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEventNotifiers ()
 specifier|public
 name|List
@@ -352,6 +354,8 @@ return|return
 name|eventNotifiers
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addEventNotifier (EventNotifier eventNotifier)
 specifier|public
 name|void
@@ -371,6 +375,8 @@ name|eventNotifier
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeEventNotifier (EventNotifier eventNotifier)
 specifier|public
 name|boolean
@@ -389,6 +395,8 @@ name|eventNotifier
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEventFactory ()
 specifier|public
 name|EventFactory
@@ -399,6 +407,8 @@ return|return
 name|eventFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEventFactory (EventFactory eventFactory)
 specifier|public
 name|void
@@ -415,6 +425,8 @@ operator|=
 name|eventFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementObjectNameStrategy ()
 specifier|public
 name|ManagementObjectNameStrategy
@@ -440,6 +452,8 @@ return|return
 name|managementObjectNameStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManagementObjectNameStrategy (ManagementObjectNameStrategy managementObjectNameStrategy)
 specifier|public
 name|void
@@ -456,6 +470,8 @@ operator|=
 name|managementObjectNameStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementObjectStrategy ()
 specifier|public
 name|ManagementObjectStrategy
@@ -479,6 +495,8 @@ return|return
 name|managementObjectStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManagementObjectStrategy (ManagementObjectStrategy managementObjectStrategy)
 specifier|public
 name|void
@@ -495,6 +513,8 @@ operator|=
 name|managementObjectStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementAgent ()
 specifier|public
 name|ManagementAgent
@@ -505,6 +525,8 @@ return|return
 name|managementAgent
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManagementAgent (ManagementAgent managementAgent)
 specifier|public
 name|void
@@ -521,6 +543,8 @@ operator|=
 name|managementAgent
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|manageProcessor (NamedNode definition)
 specifier|public
 name|boolean
@@ -534,6 +558,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|manageObject (Object managedObject)
 specifier|public
 name|void
@@ -547,6 +573,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|unmanageObject (Object managedObject)
 specifier|public
 name|void
@@ -560,6 +588,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|isManaged (Object managedObject)
 specifier|public
 name|boolean
@@ -574,6 +604,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isManagedName (Object name)
 specifier|public
 name|boolean
@@ -588,6 +620,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -598,6 +632,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -614,6 +650,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
@@ -663,6 +701,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -800,6 +840,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

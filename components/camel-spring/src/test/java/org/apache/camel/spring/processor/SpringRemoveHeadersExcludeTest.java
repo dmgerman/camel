@@ -70,6 +70,8 @@ name|SpringRemoveHeadersExcludeTest
 extends|extends
 name|RemoveHeadersExcludeTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

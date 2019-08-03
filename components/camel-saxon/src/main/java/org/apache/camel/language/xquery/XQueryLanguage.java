@@ -101,6 +101,8 @@ name|XQueryLanguage
 extends|extends
 name|LanguageSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -126,6 +128,8 @@ name|expression
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression

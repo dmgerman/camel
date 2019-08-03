@@ -473,6 +473,8 @@ name|eagerLimitMaxMessagesPerPoll
 expr_stmt|;
 block|}
 comment|/**      * Poll for files      */
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|public
 name|int
@@ -891,6 +893,8 @@ return|return
 name|polledMessages
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
 name|int

@@ -70,6 +70,8 @@ name|SpringThrottlingInflightRoutePolicyTest
 extends|extends
 name|ThrottlingInflightRoutePolicyTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

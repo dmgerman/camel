@@ -314,6 +314,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// START SNIPPET: payload
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -96,6 +96,8 @@ name|QueueToQueueTransactionWithoutDefineTransactionManagerTest
 extends|extends
 name|AbstractTransactionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

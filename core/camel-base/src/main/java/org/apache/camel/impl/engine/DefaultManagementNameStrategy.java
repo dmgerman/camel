@@ -405,6 +405,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new management name with the given pattern      *      * @param pattern the pattern      * @param name    the name      * @return the management name      * @throws IllegalArgumentException if the pattern or name is invalid or empty      */
+annotation|@
+name|Override
 DECL|method|resolveManagementName (String pattern, String name, boolean invalidCheck)
 specifier|public
 name|String

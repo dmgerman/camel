@@ -57,6 +57,8 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|findClass (String name)
 specifier|protected
 name|Class

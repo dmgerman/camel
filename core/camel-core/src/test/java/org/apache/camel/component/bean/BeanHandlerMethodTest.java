@@ -648,6 +648,8 @@ name|MyAbstractBean
 implements|implements
 name|MyBaseInterface
 block|{
+annotation|@
+name|Override
 DECL|method|hello (@ody String hi)
 specifier|public
 name|String

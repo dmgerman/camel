@@ -126,6 +126,8 @@ argument_list|(
 name|ACTIVATION_NAMESPACE
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getActivationNamespaces ()
 specifier|public
 name|List
@@ -139,6 +141,8 @@ return|return
 name|ACTIVATION_NAMESPACES
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|filter (Direction direction, List<Header> headers)
 specifier|public
 name|void
@@ -153,7 +157,7 @@ name|Header
 argument_list|>
 name|headers
 parameter_list|)
-block|{             }
+block|{     }
 block|}
 end_class
 

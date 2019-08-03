@@ -110,6 +110,8 @@ name|MultiServletConsumerTest
 extends|extends
 name|ServletCamelRouterTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|getConfiguration ()
 specifier|protected
 name|String
@@ -276,6 +278,8 @@ name|getText
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

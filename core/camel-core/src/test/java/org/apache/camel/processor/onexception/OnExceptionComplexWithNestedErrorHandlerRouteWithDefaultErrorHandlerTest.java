@@ -63,6 +63,8 @@ extends|extends
 name|OnExceptionComplexWithNestedErrorHandlerRouteTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testFunctionalError ()
 specifier|public

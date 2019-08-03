@@ -352,6 +352,8 @@ literal|"hp-ux"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

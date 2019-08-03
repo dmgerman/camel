@@ -186,6 +186,8 @@ literal|"Consumer not supported for JcloudsComputeEndpoint!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getImageId ()
 specifier|public
 name|String
@@ -196,6 +198,8 @@ return|return
 name|imageId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setImageId (String imageId)
 specifier|public
 name|void
@@ -212,6 +216,8 @@ operator|=
 name|imageId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLocationId ()
 specifier|public
 name|String
@@ -222,6 +228,8 @@ return|return
 name|locationId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLocationId (String locationId)
 specifier|public
 name|void
@@ -238,6 +246,8 @@ operator|=
 name|locationId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHardwareId ()
 specifier|public
 name|String
@@ -248,6 +258,8 @@ return|return
 name|hardwareId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setHardwareId (String hardwareId)
 specifier|public
 name|void
@@ -264,6 +276,8 @@ operator|=
 name|hardwareId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOperation ()
 specifier|public
 name|String
@@ -274,6 +288,8 @@ return|return
 name|operation
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -290,6 +306,8 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNodeState ()
 specifier|public
 name|String
@@ -300,6 +318,8 @@ return|return
 name|nodeState
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNodeState (String nodeState)
 specifier|public
 name|void
@@ -316,6 +336,8 @@ operator|=
 name|nodeState
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNodeId ()
 specifier|public
 name|String
@@ -326,6 +348,8 @@ return|return
 name|nodeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNodeId (String nodeId)
 specifier|public
 name|void
@@ -342,6 +366,8 @@ operator|=
 name|nodeId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGroup ()
 specifier|public
 name|String
@@ -352,6 +378,8 @@ return|return
 name|group
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setGroup (String group)
 specifier|public
 name|void
@@ -368,6 +396,8 @@ operator|=
 name|group
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUser ()
 specifier|public
 name|String
@@ -378,6 +408,8 @@ return|return
 name|user
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUser (String user)
 specifier|public
 name|void

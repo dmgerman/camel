@@ -104,6 +104,8 @@ name|ConsumerWSASameChannelParamsToTests
 extends|extends
 name|AbstractConsumerTests
 block|{
+annotation|@
+name|Override
 DECL|method|channelIn (String actionUri)
 specifier|public
 name|ActionCallback

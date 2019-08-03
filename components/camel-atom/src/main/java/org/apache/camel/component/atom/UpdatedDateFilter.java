@@ -142,6 +142,8 @@ operator|=
 name|lastUpdate
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isValidEntry (FeedEndpoint endpoint, Object feed, Object entry)
 specifier|public
 name|boolean

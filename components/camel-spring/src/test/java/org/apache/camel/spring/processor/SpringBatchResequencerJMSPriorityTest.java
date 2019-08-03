@@ -70,6 +70,8 @@ name|SpringBatchResequencerJMSPriorityTest
 extends|extends
 name|BatchResequencerJMSPriorityTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -3122,6 +3122,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setAccessToken (Request request)
 specifier|protected
 name|void

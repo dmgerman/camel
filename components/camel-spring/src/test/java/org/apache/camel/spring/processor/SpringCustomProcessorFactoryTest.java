@@ -70,6 +70,8 @@ name|SpringCustomProcessorFactoryTest
 extends|extends
 name|CustomProcessorFactoryTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

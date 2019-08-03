@@ -223,6 +223,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Process invoked by the interceptor      * @param exchange the message exchange      * @throws Exception      */
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -258,6 +260,8 @@ name|done
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean

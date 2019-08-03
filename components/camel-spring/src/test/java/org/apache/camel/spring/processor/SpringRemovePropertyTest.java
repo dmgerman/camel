@@ -70,6 +70,8 @@ name|SpringRemovePropertyTest
 extends|extends
 name|RemovePropertyTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

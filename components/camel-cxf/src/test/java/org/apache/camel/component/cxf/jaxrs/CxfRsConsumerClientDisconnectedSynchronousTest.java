@@ -28,6 +28,8 @@ name|CxfRsConsumerClientDisconnectedSynchronousTest
 extends|extends
 name|CxfRsConsumerClientDisconnectedTest
 block|{
+annotation|@
+name|Override
 DECL|method|isSynchronous ()
 specifier|protected
 name|boolean

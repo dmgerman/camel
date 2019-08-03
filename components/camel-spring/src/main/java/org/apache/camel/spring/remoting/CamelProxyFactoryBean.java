@@ -490,6 +490,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|destroy ()
 specifier|public
 name|void
@@ -500,6 +502,8 @@ name|Exception
 block|{
 comment|// we let CamelContext manage the lifecycle of the producer and shut it down when Camel stops
 block|}
+annotation|@
+name|Override
 DECL|method|getServiceInterface ()
 specifier|public
 name|Class
@@ -516,6 +520,8 @@ name|getServiceInterface
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getServiceUrl ()
 specifier|public
 name|String
@@ -529,6 +535,8 @@ name|getServiceUrl
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 name|Object
@@ -541,6 +549,8 @@ return|return
 name|serviceProxy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class
@@ -555,6 +565,8 @@ name|getServiceInterface
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -643,6 +655,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -653,6 +667,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -685,6 +701,8 @@ operator|=
 name|contextId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

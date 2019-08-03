@@ -72,6 +72,8 @@ name|SpringEnricherAggregateOnExceptionTest
 extends|extends
 name|EnricherAggregateOnExceptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -50,6 +50,8 @@ specifier|private
 name|String
 name|toEndpoint
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

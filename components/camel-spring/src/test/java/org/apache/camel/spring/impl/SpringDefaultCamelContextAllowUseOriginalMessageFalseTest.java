@@ -74,6 +74,8 @@ name|SpringDefaultCamelContextAllowUseOriginalMessageFalseTest
 extends|extends
 name|DefaultCamelContextAllowUseOriginalMessageFalseTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

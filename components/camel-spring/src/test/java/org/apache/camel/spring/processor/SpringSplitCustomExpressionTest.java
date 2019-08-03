@@ -70,6 +70,8 @@ name|SpringSplitCustomExpressionTest
 extends|extends
 name|SplitCustomExpressionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

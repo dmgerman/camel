@@ -4287,6 +4287,8 @@ name|ExchangeNotifier
 extends|extends
 name|EventNotifierSupport
 block|{
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
@@ -4370,6 +4372,8 @@ name|computeMatches
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
@@ -4791,6 +4795,8 @@ name|EventPredicateSupport
 implements|implements
 name|EventPredicate
 block|{
+annotation|@
+name|Override
 DECL|method|isAbstract ()
 specifier|public
 name|boolean
@@ -4801,6 +4807,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void
@@ -4809,6 +4817,8 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeCreated (Exchange exchange)
 specifier|public
 name|boolean
@@ -4825,6 +4835,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeCompleted (Exchange exchange)
 specifier|public
 name|boolean
@@ -4841,6 +4853,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeFailed (Exchange exchange)
 specifier|public
 name|boolean
@@ -4857,6 +4871,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeSent (Exchange exchange, Endpoint endpoint, long timeTaken)
 specifier|public
 name|boolean
@@ -5030,6 +5046,8 @@ name|predicates
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAbstract ()
 specifier|public
 name|boolean
@@ -5040,6 +5058,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches ()
 specifier|public
 name|boolean
@@ -5089,6 +5109,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void
@@ -5119,6 +5141,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeCreated (Exchange exchange)
 specifier|public
 name|boolean
@@ -5173,6 +5197,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeCompleted (Exchange exchange)
 specifier|public
 name|boolean
@@ -5227,6 +5253,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeFailed (Exchange exchange)
 specifier|public
 name|boolean

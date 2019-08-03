@@ -441,6 +441,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -451,6 +453,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -467,6 +471,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
@@ -738,6 +744,8 @@ name|target
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next ()
 specifier|public
 name|List
@@ -782,6 +790,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext ()
 specifier|public
 name|boolean
@@ -841,6 +851,8 @@ return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -879,6 +891,8 @@ name|idempotentRepository
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

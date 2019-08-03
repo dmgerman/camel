@@ -460,6 +460,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -496,6 +498,8 @@ operator|=
 name|exceptionHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
@@ -506,6 +510,8 @@ return|return
 name|processor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|boolean
@@ -521,6 +527,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPendingExchangesSize ()
 specifier|public
 name|int
@@ -670,6 +678,8 @@ name|isRunAllowed
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void
@@ -1327,6 +1337,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1401,6 +1413,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

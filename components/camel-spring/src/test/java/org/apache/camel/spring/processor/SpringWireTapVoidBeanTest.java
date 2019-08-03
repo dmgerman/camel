@@ -70,6 +70,8 @@ name|SpringWireTapVoidBeanTest
 extends|extends
 name|WireTapVoidBeanTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

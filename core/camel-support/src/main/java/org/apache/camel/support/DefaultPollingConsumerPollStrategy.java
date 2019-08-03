@@ -100,6 +100,8 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|begin (Consumer consumer, Endpoint endpoint)
 specifier|public
 name|boolean
@@ -116,6 +118,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|commit (Consumer consumer, Endpoint endpoint, int polledMessages)
 specifier|public
 name|void
@@ -133,6 +137,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|rollback (Consumer consumer, Endpoint endpoint, int retryCounter, Exception e)
 specifier|public
 name|boolean

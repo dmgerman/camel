@@ -218,6 +218,8 @@ name|CxfPayLoadSoapHeaderViaCamelHeaderTest
 extends|extends
 name|CxfPayLoadSoapHeaderTestAbstract
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

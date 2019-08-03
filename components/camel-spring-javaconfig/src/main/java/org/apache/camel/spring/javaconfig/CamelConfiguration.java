@@ -302,6 +302,8 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setBeanFactory (BeanFactory beanFactory)
 specifier|public
 name|void
@@ -345,6 +347,8 @@ operator|.
 name|beanFactory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext ac)
 specifier|public
 name|void

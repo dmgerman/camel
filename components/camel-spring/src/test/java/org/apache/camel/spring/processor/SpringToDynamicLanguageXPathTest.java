@@ -70,6 +70,8 @@ name|SpringToDynamicLanguageXPathTest
 extends|extends
 name|ToDynamicLanguageXPathTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

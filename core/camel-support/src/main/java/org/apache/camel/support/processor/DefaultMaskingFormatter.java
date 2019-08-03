@@ -242,6 +242,8 @@ name|maskJson
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|format (String source)
 specifier|public
 name|String

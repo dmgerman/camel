@@ -273,6 +273,8 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|useJmx ()
 specifier|protected
 name|boolean
@@ -290,6 +292,8 @@ literal|"testBatchResequencerTypeWithJmx"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

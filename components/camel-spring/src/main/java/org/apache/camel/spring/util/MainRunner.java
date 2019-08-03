@@ -172,6 +172,8 @@ specifier|private
 name|long
 name|delay
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -199,6 +201,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void
@@ -504,6 +508,8 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void

@@ -32,6 +32,8 @@ name|FromFtpMoveFileToHiddenFolderRecursiveNotStepwiseTest
 extends|extends
 name|FromFtpMoveFileToHiddenFolderRecursiveTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

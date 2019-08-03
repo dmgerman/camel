@@ -301,6 +301,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -824,6 +826,8 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -899,6 +903,8 @@ comment|// ignore
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

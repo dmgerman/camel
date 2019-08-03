@@ -158,6 +158,8 @@ specifier|private
 name|ExceptionHandler
 name|exceptionHandler
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onInit (Route route)
 specifier|public
 name|void
@@ -190,6 +192,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onRemove (Route route)
 specifier|public
 name|void
@@ -253,6 +257,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeBegin (Route route, Exchange exchange)
 specifier|public
 name|void
@@ -267,6 +273,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeDone (Route route, Exchange exchange)
 specifier|public
 name|void

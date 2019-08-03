@@ -171,6 +171,8 @@ name|Web3jConsumerMainnetTest
 extends|extends
 name|Web3jIntegrationTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|getUrl ()
 specifier|protected
 name|String

@@ -249,6 +249,8 @@ operator|=
 name|method
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -270,6 +272,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression
@@ -567,6 +571,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

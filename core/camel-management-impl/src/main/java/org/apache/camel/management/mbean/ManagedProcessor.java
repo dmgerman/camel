@@ -453,6 +453,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInstance ()
 specifier|public
 name|Object
@@ -496,6 +498,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStepId ()
 specifier|public
 name|String
@@ -506,6 +510,8 @@ return|return
 name|stepId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIndex ()
 specifier|public
 name|Integer
@@ -519,6 +525,8 @@ name|getIndex
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSupportExtendedInformation ()
 specifier|public
 name|Boolean
@@ -555,6 +563,8 @@ operator|=
 name|route
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getState ()
 specifier|public
 name|String
@@ -599,6 +609,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -612,6 +624,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelManagementName ()
 specifier|public
 name|String
@@ -625,6 +639,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -649,6 +665,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessorId ()
 specifier|public
 name|String
@@ -659,6 +677,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -696,6 +716,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

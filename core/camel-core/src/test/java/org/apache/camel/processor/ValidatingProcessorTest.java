@@ -698,6 +698,8 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

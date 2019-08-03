@@ -74,6 +74,8 @@ name|MyErrorHandler
 extends|extends
 name|ErrorHandler
 block|{
+annotation|@
+name|Override
 DECL|method|writeErrorPageBody (HttpServletRequest request, Writer writer, int code, String message, boolean showStacks)
 specifier|protected
 name|void

@@ -68,6 +68,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|multiply (final int originalNumber)
 specifier|public
 name|int

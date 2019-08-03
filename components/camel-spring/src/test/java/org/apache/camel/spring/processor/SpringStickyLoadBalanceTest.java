@@ -70,6 +70,8 @@ name|SpringStickyLoadBalanceTest
 extends|extends
 name|StickyLoadBalanceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -89,6 +89,8 @@ extends|extends
 name|MulticastStopOnExceptionWithOnExceptionIssueTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testEnd1FailureTest ()
 specifier|public
@@ -193,6 +195,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testEnd2FailureTest ()

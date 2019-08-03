@@ -109,6 +109,8 @@ name|NAMESPACE
 init|=
 literal|"http://apache.org/hello_world_soap_http"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getSimpleEndpointUri ()
 specifier|protected
 name|String
@@ -128,6 +130,8 @@ operator|+
 name|ECHO_OPERATION
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getJaxwsEndpointUri ()
 specifier|protected
 name|String
@@ -151,6 +155,8 @@ operator|+
 name|NAMESPACE
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendSimpleMessage ()
 specifier|protected
 name|Exchange
@@ -261,6 +267,8 @@ return|return
 name|exchange
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendJaxWsMessage ()
 specifier|protected
 name|Exchange

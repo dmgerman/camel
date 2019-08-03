@@ -32,6 +32,8 @@ name|FromFtpPreMoveNoopNotStepwiseTest
 extends|extends
 name|FromFtpPreMoveNoopTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

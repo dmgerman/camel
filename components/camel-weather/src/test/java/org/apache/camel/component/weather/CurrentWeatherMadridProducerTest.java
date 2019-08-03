@@ -91,6 +91,8 @@ extends|extends
 name|BaseWeatherConsumerTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testGrabbingListOfEntries ()
 specifier|public

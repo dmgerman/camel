@@ -1556,6 +1556,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// no @Override annotation here to keep it compatible with Jetty 9.2, getName was added in 9.3
+annotation|@
+name|Override
 DECL|method|getName ()
 specifier|public
 name|String

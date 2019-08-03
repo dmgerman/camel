@@ -225,6 +225,8 @@ specifier|public
 name|Message
 name|message
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onMessage (Message message)
 specifier|public
 name|void

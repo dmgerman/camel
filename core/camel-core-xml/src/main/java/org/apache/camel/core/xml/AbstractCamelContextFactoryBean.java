@@ -5164,6 +5164,8 @@ name|boolean
 name|create
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getRoutes ()
 specifier|public
 specifier|abstract
@@ -5174,6 +5176,8 @@ argument_list|>
 name|getRoutes
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getRests ()
 specifier|public
 specifier|abstract

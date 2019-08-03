@@ -918,6 +918,8 @@ operator|=
 name|defaultValueSupplier
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -928,6 +930,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeader ()
 specifier|public
 name|String
@@ -938,6 +942,8 @@ return|return
 name|header
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|public
 name|Class
@@ -951,6 +957,8 @@ return|return
 name|type
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDefaultValue (ServiceNowConfiguration configuration)
 specifier|public
 name|Object
@@ -975,6 +983,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderValue (Message message)
 specifier|public
 name|Object
@@ -995,6 +1005,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderValue (Message message, ServiceNowConfiguration configuration)
 specifier|public
 name|Object

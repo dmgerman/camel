@@ -128,6 +128,8 @@ name|AbstractClassSize
 implements|implements
 name|InterfaceSize
 block|{
+annotation|@
+name|Override
 DECL|method|size ()
 specifier|public
 name|int

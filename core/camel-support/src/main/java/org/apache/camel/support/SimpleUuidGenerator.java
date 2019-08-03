@@ -68,6 +68,8 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|generateUuid ()
 specifier|public
 name|String

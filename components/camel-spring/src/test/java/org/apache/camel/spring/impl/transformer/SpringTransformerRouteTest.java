@@ -102,6 +102,8 @@ name|SpringTransformerRouteTest
 extends|extends
 name|TransformerRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -127,6 +129,8 @@ name|MyXmlProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

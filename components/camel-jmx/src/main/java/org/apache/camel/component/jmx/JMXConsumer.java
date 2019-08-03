@@ -1327,6 +1327,8 @@ name|aServerConnection
 expr_stmt|;
 block|}
 comment|/**      * Processes the Notification received. The handback will be set as      * the header "jmx.handback" while the Notification will be set as      * the body.      *<p/>      * If the format is set to "xml" then the Notification will be converted      * to XML first using {@link NotificationXmlFormatter}      *      * @see javax.management.NotificationListener#handleNotification(javax.management.Notification, java.lang.Object)      */
+annotation|@
+name|Override
 DECL|method|handleNotification (Notification aNotification, Object aHandback)
 specifier|public
 name|void

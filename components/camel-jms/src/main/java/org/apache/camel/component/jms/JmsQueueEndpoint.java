@@ -412,6 +412,8 @@ operator|=
 name|maximumBrowseSize
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchanges ()
 specifier|public
 name|List

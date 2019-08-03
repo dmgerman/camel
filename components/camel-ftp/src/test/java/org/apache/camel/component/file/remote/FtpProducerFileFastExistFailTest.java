@@ -28,6 +28,8 @@ name|FtpProducerFileFastExistFailTest
 extends|extends
 name|FtpProducerFileExistFailTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

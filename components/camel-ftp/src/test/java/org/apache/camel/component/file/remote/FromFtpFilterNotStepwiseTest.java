@@ -32,6 +32,8 @@ name|FromFtpFilterNotStepwiseTest
 extends|extends
 name|FromFtpFilterTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

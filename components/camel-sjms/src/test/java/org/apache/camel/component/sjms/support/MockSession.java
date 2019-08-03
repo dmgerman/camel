@@ -254,6 +254,8 @@ operator|=
 name|isBadSession
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createQueue (String queueName)
 specifier|public
 name|Queue
@@ -291,6 +293,8 @@ name|queueName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Destination destination, String messageSelector, boolean noLocal, MessageListener messageListener)
 specifier|public
 name|MessageConsumer

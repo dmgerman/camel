@@ -639,6 +639,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -732,6 +734,8 @@ return|return
 name|copy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
@@ -764,6 +768,8 @@ literal|"]"
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -774,6 +780,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void

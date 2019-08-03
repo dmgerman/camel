@@ -247,6 +247,8 @@ name|DnsActivation
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onInit (Route route)
 specifier|public
 name|void
@@ -281,6 +283,8 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onRemove (Route route)
 specifier|public
 name|void
@@ -404,6 +408,8 @@ argument_list|)
 expr_stmt|;
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeBegin (Route route, Exchange exchange)
 specifier|public
 name|void
@@ -437,6 +443,8 @@ argument_list|)
 expr_stmt|;
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onExchangeDone (Route route, Exchange exchange)
 specifier|public
 name|void
@@ -542,6 +550,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler
@@ -571,6 +581,8 @@ return|return
 name|exceptionHandler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExceptionHandler (ExceptionHandler exceptionHandler)
 specifier|public
 name|void
@@ -1052,6 +1064,8 @@ name|DnsActivationTask
 extends|extends
 name|TimerTask
 block|{
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

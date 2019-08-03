@@ -512,6 +512,8 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 name|int
@@ -974,6 +976,8 @@ return|return
 name|polledMessages
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
 name|int

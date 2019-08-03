@@ -70,6 +70,8 @@ name|SpringFailoverMaximumFailoverAttemptsTest
 extends|extends
 name|FailoverMaximumFailoverAttemptsTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

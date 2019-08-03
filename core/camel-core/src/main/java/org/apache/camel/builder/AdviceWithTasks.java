@@ -362,6 +362,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -372,6 +374,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|match (ProcessorDefinition<?> processor)
 specifier|public
 name|boolean
@@ -445,6 +449,8 @@ operator|=
 name|toString
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -455,6 +461,8 @@ return|return
 name|toString
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|match (ProcessorDefinition<?> processor)
 specifier|public
 name|boolean
@@ -513,6 +521,8 @@ operator|=
 name|toUri
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -523,6 +533,8 @@ return|return
 name|toUri
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|match (ProcessorDefinition<?> processor)
 specifier|public
 name|boolean
@@ -608,6 +620,8 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -621,6 +635,8 @@ name|getSimpleName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|match (ProcessorDefinition<?> processor)
 specifier|public
 name|boolean

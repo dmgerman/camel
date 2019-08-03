@@ -134,6 +134,8 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write (int i)
 specifier|public
 name|void
@@ -203,6 +205,8 @@ operator|=
 name|i
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write (byte[] buf)
 specifier|public
 name|void
@@ -229,6 +233,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write (byte buf[], int off, int len)
 specifier|public
 name|void

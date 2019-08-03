@@ -70,6 +70,8 @@ name|SpringMulticastSubUnitOfWorkTest
 extends|extends
 name|MulticastSubUnitOfWorkTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

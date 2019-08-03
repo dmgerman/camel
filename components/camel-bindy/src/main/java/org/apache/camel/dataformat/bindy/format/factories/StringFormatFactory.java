@@ -112,6 +112,8 @@ argument_list|<
 name|String
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|format (String object)
 specifier|public
 name|String
@@ -127,6 +129,8 @@ return|return
 name|object
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String string)
 specifier|public
 name|String

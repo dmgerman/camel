@@ -107,6 +107,8 @@ operator|=
 literal|""
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|echo (String text)
 specifier|public
 name|String
@@ -131,6 +133,8 @@ operator|+
 name|text
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|ping ()
 specifier|public
 name|void
@@ -148,6 +152,8 @@ literal|"call for oneway ping"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInvocationCount ()
 specifier|public
 name|int
@@ -158,6 +164,8 @@ return|return
 name|invocationCount
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sayHello ()
 specifier|public
 name|String
@@ -170,6 +178,8 @@ operator|+
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|echoBoolean (Boolean bool)
 specifier|public
 name|Boolean
@@ -183,6 +193,8 @@ return|return
 name|bool
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|complexParameters (List<String> par1, List<String> par2)
 specifier|public
 name|String

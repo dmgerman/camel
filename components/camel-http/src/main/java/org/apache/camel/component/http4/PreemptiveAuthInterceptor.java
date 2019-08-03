@@ -172,6 +172,8 @@ name|PreemptiveAuthInterceptor
 implements|implements
 name|HttpRequestInterceptor
 block|{
+annotation|@
+name|Override
 DECL|method|process (final HttpRequest request, final HttpContext context)
 specifier|public
 name|void

@@ -145,6 +145,8 @@ operator|=
 name|keyManager
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|chooseClientAlias (String[] keyType, Principal[] issuers, Socket socket)
 specifier|public
 name|String
@@ -181,6 +183,8 @@ else|:
 name|keyAlias
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|chooseServerAlias (String keyType, Principal[] issuers, Socket socket)
 specifier|public
 name|String
@@ -216,6 +220,8 @@ else|:
 name|keyAlias
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getClientAliases (String keyType, Principal[] issuers)
 specifier|public
 name|String
@@ -241,6 +247,8 @@ name|issuers
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getServerAliases (String keyType, Principal[] issuers)
 specifier|public
 name|String
@@ -266,6 +274,8 @@ name|issuers
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCertificateChain (String alias)
 specifier|public
 name|X509Certificate
@@ -285,6 +295,8 @@ name|alias
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPrivateKey (String alias)
 specifier|public
 name|PrivateKey

@@ -505,6 +505,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -515,6 +517,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -531,6 +535,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -1011,6 +1017,8 @@ name|SynchronizationAdapter
 implements|implements
 name|Ordered
 block|{
+annotation|@
+name|Override
 DECL|method|getOrder ()
 specifier|public
 name|int
@@ -1141,6 +1149,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onFailure (final Exchange exchange)
 specifier|public
 name|void
@@ -1339,6 +1349,8 @@ name|SynchronizationAdapter
 implements|implements
 name|Ordered
 block|{
+annotation|@
+name|Override
 DECL|method|getOrder ()
 specifier|public
 name|int
@@ -1518,6 +1530,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String

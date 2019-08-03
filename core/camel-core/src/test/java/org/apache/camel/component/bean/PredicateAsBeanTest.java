@@ -243,6 +243,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -286,6 +288,8 @@ specifier|public
 name|String
 name|body
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean

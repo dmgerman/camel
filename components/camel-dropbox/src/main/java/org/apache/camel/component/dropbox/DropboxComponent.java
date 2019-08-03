@@ -237,6 +237,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Create a camel endpoint after passing validation on the incoming url.      * @param uri the full URI of the endpoint      * @param remaining the remaining part of the URI without the query      *                parameters or component prefix      * @param parameters the optional parameters passed in      * @return the camel endpoint      * @throws Exception      */
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

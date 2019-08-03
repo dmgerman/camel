@@ -70,6 +70,8 @@ name|SpringClaimCheckEipGetAndRemoveSetTest
 extends|extends
 name|ClaimCheckEipGetAndRemoveSetTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

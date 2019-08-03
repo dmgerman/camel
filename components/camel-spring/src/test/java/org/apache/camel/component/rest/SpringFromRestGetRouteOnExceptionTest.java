@@ -56,6 +56,8 @@ name|SpringFromRestGetRouteOnExceptionTest
 extends|extends
 name|FromRestGetRouteOnExceptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

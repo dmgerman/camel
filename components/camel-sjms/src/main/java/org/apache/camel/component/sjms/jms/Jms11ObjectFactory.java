@@ -209,6 +209,8 @@ literal|false
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createMessageConsumer ( Session session, Destination destination, String messageSelector, boolean topic, String subscriptionId, boolean durable, boolean shared)
 specifier|public
 name|MessageConsumer
@@ -506,6 +508,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createMessageProducer ( Session session, Destination destination, boolean persistent, long ttl)
 specifier|public
 name|MessageProducer

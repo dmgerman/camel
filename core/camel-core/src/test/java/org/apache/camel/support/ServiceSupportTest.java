@@ -70,6 +70,8 @@ name|MyService
 extends|extends
 name|ServiceSupport
 block|{
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -78,6 +80,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{         }
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -348,6 +352,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isShutdown ()
 specifier|public
 name|boolean

@@ -521,6 +521,8 @@ name|MyDebuggerCheckingId
 implements|implements
 name|InterceptStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (final CamelContext context, final NamedNode definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor

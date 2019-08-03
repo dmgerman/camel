@@ -49,6 +49,8 @@ extends|extends
 name|AhcComponentClientConfigTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testAhcComponentClientConfig ()
 specifier|public

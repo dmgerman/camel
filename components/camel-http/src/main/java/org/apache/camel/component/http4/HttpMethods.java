@@ -399,6 +399,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<

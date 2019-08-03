@@ -175,6 +175,8 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|protected
 name|void

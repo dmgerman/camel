@@ -252,6 +252,8 @@ operator|=
 name|keywords
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|pollConsume ()
 specifier|public
 name|List
@@ -351,6 +353,8 @@ name|query
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|directConsume ()
 specifier|public
 name|List

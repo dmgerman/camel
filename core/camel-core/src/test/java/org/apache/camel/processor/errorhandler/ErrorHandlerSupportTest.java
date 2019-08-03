@@ -659,6 +659,8 @@ name|ShuntErrorHandlerSupport
 extends|extends
 name|ErrorHandlerSupport
 block|{
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -667,6 +669,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{         }
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -675,6 +679,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{         }
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean
@@ -685,6 +691,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOutput ()
 specifier|public
 name|Processor
@@ -695,6 +703,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

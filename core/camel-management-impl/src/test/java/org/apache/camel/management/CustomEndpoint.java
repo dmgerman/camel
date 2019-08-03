@@ -120,6 +120,8 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -130,6 +132,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpointUri ()
 specifier|protected
 name|String
@@ -152,6 +156,8 @@ return|return
 literal|"bar"
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedAttribute
 DECL|method|getEndpointUri ()

@@ -260,6 +260,8 @@ expr_stmt|;
 comment|// now we should be able to poll a message from each queue
 comment|// Thread.sleep(99999999);
 block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

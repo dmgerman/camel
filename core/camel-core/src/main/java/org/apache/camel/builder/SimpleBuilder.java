@@ -389,6 +389,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
@@ -422,6 +424,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<
@@ -722,6 +726,8 @@ name|exp
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

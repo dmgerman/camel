@@ -144,6 +144,8 @@ operator|=
 name|requestTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sent (Session session, Message message, Destination destination)
 specifier|public
 name|void

@@ -315,6 +315,8 @@ specifier|transient
 name|Producer
 name|apiProducer
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId, String description)
 specifier|public
 name|void
@@ -398,6 +400,8 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeRestService (Consumer consumer)
 specifier|public
 name|void
@@ -773,6 +777,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -783,6 +789,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -1042,6 +1050,8 @@ operator|=
 name|description
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConsumer ()
 specifier|public
 name|Consumer
@@ -1052,6 +1062,8 @@ return|return
 name|consumer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUrl ()
 specifier|public
 name|String
@@ -1062,6 +1074,8 @@ return|return
 name|url
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBaseUrl ()
 specifier|public
 name|String
@@ -1072,6 +1086,8 @@ return|return
 name|baseUrl
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBasePath ()
 specifier|public
 name|String
@@ -1082,6 +1098,8 @@ return|return
 name|basePath
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUriTemplate ()
 specifier|public
 name|String
@@ -1092,6 +1110,8 @@ return|return
 name|uriTemplate
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMethod ()
 specifier|public
 name|String
@@ -1102,6 +1122,8 @@ return|return
 name|method
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConsumes ()
 specifier|public
 name|String
@@ -1112,6 +1134,8 @@ return|return
 name|consumes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProduces ()
 specifier|public
 name|String
@@ -1122,6 +1146,8 @@ return|return
 name|produces
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInType ()
 specifier|public
 name|String
@@ -1132,6 +1158,8 @@ return|return
 name|inType
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOutType ()
 specifier|public
 name|String
@@ -1142,6 +1170,8 @@ return|return
 name|outType
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getState ()
 specifier|public
 name|String
@@ -1196,6 +1226,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -1206,6 +1238,8 @@ return|return
 name|routeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription ()
 specifier|public
 name|String

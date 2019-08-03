@@ -52,6 +52,8 @@ operator|=
 name|message
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|say ()
 specifier|public
 name|String

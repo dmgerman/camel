@@ -230,6 +230,8 @@ operator|new
 name|MyMessageConverter
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -383,6 +385,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -425,6 +429,8 @@ name|MyMessageConverter
 implements|implements
 name|MessageConverter
 block|{
+annotation|@
+name|Override
 DECL|method|toMessage (Object object, Session session)
 specifier|public
 name|Message
@@ -445,6 +451,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fromMessage (Message message)
 specifier|public
 name|Object

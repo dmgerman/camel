@@ -267,6 +267,8 @@ implements|implements
 name|GreetingResource
 block|{
 annotation|@
+name|Override
+annotation|@
 name|GET
 annotation|@
 name|Path

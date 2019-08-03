@@ -805,6 +805,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareTo (Task other)
 specifier|public
 name|int
@@ -829,6 +831,8 @@ name|id
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

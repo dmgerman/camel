@@ -43,6 +43,8 @@ name|SystemTime
 implements|implements
 name|Time
 block|{
+annotation|@
+name|Override
 DECL|method|milliseconds ()
 specifier|public
 name|long
@@ -56,6 +58,8 @@ name|currentTimeMillis
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nanoseconds ()
 specifier|public
 name|long
@@ -69,6 +73,8 @@ name|nanoTime
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sleep (long ms)
 specifier|public
 name|void

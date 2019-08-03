@@ -74,6 +74,8 @@ name|SpringRoutePolicyRefCallbackTest
 extends|extends
 name|RoutePolicyRefCallbackTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

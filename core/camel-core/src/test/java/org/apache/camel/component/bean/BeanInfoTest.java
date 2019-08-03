@@ -1025,6 +1025,8 @@ name|OverloadOnMethod
 implements|implements
 name|MyOneWayInterface
 block|{
+annotation|@
+name|Override
 DECL|method|inOnlyMethod ()
 specifier|public
 name|void
@@ -1055,12 +1057,16 @@ name|OverloadOnInterface
 implements|implements
 name|MyOneWayInterfaceWithOverloadedMethod
 block|{
+annotation|@
+name|Override
 DECL|method|inOnlyMethod ()
 specifier|public
 name|void
 name|inOnlyMethod
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|inOutMethod ()
 specifier|public
 name|Object

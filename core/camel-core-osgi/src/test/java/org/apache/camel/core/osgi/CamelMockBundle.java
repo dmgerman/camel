@@ -213,6 +213,8 @@ operator|=
 name|list
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasMoreElements ()
 specifier|public
 name|boolean
@@ -232,6 +234,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextElement ()
 specifier|public
 name|E
@@ -337,6 +341,8 @@ name|list
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEntryPaths (String path)
 specifier|public
 name|Enumeration
@@ -458,6 +464,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findEntries (String path, String filePattern, boolean recurse)
 specifier|public
 name|Enumeration
@@ -615,6 +623,8 @@ literal|"1.0.0"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadClass (String name)
 specifier|public
 name|Class

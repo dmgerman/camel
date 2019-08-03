@@ -82,6 +82,8 @@ name|port
 init|=
 literal|8080
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void

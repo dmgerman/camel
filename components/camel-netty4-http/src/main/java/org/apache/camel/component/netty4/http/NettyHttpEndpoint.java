@@ -898,6 +898,8 @@ operator|=
 name|nettyHttpBinding
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -909,6 +911,8 @@ name|headerFilterStrategy
 return|;
 block|}
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter headers.      */
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void

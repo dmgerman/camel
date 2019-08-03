@@ -402,6 +402,8 @@ literal|"two"
 argument_list|)
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|removed (ServerSession session, boolean timeout)
 specifier|public
 name|void
@@ -416,6 +418,8 @@ parameter_list|)
 block|{
 comment|// called on remove of client
 block|}
+annotation|@
+name|Override
 DECL|method|rcv (ServerSession from, ServerMessage.Mutable message)
 specifier|public
 name|boolean
@@ -434,6 +438,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rcvMeta (ServerSession from, ServerMessage.Mutable message)
 specifier|public
 name|boolean
@@ -452,6 +458,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (ServerSession from, ServerSession to, ServerMessage.Mutable message)
 specifier|public
 name|boolean
@@ -501,6 +509,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendMeta (ServerSession from, ServerMessage.Mutable message)
 specifier|public
 name|boolean

@@ -70,6 +70,8 @@ name|SpringLogProcessorWithProvidedLoggerTest
 extends|extends
 name|LogProcessorWithProvidedLoggerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

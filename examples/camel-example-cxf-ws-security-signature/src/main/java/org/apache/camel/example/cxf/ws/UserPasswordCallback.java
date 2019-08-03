@@ -96,6 +96,8 @@ name|UserPasswordCallback
 implements|implements
 name|CallbackHandler
 block|{
+annotation|@
+name|Override
 DECL|method|handle (Callback[] callbacks)
 specifier|public
 name|void

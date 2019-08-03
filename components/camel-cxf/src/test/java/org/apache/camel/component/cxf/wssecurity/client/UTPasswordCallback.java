@@ -160,6 +160,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Here, we attempt to get the password from the private      * alias/passwords map.      */
+annotation|@
+name|Override
 DECL|method|handle (Callback[] callbacks)
 specifier|public
 name|void

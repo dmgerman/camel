@@ -212,6 +212,8 @@ name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -239,6 +241,8 @@ name|applicationContext
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()
@@ -297,6 +301,8 @@ literal|"org/apache/camel/component/cxf/jms/camel-context.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

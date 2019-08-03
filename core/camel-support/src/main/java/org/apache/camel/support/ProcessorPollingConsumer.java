@@ -159,6 +159,8 @@ return|return
 name|processor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -175,6 +177,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -191,6 +195,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive ()
 specifier|public
 name|Exchange
@@ -266,6 +272,8 @@ return|return
 name|exchange
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveNoWait ()
 specifier|public
 name|Exchange
@@ -277,6 +285,8 @@ name|receive
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive (long timeout)
 specifier|public
 name|Exchange

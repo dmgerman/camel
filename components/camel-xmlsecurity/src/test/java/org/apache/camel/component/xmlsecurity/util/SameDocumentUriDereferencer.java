@@ -164,6 +164,8 @@ return|return
 name|INSTANCE
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dereference (URIReference uriReference, XMLCryptoContext context)
 specifier|public
 name|Data

@@ -200,6 +200,8 @@ operator|=
 name|isBadSession
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive (long timeout)
 specifier|public
 name|Message

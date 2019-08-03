@@ -77,6 +77,8 @@ extends|extends
 name|OnCompletionTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testSynchronizeFailure ()
 specifier|public

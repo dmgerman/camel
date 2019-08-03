@@ -249,6 +249,8 @@ name|isEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -262,6 +264,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelManagementName ()
 specifier|public
 name|String
@@ -275,6 +279,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEnabled (boolean enabled)
 specifier|public
 name|void
@@ -292,6 +298,8 @@ name|enabled
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -305,6 +313,8 @@ name|isEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTracePattern (String pattern)
 specifier|public
 name|void
@@ -322,6 +332,8 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTracePattern ()
 specifier|public
 name|String
@@ -335,6 +347,8 @@ name|getTracePattern
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceCounter ()
 specifier|public
 name|long
@@ -348,6 +362,8 @@ name|getTraceCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetTraceCounter ()
 specifier|public
 name|void

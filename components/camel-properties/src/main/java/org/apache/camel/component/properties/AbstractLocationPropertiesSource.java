@@ -157,6 +157,8 @@ name|PropertiesLocation
 name|location
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getLocation ()
 specifier|public
 name|PropertiesLocation

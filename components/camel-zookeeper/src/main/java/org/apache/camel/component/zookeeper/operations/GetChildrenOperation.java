@@ -105,6 +105,8 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getResult ()
 specifier|public
 name|OperationResult

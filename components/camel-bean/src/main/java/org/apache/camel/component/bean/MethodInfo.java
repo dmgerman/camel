@@ -1287,6 +1287,8 @@ block|{
 comment|// do nothing here
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -3104,6 +3106,8 @@ operator|=
 name|expressions
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

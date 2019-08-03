@@ -222,6 +222,8 @@ name|endpoint
 expr_stmt|;
 block|}
 comment|/**      * Processes the payload. Validates the XML using the SchematronEngine      *      * @param exchange      * @throws Exception      */
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

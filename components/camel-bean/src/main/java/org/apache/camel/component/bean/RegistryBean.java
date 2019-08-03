@@ -286,6 +286,8 @@ name|info
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBean ()
 specifier|public
 name|Object
@@ -390,6 +392,8 @@ name|clazz
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
@@ -400,6 +404,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportProcessor ()
 specifier|public
 name|boolean
@@ -410,6 +416,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanInfo ()
 specifier|public
 name|BeanInfo
@@ -443,6 +451,8 @@ return|return
 name|beanInfo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanInfo (Object bean)
 specifier|public
 name|BeanInfo

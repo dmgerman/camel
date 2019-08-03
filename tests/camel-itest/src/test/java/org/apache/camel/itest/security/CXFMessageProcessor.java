@@ -130,6 +130,8 @@ literal|"<soap:Body><greetMeResponse xmlns=\"http://apache.org/hello_world_soap_
 operator|+
 literal|"<responseType> Hello CXF</responseType></greetMeResponse></soap:Body></soap:Envelope>"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

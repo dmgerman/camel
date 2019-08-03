@@ -90,6 +90,8 @@ operator|=
 name|fileName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType ()
 specifier|public
 name|String
@@ -127,6 +129,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setFileTypeMap (FileTypeMap map)
 specifier|public
 name|void
@@ -141,6 +145,8 @@ operator|=
 name|map
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getName ()
 specifier|public
 name|String

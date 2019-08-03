@@ -645,6 +645,8 @@ operator|=
 name|checkException
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogger ()
 specifier|protected
 name|java
@@ -686,6 +688,8 @@ name|checkException
 return|;
 block|}
 comment|/**      * @param inMessage the incoming message      * @return the inbuilt backchannel      */
+annotation|@
+name|Override
 DECL|method|getInbuiltBackChannel (Message inMessage)
 specifier|protected
 name|Conduit
@@ -704,6 +708,8 @@ name|inMessage
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|activate ()
 specifier|public
 name|void
@@ -825,6 +831,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|deactivate ()
 specifier|public
 name|void
@@ -858,6 +866,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|shutdown ()
 specifier|public
 name|void
@@ -987,6 +997,8 @@ name|inMessage
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanName ()
 specifier|public
 name|String
@@ -1085,6 +1097,8 @@ name|ConsumerProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -1178,6 +1192,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**          * Register a message observer for incoming messages.          *          * @param observer the observer to notify on receipt of incoming          */
+annotation|@
+name|Override
 DECL|method|setMessageObserver (MessageObserver observer)
 specifier|public
 name|void
@@ -1190,6 +1206,8 @@ block|{
 comment|// shouldn't be called for a back channel conduit
 block|}
 comment|/**          * Send an outbound message, assumed to contain all the name-value          * mappings of the corresponding input message (if any).          *          * @param message the message to be sent.          */
+annotation|@
+name|Override
 DECL|method|prepare (Message message)
 specifier|public
 name|void
@@ -1235,6 +1253,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogger ()
 specifier|protected
 name|java

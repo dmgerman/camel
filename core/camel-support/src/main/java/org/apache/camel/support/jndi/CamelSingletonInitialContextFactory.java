@@ -68,6 +68,8 @@ name|Context
 name|context
 decl_stmt|;
 comment|/**      * Gets or creates the context with the given environment.      *<p/>      * This implementation will create the context once, and then return the same instance      * on multiple calls.      *      * @param  environment  the environment, must not be<tt>null</tt>      * @return the created context.      * @throws javax.naming.NamingException is thrown if creation failed.      */
+annotation|@
+name|Override
 DECL|method|getInitialContext (Hashtable<?, ?> environment)
 specifier|public
 specifier|synchronized

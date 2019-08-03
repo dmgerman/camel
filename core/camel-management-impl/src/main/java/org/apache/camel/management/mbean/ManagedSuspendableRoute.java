@@ -124,6 +124,8 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|suspend ()
 specifier|public
 name|void
@@ -164,6 +166,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|suspend (long timeout)
 specifier|public
 name|void
@@ -213,6 +217,8 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resume ()
 specifier|public
 name|void

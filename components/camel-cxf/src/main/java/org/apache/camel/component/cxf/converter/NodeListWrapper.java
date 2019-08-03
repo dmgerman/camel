@@ -99,6 +99,8 @@ operator|=
 name|elementList
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLength ()
 specifier|public
 name|int
@@ -112,6 +114,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|item (int index)
 specifier|public
 name|Node

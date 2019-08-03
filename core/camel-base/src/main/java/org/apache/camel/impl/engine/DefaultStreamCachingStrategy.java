@@ -322,6 +322,8 @@ specifier|private
 name|boolean
 name|anySpoolRules
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -332,6 +334,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -348,6 +352,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -358,6 +364,8 @@ return|return
 name|enabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEnabled (boolean enabled)
 specifier|public
 name|void
@@ -374,6 +382,8 @@ operator|=
 name|enabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolDirectory (String path)
 specifier|public
 name|void
@@ -390,6 +400,8 @@ operator|=
 name|path
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolDirectory (File path)
 specifier|public
 name|void
@@ -406,6 +418,8 @@ operator|=
 name|path
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolDirectory ()
 specifier|public
 name|File
@@ -416,6 +430,8 @@ return|return
 name|spoolDirectory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolThreshold ()
 specifier|public
 name|long
@@ -426,6 +442,8 @@ return|return
 name|spoolThreshold
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolUsedHeapMemoryThreshold ()
 specifier|public
 name|int
@@ -436,6 +454,8 @@ return|return
 name|spoolUsedHeapMemoryThreshold
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolUsedHeapMemoryThreshold (int spoolHeapMemoryWatermarkThreshold)
 specifier|public
 name|void
@@ -452,6 +472,8 @@ operator|=
 name|spoolHeapMemoryWatermarkThreshold
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolUsedHeapMemoryLimit ()
 specifier|public
 name|SpoolUsedHeapMemoryLimit
@@ -462,6 +484,8 @@ return|return
 name|spoolUsedHeapMemoryLimit
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolUsedHeapMemoryLimit (SpoolUsedHeapMemoryLimit spoolUsedHeapMemoryLimit)
 specifier|public
 name|void
@@ -478,6 +502,8 @@ operator|=
 name|spoolUsedHeapMemoryLimit
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolThreshold (long spoolThreshold)
 specifier|public
 name|void
@@ -494,6 +520,8 @@ operator|=
 name|spoolThreshold
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolCipher ()
 specifier|public
 name|String
@@ -504,6 +532,8 @@ return|return
 name|spoolCipher
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolCipher (String spoolCipher)
 specifier|public
 name|void
@@ -520,6 +550,8 @@ operator|=
 name|spoolCipher
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBufferSize ()
 specifier|public
 name|int
@@ -530,6 +562,8 @@ return|return
 name|bufferSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBufferSize (int bufferSize)
 specifier|public
 name|void
@@ -546,6 +580,8 @@ operator|=
 name|bufferSize
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isRemoveSpoolDirectoryWhenStopping ()
 specifier|public
 name|boolean
@@ -556,6 +592,8 @@ return|return
 name|removeSpoolDirectoryWhenStopping
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRemoveSpoolDirectoryWhenStopping (boolean removeSpoolDirectoryWhenStopping)
 specifier|public
 name|void
@@ -572,6 +610,8 @@ operator|=
 name|removeSpoolDirectoryWhenStopping
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAnySpoolRules ()
 specifier|public
 name|boolean
@@ -582,6 +622,8 @@ return|return
 name|anySpoolRules
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAnySpoolRules (boolean anySpoolTasks)
 specifier|public
 name|void
@@ -598,6 +640,8 @@ operator|=
 name|anySpoolTasks
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics ()
 specifier|public
 name|Statistics
@@ -608,6 +652,8 @@ return|return
 name|statistics
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|shouldSpoolCache (long length)
 specifier|public
 name|boolean
@@ -720,6 +766,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addSpoolRule (SpoolRule rule)
 specifier|public
 name|void
@@ -737,6 +785,8 @@ name|rule
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|cache (Exchange exchange)
 specifier|public
 name|StreamCache
@@ -1403,6 +1453,8 @@ name|FixedThresholdSpoolRule
 implements|implements
 name|SpoolRule
 block|{
+annotation|@
+name|Override
 DECL|method|shouldSpoolCache (long length)
 specifier|public
 name|boolean
@@ -1442,6 +1494,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -1523,6 +1577,8 @@ name|getMemoryMXBean
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|shouldSpoolCache (long length)
 specifier|public
 name|boolean
@@ -1685,6 +1741,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -1801,6 +1859,8 @@ operator|/
 name|spoolCounter
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheMemoryCounter ()
 specifier|public
 name|long
@@ -1811,6 +1871,8 @@ return|return
 name|memoryCounter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheMemorySize ()
 specifier|public
 name|long
@@ -1821,6 +1883,8 @@ return|return
 name|memorySize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheMemoryAverageSize ()
 specifier|public
 name|long
@@ -1831,6 +1895,8 @@ return|return
 name|memoryAverageSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheSpoolCounter ()
 specifier|public
 name|long
@@ -1841,6 +1907,8 @@ return|return
 name|spoolCounter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheSpoolSize ()
 specifier|public
 name|long
@@ -1851,6 +1919,8 @@ return|return
 name|spoolSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheSpoolAverageSize ()
 specifier|public
 name|long
@@ -1861,6 +1931,8 @@ return|return
 name|spoolAverageSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 specifier|synchronized
@@ -1893,6 +1965,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStatisticsEnabled ()
 specifier|public
 name|boolean
@@ -1903,6 +1977,8 @@ return|return
 name|statisticsEnabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
 specifier|public
 name|void
@@ -1919,6 +1995,8 @@ operator|=
 name|statisticsEnabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

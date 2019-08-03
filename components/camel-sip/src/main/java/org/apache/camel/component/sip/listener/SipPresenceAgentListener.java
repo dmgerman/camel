@@ -314,6 +314,8 @@ operator|=
 name|sipPresenceAgent
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processRequest (RequestEvent requestEvent)
 specifier|public
 name|void
@@ -1053,6 +1055,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processResponse (ResponseEvent responseReceivedEvent)
 specifier|public
 specifier|synchronized
@@ -1105,6 +1109,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processTimeout (javax.sip.TimeoutEvent timeoutEvent)
 specifier|public
 name|void
@@ -1135,6 +1141,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processIOException (IOExceptionEvent exceptionEvent)
 specifier|public
 name|void
@@ -1161,6 +1169,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processTransactionTerminated ( TransactionTerminatedEvent transactionTerminatedEvent)
 specifier|public
 name|void
@@ -1187,6 +1197,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|processDialogTerminated ( DialogTerminatedEvent dialogTerminatedEvent)
 specifier|public
 name|void

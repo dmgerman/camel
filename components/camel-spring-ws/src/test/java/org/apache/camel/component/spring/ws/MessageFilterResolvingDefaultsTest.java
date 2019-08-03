@@ -400,6 +400,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|verify ()
 specifier|public

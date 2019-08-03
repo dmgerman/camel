@@ -2185,6 +2185,8 @@ name|answer
 return|;
 block|}
 comment|/**      *  If recovery is enabled then a background task is run every x'th time to scan for failed exchanges to recover      *  and resubmit. By default this interval is 5000 millis.      * @param interval  the interval      * @param timeUnit  the time unit      */
+annotation|@
+name|Override
 DECL|method|setRecoveryInterval (long interval, TimeUnit timeUnit)
 specifier|public
 name|void
@@ -2209,6 +2211,8 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRecoveryInterval (long interval)
 specifier|public
 name|void
@@ -2225,6 +2229,8 @@ operator|=
 name|interval
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRecoveryIntervalInMillis ()
 specifier|public
 name|long
@@ -2235,6 +2241,8 @@ return|return
 name|recoveryInterval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseRecovery ()
 specifier|public
 name|boolean
@@ -2246,6 +2254,8 @@ name|useRecovery
 return|;
 block|}
 comment|/**      *      * @param useRecovery Whether or not recovery is enabled. This option is by default true. When enabled the Camel      *                    Aggregator automatic recover failed aggregated exchange and have them resubmittedd      */
+annotation|@
+name|Override
 DECL|method|setUseRecovery (boolean useRecovery)
 specifier|public
 name|void
@@ -2262,6 +2272,8 @@ operator|=
 name|useRecovery
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumRedeliveries ()
 specifier|public
 name|int
@@ -2272,6 +2284,8 @@ return|return
 name|maximumRedeliveries
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|void
@@ -2288,6 +2302,8 @@ operator|=
 name|maximumRedeliveries
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDeadLetterUri ()
 specifier|public
 name|String
@@ -2299,6 +2315,8 @@ name|deadLetterUri
 return|;
 block|}
 comment|/**      *      * @param deadLetterUri  An endpoint uri for a Dead Letter Channel where exhausted recovered Exchanges will be      *                       moved. If this option is used then the maximumRedeliveries option must also be provided.      *                       Important note : if the deadletter route throws an exception, it will be send again to DLQ      *                       until it succeed !      */
+annotation|@
+name|Override
 DECL|method|setDeadLetterUri (String deadLetterUri)
 specifier|public
 name|void

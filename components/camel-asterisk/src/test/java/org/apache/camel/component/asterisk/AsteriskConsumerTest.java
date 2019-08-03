@@ -269,6 +269,8 @@ name|Exception
 block|{
 comment|// do nothing here , just make sure the camel route can started.
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

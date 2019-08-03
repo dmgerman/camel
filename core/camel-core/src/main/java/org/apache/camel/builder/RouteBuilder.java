@@ -1548,6 +1548,8 @@ name|onCompletion
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addRoutesToCamelContext (CamelContext context)
 specifier|public
 name|void

@@ -112,6 +112,8 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|itemAdded (ItemEvent<Object> itemEvent)
 specifier|public
 name|void
@@ -138,6 +140,8 @@ name|itemEvent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|itemRemoved (ItemEvent<Object> itemEvent)
 specifier|public
 name|void

@@ -1595,6 +1595,8 @@ name|UndertowReceiveListener
 extends|extends
 name|AbstractReceiveListener
 block|{
+annotation|@
+name|Override
 DECL|method|onFullBinaryMessage (final WebSocketChannel channel, BufferedBinaryMessage message)
 specifier|protected
 name|void

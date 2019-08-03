@@ -265,6 +265,8 @@ init|=
 literal|"sql:overriddenByTheHeader?dataSource=#testdb"
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -394,6 +396,8 @@ return|return
 name|reg
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()

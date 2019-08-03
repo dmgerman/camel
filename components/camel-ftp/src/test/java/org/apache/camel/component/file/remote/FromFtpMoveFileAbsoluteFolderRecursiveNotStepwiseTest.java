@@ -32,6 +32,8 @@ name|FromFtpMoveFileAbsoluteFolderRecursiveNotStepwiseTest
 extends|extends
 name|FromFtpMoveFileAbsoluteFolderRecursiveTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

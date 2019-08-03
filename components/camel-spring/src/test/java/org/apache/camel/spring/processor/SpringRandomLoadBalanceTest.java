@@ -70,6 +70,8 @@ name|SpringRandomLoadBalanceTest
 extends|extends
 name|RandomLoadBalanceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

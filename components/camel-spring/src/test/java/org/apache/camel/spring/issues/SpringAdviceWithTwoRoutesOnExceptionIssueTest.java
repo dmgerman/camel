@@ -74,6 +74,8 @@ name|SpringAdviceWithTwoRoutesOnExceptionIssueTest
 extends|extends
 name|AdviceWithTwoRoutesOnExceptionIssueTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

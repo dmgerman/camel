@@ -503,6 +503,8 @@ block|}
 block|}
 block|}
 comment|/**      * Marshal inputObjects to SOAP xml. If the exchange or message has an      * EXCEPTION_CAUGTH property or header then instead of the object the      * exception is marshaled.      *       * To determine the name of the top level xml elements the elementNameStrategy      * is used.      */
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object inputObject, OutputStream stream)
 specifier|public
 name|void
@@ -876,6 +878,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Unmarshal a given SOAP xml stream and return the content of the SOAP body      */
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
 name|Object

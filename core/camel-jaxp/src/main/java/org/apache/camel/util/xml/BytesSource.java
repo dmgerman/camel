@@ -166,6 +166,8 @@ name|systemId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInputStream ()
 specifier|public
 name|InputStream
@@ -180,6 +182,8 @@ name|data
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getReader ()
 specifier|public
 name|Reader
@@ -206,6 +210,8 @@ return|return
 name|data
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

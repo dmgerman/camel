@@ -296,6 +296,8 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|public
 name|int
@@ -306,6 +308,8 @@ return|return
 name|INTEGER_ITEM
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isNull ()
 specifier|public
 name|boolean
@@ -321,6 +325,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareTo (Item item)
 specifier|public
 name|int
@@ -407,6 +413,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -611,6 +619,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|public
 name|int
@@ -621,6 +631,8 @@ return|return
 name|STRING_ITEM
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isNull ()
 specifier|public
 name|boolean
@@ -687,6 +699,8 @@ name|i
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareTo (Item item)
 specifier|public
 name|int
@@ -779,6 +793,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -809,6 +825,8 @@ argument_list|>
 implements|implements
 name|Item
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|public
 name|int
@@ -819,6 +837,8 @@ return|return
 name|LIST_ITEM
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isNull ()
 specifier|public
 name|boolean
@@ -893,6 +913,8 @@ break|break;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compareTo (Item item)
 specifier|public
 name|int
@@ -1097,6 +1119,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -1612,6 +1636,8 @@ literal|false
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareTo (ComparableVersion o)
 specifier|public
 name|int
@@ -1632,6 +1658,8 @@ name|items
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -1642,6 +1670,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals (Object o)
 specifier|public
 name|boolean
@@ -1673,6 +1703,8 @@ name|canonical
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode ()
 specifier|public
 name|int

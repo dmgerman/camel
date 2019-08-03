@@ -982,6 +982,8 @@ specifier|public
 name|MyProcessor
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

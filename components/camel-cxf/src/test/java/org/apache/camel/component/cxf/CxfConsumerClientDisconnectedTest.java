@@ -196,6 +196,8 @@ argument_list|()
 operator|+
 literal|"&serviceClass=org.apache.camel.component.cxf.ServiceProvider&dataFormat=PAYLOAD"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

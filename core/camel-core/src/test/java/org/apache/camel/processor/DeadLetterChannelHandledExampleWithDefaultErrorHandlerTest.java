@@ -42,6 +42,8 @@ name|DeadLetterChannelHandledExampleWithDefaultErrorHandlerTest
 extends|extends
 name|DeadLetterChannelHandledExampleTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

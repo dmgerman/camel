@@ -297,6 +297,8 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (ManagementStrategy strategy)
 specifier|public
 name|void

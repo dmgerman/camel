@@ -119,6 +119,8 @@ extends|extends
 name|RestSwaggerReaderApiDocsTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testReaderRead ()
 specifier|public

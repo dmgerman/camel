@@ -255,6 +255,8 @@ return|return
 name|errorHandlerBuilder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -271,6 +273,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelManagementName ()
 specifier|public
 name|String
@@ -287,6 +291,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSupportRedelivery ()
 specifier|public
 name|boolean
@@ -299,6 +305,8 @@ operator|instanceof
 name|RedeliveryErrorHandler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDeadLetterChannel ()
 specifier|public
 name|boolean
@@ -333,6 +341,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDeadLetterUseOriginalMessage ()
 specifier|public
 name|boolean
@@ -365,6 +375,8 @@ name|isUseOriginalMessagePolicy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDeadLetterUseOriginalBody ()
 specifier|public
 name|boolean
@@ -397,6 +409,8 @@ name|isUseOriginalBodyPolicy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDeadLetterHandleNewException ()
 specifier|public
 name|boolean
@@ -433,6 +447,8 @@ name|isDeadLetterHandleNewException
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSupportTransactions ()
 specifier|public
 name|boolean
@@ -468,6 +484,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getDeadLetterChannelEndpointUri ()
 specifier|public
 name|String
@@ -500,6 +518,8 @@ name|getDeadLetterUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumRedeliveries ()
 specifier|public
 name|Integer
@@ -535,6 +555,8 @@ name|getMaximumRedeliveries
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaximumRedeliveries (Integer maximum)
 specifier|public
 name|void
@@ -578,6 +600,8 @@ name|maximum
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumRedeliveryDelay ()
 specifier|public
 name|Long
@@ -613,6 +637,8 @@ name|getMaximumRedeliveryDelay
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaximumRedeliveryDelay (Long delay)
 specifier|public
 name|void
@@ -656,6 +682,8 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRedeliveryDelay ()
 specifier|public
 name|Long
@@ -691,6 +719,8 @@ name|getRedeliveryDelay
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRedeliveryDelay (Long delay)
 specifier|public
 name|void
@@ -734,6 +764,8 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBackOffMultiplier ()
 specifier|public
 name|Double
@@ -769,6 +801,8 @@ name|getBackOffMultiplier
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBackOffMultiplier (Double multiplier)
 specifier|public
 name|void
@@ -812,6 +846,8 @@ name|multiplier
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCollisionAvoidanceFactor ()
 specifier|public
 name|Double
@@ -847,6 +883,8 @@ name|getCollisionAvoidanceFactor
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCollisionAvoidanceFactor (Double factor)
 specifier|public
 name|void
@@ -890,6 +928,8 @@ name|factor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCollisionAvoidancePercent ()
 specifier|public
 name|Double
@@ -928,6 +968,8 @@ name|getCollisionAvoidancePercent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCollisionAvoidancePercent (Double percent)
 specifier|public
 name|void
@@ -971,6 +1013,8 @@ name|percent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDelayPattern ()
 specifier|public
 name|String
@@ -1006,6 +1050,8 @@ name|getDelayPattern
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDelayPattern (String pattern)
 specifier|public
 name|void
@@ -1049,6 +1095,8 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRetriesExhaustedLogLevel ()
 specifier|public
 name|String
@@ -1087,6 +1135,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRetriesExhaustedLogLevel (String level)
 specifier|public
 name|void
@@ -1135,6 +1185,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRetryAttemptedLogLevel ()
 specifier|public
 name|String
@@ -1173,6 +1225,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRetryAttemptedLogLevel (String level)
 specifier|public
 name|void
@@ -1221,6 +1275,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogStackTrace ()
 specifier|public
 name|Boolean
@@ -1256,6 +1312,8 @@ name|isLogStackTrace
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogStackTrace (Boolean log)
 specifier|public
 name|void
@@ -1299,6 +1357,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogRetryStackTrace ()
 specifier|public
 name|Boolean
@@ -1334,6 +1394,8 @@ name|isLogRetryStackTrace
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogRetryStackTrace (Boolean log)
 specifier|public
 name|void
@@ -1377,6 +1439,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogHandled ()
 specifier|public
 name|Boolean
@@ -1412,6 +1476,8 @@ name|isLogHandled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogHandled (Boolean log)
 specifier|public
 name|void
@@ -1455,6 +1521,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogNewException ()
 specifier|public
 name|Boolean
@@ -1490,6 +1558,8 @@ name|isLogNewException
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogNewException (Boolean log)
 specifier|public
 name|void
@@ -1533,6 +1603,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogExhaustedMessageHistory ()
 specifier|public
 name|Boolean
@@ -1572,6 +1644,8 @@ name|isLogExhaustedMessageHistory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogExhaustedMessageHistory (Boolean log)
 specifier|public
 name|void
@@ -1615,6 +1689,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogExhaustedMessageBody ()
 specifier|public
 name|Boolean
@@ -1654,6 +1730,8 @@ name|isLogExhaustedMessageBody
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogExhaustedMessageBody (Boolean log)
 specifier|public
 name|void
@@ -1697,6 +1775,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogContinued ()
 specifier|public
 name|Boolean
@@ -1732,6 +1812,8 @@ name|isLogHandled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogContinued (Boolean log)
 specifier|public
 name|void
@@ -1775,6 +1857,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogExhausted ()
 specifier|public
 name|Boolean
@@ -1810,6 +1894,8 @@ name|isLogExhausted
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLogExhausted (Boolean log)
 specifier|public
 name|void
@@ -1853,6 +1939,8 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUseCollisionAvoidance ()
 specifier|public
 name|Boolean
@@ -1888,6 +1976,8 @@ name|isUseCollisionAvoidance
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUseCollisionAvoidance (Boolean avoidance)
 specifier|public
 name|void
@@ -1931,6 +2021,8 @@ name|avoidance
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUseExponentialBackOff ()
 specifier|public
 name|Boolean
@@ -1966,6 +2058,8 @@ name|isUseExponentialBackOff
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUseExponentialBackOff (Boolean backoff)
 specifier|public
 name|void
@@ -2009,6 +2103,8 @@ name|backoff
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAllowRedeliveryWhileStopping ()
 specifier|public
 name|Boolean
@@ -2044,6 +2140,8 @@ name|isAllowRedeliveryWhileStopping
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAllowRedeliveryWhileStopping (Boolean allow)
 specifier|public
 name|void
@@ -2087,6 +2185,8 @@ name|allow
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPendingRedeliveryCount ()
 specifier|public
 name|Integer

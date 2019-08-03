@@ -428,6 +428,8 @@ return|return
 literal|"thrift"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -438,6 +440,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -595,6 +599,8 @@ name|contentTypeFormat
 expr_stmt|;
 block|}
 comment|/*      * (non-Javadoc)      * @see org.apache.camel.spi.DataFormat#marshal(org.apache.camel.Exchange,      * java.lang.Object, java.io.OutputStream)      */
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -827,6 +833,8 @@ block|}
 block|}
 block|}
 comment|/*      * (non-Javadoc)      * @see org.apache.camel.spi.DataFormat#unmarshal(org.apache.camel.Exchange,      * java.io.InputStream)      */
+annotation|@
+name|Override
 DECL|method|unmarshal (final Exchange exchange, final InputStream inputStream)
 specifier|public
 name|Object

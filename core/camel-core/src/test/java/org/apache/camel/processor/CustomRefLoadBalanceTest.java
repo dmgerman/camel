@@ -85,6 +85,8 @@ return|return
 name|jndi
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

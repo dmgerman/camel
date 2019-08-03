@@ -142,6 +142,8 @@ name|JdbcTemplate
 name|jdbc
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

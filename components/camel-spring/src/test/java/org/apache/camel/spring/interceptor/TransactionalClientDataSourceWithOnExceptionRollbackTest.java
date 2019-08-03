@@ -125,6 +125,8 @@ extends|extends
 name|TransactionalClientDataSourceTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testTransactionRollback ()
 specifier|public
@@ -247,6 +249,8 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

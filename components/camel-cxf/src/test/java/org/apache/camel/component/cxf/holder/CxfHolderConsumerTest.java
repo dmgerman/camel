@@ -155,6 +155,8 @@ literal|"?serviceClass=org.apache.camel.component.cxf.holder.MyOrderEndpoint"
 operator|+
 literal|"&loggingFeatureEnabled=true"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

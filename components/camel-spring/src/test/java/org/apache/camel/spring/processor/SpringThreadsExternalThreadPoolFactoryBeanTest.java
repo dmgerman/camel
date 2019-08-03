@@ -70,6 +70,8 @@ name|SpringThreadsExternalThreadPoolFactoryBeanTest
 extends|extends
 name|ThreadsDefaultTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

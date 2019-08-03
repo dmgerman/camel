@@ -187,6 +187,8 @@ name|apiVersion
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|create (T object)
 specifier|public
 specifier|final
@@ -223,6 +225,8 @@ name|T
 name|object
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|delete (Integer id)
 specifier|public
 specifier|final
@@ -251,6 +255,8 @@ name|id
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|forceDelete (Integer id)
 specifier|public
 specifier|final
@@ -339,6 +345,8 @@ return|return
 name|deletedModel
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|update (Integer id, T object)
 specifier|public
 specifier|final

@@ -262,6 +262,8 @@ name|statisticsEnabled
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init (ManagementStrategy strategy)
 specifier|public
 name|void
@@ -517,6 +519,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangesCompleted ()
 specifier|public
 name|long
@@ -532,6 +536,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangesFailed ()
 specifier|public
 name|long
@@ -547,6 +553,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangesInflight ()
 specifier|public
 name|long
@@ -560,6 +568,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFailuresHandled ()
 specifier|public
 name|long
@@ -575,6 +585,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRedeliveries ()
 specifier|public
 name|long
@@ -590,6 +602,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExternalRedeliveries ()
 specifier|public
 name|long
@@ -605,6 +619,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMinProcessingTime ()
 specifier|public
 name|long
@@ -620,6 +636,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMeanProcessingTime ()
 specifier|public
 name|long
@@ -635,6 +653,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaxProcessingTime ()
 specifier|public
 name|long
@@ -650,6 +670,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTotalProcessingTime ()
 specifier|public
 name|long
@@ -665,6 +687,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastProcessingTime ()
 specifier|public
 name|long
@@ -680,6 +704,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDeltaProcessingTime ()
 specifier|public
 name|long
@@ -695,6 +721,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastExchangeCompletedTimestamp ()
 specifier|public
 name|Date
@@ -723,6 +751,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastExchangeCompletedExchangeId ()
 specifier|public
 name|String
@@ -733,6 +763,8 @@ return|return
 name|lastExchangeCompletedExchangeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFirstExchangeCompletedTimestamp ()
 specifier|public
 name|Date
@@ -761,6 +793,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFirstExchangeCompletedExchangeId ()
 specifier|public
 name|String
@@ -771,6 +805,8 @@ return|return
 name|firstExchangeCompletedExchangeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastExchangeFailureTimestamp ()
 specifier|public
 name|Date
@@ -799,6 +835,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastExchangeFailureExchangeId ()
 specifier|public
 name|String
@@ -809,6 +847,8 @@ return|return
 name|lastExchangeFailureExchangeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFirstExchangeFailureTimestamp ()
 specifier|public
 name|Date
@@ -837,6 +877,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFirstExchangeFailureExchangeId ()
 specifier|public
 name|String
@@ -847,6 +889,8 @@ return|return
 name|firstExchangeFailureExchangeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStatisticsEnabled ()
 specifier|public
 name|boolean
@@ -857,6 +901,8 @@ return|return
 name|statisticsEnabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
 specifier|public
 name|void
@@ -873,6 +919,8 @@ operator|=
 name|statisticsEnabled
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processExchange (Exchange exchange)
 specifier|public
 name|void
@@ -888,6 +936,8 @@ name|increment
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|completedExchange (Exchange exchange, long time)
 specifier|public
 name|void
@@ -1080,6 +1130,8 @@ name|mean
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|failedExchange (Exchange exchange)
 specifier|public
 name|void
@@ -1196,6 +1248,8 @@ name|getExchangeId
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpStatsAsXml (boolean fullStats)
 specifier|public
 name|String

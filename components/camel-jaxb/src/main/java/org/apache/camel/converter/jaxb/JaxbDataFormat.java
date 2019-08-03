@@ -825,6 +825,8 @@ return|return
 literal|"jaxb"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 specifier|public
 name|void
@@ -1767,6 +1769,8 @@ literal|null
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
 name|Object
@@ -2484,6 +2488,8 @@ operator|=
 name|namespacePrefixRef
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -2494,6 +2500,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

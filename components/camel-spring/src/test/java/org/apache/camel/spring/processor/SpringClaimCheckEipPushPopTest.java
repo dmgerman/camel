@@ -70,6 +70,8 @@ name|SpringClaimCheckEipPushPopTest
 extends|extends
 name|ClaimCheckEipPushPopTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

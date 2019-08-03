@@ -178,6 +178,8 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildFileEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|GenericFileEndpoint
@@ -297,6 +299,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet (GenericFileEndpoint<File> endpoint)
 specifier|protected
 name|void

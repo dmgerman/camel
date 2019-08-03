@@ -551,6 +551,8 @@ literal|"4"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|add (String key)
 specifier|public
 name|boolean
@@ -604,6 +606,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|contains (String key)
 specifier|public
 name|boolean
@@ -622,6 +626,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove (String key)
 specifier|public
 name|boolean
@@ -642,6 +648,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|confirm (String key)
 specifier|public
 name|boolean
@@ -656,6 +664,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -664,6 +674,8 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

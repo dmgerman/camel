@@ -159,6 +159,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setServiceClass (String n)
 specifier|public
 name|void
@@ -186,6 +188,8 @@ expr_stmt|;
 block|}
 comment|// Package private methods
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|checkName (Object value, String name)
 specifier|protected
 name|void

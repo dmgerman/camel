@@ -96,6 +96,8 @@ name|JMSTransactionRollbackTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext
@@ -161,6 +163,8 @@ name|MyProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

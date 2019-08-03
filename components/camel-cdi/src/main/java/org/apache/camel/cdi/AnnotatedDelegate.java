@@ -180,6 +180,8 @@ name|getAnnotations
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotation (Class<T> type)
 specifier|public
 parameter_list|<
@@ -227,6 +229,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotations (Class<T> type)
 specifier|public
 parameter_list|<
@@ -275,6 +279,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotations ()
 specifier|public
 name|Set
@@ -288,6 +294,8 @@ return|return
 name|annotations
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBaseType ()
 specifier|public
 name|Type
@@ -301,6 +309,8 @@ name|getBaseType
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeClosure ()
 specifier|public
 name|Set
@@ -317,6 +327,8 @@ name|getTypeClosure
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAnnotationPresent (Class<? extends Annotation> type)
 specifier|public
 name|boolean
@@ -346,6 +358,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -359,6 +373,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode ()
 specifier|public
 name|int
@@ -372,6 +388,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals (Object object)
 specifier|public
 name|boolean

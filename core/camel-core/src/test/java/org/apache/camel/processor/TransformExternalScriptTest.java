@@ -38,6 +38,8 @@ name|TransformExternalScriptTest
 extends|extends
 name|TransformViaDSLTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

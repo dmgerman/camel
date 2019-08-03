@@ -244,6 +244,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|boolean
@@ -259,6 +261,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPendingExchangesSize ()
 specifier|public
 name|int
@@ -271,6 +275,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|prepareShutdown (boolean suspendOnly, boolean forced)
 specifier|public
 name|void

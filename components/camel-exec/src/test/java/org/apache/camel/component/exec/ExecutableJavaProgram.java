@@ -586,6 +586,8 @@ name|ErrPrinter
 implements|implements
 name|Runnable
 block|{
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void
@@ -627,6 +629,8 @@ name|OutPrinter
 implements|implements
 name|Runnable
 block|{
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

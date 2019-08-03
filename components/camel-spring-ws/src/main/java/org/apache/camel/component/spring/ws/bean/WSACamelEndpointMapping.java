@@ -1060,6 +1060,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addConsumer (EndpointMappingKey key, MessageEndpoint endpoint)
 specifier|public
 name|void
@@ -1082,6 +1084,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeConsumer (Object key)
 specifier|public
 name|void

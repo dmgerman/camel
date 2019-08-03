@@ -335,6 +335,8 @@ name|ConsumerProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
@@ -469,6 +471,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet ()
 specifier|public
 specifier|final
@@ -495,6 +499,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|destroy ()
 specifier|public
 name|void

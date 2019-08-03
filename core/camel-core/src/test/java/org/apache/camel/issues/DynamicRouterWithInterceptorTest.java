@@ -260,6 +260,8 @@ specifier|static
 name|int
 name|doneCount
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (final CamelContext context, final NamedNode definition, final Processor target, final Processor nextTarget)
 specifier|public
 name|Processor

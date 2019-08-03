@@ -98,6 +98,8 @@ return|return
 name|headers
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 specifier|abstract

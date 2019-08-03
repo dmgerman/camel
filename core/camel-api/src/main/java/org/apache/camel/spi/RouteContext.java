@@ -370,6 +370,8 @@ name|routePolicyList
 parameter_list|)
 function_decl|;
 comment|/**      * Sets whether the route should automatically start when Camel starts.      *<p/>      * Default is<tt>true</tt> to always start up.      *      * @param autoStartup whether to start up automatically.      */
+annotation|@
+name|Override
 DECL|method|setAutoStartup (Boolean autoStartup)
 name|void
 name|setAutoStartup
@@ -379,6 +381,8 @@ name|autoStartup
 parameter_list|)
 function_decl|;
 comment|/**      * Gets whether the route should automatically start when Camel starts.      *<p/>      * Default is<tt>true</tt> to always start up.      *      * @return<tt>true</tt> if route should automatically start      */
+annotation|@
+name|Override
 DECL|method|isAutoStartup ()
 name|Boolean
 name|isAutoStartup

@@ -491,6 +491,8 @@ literal|"tidyMarkup"
 return|;
 block|}
 comment|/**      * Unsupported operation. We cannot create ugly HTML.      */
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object object, OutputStream outputStream)
 specifier|public
 name|void
@@ -519,6 +521,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Unmarshal the data      */
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object

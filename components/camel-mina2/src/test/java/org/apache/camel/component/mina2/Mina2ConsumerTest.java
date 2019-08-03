@@ -185,6 +185,8 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e4
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

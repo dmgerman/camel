@@ -206,6 +206,8 @@ operator|=
 name|authenticationHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|flushCacheByUriPattern (Pattern urlPattern)
 specifier|public
 name|void
@@ -223,6 +225,8 @@ name|urlPattern
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newRequest ()
 specifier|public
 name|Request
@@ -237,6 +241,8 @@ name|OAuthAuthenticatedRequestBuilder
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newRequest (URI uri)
 specifier|public
 name|Request
@@ -275,6 +281,8 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newRequest (URI uri, String contentType, String entity)
 specifier|public
 name|Request
@@ -333,6 +341,8 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newRequest (String uri)
 specifier|public
 name|Request
@@ -378,6 +388,8 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newRequest (String uri, String contentType, String entity)
 specifier|public
 name|Request

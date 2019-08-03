@@ -85,6 +85,8 @@ extends|extends
 name|TransactionalClientDataSourceTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testTransactionSuccess ()
 specifier|public
@@ -119,6 +121,8 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testTransactionRollback ()
 specifier|public
@@ -152,6 +156,8 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

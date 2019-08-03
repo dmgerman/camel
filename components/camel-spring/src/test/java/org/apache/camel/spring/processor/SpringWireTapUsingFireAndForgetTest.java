@@ -118,6 +118,8 @@ name|SpringWireTapUsingFireAndForgetTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -385,6 +387,8 @@ name|MyProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

@@ -50,6 +50,8 @@ name|MyErrorProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -63,6 +65,8 @@ name|Exception
 block|{
 comment|// do nothing here
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

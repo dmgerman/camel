@@ -70,6 +70,8 @@ name|SpringFailoverRoundRobinStickyTest
 extends|extends
 name|FailoverRoundRobinStickyTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

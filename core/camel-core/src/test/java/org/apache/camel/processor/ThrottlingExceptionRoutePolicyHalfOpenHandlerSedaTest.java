@@ -246,6 +246,8 @@ name|MockEndpoint
 name|result
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

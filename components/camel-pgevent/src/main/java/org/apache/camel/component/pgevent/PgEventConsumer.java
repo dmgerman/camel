@@ -234,6 +234,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|notification (int processId, String channel, String payload)
 specifier|public
 name|void

@@ -199,6 +199,8 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|warning (SAXParseException e)
 specifier|public
 name|void
@@ -238,6 +240,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|error (SAXParseException e)
 specifier|public
 name|void
@@ -277,6 +281,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|fatalError (SAXParseException e)
 specifier|public
 name|void
@@ -316,6 +322,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void
@@ -356,6 +364,8 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleErrors (Exchange exchange, Schema schema, Result result)
 specifier|public
 name|void

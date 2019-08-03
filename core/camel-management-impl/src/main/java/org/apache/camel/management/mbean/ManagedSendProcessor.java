@@ -271,6 +271,8 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (ManagementStrategy strategy)
 specifier|public
 name|void
@@ -376,6 +378,8 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|SendProcessor
@@ -386,6 +390,8 @@ return|return
 name|processor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDestination ()
 specifier|public
 name|String
@@ -396,6 +402,8 @@ return|return
 name|destination
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageExchangePattern ()
 specifier|public
 name|String

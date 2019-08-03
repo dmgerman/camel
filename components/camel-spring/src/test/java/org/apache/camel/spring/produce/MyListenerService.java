@@ -114,6 +114,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Consume
 argument_list|(
 literal|"direct:end"

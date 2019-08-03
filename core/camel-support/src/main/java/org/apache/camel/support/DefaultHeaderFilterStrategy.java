@@ -145,6 +145,8 @@ init|=
 literal|true
 decl_stmt|;
 comment|// defaults to the previous behaviour
+annotation|@
+name|Override
 DECL|method|applyFilterToCamelHeaders (String headerName, Object headerValue, Exchange exchange)
 specifier|public
 name|boolean
@@ -175,6 +177,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyFilterToExternalHeaders (String headerName, Object headerValue, Exchange exchange)
 specifier|public
 name|boolean

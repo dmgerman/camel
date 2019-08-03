@@ -114,6 +114,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|configureJdbcAggregationRepository ()
 name|void
 name|configureJdbcAggregationRepository

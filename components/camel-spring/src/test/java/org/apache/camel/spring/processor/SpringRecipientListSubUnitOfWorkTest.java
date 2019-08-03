@@ -70,6 +70,8 @@ name|SpringRecipientListSubUnitOfWorkTest
 extends|extends
 name|RecipientListSubUnitOfWorkTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

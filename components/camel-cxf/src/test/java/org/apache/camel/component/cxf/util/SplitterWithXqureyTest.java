@@ -176,6 +176,8 @@ block|,
 literal|"<other xmlns=\"http://camel.apache.org/schema/one\"><test>Foure</test></other>"
 block|}
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

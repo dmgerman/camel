@@ -98,6 +98,8 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTopicName ()
 specifier|public
 name|String
@@ -111,6 +113,8 @@ name|getUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPublisher (ActiveMQSession session)
 specifier|public
 name|TopicPublisher
@@ -137,6 +141,8 @@ name|session
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createDurableSubscriber (ActiveMQSession session, String name, String messageSelector, boolean noLocal)
 specifier|public
 name|TopicSubscriber

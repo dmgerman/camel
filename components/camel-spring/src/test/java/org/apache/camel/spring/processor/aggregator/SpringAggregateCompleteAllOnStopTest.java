@@ -74,6 +74,8 @@ name|SpringAggregateCompleteAllOnStopTest
 extends|extends
 name|AggregateCompleteAllOnStopTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

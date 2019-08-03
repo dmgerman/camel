@@ -92,6 +92,8 @@ name|SpringMarshalOmitFieldsTest
 extends|extends
 name|XStreamDataFormatOmitFieldsTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

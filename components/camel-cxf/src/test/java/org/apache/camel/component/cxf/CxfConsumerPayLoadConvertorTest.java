@@ -130,6 +130,8 @@ name|CxfConsumerPayLoadConvertorTest
 extends|extends
 name|CxfConsumerPayloadTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -277,6 +277,8 @@ operator|=
 name|exceptionHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onAcceptAlertNotification (AlertNotification alertNotification)
 specifier|public
 name|void
@@ -355,6 +357,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onAcceptDeliverSm (DeliverSm deliverSm)
 specifier|public
 name|void
@@ -487,6 +491,8 @@ name|pre
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onAcceptDataSm (DataSm dataSm, Session session)
 specifier|public
 name|DataSmResult

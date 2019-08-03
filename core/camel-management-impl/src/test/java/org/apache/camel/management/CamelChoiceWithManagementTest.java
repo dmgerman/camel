@@ -166,6 +166,8 @@ literal|true
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

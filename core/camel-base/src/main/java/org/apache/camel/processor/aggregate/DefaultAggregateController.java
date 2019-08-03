@@ -35,6 +35,8 @@ specifier|private
 name|AggregateProcessor
 name|processor
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onStart (AggregateProcessor processor)
 specifier|public
 name|void
@@ -51,6 +53,8 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onStop (AggregateProcessor processor)
 specifier|public
 name|void
@@ -67,6 +71,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|forceCompletionOfGroup (String key)
 specifier|public
 name|int
@@ -99,6 +105,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|forceCompletionOfAllGroups ()
 specifier|public
 name|int

@@ -1120,6 +1120,8 @@ argument_list|<
 name|String
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|compare (java.lang.String o1, java.lang.String o2)
 specifier|public
 name|int

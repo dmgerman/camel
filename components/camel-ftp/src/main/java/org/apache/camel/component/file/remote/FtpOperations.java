@@ -482,6 +482,8 @@ operator|=
 name|clientConfig
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEndpoint (GenericFileEndpoint<FTPFile> endpoint)
 specifier|public
 name|void
@@ -556,6 +558,8 @@ operator|=
 name|clientActivityListener
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|connect (RemoteFileConfiguration configuration, Exchange exchange)
 specifier|public
 name|boolean
@@ -1616,6 +1620,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isConnected ()
 specifier|public
 name|boolean
@@ -1631,6 +1637,8 @@ name|isConnected
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|disconnect ()
 specifier|public
 name|void
@@ -1815,6 +1823,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|deleteFile (String name)
 specifier|public
 name|boolean
@@ -1973,6 +1983,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|renameFile (String from, String to)
 specifier|public
 name|boolean
@@ -2041,6 +2053,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|buildDirectory (String directory, boolean absolute)
 specifier|public
 name|boolean
@@ -2194,6 +2208,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveFile (String name, Exchange exchange, long size)
 specifier|public
 name|boolean
@@ -3479,6 +3495,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|storeFile (String name, Exchange exchange, long size)
 specifier|public
 name|boolean
@@ -4297,6 +4315,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|existsFile (String name)
 specifier|public
 name|boolean
@@ -4561,6 +4581,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCurrentDirectory ()
 specifier|public
 name|String
@@ -4629,6 +4651,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|changeCurrentDirectory (String path)
 specifier|public
 name|void
@@ -4925,6 +4949,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|changeToParentDirectory ()
 specifier|public
 name|void
@@ -4971,6 +4997,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|listFiles ()
 specifier|public
 name|List
@@ -5097,6 +5125,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|listFiles (String path)
 specifier|public
 name|List
@@ -5254,6 +5284,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendNoop ()
 specifier|public
 name|boolean
@@ -5308,6 +5340,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendSiteCommand (String command)
 specifier|public
 name|boolean

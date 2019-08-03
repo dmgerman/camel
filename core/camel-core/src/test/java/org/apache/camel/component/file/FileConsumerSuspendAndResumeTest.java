@@ -407,6 +407,8 @@ specifier|private
 name|Consumer
 name|consumer
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onExchangeDone (Route route, Exchange exchange)
 specifier|public
 name|void

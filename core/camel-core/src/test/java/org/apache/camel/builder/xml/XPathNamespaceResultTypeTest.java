@@ -60,6 +60,8 @@ name|XPathNamespaceResultTypeTest
 extends|extends
 name|XPathNamespaceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -381,6 +381,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getHeader (String name)
 specifier|public
 name|Object

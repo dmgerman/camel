@@ -806,6 +806,8 @@ name|RequestProxyBasicAuth
 implements|implements
 name|HttpRequestInterceptor
 block|{
+annotation|@
+name|Override
 DECL|method|process (final HttpRequest request, final HttpContext context)
 specifier|public
 name|void
@@ -1046,6 +1048,8 @@ name|ResponseProxyBasicUnauthorized
 implements|implements
 name|HttpResponseInterceptor
 block|{
+annotation|@
+name|Override
 DECL|method|process (final HttpResponse response, final HttpContext context)
 specifier|public
 name|void

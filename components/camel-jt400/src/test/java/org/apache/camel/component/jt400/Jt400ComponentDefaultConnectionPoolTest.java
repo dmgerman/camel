@@ -86,6 +86,8 @@ name|Jt400Component
 name|component
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -141,6 +143,8 @@ block|{
 comment|/* Expected */
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()

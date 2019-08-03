@@ -2242,6 +2242,8 @@ name|DefaultManagementObjectStrategy
 implements|implements
 name|ManagementObjectStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|getManagedObjectForCamelContext (CamelContext context)
 specifier|public
 name|Object
@@ -2274,6 +2276,8 @@ return|return
 name|mc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForCamelHealth (CamelContext context)
 specifier|public
 name|Object
@@ -2306,6 +2310,8 @@ return|return
 name|mch
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2356,6 +2362,8 @@ name|mc
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 block|{
@@ -2401,6 +2409,8 @@ return|return
 name|md
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2495,6 +2505,8 @@ name|me
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForErrorHandler (CamelContext context, RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|Object
@@ -2540,6 +2552,8 @@ return|return
 name|me
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForRouteController (CamelContext context)
 specifier|public
 name|Object
@@ -2575,6 +2589,8 @@ return|return
 name|mrc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForRoute (CamelContext context, Route route)
 specifier|public
 name|Object
@@ -2642,6 +2658,8 @@ return|return
 name|mr
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForThreadPool (CamelContext context, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|Object
@@ -2699,6 +2717,8 @@ return|return
 name|mtp
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForEventNotifier (CamelContext context, EventNotifier eventNotifier)
 specifier|public
 name|Object
@@ -2736,6 +2756,8 @@ return|return
 name|men
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForConsumer (CamelContext context, Consumer consumer)
 specifier|public
 name|Object
@@ -2799,6 +2821,8 @@ return|return
 name|mc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForProducer (CamelContext context, Producer producer)
 specifier|public
 name|Object
@@ -2836,6 +2860,8 @@ return|return
 name|mp
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForService (CamelContext context, Service service)
 specifier|public
 name|Object
@@ -2873,6 +2899,8 @@ return|return
 name|mc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedObjectForClusterService (CamelContext context, CamelClusterService service)
 specifier|public
 name|Object
@@ -2910,6 +2938,8 @@ return|return
 name|mcs
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

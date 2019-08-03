@@ -704,6 +704,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -734,6 +736,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteGroup ()
 specifier|public
 name|String
@@ -897,6 +901,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription ()
 specifier|public
 name|String
@@ -939,6 +945,8 @@ return|return
 name|VALUE_UNKNOWN
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getState ()
 specifier|public
 name|String
@@ -984,6 +992,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUptime ()
 specifier|public
 name|String
@@ -997,6 +1007,8 @@ name|getUptime
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUptimeMillis ()
 specifier|public
 name|long
@@ -1026,6 +1038,8 @@ name|getExchangesInflight
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -1039,6 +1053,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelManagementName ()
 specifier|public
 name|String
@@ -1052,6 +1068,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTracing ()
 specifier|public
 name|Boolean
@@ -1068,6 +1086,8 @@ name|isTracing
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTracing (Boolean tracing)
 specifier|public
 name|void
@@ -1088,6 +1108,8 @@ name|tracing
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageHistory ()
 specifier|public
 name|Boolean
@@ -1104,6 +1126,8 @@ name|isMessageHistory
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogMask ()
 specifier|public
 name|Boolean
@@ -1120,6 +1144,8 @@ name|isLogMask
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRoutePolicyList ()
 specifier|public
 name|String
@@ -1255,6 +1281,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLoad01 ()
 specifier|public
 name|String
@@ -1298,6 +1326,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getLoad05 ()
 specifier|public
 name|String
@@ -1341,6 +1371,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getLoad15 ()
 specifier|public
 name|String
@@ -1401,6 +1433,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -1441,6 +1475,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void
@@ -1481,6 +1517,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop (long timeout)
 specifier|public
 name|void
@@ -1530,6 +1568,8 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stop (Long timeout, Boolean abortAfterTimeout)
 specifier|public
 name|boolean
@@ -1698,6 +1738,8 @@ name|routeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove ()
 specifier|public
 name|boolean
@@ -1812,6 +1854,8 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpRouteAsXml ()
 specifier|public
 name|String
@@ -1829,6 +1873,8 @@ literal|false
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpRouteAsXml (boolean resolvePlaceholders)
 specifier|public
 name|String
@@ -1916,6 +1962,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|updateRouteFromXml (String xml)
 specifier|public
 name|void
@@ -2086,6 +2134,8 @@ name|e
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|dumpRouteStatsAsXml (boolean fullStats, boolean includeProcessors)
 specifier|public
 name|String
@@ -2695,6 +2745,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpStepStatsAsXml (boolean fullStats)
 specifier|public
 name|String
@@ -3148,6 +3200,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset (boolean includeProcessors)
 specifier|public
 name|void
@@ -3375,6 +3429,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOldestInflightDuration ()
 specifier|public
 name|Long
@@ -3410,6 +3466,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getOldestInflightExchangeId ()
 specifier|public
 name|String

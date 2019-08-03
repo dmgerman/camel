@@ -76,6 +76,8 @@ name|UnitOfWorkSynchronizationAdapterTest
 extends|extends
 name|UnitOfWorkTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

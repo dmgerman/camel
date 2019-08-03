@@ -523,6 +523,8 @@ operator|=
 name|methodName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

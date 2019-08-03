@@ -704,6 +704,8 @@ operator|.
 name|DEFAULT_SERVICE_NAME
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doInit ()
 specifier|protected
 name|void
@@ -827,6 +829,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -919,6 +923,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

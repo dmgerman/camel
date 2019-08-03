@@ -56,6 +56,8 @@ name|SpringFromRestIdAndDescriptionTest
 extends|extends
 name|FromRestIdAndDescriptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

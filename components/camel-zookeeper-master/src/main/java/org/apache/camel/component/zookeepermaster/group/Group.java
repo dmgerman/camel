@@ -86,6 +86,8 @@ name|start
 parameter_list|()
 function_decl|;
 comment|/**      * A member should be closed to release acquired resources used      * to monitor the group membership.      *      * When the member is closed, any memberships registered via this      * Group will be removed from the group.      */
+annotation|@
+name|Override
 DECL|method|close ()
 name|void
 name|close

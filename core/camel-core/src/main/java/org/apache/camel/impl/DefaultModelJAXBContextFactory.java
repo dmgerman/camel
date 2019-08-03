@@ -86,6 +86,8 @@ specifier|volatile
 name|JAXBContext
 name|context
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|newJAXBContext ()
 specifier|public
 name|JAXBContext

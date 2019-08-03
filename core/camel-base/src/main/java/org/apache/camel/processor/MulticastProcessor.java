@@ -696,6 +696,8 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIndex ()
 specifier|public
 name|int
@@ -706,6 +708,8 @@ return|return
 name|index
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchange ()
 specifier|public
 name|Exchange
@@ -716,6 +720,8 @@ return|return
 name|exchange
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProducer ()
 specifier|public
 name|Producer
@@ -740,6 +746,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|Processor
@@ -750,6 +758,8 @@ return|return
 name|prepared
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|begin ()
 specifier|public
 name|void
@@ -758,6 +768,8 @@ parameter_list|()
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|done ()
 specifier|public
 name|void
@@ -1204,6 +1216,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -1214,6 +1228,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -1230,6 +1246,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
@@ -1250,6 +1268,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -1644,6 +1664,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -1667,6 +1689,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void
@@ -3709,6 +3733,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -4316,6 +4342,8 @@ return|return
 name|shareUnitOfWork
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next ()
 specifier|public
 name|List
@@ -4345,6 +4373,8 @@ name|processors
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext ()
 specifier|public
 name|boolean

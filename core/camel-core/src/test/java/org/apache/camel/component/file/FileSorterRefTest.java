@@ -325,6 +325,8 @@ name|T
 argument_list|>
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|compare (GenericFile<T> o1, GenericFile<T> o2)
 specifier|public
 name|int

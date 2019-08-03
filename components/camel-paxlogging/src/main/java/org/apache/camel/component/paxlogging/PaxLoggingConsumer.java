@@ -187,6 +187,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doAppend (final PaxLoggingEvent paxLoggingEvent)
 specifier|public
 name|void

@@ -74,6 +74,8 @@ name|SpringSimpleResultTypeRouteTest
 extends|extends
 name|SimpleResultTypeRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

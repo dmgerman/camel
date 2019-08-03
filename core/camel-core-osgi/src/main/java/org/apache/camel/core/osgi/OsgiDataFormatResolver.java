@@ -209,6 +209,8 @@ operator|=
 name|bundleContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveDataFormat (String name, CamelContext context)
 specifier|public
 name|DataFormat
@@ -274,6 +276,8 @@ return|return
 name|dataFormat
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createDataFormat (String name, CamelContext context)
 specifier|public
 name|DataFormat

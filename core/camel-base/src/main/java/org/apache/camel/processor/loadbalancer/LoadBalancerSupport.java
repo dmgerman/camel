@@ -192,6 +192,8 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|addProcessor (AsyncProcessor processor)
 specifier|public
 name|void
@@ -216,6 +218,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeProcessor (AsyncProcessor processor)
 specifier|public
 name|void
@@ -407,6 +411,8 @@ return|return
 name|op
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessors ()
 specifier|public
 name|List
@@ -443,6 +449,8 @@ argument_list|()
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -475,6 +483,8 @@ name|getProcessors
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext ()
 specifier|public
 name|boolean
@@ -490,6 +500,8 @@ operator|>
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -500,6 +512,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -516,6 +530,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -539,6 +555,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -607,6 +625,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

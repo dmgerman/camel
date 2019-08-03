@@ -538,6 +538,8 @@ specifier|private
 name|boolean
 name|supportRedirect
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init (Exchange exchange, JettyHttpBinding jettyBinding, final HttpClient client, AsyncCallback callback)
 specifier|public
 name|void
@@ -774,6 +776,8 @@ name|ex
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBody ()
 specifier|public
 name|byte
@@ -787,6 +791,8 @@ name|getResponseContentBytes
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUrl ()
 specifier|public
 name|String
@@ -964,6 +970,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setRequestContentType (String contentType)
 specifier|public
 name|void
@@ -980,6 +988,8 @@ operator|=
 name|contentType
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getResponseStatus ()
 specifier|public
 name|int
@@ -995,6 +1005,8 @@ name|getStatus
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -1014,6 +1026,8 @@ name|method
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -1037,6 +1051,8 @@ name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setURL (String url)
 specifier|public
 name|void
@@ -1058,6 +1074,8 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRequestContent (byte[] byteArray)
 specifier|public
 name|void
@@ -1086,6 +1104,8 @@ name|requestContentType
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRequestContent (String data, String charset)
 specifier|public
 name|void
@@ -1135,6 +1155,8 @@ name|requestContentType
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRequestContent (InputStream ins)
 specifier|public
 name|void
@@ -1162,6 +1184,8 @@ name|requestContentType
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRequestContent (InputStream ins, int contentLength)
 specifier|public
 name|void
@@ -1194,6 +1218,8 @@ name|requestContentType
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addRequestHeader (String key, String s)
 specifier|public
 name|void
@@ -1218,6 +1244,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (HttpClient client)
 specifier|public
 name|void
@@ -1515,6 +1543,8 @@ operator|=
 name|response
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getResponseContentBytes ()
 specifier|public
 name|byte
@@ -1675,6 +1705,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getRequestHeaders ()
 specifier|public
 name|Map
@@ -1699,6 +1731,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getResponseHeaders ()
 specifier|public
 name|Map

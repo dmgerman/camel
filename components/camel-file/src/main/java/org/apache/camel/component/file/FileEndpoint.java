@@ -536,6 +536,8 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|FileConsumer
@@ -978,6 +980,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|GenericFileProducer
@@ -1111,6 +1115,8 @@ name|operations
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange (GenericFile<File> file)
 specifier|public
 name|Exchange

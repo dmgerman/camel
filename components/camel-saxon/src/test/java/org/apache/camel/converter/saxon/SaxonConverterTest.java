@@ -330,6 +330,8 @@ name|NodeInfo
 name|doc
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

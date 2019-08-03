@@ -74,6 +74,8 @@ name|SpringOnExceptionLoadBalancerDoubleIssueTest
 extends|extends
 name|OnExceptionLoadBalancerDoubleIssueTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

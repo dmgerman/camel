@@ -136,6 +136,8 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|populateMessage (Exchange exchange, long messageIndex)
 specifier|public
 name|void
@@ -199,6 +201,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|assertMessageExpected (DataSetEndpoint dataSetEndpoint, Exchange expected, Exchange actual, long index)
 specifier|public
 name|void
@@ -281,6 +285,8 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getSize ()
 specifier|public
 name|long
@@ -307,6 +313,8 @@ operator|=
 name|size
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getReportCount ()
 specifier|public
 name|long

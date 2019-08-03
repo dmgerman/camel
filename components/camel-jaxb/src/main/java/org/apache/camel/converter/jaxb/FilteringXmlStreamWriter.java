@@ -126,6 +126,8 @@ name|encoding
 expr_stmt|;
 block|}
 comment|/**      * This method applies filtering before delegating call to {@link #writer}.      */
+annotation|@
+name|Override
 DECL|method|writeAttribute (String prefix, String namespaceURI, String localName, String value)
 specifier|public
 name|void
@@ -171,6 +173,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method applies filtering before delegating call to {@link #writer}.      */
+annotation|@
+name|Override
 DECL|method|writeAttribute (String namespaceURI, String localName, String value)
 specifier|public
 name|void
@@ -211,6 +215,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method applies filtering before delegating call to {@link #writer}.      */
+annotation|@
+name|Override
 DECL|method|writeAttribute (String localName, String value)
 specifier|public
 name|void
@@ -246,6 +252,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method applies filtering before delegating call to {@link #writer}.      */
+annotation|@
+name|Override
 DECL|method|writeCData (String data)
 specifier|public
 name|void
@@ -276,6 +284,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method applies filtering before delegating call to {@link #writer}.      */
+annotation|@
+name|Override
 DECL|method|writeCharacters (char[] text, int start, int len)
 specifier|public
 name|void
@@ -318,6 +328,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method applies filtering before delegating call to {@link #writer}.      */
+annotation|@
+name|Override
 DECL|method|writeCharacters (String text)
 specifier|public
 name|void
@@ -348,6 +360,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method applies filtering before delegating call to {@link #writer}.      */
+annotation|@
+name|Override
 DECL|method|writeComment (String data)
 specifier|public
 name|void
@@ -377,6 +391,8 @@ name|filteredData
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close ()
 specifier|public
 name|void
@@ -391,6 +407,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|flush ()
 specifier|public
 name|void
@@ -405,6 +423,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaceContext ()
 specifier|public
 name|NamespaceContext
@@ -418,6 +438,8 @@ name|getNamespaceContext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPrefix (String uri)
 specifier|public
 name|String
@@ -438,6 +460,8 @@ name|uri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProperty (String name)
 specifier|public
 name|Object
@@ -458,6 +482,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDefaultNamespace (String uri)
 specifier|public
 name|void
@@ -477,6 +503,8 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNamespaceContext (NamespaceContext context)
 specifier|public
 name|void
@@ -496,6 +524,8 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setPrefix (String prefix, String uri)
 specifier|public
 name|void
@@ -520,6 +550,8 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeDefaultNamespace (String namespaceURI)
 specifier|public
 name|void
@@ -539,6 +571,8 @@ name|namespaceURI
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeDTD (String dtd)
 specifier|public
 name|void
@@ -558,6 +592,8 @@ name|dtd
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeEmptyElement (String prefix, String localName, String namespaceURI)
 specifier|public
 name|void
@@ -587,6 +623,8 @@ name|namespaceURI
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeEmptyElement (String namespaceURI, String localName)
 specifier|public
 name|void
@@ -611,6 +649,8 @@ name|localName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeEmptyElement (String localName)
 specifier|public
 name|void
@@ -630,6 +670,8 @@ name|localName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeEndDocument ()
 specifier|public
 name|void
@@ -644,6 +686,8 @@ name|writeEndDocument
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeEndElement ()
 specifier|public
 name|void
@@ -658,6 +702,8 @@ name|writeEndElement
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeEntityRef (String name)
 specifier|public
 name|void
@@ -677,6 +723,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeNamespace (String prefix, String namespaceURI)
 specifier|public
 name|void
@@ -701,6 +749,8 @@ name|namespaceURI
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeProcessingInstruction (String target, String data)
 specifier|public
 name|void
@@ -725,6 +775,8 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeProcessingInstruction (String target)
 specifier|public
 name|void
@@ -744,6 +796,8 @@ name|target
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeStartDocument ()
 specifier|public
 name|void
@@ -778,6 +832,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|writeStartDocument (String encoding, String version)
 specifier|public
 name|void
@@ -802,6 +858,8 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeStartDocument (String version)
 specifier|public
 name|void
@@ -841,6 +899,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|writeStartElement (String prefix, String localName, String namespaceURI)
 specifier|public
 name|void
@@ -870,6 +930,8 @@ name|namespaceURI
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeStartElement (String namespaceURI, String localName)
 specifier|public
 name|void
@@ -894,6 +956,8 @@ name|localName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeStartElement (String localName)
 specifier|public
 name|void

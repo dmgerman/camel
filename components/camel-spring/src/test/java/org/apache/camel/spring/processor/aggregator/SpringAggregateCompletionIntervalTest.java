@@ -74,6 +74,8 @@ name|SpringAggregateCompletionIntervalTest
 extends|extends
 name|AggregateCompletionIntervalTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

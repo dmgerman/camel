@@ -468,6 +468,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -478,6 +480,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -494,6 +498,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
@@ -536,6 +542,8 @@ return|return
 name|destination
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
@@ -964,6 +972,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1062,6 +1072,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -1083,6 +1095,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|doShutdown ()
 specifier|protected
 name|void

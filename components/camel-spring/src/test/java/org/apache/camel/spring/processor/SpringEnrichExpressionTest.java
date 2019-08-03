@@ -72,6 +72,8 @@ name|SpringEnrichExpressionTest
 extends|extends
 name|EnrichExpressionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

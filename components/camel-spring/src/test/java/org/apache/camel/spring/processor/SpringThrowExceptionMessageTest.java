@@ -70,6 +70,8 @@ name|SpringThrowExceptionMessageTest
 extends|extends
 name|ThrowExceptionMessageTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

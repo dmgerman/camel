@@ -147,6 +147,8 @@ name|tokenRegex
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|extract (String response)
 specifier|public
 name|Token

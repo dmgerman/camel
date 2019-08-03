@@ -449,6 +449,8 @@ specifier|volatile
 name|boolean
 name|invoked
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|wrapProcessorInInterceptors (CamelContext context, NamedNode definition, Processor target, Processor nextTarget)
 specifier|public
 name|Processor

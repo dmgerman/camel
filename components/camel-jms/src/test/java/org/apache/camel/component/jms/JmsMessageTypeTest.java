@@ -208,6 +208,8 @@ name|JmsMessageTypeTest
 extends|extends
 name|CamelTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

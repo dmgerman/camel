@@ -70,6 +70,8 @@ name|SpringDualLoggingEventNotifierTest
 extends|extends
 name|LoggingEventNotifierTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

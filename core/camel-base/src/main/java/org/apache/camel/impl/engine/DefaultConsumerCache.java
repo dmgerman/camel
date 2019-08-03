@@ -347,6 +347,8 @@ name|extendedStatistics
 expr_stmt|;
 block|}
 comment|/**      * Releases an acquired producer back after usage.      *      * @param endpoint the endpoint      * @param pollingConsumer the pollingConsumer to release      */
+annotation|@
+name|Override
 DECL|method|releasePollingConsumer (Endpoint endpoint, PollingConsumer pollingConsumer)
 specifier|public
 name|void
@@ -370,6 +372,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Acquires a pooled PollingConsumer which you<b>must</b> release back again after usage using the      * {@link #releasePollingConsumer(org.apache.camel.Endpoint, org.apache.camel.PollingConsumer)} method.      *      * @param endpoint the endpoint      * @return the PollingConsumer      */
+annotation|@
+name|Override
 DECL|method|acquirePollingConsumer (Endpoint endpoint)
 specifier|public
 name|PollingConsumer
@@ -430,6 +434,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|receive (Endpoint endpoint)
 specifier|public
 name|Exchange
@@ -504,6 +510,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|receive (Endpoint endpoint, long timeout)
 specifier|public
 name|Exchange
@@ -583,6 +591,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|receiveNoWait (Endpoint endpoint)
 specifier|public
 name|Exchange
@@ -668,6 +678,8 @@ name|camelContext
 return|;
 block|}
 comment|/**      * Gets the source which uses this cache      *      * @return the source      */
+annotation|@
+name|Override
 DECL|method|getSource ()
 specifier|public
 name|Object
@@ -679,6 +691,8 @@ name|source
 return|;
 block|}
 comment|/**      * Returns the current size of the cache      *      * @return the current size      */
+annotation|@
+name|Override
 DECL|method|size ()
 specifier|public
 name|int
@@ -707,6 +721,8 @@ name|size
 return|;
 block|}
 comment|/**      * Gets the maximum cache size (capacity).      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the capacity      */
+annotation|@
+name|Override
 DECL|method|getCapacity ()
 specifier|public
 name|int
@@ -721,6 +737,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Gets the cache hits statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the hits      */
+annotation|@
+name|Override
 DECL|method|getHits ()
 specifier|public
 name|long
@@ -735,6 +753,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Gets the cache misses statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the misses      */
+annotation|@
+name|Override
 DECL|method|getMisses ()
 specifier|public
 name|long
@@ -749,6 +769,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Gets the cache evicted statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the evicted      */
+annotation|@
+name|Override
 DECL|method|getEvicted ()
 specifier|public
 name|long
@@ -763,6 +785,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Resets the cache statistics      */
+annotation|@
+name|Override
 DECL|method|resetCacheStatistics ()
 specifier|public
 name|void
@@ -789,6 +813,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Purges this cache      */
+annotation|@
+name|Override
 DECL|method|purge ()
 specifier|public
 specifier|synchronized
@@ -840,6 +866,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Cleanup the cache (purging stale entries)      */
+annotation|@
+name|Override
 DECL|method|cleanUp ()
 specifier|public
 name|void
@@ -852,6 +880,8 @@ name|cleanUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointUtilizationStatistics ()
 specifier|public
 name|EndpointUtilizationStatistics
@@ -881,6 +911,8 @@ name|getCapacity
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -927,6 +959,8 @@ name|consumers
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

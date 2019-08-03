@@ -94,6 +94,8 @@ name|EnumTypeConverter
 extends|extends
 name|TypeConverterSupport
 block|{
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<

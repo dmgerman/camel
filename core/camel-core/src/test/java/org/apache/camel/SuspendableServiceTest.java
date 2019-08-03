@@ -55,18 +55,24 @@ specifier|private
 name|boolean
 name|suspended
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
 name|start
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void
 name|stop
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|suspend ()
 specifier|public
 name|void
@@ -78,6 +84,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resume ()
 specifier|public
 name|void
@@ -89,6 +97,8 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSuspended ()
 specifier|public
 name|boolean

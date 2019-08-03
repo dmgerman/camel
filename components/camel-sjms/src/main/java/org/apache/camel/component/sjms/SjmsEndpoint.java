@@ -1916,6 +1916,8 @@ return|return
 name|destinationName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -1944,6 +1946,8 @@ name|headerFilterStrategy
 return|;
 block|}
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
@@ -2059,6 +2063,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -2070,6 +2076,8 @@ name|synchronous
 return|;
 block|}
 comment|/**      * Sets whether synchronous processing should be strictly used or Camel is allowed to use asynchronous processing (if supported).      */
+annotation|@
+name|Override
 DECL|method|setSynchronous (boolean synchronous)
 specifier|public
 name|void

@@ -132,6 +132,8 @@ name|DefaultAnnotationExpressionFactory
 implements|implements
 name|AnnotationExpressionFactory
 block|{
+annotation|@
+name|Override
 DECL|method|createExpression (CamelContext camelContext, Annotation annotation, LanguageAnnotation languageAnnotation, Class<?> expressionReturnType)
 specifier|public
 name|Expression

@@ -355,6 +355,8 @@ literal|true
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -387,6 +389,8 @@ name|applicationContext
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()

@@ -858,6 +858,8 @@ argument_list|<
 name|String
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|channelActive (ChannelHandlerContext ctx)
 specifier|public
 name|void
@@ -927,6 +929,8 @@ name|Exception
 block|{
 comment|// Do nothing here
 block|}
+annotation|@
+name|Override
 DECL|method|channelReadComplete (ChannelHandlerContext ctx)
 specifier|public
 name|void

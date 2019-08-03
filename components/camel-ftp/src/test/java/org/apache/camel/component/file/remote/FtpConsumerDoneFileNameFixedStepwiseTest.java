@@ -28,6 +28,8 @@ name|FtpConsumerDoneFileNameFixedStepwiseTest
 extends|extends
 name|FtpConsumerDoneFileNameFixedTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

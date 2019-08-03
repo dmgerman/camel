@@ -647,6 +647,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -1801,6 +1803,8 @@ name|TestProcessor
 extends|extends
 name|AbstractTestProcessor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -1963,6 +1967,8 @@ name|TestProcessor2
 extends|extends
 name|AbstractTestProcessor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -2101,6 +2107,8 @@ name|TestProcessor3
 extends|extends
 name|AbstractTestProcessor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

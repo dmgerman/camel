@@ -177,6 +177,8 @@ specifier|private
 name|Session
 name|session
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -187,6 +189,8 @@ return|return
 name|host
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -203,6 +207,8 @@ operator|=
 name|host
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getJavaMailProperties ()
 specifier|public
 name|Properties
@@ -227,6 +233,8 @@ return|return
 name|javaMailProperties
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setJavaMailProperties (Properties javaMailProperties)
 specifier|public
 name|void
@@ -243,6 +251,8 @@ operator|=
 name|javaMailProperties
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPassword ()
 specifier|public
 name|String
@@ -253,6 +263,8 @@ return|return
 name|password
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -269,6 +281,8 @@ operator|=
 name|password
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSession ()
 specifier|public
 name|Session
@@ -305,6 +319,8 @@ return|return
 name|session
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSession (Session session)
 specifier|public
 name|void
@@ -321,6 +337,8 @@ operator|=
 name|session
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUsername ()
 specifier|public
 name|String
@@ -331,6 +349,8 @@ return|return
 name|username
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -347,6 +367,8 @@ operator|=
 name|username
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPort ()
 specifier|public
 name|int
@@ -357,6 +379,8 @@ return|return
 name|port
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -373,6 +397,8 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProtocol ()
 specifier|public
 name|String
@@ -383,6 +409,8 @@ return|return
 name|protocol
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void

@@ -60,6 +60,8 @@ name|SpringRouteMethodCallStaticTest
 extends|extends
 name|RouteMethodCallStaticTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -138,6 +138,8 @@ name|longitude
 init|=
 literal|30.3141308
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|run (CamelContext context)
 specifier|public
 name|void

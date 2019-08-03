@@ -54,6 +54,8 @@ name|SpringCamelContextThreadPoolProfilesWithPlaceholderTest
 extends|extends
 name|SpringCamelContextThreadPoolProfilesTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

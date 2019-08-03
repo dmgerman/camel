@@ -626,6 +626,8 @@ name|isRunAllowed
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
@@ -1112,6 +1114,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String

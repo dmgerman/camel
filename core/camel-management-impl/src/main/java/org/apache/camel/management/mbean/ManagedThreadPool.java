@@ -244,6 +244,8 @@ return|return
 name|threadPool
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -257,6 +259,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelManagementName ()
 specifier|public
 name|String
@@ -270,6 +274,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -280,6 +286,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceId ()
 specifier|public
 name|String
@@ -290,6 +298,8 @@ return|return
 name|sourceId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -300,6 +310,8 @@ return|return
 name|routeId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getThreadPoolProfileId ()
 specifier|public
 name|String
@@ -310,6 +322,8 @@ return|return
 name|threadPoolProfileId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCorePoolSize ()
 specifier|public
 name|int
@@ -323,6 +337,8 @@ name|getCorePoolSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCorePoolSize (int corePoolSize)
 specifier|public
 name|void
@@ -340,6 +356,8 @@ name|corePoolSize
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPoolSize ()
 specifier|public
 name|int
@@ -353,6 +371,8 @@ name|getPoolSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumPoolSize ()
 specifier|public
 name|int
@@ -366,6 +386,8 @@ name|getMaximumPoolSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaximumPoolSize (int maximumPoolSize)
 specifier|public
 name|void
@@ -383,6 +405,8 @@ name|maximumPoolSize
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLargestPoolSize ()
 specifier|public
 name|int
@@ -396,6 +420,8 @@ name|getLargestPoolSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getActiveCount ()
 specifier|public
 name|int
@@ -409,6 +435,8 @@ name|getActiveCount
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTaskCount ()
 specifier|public
 name|long
@@ -422,6 +450,8 @@ name|getTaskCount
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedTaskCount ()
 specifier|public
 name|long
@@ -435,6 +465,8 @@ name|getCompletedTaskCount
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTaskQueueSize ()
 specifier|public
 name|long
@@ -468,6 +500,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isTaskQueueEmpty ()
 specifier|public
 name|boolean
@@ -501,6 +535,8 @@ literal|true
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getKeepAliveTime ()
 specifier|public
 name|long
@@ -518,6 +554,8 @@ name|SECONDS
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setKeepAliveTime (long keepAliveTimeInSeconds)
 specifier|public
 name|void
@@ -539,6 +577,8 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAllowCoreThreadTimeout ()
 specifier|public
 name|boolean
@@ -552,6 +592,8 @@ name|allowsCoreThreadTimeOut
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAllowCoreThreadTimeout (boolean allowCoreThreadTimeout)
 specifier|public
 name|void
@@ -569,6 +611,8 @@ name|allowCoreThreadTimeout
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isShutdown ()
 specifier|public
 name|boolean
@@ -582,6 +626,8 @@ name|isShutdown
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|purge ()
 specifier|public
 name|void
@@ -594,6 +640,8 @@ name|purge
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTaskQueueRemainingCapacity ()
 specifier|public
 name|int

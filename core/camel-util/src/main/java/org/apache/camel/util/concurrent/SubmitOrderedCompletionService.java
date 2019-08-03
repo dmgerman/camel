@@ -262,6 +262,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDelay (TimeUnit unit)
 specifier|public
 name|long
@@ -337,6 +339,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -428,6 +432,8 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|submit (Callable<V> task)
 specifier|public
 name|Future
@@ -483,6 +489,8 @@ return|return
 name|f
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|submit (Runnable task, Object result)
 specifier|public
 name|Future
@@ -540,6 +548,8 @@ return|return
 name|f
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|take ()
 specifier|public
 name|Future
@@ -563,6 +573,8 @@ name|take
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|public
 name|Future
@@ -606,6 +618,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll (long timeout, TimeUnit unit)
 specifier|public
 name|Future

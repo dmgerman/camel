@@ -419,6 +419,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScheduledExecutorService (ScheduledExecutorService executorService)
 specifier|public
 name|void
@@ -435,6 +437,8 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setOnTimeoutExecutorService (ExecutorService executorService)
 specifier|public
 name|void
@@ -451,6 +455,8 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEndpoint (JmsEndpoint endpoint)
 specifier|public
 name|void
@@ -467,6 +473,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setReplyTo (Destination replyTo)
 specifier|public
 name|void
@@ -517,6 +525,8 @@ operator|=
 name|correlationProperty
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getReplyTo ()
 specifier|public
 name|Destination
@@ -597,6 +607,8 @@ return|return
 name|replyTo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|registerReply (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
 specifier|public
 name|String
@@ -712,6 +724,8 @@ name|long
 name|requestTimeout
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|onMessage (Message message, Session session)
 specifier|public
 name|void
@@ -809,6 +823,8 @@ name|session
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processReply (ReplyHolder holder)
 specifier|public
 name|void

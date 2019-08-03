@@ -520,6 +520,8 @@ name|resetStatistics
 parameter_list|()
 function_decl|;
 annotation|@
+name|Override
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
@@ -531,6 +533,8 @@ name|boolean
 name|isStatisticsEnabled
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 annotation|@
 name|ManagedAttribute
 argument_list|(

@@ -112,6 +112,8 @@ name|ElsqlSqlPrepareStatementStrategy
 implements|implements
 name|SqlPrepareStatementStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|prepareQuery (String query, boolean allowNamedParameters, Exchange exchange)
 specifier|public
 name|String
@@ -133,6 +135,8 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPopulateIterator (String query, String preparedQuery, int expectedParams, Exchange exchange, Object value)
 specifier|public
 name|Iterator
@@ -163,6 +167,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|populateStatement (PreparedStatement ps, Iterator<?> iterator, int expectedParams)
 specifier|public
 name|void

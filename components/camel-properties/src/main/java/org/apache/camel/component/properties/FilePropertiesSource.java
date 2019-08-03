@@ -185,6 +185,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadPropertiesFromLocation (PropertiesComponent propertiesComponent, PropertiesLocation location)
 specifier|protected
 name|Properties

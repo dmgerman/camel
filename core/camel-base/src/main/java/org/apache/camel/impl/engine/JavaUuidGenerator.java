@@ -54,6 +54,8 @@ name|JavaUuidGenerator
 implements|implements
 name|UuidGenerator
 block|{
+annotation|@
+name|Override
 DECL|method|generateUuid ()
 specifier|public
 name|String

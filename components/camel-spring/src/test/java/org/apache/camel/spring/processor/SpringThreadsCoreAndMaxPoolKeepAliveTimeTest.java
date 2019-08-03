@@ -70,6 +70,8 @@ name|SpringThreadsCoreAndMaxPoolKeepAliveTimeTest
 extends|extends
 name|ThreadsCoreAndMaxPoolKeepAliveTimeTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

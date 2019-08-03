@@ -88,6 +88,8 @@ name|byte
 index|[]
 name|content
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getBody (GenericFile<File> file)
 specifier|public
 name|Object
@@ -155,6 +157,8 @@ return|return
 name|body
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBody (GenericFile<File> file, Object body)
 specifier|public
 name|void
@@ -172,6 +176,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|loadContent (Exchange exchange, GenericFile<?> file)
 specifier|public
 name|void

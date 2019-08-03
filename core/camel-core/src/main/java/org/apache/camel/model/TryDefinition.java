@@ -538,6 +538,8 @@ return|return
 name|outputsWithoutCatches
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
 specifier|public
 name|void

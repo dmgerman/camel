@@ -49,6 +49,8 @@ extends|extends
 name|AhcProduceClientConfigTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testAhcProduceClientConfig ()
 specifier|public

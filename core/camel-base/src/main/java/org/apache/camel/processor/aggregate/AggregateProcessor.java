@@ -1076,6 +1076,8 @@ name|statisticsEnabled
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getTotalIn ()
 specifier|public
 name|long
@@ -1089,6 +1091,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTotalCompleted ()
 specifier|public
 name|long
@@ -1102,6 +1106,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedBySize ()
 specifier|public
 name|long
@@ -1115,6 +1121,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByStrategy ()
 specifier|public
 name|long
@@ -1128,6 +1136,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByInterval ()
 specifier|public
 name|long
@@ -1141,6 +1151,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByTimeout ()
 specifier|public
 name|long
@@ -1154,6 +1166,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByPredicate ()
 specifier|public
 name|long
@@ -1167,6 +1181,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByBatchConsumer ()
 specifier|public
 name|long
@@ -1180,6 +1196,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCompletedByForce ()
 specifier|public
 name|long
@@ -1193,6 +1211,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void
@@ -1256,6 +1276,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStatisticsEnabled ()
 specifier|public
 name|boolean
@@ -1266,6 +1288,8 @@ return|return
 name|statisticsEnabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
 specifier|public
 name|void
@@ -1520,6 +1544,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
@@ -1534,6 +1560,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next ()
 specifier|public
 name|List
@@ -1578,6 +1606,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext ()
 specifier|public
 name|boolean
@@ -1590,6 +1620,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -1600,6 +1632,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -1616,6 +1650,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -5256,6 +5292,8 @@ operator|=
 name|exchangeId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onFailure (Exchange exchange)
 specifier|public
 name|void
@@ -5284,6 +5322,8 @@ argument_list|)
 expr_stmt|;
 comment|// do not remove redelivery state as we need it when we redeliver again later
 block|}
+annotation|@
+name|Override
 DECL|method|onComplete (Exchange exchange)
 specifier|public
 name|void
@@ -5632,6 +5672,8 @@ name|AggregationIntervalTask
 implements|implements
 name|Runnable
 block|{
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void
@@ -5884,6 +5926,8 @@ operator|=
 name|recoverable
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

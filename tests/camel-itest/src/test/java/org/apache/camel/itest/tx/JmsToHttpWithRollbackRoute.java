@@ -68,6 +68,8 @@ name|JmsToHttpWithRollbackRoute
 extends|extends
 name|JmsToHttpRoute
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

@@ -168,6 +168,8 @@ argument_list|>
 name|buffer
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -177,6 +179,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()

@@ -54,6 +54,8 @@ name|MistypedPackageTest
 extends|extends
 name|EventRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

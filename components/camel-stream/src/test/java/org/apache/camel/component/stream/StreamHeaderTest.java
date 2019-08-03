@@ -172,6 +172,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -219,6 +221,8 @@ name|MyOutputStream
 extends|extends
 name|OutputStream
 block|{
+annotation|@
+name|Override
 DECL|method|write (int b)
 specifier|public
 name|void

@@ -686,6 +686,8 @@ name|permissionsList
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|void
@@ -700,6 +702,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|wrap (RouteContext routeContext, final Processor processor)
 specifier|public
 name|Processor

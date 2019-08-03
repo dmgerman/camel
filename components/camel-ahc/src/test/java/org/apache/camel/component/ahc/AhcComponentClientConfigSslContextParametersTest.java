@@ -42,6 +42,8 @@ name|AhcComponentClientConfigSslContextParametersTest
 extends|extends
 name|AhcComponentClientConfigTest
 block|{
+annotation|@
+name|Override
 DECL|method|configureComponent ()
 specifier|public
 name|void
@@ -87,6 +89,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTestServerEndpointUri ()
 specifier|protected
 name|String
@@ -102,6 +106,8 @@ operator|+
 literal|"?sslContextParameters=#sslContextParameters"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTestServerEndpointTwoUri ()
 specifier|protected
 name|String

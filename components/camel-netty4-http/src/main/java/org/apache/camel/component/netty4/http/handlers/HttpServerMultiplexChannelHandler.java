@@ -527,6 +527,8 @@ parameter_list|()
 block|{
 comment|// must have default no-arg constructor to allow IoC containers to manage it
 block|}
+annotation|@
+name|Override
 DECL|method|init (int port)
 specifier|public
 name|void
@@ -560,6 +562,8 @@ name|length
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addConsumer (NettyHttpConsumer consumer)
 specifier|public
 name|void
@@ -581,6 +585,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeConsumer (NettyHttpConsumer consumer)
 specifier|public
 name|void
@@ -618,6 +624,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|consumers ()
 specifier|public
 name|int
@@ -631,6 +639,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPort ()
 specifier|public
 name|int
@@ -641,6 +651,8 @@ return|return
 name|port
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getChannelHandler ()
 specifier|public
 name|ChannelHandler

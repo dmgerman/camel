@@ -231,6 +231,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanClass (Element element)
 specifier|protected
 name|Class
@@ -287,6 +289,8 @@ name|getTypeAsClass
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEligibleAttribute (String attributeName)
 specifier|protected
 name|boolean
@@ -1484,6 +1488,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|shouldGenerateId ()
 specifier|protected
 name|boolean

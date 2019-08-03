@@ -353,6 +353,8 @@ name|maxPolls
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -409,6 +411,8 @@ name|MyPollStrategy
 implements|implements
 name|PollingConsumerPollStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|begin (Consumer consumer, Endpoint endpoint)
 specifier|public
 name|boolean
@@ -425,6 +429,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|commit (Consumer consumer, Endpoint endpoint, int polledMessages)
 specifier|public
 name|void
@@ -458,6 +464,8 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|rollback (Consumer consumer, Endpoint endpoint, int retryCounter, Exception cause)
 specifier|public
 name|boolean

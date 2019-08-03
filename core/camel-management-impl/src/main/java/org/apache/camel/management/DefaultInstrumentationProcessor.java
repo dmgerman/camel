@@ -213,6 +213,8 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCounter (Object counter)
 specifier|public
 name|void

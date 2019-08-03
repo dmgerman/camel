@@ -240,6 +240,8 @@ return|return
 name|registry
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNoopCounter ()
 specifier|public
 name|long
@@ -256,6 +258,8 @@ name|getNoopCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAttemptCounter ()
 specifier|public
 name|long
@@ -272,6 +276,8 @@ name|getAttemptCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHitCounter ()
 specifier|public
 name|long
@@ -288,6 +294,8 @@ name|getHitCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMissCounter ()
 specifier|public
 name|long
@@ -304,6 +312,8 @@ name|getMissCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFailedCounter ()
 specifier|public
 name|long
@@ -320,6 +330,8 @@ name|getFailedCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetTypeConversionCounters ()
 specifier|public
 name|void
@@ -335,6 +347,8 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStatisticsEnabled ()
 specifier|public
 name|boolean
@@ -351,6 +365,8 @@ name|isStatisticsEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
 specifier|public
 name|void
@@ -371,6 +387,8 @@ name|statisticsEnabled
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNumberOfTypeConverters ()
 specifier|public
 name|int
@@ -384,6 +402,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExistsLoggingLevel ()
 specifier|public
 name|String
@@ -400,6 +420,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeConverterExists ()
 specifier|public
 name|String
@@ -416,6 +438,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasTypeConverter (String fromType, String toType)
 specifier|public
 name|boolean
@@ -493,6 +517,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|listTypeConverters ()
 specifier|public
 name|TabularData

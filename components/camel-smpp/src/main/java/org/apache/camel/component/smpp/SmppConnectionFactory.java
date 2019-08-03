@@ -273,6 +273,8 @@ name|config
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConnection (String host, int port)
 specifier|public
 name|Connection

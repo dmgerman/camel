@@ -1994,6 +1994,8 @@ return|;
 block|}
 block|}
 comment|/** 	 * Parse the StAX XML reader passed at construction-time. 	 *<p><b>NOTE:</b>: The given<code>InputSource</code> is not read, but ignored. 	 * @param ignored is ignored 	 * @throws SAXException a SAX exception, possibly wrapping a<code>XMLStreamException</code> 	 */
+annotation|@
+name|Override
 DECL|method|parse (InputSource ignored)
 specifier|public
 specifier|final
@@ -2011,6 +2013,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/** 	 * Parse the StAX XML reader passed at construction-time. 	 *<p><b>NOTE:</b>: The given system identifier is not read, but ignored. 	 * @param ignored is ignored 	 * @throws SAXException A SAX exception, possibly wrapping a<code>XMLStreamException</code> 	 */
+annotation|@
+name|Override
 DECL|method|parse (String ignored)
 specifier|public
 specifier|final
@@ -2278,6 +2282,8 @@ operator|=
 name|location
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPublicId ()
 specifier|public
 name|String
@@ -2291,6 +2297,8 @@ name|getPublicId
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSystemId ()
 specifier|public
 name|String
@@ -2304,6 +2312,8 @@ name|getSystemId
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLineNumber ()
 specifier|public
 name|int
@@ -2317,6 +2327,8 @@ name|getLineNumber
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getColumnNumber ()
 specifier|public
 name|int
@@ -2332,6 +2344,8 @@ return|;
 block|}
 block|}
 comment|// AbstractXMLReader
+annotation|@
+name|Override
 DECL|method|getContentHandler ()
 specifier|public
 name|ContentHandler
@@ -2342,6 +2356,8 @@ return|return
 name|contentHandler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setContentHandler (ContentHandler contentHandler)
 specifier|public
 name|void
@@ -2358,6 +2374,8 @@ operator|=
 name|contentHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDTDHandler (DTDHandler dtdHandler)
 specifier|public
 name|void
@@ -2374,6 +2392,8 @@ operator|=
 name|dtdHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDTDHandler ()
 specifier|public
 name|DTDHandler
@@ -2384,6 +2404,8 @@ return|return
 name|dtdHandler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEntityResolver ()
 specifier|public
 name|EntityResolver
@@ -2394,6 +2416,8 @@ return|return
 name|entityResolver
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEntityResolver (EntityResolver entityResolver)
 specifier|public
 name|void
@@ -2410,6 +2434,8 @@ operator|=
 name|entityResolver
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getErrorHandler ()
 specifier|public
 name|ErrorHandler
@@ -2420,6 +2446,8 @@ return|return
 name|errorHandler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setErrorHandler (ErrorHandler errorHandler)
 specifier|public
 name|void
@@ -2447,6 +2475,8 @@ name|lexicalHandler
 return|;
 block|}
 comment|/** 	 * Throws a<code>SAXNotRecognizedException</code> exception when the given property does not signify a lexical 	 * handler. The property name for a lexical handler is<code>http://xml.org/sax/properties/lexical-handler</code>. 	 */
+annotation|@
+name|Override
 DECL|method|getProperty (String name)
 specifier|public
 name|Object
@@ -2486,6 +2516,8 @@ throw|;
 block|}
 block|}
 comment|/** 	 * Throws a<code>SAXNotRecognizedException</code> exception when the given property does not signify a lexical 	 * handler. The property name for a lexical handler is<code>http://xml.org/sax/properties/lexical-handler</code>. 	 */
+annotation|@
+name|Override
 DECL|method|setProperty (String name, Object value)
 specifier|public
 name|void

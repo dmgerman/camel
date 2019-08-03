@@ -107,6 +107,8 @@ specifier|public
 name|CMISComponent
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, final String remaining, final Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

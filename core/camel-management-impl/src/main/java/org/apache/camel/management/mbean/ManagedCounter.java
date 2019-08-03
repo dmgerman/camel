@@ -140,6 +140,8 @@ operator|=
 name|now
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void
@@ -158,6 +160,8 @@ name|Date
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStartTimestamp ()
 specifier|public
 name|Date
@@ -168,6 +172,8 @@ return|return
 name|startTimestamp
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getResetTimestamp ()
 specifier|public
 name|Date
@@ -178,6 +184,8 @@ return|return
 name|resetTimestamp
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExchangesTotal ()
 specifier|public
 name|long

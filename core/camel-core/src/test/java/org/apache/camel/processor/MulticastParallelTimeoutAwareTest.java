@@ -325,6 +325,8 @@ name|MyAggregationStrategy
 implements|implements
 name|AggregationStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|timeout (Exchange oldExchange, int index, int total, long timeout)
 specifier|public
 name|void
@@ -365,6 +367,8 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange

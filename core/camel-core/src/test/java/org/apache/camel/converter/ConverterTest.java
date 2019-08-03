@@ -424,6 +424,8 @@ name|IntegerPropertyEditor
 extends|extends
 name|PropertyEditorSupport
 block|{
+annotation|@
+name|Override
 DECL|method|setAsText (String text)
 specifier|public
 name|void
@@ -445,6 +447,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAsText ()
 specifier|public
 name|String

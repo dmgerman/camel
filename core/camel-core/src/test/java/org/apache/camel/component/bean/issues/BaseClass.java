@@ -28,6 +28,8 @@ name|BaseClass
 implements|implements
 name|MyMessageListener
 block|{
+annotation|@
+name|Override
 DECL|method|onMessage (MyMessage message)
 specifier|public
 name|void

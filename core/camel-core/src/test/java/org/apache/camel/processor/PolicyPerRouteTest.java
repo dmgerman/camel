@@ -418,6 +418,8 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeWrap (RouteContext routeContext, NamedNode definition)
 specifier|public
 name|void
@@ -432,6 +434,8 @@ parameter_list|)
 block|{
 comment|// no need to modify the route
 block|}
+annotation|@
+name|Override
 DECL|method|wrap (RouteContext routeContext, final Processor processor)
 specifier|public
 name|Processor

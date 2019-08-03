@@ -519,6 +519,8 @@ name|SingleNodeDeadEndRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void
@@ -570,6 +572,8 @@ name|SingleNodeRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void
@@ -649,6 +653,8 @@ name|MultiNodeRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void
@@ -738,6 +744,8 @@ name|MultiNodeReplyToRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void
@@ -860,6 +868,8 @@ name|MultiNodeDiffCompRouteBuilder
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void
@@ -949,6 +959,8 @@ name|ContextBuilderMessageID
 implements|implements
 name|ContextBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|buildContext (CamelContext context)
 specifier|public
 name|CamelContext
@@ -1762,6 +1774,8 @@ operator|=
 name|fromUri
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|call ()
 specifier|public
 name|Task
@@ -1880,6 +1894,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -2516,6 +2532,8 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -2547,6 +2565,8 @@ name|camelContext
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -72,6 +72,8 @@ name|SpringDefaultErrorHandlerRetryWhileTest
 extends|extends
 name|DefaultErrorHandlerRetryWhileTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

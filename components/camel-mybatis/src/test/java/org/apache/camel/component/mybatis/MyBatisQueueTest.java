@@ -76,6 +76,8 @@ name|MyBatisQueueTest
 extends|extends
 name|MyBatisTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createTestData ()
 specifier|protected
 name|boolean
@@ -86,6 +88,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCreateStatement ()
 specifier|protected
 name|String

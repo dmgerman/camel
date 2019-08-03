@@ -290,6 +290,8 @@ operator|=
 name|feedUri
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -306,6 +308,8 @@ literal|"FeedProducer is not implemented"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -680,6 +684,8 @@ return|return
 name|sortEntries
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLenientProperties ()
 specifier|public
 name|boolean

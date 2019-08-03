@@ -65,6 +65,8 @@ extends|extends
 name|EventNotifierExchangeSentTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testExchangeSentRecipient ()
 specifier|public

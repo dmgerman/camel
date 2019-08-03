@@ -173,6 +173,8 @@ operator|=
 name|fields
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUrls ()
 specifier|public
 name|SObjectDescriptionUrls

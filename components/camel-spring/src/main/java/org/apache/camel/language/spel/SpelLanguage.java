@@ -190,6 +190,8 @@ specifier|private
 name|BeanResolver
 name|beanResolver
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -220,6 +222,8 @@ name|beanResolver
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression

@@ -361,6 +361,8 @@ return|return
 literal|"csv"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object object, OutputStream outputStream)
 specifier|public
 name|void
@@ -390,6 +392,8 @@ name|outputStream
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object

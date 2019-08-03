@@ -70,6 +70,8 @@ name|SpringSplitTokenizerGroupDynamicTest
 extends|extends
 name|SplitTokenizerGroupDynamicTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

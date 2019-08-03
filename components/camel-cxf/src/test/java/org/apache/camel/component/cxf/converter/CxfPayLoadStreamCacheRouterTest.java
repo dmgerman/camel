@@ -130,6 +130,8 @@ name|SERVICE_CLASS
 operator|+
 literal|"&dataFormat=PAYLOAD"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

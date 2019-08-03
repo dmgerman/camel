@@ -528,6 +528,8 @@ specifier|protected
 name|DefaultEndpoint
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|hashCode ()
 specifier|public
 name|int
@@ -695,6 +697,8 @@ name|endpointUriToString
 return|;
 block|}
 comment|/**      * Returns a unique String ID which can be used for aliasing without having      * to use the whole URI which is not unique      */
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -705,6 +709,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
@@ -751,6 +757,8 @@ return|return
 name|endpointUri
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointKey ()
 specifier|public
 name|String
@@ -810,6 +818,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -868,6 +878,8 @@ return|return
 name|component
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -884,6 +896,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPollingConsumer ()
 specifier|public
 name|PollingConsumer
@@ -955,6 +969,8 @@ return|return
 name|consumer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange ()
 specifier|public
 name|Exchange
@@ -969,6 +985,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|Exchange
@@ -1237,6 +1255,8 @@ operator|=
 name|pollingConsumerBlockTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|configureProperties (Map<String, Object> options)
 specifier|public
 name|void

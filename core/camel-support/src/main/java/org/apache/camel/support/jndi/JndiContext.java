@@ -977,6 +977,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addToEnvironment (String propName, Object propVal)
 specifier|public
 name|Object
@@ -1002,6 +1004,8 @@ name|propVal
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEnvironment ()
 specifier|public
 name|Hashtable
@@ -1043,6 +1047,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeFromEnvironment (String propName)
 specifier|public
 name|Object
@@ -1063,6 +1069,8 @@ name|propName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookup (String name)
 specifier|public
 name|Object
@@ -1439,6 +1447,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookup (Name name)
 specifier|public
 name|Object
@@ -1460,6 +1470,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookupLink (String name)
 specifier|public
 name|Object
@@ -1478,6 +1490,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|composeName (Name name, Name prefix)
 specifier|public
 name|Name
@@ -1514,6 +1528,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|composeName (String name, String prefix)
 specifier|public
 name|String
@@ -1555,6 +1571,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|list (String name)
 specifier|public
 name|NamingEnumeration
@@ -1626,6 +1644,8 @@ argument_list|()
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|listBindings (String name)
 specifier|public
 name|NamingEnumeration
@@ -1697,6 +1717,8 @@ argument_list|()
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|lookupLink (Name name)
 specifier|public
 name|Object
@@ -1718,6 +1740,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|list (Name name)
 specifier|public
 name|NamingEnumeration
@@ -1742,6 +1766,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|listBindings (Name name)
 specifier|public
 name|NamingEnumeration
@@ -1766,6 +1792,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|bind (Name name, Object value)
 specifier|public
 name|void
@@ -1791,6 +1819,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|bind (String name, Object value)
 specifier|public
 name|void
@@ -1828,6 +1858,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close ()
 specifier|public
 name|void
@@ -1838,6 +1870,8 @@ name|NamingException
 block|{
 comment|// ignore
 block|}
+annotation|@
+name|Override
 DECL|method|createSubcontext (Name name)
 specifier|public
 name|Context
@@ -1855,6 +1889,8 @@ name|OperationNotSupportedException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createSubcontext (String name)
 specifier|public
 name|Context
@@ -1872,6 +1908,8 @@ name|OperationNotSupportedException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|destroySubcontext (Name name)
 specifier|public
 name|void
@@ -1889,6 +1927,8 @@ name|OperationNotSupportedException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|destroySubcontext (String name)
 specifier|public
 name|void
@@ -1906,6 +1946,8 @@ name|OperationNotSupportedException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNameInNamespace ()
 specifier|public
 name|String
@@ -1918,6 +1960,8 @@ return|return
 name|nameInNamespace
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNameParser (Name name)
 specifier|public
 name|NameParser
@@ -1933,6 +1977,8 @@ return|return
 name|NAME_PARSER
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNameParser (String name)
 specifier|public
 name|NameParser
@@ -1948,6 +1994,8 @@ return|return
 name|NAME_PARSER
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rebind (Name name, Object value)
 specifier|public
 name|void
@@ -1970,6 +2018,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|rebind (String name, Object value)
 specifier|public
 name|void
@@ -1992,6 +2042,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|rename (Name oldName, Name newName)
 specifier|public
 name|void
@@ -2012,6 +2064,8 @@ name|OperationNotSupportedException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|rename (String oldName, String newName)
 specifier|public
 name|void
@@ -2032,6 +2086,8 @@ name|OperationNotSupportedException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|unbind (Name name)
 specifier|public
 name|void
@@ -2049,6 +2105,8 @@ name|OperationNotSupportedException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|unbind (String name)
 specifier|public
 name|void
@@ -2109,6 +2167,8 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|hasMore ()
 specifier|public
 name|boolean
@@ -2124,6 +2184,8 @@ name|hasNext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasMoreElements ()
 specifier|public
 name|boolean
@@ -2157,6 +2219,8 @@ name|next
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close ()
 specifier|public
 name|void
@@ -2177,6 +2241,8 @@ DECL|method|ListEnumeration ()
 name|ListEnumeration
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|next ()
 specifier|public
 name|Object
@@ -2190,6 +2256,8 @@ name|nextElement
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextElement ()
 specifier|public
 name|Object
@@ -2243,6 +2311,8 @@ DECL|method|ListBindingEnumeration ()
 name|ListBindingEnumeration
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|next ()
 specifier|public
 name|Object
@@ -2256,6 +2326,8 @@ name|nextElement
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextElement ()
 specifier|public
 name|Object

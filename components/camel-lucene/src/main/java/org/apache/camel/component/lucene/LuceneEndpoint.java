@@ -255,6 +255,8 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -274,6 +276,8 @@ literal|"Consumer not supported for Lucene endpoint"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer

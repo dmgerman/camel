@@ -498,6 +498,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
@@ -514,6 +516,8 @@ return|return
 name|contentCache
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedOperation
 argument_list|(
@@ -554,6 +558,8 @@ literal|null
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
@@ -574,6 +580,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -596,6 +604,8 @@ argument_list|()
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
@@ -617,6 +627,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Sets whether to use resource content cache or not.      */
+annotation|@
+name|Override
 DECL|method|setContentCache (boolean contentCache)
 specifier|public
 name|void

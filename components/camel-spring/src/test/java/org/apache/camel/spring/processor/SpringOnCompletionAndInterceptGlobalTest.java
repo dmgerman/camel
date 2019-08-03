@@ -70,6 +70,8 @@ name|SpringOnCompletionAndInterceptGlobalTest
 extends|extends
 name|OnCompletionAndInterceptGlobalTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

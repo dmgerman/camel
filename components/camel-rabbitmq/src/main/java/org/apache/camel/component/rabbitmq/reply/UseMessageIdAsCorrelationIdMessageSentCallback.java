@@ -102,6 +102,8 @@ operator|=
 name|requestTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sent (Connection session, byte[] message, String destination)
 specifier|public
 name|void

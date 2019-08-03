@@ -70,6 +70,8 @@ name|SpringStreamCachingPerRouteTest
 extends|extends
 name|StreamCachingPerRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

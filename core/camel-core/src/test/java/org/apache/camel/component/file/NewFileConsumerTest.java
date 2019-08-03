@@ -316,6 +316,8 @@ specifier|volatile
 name|boolean
 name|post
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|newFileConsumer (Processor processor, GenericFileOperations<File> operations)
 specifier|protected
 name|FileConsumer

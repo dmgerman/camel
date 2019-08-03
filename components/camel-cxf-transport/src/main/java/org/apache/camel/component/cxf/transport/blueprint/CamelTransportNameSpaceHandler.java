@@ -190,6 +190,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|decorate (Node node, ComponentMetadata componentMetadata, ParserContext parserContext)
 specifier|public
 name|ComponentMetadata
@@ -209,6 +211,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -239,6 +243,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSchemaLocation (String s)
 specifier|public
 name|URL

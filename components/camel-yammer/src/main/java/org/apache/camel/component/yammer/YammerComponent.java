@@ -161,6 +161,8 @@ specifier|private
 name|YammerConfiguration
 name|config
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

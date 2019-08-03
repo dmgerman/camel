@@ -70,6 +70,8 @@ name|SpringMulticastNoStopOnExceptionTest
 extends|extends
 name|MulticastNoStopOnExceptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

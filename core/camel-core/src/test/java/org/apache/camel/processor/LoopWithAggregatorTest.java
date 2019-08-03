@@ -256,6 +256,8 @@ name|ExampleAggregationStrategy
 implements|implements
 name|AggregationStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|aggregate (Exchange original, Exchange resource)
 specifier|public
 name|Exchange

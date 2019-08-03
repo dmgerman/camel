@@ -75,6 +75,8 @@ name|classLoader
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newRecord (Object old, Schema schema)
 specifier|public
 name|Object

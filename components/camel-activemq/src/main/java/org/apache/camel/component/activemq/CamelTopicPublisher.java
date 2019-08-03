@@ -123,6 +123,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Gets the topic associated with this<CODE>TopicPublisher</CODE>.      *      * @return this publisher's topic      * @throws JMSException if the JMS provider fails to get the topic for this      *<CODE>TopicPublisher</CODE> due to some internal error.      */
+annotation|@
+name|Override
 DECL|method|getTopic ()
 specifier|public
 name|Topic
@@ -142,6 +144,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Publishes a message to the topic. Uses the<CODE>TopicPublisher</CODE>'s      * default delivery mode, priority, and time to live.      *      * @param message the message to publish      * @throws JMSException if the JMS provider fails to publish the message due      *             to some internal error.      * @throws javax.jms.MessageFormatException if an invalid message is      *             specified.      * @throws javax.jms.InvalidDestinationException if a client uses this      *             method with a<CODE>TopicPublisher      *</CODE> with an invalid topic.      * @throws java.lang.UnsupportedOperationException if a client uses this      *             method with a<CODE>TopicPublisher      *</CODE> that did not specify a topic      *             at creation time.      * @see javax.jms.MessageProducer#getDeliveryMode()      * @see javax.jms.MessageProducer#getTimeToLive()      * @see javax.jms.MessageProducer#getPriority()      */
+annotation|@
+name|Override
 DECL|method|publish (Message message)
 specifier|public
 name|void
@@ -162,6 +166,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Publishes a message to the topic, specifying delivery mode, priority, and      * time to live.      *      * @param message the message to publish      * @param deliveryMode the delivery mode to use      * @param priority the priority for this message      * @param timeToLive the message's lifetime (in milliseconds)      * @throws JMSException if the JMS provider fails to publish the message due      *             to some internal error.      * @throws javax.jms.MessageFormatException if an invalid message is      *             specified.      * @throws javax.jms.InvalidDestinationException if a client uses this      *             method with a<CODE>TopicPublisher      *</CODE> with an invalid topic.      * @throws java.lang.UnsupportedOperationException if a client uses this      *             method with a<CODE>TopicPublisher      *</CODE> that did not specify a topic      *             at creation time.      */
+annotation|@
+name|Override
 DECL|method|publish (Message message, int deliveryMode, int priority, long timeToLive)
 specifier|public
 name|void
@@ -197,6 +203,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Publishes a message to a topic for an unidentified message producer. Uses      * the<CODE>TopicPublisher</CODE>'s default delivery mode, priority, and      * time to live.      *<p/>      *<P>      * Typically, a message producer is assigned a topic at creation time;      * however, the JMS API also supports unidentified message producers, which      * require that the topic be supplied every time a message is published.      *      * @param topic the topic to publish this message to      * @param message the message to publish      * @throws JMSException if the JMS provider fails to publish the message due      *             to some internal error.      * @throws javax.jms.MessageFormatException if an invalid message is      *             specified.      * @throws javax.jms.InvalidDestinationException if a client uses this      *             method with an invalid topic.      * @see javax.jms.MessageProducer#getDeliveryMode()      * @see javax.jms.MessageProducer#getTimeToLive()      * @see javax.jms.MessageProducer#getPriority()      */
+annotation|@
+name|Override
 DECL|method|publish (Topic topic, Message message)
 specifier|public
 name|void
@@ -222,6 +230,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Publishes a message to a topic for an unidentified message producer,      * specifying delivery mode, priority and time to live.      *<p/>      *<P>      * Typically, a message producer is assigned a topic at creation time;      * however, the JMS API also supports unidentified message producers, which      * require that the topic be supplied every time a message is published.      *      * @param topic the topic to publish this message to      * @param message the message to publish      * @param deliveryMode the delivery mode to use      * @param priority the priority for this message      * @param timeToLive the message's lifetime (in milliseconds)      * @throws JMSException if the JMS provider fails to publish the message due      *             to some internal error.      * @throws javax.jms.MessageFormatException if an invalid message is      *             specified.      * @throws javax.jms.InvalidDestinationException if a client uses this      *             method with an invalid topic.      */
+annotation|@
+name|Override
 DECL|method|publish (Topic topic, Message message, int deliveryMode, int priority, long timeToLive)
 specifier|public
 name|void

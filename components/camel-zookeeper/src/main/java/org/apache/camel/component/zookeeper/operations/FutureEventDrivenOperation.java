@@ -216,6 +216,8 @@ operator|=
 name|awaitedTypes
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (WatchedEvent event)
 specifier|public
 name|void
@@ -384,6 +386,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|get ()
 specifier|public
 name|OperationResult
@@ -419,6 +423,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get (long timeout, TimeUnit unit)
 specifier|public
 name|OperationResult

@@ -40,6 +40,8 @@ name|GoogleTalkEndpointTest
 extends|extends
 name|GoogleTalkTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

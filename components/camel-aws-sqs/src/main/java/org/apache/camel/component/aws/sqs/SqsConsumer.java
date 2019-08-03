@@ -885,6 +885,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
 name|int

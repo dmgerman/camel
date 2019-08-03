@@ -566,6 +566,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addBreakpoint (Breakpoint breakpoint)
 specifier|public
 name|void

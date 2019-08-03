@@ -264,6 +264,8 @@ name|config
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet (GenericFileEndpoint<SftpRemoteFile> endpoint)
 specifier|protected
 name|void

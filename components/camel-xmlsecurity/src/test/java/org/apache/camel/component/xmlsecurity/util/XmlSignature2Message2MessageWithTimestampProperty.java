@@ -84,6 +84,8 @@ name|XmlSignature2Message2MessageWithTimestampProperty
 extends|extends
 name|DefaultXmlSignature2Message
 block|{
+annotation|@
+name|Override
 DECL|method|getReferencesForMessageMapping (Input input)
 specifier|protected
 name|List

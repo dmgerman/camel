@@ -252,6 +252,8 @@ name|dataStore
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (final Processor processor)
 specifier|public
 name|Consumer

@@ -300,6 +300,8 @@ specifier|public
 name|XmlSignatureConfiguration
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -310,6 +312,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

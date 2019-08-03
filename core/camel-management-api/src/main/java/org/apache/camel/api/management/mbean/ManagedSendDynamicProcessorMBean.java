@@ -151,6 +151,8 @@ name|isOptimised
 parameter_list|()
 function_decl|;
 annotation|@
+name|Override
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

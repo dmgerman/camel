@@ -300,6 +300,8 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (ManagementStrategy strategy)
 specifier|public
 name|void
@@ -412,6 +414,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|WireTapProcessor
@@ -422,6 +426,8 @@ return|return
 name|processor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUri ()
 specifier|public
 name|String
@@ -432,6 +438,8 @@ return|return
 name|uri
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheSize ()
 specifier|public
 name|Integer
@@ -445,6 +453,8 @@ name|getCacheSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreInvalidEndpoint ()
 specifier|public
 name|Boolean
@@ -458,6 +468,8 @@ name|isIgnoreInvalidEndpoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isCopy ()
 specifier|public
 name|Boolean
@@ -471,6 +483,8 @@ name|isCopy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDynamicUri ()
 specifier|public
 name|Boolean
@@ -484,6 +498,8 @@ name|isDynamicUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTaskSize ()
 specifier|public
 name|Integer

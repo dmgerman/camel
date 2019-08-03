@@ -146,6 +146,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Marks this element as timed-out.      *       * @param t timeout task that caused the notification.      */
+annotation|@
+name|Override
 DECL|method|timeout (Timeout t)
 specifier|public
 specifier|synchronized

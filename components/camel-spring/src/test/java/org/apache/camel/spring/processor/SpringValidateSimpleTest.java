@@ -70,6 +70,8 @@ name|SpringValidateSimpleTest
 extends|extends
 name|ValidateSimpleTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

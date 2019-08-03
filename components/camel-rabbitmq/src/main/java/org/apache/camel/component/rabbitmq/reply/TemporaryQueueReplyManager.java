@@ -173,6 +173,8 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
 specifier|protected
 name|ReplyHandler
@@ -215,6 +217,8 @@ name|requestTimeout
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|updateCorrelationId (String correlationId, String newCorrelationId, long requestTimeout)
 specifier|public
 name|void

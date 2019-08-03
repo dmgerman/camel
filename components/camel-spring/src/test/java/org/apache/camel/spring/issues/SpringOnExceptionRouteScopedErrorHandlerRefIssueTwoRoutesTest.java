@@ -74,6 +74,8 @@ name|SpringOnExceptionRouteScopedErrorHandlerRefIssueTwoRoutesTest
 extends|extends
 name|OnExceptionRouteScopedErrorHandlerRefIssueTwoRoutesTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

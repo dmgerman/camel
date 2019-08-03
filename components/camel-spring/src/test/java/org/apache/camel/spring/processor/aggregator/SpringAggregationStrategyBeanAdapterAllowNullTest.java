@@ -74,6 +74,8 @@ name|SpringAggregationStrategyBeanAdapterAllowNullTest
 extends|extends
 name|AggregationStrategyBeanAdapterAllowNullTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -575,6 +575,8 @@ end_class
 
 begin_function
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -614,6 +616,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()

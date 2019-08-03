@@ -111,6 +111,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 name|int

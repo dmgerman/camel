@@ -59,6 +59,8 @@ extends|extends
 name|RouteBuilder
 block|{
 comment|/**      * Let's configure the Camel routing rules using Java code...      */
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

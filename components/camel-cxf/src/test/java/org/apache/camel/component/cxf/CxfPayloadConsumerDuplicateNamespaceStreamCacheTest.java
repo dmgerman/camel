@@ -51,6 +51,8 @@ operator|+
 literal|"<arg0 xsi:type=\"xs:string\">Send</arg0></ns2:getToken></soap:Body></soap:Envelope>"
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testInvokeRouter ()
 specifier|public

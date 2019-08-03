@@ -160,6 +160,8 @@ operator|=
 name|v2
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode ()
 specifier|public
 name|int
@@ -180,6 +182,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals (Object obj)
 specifier|public
 name|boolean

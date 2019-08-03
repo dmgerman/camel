@@ -258,6 +258,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -321,6 +323,8 @@ literal|". A producer type was not provided (or an incorrect pairing was used)."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

@@ -56,6 +56,8 @@ name|SpringPropertiesComponentOnExceptionRefTest
 extends|extends
 name|PropertiesComponentOnExceptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

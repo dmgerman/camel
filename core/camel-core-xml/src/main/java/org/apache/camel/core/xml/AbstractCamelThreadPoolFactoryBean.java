@@ -372,6 +372,8 @@ specifier|private
 name|Boolean
 name|scheduled
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 name|ExecutorService
@@ -612,6 +614,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class

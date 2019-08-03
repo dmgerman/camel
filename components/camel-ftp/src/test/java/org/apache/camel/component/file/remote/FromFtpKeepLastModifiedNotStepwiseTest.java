@@ -32,6 +32,8 @@ name|FromFtpKeepLastModifiedNotStepwiseTest
 extends|extends
 name|FromFtpKeepLastModifiedTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

@@ -161,6 +161,8 @@ name|camelContext
 expr_stmt|;
 block|}
 comment|/**      * Strategy to prepare exchange for being processed by this consumer      *      * @param exchange the exchange      * @return the exchange to process by this consumer.      */
+annotation|@
+name|Override
 DECL|method|prepareExchange (Exchange exchange)
 specifier|protected
 name|Exchange

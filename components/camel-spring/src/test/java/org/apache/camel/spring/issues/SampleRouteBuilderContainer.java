@@ -75,6 +75,8 @@ operator|=
 name|routeBuilder
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void

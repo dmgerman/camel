@@ -183,6 +183,8 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getReceivedCounter ()
 specifier|public
 name|int
@@ -196,6 +198,8 @@ name|getReceivedCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAverage ()
 specifier|public
 name|double
@@ -209,6 +213,8 @@ name|getAverage
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRate ()
 specifier|public
 name|double
@@ -222,6 +228,8 @@ name|getRate
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastLogMessage ()
 specifier|public
 name|String
@@ -235,6 +243,8 @@ name|getLastLogMessage
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetThroughputLogger ()
 specifier|public
 name|void

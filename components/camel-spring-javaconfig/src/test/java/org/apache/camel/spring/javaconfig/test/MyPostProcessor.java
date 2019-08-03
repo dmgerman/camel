@@ -60,6 +60,8 @@ name|MyPostProcessor
 implements|implements
 name|BeanPostProcessor
 block|{
+annotation|@
+name|Override
 DECL|method|postProcessBeforeInitialization (Object bean, String name)
 specifier|public
 name|Object
@@ -99,6 +101,8 @@ return|return
 name|bean
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|postProcessAfterInitialization (Object bean, String name)
 specifier|public
 name|Object

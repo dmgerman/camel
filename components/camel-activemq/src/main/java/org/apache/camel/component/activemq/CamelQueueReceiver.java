@@ -118,6 +118,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Gets the<CODE>Queue</CODE> associated with this queue receiver.      *      * @return this receiver's<CODE>Queue</CODE>      * @throws JMSException if the JMS provider fails to get the queue for this      *             queue receiver due to some internal error.      */
+annotation|@
+name|Override
 DECL|method|getQueue ()
 specifier|public
 name|Queue

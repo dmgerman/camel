@@ -114,6 +114,8 @@ name|DualCamelContextManagedAutoAssignedNameTest
 extends|extends
 name|DualCamelContextManagedTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext
@@ -128,6 +130,8 @@ literal|"org/apache/camel/spring/management/dualCamelContextManagedAutoAssignedN
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testDualCamelContextManaged ()

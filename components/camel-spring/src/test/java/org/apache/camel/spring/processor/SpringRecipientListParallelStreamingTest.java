@@ -70,6 +70,8 @@ name|SpringRecipientListParallelStreamingTest
 extends|extends
 name|RecipientListParallelStreamingTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

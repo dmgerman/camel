@@ -195,6 +195,8 @@ operator|=
 name|context
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEncoder (IoSession session)
 specifier|public
 name|ProtocolEncoder
@@ -263,6 +265,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDecoder (IoSession session)
 specifier|public
 name|ProtocolDecoder

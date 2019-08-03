@@ -245,6 +245,8 @@ name|applicationContext
 return|;
 block|}
 comment|/**      * The Spring ApplicationContext      */
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void
@@ -310,6 +312,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|EventEndpoint

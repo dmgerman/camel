@@ -91,6 +91,8 @@ specifier|private
 name|int
 name|tick
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|tick ()
 specifier|public
 name|void

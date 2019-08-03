@@ -382,6 +382,8 @@ extends|extends
 name|SingleRouteCamelConfiguration
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Bean
 DECL|method|route ()
 specifier|public

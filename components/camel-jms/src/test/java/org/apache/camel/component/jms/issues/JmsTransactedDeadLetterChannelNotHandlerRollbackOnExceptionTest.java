@@ -51,6 +51,8 @@ literal|false
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|shouldNotLoseMessagesOnExceptionInErrorHandler ()
 specifier|public

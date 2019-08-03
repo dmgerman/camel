@@ -89,6 +89,8 @@ implements|implements
 name|AggregationStrategy
 block|{
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"

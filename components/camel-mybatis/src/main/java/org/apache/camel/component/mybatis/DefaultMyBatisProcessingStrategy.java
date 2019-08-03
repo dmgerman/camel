@@ -62,6 +62,8 @@ name|DefaultMyBatisProcessingStrategy
 implements|implements
 name|MyBatisProcessingStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|commit (MyBatisEndpoint endpoint, Exchange exchange, Object data, String consumeStatements)
 specifier|public
 name|void
@@ -157,6 +159,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|poll (MyBatisConsumer consumer, MyBatisEndpoint endpoint)
 specifier|public
 name|List

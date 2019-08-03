@@ -256,6 +256,8 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -271,6 +273,8 @@ return|;
 block|}
 comment|// CustomDestination interface
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|createConsumer (ActiveMQSession session, String messageSelector)
 specifier|public
 name|MessageConsumer
@@ -294,6 +298,8 @@ literal|false
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (ActiveMQSession session, String messageSelector, boolean noLocal)
 specifier|public
 name|MessageConsumer
@@ -328,6 +334,8 @@ name|noLocal
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createSubscriber (ActiveMQSession session, String messageSelector, boolean noLocal)
 specifier|public
 name|TopicSubscriber
@@ -356,6 +364,8 @@ name|noLocal
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createDurableSubscriber (ActiveMQSession session, String name, String messageSelector, boolean noLocal)
 specifier|public
 name|TopicSubscriber
@@ -384,6 +394,8 @@ name|this
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createReceiver (ActiveMQSession session, String messageSelector)
 specifier|public
 name|QueueReceiver
@@ -408,6 +420,8 @@ throw|;
 block|}
 comment|// Producers
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|createProducer (ActiveMQSession session)
 specifier|public
 name|MessageProducer
@@ -434,6 +448,8 @@ name|session
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPublisher (ActiveMQSession session)
 specifier|public
 name|TopicPublisher
@@ -455,6 +471,8 @@ name|this
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|createSender (ActiveMQSession session)
 specifier|public
 name|QueueSender
@@ -530,6 +548,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -540,6 +560,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void

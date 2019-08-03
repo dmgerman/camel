@@ -50,6 +50,8 @@ name|DefaultSplunkConfigurationFactory
 implements|implements
 name|SplunkConfigurationFactory
 block|{
+annotation|@
+name|Override
 DECL|method|parseMap (Map<String, Object> parameters)
 specifier|public
 name|SplunkConfiguration

@@ -53,6 +53,8 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|updateValue (long newValue)
 specifier|public
 name|void
@@ -94,6 +96,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getValue ()
 specifier|public
 name|long
@@ -154,6 +158,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void

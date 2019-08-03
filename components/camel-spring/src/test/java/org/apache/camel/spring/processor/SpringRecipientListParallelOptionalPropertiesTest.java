@@ -70,6 +70,8 @@ name|SpringRecipientListParallelOptionalPropertiesTest
 extends|extends
 name|RecipientListParallelTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

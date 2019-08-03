@@ -70,6 +70,8 @@ name|SpringRouteNoAutoStartupTest
 extends|extends
 name|RouteNoAutoStartupTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

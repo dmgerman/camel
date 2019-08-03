@@ -101,6 +101,8 @@ literal|true
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -166,6 +168,8 @@ block|}
 block|}
 block|}
 comment|/**      * This method will aggregate the old and new exchange and return the result.      *      * @param oldExchange The oldest exchange, can be null      * @param newExchange The newest exchange, can be null      * @return a composite exchange of the old and/or new exchanges      */
+annotation|@
+name|Override
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange

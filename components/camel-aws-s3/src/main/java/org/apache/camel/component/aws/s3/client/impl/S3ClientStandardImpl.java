@@ -295,6 +295,8 @@ name|maxConnections
 expr_stmt|;
 block|}
 comment|/**      * Getting the s3 aws client that is used.      * @return Amazon S3 Client.      */
+annotation|@
+name|Override
 DECL|method|getS3Client ()
 specifier|public
 name|AmazonS3

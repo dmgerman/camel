@@ -209,6 +209,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy ()
 specifier|public
 name|MailMessage
@@ -472,6 +474,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|copyFrom (org.apache.camel.Message that)
 specifier|public
 name|void

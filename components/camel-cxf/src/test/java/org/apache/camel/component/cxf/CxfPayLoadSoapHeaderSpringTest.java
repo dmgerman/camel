@@ -119,6 +119,8 @@ specifier|protected
 name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getRouterEndpointURI ()
 specifier|protected
 name|String
@@ -129,6 +131,8 @@ return|return
 literal|"cxf:bean:routerEndpoint?dataFormat=PAYLOAD"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getServiceEndpointURI ()
 specifier|protected
 name|String
@@ -139,6 +143,8 @@ return|return
 literal|"cxf:bean:serviceEndpoint?dataFormat=PAYLOAD"
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -167,6 +173,8 @@ name|applicationContext
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown ()

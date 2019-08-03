@@ -90,6 +90,8 @@ name|SpringFinallyNestedFailTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

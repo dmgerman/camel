@@ -209,6 +209,8 @@ operator|=
 name|locale
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|format (LocalDate object)
 specifier|public
 name|String
@@ -243,6 +245,8 @@ name|object
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String string)
 specifier|public
 name|LocalDate
@@ -334,6 +338,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPattern ()
 specifier|public
 name|String

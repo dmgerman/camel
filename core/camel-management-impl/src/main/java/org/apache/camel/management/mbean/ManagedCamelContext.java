@@ -649,6 +649,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -662,6 +664,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementName ()
 specifier|public
 name|String
@@ -675,6 +679,8 @@ name|getManagementName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelVersion ()
 specifier|public
 name|String
@@ -688,6 +694,8 @@ name|getVersion
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getState ()
 specifier|public
 name|String
@@ -704,6 +712,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUptime ()
 specifier|public
 name|String
@@ -717,6 +727,8 @@ name|getUptime
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUptimeMillis ()
 specifier|public
 name|long
@@ -730,6 +742,8 @@ name|getUptimeMillis
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagementStatisticsLevel ()
 specifier|public
 name|String
@@ -772,6 +786,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getClassResolver ()
 specifier|public
 name|String
@@ -791,6 +807,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPackageScanClassResolver ()
 specifier|public
 name|String
@@ -817,6 +835,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getApplicationContextClassName ()
 specifier|public
 name|String
@@ -960,6 +980,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTracing ()
 specifier|public
 name|Boolean
@@ -973,6 +995,8 @@ name|isTracing
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTracing (Boolean tracing)
 specifier|public
 name|void
@@ -1006,6 +1030,8 @@ name|getExchangesInflight
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTotalRoutes ()
 specifier|public
 name|Integer
@@ -1022,6 +1048,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStartedRoutes ()
 specifier|public
 name|Integer
@@ -1072,6 +1100,8 @@ return|return
 name|started
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -1092,6 +1122,8 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -1108,6 +1140,8 @@ name|getTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
@@ -1128,6 +1162,8 @@ name|timeUnit
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimeUnit ()
 specifier|public
 name|TimeUnit
@@ -1144,6 +1180,8 @@ name|getTimeUnit
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
 specifier|public
 name|void
@@ -1164,6 +1202,8 @@ name|shutdownNowOnTimeout
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isShutdownNowOnTimeout ()
 specifier|public
 name|boolean
@@ -1180,6 +1220,8 @@ name|isShutdownNowOnTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLoad01 ()
 specifier|public
 name|String
@@ -1223,6 +1265,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getLoad05 ()
 specifier|public
 name|String
@@ -1266,6 +1310,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getLoad15 ()
 specifier|public
 name|String
@@ -1309,6 +1355,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isUseBreadcrumb ()
 specifier|public
 name|boolean
@@ -1322,6 +1370,8 @@ name|isUseBreadcrumb
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAllowUseOriginalMessage ()
 specifier|public
 name|boolean
@@ -1335,6 +1385,8 @@ name|isAllowUseOriginalMessage
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isMessageHistory ()
 specifier|public
 name|boolean
@@ -1357,6 +1409,8 @@ else|:
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLogMask ()
 specifier|public
 name|boolean
@@ -1379,6 +1433,8 @@ else|:
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseMDCLogging ()
 specifier|public
 name|boolean
@@ -1392,6 +1448,8 @@ name|isUseMDCLogging
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseDataType ()
 specifier|public
 name|boolean
@@ -1405,6 +1463,8 @@ name|isUseDataType
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onTimer ()
 specifier|public
 name|void
@@ -1420,6 +1480,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -1451,6 +1513,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void
@@ -1465,6 +1529,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|restart ()
 specifier|public
 name|void
@@ -1484,6 +1550,8 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|suspend ()
 specifier|public
 name|void
@@ -1498,6 +1566,8 @@ name|suspend
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resume ()
 specifier|public
 name|void
@@ -1531,6 +1601,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|startAllRoutes ()
 specifier|public
 name|void
@@ -1548,6 +1620,8 @@ name|startAllRoutes
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|canSendToEndpoint (String endpointUri)
 specifier|public
 name|boolean
@@ -1603,6 +1677,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBody (String endpointUri, Object body)
 specifier|public
 name|void
@@ -1646,6 +1722,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendStringBody (String endpointUri, String body)
 specifier|public
 name|void
@@ -1668,6 +1746,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
 specifier|public
 name|void
@@ -1721,6 +1801,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|requestBody (String endpointUri, Object body)
 specifier|public
 name|Object
@@ -1774,6 +1856,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestStringBody (String endpointUri, String body)
 specifier|public
 name|Object
@@ -1797,6 +1881,8 @@ name|body
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
 specifier|public
 name|Object
@@ -1860,6 +1946,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpRestsAsXml ()
 specifier|public
 name|String
@@ -2097,6 +2185,8 @@ return|return
 name|xml
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpRoutesAsXml ()
 specifier|public
 name|String
@@ -2212,6 +2302,8 @@ name|resolveDelegateEndpoints
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addOrUpdateRoutesFromXml (String xml)
 specifier|public
 name|void
@@ -2232,6 +2324,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addOrUpdateRoutesFromXml (String xml, boolean urlDecode)
 specifier|public
 name|void
@@ -2334,6 +2428,8 @@ name|e
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|dumpRoutesStatsAsXml (boolean fullStats, boolean includeProcessors)
 specifier|public
 name|String
@@ -2896,6 +2992,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpStepStatsAsXml (boolean fullStats)
 specifier|public
 name|String
@@ -3443,6 +3541,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dumpRoutesCoverageAsXml ()
 specifier|public
 name|String
@@ -3562,6 +3662,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri)
 specifier|public
 name|boolean
@@ -3692,6 +3794,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|removeEndpoints (String pattern)
 specifier|public
 name|int
@@ -3724,6 +3828,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|componentParameterJsonSchema (String componentName)
 specifier|public
 name|String
@@ -3751,6 +3857,8 @@ name|componentName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dataFormatParameterJsonSchema (String dataFormatName)
 specifier|public
 name|String
@@ -3778,6 +3886,8 @@ name|dataFormatName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|languageParameterJsonSchema (String languageName)
 specifier|public
 name|String
@@ -3805,6 +3915,8 @@ name|languageName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|eipParameterJsonSchema (String eipName)
 specifier|public
 name|String
@@ -3832,6 +3944,8 @@ name|eipName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset (boolean includeRoutes)
 specifier|public
 name|void

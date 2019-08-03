@@ -585,6 +585,8 @@ specifier|protected
 name|ScheduledPollEndpoint
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|configureProperties (Map<String, Object> options)
 specifier|public
 name|void

@@ -112,6 +112,8 @@ name|RemoveHeadersExcludeTest
 extends|extends
 name|SpringTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

@@ -80,6 +80,8 @@ name|HYPHEN_REPLACEMENT
 init|=
 literal|"_HYPHEN_"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|encodeKey (String key)
 specifier|public
 name|String
@@ -120,6 +122,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|decodeKey (String key)
 specifier|public
 name|String

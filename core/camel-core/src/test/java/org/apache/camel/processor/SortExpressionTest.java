@@ -310,6 +310,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -398,6 +400,8 @@ specifier|public
 name|MyReverseComparator
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|compare (Object o1, Object o2)
 specifier|public
 name|int

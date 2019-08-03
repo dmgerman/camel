@@ -346,6 +346,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields.      *      * @throws Exception      */
+annotation|@
+name|Override
 DECL|method|initModel ()
 specifier|public
 name|void
@@ -606,6 +608,8 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+annotation|@
+name|Override
 DECL|method|bind (CamelContext camelContext, List<String> data, Map<String, Object> model, int line)
 specifier|public
 specifier|abstract
@@ -635,6 +639,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+annotation|@
+name|Override
 DECL|method|unbind (CamelContext camelContext, Map<String, Object> model)
 specifier|public
 specifier|abstract

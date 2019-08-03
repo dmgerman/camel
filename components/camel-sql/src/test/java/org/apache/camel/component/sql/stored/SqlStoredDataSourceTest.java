@@ -242,6 +242,8 @@ name|reg
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown ()
 specifier|public

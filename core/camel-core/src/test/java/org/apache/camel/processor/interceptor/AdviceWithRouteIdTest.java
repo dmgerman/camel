@@ -65,6 +65,8 @@ extends|extends
 name|AdviceWithTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testAdvised ()
 specifier|public

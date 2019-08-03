@@ -56,6 +56,8 @@ name|SpringPropertiesComponentInterceptFromTest
 extends|extends
 name|PropertiesComponentInterceptFromTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

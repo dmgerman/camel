@@ -573,6 +573,8 @@ name|this
 return|;
 block|}
 comment|/**      * To use a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
+annotation|@
+name|Override
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|SplitDefinition
@@ -592,6 +594,8 @@ name|this
 return|;
 block|}
 comment|/**      * Refers to a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
+annotation|@
+name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|SplitDefinition
@@ -879,6 +883,8 @@ operator|&&
 name|stopOnException
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorService ()
 specifier|public
 name|ExecutorService
@@ -889,6 +895,8 @@ return|return
 name|executorService
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorService (ExecutorService executorService)
 specifier|public
 name|void
@@ -986,6 +994,8 @@ operator|=
 name|strategyMethodAllowNull
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorServiceRef ()
 specifier|public
 name|String
@@ -996,6 +1006,8 @@ return|return
 name|executorServiceRef
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorServiceRef (String executorServiceRef)
 specifier|public
 name|void

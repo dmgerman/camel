@@ -276,6 +276,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|initTypeConverterLoaders ()
 specifier|protected
 name|void

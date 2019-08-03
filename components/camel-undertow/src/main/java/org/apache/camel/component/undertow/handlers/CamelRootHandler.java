@@ -102,6 +102,8 @@ name|defaultHandler
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleRequest (HttpServerExchange exchange)
 specifier|public
 name|void
@@ -714,6 +716,8 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

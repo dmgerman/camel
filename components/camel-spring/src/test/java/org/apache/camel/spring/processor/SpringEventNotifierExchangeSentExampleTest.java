@@ -70,6 +70,8 @@ name|SpringEventNotifierExchangeSentExampleTest
 extends|extends
 name|EventNotifierExchangeSentExampleTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

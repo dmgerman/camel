@@ -262,6 +262,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaceURI (String prefix)
 specifier|public
 name|String
@@ -305,6 +307,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPrefix (String namespaceURI)
 specifier|public
 name|String
@@ -371,6 +375,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPrefixes (String namespaceURI)
 specifier|public
 name|Iterator
@@ -487,6 +493,8 @@ name|iterator
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNamespaces (Map<String, String> namespaces)
 specifier|public
 name|void
@@ -509,6 +517,8 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaces ()
 specifier|public
 name|Map

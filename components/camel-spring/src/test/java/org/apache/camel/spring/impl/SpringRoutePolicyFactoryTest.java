@@ -70,6 +70,8 @@ name|SpringRoutePolicyFactoryTest
 extends|extends
 name|RoutePolicyFactoryTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

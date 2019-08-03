@@ -382,6 +382,8 @@ name|AbstractXmlApplicationContext
 name|applicationContext
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

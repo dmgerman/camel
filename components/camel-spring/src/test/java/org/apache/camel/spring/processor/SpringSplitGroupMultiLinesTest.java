@@ -70,6 +70,8 @@ name|SpringSplitGroupMultiLinesTest
 extends|extends
 name|SplitGroupMultiLinesTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

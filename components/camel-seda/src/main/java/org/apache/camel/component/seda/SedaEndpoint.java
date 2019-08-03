@@ -917,6 +917,8 @@ name|getComponent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -945,6 +947,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -1923,6 +1927,8 @@ name|purgeWhenStopping
 expr_stmt|;
 block|}
 comment|/**      * Returns the current pending exchanges      */
+annotation|@
+name|Override
 DECL|method|getExchanges ()
 specifier|public
 name|List
@@ -1942,6 +1948,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedAttribute
 DECL|method|isMultipleConsumersSupported ()

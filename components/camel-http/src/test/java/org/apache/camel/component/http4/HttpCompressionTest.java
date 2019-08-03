@@ -835,6 +835,8 @@ name|RequestDecompressingInterceptor
 implements|implements
 name|HttpRequestInterceptor
 block|{
+annotation|@
+name|Override
 DECL|method|process (HttpRequest request, HttpContext context)
 specifier|public
 name|void
@@ -992,6 +994,8 @@ name|ResponseCompressingInterceptor
 implements|implements
 name|HttpResponseInterceptor
 block|{
+annotation|@
+name|Override
 DECL|method|process (HttpResponse response, HttpContext context)
 specifier|public
 name|void

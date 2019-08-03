@@ -80,6 +80,8 @@ specifier|private
 name|boolean
 name|little
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

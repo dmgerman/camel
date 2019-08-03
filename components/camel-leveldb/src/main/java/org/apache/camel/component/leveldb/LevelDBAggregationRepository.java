@@ -422,6 +422,8 @@ operator|=
 name|repositoryName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|add (final CamelContext camelContext, final String key, final Exchange exchange)
 specifier|public
 name|Exchange
@@ -604,6 +606,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get (final CamelContext camelContext, final String key)
 specifier|public
 name|Exchange
@@ -720,6 +724,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove (final CamelContext camelContext, final String key, final Exchange exchange)
 specifier|public
 name|void
@@ -927,6 +933,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|confirm (final CamelContext camelContext, final String exchangeId)
 specifier|public
 name|void
@@ -1010,6 +1018,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getKeys ()
 specifier|public
 name|Set
@@ -1177,6 +1187,8 @@ name|keys
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|scan (CamelContext camelContext)
 specifier|public
 name|Set
@@ -1376,6 +1388,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|recover (CamelContext camelContext, final String exchangeId)
 specifier|public
 name|Exchange
@@ -1712,6 +1726,8 @@ operator|=
 name|returnOldExchange
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRecoveryInterval (long interval, TimeUnit timeUnit)
 specifier|public
 name|void
@@ -1736,6 +1752,8 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRecoveryInterval (long interval)
 specifier|public
 name|void
@@ -1752,6 +1770,8 @@ operator|=
 name|interval
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRecoveryIntervalInMillis ()
 specifier|public
 name|long
@@ -1762,6 +1782,8 @@ return|return
 name|recoveryInterval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isUseRecovery ()
 specifier|public
 name|boolean
@@ -1772,6 +1794,8 @@ return|return
 name|useRecovery
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUseRecovery (boolean useRecovery)
 specifier|public
 name|void
@@ -1788,6 +1812,8 @@ operator|=
 name|useRecovery
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumRedeliveries ()
 specifier|public
 name|int
@@ -1798,6 +1824,8 @@ return|return
 name|maximumRedeliveries
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|void
@@ -1814,6 +1842,8 @@ operator|=
 name|maximumRedeliveries
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDeadLetterUri ()
 specifier|public
 name|String
@@ -1824,6 +1854,8 @@ return|return
 name|deadLetterUri
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDeadLetterUri (String deadLetterUri)
 specifier|public
 name|void

@@ -180,6 +180,8 @@ literal|"mock:z"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -350,6 +352,8 @@ name|MyLoadBalancer
 extends|extends
 name|LoadBalancerSupport
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean

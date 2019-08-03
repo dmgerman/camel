@@ -269,6 +269,8 @@ name|serviceClass
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setServiceClass (Class<?> serviceClass)
 specifier|public
 name|void
@@ -571,6 +573,8 @@ return|return
 name|definition
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildServiceFromWSDL (String url)
 specifier|protected
 name|void
@@ -593,6 +597,8 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (EndpointInfo ei)
 specifier|public
 name|Endpoint

@@ -285,6 +285,8 @@ name|File
 name|legalOutDir
 decl_stmt|;
 comment|/**      * Execute goal.      *      * @throws MojoExecutionException execution of the main class or one of the      *                 threads it generated failed.      * @throws MojoFailureException something bad happened...      */
+annotation|@
+name|Override
 DECL|method|execute ()
 specifier|public
 name|void

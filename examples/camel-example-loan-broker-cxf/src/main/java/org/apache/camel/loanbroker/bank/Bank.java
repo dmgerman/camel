@@ -57,6 +57,8 @@ operator|=
 literal|3.5
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBankName ()
 specifier|public
 name|String
@@ -67,6 +69,8 @@ return|return
 name|bankName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQuote (String ssn, double loanAmount, int loanDuration, int creditHistory, int creditScore)
 specifier|public
 name|BankQuote

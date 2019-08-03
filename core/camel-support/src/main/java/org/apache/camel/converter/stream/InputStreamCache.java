@@ -126,6 +126,8 @@ operator|=
 name|count
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeTo (OutputStream os)
 specifier|public
 name|void
@@ -151,6 +153,8 @@ name|pos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy (Exchange exchange)
 specifier|public
 name|StreamCache
@@ -170,6 +174,8 @@ name|count
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|inMemory ()
 specifier|public
 name|boolean
@@ -180,6 +186,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|length ()
 specifier|public
 name|long

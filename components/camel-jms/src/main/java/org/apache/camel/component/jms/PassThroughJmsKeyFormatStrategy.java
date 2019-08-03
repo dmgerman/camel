@@ -30,6 +30,8 @@ name|PassThroughJmsKeyFormatStrategy
 implements|implements
 name|JmsKeyFormatStrategy
 block|{
+annotation|@
+name|Override
 DECL|method|encodeKey (String key)
 specifier|public
 name|String
@@ -43,6 +45,8 @@ return|return
 name|key
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|decodeKey (String key)
 specifier|public
 name|String

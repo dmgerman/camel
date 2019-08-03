@@ -40,6 +40,8 @@ name|VelocityFileLetterWithPropertyTest
 extends|extends
 name|VelocityLetterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

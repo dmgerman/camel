@@ -429,6 +429,8 @@ name|TestClientConfigurer
 implements|implements
 name|HttpClientConfigurer
 block|{
+annotation|@
+name|Override
 DECL|method|configureHttpClient (HttpClientBuilder clientBuilder)
 specifier|public
 name|void

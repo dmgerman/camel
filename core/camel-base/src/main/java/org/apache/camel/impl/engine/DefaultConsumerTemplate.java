@@ -223,6 +223,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumCacheSize ()
 specifier|public
 name|int
@@ -233,6 +235,8 @@ return|return
 name|maximumCacheSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaximumCacheSize (int maximumCacheSize)
 specifier|public
 name|void
@@ -249,6 +253,8 @@ operator|=
 name|maximumCacheSize
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCurrentCacheSize ()
 specifier|public
 name|int
@@ -273,6 +279,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|cleanUp ()
 specifier|public
 name|void
@@ -293,6 +301,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -303,6 +313,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive (String endpointUri)
 specifier|public
 name|Exchange
@@ -330,6 +342,8 @@ name|endpoint
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive (Endpoint endpoint)
 specifier|public
 name|Exchange
@@ -349,6 +363,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive (String endpointUri, long timeout)
 specifier|public
 name|Exchange
@@ -381,6 +397,8 @@ name|timeout
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive (Endpoint endpoint, long timeout)
 specifier|public
 name|Exchange
@@ -405,6 +423,8 @@ name|timeout
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveNoWait (String endpointUri)
 specifier|public
 name|Exchange
@@ -432,6 +452,8 @@ name|endpoint
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveNoWait (Endpoint endpoint)
 specifier|public
 name|Exchange
@@ -451,6 +473,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBody (String endpointUri)
 specifier|public
 name|Object
@@ -495,6 +519,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBody (Endpoint endpoint)
 specifier|public
 name|Object
@@ -514,6 +540,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBody (String endpointUri, long timeout)
 specifier|public
 name|Object
@@ -563,6 +591,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBody (Endpoint endpoint, long timeout)
 specifier|public
 name|Object
@@ -587,6 +617,8 @@ name|timeout
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBodyNoWait (String endpointUri)
 specifier|public
 name|Object
@@ -631,6 +663,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBodyNoWait (Endpoint endpoint)
 specifier|public
 name|Object
@@ -650,6 +684,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -727,6 +763,8 @@ operator|)
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBody (Endpoint endpoint, Class<T> type)
 specifier|public
 parameter_list|<
@@ -757,6 +795,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -839,6 +879,8 @@ operator|)
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBody (Endpoint endpoint, long timeout, Class<T> type)
 specifier|public
 parameter_list|<
@@ -874,6 +916,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -951,6 +995,8 @@ operator|)
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveBodyNoWait (Endpoint endpoint, Class<T> type)
 specifier|public
 parameter_list|<
@@ -981,6 +1027,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doneUoW (Exchange exchange)
 specifier|public
 name|void
@@ -1184,6 +1232,8 @@ return|return
 name|consumerCache
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1220,6 +1270,8 @@ name|consumerCache
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

@@ -367,6 +367,8 @@ specifier|public
 name|MyThrowProcessor
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -404,6 +406,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

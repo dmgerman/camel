@@ -72,6 +72,8 @@ name|MyLoggingSentEventNotifer
 extends|extends
 name|EventNotifierSupport
 block|{
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent event)
 specifier|public
 name|void

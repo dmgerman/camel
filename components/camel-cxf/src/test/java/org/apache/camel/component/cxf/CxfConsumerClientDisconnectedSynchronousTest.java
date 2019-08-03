@@ -26,6 +26,8 @@ name|CxfConsumerClientDisconnectedSynchronousTest
 extends|extends
 name|CxfConsumerClientDisconnectedTest
 block|{
+annotation|@
+name|Override
 DECL|method|isSynchronous ()
 specifier|protected
 name|boolean

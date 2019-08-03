@@ -977,6 +977,8 @@ name|formatter
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -1007,6 +1009,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Process the exchange using redelivery error handling.      */
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
@@ -1070,6 +1074,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processAsync (Exchange exchange)
 specifier|public
 name|CompletableFuture
@@ -1137,6 +1143,8 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean
@@ -1523,6 +1531,8 @@ name|answer
 return|;
 block|}
 comment|/**      * Returns the output processor      */
+annotation|@
+name|Override
 DECL|method|getOutput ()
 specifier|public
 name|Processor
@@ -1773,6 +1783,8 @@ operator|=
 name|callback
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String
@@ -1797,6 +1809,8 @@ literal|"]"
 return|;
 block|}
 comment|/**          * Redelivery logic.          */
+annotation|@
+name|Override
 DECL|method|run ()
 specifier|public
 name|void

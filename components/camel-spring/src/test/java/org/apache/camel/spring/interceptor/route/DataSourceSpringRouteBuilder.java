@@ -58,6 +58,8 @@ name|DataSourceSpringRouteBuilder
 extends|extends
 name|SpringRouteBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|configure ()
 specifier|public
 name|void

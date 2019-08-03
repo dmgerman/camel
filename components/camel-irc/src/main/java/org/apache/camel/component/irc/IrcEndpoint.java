@@ -275,6 +275,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange (ExchangePattern pattern)
 specifier|public
 name|Exchange
@@ -753,6 +755,8 @@ return|return
 name|exchange
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|IrcProducer
@@ -776,6 +780,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|IrcConsumer
@@ -814,6 +820,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getComponent ()
 specifier|public
 name|IrcComponent

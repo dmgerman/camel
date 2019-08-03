@@ -1761,6 +1761,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getSchemaLocation (String namespace)
 specifier|public
 name|URL
@@ -1798,6 +1800,8 @@ literal|null
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 block|{
@@ -1829,6 +1833,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (Element element, ParserContext context)
 specifier|public
 name|Metadata
@@ -4875,6 +4881,8 @@ name|getObject
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|decorate (Node node, ComponentMetadata component, ParserContext context)
 specifier|public
 name|ComponentMetadata
@@ -5742,6 +5750,8 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|call ()
 specifier|public
 name|T
@@ -5843,6 +5853,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeInit (Object bean, String beanName, BeanCreator beanCreator, BeanMetadata beanMetadata)
 specifier|public
 name|Object
@@ -6967,6 +6979,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|afterInit (Object bean, String beanName, BeanCreator beanCreator, BeanMetadata beanMetadata)
 specifier|public
 name|Object
@@ -7016,6 +7030,8 @@ return|return
 name|bean
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeDestroy (Object bean, String beanName)
 specifier|public
 name|void
@@ -7028,6 +7044,8 @@ name|String
 name|beanName
 parameter_list|)
 block|{         }
+annotation|@
+name|Override
 DECL|method|afterDestroy (Object bean, String beanName)
 specifier|public
 name|void
@@ -7190,6 +7208,8 @@ operator|=
 name|blueprintContainer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (ComponentDefinitionRegistry componentDefinitionRegistry)
 specifier|public
 name|void

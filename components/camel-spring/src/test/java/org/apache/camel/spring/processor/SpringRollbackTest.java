@@ -70,6 +70,8 @@ name|SpringRollbackTest
 extends|extends
 name|RollbackTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

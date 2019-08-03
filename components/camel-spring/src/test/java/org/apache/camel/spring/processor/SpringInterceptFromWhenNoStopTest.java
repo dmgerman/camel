@@ -72,6 +72,8 @@ name|SpringInterceptFromWhenNoStopTest
 extends|extends
 name|InterceptFromWhenNoStopTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

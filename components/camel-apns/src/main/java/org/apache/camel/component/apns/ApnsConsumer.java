@@ -205,6 +205,8 @@ name|DEFAULT_APNS_FIXED_DELAY
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|protected
 name|int

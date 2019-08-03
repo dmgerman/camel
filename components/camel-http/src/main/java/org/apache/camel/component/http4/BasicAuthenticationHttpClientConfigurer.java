@@ -180,6 +180,8 @@ operator|=
 name|host
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|configureHttpClient (HttpClientBuilder clientBuilder)
 specifier|public
 name|void

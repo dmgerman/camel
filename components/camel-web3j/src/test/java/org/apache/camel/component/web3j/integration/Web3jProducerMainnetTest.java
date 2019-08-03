@@ -221,6 +221,8 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getUrl ()
 specifier|protected
 name|String

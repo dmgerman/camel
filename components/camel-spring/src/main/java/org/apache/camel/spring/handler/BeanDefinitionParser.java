@@ -177,6 +177,8 @@ operator|=
 name|assignId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeanClass (Element element)
 specifier|protected
 name|Class
@@ -242,6 +244,8 @@ literal|"xmlns:"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doParse (Element element, BeanDefinitionBuilder builder)
 specifier|protected
 name|void

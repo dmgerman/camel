@@ -745,6 +745,8 @@ name|HEADER_FILTER_STRATEGY_JAVADOC
 init|=
 literal|"To use a custom HeaderFilterStrategy to filter header to and from Camel message."
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|doProcess (Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv)
 specifier|protected
 name|void

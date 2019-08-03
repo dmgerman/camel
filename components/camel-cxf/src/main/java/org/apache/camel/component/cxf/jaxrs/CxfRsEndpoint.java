@@ -1158,6 +1158,8 @@ return|return
 name|httpClientAPI
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -1169,6 +1171,8 @@ name|headerFilterStrategy
 return|;
 block|}
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
@@ -1183,6 +1187,8 @@ operator|=
 name|strategy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -1214,6 +1220,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer

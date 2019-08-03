@@ -290,6 +290,8 @@ name|systemId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCharacterStream ()
 specifier|public
 name|Reader
@@ -300,6 +302,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCharacterStream (Reader characterStream)
 specifier|public
 name|void
@@ -311,6 +315,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getByteStream ()
 specifier|public
 name|InputStream
@@ -330,6 +336,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setByteStream (InputStream byteStream)
 specifier|public
 name|void
@@ -355,6 +363,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getStringData ()
 specifier|public
 name|String
@@ -365,6 +375,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStringData (String stringData)
 specifier|public
 name|void
@@ -376,6 +388,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getSystemId ()
 specifier|public
 name|String
@@ -400,6 +414,8 @@ return|return
 name|systemId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSystemId (String systemId)
 specifier|public
 name|void
@@ -425,6 +441,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getPublicId ()
 specifier|public
 name|String
@@ -449,6 +467,8 @@ return|return
 name|publicId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setPublicId (String publicId)
 specifier|public
 name|void
@@ -483,6 +503,8 @@ name|publicId
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getBaseURI ()
 specifier|public
 name|String
@@ -493,6 +515,8 @@ return|return
 name|baseURI
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBaseURI (String baseURI)
 specifier|public
 name|void
@@ -504,6 +528,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getEncoding ()
 specifier|public
 name|String
@@ -528,6 +554,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -553,6 +581,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCertifiedText ()
 specifier|public
 name|boolean
@@ -563,6 +593,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCertifiedText (boolean certifiedText)
 specifier|public
 name|void

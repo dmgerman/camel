@@ -90,6 +90,8 @@ throws|throws
 name|OptimisticLockingException
 function_decl|;
 comment|/**      * Removes the given Exchange when both the supplied key and Exchange are present in the repository. If the supplied Exchange      * does not match the Exchange actually stored against the key this method should throw an OptimisticLockingException      * to indicate that the value of the correlation key has changed from the expected value.      *<p/>      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the exchange to remove      * @throws OptimisticLockingException This should be thrown when the exchange has already been deleted, or otherwise modified.      */
+annotation|@
+name|Override
 DECL|method|remove (CamelContext camelContext, String key, Exchange exchange)
 name|void
 name|remove

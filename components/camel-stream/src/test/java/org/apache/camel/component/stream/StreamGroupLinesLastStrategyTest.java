@@ -67,6 +67,8 @@ extends|extends
 name|StreamGroupLinesStrategyTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testGroupLines ()
 specifier|public

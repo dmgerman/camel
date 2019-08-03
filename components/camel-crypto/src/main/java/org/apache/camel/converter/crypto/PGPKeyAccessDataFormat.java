@@ -1213,6 +1213,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream outputStream)
 specifier|public
 name|void
@@ -2124,6 +2126,8 @@ return|return
 name|sigGens
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream encryptedStream)
 specifier|public
 name|Object

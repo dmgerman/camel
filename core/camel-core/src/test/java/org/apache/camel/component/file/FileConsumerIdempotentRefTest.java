@@ -369,6 +369,8 @@ name|MyIdempotentRepository
 implements|implements
 name|IdempotentRepository
 block|{
+annotation|@
+name|Override
 DECL|method|add (String messageId)
 specifier|public
 name|boolean
@@ -400,6 +402,8 @@ operator|!
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|contains (String key)
 specifier|public
 name|boolean
@@ -413,6 +417,8 @@ return|return
 name|invoked
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove (String key)
 specifier|public
 name|boolean
@@ -426,6 +432,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|confirm (String key)
 specifier|public
 name|boolean
@@ -449,12 +457,16 @@ parameter_list|()
 block|{
 return|return;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
 name|start
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void

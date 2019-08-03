@@ -281,6 +281,8 @@ return|return
 literal|"hystrix"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -434,6 +436,8 @@ name|end
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|preCreateProcessor ()
 specifier|public
 name|void

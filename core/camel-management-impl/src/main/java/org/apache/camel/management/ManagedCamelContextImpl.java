@@ -260,6 +260,8 @@ name|getManagementStrategy
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedProcessor (String id, Class<T> type)
 specifier|public
 parameter_list|<
@@ -386,6 +388,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedStep (String id)
 specifier|public
 name|ManagedStepMBean
@@ -503,6 +507,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedRoute (String routeId, Class<T> type)
 specifier|public
 parameter_list|<
@@ -607,6 +613,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManagedCamelContext ()
 specifier|public
 name|ManagedCamelContextMBean

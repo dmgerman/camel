@@ -68,6 +68,8 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveClass (String name)
 specifier|public
 name|Class

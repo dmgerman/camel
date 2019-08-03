@@ -279,6 +279,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|format (Date object)
 specifier|public
 name|String
@@ -313,6 +315,8 @@ name|object
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String string)
 specifier|public
 name|Date
@@ -458,6 +462,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPattern ()
 specifier|public
 name|String

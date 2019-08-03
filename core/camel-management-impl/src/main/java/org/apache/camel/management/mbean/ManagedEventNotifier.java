@@ -211,6 +211,8 @@ return|return
 name|eventNotifier
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreCamelContextEvents ()
 specifier|public
 name|boolean
@@ -225,6 +227,8 @@ name|isIgnoreCamelContextEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreCamelContextEvents (boolean ignoreCamelContextEvents)
 specifier|public
 name|void
@@ -243,6 +247,8 @@ name|ignoreCamelContextEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreRouteEvents ()
 specifier|public
 name|boolean
@@ -257,6 +263,8 @@ name|isIgnoreRouteEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreRouteEvents (boolean ignoreRouteEvents)
 specifier|public
 name|void
@@ -275,6 +283,8 @@ name|ignoreRouteEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreServiceEvents ()
 specifier|public
 name|boolean
@@ -289,6 +299,8 @@ name|isIgnoreServiceEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreServiceEvents (boolean ignoreServiceEvents)
 specifier|public
 name|void
@@ -307,6 +319,8 @@ name|ignoreServiceEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreExchangeEvents ()
 specifier|public
 name|boolean
@@ -321,6 +335,8 @@ name|isIgnoreExchangeEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreExchangeEvents (boolean ignoreExchangeEvents)
 specifier|public
 name|void
@@ -339,6 +355,8 @@ name|ignoreExchangeEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreExchangeCreatedEvent ()
 specifier|public
 name|boolean
@@ -353,6 +371,8 @@ name|isIgnoreExchangeCreatedEvent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreExchangeCreatedEvent (boolean ignoreExchangeCreatedEvent)
 specifier|public
 name|void
@@ -371,6 +391,8 @@ name|ignoreExchangeCreatedEvent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreExchangeCompletedEvent ()
 specifier|public
 name|boolean
@@ -385,6 +407,8 @@ name|isIgnoreExchangeCompletedEvent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreExchangeCompletedEvent (boolean ignoreExchangeCompletedEvent)
 specifier|public
 name|void
@@ -403,6 +427,8 @@ name|ignoreExchangeCompletedEvent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreExchangeFailedEvents ()
 specifier|public
 name|boolean
@@ -417,6 +443,8 @@ name|isIgnoreExchangeFailedEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreExchangeFailedEvents (boolean ignoreExchangeFailedEvents)
 specifier|public
 name|void
@@ -435,6 +463,8 @@ name|ignoreExchangeFailedEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreExchangeRedeliveryEvents ()
 specifier|public
 name|boolean
@@ -449,6 +479,8 @@ name|isIgnoreExchangeRedeliveryEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreExchangeRedeliveryEvents (boolean ignoreExchangeRedeliveryEvents)
 specifier|public
 name|void
@@ -467,6 +499,8 @@ name|ignoreExchangeRedeliveryEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreExchangeSentEvents ()
 specifier|public
 name|boolean
@@ -481,6 +515,8 @@ name|isIgnoreExchangeSentEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreExchangeSentEvents (boolean ignoreExchangeSentEvents)
 specifier|public
 name|void
@@ -499,6 +535,8 @@ name|ignoreExchangeSentEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreExchangeSendingEvents ()
 specifier|public
 name|boolean
@@ -513,6 +551,8 @@ name|isIgnoreExchangeSendingEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreExchangeSendingEvents (boolean ignoreExchangeSendingEvents)
 specifier|public
 name|void
@@ -531,6 +571,8 @@ name|ignoreExchangeSendingEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreStepEvents ()
 specifier|public
 name|boolean
@@ -545,6 +587,8 @@ name|isIgnoreStepEvents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setIgnoreStepEvents (boolean ignoreStepEvents)
 specifier|public
 name|void
@@ -563,6 +607,8 @@ name|ignoreStepEvents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNotificationInfo ()
 specifier|public
 name|MBeanNotificationInfo

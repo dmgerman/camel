@@ -70,6 +70,8 @@ name|SpringThrottlerTest
 extends|extends
 name|ThrottlerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

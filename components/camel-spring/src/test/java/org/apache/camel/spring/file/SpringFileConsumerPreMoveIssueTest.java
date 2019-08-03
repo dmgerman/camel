@@ -72,6 +72,8 @@ name|SpringFileConsumerPreMoveIssueTest
 extends|extends
 name|FileConsumerPreMoveIssueTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

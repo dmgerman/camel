@@ -1149,6 +1149,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Stores the most recently passed-in consumerTag - semantically, there      * should be only one.      *      * @see Consumer#handleConsumeOk      */
+annotation|@
+name|Override
 DECL|method|handleConsumeOk (String consumerTag)
 specifier|public
 name|void
@@ -1177,6 +1179,8 @@ name|consumerTag
 return|;
 block|}
 comment|/**      * No-op implementation of {@link Consumer#handleCancelOk}.      *      * @param consumerTag      *            the defined consumer tag (client- or server-generated)      */
+annotation|@
+name|Override
 DECL|method|handleCancelOk (String consumerTag)
 specifier|public
 name|void
@@ -1196,6 +1200,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * No-op implementation of {@link Consumer#handleCancel(String)}      *      * @param consumerTag      *            the defined consumer tag (client- or server-generated)      */
+annotation|@
+name|Override
 DECL|method|handleCancel (String consumerTag)
 specifier|public
 name|void
@@ -1270,6 +1276,8 @@ throw|;
 block|}
 block|}
 comment|/**      * No-op implementation of {@link Consumer#handleShutdownSignal}.      */
+annotation|@
+name|Override
 DECL|method|handleShutdownSignal (String consumerTag, ShutdownSignalException sig)
 specifier|public
 name|void
@@ -1413,6 +1421,8 @@ block|}
 block|}
 block|}
 comment|/**      * No-op implementation of {@link Consumer#handleRecoverOk}.      */
+annotation|@
+name|Override
 DECL|method|handleRecoverOk (String consumerTag)
 specifier|public
 name|void

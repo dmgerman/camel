@@ -160,6 +160,8 @@ argument_list|<
 name|BigInteger
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|format (BigInteger object)
 specifier|public
 name|String
@@ -178,6 +180,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String string)
 specifier|public
 name|BigInteger

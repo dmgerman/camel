@@ -1138,6 +1138,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Used by Camel Spring Web Services endpoint to register consumers      */
+annotation|@
+name|Override
 DECL|method|addConsumer (EndpointMappingKey key, MessageEndpoint endpoint)
 specifier|public
 name|void
@@ -1161,6 +1163,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Used by Camel Spring Web Services endpoint to unregister consumers      */
+annotation|@
+name|Override
 DECL|method|removeConsumer (Object key)
 specifier|public
 name|void
@@ -1206,6 +1210,8 @@ operator|=
 name|transformerFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void
@@ -1243,6 +1249,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setActorOrRole (String actorOrRole)
 specifier|public
 specifier|final
@@ -1272,6 +1280,8 @@ name|actorOrRole
 block|}
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setActorsOrRoles (String[] actorsOrRoles)
 specifier|public
 specifier|final
@@ -1299,6 +1309,8 @@ operator|=
 name|actorsOrRoles
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUltimateReceiver (boolean ultimateReceiver)
 specifier|public
 specifier|final

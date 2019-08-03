@@ -180,6 +180,8 @@ name|DoSomethingProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -219,6 +221,8 @@ name|DoNothingProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -256,6 +260,8 @@ name|BeforeProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange e)
 specifier|public
 name|void
@@ -319,6 +325,8 @@ name|AfterProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange e)
 specifier|public
 name|void

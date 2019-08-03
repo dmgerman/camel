@@ -84,6 +84,8 @@ name|HazelcastSedaRecoverableConsumerNewTransactionTest
 extends|extends
 name|HazelcastSedaRecoverableConsumerTest
 block|{
+annotation|@
+name|Override
 DECL|method|trainHazelcastInstance (HazelcastInstance hazelcastInstance)
 specifier|protected
 name|void
@@ -158,6 +160,8 @@ name|tqueue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|verifyHazelcastInstance (HazelcastInstance hazelcastInstance)
 specifier|protected
 name|void

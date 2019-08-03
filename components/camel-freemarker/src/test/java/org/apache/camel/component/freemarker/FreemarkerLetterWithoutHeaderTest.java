@@ -40,6 +40,8 @@ name|FreemarkerLetterWithoutHeaderTest
 extends|extends
 name|FreemarkerLetterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

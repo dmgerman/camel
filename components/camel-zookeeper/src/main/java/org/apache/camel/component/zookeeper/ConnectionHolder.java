@@ -322,6 +322,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|process (WatchedEvent event)
 specifier|public
 name|void

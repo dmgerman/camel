@@ -78,6 +78,8 @@ name|TopicLoadBalancer
 extends|extends
 name|LoadBalancerSupport
 block|{
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean

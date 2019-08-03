@@ -81,6 +81,8 @@ name|SubClass
 extends|extends
 name|BaseClass
 block|{
+annotation|@
+name|Override
 DECL|method|hi ()
 specifier|public
 name|String

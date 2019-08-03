@@ -56,6 +56,8 @@ name|SpringXsltRouteFileTest
 extends|extends
 name|XsltRouteFileTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

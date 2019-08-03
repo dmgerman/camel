@@ -226,6 +226,8 @@ name|expression
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPredicate (String expression)
 specifier|public
 name|GroovyExpression
@@ -242,6 +244,8 @@ name|expression
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExpression (String expression)
 specifier|public
 name|GroovyExpression

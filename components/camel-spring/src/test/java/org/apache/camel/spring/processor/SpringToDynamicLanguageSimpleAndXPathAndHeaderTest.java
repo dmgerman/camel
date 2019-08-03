@@ -70,6 +70,8 @@ name|SpringToDynamicLanguageSimpleAndXPathAndHeaderTest
 extends|extends
 name|ToDynamicLanguageSimpleAndXPathAndHeaderTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

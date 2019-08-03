@@ -554,6 +554,8 @@ name|ExcludePathFilter
 implements|implements
 name|PathFilter
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept

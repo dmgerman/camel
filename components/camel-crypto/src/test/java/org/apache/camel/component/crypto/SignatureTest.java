@@ -2059,6 +2059,8 @@ end_function
 
 begin_function
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

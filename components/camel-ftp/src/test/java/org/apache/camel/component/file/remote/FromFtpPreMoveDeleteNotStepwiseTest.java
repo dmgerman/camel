@@ -32,6 +32,8 @@ name|FromFtpPreMoveDeleteNotStepwiseTest
 extends|extends
 name|FromFtpPreMoveDeleteTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

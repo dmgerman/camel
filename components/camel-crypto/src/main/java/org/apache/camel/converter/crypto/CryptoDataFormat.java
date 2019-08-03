@@ -599,6 +599,8 @@ return|return
 name|cipher
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream outputStream)
 specifier|public
 name|void
@@ -809,6 +811,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (final Exchange exchange, final InputStream encryptedStream)
 specifier|public
 name|Object

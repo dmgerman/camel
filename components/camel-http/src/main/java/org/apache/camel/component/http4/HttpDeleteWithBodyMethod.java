@@ -100,6 +100,8 @@ name|entity
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMethod ()
 specifier|public
 name|String

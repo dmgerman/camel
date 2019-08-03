@@ -379,6 +379,8 @@ name|rollbackLoggingLevel
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createErrorHandler (final RouteContext routeContext, final Processor processor)
 specifier|public
 name|Processor
@@ -802,6 +804,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createLogger ()
 specifier|protected
 name|CamelLogger

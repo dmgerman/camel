@@ -87,6 +87,8 @@ block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 comment|/**      * Creates the message body for a given message      */
+annotation|@
+name|Override
 DECL|method|createMessageBody (long messageIndex)
 specifier|protected
 name|Object

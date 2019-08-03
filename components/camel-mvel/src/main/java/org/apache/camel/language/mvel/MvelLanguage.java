@@ -89,6 +89,8 @@ name|MvelLanguage
 extends|extends
 name|LanguageSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -119,6 +121,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression

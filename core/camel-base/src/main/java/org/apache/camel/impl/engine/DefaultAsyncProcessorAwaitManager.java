@@ -420,6 +420,8 @@ name|formatter
 expr_stmt|;
 block|}
 comment|/**      * Calls the async version of the processor's process method and waits      * for it to complete before returning. This can be used by {@link AsyncProcessor}      * objects to implement their sync version of the process method.      *<p/>      *<b>Important:</b> This method is discouraged to be used, as its better to invoke the asynchronous      * {@link AsyncProcessor#process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method, whenever possible.      *      * @param processor the processor      * @param exchange  the exchange      */
+annotation|@
+name|Override
 DECL|method|process (final AsyncProcessor processor, final Exchange exchange)
 specifier|public
 name|void
@@ -1060,6 +1062,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isInterruptThreadsWhileStopping ()
 specifier|public
 name|boolean
@@ -1070,6 +1074,8 @@ return|return
 name|interruptThreadsWhileStopping
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInterruptThreadsWhileStopping (boolean interruptThreadsWhileStopping)
 specifier|public
 name|void
@@ -1086,6 +1092,8 @@ operator|=
 name|interruptThreadsWhileStopping
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics ()
 specifier|public
 name|Statistics

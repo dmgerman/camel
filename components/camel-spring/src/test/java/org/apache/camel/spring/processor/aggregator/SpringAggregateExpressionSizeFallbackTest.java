@@ -74,6 +74,8 @@ name|SpringAggregateExpressionSizeFallbackTest
 extends|extends
 name|AggregateExpressionSizeFallbackTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

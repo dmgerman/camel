@@ -70,6 +70,8 @@ name|SpringSplitterNoStopOnExceptionTest
 extends|extends
 name|SplitterNoStopOnExceptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

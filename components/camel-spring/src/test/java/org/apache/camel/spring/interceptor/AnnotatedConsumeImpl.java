@@ -107,6 +107,8 @@ name|ProducerTemplate
 name|producer
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Consume
 argument_list|(
 literal|"seda:book"

@@ -548,6 +548,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createQuery (EntityManager entityManager)
 specifier|public
 name|Query

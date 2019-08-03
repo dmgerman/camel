@@ -213,6 +213,8 @@ argument_list|(
 literal|"{http://camel.apache.org/wsdl-first}soap"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getApplicationContextFiles ()
 specifier|protected
 name|String

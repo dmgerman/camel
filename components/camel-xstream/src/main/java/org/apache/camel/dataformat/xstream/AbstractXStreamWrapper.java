@@ -1717,6 +1717,8 @@ operator|=
 name|xstream
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object body, OutputStream stream)
 specifier|public
 name|void
@@ -1773,6 +1775,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
 name|Object

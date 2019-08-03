@@ -142,6 +142,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConnection ()
 specifier|public
 name|Connection
@@ -204,6 +206,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createActiveMQConnection (Transport transport, JMSStatsImpl stats)
 specifier|protected
 name|ActiveMQConnection

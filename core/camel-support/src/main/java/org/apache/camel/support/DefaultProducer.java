@@ -160,6 +160,8 @@ return|return
 name|producerToString
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint

@@ -2558,6 +2558,8 @@ end_function
 
 begin_function
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -2957,6 +2959,8 @@ name|KeyValueKeySelector
 extends|extends
 name|KeySelector
 block|{
+annotation|@
+name|Override
 DECL|method|select (KeyInfo keyInfo, KeySelector.Purpose purpose, AlgorithmMethod method, XMLCryptoContext context)
 specifier|public
 name|KeySelectorResult
@@ -3203,6 +3207,8 @@ operator|=
 name|pk
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey ()
 specifier|public
 name|Key

@@ -170,6 +170,8 @@ name|loadDefaultRegistry
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDefaultParameterTypeExpression (Class<?> parameterType)
 specifier|public
 name|Expression

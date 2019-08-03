@@ -1544,6 +1544,8 @@ operator|=
 name|order
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOrder ()
 specifier|public
 name|int

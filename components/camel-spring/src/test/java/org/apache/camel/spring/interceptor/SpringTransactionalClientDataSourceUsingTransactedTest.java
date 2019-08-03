@@ -58,6 +58,8 @@ name|SpringTransactionalClientDataSourceUsingTransactedTest
 extends|extends
 name|SpringTransactionalClientDataSourceTransactedTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

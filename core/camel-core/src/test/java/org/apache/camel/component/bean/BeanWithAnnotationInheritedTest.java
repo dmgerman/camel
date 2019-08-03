@@ -356,6 +356,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createJndiContext ()
 specifier|protected
 name|Context
@@ -477,6 +479,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -782,6 +786,8 @@ name|A
 implements|implements
 name|I2
 block|{
+annotation|@
+name|Override
 DECL|method|m3 (String h1, @Header(R)String h2)
 specifier|public
 name|String
@@ -816,6 +822,8 @@ name|A
 implements|implements
 name|I1
 block|{
+annotation|@
+name|Override
 DECL|method|m1 (String h1, String h2)
 specifier|public
 name|String
@@ -834,6 +842,8 @@ operator|+
 name|h2
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|m2 (String h1, String h2)
 specifier|public
 name|String
@@ -852,6 +862,8 @@ operator|+
 name|h2
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|m4 (String h1, @Header(R)String h2)
 specifier|public
 name|String

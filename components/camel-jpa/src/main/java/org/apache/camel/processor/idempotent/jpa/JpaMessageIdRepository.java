@@ -506,6 +506,8 @@ name|transactionTemplate
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
@@ -754,6 +756,8 @@ name|rc
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
@@ -900,6 +904,8 @@ return|return
 name|rc
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedOperation
 argument_list|(
@@ -1176,6 +1182,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedOperation
 argument_list|(

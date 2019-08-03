@@ -211,6 +211,8 @@ name|CamelContext
 name|getContext
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getSource ()
 specifier|default
 name|Object
@@ -229,6 +231,8 @@ name|CamelContextResumedEvent
 extends|extends
 name|CamelContextEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -250,6 +254,8 @@ name|CamelContextEvent
 extends|,
 name|FailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -269,6 +275,8 @@ name|CamelContextResumingEvent
 extends|extends
 name|CamelContextEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -288,6 +296,8 @@ name|CamelContextStartedEvent
 extends|extends
 name|CamelContextEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -307,6 +317,8 @@ name|CamelContextStartingEvent
 extends|extends
 name|CamelContextEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -328,6 +340,8 @@ name|CamelContextEvent
 extends|,
 name|FailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -349,6 +363,8 @@ name|CamelContextEvent
 extends|,
 name|FailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -368,6 +384,8 @@ name|CamelContextStoppedEvent
 extends|extends
 name|CamelContextEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -387,6 +405,8 @@ name|CamelContextStoppingEvent
 extends|extends
 name|CamelContextEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -406,6 +426,8 @@ name|CamelContextSuspendedEvent
 extends|extends
 name|CamelContextEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -425,6 +447,8 @@ name|CamelContextSuspendingEvent
 extends|extends
 name|CamelContextEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -449,6 +473,8 @@ name|Exchange
 name|getExchange
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getSource ()
 specifier|default
 name|Object
@@ -467,6 +493,8 @@ name|ExchangeCompletedEvent
 extends|extends
 name|ExchangeEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -486,6 +514,8 @@ name|ExchangeCreatedEvent
 extends|extends
 name|ExchangeEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -507,6 +537,8 @@ name|ExchangeEvent
 extends|,
 name|FailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -548,6 +580,8 @@ name|ExchangeFailureHandledEvent
 extends|extends
 name|ExchangeFailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -567,6 +601,8 @@ name|ExchangeFailureHandlingEvent
 extends|extends
 name|ExchangeFailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -591,6 +627,8 @@ name|int
 name|getAttempt
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -615,6 +653,8 @@ name|Endpoint
 name|getEndpoint
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -644,6 +684,8 @@ name|long
 name|getTimeTaken
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -675,6 +717,8 @@ name|StepStartedEvent
 extends|extends
 name|StepEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -694,6 +738,8 @@ name|StepCompletedEvent
 extends|extends
 name|StepEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -715,6 +761,8 @@ name|StepEvent
 extends|,
 name|FailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -739,6 +787,8 @@ name|Route
 name|getRoute
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getSource ()
 specifier|default
 name|Object
@@ -757,6 +807,8 @@ name|RouteAddedEvent
 extends|extends
 name|RouteEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -776,6 +828,8 @@ name|RouteRemovedEvent
 extends|extends
 name|RouteEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -795,6 +849,8 @@ name|RouteStartedEvent
 extends|extends
 name|RouteEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -814,6 +870,8 @@ name|RouteStoppedEvent
 extends|extends
 name|RouteEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -838,6 +896,8 @@ name|Object
 name|getService
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getSource ()
 specifier|default
 name|Object
@@ -858,6 +918,8 @@ name|ServiceEvent
 extends|,
 name|FailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type
@@ -879,6 +941,8 @@ name|ServiceEvent
 extends|,
 name|FailureEvent
 block|{
+annotation|@
+name|Override
 DECL|method|getType ()
 specifier|default
 name|Type

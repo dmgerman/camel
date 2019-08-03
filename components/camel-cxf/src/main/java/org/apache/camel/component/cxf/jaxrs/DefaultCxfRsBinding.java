@@ -468,6 +468,8 @@ specifier|public
 name|DefaultCxfRsBinding
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|populateCxfRsResponseFromExchange (Exchange camelExchange, org.apache.cxf.message.Exchange cxfExchange)
 specifier|public
 name|Object
@@ -1119,6 +1121,8 @@ return|return
 name|o
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|populateExchangeFromCxfRsRequest (org.apache.cxf.message.Exchange cxfExchange, Exchange camelExchange, Method method, Object[] paramArray)
 specifier|public
 name|void
@@ -1465,6 +1469,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|bindCamelHeadersToRequestHeaders (Map<String, Object> camelHeaders, Exchange camelExchange)
 specifier|public
 name|MultivaluedMap
@@ -1520,6 +1526,8 @@ name|answer
 return|;
 block|}
 comment|/**      * This method call Message.getBody({@link MessageContentsList}) to allow      * an appropriate converter to kick in even through we only read the first      * element off the MessageContextList.  If that returns null, we check        * the body to see if it is a List or an array and then return the first       * element.  If that fails, we will simply return the object.      */
+annotation|@
+name|Override
 DECL|method|bindCamelMessageBodyToRequestBody (Message camelMessage, Exchange camelExchange)
 specifier|public
 name|Object
@@ -1634,6 +1642,8 @@ name|request
 return|;
 block|}
 comment|/**      * We will return an empty Map unless the response parameter is a {@link Response} object.       */
+annotation|@
+name|Override
 DECL|method|bindResponseHeadersToCamelHeaders (Object response, Exchange camelExchange)
 specifier|public
 name|Map
@@ -1712,6 +1722,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|bindCamelMessageToRequestEntity (Object body, Message camelMessage, Exchange camelExchange)
 specifier|public
 name|Entity
@@ -1816,6 +1828,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      *  By default, we just return the response object.       */
+annotation|@
+name|Override
 DECL|method|bindResponseToCamelBody (Object response, Exchange camelExchange)
 specifier|public
 name|Object
@@ -1834,6 +1848,8 @@ return|return
 name|response
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -1844,6 +1860,8 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void

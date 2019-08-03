@@ -555,6 +555,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addClassLoader (ClassLoader classLoader)
 specifier|public
 name|void
@@ -572,6 +574,8 @@ name|classLoader
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addFilter (PackageScanFilter filter)
 specifier|public
 name|void
@@ -604,6 +608,8 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeFilter (PackageScanFilter filter)
 specifier|public
 name|void
@@ -700,6 +706,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getClassLoaders ()
 specifier|public
 name|Set
@@ -724,6 +732,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findAnnotated (Class<? extends Annotation> annotation, String... packageNames)
 specifier|public
 name|Set
@@ -849,6 +859,8 @@ return|return
 name|classes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findAnnotated (Set<Class<? extends Annotation>> annotations, String... packageNames)
 specifier|public
 name|Set
@@ -974,6 +986,8 @@ return|return
 name|classes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findImplementations (Class<?> parent, String... packageNames)
 specifier|public
 name|Set
@@ -1095,6 +1109,8 @@ return|return
 name|classes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findByFilter (PackageScanFilter filter, String... packageNames)
 specifier|public
 name|Set
@@ -2679,6 +2695,8 @@ block|}
 block|}
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -2710,6 +2728,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

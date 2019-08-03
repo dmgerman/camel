@@ -72,6 +72,8 @@ name|SpringDefaultErrorHandlerExchangeFormatterRefTest
 extends|extends
 name|DefaultErrorHandlerExchangeFormatterRefTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -54,6 +54,8 @@ name|TransactionalClientDataSourceWithTransactedErrorHandlerOnExceptionRedeliver
 extends|extends
 name|TransactionalClientDataSourceRedeliveryTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

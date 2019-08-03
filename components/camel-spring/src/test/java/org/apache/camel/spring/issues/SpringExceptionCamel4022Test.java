@@ -74,6 +74,8 @@ name|SpringExceptionCamel4022Test
 extends|extends
 name|ExceptionCamel4022Test
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

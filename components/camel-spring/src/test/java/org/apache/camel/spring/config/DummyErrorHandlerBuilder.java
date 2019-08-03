@@ -158,6 +158,8 @@ operator|=
 name|beanName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBeanName (String beanName)
 specifier|public
 name|void
@@ -174,6 +176,8 @@ operator|=
 name|beanName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|supportTransacted ()
 specifier|public
 name|boolean
@@ -216,6 +220,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
 name|Processor

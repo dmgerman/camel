@@ -74,6 +74,8 @@ name|SpringAggregateSimpleSizeTest
 extends|extends
 name|AggregateSimpleSizeTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

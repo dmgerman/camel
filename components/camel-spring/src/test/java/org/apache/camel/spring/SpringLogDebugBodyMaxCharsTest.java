@@ -80,6 +80,8 @@ name|SpringLogDebugBodyMaxCharsTest
 extends|extends
 name|LogDebugBodyMaxCharsTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

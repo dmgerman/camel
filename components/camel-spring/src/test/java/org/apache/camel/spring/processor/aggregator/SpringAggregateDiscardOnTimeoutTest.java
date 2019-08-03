@@ -74,6 +74,8 @@ name|SpringAggregateDiscardOnTimeoutTest
 extends|extends
 name|AggregateDiscardOnTimeoutTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

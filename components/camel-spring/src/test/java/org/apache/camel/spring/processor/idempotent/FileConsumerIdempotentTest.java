@@ -161,6 +161,8 @@ specifier|private
 name|IdempotentRepository
 name|repo
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

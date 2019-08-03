@@ -101,6 +101,8 @@ name|size
 init|=
 literal|200
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext

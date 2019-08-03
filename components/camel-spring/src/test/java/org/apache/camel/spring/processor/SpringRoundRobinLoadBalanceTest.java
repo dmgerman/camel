@@ -70,6 +70,8 @@ name|SpringRoundRobinLoadBalanceTest
 extends|extends
 name|RoundRobinLoadBalanceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

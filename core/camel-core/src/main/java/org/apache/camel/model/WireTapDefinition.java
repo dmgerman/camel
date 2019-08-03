@@ -367,6 +367,8 @@ operator|||
 name|dynamicUri
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPattern ()
 specifier|public
 name|ExchangePattern
@@ -476,6 +478,8 @@ block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Uses a custom thread pool      *      * @param executorService a custom {@link ExecutorService} to use as thread pool      *                        for sending tapped exchanges      * @return the builder      */
+annotation|@
+name|Override
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|WireTapDefinition
@@ -498,6 +502,8 @@ name|this
 return|;
 block|}
 comment|/**      * Uses a custom thread pool      *      * @param executorServiceRef reference to lookup a custom {@link ExecutorService}      *                           to use as thread pool for sending tapped exchanges      * @return the builder      */
+annotation|@
+name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|WireTapDefinition
@@ -892,6 +898,8 @@ operator|=
 name|newExchangeExpression
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorService ()
 specifier|public
 name|ExecutorService
@@ -902,6 +910,8 @@ return|return
 name|executorService
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorService (ExecutorService executorService)
 specifier|public
 name|void
@@ -918,6 +928,8 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExecutorServiceRef ()
 specifier|public
 name|String
@@ -928,6 +940,8 @@ return|return
 name|executorServiceRef
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorServiceRef (String executorServiceRef)
 specifier|public
 name|void

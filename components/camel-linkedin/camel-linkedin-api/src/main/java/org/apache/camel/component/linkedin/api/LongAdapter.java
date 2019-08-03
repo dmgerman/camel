@@ -49,6 +49,8 @@ argument_list|,
 name|Long
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|unmarshal (String value)
 specifier|public
 name|Long
@@ -66,6 +68,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Long value)
 specifier|public
 name|String

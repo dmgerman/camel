@@ -88,6 +88,8 @@ name|SendMessageUsage
 implements|implements
 name|TelegramMethodUsage
 block|{
+annotation|@
+name|Override
 DECL|method|run (CamelContext context)
 specifier|public
 name|void

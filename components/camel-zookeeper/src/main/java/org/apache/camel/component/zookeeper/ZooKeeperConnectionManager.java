@@ -181,6 +181,8 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConnection ()
 specifier|public
 name|ConnectionHolder
@@ -191,6 +193,8 @@ return|return
 name|holder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|shutdown ()
 specifier|public
 name|void

@@ -106,6 +106,8 @@ name|State
 operator|.
 name|Active
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getState ()
 specifier|public
 name|State
@@ -116,6 +118,8 @@ return|return
 name|state
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|suspend ()
 specifier|public
 name|void
@@ -129,6 +133,8 @@ operator|.
 name|Suspended
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|activate ()
 specifier|public
 name|void
@@ -142,6 +148,8 @@ operator|.
 name|Active
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeProcess (Exchange exchange, Processor processor, NamedNode definition)
 specifier|public
 name|void
@@ -159,6 +167,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|afterProcess (Exchange exchange, Processor processor, NamedNode definition, long timeTaken)
 specifier|public
 name|void
@@ -179,6 +189,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onEvent (Exchange exchange, ExchangeEvent event, NamedNode definition)
 specifier|public
 name|void

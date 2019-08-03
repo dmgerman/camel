@@ -143,6 +143,8 @@ name|MILLISECONDS
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendElement (E o)
 specifier|public
 name|void

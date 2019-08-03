@@ -203,6 +203,8 @@ specifier|public
 name|TestResponseExceptionMapper
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|fromResponse (Response r)
 specifier|public
 name|BookNotFoundFault

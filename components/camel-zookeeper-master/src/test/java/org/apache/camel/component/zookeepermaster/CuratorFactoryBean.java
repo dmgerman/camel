@@ -215,6 +215,8 @@ expr_stmt|;
 block|}
 comment|// FactoryBean interface
 comment|//-------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getObject ()
 specifier|public
 name|CuratorFramework
@@ -291,6 +293,8 @@ return|return
 name|curator
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class
@@ -306,6 +310,8 @@ operator|.
 name|class
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -316,6 +322,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|destroy ()
 specifier|public
 name|void

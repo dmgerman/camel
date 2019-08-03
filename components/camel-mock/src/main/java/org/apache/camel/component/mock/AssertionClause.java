@@ -208,6 +208,8 @@ expr_stmt|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|expression (Expression expression)
 specifier|public
 name|MockValueBuilder
@@ -233,6 +235,8 @@ name|expression
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|language (ExpressionFactory expression)
 specifier|public
 name|MockValueBuilder
@@ -506,6 +510,8 @@ name|PreviousTimestamp
 implements|implements
 name|Expression
 block|{
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<
@@ -590,6 +596,8 @@ name|NextTimestamp
 implements|implements
 name|Expression
 block|{
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<

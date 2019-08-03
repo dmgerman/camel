@@ -300,6 +300,8 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doInit ()
 specifier|protected
 name|void

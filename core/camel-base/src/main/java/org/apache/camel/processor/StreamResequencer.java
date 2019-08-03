@@ -674,6 +674,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
@@ -684,6 +686,8 @@ return|return
 literal|"streamResequence"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -694,6 +698,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -770,6 +776,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sends the<code>exchange</code> to the next<code>processor</code>.      *       * @param exchange exchange to send.      */
+annotation|@
+name|Override
 DECL|method|sendElement (Exchange exchange)
 specifier|public
 name|void
@@ -789,6 +797,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -915,6 +925,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext ()
 specifier|public
 name|boolean
@@ -927,6 +939,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next ()
 specifier|public
 name|List

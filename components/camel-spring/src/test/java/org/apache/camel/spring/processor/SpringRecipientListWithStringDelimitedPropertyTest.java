@@ -70,6 +70,8 @@ name|SpringRecipientListWithStringDelimitedPropertyTest
 extends|extends
 name|RecipientListWithStringDelimitedPropertyTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -54,6 +54,8 @@ name|XPathWithNamespaceBuilderFilterAndResultTypeTest
 extends|extends
 name|XPathWithNamespaceBuilderFilterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

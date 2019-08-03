@@ -340,6 +340,8 @@ specifier|public
 name|MyThrowProcessor
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

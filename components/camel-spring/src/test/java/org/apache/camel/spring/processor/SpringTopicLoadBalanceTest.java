@@ -70,6 +70,8 @@ name|SpringTopicLoadBalanceTest
 extends|extends
 name|TopicLoadBalanceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

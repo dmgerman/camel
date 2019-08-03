@@ -70,6 +70,8 @@ name|SpringWireTapOnPrepareTest
 extends|extends
 name|WireTapOnPrepareTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

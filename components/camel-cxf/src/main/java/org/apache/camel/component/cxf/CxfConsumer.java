@@ -877,6 +877,8 @@ name|endpoint
 expr_stmt|;
 block|}
 comment|// we receive a CXF request when this method is called
+annotation|@
+name|Override
 DECL|method|invoke (Exchange cxfExchange, Object o)
 specifier|public
 name|Object

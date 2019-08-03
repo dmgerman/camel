@@ -189,6 +189,8 @@ extends|extends
 name|ContextTestSupport
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -260,6 +262,8 @@ name|deadLetterChannelBuilder
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|startCamelContext ()
 specifier|protected
 name|void
@@ -270,6 +274,8 @@ name|Exception
 block|{
 comment|// do nothing here
 block|}
+annotation|@
+name|Override
 DECL|method|stopCamelContext ()
 specifier|protected
 name|void

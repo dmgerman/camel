@@ -152,6 +152,8 @@ operator|=
 name|throttleEntries
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|poll ()
 specifier|public
 name|int

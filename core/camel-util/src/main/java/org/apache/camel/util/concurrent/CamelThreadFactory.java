@@ -130,6 +130,8 @@ operator|=
 name|daemon
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newThread (Runnable runnable)
 specifier|public
 name|Thread
@@ -194,6 +196,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

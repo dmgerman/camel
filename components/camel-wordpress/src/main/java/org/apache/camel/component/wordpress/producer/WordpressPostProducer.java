@@ -156,6 +156,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processInsert (Exchange exchange)
 specifier|protected
 name|Post
@@ -199,6 +201,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processUpdate (Exchange exchange)
 specifier|protected
 name|Post
@@ -258,6 +262,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processDelete (Exchange exchange)
 specifier|protected
 name|Post

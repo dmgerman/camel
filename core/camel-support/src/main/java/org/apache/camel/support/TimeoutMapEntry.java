@@ -120,6 +120,8 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey ()
 specifier|public
 name|K
@@ -156,6 +158,8 @@ operator|=
 name|expireTime
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue ()
 specifier|public
 name|V
@@ -166,6 +170,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setValue (V value)
 specifier|public
 name|V
@@ -218,6 +224,8 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -334,6 +342,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

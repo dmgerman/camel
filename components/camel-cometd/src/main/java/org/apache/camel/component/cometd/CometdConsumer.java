@@ -274,6 +274,8 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBayeux (BayeuxServerImpl bayeux)
 specifier|public
 name|void
@@ -290,6 +292,8 @@ operator|=
 name|bayeux
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|CometdEndpoint

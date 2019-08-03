@@ -87,6 +87,8 @@ name|username
 expr_stmt|;
 block|}
 comment|/**      * Returns an authenticator object for use in sessions      */
+annotation|@
+name|Override
 DECL|method|getPasswordAuthentication ()
 specifier|public
 name|PasswordAuthentication

@@ -277,6 +277,8 @@ operator|)
 name|operations
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|prePollCheck ()
 specifier|protected
 name|boolean

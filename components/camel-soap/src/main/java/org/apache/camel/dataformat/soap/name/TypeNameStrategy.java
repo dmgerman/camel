@@ -101,6 +101,8 @@ implements|implements
 name|ElementNameStrategy
 block|{
 comment|/**      * @return determine element name by using the XmlType.name() of the type to      *         be marshalled and the XmlSchema.namespace() of the package-info      */
+annotation|@
+name|Override
 DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 specifier|public
 name|QName
@@ -263,6 +265,8 @@ name|localName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findExceptionForFaultName (QName faultName)
 specifier|public
 name|Class

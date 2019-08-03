@@ -106,6 +106,8 @@ specifier|private
 name|MockEndpoint
 name|notMatched
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void

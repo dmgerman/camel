@@ -32,6 +32,8 @@ name|FromFtpDeleteFileNotStepwiseTest
 extends|extends
 name|FromFtpDeleteFileTest
 block|{
+annotation|@
+name|Override
 DECL|method|getFtpUrl ()
 specifier|protected
 name|String

@@ -326,6 +326,8 @@ operator|=
 name|hazelcastInstance
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 specifier|abstract
@@ -338,6 +340,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 specifier|abstract

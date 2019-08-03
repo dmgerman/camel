@@ -42,6 +42,8 @@ name|StreamSourceContentBasedRouterSSEnabledOnCamelContextTest
 extends|extends
 name|StreamSourceContentBasedRouterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

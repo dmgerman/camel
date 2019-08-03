@@ -180,6 +180,8 @@ name|source
 init|=
 literal|"Camel"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setNotificationBroadcaster (NotificationBroadcasterSupport broadcaster)
 specifier|public
 name|void
@@ -194,6 +196,8 @@ operator|=
 name|broadcaster
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|notify (CamelEvent event)
 specifier|public
 name|void
@@ -270,6 +274,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled (CamelEvent event)
 specifier|public
 name|boolean
@@ -283,6 +289,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

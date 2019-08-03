@@ -38,6 +38,8 @@ name|SpringDataFormatWithMarshalAndUnmarshalUsingRefTest
 extends|extends
 name|SpringDataFormatTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext

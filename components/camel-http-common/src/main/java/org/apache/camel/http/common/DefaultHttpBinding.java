@@ -645,6 +645,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|readRequest (HttpServletRequest request, HttpMessage message)
 specifier|public
 name|void
@@ -2090,6 +2092,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|writeResponse (Exchange exchange, HttpServletResponse response)
 specifier|public
 name|void
@@ -2271,6 +2275,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doWriteExceptionResponse (Throwable exception, HttpServletResponse response)
 specifier|public
 name|void
@@ -2380,6 +2386,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doWriteFaultResponse (Message message, HttpServletResponse response, Exchange exchange)
 specifier|public
 name|void
@@ -2420,6 +2428,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doWriteResponse (Message message, HttpServletResponse response, Exchange exchange)
 specifier|public
 name|void
@@ -3568,6 +3578,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|parseBody (HttpMessage httpMessage)
 specifier|public
 name|Object
@@ -3684,6 +3696,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isUseReaderForPayload ()
 specifier|public
 name|boolean
@@ -3694,6 +3708,8 @@ return|return
 name|useReaderForPayload
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUseReaderForPayload (boolean useReaderForPayload)
 specifier|public
 name|void
@@ -3710,6 +3726,8 @@ operator|=
 name|useReaderForPayload
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEagerCheckContentAvailable ()
 specifier|public
 name|boolean
@@ -3720,6 +3738,8 @@ return|return
 name|eagerCheckContentAvailable
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEagerCheckContentAvailable (boolean eagerCheckContentAvailable)
 specifier|public
 name|void
@@ -3736,6 +3756,8 @@ operator|=
 name|eagerCheckContentAvailable
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isTransferException ()
 specifier|public
 name|boolean
@@ -3746,6 +3768,8 @@ return|return
 name|transferException
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
@@ -3762,6 +3786,8 @@ operator|=
 name|transferException
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAllowJavaSerializedObject ()
 specifier|public
 name|boolean
@@ -3772,6 +3798,8 @@ return|return
 name|allowJavaSerializedObject
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
 specifier|public
 name|void
@@ -3788,6 +3816,8 @@ operator|=
 name|allowJavaSerializedObject
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -3798,6 +3828,8 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -3814,6 +3846,8 @@ operator|=
 name|headerFilterStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isMapHttpMessageBody ()
 specifier|public
 name|boolean
@@ -3824,6 +3858,8 @@ return|return
 name|mapHttpMessageBody
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMapHttpMessageBody (boolean mapHttpMessageBody)
 specifier|public
 name|void
@@ -3840,6 +3876,8 @@ operator|=
 name|mapHttpMessageBody
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isMapHttpMessageHeaders ()
 specifier|public
 name|boolean
@@ -3850,6 +3888,8 @@ return|return
 name|mapHttpMessageHeaders
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMapHttpMessageHeaders (boolean mapHttpMessageHeaders)
 specifier|public
 name|void
@@ -3866,6 +3906,8 @@ operator|=
 name|mapHttpMessageHeaders
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isMapHttpMessageFormUrlEncodedBody ()
 specifier|public
 name|boolean
@@ -3876,6 +3918,8 @@ return|return
 name|mapHttpMessageFormUrlEncodedBody
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMapHttpMessageFormUrlEncodedBody (boolean mapHttpMessageFormUrlEncodedBody)
 specifier|public
 name|void
@@ -3892,6 +3936,8 @@ operator|=
 name|mapHttpMessageFormUrlEncodedBody
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFileNameExtWhitelist ()
 specifier|public
 name|String
@@ -3902,6 +3948,8 @@ return|return
 name|fileNameExtWhitelist
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setFileNameExtWhitelist (String fileNameExtWhitelist)
 specifier|public
 name|void

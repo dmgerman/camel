@@ -267,6 +267,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getXMLReader ()
 specifier|public
 name|XMLReader
@@ -1425,6 +1427,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getFeature (String name)
 specifier|public
 name|boolean
@@ -1442,6 +1446,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setFeature (String name, boolean value)
 specifier|public
 name|void
@@ -1458,6 +1464,8 @@ name|SAXNotRecognizedException
 throws|,
 name|SAXNotSupportedException
 block|{     }
+annotation|@
+name|Override
 DECL|method|getProperty (String name)
 specifier|public
 name|Object
@@ -1475,6 +1483,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setProperty (String name, Object value)
 specifier|public
 name|void
@@ -1520,6 +1530,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setEntityResolver (EntityResolver resolver)
 specifier|public
 name|void
@@ -1529,6 +1541,8 @@ name|EntityResolver
 name|resolver
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|getEntityResolver ()
 specifier|public
 name|EntityResolver
@@ -1539,6 +1553,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDTDHandler (DTDHandler handler)
 specifier|public
 name|void
@@ -1548,6 +1564,8 @@ name|DTDHandler
 name|handler
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|getDTDHandler ()
 specifier|public
 name|DTDHandler
@@ -1558,6 +1576,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setContentHandler (ContentHandler handler)
 specifier|public
 name|void
@@ -1593,6 +1613,8 @@ name|handler
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getContentHandler ()
 specifier|public
 name|ContentHandler
@@ -1605,6 +1627,8 @@ operator|.
 name|contentHandler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setErrorHandler (ErrorHandler handler)
 specifier|public
 name|void
@@ -1614,6 +1638,8 @@ name|ErrorHandler
 name|handler
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|getErrorHandler ()
 specifier|public
 name|ErrorHandler
@@ -1624,6 +1650,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (InputSource input)
 specifier|public
 name|void
@@ -1639,6 +1667,8 @@ name|parse
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse (String systemId)
 specifier|public
 name|void

@@ -200,6 +200,8 @@ specifier|protected
 name|FactoryFinder
 name|languageResolver
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|resolveLanguage (String name, CamelContext context)
 specifier|public
 name|Language

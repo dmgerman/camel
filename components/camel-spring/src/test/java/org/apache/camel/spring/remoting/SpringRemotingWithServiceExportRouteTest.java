@@ -54,6 +54,8 @@ name|SpringRemotingWithServiceExportRouteTest
 extends|extends
 name|SpringRemotingRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

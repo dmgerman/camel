@@ -869,6 +869,8 @@ operator|=
 name|prefix2Namespace
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaceURI (String prefix)
 specifier|public
 name|String
@@ -937,6 +939,8 @@ name|NULL_NS_URI
 return|;
 block|}
 comment|// This method isn't necessary for XPath processing.
+annotation|@
+name|Override
 DECL|method|getPrefix (String uri)
 specifier|public
 name|String
@@ -953,6 +957,8 @@ argument_list|()
 throw|;
 block|}
 comment|// This method isn't necessary for XPath processing either.
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

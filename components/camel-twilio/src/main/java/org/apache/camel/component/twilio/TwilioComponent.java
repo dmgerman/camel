@@ -475,6 +475,8 @@ name|doShutdown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConfiguration ()
 specifier|public
 name|TwilioConfiguration
@@ -486,6 +488,8 @@ name|configuration
 return|;
 block|}
 comment|/**      * To use the shared configuration      */
+annotation|@
+name|Override
 DECL|method|setConfiguration (TwilioConfiguration configuration)
 specifier|public
 name|void

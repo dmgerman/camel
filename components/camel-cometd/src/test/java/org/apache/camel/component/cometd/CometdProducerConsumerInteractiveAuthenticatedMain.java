@@ -620,6 +620,8 @@ return|return
 literal|"OK"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendMeta (ServerSession to, ServerMessage.Mutable message)
 specifier|public
 name|boolean
@@ -747,6 +749,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|removed (ServerSession session, boolean timeout)
 specifier|public
 name|void
@@ -761,6 +765,8 @@ parameter_list|)
 block|{
 comment|// Remove authentication data
 block|}
+annotation|@
+name|Override
 DECL|method|rcv (ServerSession from, ServerMessage.Mutable message)
 specifier|public
 name|boolean
@@ -779,6 +785,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rcvMeta (ServerSession from, ServerMessage.Mutable message)
 specifier|public
 name|boolean
@@ -797,6 +805,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (ServerSession from, ServerSession to, ServerMessage.Mutable message)
 specifier|public
 name|boolean

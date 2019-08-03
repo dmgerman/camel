@@ -49,6 +49,8 @@ argument_list|,
 name|Double
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|unmarshal (String value)
 specifier|public
 name|Double
@@ -73,6 +75,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|marshal (Double value)
 specifier|public
 name|String

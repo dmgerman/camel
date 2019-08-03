@@ -233,6 +233,8 @@ return|return
 literal|"org/apache/camel/test/cxf/blueprint/CxfConsumerWSRMBeans.xml"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
 name|boolean

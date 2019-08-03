@@ -72,6 +72,8 @@ name|SpringXPathHeaderNameResultTypeAndNamespaceTest
 extends|extends
 name|XPathHeaderNameResultTypeAndNamespaceTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

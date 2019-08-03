@@ -486,6 +486,8 @@ name|CASE_INSENSITIVE_ORDER
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals (Object other)
 specifier|public
 name|boolean
@@ -528,6 +530,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode ()
 specifier|public
 name|int

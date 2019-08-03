@@ -100,6 +100,8 @@ name|JpaUseMergeTest
 extends|extends
 name|AbstractJpaMethodTest
 block|{
+annotation|@
+name|Override
 DECL|method|usePersist ()
 specifier|public
 name|boolean

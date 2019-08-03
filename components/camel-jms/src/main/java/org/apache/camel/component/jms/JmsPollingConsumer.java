@@ -181,6 +181,8 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receiveNoWait ()
 specifier|public
 name|Exchange
@@ -196,6 +198,8 @@ name|RECEIVE_TIMEOUT_NO_WAIT
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive ()
 specifier|public
 name|Exchange
@@ -211,6 +215,8 @@ name|RECEIVE_TIMEOUT_INDEFINITE_WAIT
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|receive (long timeout)
 specifier|public
 name|Exchange
@@ -288,6 +294,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -298,6 +306,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

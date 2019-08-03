@@ -56,6 +56,8 @@ name|RssFilterWithXPathTest
 extends|extends
 name|RssFilterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

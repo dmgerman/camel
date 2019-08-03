@@ -252,6 +252,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookupByNameAndType (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -352,6 +354,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|lookupByName (String name)
 specifier|public
 name|Object
@@ -397,6 +401,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|findByTypeWithName (Class<T> type)
 specifier|public
 parameter_list|<
@@ -524,6 +530,8 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findByType (Class<T> type)
 specifier|public
 parameter_list|<

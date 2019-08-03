@@ -108,6 +108,8 @@ operator|=
 name|direction
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processStanza (Stanza stanza)
 specifier|public
 name|void

@@ -708,6 +708,8 @@ name|aComponent
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor aProcessor)
 specifier|public
 name|Consumer
@@ -920,6 +922,8 @@ name|answer
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -936,6 +940,8 @@ literal|"producing JMX notifications is not supported"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

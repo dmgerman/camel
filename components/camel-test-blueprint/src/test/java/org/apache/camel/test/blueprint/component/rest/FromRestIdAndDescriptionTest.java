@@ -69,6 +69,8 @@ literal|"org/apache/camel/test/blueprint/component/rest/FromRestIdAndDescription
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testFromRestModel ()
 specifier|public

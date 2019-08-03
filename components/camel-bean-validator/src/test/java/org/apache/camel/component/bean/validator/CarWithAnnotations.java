@@ -107,6 +107,8 @@ operator|=
 name|licencePlate
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getManufacturer ()
 specifier|public
 name|String
@@ -117,6 +119,8 @@ return|return
 name|manufacturer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setManufacturer (String manufacturer)
 specifier|public
 name|void
@@ -133,6 +137,8 @@ operator|=
 name|manufacturer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLicensePlate ()
 specifier|public
 name|String
@@ -143,6 +149,8 @@ return|return
 name|licensePlate
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLicensePlate (String licensePlate)
 specifier|public
 name|void

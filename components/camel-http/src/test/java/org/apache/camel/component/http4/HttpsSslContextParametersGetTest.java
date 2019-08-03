@@ -248,6 +248,8 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|httpsGet ()
 specifier|public

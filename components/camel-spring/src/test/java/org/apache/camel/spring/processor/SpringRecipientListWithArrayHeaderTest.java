@@ -70,6 +70,8 @@ name|SpringRecipientListWithArrayHeaderTest
 extends|extends
 name|RecipientListWithArrayHeaderTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

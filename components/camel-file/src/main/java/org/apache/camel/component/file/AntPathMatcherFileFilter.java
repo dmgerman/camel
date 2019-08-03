@@ -128,6 +128,8 @@ name|caseSensitive
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|accept (File pathname)
 specifier|public
 name|boolean

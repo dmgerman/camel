@@ -129,6 +129,8 @@ name|length
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void
@@ -137,6 +139,8 @@ parameter_list|()
 block|{
 comment|// do nothing here
 block|}
+annotation|@
+name|Override
 DECL|method|writeTo (OutputStream os)
 specifier|public
 name|void
@@ -159,6 +163,8 @@ name|os
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy (Exchange exchange)
 specifier|public
 name|StreamCache
@@ -179,6 +185,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|inMemory ()
 specifier|public
 name|boolean
@@ -189,6 +197,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|length ()
 specifier|public
 name|long

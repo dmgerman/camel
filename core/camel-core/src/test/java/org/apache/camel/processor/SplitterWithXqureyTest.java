@@ -124,6 +124,8 @@ literal|"<other><test>Three</test></other>"
 operator|+
 literal|"<other><test>Foure</test></other></workflow>"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -298,6 +298,8 @@ name|getId
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -318,6 +320,8 @@ name|ID_PROPERTY
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGroup ()
 specifier|public
 name|String
@@ -338,6 +342,8 @@ name|GROUP_PROPERTY
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUptime ()
 specifier|public
 name|String
@@ -370,6 +376,8 @@ name|delta
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUptimeMillis ()
 specifier|public
 name|long
@@ -401,6 +409,8 @@ name|getTime
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -411,6 +421,8 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRouteContext ()
 specifier|public
 name|RouteContext
@@ -436,6 +448,8 @@ name|getCamelContext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProperties ()
 specifier|public
 name|Map
@@ -451,6 +465,8 @@ return|return
 name|properties
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription ()
 specifier|public
 name|String
@@ -482,6 +498,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onStartingServices (List<Service> services)
 specifier|public
 name|void
@@ -502,6 +520,8 @@ name|services
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getServices ()
 specifier|public
 name|List
@@ -515,6 +535,8 @@ return|return
 name|services
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addService (Service service)
 specifier|public
 name|void
@@ -544,6 +566,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|warmUp ()
 specifier|public
 name|void
@@ -602,6 +626,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -617,6 +643,8 @@ name|Date
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

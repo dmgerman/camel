@@ -104,6 +104,8 @@ operator|.
 name|none
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|usePersist ()
 specifier|public
 name|boolean

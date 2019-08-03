@@ -30,6 +30,8 @@ name|CreditAgency
 implements|implements
 name|CreditAgencyWS
 block|{
+annotation|@
+name|Override
 DECL|method|getCreditHistoryLength (String ssn)
 specifier|public
 name|int
@@ -60,6 +62,8 @@ return|return
 name|creditScore
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCreditScore (String ssn)
 specifier|public
 name|int

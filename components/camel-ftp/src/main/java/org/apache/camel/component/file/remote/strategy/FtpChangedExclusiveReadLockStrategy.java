@@ -283,6 +283,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<FTPFile> operations, GenericFile<FTPFile> file, Exchange exchange)
 specifier|public
 name|boolean

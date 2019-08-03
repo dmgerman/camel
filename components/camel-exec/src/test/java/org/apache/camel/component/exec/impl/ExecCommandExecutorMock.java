@@ -104,6 +104,8 @@ specifier|public
 name|ExecResult
 name|lastCommandResult
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|execute (ExecCommand command)
 specifier|public
 name|ExecResult

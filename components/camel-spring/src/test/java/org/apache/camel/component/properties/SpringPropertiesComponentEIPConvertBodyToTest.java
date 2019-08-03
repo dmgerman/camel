@@ -56,6 +56,8 @@ name|SpringPropertiesComponentEIPConvertBodyToTest
 extends|extends
 name|PropertiesComponentEIPConvertBodyToTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

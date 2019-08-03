@@ -119,6 +119,8 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -158,6 +160,8 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processAsync (Exchange exchange)
 specifier|public
 name|CompletableFuture

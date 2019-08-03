@@ -108,6 +108,8 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createId (NamedNode definition)
 specifier|public
 name|String

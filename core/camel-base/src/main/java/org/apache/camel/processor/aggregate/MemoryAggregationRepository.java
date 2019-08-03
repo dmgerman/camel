@@ -178,6 +178,8 @@ operator|=
 name|optimisticLocking
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|add (CamelContext camelContext, String key, Exchange oldExchange, Exchange newExchange)
 specifier|public
 name|Exchange
@@ -264,6 +266,8 @@ return|return
 name|oldExchange
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|add (CamelContext camelContext, String key, Exchange exchange)
 specifier|public
 name|Exchange
@@ -301,6 +305,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get (CamelContext camelContext, String key)
 specifier|public
 name|Exchange
@@ -322,6 +328,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove (CamelContext camelContext, String key, Exchange exchange)
 specifier|public
 name|void
@@ -373,6 +381,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|confirm (CamelContext camelContext, String exchangeId)
 specifier|public
 name|void
@@ -387,6 +397,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|getKeys ()
 specifier|public
 name|Set

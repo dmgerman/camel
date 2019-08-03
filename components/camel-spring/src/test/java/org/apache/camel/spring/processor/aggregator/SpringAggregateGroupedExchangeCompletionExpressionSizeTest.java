@@ -74,6 +74,8 @@ name|SpringAggregateGroupedExchangeCompletionExpressionSizeTest
 extends|extends
 name|AggregateGroupedExchangeCompletionExpressionSizeTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

@@ -179,6 +179,8 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleEvent (Event event)
 specifier|public
 name|void

@@ -40,6 +40,8 @@ name|VelocityEncodingTest
 extends|extends
 name|VelocityLetterTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

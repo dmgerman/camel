@@ -133,6 +133,8 @@ extends|extends
 name|ManagedRouteStopAndStartTest
 block|{
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testStopAndStartRoute ()
 specifier|public

@@ -60,6 +60,8 @@ argument_list|<
 name|Type
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|getOutputs ()
 specifier|public
 name|List

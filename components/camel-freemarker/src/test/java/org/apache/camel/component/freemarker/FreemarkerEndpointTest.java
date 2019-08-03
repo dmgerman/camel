@@ -78,6 +78,8 @@ name|FreemarkerEndpointTest
 extends|extends
 name|FreemarkerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

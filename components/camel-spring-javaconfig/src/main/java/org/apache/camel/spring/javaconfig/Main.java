@@ -468,6 +468,8 @@ index|]
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createDefaultApplicationContext ()
 specifier|protected
 name|AbstractApplicationContext

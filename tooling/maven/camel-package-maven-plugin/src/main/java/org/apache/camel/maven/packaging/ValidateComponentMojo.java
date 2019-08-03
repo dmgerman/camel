@@ -371,6 +371,8 @@ name|BuildContext
 name|buildContext
 decl_stmt|;
 comment|/**      * Execute goal.      *      * @throws org.apache.maven.plugin.MojoExecutionException execution of the main class or one of the      *                                                        threads it generated failed.      * @throws org.apache.maven.plugin.MojoFailureException   something bad happened...      */
+annotation|@
+name|Override
 DECL|method|execute ()
 specifier|public
 name|void

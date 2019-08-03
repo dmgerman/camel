@@ -494,6 +494,8 @@ name|endpoint
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaximumCacheSize ()
 specifier|public
 name|int
@@ -504,6 +506,8 @@ return|return
 name|maximumCacheSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMaximumCacheSize (int maximumCacheSize)
 specifier|public
 name|void
@@ -550,6 +554,8 @@ operator|=
 name|useExecutor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCurrentCacheSize ()
 specifier|public
 name|int
@@ -574,6 +580,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEventNotifierEnabled ()
 specifier|public
 name|boolean
@@ -584,6 +592,8 @@ return|return
 name|eventNotifierEnabled
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|cleanUp ()
 specifier|public
 name|void
@@ -604,6 +614,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
 specifier|public
 name|void
@@ -636,6 +648,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|send (String endpointUri, Exchange exchange)
 specifier|public
 name|Exchange
@@ -665,6 +679,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (String endpointUri, Processor processor)
 specifier|public
 name|Exchange
@@ -698,6 +714,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (String endpointUri, ExchangePattern pattern, Processor processor)
 specifier|public
 name|Exchange
@@ -734,6 +752,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (Endpoint endpoint, Exchange exchange)
 specifier|public
 name|Exchange
@@ -757,6 +777,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (Endpoint endpoint, Processor processor)
 specifier|public
 name|Exchange
@@ -782,6 +804,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (Endpoint endpoint, ExchangePattern pattern, Processor processor)
 specifier|public
 name|Exchange
@@ -810,6 +834,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (Endpoint endpoint, ExchangePattern pattern, Processor processor, Processor resultProcessor)
 specifier|public
 name|Exchange
@@ -922,6 +948,8 @@ name|resultProcessor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBody (Endpoint endpoint, ExchangePattern pattern, Object body)
 specifier|public
 name|Object
@@ -961,6 +989,8 @@ name|pattern
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBody (Endpoint endpoint, Object body)
 specifier|public
 name|void
@@ -995,6 +1025,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBody (String endpointUri, Object body)
 specifier|public
 name|void
@@ -1025,6 +1057,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBody (String endpointUri, ExchangePattern pattern, Object body)
 specifier|public
 name|Object
@@ -1082,6 +1116,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeader (String endpointUri, final Object body, final String header, final Object headerValue)
 specifier|public
 name|void
@@ -1120,6 +1156,8 @@ name|headerValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeader (Endpoint endpoint, final Object body, final String header, final Object headerValue)
 specifier|public
 name|void
@@ -1167,6 +1205,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeader (Endpoint endpoint, ExchangePattern pattern, final Object body, final String header, final Object headerValue)
 specifier|public
 name|Object
@@ -1242,6 +1282,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeader (String endpoint, ExchangePattern pattern, final Object body, final String header, final Object headerValue)
 specifier|public
 name|Object
@@ -1317,6 +1359,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndProperty (String endpointUri, final Object body, final String property, final Object propertyValue)
 specifier|public
 name|void
@@ -1355,6 +1399,8 @@ name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndProperty (Endpoint endpoint, final Object body, final String property, final Object propertyValue)
 specifier|public
 name|void
@@ -1402,6 +1448,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndProperty (Endpoint endpoint, ExchangePattern pattern, final Object body, final String property, final Object propertyValue)
 specifier|public
 name|Object
@@ -1477,6 +1525,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndProperty (String endpoint, ExchangePattern pattern, final Object body, final String property, final Object propertyValue)
 specifier|public
 name|Object
@@ -1552,6 +1602,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeaders (String endpointUri, final Object body, final Map<String, Object> headers)
 specifier|public
 name|void
@@ -1589,6 +1641,8 @@ name|headers
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeaders (Endpoint endpoint, final Object body, final Map<String, Object> headers)
 specifier|public
 name|void
@@ -1635,6 +1689,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeaders (String endpointUri, ExchangePattern pattern, Object body, Map<String, Object> headers)
 specifier|public
 name|Object
@@ -1676,6 +1732,8 @@ name|headers
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeaders (Endpoint endpoint, ExchangePattern pattern, final Object body, final Map<String, Object> headers)
 specifier|public
 name|Object
@@ -1752,6 +1810,8 @@ block|}
 block|}
 comment|// Methods using an InOut ExchangePattern
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|request (Endpoint endpoint, Processor processor)
 specifier|public
 name|Exchange
@@ -1777,6 +1837,8 @@ name|processor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBody (Object body)
 specifier|public
 name|Object
@@ -1802,6 +1864,8 @@ name|body
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBody (Endpoint endpoint, Object body)
 specifier|public
 name|Object
@@ -1829,6 +1893,8 @@ name|body
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeader (Object body, String header, Object headerValue)
 specifier|public
 name|Object
@@ -1864,6 +1930,8 @@ name|headerValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue)
 specifier|public
 name|Object
@@ -1901,6 +1969,8 @@ name|headerValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|request (String endpointUri, Processor processor)
 specifier|public
 name|Exchange
@@ -1933,6 +2003,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBody (String endpointUri, Object body)
 specifier|public
 name|Object
@@ -1963,6 +2035,8 @@ name|body
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue)
 specifier|public
 name|Object
@@ -2003,6 +2077,8 @@ name|headerValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
 specifier|public
 name|Object
@@ -2041,6 +2117,8 @@ name|headers
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeaders (Endpoint endpoint, final Object body, final Map<String, Object> headers)
 specifier|public
 name|Object
@@ -2078,6 +2156,8 @@ name|headers
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeaders (final Object body, final Map<String, Object> headers)
 specifier|public
 name|Object
@@ -2113,6 +2193,8 @@ name|headers
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBody (Object body, Class<T> type)
 specifier|public
 parameter_list|<
@@ -2143,6 +2225,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBody (Endpoint endpoint, Object body, Class<T> type)
 specifier|public
 parameter_list|<
@@ -2208,6 +2292,8 @@ name|answer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBody (String endpointUri, Object body, Class<T> type)
 specifier|public
 parameter_list|<
@@ -2281,6 +2367,8 @@ name|answer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeader (Endpoint endpoint, Object body, String header, Object headerValue, Class<T> type)
 specifier|public
 parameter_list|<
@@ -2356,6 +2444,8 @@ name|answer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeader (String endpointUri, Object body, String header, Object headerValue, Class<T> type)
 specifier|public
 parameter_list|<
@@ -2439,6 +2529,8 @@ name|answer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers, Class<T> type)
 specifier|public
 parameter_list|<
@@ -2522,6 +2614,8 @@ name|answer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestBodyAndHeaders (Endpoint endpoint, Object body, Map<String, Object> headers, Class<T> type)
 specifier|public
 parameter_list|<
@@ -2599,6 +2693,8 @@ return|;
 block|}
 comment|// Methods using the default endpoint
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|sendBody (Object body)
 specifier|public
 name|void
@@ -2617,6 +2713,8 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (Exchange exchange)
 specifier|public
 name|Exchange
@@ -2636,6 +2734,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send (Processor processor)
 specifier|public
 name|Exchange
@@ -2655,6 +2755,8 @@ name|processor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeader (Object body, String header, Object headerValue)
 specifier|public
 name|void
@@ -2683,6 +2785,8 @@ name|headerValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndProperty (Object body, String property, Object propertyValue)
 specifier|public
 name|void
@@ -2711,6 +2815,8 @@ name|propertyValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendBodyAndHeaders (Object body, Map<String, Object> headers)
 specifier|public
 name|void
@@ -2741,6 +2847,8 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -2751,6 +2859,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDefaultEndpoint ()
 specifier|public
 name|Endpoint
@@ -2761,6 +2871,8 @@ return|return
 name|defaultEndpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDefaultEndpoint (Endpoint defaultEndpoint)
 specifier|public
 name|void
@@ -2778,6 +2890,8 @@ name|defaultEndpoint
 expr_stmt|;
 block|}
 comment|/**      * Sets the default endpoint to use if none is specified      */
+annotation|@
+name|Override
 DECL|method|setDefaultEndpointUri (String endpointUri)
 specifier|public
 name|void
@@ -3235,6 +3349,8 @@ name|pattern
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExecutorService (ExecutorService executorService)
 specifier|public
 name|void
@@ -3251,6 +3367,8 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncSend (final String uri, final Exchange exchange)
 specifier|public
 name|CompletableFuture
@@ -3280,6 +3398,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncSend (final String uri, final Processor processor)
 specifier|public
 name|CompletableFuture
@@ -3309,6 +3429,8 @@ name|processor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncSendBody (final String uri, final Object body)
 specifier|public
 name|CompletableFuture
@@ -3338,6 +3460,8 @@ name|body
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBody (final String uri, final Object body)
 specifier|public
 name|CompletableFuture
@@ -3367,6 +3491,8 @@ name|body
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBody (final String uri, final Object body, final Class<T> type)
 specifier|public
 parameter_list|<
@@ -3411,6 +3537,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBodyAndHeader (final String endpointUri, final Object body, final String header, final Object headerValue)
 specifier|public
 name|CompletableFuture
@@ -3452,6 +3580,8 @@ name|headerValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBodyAndHeader (final String endpointUri, final Object body, final String header, final Object headerValue, final Class<T> type)
 specifier|public
 parameter_list|<
@@ -3505,6 +3635,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBodyAndHeaders (final String endpointUri, final Object body, final Map<String, Object> headers)
 specifier|public
 name|CompletableFuture
@@ -3545,6 +3677,8 @@ name|headers
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBodyAndHeaders (final String endpointUri, final Object body, final Map<String, Object> headers, final Class<T> type)
 specifier|public
 parameter_list|<
@@ -3597,6 +3731,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractFutureBody (Future<?> future, Class<T> type)
 specifier|public
 parameter_list|<
@@ -3631,6 +3767,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractFutureBody (Future<?> future, long timeout, TimeUnit unit, Class<T> type)
 specifier|public
 parameter_list|<
@@ -3677,6 +3815,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncCallbackSendBody (String uri, Object body, Synchronization onCompletion)
 specifier|public
 name|CompletableFuture
@@ -3709,6 +3849,8 @@ name|onCompletion
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncCallbackSendBody (Endpoint endpoint, Object body, Synchronization onCompletion)
 specifier|public
 name|CompletableFuture
@@ -3742,6 +3884,8 @@ name|onCompletion
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncCallbackRequestBody (String uri, Object body, Synchronization onCompletion)
 specifier|public
 name|CompletableFuture
@@ -3774,6 +3918,8 @@ name|onCompletion
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncCallbackRequestBody (Endpoint endpoint, Object body, Synchronization onCompletion)
 specifier|public
 name|CompletableFuture
@@ -3807,6 +3953,8 @@ name|onCompletion
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncCallback (String uri, Exchange exchange, Synchronization onCompletion)
 specifier|public
 name|CompletableFuture
@@ -3839,6 +3987,8 @@ name|onCompletion
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncCallback (String uri, Processor processor, Synchronization onCompletion)
 specifier|public
 name|CompletableFuture
@@ -3871,6 +4021,8 @@ name|onCompletion
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBody (final Endpoint endpoint, final Object body)
 specifier|public
 name|CompletableFuture
@@ -3900,6 +4052,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBody (Endpoint endpoint, Object body, Class<T> type)
 specifier|public
 parameter_list|<
@@ -3938,6 +4092,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBodyAndHeader (final Endpoint endpoint, final Object body, final String header, final Object headerValue)
 specifier|public
 name|CompletableFuture
@@ -4036,6 +4192,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBodyAndHeader (final Endpoint endpoint, final Object body, final String header, final Object headerValue, final Class<T> type)
 specifier|public
 parameter_list|<
@@ -4089,6 +4247,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBodyAndHeaders (final Endpoint endpoint, final Object body, final Map<String, Object> headers)
 specifier|public
 name|CompletableFuture
@@ -4129,6 +4289,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncRequestBodyAndHeaders (final Endpoint endpoint, final Object body, final Map<String, Object> headers, final Class<T> type)
 specifier|public
 parameter_list|<
@@ -4181,6 +4343,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncSend (final Endpoint endpoint, final Exchange exchange)
 specifier|public
 name|CompletableFuture
@@ -4213,6 +4377,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncSend (final Endpoint endpoint, final Processor processor)
 specifier|public
 name|CompletableFuture
@@ -4243,6 +4409,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncSendBody (final Endpoint endpoint, final Object body)
 specifier|public
 name|CompletableFuture
@@ -4279,6 +4447,8 @@ name|extractResultBody
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncCallback (final Endpoint endpoint, final Exchange exchange, final Synchronization onCompletion)
 specifier|public
 name|CompletableFuture
@@ -4317,6 +4487,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|asyncCallback (final Endpoint endpoint, final Processor processor, final Synchronization onCompletion)
 specifier|public
 name|CompletableFuture
@@ -4775,6 +4947,8 @@ return|return
 name|executor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -4840,6 +5014,8 @@ name|producerCache
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

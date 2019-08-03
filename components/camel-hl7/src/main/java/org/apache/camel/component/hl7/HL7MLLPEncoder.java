@@ -175,6 +175,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
+annotation|@
+name|Override
 DECL|method|encode (IoSession session, Object message, ProtocolEncoderOutput out)
 specifier|public
 name|void

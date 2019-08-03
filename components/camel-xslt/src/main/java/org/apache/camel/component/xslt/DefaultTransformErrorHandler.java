@@ -125,6 +125,8 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|error (SAXParseException exception)
 specifier|public
 name|void
@@ -151,6 +153,8 @@ throw|throw
 name|exception
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|fatalError (SAXParseException exception)
 specifier|public
 name|void
@@ -177,6 +181,8 @@ throw|throw
 name|exception
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|warning (SAXParseException exception)
 specifier|public
 name|void
@@ -200,6 +206,8 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|error (TransformerException exception)
 specifier|public
 name|void
@@ -226,6 +234,8 @@ throw|throw
 name|exception
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|fatalError (TransformerException exception)
 specifier|public
 name|void
@@ -252,6 +262,8 @@ throw|throw
 name|exception
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|warning (TransformerException exception)
 specifier|public
 name|void

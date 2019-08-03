@@ -159,6 +159,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveValidator (ValidatorKey key)
 specifier|public
 name|Validator

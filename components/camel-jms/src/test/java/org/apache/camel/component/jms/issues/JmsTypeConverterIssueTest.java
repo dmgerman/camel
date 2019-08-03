@@ -238,6 +238,8 @@ name|JmsTypeConverterIssueTest
 extends|extends
 name|CamelTestSupport
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -520,6 +522,8 @@ name|FixateHeaderValuesProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -570,6 +574,8 @@ name|ReadLocalFile
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -624,6 +630,8 @@ name|FilterProcessor
 implements|implements
 name|Processor
 block|{
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

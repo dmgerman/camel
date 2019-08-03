@@ -158,6 +158,8 @@ return|return
 name|streamCachingStrategy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -171,6 +173,8 @@ name|isEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolDirectory ()
 specifier|public
 name|String
@@ -187,6 +191,8 @@ name|getPath
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolCipher ()
 specifier|public
 name|String
@@ -200,6 +206,8 @@ name|getSpoolCipher
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolThreshold (long threshold)
 specifier|public
 name|void
@@ -217,6 +225,8 @@ name|threshold
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolThreshold ()
 specifier|public
 name|long
@@ -230,6 +240,8 @@ name|getSpoolThreshold
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolUsedHeapMemoryThreshold (int percentage)
 specifier|public
 name|void
@@ -247,6 +259,8 @@ name|percentage
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolUsedHeapMemoryThreshold ()
 specifier|public
 name|int
@@ -260,6 +274,8 @@ name|getSpoolUsedHeapMemoryThreshold
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSpoolUsedHeapMemoryLimit (SpoolUsedHeapMemoryLimit limit)
 specifier|public
 name|void
@@ -333,6 +349,8 @@ name|l
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpoolUsedHeapMemoryLimit ()
 specifier|public
 name|SpoolUsedHeapMemoryLimit
@@ -392,6 +410,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setBufferSize (int bufferSize)
 specifier|public
 name|void
@@ -409,6 +429,8 @@ name|bufferSize
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBufferSize ()
 specifier|public
 name|int
@@ -422,6 +444,8 @@ name|getBufferSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setRemoveSpoolDirectoryWhenStopping (boolean remove)
 specifier|public
 name|void
@@ -439,6 +463,8 @@ name|remove
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isRemoveSpoolDirectoryWhenStopping ()
 specifier|public
 name|boolean
@@ -452,6 +478,8 @@ name|isRemoveSpoolDirectoryWhenStopping
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setAnySpoolRules (boolean any)
 specifier|public
 name|void
@@ -469,6 +497,8 @@ name|any
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAnySpoolRules ()
 specifier|public
 name|boolean
@@ -482,6 +512,8 @@ name|isAnySpoolRules
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheMemoryCounter ()
 specifier|public
 name|long
@@ -498,6 +530,8 @@ name|getCacheMemoryCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheMemorySize ()
 specifier|public
 name|long
@@ -514,6 +548,8 @@ name|getCacheMemorySize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheMemoryAverageSize ()
 specifier|public
 name|long
@@ -530,6 +566,8 @@ name|getCacheMemoryAverageSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheSpoolCounter ()
 specifier|public
 name|long
@@ -546,6 +584,8 @@ name|getCacheSpoolCounter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheSpoolSize ()
 specifier|public
 name|long
@@ -562,6 +602,8 @@ name|getCacheSpoolSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheSpoolAverageSize ()
 specifier|public
 name|long
@@ -578,6 +620,8 @@ name|getCacheSpoolAverageSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isStatisticsEnabled ()
 specifier|public
 name|boolean
@@ -594,6 +638,8 @@ name|isStatisticsEnabled
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setStatisticsEnabled (boolean enabled)
 specifier|public
 name|void
@@ -614,6 +660,8 @@ name|enabled
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetStatistics ()
 specifier|public
 name|void

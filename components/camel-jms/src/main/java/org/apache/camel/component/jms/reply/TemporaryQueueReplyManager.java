@@ -280,6 +280,8 @@ name|getReplyTo
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
 specifier|protected
 name|ReplyHandler
@@ -322,6 +324,8 @@ name|requestTimeout
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|updateCorrelationId (String correlationId, String newCorrelationId, long requestTimeout)
 specifier|public
 name|void
@@ -471,6 +475,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setReplyToSelectorHeader (org.apache.camel.Message camelMessage, Message jmsMessage)
 specifier|public
 name|void
@@ -1072,6 +1078,8 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|resolveDestinationName (Session session, String destinationName, boolean pubSubDomain)
 specifier|public
 name|Destination

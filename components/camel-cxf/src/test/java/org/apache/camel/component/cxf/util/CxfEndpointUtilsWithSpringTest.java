@@ -283,6 +283,8 @@ literal|"org/apache/camel/component/cxf/util/CxfEndpointBeans.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointURI ()
 specifier|protected
 name|String
@@ -293,6 +295,8 @@ return|return
 literal|"cxf:bean:testEndpoint"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNoServiceClassURI ()
 specifier|protected
 name|String
@@ -335,6 +339,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sepChar ()
 specifier|public
 name|char
@@ -345,6 +351,8 @@ return|return
 literal|'?'
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testGetProperties ()

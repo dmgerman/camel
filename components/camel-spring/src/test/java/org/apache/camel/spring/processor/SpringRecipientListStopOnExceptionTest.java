@@ -70,6 +70,8 @@ name|SpringRecipientListStopOnExceptionTest
 extends|extends
 name|RecipientListStopOnExceptionTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

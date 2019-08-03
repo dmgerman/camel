@@ -70,6 +70,8 @@ name|SpringDeadLetterChannelUseOriginalBodyWithFileTest
 extends|extends
 name|DeadLetterChannelUseOriginalInBodyWithFileTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

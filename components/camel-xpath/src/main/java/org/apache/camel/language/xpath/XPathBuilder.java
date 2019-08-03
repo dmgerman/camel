@@ -1097,6 +1097,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches (Exchange exchange)
 specifier|public
 name|boolean
@@ -1151,6 +1153,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1980,6 +1984,8 @@ operator|=
 name|functionResolver
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNamespaces (Map<String, String> namespaces)
 specifier|public
 name|void
@@ -2011,6 +2017,8 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaces ()
 specifier|public
 name|Map

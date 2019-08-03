@@ -300,6 +300,8 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init (ManagementStrategy strategy)
 specifier|public
 name|void
@@ -414,6 +416,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|SendDynamicProcessor
@@ -424,6 +428,8 @@ return|return
 name|processor
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUri ()
 specifier|public
 name|String
@@ -434,6 +440,8 @@ return|return
 name|uri
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessageExchangePattern ()
 specifier|public
 name|String
@@ -467,6 +475,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheSize ()
 specifier|public
 name|Integer
@@ -480,6 +490,8 @@ name|getCacheSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isIgnoreInvalidEndpoint ()
 specifier|public
 name|Boolean
@@ -493,6 +505,8 @@ name|isIgnoreInvalidEndpoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isAllowOptimisedComponents ()
 specifier|public
 name|Boolean
@@ -506,6 +520,8 @@ name|isAllowOptimisedComponents
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isOptimised ()
 specifier|public
 name|Boolean

@@ -66,6 +66,8 @@ name|elmentName
 expr_stmt|;
 block|}
 comment|/**      * @return preset element name      */
+annotation|@
+name|Override
 DECL|method|findQNameForSoapActionOrType (String soapAction, Class<?> type)
 specifier|public
 name|QName
@@ -85,6 +87,8 @@ return|return
 name|elementName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findExceptionForFaultName (QName faultName)
 specifier|public
 name|Class

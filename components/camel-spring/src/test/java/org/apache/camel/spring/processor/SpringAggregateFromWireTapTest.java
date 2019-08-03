@@ -72,6 +72,8 @@ name|SpringAggregateFromWireTapTest
 extends|extends
 name|AggregateFromWireTapTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

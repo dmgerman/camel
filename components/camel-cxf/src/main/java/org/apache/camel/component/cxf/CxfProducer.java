@@ -497,6 +497,8 @@ block|}
 block|}
 comment|// As the cxf client async and sync api is implement different,
 comment|// so we don't delegate the sync process call to the async process
+annotation|@
+name|Override
 DECL|method|process (Exchange camelExchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -696,6 +698,8 @@ literal|false
 return|;
 block|}
 comment|/**      * This processor binds Camel exchange to a CXF exchange and      * invokes the CXF client.      */
+annotation|@
+name|Override
 DECL|method|process (Exchange camelExchange)
 specifier|public
 name|void

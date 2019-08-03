@@ -135,6 +135,8 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
@@ -223,6 +225,8 @@ literal|"bye.def"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createExchange ()
 specifier|public
 name|Exchange

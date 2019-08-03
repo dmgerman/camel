@@ -210,6 +210,8 @@ name|newExp
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onNewValueBuilder (Expression exp)
 specifier|protected
 name|ValueBuilder

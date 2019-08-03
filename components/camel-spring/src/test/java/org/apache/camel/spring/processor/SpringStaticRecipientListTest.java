@@ -70,6 +70,8 @@ name|SpringStaticRecipientListTest
 extends|extends
 name|StaticRecipientListTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

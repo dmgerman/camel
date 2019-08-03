@@ -293,6 +293,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * The file could not be written. We need to disconnect from the remote server.      */
+annotation|@
+name|Override
 DECL|method|handleFailedWrite (Exchange exchange, Exception exception)
 specifier|public
 name|void
@@ -793,6 +795,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

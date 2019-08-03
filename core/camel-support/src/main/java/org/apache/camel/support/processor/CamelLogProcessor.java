@@ -305,6 +305,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -315,6 +317,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setId (String id)
 specifier|public
 name|void
@@ -331,6 +335,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -742,6 +748,8 @@ name|ToStringExchangeFormatter
 implements|implements
 name|ExchangeFormatter
 block|{
+annotation|@
+name|Override
 DECL|method|format (Exchange exchange)
 specifier|public
 name|String

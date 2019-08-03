@@ -85,6 +85,8 @@ operator|=
 name|testModel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolveOrderItemChannel (OrderItem orderItem)
 specifier|public
 name|String

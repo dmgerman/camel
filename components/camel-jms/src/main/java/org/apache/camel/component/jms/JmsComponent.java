@@ -3237,6 +3237,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sets the Spring ApplicationContext to use      */
+annotation|@
+name|Override
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

@@ -116,6 +116,8 @@ operator|new
 name|ServiceComponent
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getMetadata ()
 specifier|protected
 name|Map

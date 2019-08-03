@@ -173,6 +173,8 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNamespaces ()
 specifier|public
 name|Map
@@ -189,6 +191,8 @@ name|namespaces
 return|;
 block|}
 comment|/**      * Injects the XML Namespaces of prefix -> uri mappings      *      * @param namespaces the XML namespaces with the key of prefixes and the value the URIs      */
+annotation|@
+name|Override
 DECL|method|setNamespaces (Map<String, String> namespaces)
 specifier|public
 name|void

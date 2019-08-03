@@ -222,6 +222,8 @@ name|MyEchoBean
 implements|implements
 name|Echo
 block|{
+annotation|@
+name|Override
 DECL|method|echo (String text)
 specifier|public
 name|String

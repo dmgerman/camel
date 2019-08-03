@@ -129,6 +129,8 @@ name|cacheName
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|CacheEntryCreated
 DECL|method|processEvent (CacheEntryEvent<Object, Object> event)
 specifier|public

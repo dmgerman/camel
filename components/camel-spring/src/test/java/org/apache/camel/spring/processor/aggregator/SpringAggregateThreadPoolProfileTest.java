@@ -74,6 +74,8 @@ name|SpringAggregateThreadPoolProfileTest
 extends|extends
 name|AggregateThreadPoolProfileTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

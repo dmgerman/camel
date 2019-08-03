@@ -344,6 +344,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> tClass)
 specifier|public
 parameter_list|<
@@ -578,6 +580,8 @@ return|return
 name|type
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|assertionFailureMessage (Exchange exchange)
 specifier|protected
 name|String

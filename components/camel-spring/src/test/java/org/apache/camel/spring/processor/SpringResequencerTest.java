@@ -70,6 +70,8 @@ name|SpringResequencerTest
 extends|extends
 name|ResequencerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext

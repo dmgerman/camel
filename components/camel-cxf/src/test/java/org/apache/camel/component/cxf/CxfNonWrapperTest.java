@@ -207,6 +207,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext
@@ -221,6 +223,8 @@ literal|"org/apache/camel/component/cxf/nonWrapperProcessor.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|assertValidContext (CamelContext context)
 specifier|protected
 name|void
