@@ -116,6 +116,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|w3c
@@ -1657,7 +1669,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by comma,      * or a primitive type array; otherwise to simplify the caller's code,      * we just create a singleton collection iterator over a single value      *<p/>      * Will default use comma for String separating String values.      * This method does<b>not</b> allow empty values      *      * @param value  the value      * @return the iterator      */
+comment|/**      * Creates an iterator over the value if the value is a {@link Stream}, collection, an      * Object[], a String with values separated by comma,      * or a primitive type array; otherwise to simplify the caller's code,      * we just create a singleton collection iterator over a single value      *<p/>      * Will default use comma for String separating String values.      * This method does<b>not</b> allow empty values      *      * @param value  the value      * @return the iterator      */
 DECL|method|createIterator (Object value)
 specifier|public
 specifier|static
@@ -1680,7 +1692,7 @@ name|DEFAULT_DELIMITER
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *<p/>      * This method does<b>not</b> allow empty values      *      * @param value      the value      * @param delimiter  delimiter for separating String values      * @return the iterator      */
+comment|/**      * Creates an iterator over the value if the value is a {@link Stream}, collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *<p/>      * This method does<b>not</b> allow empty values      *      * @param value      the value      * @param delimiter  delimiter for separating String values      * @return the iterator      */
 DECL|method|createIterator (Object value, String delimiter)
 specifier|public
 specifier|static
@@ -1708,7 +1720,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      *</p> In case of primitive type arrays the returned {@code Iterator} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *      * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @return the iterator      */
+comment|/**      * Creates an iterator over the value if the value is a {@link Stream}, collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      *</p> In case of primitive type arrays the returned {@code Iterator} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *      * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @return the iterator      */
 DECL|method|createIterator (Object value, String delimiter, boolean allowEmptyValues)
 specifier|public
 specifier|static
@@ -1744,7 +1756,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      *</p> In case of primitive type arrays the returned {@code Iterator} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *      * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @param pattern           whether the delimiter is a pattern      * @return the iterator      */
+comment|/**      * Creates an iterator over the value if the value is a {@link Stream}, collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      *</p> In case of primitive type arrays the returned {@code Iterator} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *      * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @param pattern           whether the delimiter is a pattern      * @return the iterator      */
 DECL|method|createIterator (Object value, String delimiter, boolean allowEmptyValues, boolean pattern)
 specifier|public
 specifier|static
@@ -1767,6 +1779,25 @@ name|boolean
 name|pattern
 parameter_list|)
 block|{
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Stream
+condition|)
+block|{
+return|return
+operator|(
+operator|(
+name|Stream
+operator|)
+name|value
+operator|)
+operator|.
+name|iterator
+argument_list|()
+return|;
+block|}
 return|return
 name|createIterable
 argument_list|(
