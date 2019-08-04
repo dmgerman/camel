@@ -102,11 +102,13 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * Configurations for Apache Any23 as key-value pairs in order to customize      * the extraction process. The list of supported parameters can be found      * here. If not provided, a default configuration is used. The option is a      * java.util.Map<java.lang.String,java.lang.String> type.      */
 DECL|field|configurations
 specifier|private
 name|String
 name|configurations
 decl_stmt|;
+comment|/**      * List of Any23 extractors to be used in the unmarshal operation. A list of      * the available extractors can be found here here. If not provided, all the      * available extractors are used.      */
 DECL|field|extractors
 specifier|private
 name|List
@@ -115,6 +117,7 @@ name|String
 argument_list|>
 name|extractors
 decl_stmt|;
+comment|/**      * The URI to use as base for building RDF entities if only relative paths      * are provided.      */
 DECL|field|baseURI
 specifier|private
 name|String
