@@ -380,22 +380,6 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Shutting down consumer gracefully"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// shutdown the thread pool gracefully
 name|getEndpoint
 argument_list|()
@@ -460,26 +444,19 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|ex
+name|e
 parameter_list|)
 block|{
 name|exchange
 operator|.
 name|setException
 argument_list|(
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Message forwarding failed"
-argument_list|,
-name|ex
-argument_list|)
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// log exception if an exception occurred and was not handled
 if|if
 condition|(
 name|exchange

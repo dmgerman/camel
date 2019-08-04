@@ -213,12 +213,17 @@ name|Consumer
 import|;
 end_import
 
+begin_comment
+comment|/**  * Used for demonstrations purpose to simulate some external system event bus/broker, where messages are sent to, and  * this component can consume from.  */
+end_comment
+
 begin_class
 DECL|class|EventBusHelper
 specifier|public
 class|class
 name|EventBusHelper
 block|{
+comment|// TODO: Delete me when you implementy your custom component
 DECL|field|INSTANCE
 specifier|private
 specifier|static

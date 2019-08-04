@@ -281,8 +281,8 @@ name|ComponentTest
 expr|extends
 name|CamelTestSupport
 block|{
-name|final
 specifier|private
+name|final
 name|EventBusHelper
 name|eventBusHelper
 operator|=
@@ -315,7 +315,7 @@ name|mock
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|20
+literal|5
 argument_list|)
 block|;
 comment|// Trigger events to subscribers
@@ -398,6 +398,7 @@ operator|new
 name|Date
 argument_list|()
 decl_stmt|;
+comment|// publish events to the event bus
 name|eventBusHelper
 operator|.
 name|publish
@@ -416,7 +417,7 @@ name|scheduleAtFixedRate
 argument_list|(
 name|task
 argument_list|,
-literal|1L
+literal|1000L
 argument_list|,
 literal|1000L
 argument_list|)

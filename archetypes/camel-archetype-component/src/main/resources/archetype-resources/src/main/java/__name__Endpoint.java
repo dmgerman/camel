@@ -541,6 +541,7 @@ name|ExecutorService
 name|createExecutor
 parameter_list|()
 block|{
+comment|// TODO: Delete me when you implementy your custom component
 return|return
 name|getCamelContext
 argument_list|()
