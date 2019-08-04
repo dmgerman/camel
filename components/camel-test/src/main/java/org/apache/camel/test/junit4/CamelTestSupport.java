@@ -4558,7 +4558,7 @@ block|;                     }
 return|return
 name|t
 operator|.
-name|startsWith
+name|equals
 argument_list|(
 name|target
 argument_list|)
