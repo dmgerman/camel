@@ -50,7 +50,7 @@ specifier|final
 name|String
 name|SERVICE_NAME
 init|=
-literal|"rxjava2"
+literal|"rxjava"
 decl_stmt|;
 comment|/**      * An implementation of the {@link AsyncCallback} that does nothing.      */
 DECL|field|EMPTY_ASYNC_CALLBACK
