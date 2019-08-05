@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AsyncCallback that provides a CompletableFuture completed when async action is done  */
+comment|/**  * AsyncCallback that provides a {@link CompletableFuture} completed when async action is done  */
 end_comment
 
 begin_class

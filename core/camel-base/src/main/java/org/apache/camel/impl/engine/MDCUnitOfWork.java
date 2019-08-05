@@ -708,7 +708,6 @@ name|MDC_STEP_ID
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*         if (!doneSync) {             // must clear MDC on current thread as the exchange is being processed asynchronously             // by another thread             clear();         }         super.afterProcess(processor, exchange, callback, doneSync);         */
 block|}
 comment|/**      * Clears information put on the MDC by this {@link MDCUnitOfWork}      */
 DECL|method|clear ()

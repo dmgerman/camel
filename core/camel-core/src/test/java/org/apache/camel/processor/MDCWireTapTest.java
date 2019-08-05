@@ -86,10 +86,6 @@ name|MDC
 import|;
 end_import
 
-begin_comment
-comment|/**  * //TODO: check mdc  */
-end_comment
-
 begin_class
 DECL|class|MDCWireTapTest
 specifier|public
@@ -226,7 +222,15 @@ literal|"camel.exchangeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//MDC.put("custom.id", "1");
+name|MDC
+operator|.
+name|put
+argument_list|(
+literal|"custom.id"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -239,11 +243,6 @@ operator|.
 name|wireTap
 argument_list|(
 literal|"direct:b"
-argument_list|)
-operator|.
-name|delay
-argument_list|(
-literal|2000
 argument_list|)
 operator|.
 name|process
@@ -289,7 +288,18 @@ literal|"camel.exchangeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//assertEquals("1", MDC.get("custom.id"));
+name|assertEquals
+argument_list|(
+literal|"1"
+argument_list|,
+name|MDC
+operator|.
+name|get
+argument_list|(
+literal|"custom.id"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -357,7 +367,17 @@ literal|"camel.exchangeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//assertEquals("1", MDC.get("custom.id"));
+comment|// custom MDC is not propagated
+name|assertNull
+argument_list|(
+name|MDC
+operator|.
+name|get
+argument_list|(
+literal|"custom.id"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
