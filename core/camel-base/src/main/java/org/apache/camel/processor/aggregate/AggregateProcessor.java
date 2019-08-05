@@ -1388,6 +1388,11 @@ specifier|private
 name|boolean
 name|discardOnCompletionTimeout
 decl_stmt|;
+DECL|field|discardOnAggregationFailure
+specifier|private
+name|boolean
+name|discardOnAggregationFailure
+decl_stmt|;
 DECL|field|forceCompletionOnStop
 specifier|private
 name|boolean
@@ -2597,6 +2602,8 @@ argument_list|,
 name|originalExchange
 argument_list|,
 name|oldExchange
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// as we complete the current group eager, we should indicate the new group is not complete
@@ -2628,6 +2635,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// aggregate the exchanges
+name|boolean
+name|aggregateFailed
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|answer
@@ -2646,6 +2658,56 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+name|aggregateFailed
+operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
+name|isDiscardOnAggregationFailure
+argument_list|()
+condition|)
+block|{
+comment|// discard due failure in aggregation strategy
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Aggregation for correlation key {} discarding aggregated exchange: {} due to failure in AggregationStrategy caused by: {}"
+argument_list|,
+name|key
+argument_list|,
+name|oldExchange
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|complete
+operator|=
+name|COMPLETED_BY_STRATEGY
+expr_stmt|;
+name|answer
+operator|=
+name|oldExchange
+expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+comment|// first message in group failed during aggregation and we should just discard this
+return|return
+literal|null
+return|;
+block|}
+block|}
+else|else
+block|{
 comment|// must catch any exception from aggregation
 throw|throw
 operator|new
@@ -2658,6 +2720,7 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -2818,6 +2881,9 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
+name|aggregateFailed
+operator|&&
 name|complete
 operator|==
 literal|null
@@ -2853,6 +2919,8 @@ argument_list|,
 name|originalExchange
 argument_list|,
 name|answer
+argument_list|,
+name|aggregateFailed
 argument_list|)
 expr_stmt|;
 block|}
@@ -2869,7 +2937,7 @@ return|return
 name|list
 return|;
 block|}
-DECL|method|doAggregationComplete (String complete, List<Exchange> list, String key, Exchange originalExchange, Exchange answer)
+DECL|method|doAggregationComplete (String complete, List<Exchange> list, String key, Exchange originalExchange, Exchange answer, boolean aggregateFailed)
 specifier|protected
 name|void
 name|doAggregationComplete
@@ -2891,6 +2959,9 @@ name|originalExchange
 parameter_list|,
 name|Exchange
 name|answer
+parameter_list|,
+name|boolean
+name|aggregateFailed
 parameter_list|)
 block|{
 if|if
@@ -2971,6 +3042,8 @@ argument_list|,
 name|batchAnswer
 argument_list|,
 literal|false
+argument_list|,
+name|aggregateFailed
 argument_list|)
 expr_stmt|;
 name|list
@@ -3024,6 +3097,8 @@ argument_list|,
 name|answer
 argument_list|,
 literal|false
+argument_list|,
+name|aggregateFailed
 argument_list|)
 expr_stmt|;
 block|}
@@ -3592,7 +3667,7 @@ name|newExchange
 argument_list|)
 return|;
 block|}
-DECL|method|onCompletion (final String key, final Exchange original, final Exchange aggregated, boolean fromTimeout)
+DECL|method|onCompletion (final String key, final Exchange original, final Exchange aggregated, boolean fromTimeout, boolean aggregateFailed)
 specifier|protected
 name|Exchange
 name|onCompletion
@@ -3611,6 +3686,9 @@ name|aggregated
 parameter_list|,
 name|boolean
 name|fromTimeout
+parameter_list|,
+name|boolean
+name|aggregateFailed
 parameter_list|)
 block|{
 comment|// store the correlation key as property before we remove so the repository has that information
@@ -3802,6 +3880,60 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// the completion was from timeout and we should just discard it
+name|answer
+operator|=
+literal|null
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|aggregateFailed
+operator|&&
+name|isDiscardOnAggregationFailure
+argument_list|()
+condition|)
+block|{
+comment|// discard due aggregation failed
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Aggregation for correlation key {} discarding aggregated exchange: {}"
+argument_list|,
+name|key
+argument_list|,
+name|aggregated
+argument_list|)
+expr_stmt|;
+comment|// must confirm the discarded exchange
+name|aggregationRepository
+operator|.
+name|confirm
+argument_list|(
+name|aggregated
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|aggregated
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and remove redelivery state as well
+name|redeliveryState
+operator|.
+name|remove
+argument_list|(
+name|aggregated
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// the completion was failed during aggregation and we should just discard it
 name|answer
 operator|=
 literal|null
@@ -4941,6 +5073,38 @@ block|}
 end_function
 
 begin_function
+DECL|method|isDiscardOnAggregationFailure ()
+specifier|public
+name|boolean
+name|isDiscardOnAggregationFailure
+parameter_list|()
+block|{
+return|return
+name|discardOnAggregationFailure
+return|;
+block|}
+end_function
+
+begin_function
+DECL|method|setDiscardOnAggregationFailure (boolean discardOnAggregationFailure)
+specifier|public
+name|void
+name|setDiscardOnAggregationFailure
+parameter_list|(
+name|boolean
+name|discardOnAggregationFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|discardOnAggregationFailure
+operator|=
+name|discardOnAggregationFailure
+expr_stmt|;
+block|}
+end_function
+
+begin_function
 DECL|method|setForceCompletionOnStop (boolean forceCompletionOnStop)
 specifier|public
 name|void
@@ -5579,6 +5743,8 @@ argument_list|,
 name|answer
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -5796,6 +5962,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|exchange
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -7551,6 +7719,8 @@ argument_list|,
 name|exchange
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -7771,6 +7941,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|exchange
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)

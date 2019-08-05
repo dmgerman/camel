@@ -626,6 +626,13 @@ name|discardOnCompletionTimeout
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|discardOnAggregationFailure
+specifier|private
+name|Boolean
+name|discardOnAggregationFailure
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|forceCompletionOnStop
 specifier|private
 name|Boolean
@@ -1701,6 +1708,32 @@ operator|=
 name|discardOnCompletionTimeout
 expr_stmt|;
 block|}
+DECL|method|getDiscardOnAggregationFailure ()
+specifier|public
+name|Boolean
+name|getDiscardOnAggregationFailure
+parameter_list|()
+block|{
+return|return
+name|discardOnAggregationFailure
+return|;
+block|}
+DECL|method|setDiscardOnAggregationFailure (Boolean discardOnAggregationFailure)
+specifier|public
+name|void
+name|setDiscardOnAggregationFailure
+parameter_list|(
+name|Boolean
+name|discardOnAggregationFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|discardOnAggregationFailure
+operator|=
+name|discardOnAggregationFailure
+expr_stmt|;
+block|}
 DECL|method|setTimeoutCheckerExecutorService (ScheduledExecutorService timeoutCheckerExecutorService)
 specifier|public
 name|void
@@ -1927,7 +1960,23 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables the batch completion mode where we aggregate from a {@link org.apache.camel.BatchConsumer}      * and aggregate the total number of exchanges the {@link org.apache.camel.BatchConsumer} has reported      * as total by checking the exchange property {@link org.apache.camel.Exchange#BATCH_COMPLETE} when its complete.      *      * @return builder      */
+comment|/**      * Discards the aggregated message when aggregation failed (an exception was thrown from {@link AggregationStrategy}.      * This means the partly aggregated message is dropped and not sent out of the aggregator.      *<p/>      * This option cannot be used together with completionFromBatchConsumer.      *      * @return builder      */
+DECL|method|discardOnAggregationFailure ()
+specifier|public
+name|AggregateDefinition
+name|discardOnAggregationFailure
+parameter_list|()
+block|{
+name|setDiscardOnAggregationFailure
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enables the batch completion mode where we aggregate from a {@link org.apache.camel.BatchConsumer}      * and aggregate the total number of exchanges the {@link org.apache.camel.BatchConsumer} has reported      * as total by checking the exchange property {@link org.apache.camel.Exchange#BATCH_COMPLETE} when its complete.      *<p/>      * This option cannot be used together with discardOnAggregationFailure.      *      * @return builder      */
 DECL|method|completionFromBatchConsumer ()
 specifier|public
 name|AggregateDefinition
