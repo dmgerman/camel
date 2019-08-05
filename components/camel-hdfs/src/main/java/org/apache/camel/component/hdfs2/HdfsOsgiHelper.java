@@ -138,7 +138,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// get bundle classloader for camel-hdfs2 bundle
+comment|// get bundle classloader for camel-hdfs bundle
 name|ClassLoader
 name|cl
 init|=
