@@ -77,7 +77,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.component.hdfs2"
+literal|"camel.component.hdfs"
 argument_list|)
 DECL|class|HdfsComponentConfiguration
 specifier|public
@@ -86,7 +86,7 @@ name|HdfsComponentConfiguration
 extends|extends
 name|ComponentConfigurationPropertiesCommon
 block|{
-comment|/**      * Whether to enable auto configuration of the hdfs2 component. This is      * enabled by default.      */
+comment|/**      * Whether to enable auto configuration of the hdfs component. This is      * enabled by default.      */
 DECL|field|enabled
 specifier|private
 name|Boolean

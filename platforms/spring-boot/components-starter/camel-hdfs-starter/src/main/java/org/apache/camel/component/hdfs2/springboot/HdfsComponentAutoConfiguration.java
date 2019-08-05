@@ -537,7 +537,7 @@ name|super
 argument_list|(
 literal|"camel.component"
 argument_list|,
-literal|"camel.component.hdfs2"
+literal|"camel.component.hdfs"
 argument_list|)
 expr_stmt|;
 block|}
@@ -799,7 +799,7 @@ argument_list|()
 argument_list|,
 literal|"camel.component.customizer"
 argument_list|,
-literal|"camel.component.hdfs2.customizer"
+literal|"camel.component.hdfs.customizer"
 argument_list|,
 operator|(
 operator|(
@@ -823,7 +823,7 @@ argument_list|()
 argument_list|,
 literal|"camel.component.customizer"
 argument_list|,
-literal|"camel.component.hdfs2.customizer"
+literal|"camel.component.hdfs.customizer"
 argument_list|)
 decl_stmt|;
 if|if
