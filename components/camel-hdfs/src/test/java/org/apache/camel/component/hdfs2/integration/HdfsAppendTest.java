@@ -359,7 +359,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2://localhost:9000/tmp/test/test-camel-simple-write-file1?append=true&fileSystemType=HDFS"
+literal|"hdfs://localhost:9000/tmp/test/test-camel-simple-write-file1?append=true&fileSystemType=HDFS"
 argument_list|)
 expr_stmt|;
 block|}
@@ -547,7 +547,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2://localhost:9000/tmp/test-dynamic/?append=true&fileSystemType=HDFS"
+literal|"hdfs://localhost:9000/tmp/test-dynamic/?append=true&fileSystemType=HDFS"
 argument_list|)
 expr_stmt|;
 block|}
@@ -584,7 +584,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"camel-hdfs2.log"
+literal|"camel-hdfs.log"
 argument_list|)
 expr_stmt|;
 block|}
@@ -601,7 +601,7 @@ init|=
 operator|new
 name|Path
 argument_list|(
-literal|"hdfs://localhost:9000/tmp/test-dynamic/camel-hdfs2.log"
+literal|"hdfs://localhost:9000/tmp/test-dynamic/camel-hdfs.log"
 argument_list|)
 decl_stmt|;
 name|FileSystem

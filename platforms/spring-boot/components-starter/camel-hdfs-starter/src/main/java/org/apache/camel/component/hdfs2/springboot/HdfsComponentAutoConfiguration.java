@@ -547,11 +547,9 @@ name|Lazy
 annotation|@
 name|Bean
 argument_list|(
-block|{
+name|name
+operator|=
 literal|"hdfs-component"
-block|,
-literal|"hdfs2-component"
-block|}
 argument_list|)
 annotation|@
 name|ConditionalOnMissingBean

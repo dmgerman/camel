@@ -132,7 +132,7 @@ begin_class
 annotation|@
 name|Component
 argument_list|(
-literal|"hdfs,hdfs2"
+literal|"hdfs"
 argument_list|)
 DECL|class|HdfsComponent
 specifier|public

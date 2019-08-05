@@ -320,12 +320,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2://localhost:9000/tmp/test/test-camel-simple-write-file?fileSystemType=HDFS&splitStrategy=BYTES:5,IDLE:1000"
+literal|"hdfs://localhost:9000/tmp/test/test-camel-simple-write-file?fileSystemType=HDFS&splitStrategy=BYTES:5,IDLE:1000"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"hdfs2://localhost:9000/tmp/test/test-camel-simple-write-file?pattern=*&initialDelay=2000&fileSystemType=HDFS&chunkSize=5"
+literal|"hdfs://localhost:9000/tmp/test/test-camel-simple-write-file?pattern=*&initialDelay=2000&fileSystemType=HDFS&chunkSize=5"
 argument_list|)
 operator|.
 name|to
@@ -683,7 +683,7 @@ block|{
 comment|// difference in chunkSize only to allow multiple consumers
 name|from
 argument_list|(
-literal|"hdfs2://localhost:9000/tmp/test/multiple-consumers?pattern=*.txt&fileSystemType=HDFS&chunkSize=128"
+literal|"hdfs://localhost:9000/tmp/test/multiple-consumers?pattern=*.txt&fileSystemType=HDFS&chunkSize=128"
 argument_list|)
 operator|.
 name|to
@@ -693,7 +693,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"hdfs2://localhost:9000/tmp/test/multiple-consumers?pattern=*.txt&fileSystemType=HDFS&chunkSize=256"
+literal|"hdfs://localhost:9000/tmp/test/multiple-consumers?pattern=*.txt&fileSystemType=HDFS&chunkSize=256"
 argument_list|)
 operator|.
 name|to
@@ -703,7 +703,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"hdfs2://localhost:9000/tmp/test/multiple-consumers?pattern=*.txt&fileSystemType=HDFS&chunkSize=512"
+literal|"hdfs://localhost:9000/tmp/test/multiple-consumers?pattern=*.txt&fileSystemType=HDFS&chunkSize=512"
 argument_list|)
 operator|.
 name|to
@@ -713,7 +713,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"hdfs2://localhost:9000/tmp/test/multiple-consumers?pattern=*.txt&fileSystemType=HDFS&chunkSize=1024"
+literal|"hdfs://localhost:9000/tmp/test/multiple-consumers?pattern=*.txt&fileSystemType=HDFS&chunkSize=1024"
 argument_list|)
 operator|.
 name|to

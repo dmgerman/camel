@@ -189,7 +189,7 @@ specifier|public
 interface|interface
 name|HdfsEndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint consumers for the HDFS2 component.      */
+comment|/**      * Builder for endpoint consumers for the HDFS component.      */
 DECL|interface|HdfsEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -1098,7 +1098,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint consumers for the HDFS2 component.      */
+comment|/**      * Advanced builder for endpoint consumers for the HDFS component.      */
 DECL|interface|AdvancedHdfsEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -1687,7 +1687,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint producers for the HDFS2 component.      */
+comment|/**      * Builder for endpoint producers for the HDFS component.      */
 DECL|interface|HdfsEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -2066,7 +2066,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint producers for the HDFS2 component.      */
+comment|/**      * Advanced builder for endpoint producers for the HDFS component.      */
 DECL|interface|AdvancedHdfsEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -2529,7 +2529,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint for the HDFS2 component.      */
+comment|/**      * Builder for endpoint for the HDFS component.      */
 DECL|interface|HdfsEndpointBuilder
 specifier|public
 interface|interface
@@ -2784,7 +2784,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the HDFS2 component.      */
+comment|/**      * Advanced builder for endpoint for the HDFS component.      */
 DECL|interface|AdvancedHdfsEndpointBuilder
 specifier|public
 interface|interface
@@ -3340,7 +3340,7 @@ block|,
 DECL|enumConstant|BLOCK
 name|BLOCK
 block|;     }
-comment|/**      * HDFS2 (camel-hdfs)      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x.      *       * Category: hadoop,file      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-hdfs      *       * Syntax:<code>hdfs:hostName:port/path</code>      *       * Path parameter: hostName (required)      * HDFS host to use      *       * Path parameter: port      * HDFS port to use      * Default value: 8020      *       * Path parameter: path (required)      * The directory path to use      */
+comment|/**      * HDFS (camel-hdfs)      * For reading/writing from/to an HDFS filesystem using Hadoop 2.x.      *       * Category: hadoop,file      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-hdfs      *       * Syntax:<code>hdfs:hostName:port/path</code>      *       * Path parameter: hostName (required)      * HDFS host to use      *       * Path parameter: port      * HDFS port to use      * Default value: 8020      *       * Path parameter: path (required)      * The directory path to use      */
 DECL|method|hdfs (String path)
 specifier|default
 name|HdfsEndpointBuilder

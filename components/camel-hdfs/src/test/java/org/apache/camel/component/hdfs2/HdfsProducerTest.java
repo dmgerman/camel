@@ -2808,7 +2808,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2://localhost/"
+literal|"hdfs://localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2826,7 +2826,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2843,7 +2843,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2860,7 +2860,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2877,7 +2877,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2894,7 +2894,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2911,7 +2911,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2928,7 +2928,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2946,7 +2946,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2963,7 +2963,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2981,7 +2981,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2999,7 +2999,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -3016,7 +3016,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:localhost/"
+literal|"hdfs:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.

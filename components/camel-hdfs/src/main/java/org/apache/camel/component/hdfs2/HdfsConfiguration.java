@@ -1409,7 +1409,7 @@ name|protocol
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"hdfs2"
+literal|"hdfs"
 argument_list|)
 condition|)
 block|{
