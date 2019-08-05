@@ -64,10 +64,10 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelHdfs2Test
+DECL|class|CamelHdfsTest
 specifier|public
 class|class
-name|CamelHdfs2Test
+name|CamelHdfsTest
 extends|extends
 name|BaseKarafTest
 block|{
@@ -80,7 +80,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelHdfs2Test
+name|CamelHdfsTest
 operator|.
 name|class
 argument_list|)
