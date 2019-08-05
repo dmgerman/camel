@@ -101,6 +101,14 @@ operator|new
 name|MDCUnitOfWork
 argument_list|(
 name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getMDCLoggingKeysPattern
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

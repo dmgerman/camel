@@ -1176,6 +1176,16 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
+name|setMDCLoggingKeysPattern
+argument_list|(
+name|config
+operator|.
+name|getMdcLoggingKeysPattern
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|camelContext
+operator|.
 name|setLoadTypeConverters
 argument_list|(
 name|config

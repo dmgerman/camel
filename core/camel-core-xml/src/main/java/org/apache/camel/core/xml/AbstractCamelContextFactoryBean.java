@@ -5368,6 +5368,13 @@ name|String
 name|getUseMDCLogging
 parameter_list|()
 function_decl|;
+DECL|method|getMDCLoggingKeysPattern ()
+specifier|public
+specifier|abstract
+name|String
+name|getMDCLoggingKeysPattern
+parameter_list|()
+function_decl|;
 DECL|method|getUseDataType ()
 specifier|public
 specifier|abstract
@@ -5871,6 +5878,30 @@ argument_list|(
 name|context
 argument_list|,
 name|getUseMDCLogging
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getMDCLoggingKeysPattern
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|context
+operator|.
+name|setMDCLoggingKeysPattern
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|context
+argument_list|,
+name|getMDCLoggingKeysPattern
 argument_list|()
 argument_list|)
 argument_list|)

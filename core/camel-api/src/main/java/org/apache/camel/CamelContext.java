@@ -1679,6 +1679,21 @@ name|Boolean
 name|useMDCLogging
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the pattern used for determine which custom MDC keys to propagate during message routing when      * the routing engine continues routing asynchronously for the given message. Setting this pattern to<tt>*</tt> will      * propagate all custom keys. Or setting the pattern to<tt>foo*,bar*</tt> will propagate any keys starting with      * either foo or bar.      * Notice that a set of standard Camel MDC keys are always propagated which starts with<tt>camel.</tt> as key name.      *<p/>      * The match rules are applied in this order (case insensitive):      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      */
+DECL|method|getMDCLoggingKeysPattern ()
+name|String
+name|getMDCLoggingKeysPattern
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the pattern used for determine which custom MDC keys to propagate during message routing when      * the routing engine continues routing asynchronously for the given message. Setting this pattern to<tt>*</tt> will      * propagate all custom keys. Or setting the pattern to<tt>foo*,bar*</tt> will propagate any keys starting with      * either foo or bar.      * Notice that a set of standard Camel MDC keys are always propagated which starts with<tt>camel.</tt> as key name.      *<p/>      * The match rules are applied in this order (case insensitive):      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param pattern  the pattern      */
+DECL|method|setMDCLoggingKeysPattern (String pattern)
+name|void
+name|setMDCLoggingKeysPattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+function_decl|;
 comment|/**      * Whether to enable using data type on Camel messages.      *<p/>      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      *      * @return<tt>true</tt> if data type is enabled      */
 DECL|method|isUseDataType ()
 name|Boolean

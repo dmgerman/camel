@@ -412,6 +412,12 @@ specifier|private
 name|boolean
 name|useMdcLogging
 decl_stmt|;
+comment|/**      * Sets the pattern used for determine which custom MDC keys to propagate during message routing when      * the routing engine continues routing asynchronously for the given message. Setting this pattern to * will      * propagate all custom keys. Or setting the pattern to foo*,bar* will propagate any keys starting with      * either foo or bar.      * Notice that a set of standard Camel MDC keys are always propagated which starts with camel. as key name.      *      * The match rules are applied in this order (case insensitive):      *      * 1. exact match, returns true      * 2. wildcard match (pattern ends with a * and the name starts with the pattern), returns true      * 3. regular expression match, returns true      * 4. otherwise returns false      */
+DECL|field|mdcLoggingKeysPattern
+specifier|private
+name|String
+name|mdcLoggingKeysPattern
+decl_stmt|;
 comment|/**      * Sets the thread name pattern used for creating the full thread name.      *      * The default pattern is: Camel (#camelId#) thread ##counter# - #name#      *      * Where #camelId# is the name of the CamelContext.      * and #counter# is a unique incrementing counter.      * and #name# is the regular thread name.      *      * You can also use #longName# which is the long thread name which can includes endpoint parameters etc.      */
 DECL|field|threadNamePattern
 specifier|private
