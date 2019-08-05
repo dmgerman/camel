@@ -137,7 +137,7 @@ specifier|public
 interface|interface
 name|Mina2EndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint consumers for the Mina2 component.      */
+comment|/**      * Builder for endpoint consumers for the Mina component.      */
 DECL|interface|Mina2EndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -855,7 +855,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint consumers for the Mina2 component.      */
+comment|/**      * Advanced builder for endpoint consumers for the Mina component.      */
 DECL|interface|AdvancedMina2EndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -1255,7 +1255,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint producers for the Mina2 component.      */
+comment|/**      * Builder for endpoint producers for the Mina component.      */
 DECL|interface|Mina2EndpointProducerBuilder
 specifier|public
 interface|interface
@@ -1931,7 +1931,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint producers for the Mina2 component.      */
+comment|/**      * Advanced builder for endpoint producers for the Mina component.      */
 DECL|interface|AdvancedMina2EndpointProducerBuilder
 specifier|public
 interface|interface
@@ -2247,7 +2247,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint for the Mina2 component.      */
+comment|/**      * Builder for endpoint for the Mina component.      */
 DECL|interface|Mina2EndpointBuilder
 specifier|public
 interface|interface
@@ -2883,7 +2883,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the Mina2 component.      */
+comment|/**      * Advanced builder for endpoint for the Mina component.      */
 DECL|interface|AdvancedMina2EndpointBuilder
 specifier|public
 interface|interface
@@ -3137,7 +3137,7 @@ block|,
 DECL|enumConstant|MAC
 name|MAC
 block|;     }
-comment|/**      * Mina2 (camel-mina2)      * Socket level networking using TCP or UDP with the Apache Mina 2.x      * library.      *       * Category: networking,tcp,udp      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-mina2      *       * Syntax:<code>mina:protocol:host:port</code>      *       * Path parameter: protocol (required)      * Protocol to use      *       * Path parameter: host (required)      * Hostname to use. Use localhost or 0.0.0.0 for local server as consumer.      * For producer use the hostname or ip address of the remote server.      *       * Path parameter: port (required)      * Port number      */
+comment|/**      * Mina (camel-mina)      * Socket level networking using TCP or UDP with the Apache Mina 2.x      * library.      *       * Category: networking,tcp,udp      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-mina      *       * Syntax:<code>mina:protocol:host:port</code>      *       * Path parameter: protocol (required)      * Protocol to use      *       * Path parameter: host (required)      * Hostname to use. Use localhost or 0.0.0.0 for local server as consumer.      * For producer use the hostname or ip address of the remote server.      *       * Path parameter: port (required)      * Port number      */
 DECL|method|mina2 (String path)
 specifier|default
 name|Mina2EndpointBuilder
