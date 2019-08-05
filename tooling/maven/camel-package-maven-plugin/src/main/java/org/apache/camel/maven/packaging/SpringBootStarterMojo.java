@@ -607,8 +607,6 @@ block|,
 comment|/* deprecated (and not working perfectly) -> */
 literal|"camel-swagger"
 block|,
-literal|"camel-mina"
-block|,
 literal|"camel-ibatis"
 block|,
 comment|/* currently incompatible */
