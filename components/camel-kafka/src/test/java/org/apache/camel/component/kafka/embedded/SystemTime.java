@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -114,6 +126,30 @@ block|{
 return|return
 literal|0
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|waitObject (Object obj, Supplier<Boolean> condition, long timeoutMs)
+specifier|public
+name|void
+name|waitObject
+parameter_list|(
+name|Object
+name|obj
+parameter_list|,
+name|Supplier
+argument_list|<
+name|Boolean
+argument_list|>
+name|condition
+parameter_list|,
+name|long
+name|timeoutMs
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
+comment|// NOOP
 block|}
 block|}
 end_class
