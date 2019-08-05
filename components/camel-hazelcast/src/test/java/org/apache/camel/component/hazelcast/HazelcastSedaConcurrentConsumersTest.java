@@ -125,13 +125,6 @@ literal|5
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedMessageCount
 argument_list|(
 name|bodyCount
