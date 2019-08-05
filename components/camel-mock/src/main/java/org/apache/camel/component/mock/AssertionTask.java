@@ -32,7 +32,6 @@ name|Runnable
 block|{
 comment|/**      * Asserts on the n'th received message      *      * @param index the n'th received message      */
 DECL|method|assertOnIndex (int index)
-specifier|public
 name|void
 name|assertOnIndex
 parameter_list|(
