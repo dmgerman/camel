@@ -443,7 +443,7 @@ block|{
 comment|// we setup a Syslog listener on a random port.
 name|from
 argument_list|(
-literal|"mina2:udp://127.0.0.1:"
+literal|"mina:udp://127.0.0.1:"
 operator|+
 name|serverPort
 argument_list|)

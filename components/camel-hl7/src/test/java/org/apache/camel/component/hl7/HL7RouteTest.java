@@ -367,7 +367,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:"
+literal|"mina:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -506,7 +506,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:"
+literal|"mina:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -642,7 +642,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:"
+literal|"mina:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -693,7 +693,7 @@ comment|// we setup or HL7 listener on port 8888 (using the hl7codec)
 comment|// and in sync mode so we can return a response
 name|from
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:"
+literal|"mina:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
