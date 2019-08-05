@@ -64,10 +64,10 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelMina2Test
+DECL|class|CamelMinaTest
 specifier|public
 class|class
-name|CamelMina2Test
+name|CamelMinaTest
 extends|extends
 name|BaseKarafTest
 block|{
@@ -80,7 +80,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelMina2Test
+name|CamelMinaTest
 operator|.
 name|class
 argument_list|)
