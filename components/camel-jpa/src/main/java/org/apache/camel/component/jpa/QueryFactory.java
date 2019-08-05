@@ -48,7 +48,7 @@ specifier|public
 interface|interface
 name|QueryFactory
 block|{
-comment|/**      * Creates a new query to find objects to be processed      *      * @param entityManager      * @return the query configured with any parameters etc      */
+comment|/**      * Creates a new query to find objects to be processed      *      * @param entityManager the enity manager      * @return the query configured with any parameters etc      */
 DECL|method|createQuery (EntityManager entityManager)
 name|Query
 name|createQuery
