@@ -3592,29 +3592,6 @@ name|newExchange
 argument_list|)
 return|;
 block|}
-DECL|method|onPreCompletionAggregation (Exchange oldExchange, Exchange newExchange)
-specifier|protected
-name|boolean
-name|onPreCompletionAggregation
-parameter_list|(
-name|Exchange
-name|oldExchange
-parameter_list|,
-name|Exchange
-name|newExchange
-parameter_list|)
-block|{
-return|return
-name|aggregationStrategy
-operator|.
-name|preComplete
-argument_list|(
-name|oldExchange
-argument_list|,
-name|newExchange
-argument_list|)
-return|;
-block|}
 DECL|method|onCompletion (final String key, final Exchange original, final Exchange aggregated, boolean fromTimeout)
 specifier|protected
 name|Exchange
