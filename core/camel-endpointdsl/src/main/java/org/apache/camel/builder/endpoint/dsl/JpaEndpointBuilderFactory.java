@@ -1997,6 +1997,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * If enabled then the producer will find a single entity by using the          * message body as key and entityType as the class type. This can be          * used instead of a query to find a single entity.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|findEntity (boolean findEntity)
+specifier|default
+name|JpaEndpointProducerBuilder
+name|findEntity
+parameter_list|(
+name|boolean
+name|findEntity
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"findEntity"
+argument_list|,
+name|findEntity
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If enabled then the producer will find a single entity by using the          * message body as key and entityType as the class type. This can be          * used instead of a query to find a single entity.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|findEntity (String findEntity)
+specifier|default
+name|JpaEndpointProducerBuilder
+name|findEntity
+parameter_list|(
+name|String
+name|findEntity
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"findEntity"
+argument_list|,
+name|findEntity
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Flushes the EntityManager after the entity bean has been persisted.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|flushOnSend (boolean flushOnSend)
 specifier|default

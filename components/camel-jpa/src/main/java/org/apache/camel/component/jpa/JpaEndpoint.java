@@ -783,6 +783,18 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|)
+DECL|field|findEntity
+specifier|private
+name|boolean
+name|findEntity
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"advanced"
 argument_list|,
 name|prefix
@@ -929,6 +941,14 @@ operator|.
 name|setResultClass
 argument_list|(
 name|getResultClass
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|producer
+operator|.
+name|setFindEntity
+argument_list|(
+name|isFindEntity
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2053,6 +2073,33 @@ operator|.
 name|useExecuteUpdate
 operator|=
 name|useExecuteUpdate
+expr_stmt|;
+block|}
+DECL|method|isFindEntity ()
+specifier|public
+name|boolean
+name|isFindEntity
+parameter_list|()
+block|{
+return|return
+name|findEntity
+return|;
+block|}
+comment|/**      * If enabled then the producer will find a single entity by using the message body as key and entityType as the class type.      * This can be used instead of a query to find a single entity.      */
+DECL|method|setFindEntity (boolean findEntity)
+specifier|public
+name|void
+name|setFindEntity
+parameter_list|(
+name|boolean
+name|findEntity
+parameter_list|)
+block|{
+name|this
+operator|.
+name|findEntity
+operator|=
+name|findEntity
 expr_stmt|;
 block|}
 comment|// Implementation methods
