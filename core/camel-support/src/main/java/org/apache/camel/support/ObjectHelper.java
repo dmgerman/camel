@@ -1335,6 +1335,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|ClassLoader
 name|tccl
 init|=
@@ -1375,13 +1376,6 @@ return|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|tccl
-operator|!=
-literal|null
-condition|)
-block|{
 name|Thread
 operator|.
 name|currentThread
@@ -1392,7 +1386,6 @@ argument_list|(
 name|tccl
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Creates an iterable over the value if the value is a collection, an      * Object[], a String with values separated by comma,      * or a primitive type array; otherwise to simplify the caller's code,      * we just create a singleton collection iterator over a single value      *<p/>      * Will default use comma for String separating String values.      * This method does<b>not</b> allow empty values      *      * @param value  the value      * @return the iterable      */

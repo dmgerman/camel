@@ -561,7 +561,7 @@ comment|// must use the classloader from the application context when creating r
 comment|// as it should inherit the classloader from app context and not the current which may be
 comment|// a different classloader
 name|ClassLoader
-name|current
+name|oldClassLoader
 init|=
 name|Thread
 operator|.
@@ -741,13 +741,6 @@ throw|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|ac
-operator|!=
-literal|null
-condition|)
-block|{
 name|Thread
 operator|.
 name|currentThread
@@ -755,10 +748,9 @@ argument_list|()
 operator|.
 name|setContextClassLoader
 argument_list|(
-name|current
+name|oldClassLoader
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|started
 operator|.

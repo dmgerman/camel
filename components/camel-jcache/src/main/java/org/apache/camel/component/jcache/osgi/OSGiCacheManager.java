@@ -365,13 +365,6 @@ return|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|jcl
-operator|!=
-literal|null
-condition|)
-block|{
 name|Thread
 operator|.
 name|currentThread
@@ -382,7 +375,6 @@ argument_list|(
 name|tccl
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getClassLoader (String providerName)

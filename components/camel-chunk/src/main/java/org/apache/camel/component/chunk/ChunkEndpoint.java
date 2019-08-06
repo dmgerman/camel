@@ -831,13 +831,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|oldcl
-operator|!=
-literal|null
-condition|)
-block|{
 name|Thread
 operator|.
 name|currentThread
@@ -848,7 +841,6 @@ argument_list|(
 name|oldcl
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getOrCreateChunk (Theme theme, boolean fromTemplate)

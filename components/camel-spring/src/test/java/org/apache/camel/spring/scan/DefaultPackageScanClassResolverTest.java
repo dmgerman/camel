@@ -1095,13 +1095,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|savedClassLoader
-operator|!=
-literal|null
-condition|)
-block|{
 name|Thread
 operator|.
 name|currentThread
@@ -1112,7 +1105,6 @@ argument_list|(
 name|savedClassLoader
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
@@ -1262,13 +1254,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|savedClassLoader
-operator|!=
-literal|null
-condition|)
-block|{
 name|Thread
 operator|.
 name|currentThread
@@ -1279,7 +1264,6 @@ argument_list|(
 name|savedClassLoader
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

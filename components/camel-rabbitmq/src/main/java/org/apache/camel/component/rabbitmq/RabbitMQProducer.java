@@ -1833,13 +1833,6 @@ throw|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|ac
-operator|!=
-literal|null
-condition|)
-block|{
 name|Thread
 operator|.
 name|currentThread
@@ -1850,7 +1843,6 @@ argument_list|(
 name|current
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|started
 operator|.
