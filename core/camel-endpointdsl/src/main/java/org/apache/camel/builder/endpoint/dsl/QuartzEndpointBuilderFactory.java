@@ -99,7 +99,7 @@ specifier|public
 interface|interface
 name|QuartzEndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint for the Quartz2 component.      */
+comment|/**      * Builder for endpoint for the Quartz component.      */
 DECL|interface|QuartzEndpointBuilder
 specifier|public
 interface|interface
@@ -520,7 +520,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the Quartz2 component.      */
+comment|/**      * Advanced builder for endpoint for the Quartz component.      */
 DECL|interface|AdvancedQuartzEndpointBuilder
 specifier|public
 interface|interface
@@ -846,7 +846,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Quartz2 (camel-quartz2)      * Provides a scheduled delivery of messages using the Quartz 2.x scheduler.      *       * Category: scheduling      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-quartz2      *       * Syntax:<code>quartz2:groupName/triggerName</code>      *       * Path parameter: groupName      * The quartz group name to use. The combination of group name and timer      * name should be unique.      * Default value: Camel      *       * Path parameter: triggerName (required)      * The quartz timer name to use. The combination of group name and timer      * name should be unique.      */
+comment|/**      * Quartz (camel-quartz)      * Provides a scheduled delivery of messages using the Quartz 2.x scheduler.      *       * Category: scheduling      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-quartz      *       * Syntax:<code>quartz:groupName/triggerName</code>      *       * Path parameter: groupName      * The quartz group name to use. The combination of group name and timer      * name should be unique.      * Default value: Camel      *       * Path parameter: triggerName (required)      * The quartz timer name to use. The combination of group name and timer      * name should be unique.      */
 DECL|method|quartz (String path)
 specifier|default
 name|QuartzEndpointBuilder
@@ -874,7 +874,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"quartz2"
+literal|"quartz"
 argument_list|,
 name|path
 argument_list|)
