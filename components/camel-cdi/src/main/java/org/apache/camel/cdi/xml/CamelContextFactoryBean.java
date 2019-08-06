@@ -1065,7 +1065,6 @@ name|ThreadPoolFactoryBean
 operator|.
 name|class
 argument_list|)
-block|,
 block|}
 argument_list|)
 DECL|field|beansFactory
@@ -2362,7 +2361,7 @@ return|return
 name|packages
 return|;
 block|}
-comment|/**      * Sets the package names to be recursively searched for Java classes which      * extend {@link org.apache.camel.builder.RouteBuilder} to be auto-wired up to the      * {@link CamelContext} as a route. Note that classes are excluded if      * they are specifically configured in the deployment.      *<p/>      * A more advanced configuration can be done using {@link #setPackageScan(org.apache.camel.model.PackageScanDefinition)}      *      * @param packages the package names which are recursively searched      * @see #setPackageScan(org.apache.camel.model.PackageScanDefinition)      */
+comment|/**      * Sets the package names to be recursively searched for Java classes which      * extend {@link org.apache.camel.builder.RouteBuilder} to be auto-wired up      * to the {@link CamelContext} as a route. Note that classes are excluded if      * they are specifically configured in the deployment.      *<p/>      * A more advanced configuration can be done using      * {@link #setPackageScan(org.apache.camel.model.PackageScanDefinition)}      *      * @param packages the package names which are recursively searched      * @see #setPackageScan(org.apache.camel.model.PackageScanDefinition)      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -2423,7 +2422,7 @@ return|return
 name|contextScan
 return|;
 block|}
-comment|/**      * Sets the context scanning information.      * Context scanning allows for the automatic discovery of Camel routes runtime for inclusion      * e.g. {@link org.apache.camel.builder.RouteBuilder} implementations      *      * @param contextScan the context scan      */
+comment|/**      * Sets the context scanning information. Context scanning allows for the      * automatic discovery of Camel routes runtime for inclusion e.g.      * {@link org.apache.camel.builder.RouteBuilder} implementations      *      * @param contextScan the context scan      */
 annotation|@
 name|Override
 DECL|method|setContextScan (ContextScanDefinition contextScan)
