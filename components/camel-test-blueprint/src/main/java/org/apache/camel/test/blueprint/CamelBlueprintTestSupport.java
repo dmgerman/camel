@@ -218,6 +218,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -2398,7 +2412,7 @@ name|timeout
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a temporary File with persisted configuration for ConfigAdmin      * @param initialConfiguration      * @return      */
+comment|/**      * Create a temporary File with persisted configuration for ConfigAdmin      */
 DECL|method|prepareInitialConfigFile (Properties initialConfiguration)
 specifier|private
 name|String
@@ -2467,10 +2481,12 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|writer
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 expr_stmt|;
 block|}
 return|return
