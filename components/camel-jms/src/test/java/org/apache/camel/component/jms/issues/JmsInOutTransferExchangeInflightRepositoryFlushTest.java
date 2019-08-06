@@ -358,19 +358,36 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|log
+argument_list|(
+literal|"A ${exchangeId}"
+argument_list|)
+operator|.
 name|inOut
 argument_list|(
-literal|"activemq:responseGenerator?transferExchange=true&requestTimeout=5000"
+literal|"activemq:responseGenerator?transferExchange=true&requestTimeout=20000"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"A ${exchangeId}"
 argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:result"
+argument_list|,
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
 literal|"activemq:responseGenerator?transferExchange=true"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"B ${exchangeId}"
 argument_list|)
 operator|.
 name|process
@@ -408,7 +425,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getIn
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -422,6 +439,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:reply"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"B ${exchangeId}"
 argument_list|)
 expr_stmt|;
 block|}
