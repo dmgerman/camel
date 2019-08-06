@@ -2856,9 +2856,7 @@ throws|throws
 name|Exception
 block|{
 comment|// setup management first since end users may use it to add event
-comment|// notifiers
-comment|// using the management strategy before the CamelContext has been
-comment|// started
+comment|// notifiers using the management strategy before the CamelContext has been started
 name|setupManagement
 argument_list|(
 literal|null
@@ -13675,6 +13673,15 @@ comment|// and clear start date
 name|startDate
 operator|=
 literal|null
+expr_stmt|;
+comment|// Call all registered trackers with this context
+comment|// Note, this may use a partially constructed object
+name|CamelContextTracker
+operator|.
+name|notifyContextDestroyed
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Starts or resumes the routes      *      * @param routeServices the routes to start (will only start a route if its      *            not already started)      * @param checkClash whether to check for startup ordering clash      * @param startConsumer whether the route consumer should be started. Can be      *            used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes whether we are adding new routes      * @throws Exception is thrown if error starting routes      */
