@@ -288,10 +288,6 @@ argument_list|,
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|basePath
 specifier|private
@@ -342,10 +338,6 @@ argument_list|,
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|consumes
 specifier|private
@@ -359,7 +351,7 @@ name|description
 operator|=
 literal|"Scheme hostname and port to direct the HTTP requests to in the form of"
 operator|+
-literal|" `http[s]://hostname[:port]`. Can be configured at the endpoint, component or in the correspoding"
+literal|" `http[s]://hostname[:port]`. Can be configured at the endpoint, component or in the corresponding"
 operator|+
 literal|" REST configuration in the Camel Context. If you give this component a name (e.g. `petstore`) that"
 operator|+
@@ -372,10 +364,6 @@ argument_list|,
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|host
 specifier|private
@@ -396,10 +384,6 @@ argument_list|,
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|produces
 specifier|private
@@ -413,7 +397,7 @@ name|description
 operator|=
 literal|"Path to the Swagger specification file. The scheme, host base path are taken from this"
 operator|+
-literal|" specification, but these can be overriden with properties on the component or endpoint level. If not"
+literal|" specification, but these can be overridden with properties on the component or endpoint level. If not"
 operator|+
 literal|" given the component tries to load `swagger.json` resource. Note that the `host` defined on the"
 operator|+
@@ -430,10 +414,6 @@ argument_list|,
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|specificationUri
 specifier|private
@@ -452,10 +432,6 @@ argument_list|,
 name|label
 operator|=
 literal|"security"
-argument_list|,
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|sslContextParameters
 specifier|private
@@ -501,6 +477,59 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
+specifier|protected
+name|Endpoint
+name|createEndpoint
+parameter_list|(
+specifier|final
+name|String
+name|uri
+parameter_list|,
+specifier|final
+name|String
+name|remaining
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|Endpoint
+name|endpoint
+init|=
+operator|new
+name|RestSwaggerEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|remaining
+argument_list|,
+name|this
+argument_list|,
+name|parameters
+argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
+return|;
 block|}
 DECL|method|getBasePath ()
 specifier|public
@@ -749,60 +778,6 @@ name|useGlobalSslContextParameters
 operator|=
 name|useGlobalSslContextParameters
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
-specifier|protected
-name|Endpoint
-name|createEndpoint
-parameter_list|(
-specifier|final
-name|String
-name|uri
-parameter_list|,
-specifier|final
-name|String
-name|remaining
-parameter_list|,
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-specifier|final
-name|Endpoint
-name|endpoint
-init|=
-operator|new
-name|RestSwaggerEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|remaining
-argument_list|,
-name|this
-argument_list|,
-name|parameters
-argument_list|)
-decl_stmt|;
-name|setProperties
-argument_list|(
-name|endpoint
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
-name|endpoint
-return|;
 block|}
 block|}
 end_class

@@ -772,13 +772,6 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|basePath
 specifier|private
 name|String
@@ -789,7 +782,7 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Name of the Camel component that will perform the requests. The compnent must be present"
+literal|"Name of the Camel component that will perform the requests. The component must be present"
 operator|+
 literal|" in Camel registry and it must implement RestProducerFactory service provider interface. If not set"
 operator|+
@@ -800,13 +793,6 @@ argument_list|,
 name|label
 operator|=
 literal|"producer"
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|false
 argument_list|)
 DECL|field|componentName
 specifier|private
@@ -842,7 +828,7 @@ name|description
 operator|=
 literal|"Scheme hostname and port to direct the HTTP requests to in the form of"
 operator|+
-literal|" `http[s]://hostname[:port]`. Can be configured at the endpoint, component or in the correspoding"
+literal|" `http[s]://hostname[:port]`. Can be configured at the endpoint, component or in the corresponding"
 operator|+
 literal|" REST configuration in the Camel Context. If you give this component a name (e.g. `petstore`) that"
 operator|+
