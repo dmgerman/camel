@@ -324,10 +324,10 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelQuartz2JmxUpdateTest
+DECL|class|CamelQuartzJmxUpdateTest
 specifier|public
 class|class
-name|CamelQuartz2JmxUpdateTest
+name|CamelQuartzJmxUpdateTest
 extends|extends
 name|AbstractFeatureTest
 block|{
@@ -342,7 +342,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CamelQuartz2JmxUpdateTest
+name|CamelQuartzJmxUpdateTest
 operator|.
 name|class
 argument_list|)
@@ -357,10 +357,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// install camel-quartz2 here as 'wrap:' is not available at boot time
+comment|// install camel-quartz here as 'wrap:' is not available at boot time
 name|installCamelFeature
 argument_list|(
-literal|"camel-quartz2"
+literal|"camel-quartz"
 argument_list|)
 expr_stmt|;
 comment|// install the camel blueprint xml file we use in this test
@@ -373,7 +373,7 @@ name|loadResourceAsURL
 argument_list|(
 literal|"org/apache/camel/itest/CamelQuartz2JmxUpdateTest.xml"
 argument_list|,
-name|CamelQuartz2JmxUpdateTest
+name|CamelQuartzJmxUpdateTest
 operator|.
 name|class
 operator|.
@@ -383,7 +383,7 @@ argument_list|)
 decl_stmt|;
 name|installBlueprintAsBundle
 argument_list|(
-literal|"CamelQuartz2JmxUpdateTest"
+literal|"CamelQuartzJmxUpdateTest"
 argument_list|,
 name|url
 argument_list|,
