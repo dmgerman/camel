@@ -178,7 +178,7 @@ literal|"file"
 argument_list|,
 name|excludeProperties
 operator|=
-literal|"binary,charset,doneFileName,download,fastExistsCheck,fileExist,moveExisting,passiveMode"
+literal|"appendChars,binary,charset,doneFileName,download,fastExistsCheck,fileExist,moveExisting,passiveMode"
 operator|+
 literal|",separator,tempFileName,tempPrefix,eagerDeleteTargetFile,keepLastModified,sendNoop"
 operator|+

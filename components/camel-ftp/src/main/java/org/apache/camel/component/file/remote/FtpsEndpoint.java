@@ -291,6 +291,10 @@ argument_list|,
 name|label
 operator|=
 literal|"file"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"appendChars,readLockIdempotentReleaseAsync,readLockIdempotentReleaseAsyncPoolSize,readLockIdempotentReleaseDelay,readLockIdempotentReleaseExecutorService"
 argument_list|)
 annotation|@
 name|ManagedResource

@@ -346,7 +346,7 @@ literal|"file"
 argument_list|,
 name|excludeProperties
 operator|=
-literal|"readLockIdempotentReleaseAsync,readLockIdempotentReleaseAsyncPoolSize,readLockIdempotentReleaseDelay,readLockIdempotentReleaseExecutorService"
+literal|"appendChars,readLockIdempotentReleaseAsync,readLockIdempotentReleaseAsyncPoolSize,readLockIdempotentReleaseDelay,readLockIdempotentReleaseExecutorService"
 argument_list|)
 annotation|@
 name|ManagedResource
