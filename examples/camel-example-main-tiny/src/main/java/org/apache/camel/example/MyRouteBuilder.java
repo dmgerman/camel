@@ -50,7 +50,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"quartz2:foo?cron={{myCron}}"
+literal|"quartz:foo?cron={{myCron}}"
 argument_list|)
 operator|.
 name|bean
