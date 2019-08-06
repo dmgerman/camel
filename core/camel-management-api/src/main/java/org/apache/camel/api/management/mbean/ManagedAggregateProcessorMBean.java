@@ -376,6 +376,33 @@ name|forceCompletionOfAllGroups
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"To force discarding a specific group by its key"
+argument_list|)
+DECL|method|forceDiscardingOfGroup (String key)
+name|int
+name|forceDiscardingOfGroup
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"To force discarding of all groups"
+argument_list|)
+DECL|method|forceDiscardingOfAllGroups ()
+name|int
+name|forceDiscardingOfAllGroups
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description

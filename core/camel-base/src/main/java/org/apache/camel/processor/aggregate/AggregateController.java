@@ -61,6 +61,21 @@ name|int
 name|forceCompletionOfAllGroups
 parameter_list|()
 function_decl|;
+comment|/**      * To force discarding a specific group by its key.      *      * @param key the key      * @return<tt>1</tt> if the group was forced discarded,<tt>0</tt> if the group does not exists      */
+DECL|method|forceDiscardingOfGroup (String key)
+name|int
+name|forceDiscardingOfGroup
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+function_decl|;
+comment|/**      * To force discardingof all groups      *      * @return number of groups that was forced discarded      */
+DECL|method|forceDiscardingOfAllGroups ()
+name|int
+name|forceDiscardingOfAllGroups
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
