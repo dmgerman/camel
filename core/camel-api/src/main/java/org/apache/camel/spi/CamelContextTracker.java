@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link CamelContext} creation tracker.  */
+comment|/**  * A {@link CamelContext} creation and destruction tracker.  */
 end_comment
 
 begin_class
@@ -266,6 +266,7 @@ parameter_list|)
 block|{
 comment|// do nothing
 block|}
+comment|/**      * Opens the tracker to start tracking when new {@link CamelContext} is created or destroyed.      */
 DECL|method|open ()
 specifier|public
 specifier|final
@@ -281,6 +282,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Closes the tracker so it not longer tracks.      */
 annotation|@
 name|Override
 DECL|method|close ()
