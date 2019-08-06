@@ -1051,6 +1051,16 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
+DECL|field|discarded
+specifier|private
+specifier|final
+name|AtomicLong
+name|discarded
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
 comment|// keep booking about redelivery
 DECL|class|RedeliveryData
 specifier|private
@@ -1213,6 +1223,21 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getDiscarded ()
+specifier|public
+name|long
+name|getDiscarded
+parameter_list|()
+block|{
+return|return
+name|discarded
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void
@@ -1269,6 +1294,13 @@ literal|0
 argument_list|)
 expr_stmt|;
 name|completedByForce
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|discarded
 operator|.
 name|set
 argument_list|(
@@ -3840,6 +3872,12 @@ name|isDiscardOnCompletionTimeout
 argument_list|()
 condition|)
 block|{
+comment|// this exchange is discarded
+name|discarded
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 comment|// discard due timeout
 name|log
 operator|.
@@ -3894,7 +3932,13 @@ name|isDiscardOnAggregationFailure
 argument_list|()
 condition|)
 block|{
-comment|// discard due aggregation failed
+comment|// this exchange is discarded
+name|discarded
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+comment|// discard due aggregation failed (or by force)
 name|log
 operator|.
 name|debug

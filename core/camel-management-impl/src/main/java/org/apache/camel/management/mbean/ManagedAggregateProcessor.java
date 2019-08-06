@@ -1151,6 +1151,24 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getDiscarded ()
+specifier|public
+name|long
+name|getDiscarded
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|getDiscarded
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|resetStatistics ()
 specifier|public
 name|void

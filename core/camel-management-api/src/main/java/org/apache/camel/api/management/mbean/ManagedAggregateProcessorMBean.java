@@ -535,6 +535,18 @@ name|getCompletedByForce
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanged discarded"
+argument_list|)
+DECL|method|getDiscarded ()
+name|long
+name|getDiscarded
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

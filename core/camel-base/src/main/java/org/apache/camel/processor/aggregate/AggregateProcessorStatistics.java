@@ -82,6 +82,12 @@ name|long
 name|getCompletedByForce
 parameter_list|()
 function_decl|;
+comment|/**      * Total number of exchanged discarded      */
+DECL|method|getDiscarded ()
+name|long
+name|getDiscarded
+parameter_list|()
+function_decl|;
 comment|/**      * Reset the counters      */
 DECL|method|reset ()
 name|void
