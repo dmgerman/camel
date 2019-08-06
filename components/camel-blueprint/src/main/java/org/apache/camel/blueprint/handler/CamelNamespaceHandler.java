@@ -8548,7 +8548,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// the scheduler can be quartz2 or spring based, so add reference to camel component
+comment|// the scheduler can be quartz or spring based, so add reference to camel component
 comment|// from these components os blueprint knows about the requirement
 name|String
 name|name
@@ -8560,7 +8560,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-literal|"quartz2"
+literal|"quartz"
 operator|.
 name|equals
 argument_list|(
@@ -8572,7 +8572,7 @@ name|components
 operator|.
 name|add
 argument_list|(
-literal|"quartz2"
+literal|"quartz"
 argument_list|)
 expr_stmt|;
 block|}
