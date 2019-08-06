@@ -3412,6 +3412,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Used to append characters (text) after writing files. This can for          * example be used to add new lines or other separators when writing and          * appending to existing files. To specify new-line (          * or  ) or tab (	) characters then escape with an extra slash, eg \n.         *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|appendChars (String appendChars)
+specifier|default
+name|FileEndpointProducerBuilder
+name|appendChars
+parameter_list|(
+name|String
+name|appendChars
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"appendChars"
+argument_list|,
+name|appendChars
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * What to do if a file already exists with the same name. Override,          * which is the default, replaces the existing file. Append - adds          * content to the existing file. Fail - throws a          * GenericFileOperationException, indicating that there is already an          * existing file. Ignore - silently ignores the problem and does not          * override the existing file, but assumes everything is okay. Move -          * option requires to use the moveExisting option to be configured as          * well. The option eagerDeleteTargetFile can be used to control what to          * do if an moving the file, and there exists already an existing file,          * otherwise causing the move operation to fail. The Move option will          * move any existing files, before writing the target file. TryRename is          * only applicable if tempFileName option is in use. This allows to try          * renaming the file from the temporary name to the actual name, without          * doing any exists check. This check may be faster on some file systems          * and especially FTP servers.          *           * The option is a:          *<code>org.apache.camel.component.file.GenericFileExist</code> type.          *           * Group: producer          */
 DECL|method|fileExist (GenericFileExist fileExist)
 specifier|default
