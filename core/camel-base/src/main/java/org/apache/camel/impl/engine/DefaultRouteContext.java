@@ -1025,12 +1025,13 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// always use an pipeline even if there are only 1 processor as the pipeline
+comment|// handles preparing the response from the exchange in regard to IN vs OUT messages etc
 name|Processor
 name|target
 init|=
+operator|new
 name|Pipeline
-operator|.
-name|newInstance
 argument_list|(
 name|getCamelContext
 argument_list|()

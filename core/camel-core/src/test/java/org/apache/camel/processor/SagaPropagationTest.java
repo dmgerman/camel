@@ -350,7 +350,7 @@ argument_list|)
 expr_stmt|;
 name|assertNonNullSagaIds
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 block|}
@@ -798,7 +798,7 @@ name|add
 argument_list|(
 name|ex
 operator|.
-name|getIn
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader

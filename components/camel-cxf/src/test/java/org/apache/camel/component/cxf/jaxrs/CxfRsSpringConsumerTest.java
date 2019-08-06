@@ -338,7 +338,7 @@ comment|// do something else with the request properties as usual
 comment|// do something else with the response
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
