@@ -466,7 +466,9 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * The exceptions to catch.      *      * @param exceptionClasses  a list of the exception classes      * @return the builder      */
+comment|/**      * The exceptions to catch.      *      * @param exceptionClasses  a list of the exception classes      * @return the builder      * @deprecated use {@link #exception(Class[])}      */
+annotation|@
+name|Deprecated
 DECL|method|exceptionClasses (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|CatchDefinition
@@ -573,7 +575,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the exception class that the CatchType want to catch      *      * @param exception  the exception of class      * @return the builder      */
+comment|/**      * Sets the exception class that the CatchType want to catch      *      * @param exception  the exception of class      * @return the builder      * @deprecated use {@link #exception(Class[])}      */
+annotation|@
+name|Deprecated
 DECL|method|exceptionClasses (Class<? extends Throwable> exception)
 specifier|public
 name|CatchDefinition

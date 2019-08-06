@@ -5905,6 +5905,29 @@ name|asType
 argument_list|()
 return|;
 block|}
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param processor  the custom {@link Processor}      * @return the builder      */
+DECL|method|process (Supplier<Processor> processor)
+specifier|public
+name|Type
+name|process
+parameter_list|(
+name|Supplier
+argument_list|<
+name|Processor
+argument_list|>
+name|processor
+parameter_list|)
+block|{
+return|return
+name|process
+argument_list|(
+name|processor
+operator|.
+name|get
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a {@link Processor} to lookup in the registry      * @return the builder      */
 DECL|method|process (String ref)
 specifier|public
@@ -6041,6 +6064,29 @@ name|asType
 argument_list|()
 return|;
 block|}
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @return the builder      */
+DECL|method|bean (Supplier<Object> bean)
+specifier|public
+name|Type
+name|bean
+parameter_list|(
+name|Supplier
+argument_list|<
+name|Object
+argument_list|>
+name|bean
+parameter_list|)
+block|{
+return|return
+name|bean
+argument_list|(
+name|bean
+operator|.
+name|get
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
 DECL|method|bean (Object bean, String method)
 specifier|public
@@ -6104,6 +6150,34 @@ expr_stmt|;
 return|return
 name|asType
 argument_list|()
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
+DECL|method|bean (Supplier<Object> bean, String method)
+specifier|public
+name|Type
+name|bean
+parameter_list|(
+name|Supplier
+argument_list|<
+name|Object
+argument_list|>
+name|bean
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+return|return
+name|bean
+argument_list|(
+name|bean
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|method
+argument_list|)
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      *  the multi parameter      * @return the builder      */

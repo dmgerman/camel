@@ -62,6 +62,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -2164,7 +2176,9 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Sets the AggregationStrategy to use with a fluent builder.      */
+comment|/**      * Sets the AggregationStrategy to use with a fluent builder.      *      * @deprecated use {@link #aggregationStrategy()}      */
+annotation|@
+name|Deprecated
 DECL|method|strategy ()
 specifier|public
 name|AggregationStrategyClause
@@ -2179,7 +2193,9 @@ name|aggregationStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
+comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      * @deprecated use {@link #aggregationStrategy(AggregationStrategy)}      */
+annotation|@
+name|Deprecated
 DECL|method|strategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregateDefinition
@@ -2209,6 +2225,31 @@ block|{
 name|setAggregationStrategy
 argument_list|(
 name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
+DECL|method|aggregationStrategy (Supplier<AggregationStrategy> aggregationStrategy)
+specifier|public
+name|AggregateDefinition
+name|aggregationStrategy
+parameter_list|(
+name|Supplier
+argument_list|<
+name|AggregationStrategy
+argument_list|>
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2282,6 +2323,31 @@ block|{
 name|setAggregationRepository
 argument_list|(
 name|aggregationRepository
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the custom aggregate repository to use.      *<p/>      * Will by default use {@link org.apache.camel.processor.aggregate.MemoryAggregationRepository}      *      * @param aggregationRepository  the aggregate repository to use      * @return the builder      */
+DECL|method|aggregationRepository (Supplier<AggregationRepository> aggregationRepository)
+specifier|public
+name|AggregateDefinition
+name|aggregationRepository
+parameter_list|(
+name|Supplier
+argument_list|<
+name|AggregationRepository
+argument_list|>
+name|aggregationRepository
+parameter_list|)
+block|{
+name|setAggregationRepository
+argument_list|(
+name|aggregationRepository
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2569,6 +2635,31 @@ name|this
 return|;
 block|}
 comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or completionInterval options a      * background thread is created to check for the completion for every aggregator.      * Set this option to provide a custom thread pool to be used rather than creating a new thread for every aggregator.      */
+DECL|method|timeoutCheckerExecutorService (Supplier<ScheduledExecutorService> executorService)
+specifier|public
+name|AggregateDefinition
+name|timeoutCheckerExecutorService
+parameter_list|(
+name|Supplier
+argument_list|<
+name|ScheduledExecutorService
+argument_list|>
+name|executorService
+parameter_list|)
+block|{
+name|setTimeoutCheckerExecutorService
+argument_list|(
+name|executorService
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or completionInterval options a      * background thread is created to check for the completion for every aggregator.      * Set this option to provide a custom thread pool to be used rather than creating a new thread for every aggregator.      */
 DECL|method|timeoutCheckerExecutorServiceRef (String executorServiceRef)
 specifier|public
 name|AggregateDefinition
@@ -2600,6 +2691,31 @@ block|{
 name|setAggregateController
 argument_list|(
 name|aggregateController
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To use a {@link org.apache.camel.processor.aggregate.AggregateController} to allow external sources to control      * this aggregator.      */
+DECL|method|aggregateController (Supplier<AggregateController> aggregateController)
+specifier|public
+name|AggregateDefinition
+name|aggregateController
+parameter_list|(
+name|Supplier
+argument_list|<
+name|AggregateController
+argument_list|>
+name|aggregateController
+parameter_list|)
+block|{
+name|setAggregateController
+argument_list|(
+name|aggregateController
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

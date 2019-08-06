@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -516,6 +528,34 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the recipients, into a single outgoing message from the RecipientList.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
+DECL|method|aggregationStrategy (Supplier<AggregationStrategy> aggregationStrategy)
+specifier|public
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|aggregationStrategy
+parameter_list|(
+name|Supplier
+argument_list|<
+name|AggregationStrategy
+argument_list|>
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the replies from the recipients, into a single outgoing message from the RecipientList.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
@@ -779,6 +819,34 @@ block|{
 name|setOnPrepare
 argument_list|(
 name|onPrepare
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be used send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
+DECL|method|onPrepare (Supplier<Processor> onPrepare)
+specifier|public
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|onPrepare
+parameter_list|(
+name|Supplier
+argument_list|<
+name|Processor
+argument_list|>
+name|onPrepare
+parameter_list|)
+block|{
+name|setOnPrepare
+argument_list|(
+name|onPrepare
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

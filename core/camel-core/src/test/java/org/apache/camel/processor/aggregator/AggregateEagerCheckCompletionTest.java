@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ForkJoinPool
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -251,10 +263,13 @@ name|header
 argument_list|(
 literal|"id"
 argument_list|)
-argument_list|,
-operator|new
+argument_list|)
+operator|.
+name|aggregationStrategy
+argument_list|(
 name|BodyInAggregatingStrategy
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 operator|.
 name|completionPredicate

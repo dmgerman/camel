@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -356,6 +368,31 @@ block|{
 name|setMessageIdRepository
 argument_list|(
 name|idempotentRepository
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the message id repository for the idempotent consumer      *      * @param idempotentRepository the repository instance of idempotent      * @return builder      */
+DECL|method|messageIdRepository (Supplier<IdempotentRepository> idempotentRepository)
+specifier|public
+name|IdempotentConsumerDefinition
+name|messageIdRepository
+parameter_list|(
+name|Supplier
+argument_list|<
+name|IdempotentRepository
+argument_list|>
+name|idempotentRepository
+parameter_list|)
+block|{
+name|setMessageIdRepository
+argument_list|(
+name|idempotentRepository
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

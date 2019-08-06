@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -69,6 +81,29 @@ name|ExecutorService
 name|executorService
 parameter_list|)
 function_decl|;
+comment|/**      * Setting the executor service for executing      *      * @param executorService the executor service      * @return the builder      */
+DECL|method|executorService (Supplier<ExecutorService> executorService)
+specifier|default
+name|Type
+name|executorService
+parameter_list|(
+name|Supplier
+argument_list|<
+name|ExecutorService
+argument_list|>
+name|executorService
+parameter_list|)
+block|{
+return|return
+name|executorService
+argument_list|(
+name|executorService
+operator|.
+name|get
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Setting the executor service for executing      *      * @param executorServiceRef reference for a {@link java.util.concurrent.ExecutorService}      *                           to lookup in the {@link org.apache.camel.spi.Registry}      * @return the builder      */
 DECL|method|executorServiceRef (String executorServiceRef)
 name|Type

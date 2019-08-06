@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -348,6 +360,31 @@ block|{
 name|setAggregationStrategy
 argument_list|(
 name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
+DECL|method|aggregationStrategy (Supplier<AggregationStrategy> aggregationStrategy)
+specifier|public
+name|PollEnrichDefinition
+name|aggregationStrategy
+parameter_list|(
+name|Supplier
+argument_list|<
+name|AggregationStrategy
+argument_list|>
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

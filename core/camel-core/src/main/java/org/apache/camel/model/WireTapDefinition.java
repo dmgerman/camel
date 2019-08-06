@@ -50,6 +50,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -658,6 +670,34 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param processor  processor preparing the new exchange to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
+DECL|method|newExchange (Supplier<Processor> processor)
+specifier|public
+name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|newExchange
+parameter_list|(
+name|Supplier
+argument_list|<
+name|Processor
+argument_list|>
+name|processor
+parameter_list|)
+block|{
+name|setNewExchangeProcessor
+argument_list|(
+name|processor
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets a header on the<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}.      *<p/>      * Use this together with the {@link #newExchangeBody(org.apache.camel.Expression)} or {@link #newExchange(org.apache.camel.Processor)}      * methods.      *      * @param headerName  the header name      * @param expression  the expression setting the header value      * @return the builder      */
 DECL|method|newExchangeHeader (String headerName, Expression expression)
 specifier|public
@@ -707,6 +747,34 @@ block|{
 name|setOnPrepare
 argument_list|(
 name|onPrepare
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
+DECL|method|onPrepare (Supplier<Processor> onPrepare)
+specifier|public
+name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|onPrepare
+parameter_list|(
+name|Supplier
+argument_list|<
+name|Processor
+argument_list|>
+name|onPrepare
+parameter_list|)
+block|{
+name|setOnPrepare
+argument_list|(
+name|onPrepare
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -350,6 +362,31 @@ block|{
 name|setAggregationStrategy
 argument_list|(
 name|aggregationStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To use a custom {@link AggregationStrategy} instead of the default implementation.      * Notice you cannot use both custom aggregation strategy and configure data at the same time.      */
+DECL|method|aggregationStrategy (Supplier<AggregationStrategy> aggregationStrategy)
+specifier|public
+name|ClaimCheckDefinition
+name|aggregationStrategy
+parameter_list|(
+name|Supplier
+argument_list|<
+name|AggregationStrategy
+argument_list|>
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
