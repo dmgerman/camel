@@ -231,6 +231,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when existing connection has          * failures).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
+DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
+specifier|default
+name|RabbitMQEndpointConsumerBuilder
+name|automaticRecoveryEnabled
+parameter_list|(
+name|Boolean
+name|automaticRecoveryEnabled
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"automaticRecoveryEnabled"
+argument_list|,
+name|automaticRecoveryEnabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when existing connection has          * failures).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
+DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
+specifier|default
+name|RabbitMQEndpointConsumerBuilder
+name|automaticRecoveryEnabled
+parameter_list|(
+name|String
+name|automaticRecoveryEnabled
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"automaticRecoveryEnabled"
+argument_list|,
+name|automaticRecoveryEnabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * To use a custom RabbitMQ connection factory. When this option is set,          * all connection options (connectionTimeout, requestedChannelMax...)          * set on URI are not used.          *           * The option is a:<code>com.rabbitmq.client.ConnectionFactory</code>          * type.          *           * Group: common          */
 DECL|method|connectionFactory ( Object connectionFactory)
 specifier|default
@@ -1434,48 +1476,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: advanced          */
-DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
-specifier|default
-name|AdvancedRabbitMQEndpointConsumerBuilder
-name|automaticRecoveryEnabled
-parameter_list|(
-name|Boolean
-name|automaticRecoveryEnabled
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"automaticRecoveryEnabled"
-argument_list|,
-name|automaticRecoveryEnabled
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: advanced          */
-DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
-specifier|default
-name|AdvancedRabbitMQEndpointConsumerBuilder
-name|automaticRecoveryEnabled
-parameter_list|(
-name|String
-name|automaticRecoveryEnabled
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"automaticRecoveryEnabled"
-argument_list|,
-name|automaticRecoveryEnabled
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
@@ -2086,6 +2086,48 @@ argument_list|(
 literal|"autoDelete"
 argument_list|,
 name|autoDelete
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when existing connection has          * failures).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
+DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
+specifier|default
+name|RabbitMQEndpointProducerBuilder
+name|automaticRecoveryEnabled
+parameter_list|(
+name|Boolean
+name|automaticRecoveryEnabled
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"automaticRecoveryEnabled"
+argument_list|,
+name|automaticRecoveryEnabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when existing connection has          * failures).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
+DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
+specifier|default
+name|RabbitMQEndpointProducerBuilder
+name|automaticRecoveryEnabled
+parameter_list|(
+name|String
+name|automaticRecoveryEnabled
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"automaticRecoveryEnabled"
+argument_list|,
+name|automaticRecoveryEnabled
 argument_list|)
 expr_stmt|;
 return|return
@@ -3253,48 +3295,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: advanced          */
-DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
-specifier|default
-name|AdvancedRabbitMQEndpointProducerBuilder
-name|automaticRecoveryEnabled
-parameter_list|(
-name|Boolean
-name|automaticRecoveryEnabled
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"automaticRecoveryEnabled"
-argument_list|,
-name|automaticRecoveryEnabled
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: advanced          */
-DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
-specifier|default
-name|AdvancedRabbitMQEndpointProducerBuilder
-name|automaticRecoveryEnabled
-parameter_list|(
-name|String
-name|automaticRecoveryEnabled
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"automaticRecoveryEnabled"
-argument_list|,
-name|automaticRecoveryEnabled
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the endpoint should use basic property binding (Camel 2.x) or          * the newer property binding with additional capabilities.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|basicPropertyBinding ( boolean basicPropertyBinding)
 specifier|default
@@ -3907,6 +3907,48 @@ argument_list|(
 literal|"autoDelete"
 argument_list|,
 name|autoDelete
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when existing connection has          * failures).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
+DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
+specifier|default
+name|RabbitMQEndpointBuilder
+name|automaticRecoveryEnabled
+parameter_list|(
+name|Boolean
+name|automaticRecoveryEnabled
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"automaticRecoveryEnabled"
+argument_list|,
+name|automaticRecoveryEnabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when existing connection has          * failures).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
+DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
+specifier|default
+name|RabbitMQEndpointBuilder
+name|automaticRecoveryEnabled
+parameter_list|(
+name|String
+name|automaticRecoveryEnabled
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"automaticRecoveryEnabled"
+argument_list|,
+name|automaticRecoveryEnabled
 argument_list|)
 expr_stmt|;
 return|return
@@ -4650,48 +4692,6 @@ argument_list|(
 literal|"args"
 argument_list|,
 name|args
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: advanced          */
-DECL|method|automaticRecoveryEnabled ( Boolean automaticRecoveryEnabled)
-specifier|default
-name|AdvancedRabbitMQEndpointBuilder
-name|automaticRecoveryEnabled
-parameter_list|(
-name|Boolean
-name|automaticRecoveryEnabled
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"automaticRecoveryEnabled"
-argument_list|,
-name|automaticRecoveryEnabled
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Enables connection automatic recovery (uses connection implementation          * that performs automatic recovery when connection shutdown is not          * initiated by the application).          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: advanced          */
-DECL|method|automaticRecoveryEnabled ( String automaticRecoveryEnabled)
-specifier|default
-name|AdvancedRabbitMQEndpointBuilder
-name|automaticRecoveryEnabled
-parameter_list|(
-name|String
-name|automaticRecoveryEnabled
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"automaticRecoveryEnabled"
-argument_list|,
-name|automaticRecoveryEnabled
 argument_list|)
 expr_stmt|;
 return|return

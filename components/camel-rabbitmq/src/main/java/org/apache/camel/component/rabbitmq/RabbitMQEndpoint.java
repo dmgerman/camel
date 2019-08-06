@@ -791,6 +791,26 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|automaticRecoveryEnabled
+specifier|private
+name|Boolean
+name|automaticRecoveryEnabled
+init|=
+name|Boolean
+operator|.
+name|TRUE
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"advanced"
 argument_list|,
 name|defaultValue
@@ -922,18 +942,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|clientProperties
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|automaticRecoveryEnabled
-specifier|private
-name|Boolean
-name|automaticRecoveryEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -2447,7 +2455,7 @@ return|return
 name|automaticRecoveryEnabled
 return|;
 block|}
-comment|/**      * Enables connection automatic recovery (uses connection implementation      * that performs automatic recovery when connection shutdown is not      * initiated by the application)      */
+comment|/**      * Enables connection automatic recovery (uses connection implementation      * that performs automatic recovery when existing connection has failures)      */
 DECL|method|setAutomaticRecoveryEnabled (Boolean automaticRecoveryEnabled)
 specifier|public
 name|void
