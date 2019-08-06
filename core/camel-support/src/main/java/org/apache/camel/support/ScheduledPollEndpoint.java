@@ -421,7 +421,7 @@ literal|"consumer."
 argument_list|,
 name|enums
 operator|=
-literal|"none,spring,quartz2"
+literal|"none,spring,quartz"
 argument_list|,
 name|defaultValue
 operator|=
@@ -433,7 +433,7 @@ literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
-literal|"To use a cron scheduler from either camel-spring or camel-quartz2 component"
+literal|"To use a cron scheduler from either camel-spring or camel-quartz component"
 argument_list|)
 DECL|field|scheduler
 specifier|private
@@ -465,7 +465,7 @@ literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
-literal|"To configure additional properties when using a custom scheduler or any of the Quartz2, Spring based scheduler."
+literal|"To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler."
 argument_list|)
 DECL|field|schedulerProperties
 specifier|private
@@ -715,7 +715,7 @@ name|schedulerName
 argument_list|)
 condition|)
 block|{
-comment|// special for scheduler if its "spring" or "quartz2"
+comment|// special for scheduler if its "spring" or "quartz"
 try|try
 block|{
 name|Class
@@ -780,7 +780,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"quartz2"
+literal|"quartz"
 operator|.
 name|equals
 argument_list|(
@@ -788,7 +788,7 @@ name|schedulerName
 argument_list|)
 condition|)
 block|{
-comment|// special for scheduler if its "spring" or "quartz2"
+comment|// special for scheduler if its "spring" or "quartz"
 try|try
 block|{
 name|Class
@@ -1614,7 +1614,7 @@ return|return
 name|scheduler
 return|;
 block|}
-comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. The default implementation uses the ScheduledExecutorService and      * there is a Quartz2, and Spring based which supports CRON expressions.      *      * Notice: If using a custom scheduler then the options for initialDelay, useFixedDelay, timeUnit,      * and scheduledExecutorService may not be in use. Use the text quartz2 to refer to use the Quartz2 scheduler;      * and use the text spring to use the Spring based; and use the text #myScheduler to refer to a custom scheduler      * by its id in the Registry. See Quartz2 page for an example.      */
+comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. The default implementation uses the ScheduledExecutorService and      * there is a Quartz, and Spring based which supports CRON expressions.      *      * Notice: If using a custom scheduler then the options for initialDelay, useFixedDelay, timeUnit,      * and scheduledExecutorService may not be in use. Use the text quartz to refer to use the Quartz scheduler;      * and use the text spring to use the Spring based; and use the text #myScheduler to refer to a custom scheduler      * by its id in the Registry. See Quartz page for an example.      */
 DECL|method|setScheduler (ScheduledPollConsumerScheduler scheduler)
 specifier|public
 name|void
@@ -1631,7 +1631,7 @@ operator|=
 name|scheduler
 expr_stmt|;
 block|}
-comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. This option is used for referring to one of the built-in schedulers      * either<tt>spring</tt>, or<tt>quartz2</tt>. Using<tt>none</tt> refers to no scheduler to be used.      */
+comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. This option is used for referring to one of the built-in schedulers      * either<tt>spring</tt>, or<tt>quartz</tt>. Using<tt>none</tt> refers to no scheduler to be used.      */
 DECL|method|setScheduler (String schedulerName)
 specifier|public
 name|void
@@ -1663,7 +1663,7 @@ return|return
 name|schedulerProperties
 return|;
 block|}
-comment|/**      * To configure additional properties when using a custom scheduler or any of the Quartz2, Spring based scheduler.      */
+comment|/**      * To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.      */
 DECL|method|setSchedulerProperties (Map<String, Object> schedulerProperties)
 specifier|public
 name|void
