@@ -112,10 +112,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelQuartz2Test
+DECL|class|CamelQuartzTest
 specifier|public
 class|class
-name|CamelQuartz2Test
+name|CamelQuartzTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
@@ -159,7 +159,7 @@ name|module
 argument_list|(
 name|inferModuleName
 argument_list|(
-name|CamelQuartz2Test
+name|CamelQuartzTest
 operator|.
 name|class
 argument_list|)
