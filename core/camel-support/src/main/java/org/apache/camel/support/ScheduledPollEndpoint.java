@@ -843,7 +843,7 @@ literal|"Cannot load "
 operator|+
 name|QUARTZ_2_SCHEDULER
 operator|+
-literal|" from classpath. Make sure camel-quartz2.jar is on the classpath."
+literal|" from classpath. Make sure camel-quartz.jar is on the classpath."
 argument_list|,
 name|e
 argument_list|)
