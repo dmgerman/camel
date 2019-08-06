@@ -2516,7 +2516,7 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"imap://myhost?scheduler=quartz2&scheduler.cron=0%2F5+*+0-23+%3F+*+*+*&scheduler.timeZone=Europe%2FBerlin"
+literal|"imap://myhost?scheduler=quartz&scheduler.cron=0%2F5+*+0-23+%3F+*+*+*&scheduler.timeZone=Europe%2FBerlin"
 argument_list|)
 decl_stmt|;
 name|assertEquals
