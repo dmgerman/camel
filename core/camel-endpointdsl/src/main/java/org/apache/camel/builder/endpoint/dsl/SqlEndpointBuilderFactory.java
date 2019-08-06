@@ -1178,7 +1178,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option is a:          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz          * component.          *           * The option is a:          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler ( ScheduledPollConsumerScheduler scheduler)
 specifier|default
 name|SqlEndpointConsumerBuilder
@@ -1199,7 +1199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz2          * component.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
+comment|/**          * To use a cron scheduler from either camel-spring or camel-quartz          * component.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ScheduledPollConsumerScheduler</code>          * type.          *           * Group: scheduler          */
 DECL|method|scheduler (String scheduler)
 specifier|default
 name|SqlEndpointConsumerBuilder
@@ -1220,7 +1220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz, Spring based scheduler.          *           * The option is a:<code>java.util.Map&lt;java.lang.String,          * java.lang.Object&gt;</code> type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( Map<String, Object> schedulerProperties)
 specifier|default
 name|SqlEndpointConsumerBuilder
@@ -1246,7 +1246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz2, Spring based scheduler.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: scheduler          */
+comment|/**          * To configure additional properties when using a custom scheduler or          * any of the Quartz, Spring based scheduler.          *           * The option will be converted to a          *<code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>          * type.          *           * Group: scheduler          */
 DECL|method|schedulerProperties ( String schedulerProperties)
 specifier|default
 name|SqlEndpointConsumerBuilder
