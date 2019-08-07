@@ -187,7 +187,7 @@ specifier|private
 name|Integer
 name|environmentVariableMode
 init|=
-literal|1
+literal|2
 decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
