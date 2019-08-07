@@ -418,7 +418,7 @@ name|commitMessage
 argument_list|,
 name|ex2
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -438,7 +438,7 @@ literal|"Test test Commit"
 argument_list|,
 name|ex1
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -673,7 +673,7 @@ name|tagTest
 argument_list|,
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -911,7 +911,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -940,7 +940,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
