@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for HL7 routing where the netty4 endpoint passes on a byte array  * instead of a string and leaves charset interpretation to the dataformat.  */
+comment|/**  * Unit test for HL7 routing where the netty endpoint passes on a byte array  * instead of a string and leaves charset interpretation to the dataformat.  */
 end_comment
 
 begin_class
@@ -382,7 +382,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4:tcp://127.0.0.1:"
+literal|"netty:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -521,7 +521,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4:tcp://127.0.0.1:"
+literal|"netty:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -657,7 +657,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4:tcp://127.0.0.1:"
+literal|"netty:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -708,7 +708,7 @@ comment|// we setup or HL7 listener on port 8888 (using the hl7codec)
 comment|// and in sync mode so we can return a response
 name|from
 argument_list|(
-literal|"netty4:tcp://127.0.0.1:"
+literal|"netty:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()

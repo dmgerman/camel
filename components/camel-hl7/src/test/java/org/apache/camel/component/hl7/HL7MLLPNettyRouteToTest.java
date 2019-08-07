@@ -281,7 +281,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty4:tcp://127.0.0.1:"
+literal|"netty:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -303,7 +303,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty4:tcp://127.0.0.1:"
+literal|"netty:tcp://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
