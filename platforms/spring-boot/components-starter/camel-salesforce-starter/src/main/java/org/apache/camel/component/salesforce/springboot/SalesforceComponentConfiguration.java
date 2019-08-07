@@ -462,6 +462,22 @@ name|useGlobalSslContextParameters
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Timeout used by the HttpClient when waiting for response from the      * Salesforce server.      */
+DECL|field|httpClientIdleTimeout
+specifier|private
+name|Long
+name|httpClientIdleTimeout
+init|=
+literal|10000L
+decl_stmt|;
+comment|/**      * Connection timeout used by the HttpClient when connecting to the      * Salesforce server.      */
+DECL|field|httpClientConnectionTimeout
+specifier|private
+name|Long
+name|httpClientConnectionTimeout
+init|=
+literal|60000L
+decl_stmt|;
 comment|/**      * Hostname of the HTTP proxy server to use.      */
 DECL|field|httpProxyHost
 specifier|private
@@ -997,6 +1013,58 @@ operator|.
 name|useGlobalSslContextParameters
 operator|=
 name|useGlobalSslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getHttpClientIdleTimeout ()
+specifier|public
+name|Long
+name|getHttpClientIdleTimeout
+parameter_list|()
+block|{
+return|return
+name|httpClientIdleTimeout
+return|;
+block|}
+DECL|method|setHttpClientIdleTimeout (Long httpClientIdleTimeout)
+specifier|public
+name|void
+name|setHttpClientIdleTimeout
+parameter_list|(
+name|Long
+name|httpClientIdleTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClientIdleTimeout
+operator|=
+name|httpClientIdleTimeout
+expr_stmt|;
+block|}
+DECL|method|getHttpClientConnectionTimeout ()
+specifier|public
+name|Long
+name|getHttpClientConnectionTimeout
+parameter_list|()
+block|{
+return|return
+name|httpClientConnectionTimeout
+return|;
+block|}
+DECL|method|setHttpClientConnectionTimeout (Long httpClientConnectionTimeout)
+specifier|public
+name|void
+name|setHttpClientConnectionTimeout
+parameter_list|(
+name|Long
+name|httpClientConnectionTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClientConnectionTimeout
+operator|=
+name|httpClientConnectionTimeout
 expr_stmt|;
 block|}
 DECL|method|getHttpProxyHost ()
