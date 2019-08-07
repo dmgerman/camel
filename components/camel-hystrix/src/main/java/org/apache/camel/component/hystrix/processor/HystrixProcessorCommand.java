@@ -272,6 +272,21 @@ name|Message
 name|getFallback
 parameter_list|()
 block|{
+comment|// if bad request then break-out
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|instanceof
+name|HystrixBadRequestException
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// guard by lock as the run command can be running concurrently in case hystrix caused a timeout which
 comment|// can cause the fallback timer to trigger this fallback at the same time the run command may be running
 comment|// after its processor.process method which could cause both threads to mutate the state on the exchange
@@ -728,12 +743,16 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-return|return
 name|exchange
 operator|.
-name|getMessage
-argument_list|()
-return|;
+name|setException
+argument_list|(
+name|camelExchangeException
+argument_list|)
+expr_stmt|;
+throw|throw
+name|camelExchangeException
+throw|;
 block|}
 comment|// copy the result before its regarded as success
 name|ExchangeHelper
