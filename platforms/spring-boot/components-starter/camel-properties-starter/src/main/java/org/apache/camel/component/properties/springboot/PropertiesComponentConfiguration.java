@@ -173,7 +173,7 @@ specifier|private
 name|String
 name|overrideProperties
 decl_stmt|;
-comment|/**      * Sets the system property mode. The default mode (override) is to use      * system properties if present, and override any existing properties.      */
+comment|/**      * Sets the JVM system property mode (0 = never, 1 = fallback, 2 =      * override). The default mode (override) is to use system properties if      * present, and override any existing properties. OS environment variable      * mode is checked before JVM system property mode      */
 DECL|field|systemPropertiesMode
 specifier|private
 name|Integer
@@ -181,7 +181,7 @@ name|systemPropertiesMode
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * Sets the OS environment variables mode. The default mode (override) is to      * use OS environment variables if present, and override any existing      * properties.      */
+comment|/**      * Sets the OS environment variables mode (0 = never, 1 = fallback, 2 =      * override). The default mode (override) is to use OS environment variables      * if present, and override any existing properties. OS environment variable      * mode is checked before JVM system property mode      */
 DECL|field|environmentVariableMode
 specifier|private
 name|Integer

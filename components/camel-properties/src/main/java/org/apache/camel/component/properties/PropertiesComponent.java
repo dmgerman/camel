@@ -1728,7 +1728,7 @@ return|return
 name|systemPropertiesMode
 return|;
 block|}
-comment|/**      * Sets the system property mode.      *      * The default mode (override) is to use system properties if present,      * and override any existing properties.      *      * @see #SYSTEM_PROPERTIES_MODE_NEVER      * @see #SYSTEM_PROPERTIES_MODE_FALLBACK      * @see #SYSTEM_PROPERTIES_MODE_OVERRIDE      */
+comment|/**      * Sets the JVM system property mode (0 = never, 1 = fallback, 2 = override).      *      * The default mode (override) is to use system properties if present,      * and override any existing properties.      *      * OS environment variable mode is checked before JVM system property mode      *      * @see #SYSTEM_PROPERTIES_MODE_NEVER      * @see #SYSTEM_PROPERTIES_MODE_FALLBACK      * @see #SYSTEM_PROPERTIES_MODE_OVERRIDE      */
 DECL|method|setSystemPropertiesMode (int systemPropertiesMode)
 specifier|public
 name|void
@@ -1762,7 +1762,7 @@ return|return
 name|environmentVariableMode
 return|;
 block|}
-comment|/**      * Sets the OS environment variables mode.      *      * The default mode (override) is to use OS environment variables if present,      * and override any existing properties.      *      * @see #ENVIRONMENT_VARIABLES_MODE_NEVER      * @see #ENVIRONMENT_VARIABLES_MODE_FALLBACK      * @see #ENVIRONMENT_VARIABLES_MODE_OVERRIDE      */
+comment|/**      * Sets the OS environment variables mode (0 = never, 1 = fallback, 2 = override).      *      * The default mode (override) is to use OS environment variables if present,      * and override any existing properties.      *      * OS environment variable mode is checked before JVM system property mode      *      * @see #ENVIRONMENT_VARIABLES_MODE_NEVER      * @see #ENVIRONMENT_VARIABLES_MODE_FALLBACK      * @see #ENVIRONMENT_VARIABLES_MODE_OVERRIDE      */
 DECL|method|setEnvironmentVariableMode (int environmentVariableMode)
 specifier|public
 name|void
