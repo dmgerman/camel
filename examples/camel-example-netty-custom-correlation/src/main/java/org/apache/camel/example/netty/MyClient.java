@@ -347,7 +347,7 @@ comment|// to ensure we can correltly map the request and response pairs
 operator|.
 name|to
 argument_list|(
-literal|"netty4:tcp://localhost:4444?sync=true&encoders=#myEncoder&decoders=#myDecoder"
+literal|"netty:tcp://localhost:4444?sync=true&encoders=#myEncoder&decoders=#myDecoder"
 operator|+
 literal|"&producerPoolEnabled=false&correlationManager=#myManager"
 argument_list|)

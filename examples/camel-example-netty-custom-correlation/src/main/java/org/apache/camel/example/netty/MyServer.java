@@ -141,7 +141,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty4:tcp://localhost:4444?sync=true&encoders=#myEncoder&decoders=#myDecoder"
+literal|"netty:tcp://localhost:4444?sync=true&encoders=#myEncoder&decoders=#myDecoder"
 argument_list|)
 operator|.
 name|log
