@@ -601,7 +601,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  * @see Pipeline  */
+comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  *  * @see Pipeline  */
 end_comment
 
 begin_class
@@ -1673,7 +1673,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Step["
+literal|"MulticastTask["
 operator|+
 name|original
 operator|.
@@ -2062,6 +2062,8 @@ argument_list|(
 name|result
 argument_list|,
 name|exchange
+argument_list|,
+name|original
 argument_list|)
 expr_stmt|;
 if|if
@@ -2250,6 +2252,8 @@ argument_list|(
 name|result
 argument_list|,
 name|exchange
+argument_list|,
+name|original
 argument_list|)
 expr_stmt|;
 name|nbAggregated
@@ -2829,8 +2833,8 @@ name|callback
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is synchronized and is called directly when parallelAggregate is disabled (by default).      *      * @param result   the current result      * @param exchange the exchange to be added to the result      * @see #doAggregateInternal(AggregationStrategy, AtomicReference, org.apache.camel.Exchange)      * @see #doAggregateSync(AggregationStrategy, AtomicReference, org.apache.camel.Exchange)      */
-DECL|method|doAggregate (AtomicReference<Exchange> result, Exchange exchange)
+comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is synchronized and is called directly when parallelAggregate is disabled (by default).      *      * @param result   the current result      * @param exchange the exchange to be added to the result      * @param inputExchange the input exchange that was sent as input to this EIP      */
+DECL|method|doAggregate (AtomicReference<Exchange> result, Exchange exchange, Exchange inputExchange)
 specifier|protected
 name|void
 name|doAggregate
@@ -2843,6 +2847,9 @@ name|result
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|Exchange
+name|inputExchange
 parameter_list|)
 block|{
 if|if
@@ -2860,6 +2867,8 @@ argument_list|,
 name|result
 argument_list|,
 name|exchange
+argument_list|,
+name|inputExchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -2875,13 +2884,15 @@ argument_list|,
 name|result
 argument_list|,
 name|exchange
+argument_list|,
+name|inputExchange
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is synchronized and is called directly when parallelAggregate is disabled (by default).      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      * @see #doAggregateInternal(AggregationStrategy, AtomicReference, org.apache.camel.Exchange)      */
-DECL|method|doAggregateSync (AggregationStrategy strategy, AtomicReference<Exchange> result, Exchange exchange)
-specifier|protected
+comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is synchronized and is called directly when parallelAggregate is disabled (by default).      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      * @param inputExchange the input exchange that was sent as input to this EIP      */
+DECL|method|doAggregateSync (AggregationStrategy strategy, AtomicReference<Exchange> result, Exchange exchange, Exchange inputExchange)
+specifier|private
 specifier|synchronized
 name|void
 name|doAggregateSync
@@ -2897,6 +2908,9 @@ name|result
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|Exchange
+name|inputExchange
 parameter_list|)
 block|{
 name|doAggregateInternal
@@ -2906,12 +2920,14 @@ argument_list|,
 name|result
 argument_list|,
 name|exchange
+argument_list|,
+name|inputExchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is unsynchronized and is called directly when parallelAggregate is enabled.      * In all other cases, this method is called from the doAggregate which is a synchronized method      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      * @see #doAggregateSync      */
-DECL|method|doAggregateInternal (AggregationStrategy strategy, AtomicReference<Exchange> result, Exchange exchange)
-specifier|protected
+comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is unsynchronized and is called directly when parallelAggregate is enabled.      * In all other cases, this method is called from the doAggregate which is a synchronized method      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      * @param inputExchange the input exchange that was sent as input to this EIP      */
+DECL|method|doAggregateInternal (AggregationStrategy strategy, AtomicReference<Exchange> result, Exchange exchange, Exchange inputExchange)
+specifier|private
 name|void
 name|doAggregateInternal
 parameter_list|(
@@ -2926,6 +2942,9 @@ name|result
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|Exchange
+name|inputExchange
 parameter_list|)
 block|{
 if|if
@@ -2964,6 +2983,8 @@ argument_list|(
 name|oldExchange
 argument_list|,
 name|exchange
+argument_list|,
+name|inputExchange
 argument_list|)
 argument_list|)
 expr_stmt|;

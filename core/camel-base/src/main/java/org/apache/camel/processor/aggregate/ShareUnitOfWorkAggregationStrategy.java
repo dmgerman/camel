@@ -373,6 +373,50 @@ return|return
 name|answer
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|aggregate (Exchange oldExchange, Exchange newExchange, Exchange inputExchange)
+specifier|public
+name|Exchange
+name|aggregate
+parameter_list|(
+name|Exchange
+name|oldExchange
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|,
+name|Exchange
+name|inputExchange
+parameter_list|)
+block|{
+comment|// aggregate using the actual strategy first
+name|Exchange
+name|answer
+init|=
+name|strategy
+operator|.
+name|aggregate
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|,
+name|inputExchange
+argument_list|)
+decl_stmt|;
+comment|// ensure any errors is propagated from the new exchange to the answer
+name|propagateFailure
+argument_list|(
+name|answer
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 DECL|method|propagateFailure (Exchange answer, Exchange newExchange)
 specifier|protected
 name|void

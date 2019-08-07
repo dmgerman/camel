@@ -153,6 +153,43 @@ name|newExchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|aggregate (Exchange oldExchange, Exchange newExchange, Exchange inputExchange)
+specifier|public
+name|Exchange
+name|aggregate
+parameter_list|(
+name|Exchange
+name|oldExchange
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|,
+name|Exchange
+name|inputExchange
+parameter_list|)
+block|{
+return|return
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|strategy
+argument_list|,
+literal|"AggregationStrategy"
+argument_list|)
+operator|.
+name|aggregate
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|,
+name|inputExchange
+argument_list|)
+return|;
+block|}
 comment|// *******************************
 comment|// Exchange
 comment|// *******************************

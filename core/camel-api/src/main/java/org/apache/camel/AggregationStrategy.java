@@ -46,6 +46,31 @@ name|Exchange
 name|newExchange
 parameter_list|)
 function_decl|;
+comment|/**      * Aggregates an old and new exchange together to create a single combined exchange.      *<p/>      * Important: Only Multicast and Recipient List EIP supports this method with access to the input exchange. All other EIPs      * does not and uses the {@link #aggregate(Exchange, Exchange)} method instead.      *      * @param oldExchange    the oldest exchange (is<tt>null</tt> on first aggregation as we only have the new exchange)      * @param newExchange    the newest exchange (can be<tt>null</tt> if there was no data possible to acquire)      * @param inputExchange  the input exchange (input to the EIP)      * @return a combined composite of the two exchanges, favor returning the<tt>oldExchange</tt> whenever possible      */
+DECL|method|aggregate (Exchange oldExchange, Exchange newExchange, Exchange inputExchange)
+specifier|default
+name|Exchange
+name|aggregate
+parameter_list|(
+name|Exchange
+name|oldExchange
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|,
+name|Exchange
+name|inputExchange
+parameter_list|)
+block|{
+return|return
+name|aggregate
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|)
+return|;
+block|}
 comment|/**      * Indicates if this aggregation strategy uses pre-completion mode.      * @return<tt>true</tt> if this strategy uses pre-completion mode, or<tt>false</tt> otherwise.      */
 DECL|method|canPreComplete ()
 specifier|default
