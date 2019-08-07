@@ -77,7 +77,7 @@ name|DynamicAwareEntry
 name|entry
 parameter_list|)
 block|{
-comment|// camel-netty4 parses the uri a bit differently than camel-http-common base class
+comment|// camel-netty parses the uri a bit differently than camel-http-common base class
 name|String
 name|scheme
 init|=
