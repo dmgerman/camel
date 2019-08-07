@@ -564,7 +564,7 @@ return|return
 operator|new
 name|File
 argument_list|(
-literal|"../camel-netty/target/classes/org/apache/camel/component/netty/netty.json"
+literal|"../camel-netty/target/classes/org/apache/camel/component/netty4/netty.json"
 argument_list|)
 return|;
 block|}
