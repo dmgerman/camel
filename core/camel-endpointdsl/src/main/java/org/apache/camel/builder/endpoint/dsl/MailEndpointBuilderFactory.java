@@ -2334,7 +2334,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          *           * The option is a:<code>javax.mail.Session</code> type.          *           * Group: advanced          */
+comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. When          * using a custom mail session, then the hostname and port from the mail          * session will be used (if configured on the session).          *           * The option is a:<code>javax.mail.Session</code> type.          *           * Group: advanced          */
 DECL|method|session (Object session)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
@@ -2355,7 +2355,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          *           * The option will be converted to a<code>javax.mail.Session</code>          * type.          *           * Group: advanced          */
+comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. When          * using a custom mail session, then the hostname and port from the mail          * session will be used (if configured on the session).          *           * The option will be converted to a<code>javax.mail.Session</code>          * type.          *           * Group: advanced          */
 DECL|method|session (String session)
 specifier|default
 name|AdvancedMailEndpointConsumerBuilder
@@ -3260,7 +3260,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          *           * The option is a:<code>javax.mail.Session</code> type.          *           * Group: advanced          */
+comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. When          * using a custom mail session, then the hostname and port from the mail          * session will be used (if configured on the session).          *           * The option is a:<code>javax.mail.Session</code> type.          *           * Group: advanced          */
 DECL|method|session (Object session)
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
@@ -3281,7 +3281,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          *           * The option will be converted to a<code>javax.mail.Session</code>          * type.          *           * Group: advanced          */
+comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. When          * using a custom mail session, then the hostname and port from the mail          * session will be used (if configured on the session).          *           * The option will be converted to a<code>javax.mail.Session</code>          * type.          *           * Group: advanced          */
 DECL|method|session (String session)
 specifier|default
 name|AdvancedMailEndpointProducerBuilder
@@ -3980,7 +3980,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          *           * The option is a:<code>javax.mail.Session</code> type.          *           * Group: advanced          */
+comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. When          * using a custom mail session, then the hostname and port from the mail          * session will be used (if configured on the session).          *           * The option is a:<code>javax.mail.Session</code> type.          *           * Group: advanced          */
 DECL|method|session (Object session)
 specifier|default
 name|AdvancedMailEndpointBuilder
@@ -4001,7 +4001,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. If this          * is not specified, Camel automatically creates the mail session for          * you.          *           * The option will be converted to a<code>javax.mail.Session</code>          * type.          *           * Group: advanced          */
+comment|/**          * Specifies the mail session that camel should use for all mail          * interactions. Useful in scenarios where mail sessions are created and          * managed by some other resource, such as a JavaEE container. When          * using a custom mail session, then the hostname and port from the mail          * session will be used (if configured on the session).          *           * The option will be converted to a<code>javax.mail.Session</code>          * type.          *           * Group: advanced          */
 DECL|method|session (String session)
 specifier|default
 name|AdvancedMailEndpointBuilder
