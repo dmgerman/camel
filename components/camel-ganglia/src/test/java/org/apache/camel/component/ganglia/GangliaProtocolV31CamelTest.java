@@ -617,7 +617,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@code GangliaProtocolV31CamelTest} is not shipped with an embedded gmond  * agent. The gmond agent is mocked with the help of camel-netty4 codecs and a  * mock endpoint. As underlying UDP packets are not guaranteed to be delivered,  * loose assertions are performed.  */
+comment|/**  * {@code GangliaProtocolV31CamelTest} is not shipped with an embedded gmond  * agent. The gmond agent is mocked with the help of camel-netty codecs and a  * mock endpoint. As underlying UDP packets are not guaranteed to be delivered,  * loose assertions are performed.  */
 end_comment
 
 begin_class
@@ -1499,7 +1499,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"netty4:udp://localhost:"
+literal|"netty:udp://localhost:"
 operator|+
 name|getTestPort
 argument_list|()
