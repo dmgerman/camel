@@ -514,7 +514,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?sync=true"
+literal|"netty:tcp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|process
