@@ -613,9 +613,6 @@ argument_list|(
 literal|"payload"
 argument_list|)
 operator|.
-name|first
-argument_list|()
-operator|.
 name|hasFieldOrPropertyWithValue
 argument_list|(
 literal|"id"
@@ -635,9 +632,6 @@ name|extracting
 argument_list|(
 literal|"payload"
 argument_list|)
-operator|.
-name|first
-argument_list|()
 operator|.
 name|hasFieldOrPropertyWithValue
 argument_list|(
