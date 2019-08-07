@@ -64,10 +64,10 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelNetty4Test
+DECL|class|CamelNettyTest
 specifier|public
 class|class
-name|CamelNetty4Test
+name|CamelNettyTest
 extends|extends
 name|BaseKarafTest
 block|{
@@ -80,7 +80,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelNetty4Test
+name|CamelNettyTest
 operator|.
 name|class
 argument_list|)
