@@ -502,7 +502,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Wraps the passed<code>in</code> into a {@link BufferedInputStream}      * object and returns that. If the passed<code>in</code> is already an      * instance of {@link BufferedInputStream} returns the same passed      *<code>in</code> reference as is (avoiding double wrapping).      *       * @param in the wrapee to be used for the buffering support      * @return the passed<code>in</code> decorated through a      *         {@link BufferedInputStream} object as wrapper      */
+comment|/**      * Wraps the passed<code>in</code> into a {@link BufferedInputStream}      * object and returns that. If the passed<code>in</code> is already an      * instance of {@link BufferedInputStream} returns the same passed      *<code>in</code> reference as is (avoiding double wrapping).      *      * @param in the wrapee to be used for the buffering support      * @return the passed<code>in</code> decorated through a      *         {@link BufferedInputStream} object as wrapper      */
 DECL|method|buffered (InputStream in)
 specifier|public
 specifier|static
@@ -541,7 +541,7 @@ name|in
 argument_list|)
 return|;
 block|}
-comment|/**      * Wraps the passed<code>out</code> into a {@link BufferedOutputStream}      * object and returns that. If the passed<code>out</code> is already an      * instance of {@link BufferedOutputStream} returns the same passed      *<code>out</code> reference as is (avoiding double wrapping).      *       * @param out the wrapee to be used for the buffering support      * @return the passed<code>out</code> decorated through a      *         {@link BufferedOutputStream} object as wrapper      */
+comment|/**      * Wraps the passed<code>out</code> into a {@link BufferedOutputStream}      * object and returns that. If the passed<code>out</code> is already an      * instance of {@link BufferedOutputStream} returns the same passed      *<code>out</code> reference as is (avoiding double wrapping).      *      * @param out the wrapee to be used for the buffering support      * @return the passed<code>out</code> decorated through a      *         {@link BufferedOutputStream} object as wrapper      */
 DECL|method|buffered (OutputStream out)
 specifier|public
 specifier|static
@@ -580,7 +580,7 @@ name|out
 argument_list|)
 return|;
 block|}
-comment|/**      * Wraps the passed<code>reader</code> into a {@link BufferedReader} object      * and returns that. If the passed<code>reader</code> is already an      * instance of {@link BufferedReader} returns the same passed      *<code>reader</code> reference as is (avoiding double wrapping).      *       * @param reader the wrapee to be used for the buffering support      * @return the passed<code>reader</code> decorated through a      *         {@link BufferedReader} object as wrapper      */
+comment|/**      * Wraps the passed<code>reader</code> into a {@link BufferedReader} object      * and returns that. If the passed<code>reader</code> is already an      * instance of {@link BufferedReader} returns the same passed      *<code>reader</code> reference as is (avoiding double wrapping).      *      * @param reader the wrapee to be used for the buffering support      * @return the passed<code>reader</code> decorated through a      *         {@link BufferedReader} object as wrapper      */
 DECL|method|buffered (Reader reader)
 specifier|public
 specifier|static
@@ -619,7 +619,7 @@ name|reader
 argument_list|)
 return|;
 block|}
-comment|/**      * Wraps the passed<code>writer</code> into a {@link BufferedWriter} object      * and returns that. If the passed<code>writer</code> is already an      * instance of {@link BufferedWriter} returns the same passed      *<code>writer</code> reference as is (avoiding double wrapping).      *       * @param writer the wrapee to be used for the buffering support      * @return the passed<code>writer</code> decorated through a      *         {@link BufferedWriter} object as wrapper      */
+comment|/**      * Wraps the passed<code>writer</code> into a {@link BufferedWriter} object      * and returns that. If the passed<code>writer</code> is already an      * instance of {@link BufferedWriter} returns the same passed      *<code>writer</code> reference as is (avoiding double wrapping).      *      * @param writer the wrapee to be used for the buffering support      * @return the passed<code>writer</code> decorated through a      *         {@link BufferedWriter} object as wrapper      */
 DECL|method|buffered (Writer writer)
 specifier|public
 specifier|static
@@ -1811,7 +1811,7 @@ name|LOG
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Closes the given resources if they are available.      *       * @param closeables the objects to close      */
+comment|/**      * Closes the given resources if they are available.      *      * @param closeables the objects to close      */
 DECL|method|close (Closeable... closeables)
 specifier|public
 specifier|static
@@ -2053,7 +2053,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the charset name from the content type string      *       * @param contentType      * @return the charset name, or<tt>UTF-8</tt> if no found      */
+comment|/**      * Get the charset name from the content type string      *      * @param contentType      * @return the charset name, or<tt>UTF-8</tt> if no found      */
 DECL|method|getCharsetNameFromContentType (String contentType)
 specifier|public
 specifier|static
@@ -2273,7 +2273,6 @@ argument_list|(
 name|upperKey
 argument_list|)
 decl_stmt|;
-comment|// some OS do not support dashes in keys, so replace with underscore
 if|if
 condition|(
 name|value
@@ -2281,8 +2280,9 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// some OS do not support dashes in keys, so replace with underscore
 name|String
-name|noDashKey
+name|normalizedKey
 init|=
 name|upperKey
 operator|.
@@ -2293,13 +2293,26 @@ argument_list|,
 literal|'_'
 argument_list|)
 decl_stmt|;
+comment|// and replace dots with underscores so keys like my.key are
+comment|// translated to MY_KEY
+name|normalizedKey
+operator|=
+name|normalizedKey
+operator|.
+name|replace
+argument_list|(
+literal|'.'
+argument_list|,
+literal|'_'
+argument_list|)
+expr_stmt|;
 name|value
 operator|=
 name|System
 operator|.
 name|getenv
 argument_list|(
-name|noDashKey
+name|normalizedKey
 argument_list|)
 expr_stmt|;
 block|}
