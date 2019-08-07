@@ -351,7 +351,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"netty4:tcp://localhost:"
+literal|"netty:tcp://localhost:"
 operator|+
 name|port
 operator|+
