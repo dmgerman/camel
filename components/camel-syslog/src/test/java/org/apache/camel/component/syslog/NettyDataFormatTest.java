@@ -417,7 +417,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"netty4:udp://127.0.0.1:"
+literal|"netty:udp://127.0.0.1:"
 operator|+
 name|serverPort
 operator|+
@@ -469,7 +469,7 @@ decl_stmt|;
 comment|// we setup a Syslog  listener on a random port.
 name|from
 argument_list|(
-literal|"netty4:udp://127.0.0.1:"
+literal|"netty:udp://127.0.0.1:"
 operator|+
 name|serverPort
 operator|+

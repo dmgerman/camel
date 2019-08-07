@@ -300,7 +300,7 @@ argument_list|()
 expr_stmt|;
 name|uri
 operator|=
-literal|"netty4:tcp://localhost:"
+literal|"netty:tcp://localhost:"
 operator|+
 name|serverPort
 operator|+
