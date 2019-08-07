@@ -308,7 +308,7 @@ literal|"netty4-http,netty-http"
 argument_list|,
 name|extendsScheme
 operator|=
-literal|"netty4"
+literal|"netty"
 argument_list|,
 name|title
 operator|=
