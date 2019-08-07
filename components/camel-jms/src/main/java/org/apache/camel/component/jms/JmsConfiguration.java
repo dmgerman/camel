@@ -1836,6 +1836,10 @@ operator|+
 literal|" This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level."
 operator|+
 literal|" You must enable this option on both the producer and consumer side, so Camel knows the payloads is an Exchange and not a regular payload."
+operator|+
+literal|" Use this with caution as the data is using Java Object serialization and requires the received to be able to deserialize the data at Class level, "
+operator|+
+literal|" which forces a strong coupling between the producers and consumer having to use compatible Camel versions!"
 argument_list|)
 DECL|field|transferExchange
 specifier|private
@@ -1886,6 +1890,10 @@ operator|+
 literal|" The original Exception on the consumer side can be wrapped in an outer exception"
 operator|+
 literal|" such as org.apache.camel.RuntimeCamelException when returned to the producer."
+operator|+
+literal|" Use this with caution as the data is using Java Object serialization and requires the received to be able to deserialize the data at Class level, "
+operator|+
+literal|" which forces a strong coupling between the producers and consumer!"
 argument_list|)
 DECL|field|transferException
 specifier|private
@@ -6453,7 +6461,7 @@ return|return
 name|transferExchange
 return|;
 block|}
-comment|/**      * You can transfer the exchange over the wire instead of just the body and headers.      * The following fields are transferred: In body, Out body, Fault body, In headers, Out headers, Fault headers,      * exchange properties, exchange exception.      * This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.      * You must enable this option on both the producer and consumer side, so Camel knows the payloads is an Exchange and not a regular payload.      */
+comment|/**      * You can transfer the exchange over the wire instead of just the body and headers.      * The following fields are transferred: In body, Out body, Fault body, In headers, Out headers, Fault headers,      * exchange properties, exchange exception.      * This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.      * You must enable this option on both the producer and consumer side, so Camel knows the payloads is an Exchange and not a regular payload.      * Use this with caution as the data is using Java Object serialization and requires the received to be able to deserialize the data at Class level,      * which forces a strong coupling between the producers and consumer having to use compatible Camel versions!      */
 DECL|method|setTransferExchange (boolean transferExchange)
 specifier|public
 name|void
@@ -6507,7 +6515,7 @@ return|return
 name|transferException
 return|;
 block|}
-comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side,      * then the caused Exception will be send back in response as a javax.jms.ObjectMessage.      * If the client is Camel, the returned Exception is rethrown. This allows you to use Camel JMS as a bridge      * in your routing - for example, using persistent queues to enable robust routing.      * Notice that if you also have transferExchange enabled, this option takes precedence.      * The caught exception is required to be serializable.      * The original Exception on the consumer side can be wrapped in an outer exception      * such as org.apache.camel.RuntimeCamelException when returned to the producer.      */
+comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side,      * then the caused Exception will be send back in response as a javax.jms.ObjectMessage.      * If the client is Camel, the returned Exception is rethrown. This allows you to use Camel JMS as a bridge      * in your routing - for example, using persistent queues to enable robust routing.      * Notice that if you also have transferExchange enabled, this option takes precedence.      * The caught exception is required to be serializable.      * The original Exception on the consumer side can be wrapped in an outer exception      * such as org.apache.camel.RuntimeCamelException when returned to the producer.      * Use this with caution as the data is using Java Object serialization and requires the received to be able to deserialize the data at Class level,      * which forces a strong coupling between the producers and consumer!      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
