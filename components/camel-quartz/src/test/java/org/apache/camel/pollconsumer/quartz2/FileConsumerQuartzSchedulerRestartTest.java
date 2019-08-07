@@ -237,7 +237,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/file/quartz?scheduler=quartz2&scheduler.cron=0/2+*+*+*+*+?&scheduler.triggerGroup=myGroup&scheduler.triggerId=myId"
+literal|"file:target/file/quartz?scheduler=quartz&scheduler.cron=0/2+*+*+*+*+?&scheduler.triggerGroup=myGroup&scheduler.triggerId=myId"
 argument_list|)
 operator|.
 name|routeId

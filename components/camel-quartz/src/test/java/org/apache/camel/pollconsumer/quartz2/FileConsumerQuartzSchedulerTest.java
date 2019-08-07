@@ -186,7 +186,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/file/quartz?scheduler=quartz2&scheduler.cron=0/2+*+*+*+*+?"
+literal|"file:target/file/quartz?scheduler=quartz&scheduler.cron=0/2+*+*+*+*+?"
 argument_list|)
 operator|.
 name|routeId
