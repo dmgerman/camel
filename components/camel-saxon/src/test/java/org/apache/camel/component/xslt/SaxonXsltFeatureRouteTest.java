@@ -32,6 +32,20 @@ end_import
 
 begin_import
 import|import
+name|net
+operator|.
+name|sf
+operator|.
+name|saxon
+operator|.
+name|trans
+operator|.
+name|UncheckedXPathException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -79,20 +93,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|net
-operator|.
-name|sf
-operator|.
-name|saxon
-operator|.
-name|trans
-operator|.
-name|UncheckedXPathException
 import|;
 end_import
 
