@@ -112,10 +112,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelNetty4Test
+DECL|class|CamelNettyTest
 specifier|public
 class|class
-name|CamelNetty4Test
+name|CamelNettyTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
@@ -159,7 +159,7 @@ name|module
 argument_list|(
 name|inferModuleName
 argument_list|(
-name|CamelNetty4Test
+name|CamelNettyTest
 operator|.
 name|class
 argument_list|)

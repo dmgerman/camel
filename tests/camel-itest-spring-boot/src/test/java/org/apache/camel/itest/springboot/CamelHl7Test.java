@@ -164,7 +164,6 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-comment|//.dependency(DependencyResolver.withVersion("org.apache.camel:camel-netty4"))
 operator|.
 name|build
 argument_list|()
