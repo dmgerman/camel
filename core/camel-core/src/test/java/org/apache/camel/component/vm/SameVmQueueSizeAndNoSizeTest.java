@@ -76,7 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
+operator|.
+name|seda
 operator|.
 name|SedaConstants
 import|;

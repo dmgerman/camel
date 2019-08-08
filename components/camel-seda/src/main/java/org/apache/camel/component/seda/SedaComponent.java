@@ -118,20 +118,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|SedaConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -1200,7 +1186,7 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * On shutting down the endpoint      *       * @param endpoint the endpoint      */
+comment|/**      * On shutting down the endpoint      *      * @param endpoint the endpoint      */
 DECL|method|onShutdownEndpoint (SedaEndpoint endpoint)
 name|void
 name|onShutdownEndpoint
