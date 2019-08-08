@@ -102,6 +102,26 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|DebugJUnit5Test
 specifier|public
@@ -110,6 +130,22 @@ name|DebugJUnit5Test
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DebugJUnit5Test
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// START SNIPPET: e1
 annotation|@
 name|Override
@@ -154,7 +190,7 @@ comment|// this method is invoked before we are about to enter the given
 comment|// processor
 comment|// from your Java editor you can just add a breakpoint in the code line
 comment|// below
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(

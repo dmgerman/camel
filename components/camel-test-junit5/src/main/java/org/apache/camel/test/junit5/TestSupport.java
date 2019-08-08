@@ -323,28 +323,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bunch of useful testing methods  */
+comment|/**  * Provides utility methods for camel test purpose (builders, assertions,  * endpoint resolutions, file helpers).  */
 end_comment
 
 begin_class
 DECL|class|TestSupport
 specifier|public
-specifier|abstract
+specifier|final
 class|class
 name|TestSupport
 block|{
-DECL|field|LS
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|LS
-init|=
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -361,22 +349,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|log
-specifier|protected
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
+DECL|method|TestSupport ()
+specifier|private
+name|TestSupport
+parameter_list|()
+block|{     }
+comment|// -------------------------------------------------------------------------
 comment|// Builder methods for expressions used when testing
 comment|// -------------------------------------------------------------------------
-comment|/**      * Returns a value builder for the given header      */
+comment|/**      * Returns a value builder for the given header.      */
 DECL|method|header (String name)
 specifier|public
 specifier|static
@@ -396,7 +377,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a value builder for the given exchange property      */
+comment|/**      * Returns a value builder for the given exchange property.      */
 DECL|method|exchangeProperty (String name)
 specifier|public
 specifier|static
@@ -416,7 +397,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the inbound body on an exchange      */
+comment|/**      * Returns a predicate and value builder for the inbound body on an      * exchange.      */
 DECL|method|body ()
 specifier|public
 specifier|static
@@ -431,7 +412,7 @@ name|body
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type      */
+comment|/**      * Returns a predicate and value builder for the inbound message body as a      * specific type.      */
 DECL|method|bodyAs (Class<T> type)
 specifier|public
 specifier|static
@@ -457,7 +438,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a value builder for the given system property      */
+comment|/**      * Returns a value builder for the given system property.      */
 DECL|method|systemProperty (String name)
 specifier|public
 specifier|static
@@ -477,7 +458,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a value builder for the given system property      */
+comment|/**      * Returns a value builder for the given system property.      */
 DECL|method|systemProperty (String name, String defaultValue)
 specifier|public
 specifier|static
@@ -502,8 +483,10 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
+comment|// -----------------------------------------------------------------------
 comment|// Assertions
 comment|// -----------------------------------------------------------------------
+comment|/**      * Asserts that a given value is of an expected type.      */
 DECL|method|assertIsInstanceOf (Class<T> expectedType, Object value)
 specifier|public
 specifier|static
@@ -577,7 +560,8 @@ name|value
 argument_list|)
 return|;
 block|}
-DECL|method|assertEndpointUri (Endpoint endpoint, String uri)
+comment|/**      * Asserts that a given endpoint has an expected uri.      */
+DECL|method|assertEndpointUri (Endpoint endpoint, String expectedUri)
 specifier|public
 specifier|static
 name|void
@@ -587,7 +571,7 @@ name|Endpoint
 name|endpoint
 parameter_list|,
 name|String
-name|uri
+name|expectedUri
 parameter_list|)
 block|{
 name|assertNotNull
@@ -596,11 +580,13 @@ name|endpoint
 argument_list|,
 literal|"Endpoint is null when expecting endpoint for: "
 operator|+
-name|uri
+name|expectedUri
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|expectedUri
+argument_list|,
 name|endpoint
 operator|.
 name|getEndpointUri
@@ -609,13 +595,11 @@ argument_list|,
 literal|"Endpoint uri for: "
 operator|+
 name|endpoint
-argument_list|,
-name|uri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts the In message on the exchange contains the expected value      */
-DECL|method|assertInMessageHeader (Exchange exchange, String name, Object expected)
+comment|/**      * Asserts that the In message on the exchange contains an header with a      * given name and expected value.      */
+DECL|method|assertInMessageHeader (Exchange exchange, String headerName, Object expectedValue)
 specifier|public
 specifier|static
 name|Object
@@ -625,10 +609,10 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|String
-name|name
+name|headerName
 parameter_list|,
 name|Object
-name|expected
+name|expectedValue
 parameter_list|)
 block|{
 return|return
@@ -639,14 +623,14 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|,
-name|name
+name|headerName
 argument_list|,
-name|expected
+name|expectedValue
 argument_list|)
 return|;
 block|}
-comment|/**      * Asserts the Out message on the exchange contains the expected value      */
-DECL|method|assertOutMessageHeader (Exchange exchange, String name, Object expected)
+comment|/**      * Asserts that the message on the exchange contains an header with a given      * name and expected value.      */
+DECL|method|assertOutMessageHeader (Exchange exchange, String headerName, Object expectedValue)
 specifier|public
 specifier|static
 name|Object
@@ -656,10 +640,10 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|String
-name|name
+name|headerName
 parameter_list|,
 name|Object
-name|expected
+name|expectedValue
 parameter_list|)
 block|{
 return|return
@@ -667,17 +651,17 @@ name|assertMessageHeader
 argument_list|(
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 argument_list|,
-name|name
+name|headerName
 argument_list|,
-name|expected
+name|expectedValue
 argument_list|)
 return|;
 block|}
-comment|/**      * Asserts that the given exchange has an OUT message of the given body      * value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the      *             expected class type      */
-DECL|method|assertInMessageBodyEquals (Exchange exchange, Object expected)
+comment|/**      * Asserts that the given exchange has a given expectedBody on the IN      * message.      */
+DECL|method|assertInMessageBodyEquals (Exchange exchange, Object expectedBody)
 specifier|public
 specifier|static
 name|void
@@ -687,7 +671,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Object
-name|expected
+name|expectedBody
 parameter_list|)
 throws|throws
 name|InvalidPayloadException
@@ -696,20 +680,20 @@ name|assertNotNull
 argument_list|(
 name|exchange
 argument_list|,
-literal|"Should have a response exchange!"
+literal|"Should have a response exchange"
 argument_list|)
 expr_stmt|;
 name|Object
-name|actual
+name|actualBody
 decl_stmt|;
 if|if
 condition|(
-name|expected
+name|expectedBody
 operator|==
 literal|null
 condition|)
 block|{
-name|actual
+name|actualBody
 operator|=
 name|exchange
 operator|.
@@ -721,9 +705,9 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|expectedBody
 argument_list|,
-name|actual
+name|actualBody
 argument_list|,
 literal|"in body of: "
 operator|+
@@ -733,7 +717,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|actual
+name|actualBody
 operator|=
 name|exchange
 operator|.
@@ -742,7 +726,7 @@ argument_list|()
 operator|.
 name|getMandatoryBody
 argument_list|(
-name|expected
+name|expectedBody
 operator|.
 name|getClass
 argument_list|()
@@ -751,9 +735,9 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-name|expected
+name|expectedBody
 argument_list|,
-name|actual
+name|actualBody
 argument_list|,
 literal|"in body of: "
 operator|+
@@ -777,18 +761,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that the given exchange has an OUT message of the given body      * value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the      *             expected class type      */
-DECL|method|assertOutMessageBodyEquals (Exchange exchange, Object expected)
+comment|/**      * Asserts that the given exchange has a given expectedBody on the message.      */
+DECL|method|assertMessageBodyEquals (Exchange exchange, Object expectedBody)
 specifier|public
 specifier|static
 name|void
-name|assertOutMessageBodyEquals
+name|assertMessageBodyEquals
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
 name|Object
-name|expected
+name|expectedBody
 parameter_list|)
 throws|throws
 name|InvalidPayloadException
@@ -801,20 +785,20 @@ literal|"Should have a response exchange!"
 argument_list|)
 expr_stmt|;
 name|Object
-name|actual
+name|actualBody
 decl_stmt|;
 if|if
 condition|(
-name|expected
+name|expectedBody
 operator|==
 literal|null
 condition|)
 block|{
-name|actual
+name|actualBody
 operator|=
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getMandatoryBody
@@ -822,9 +806,9 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|expectedBody
 argument_list|,
-name|actual
+name|actualBody
 argument_list|,
 literal|"output body of: "
 operator|+
@@ -834,16 +818,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|actual
+name|actualBody
 operator|=
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getMandatoryBody
 argument_list|(
-name|expected
+name|expectedBody
 operator|.
 name|getClass
 argument_list|()
@@ -852,9 +836,9 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-name|expected
+name|expectedBody
 argument_list|,
-name|actual
+name|actualBody
 argument_list|,
 literal|"output body of: "
 operator|+
@@ -873,12 +857,13 @@ literal|" with out: "
 operator|+
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertMessageHeader (Message message, String name, Object expected)
+comment|/**      * Asserts that a given message contains an header with a given name and      * expected value.      */
+DECL|method|assertMessageHeader (Message message, String headerName, Object expectedValue)
 specifier|public
 specifier|static
 name|Object
@@ -888,31 +873,31 @@ name|Message
 name|message
 parameter_list|,
 name|String
-name|name
+name|headerName
 parameter_list|,
 name|Object
-name|expected
+name|expectedValue
 parameter_list|)
 block|{
 name|Object
-name|value
+name|actualValue
 init|=
 name|message
 operator|.
 name|getHeader
 argument_list|(
-name|name
+name|headerName
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|expectedValue
 argument_list|,
-name|value
+name|actualValue
 argument_list|,
 literal|"Header: "
 operator|+
-name|name
+name|headerName
 operator|+
 literal|" on Message: "
 operator|+
@@ -920,11 +905,11 @@ name|message
 argument_list|)
 expr_stmt|;
 return|return
-name|value
+name|actualValue
 return|;
 block|}
-comment|/**      * Asserts that the given expression when evaluated returns the given answer      */
-DECL|method|assertExpression (Expression expression, Exchange exchange, Object expected)
+comment|/**      * Asserts that the given expression when evaluated returns the given      * answer.      */
+DECL|method|assertExpression (Expression expression, Exchange exchange, Object expectedAnswer)
 specifier|public
 specifier|static
 name|Object
@@ -937,20 +922,20 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Object
-name|expected
+name|expectedAnswer
 parameter_list|)
 block|{
 name|Object
-name|value
+name|actualAnswer
 decl_stmt|;
 if|if
 condition|(
-name|expected
+name|expectedAnswer
 operator|!=
 literal|null
 condition|)
 block|{
-name|value
+name|actualAnswer
 operator|=
 name|expression
 operator|.
@@ -958,7 +943,7 @@ name|evaluate
 argument_list|(
 name|exchange
 argument_list|,
-name|expected
+name|expectedAnswer
 operator|.
 name|getClass
 argument_list|()
@@ -967,7 +952,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|value
+name|actualAnswer
 operator|=
 name|expression
 operator|.
@@ -995,14 +980,14 @@ name|exchange
 operator|+
 literal|" result: "
 operator|+
-name|value
+name|actualAnswer
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|expectedAnswer
 argument_list|,
-name|value
+name|actualAnswer
 argument_list|,
 literal|"Expression: "
 operator|+
@@ -1014,10 +999,10 @@ name|exchange
 argument_list|)
 expr_stmt|;
 return|return
-name|value
+name|actualAnswer
 return|;
 block|}
-comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
+comment|/**      * Asserts that a given predicate returns<code>true</code> on a given      * exchange.      */
 DECL|method|assertPredicateMatches (Predicate predicate, Exchange exchange)
 specifier|public
 specifier|static
@@ -1041,7 +1026,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
+comment|/**      * Asserts that a given predicate returns<code>false</code> on a given      * exchange.      */
 DECL|method|assertPredicateDoesNotMatch (Predicate predicate, Exchange exchange)
 specifier|public
 specifier|static
@@ -1095,8 +1080,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that the predicate returns the expected value on the exchange      */
-DECL|method|assertPredicate (final Predicate predicate, Exchange exchange, boolean expected)
+comment|/**      * Asserts that the predicate returns the expected value on the exchange.      */
+DECL|method|assertPredicate (final Predicate predicate, Exchange exchange, boolean expectedValue)
 specifier|public
 specifier|static
 name|boolean
@@ -1110,12 +1095,12 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|boolean
-name|expected
+name|expectedValue
 parameter_list|)
 block|{
 if|if
 condition|(
-name|expected
+name|expectedValue
 condition|)
 block|{
 name|PredicateAssertHelper
@@ -1131,7 +1116,7 @@ argument_list|)
 expr_stmt|;
 block|}
 name|boolean
-name|value
+name|actualValue
 init|=
 name|predicate
 operator|.
@@ -1154,14 +1139,14 @@ name|exchange
 operator|+
 literal|" result: "
 operator|+
-name|value
+name|actualValue
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|expected
+name|expectedValue
 argument_list|,
-name|value
+name|actualValue
 argument_list|,
 literal|"Predicate: "
 operator|+
@@ -1173,150 +1158,10 @@ name|exchange
 argument_list|)
 expr_stmt|;
 return|return
-name|value
+name|actualValue
 return|;
 block|}
-comment|/**      * Resolves an endpoint and asserts that it is found      */
-DECL|method|resolveMandatoryEndpoint (CamelContext context, String uri)
-specifier|public
-specifier|static
-name|Endpoint
-name|resolveMandatoryEndpoint
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|String
-name|uri
-parameter_list|)
-block|{
-name|Endpoint
-name|endpoint
-init|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-name|uri
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|endpoint
-argument_list|,
-literal|"No endpoint found for URI: "
-operator|+
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|endpoint
-return|;
-block|}
-comment|/**      * Resolves an endpoint and asserts that it is found      */
-DECL|method|resolveMandatoryEndpoint (CamelContext context, String uri, Class<T> endpointType)
-specifier|public
-specifier|static
-parameter_list|<
-name|T
-extends|extends
-name|Endpoint
-parameter_list|>
-name|T
-name|resolveMandatoryEndpoint
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|String
-name|uri
-parameter_list|,
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|endpointType
-parameter_list|)
-block|{
-name|T
-name|endpoint
-init|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|endpointType
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|endpoint
-argument_list|,
-literal|"No endpoint found for URI: "
-operator|+
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|endpoint
-return|;
-block|}
-comment|/**      * Creates an exchange with the given body      */
-DECL|method|createExchangeWithBody (CamelContext camelContext, Object body)
-specifier|protected
-name|Exchange
-name|createExchangeWithBody
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|Object
-name|body
-parameter_list|)
-block|{
-name|Exchange
-name|exchange
-init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|camelContext
-argument_list|)
-decl_stmt|;
-name|Message
-name|message
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-decl_stmt|;
-name|message
-operator|.
-name|setHeader
-argument_list|(
-literal|"testClass"
-argument_list|,
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|message
-operator|.
-name|setBody
-argument_list|(
-name|body
-argument_list|)
-expr_stmt|;
-return|return
-name|exchange
-return|;
-block|}
+comment|/**      * Asserts that a given list has a single element.      */
 DECL|method|assertOneElement (List<T> list)
 specifier|public
 specifier|static
@@ -1356,8 +1201,8 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * Asserts that a list is of the given size      */
-DECL|method|assertListSize (List<T> list, int size)
+comment|/**      * Asserts that a given list has a given expected size.      */
+DECL|method|assertListSize (List<T> list, int expectedSize)
 specifier|public
 specifier|static
 parameter_list|<
@@ -1376,7 +1221,7 @@ argument_list|>
 name|list
 parameter_list|,
 name|int
-name|size
+name|expectedSize
 parameter_list|)
 block|{
 return|return
@@ -1386,12 +1231,12 @@ literal|"List"
 argument_list|,
 name|list
 argument_list|,
-name|size
+name|expectedSize
 argument_list|)
 return|;
 block|}
-comment|/**      * Asserts that a list is of the given size      */
-DECL|method|assertListSize (String message, List<T> list, int size)
+comment|/**      * Asserts that a list is of the given size. When the assertion is broken,      * the error message starts with a given prefix.      */
+DECL|method|assertListSize (String brokenAssertionMessagePrefix, List<T> list, int expectedSize)
 specifier|public
 specifier|static
 parameter_list|<
@@ -1404,7 +1249,7 @@ argument_list|>
 name|assertListSize
 parameter_list|(
 name|String
-name|message
+name|brokenAssertionMessagePrefix
 parameter_list|,
 name|List
 argument_list|<
@@ -1413,23 +1258,23 @@ argument_list|>
 name|list
 parameter_list|,
 name|int
-name|size
+name|expectedSize
 parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-name|size
+name|expectedSize
 argument_list|,
 name|list
 operator|.
 name|size
 argument_list|()
 argument_list|,
-name|message
+name|brokenAssertionMessagePrefix
 operator|+
 literal|" should be of size: "
 operator|+
-name|size
+name|expectedSize
 operator|+
 literal|" but is: "
 operator|+
@@ -1440,8 +1285,8 @@ return|return
 name|list
 return|;
 block|}
-comment|/**      * Asserts that a list is of the given size      */
-DECL|method|assertCollectionSize (Collection<T> list, int size)
+comment|/**      * Asserts that a given collection has a given size.      */
+DECL|method|assertCollectionSize (Collection<T> list, int expectedSize)
 specifier|public
 specifier|static
 parameter_list|<
@@ -1460,7 +1305,7 @@ argument_list|>
 name|list
 parameter_list|,
 name|int
-name|size
+name|expectedSize
 parameter_list|)
 block|{
 return|return
@@ -1470,12 +1315,12 @@ literal|"List"
 argument_list|,
 name|list
 argument_list|,
-name|size
+name|expectedSize
 argument_list|)
 return|;
 block|}
-comment|/**      * Asserts that a list is of the given size      */
-DECL|method|assertCollectionSize (String message, Collection<T> list, int size)
+comment|/**      * Asserts that a given collection has a given size. When the assertion is      * broken, the error message starts with a given prefix.      */
+DECL|method|assertCollectionSize (String brokenAssertionMessagePrefix, Collection<T> list, int expectedSize)
 specifier|public
 specifier|static
 parameter_list|<
@@ -1488,7 +1333,7 @@ argument_list|>
 name|assertCollectionSize
 parameter_list|(
 name|String
-name|message
+name|brokenAssertionMessagePrefix
 parameter_list|,
 name|Collection
 argument_list|<
@@ -1497,23 +1342,23 @@ argument_list|>
 name|list
 parameter_list|,
 name|int
-name|size
+name|expectedSize
 parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-name|size
+name|expectedSize
 argument_list|,
 name|list
 operator|.
 name|size
 argument_list|()
 argument_list|,
-name|message
+name|brokenAssertionMessagePrefix
 operator|+
 literal|" should be of size: "
 operator|+
-name|size
+name|expectedSize
 operator|+
 literal|" but is: "
 operator|+
@@ -1524,7 +1369,406 @@ return|return
 name|list
 return|;
 block|}
-comment|/**      * A helper method to create a list of Route objects for a given route      * builder      */
+comment|/**      * Asserts that the text contains the given string.      *      * @param text the text to compare      * @param containedText the text which must be contained inside the other      *            text parameter      */
+DECL|method|assertStringContains (String text, String containedText)
+specifier|public
+specifier|static
+name|void
+name|assertStringContains
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|String
+name|containedText
+parameter_list|)
+block|{
+name|assertNotNull
+argument_list|(
+name|text
+argument_list|,
+literal|"Text should not be null!"
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|text
+operator|.
+name|contains
+argument_list|(
+name|containedText
+argument_list|)
+argument_list|,
+literal|"Text: "
+operator|+
+name|text
+operator|+
+literal|" does not contain: "
+operator|+
+name|containedText
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that two given directories are equal. To be used for      * folder/directory comparison that works across different platforms such as      * Window, Mac and Linux.      */
+DECL|method|assertDirectoryEquals (String expected, String actual)
+specifier|public
+specifier|static
+name|void
+name|assertDirectoryEquals
+parameter_list|(
+name|String
+name|expected
+parameter_list|,
+name|String
+name|actual
+parameter_list|)
+block|{
+name|assertDirectoryEquals
+argument_list|(
+literal|null
+argument_list|,
+name|expected
+argument_list|,
+name|actual
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that two given directories are equal. To be used for      * folder/directory comparison that works across different platforms such as      * Window, Mac and Linux.      */
+DECL|method|assertDirectoryEquals (String message, String expected, String actual)
+specifier|public
+specifier|static
+name|void
+name|assertDirectoryEquals
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|String
+name|expected
+parameter_list|,
+name|String
+name|actual
+parameter_list|)
+block|{
+comment|// must use single / as path separators
+name|String
+name|expectedPath
+init|=
+name|expected
+operator|.
+name|replace
+argument_list|(
+literal|'\\'
+argument_list|,
+literal|'/'
+argument_list|)
+decl_stmt|;
+name|String
+name|actualPath
+init|=
+name|actual
+operator|.
+name|replace
+argument_list|(
+literal|'\\'
+argument_list|,
+literal|'/'
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|message
+operator|!=
+literal|null
+condition|)
+block|{
+name|assertEquals
+argument_list|(
+name|message
+argument_list|,
+name|expectedPath
+argument_list|,
+name|actualPath
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|assertEquals
+argument_list|(
+name|expectedPath
+argument_list|,
+name|actualPath
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Asserts that a given directory is found in the file system.      */
+DECL|method|assertDirectoryExists (String filename)
+specifier|public
+specifier|static
+name|void
+name|assertDirectoryExists
+parameter_list|(
+name|String
+name|filename
+parameter_list|)
+block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|,
+literal|"Directory "
+operator|+
+name|filename
+operator|+
+literal|" should exist"
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+argument_list|,
+literal|"Directory "
+operator|+
+name|filename
+operator|+
+literal|" should be a directory"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that a given file is found in the file system.      */
+DECL|method|assertFileExists (String filename)
+specifier|public
+specifier|static
+name|void
+name|assertFileExists
+parameter_list|(
+name|String
+name|filename
+parameter_list|)
+block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|,
+literal|"File "
+operator|+
+name|filename
+operator|+
+literal|" should exist"
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|file
+operator|.
+name|isFile
+argument_list|()
+argument_list|,
+literal|"File "
+operator|+
+name|filename
+operator|+
+literal|" should be a file"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Asserts that a given file is<b>not</b> found in the file system.      */
+DECL|method|assertFileNotExists (String filename)
+specifier|public
+specifier|static
+name|void
+name|assertFileNotExists
+parameter_list|(
+name|String
+name|filename
+parameter_list|)
+block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+decl_stmt|;
+name|assertFalse
+argument_list|(
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|,
+literal|"File "
+operator|+
+name|filename
+operator|+
+literal|" should not exist"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// -----------------------------------------------------------------------
+comment|// Other helpers, resolution, file, getRouteList
+comment|// -----------------------------------------------------------------------
+comment|/**      * Resolves an endpoint and asserts that it is found.      */
+DECL|method|resolveMandatoryEndpoint (CamelContext context, String endpointUri)
+specifier|public
+specifier|static
+name|Endpoint
+name|resolveMandatoryEndpoint
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|Endpoint
+name|endpoint
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+name|endpointUri
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|endpoint
+argument_list|,
+literal|"No endpoint found for URI: "
+operator|+
+name|endpointUri
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
+return|;
+block|}
+comment|/**      * Resolves an endpoint and asserts that it is found.      */
+DECL|method|resolveMandatoryEndpoint (CamelContext context, String endpointUri, Class<T> endpointType)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+extends|extends
+name|Endpoint
+parameter_list|>
+name|T
+name|resolveMandatoryEndpoint
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|String
+name|endpointUri
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|endpointType
+parameter_list|)
+block|{
+name|T
+name|endpoint
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+name|endpointUri
+argument_list|,
+name|endpointType
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|endpoint
+argument_list|,
+literal|"No endpoint found for URI: "
+operator|+
+name|endpointUri
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
+return|;
+block|}
+comment|/**      * Creates an exchange with the given body.      */
+DECL|method|createExchangeWithBody (CamelContext camelContext, Object body)
+specifier|public
+specifier|static
+name|Exchange
+name|createExchangeWithBody
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+block|{
+name|Exchange
+name|exchange
+init|=
+operator|new
+name|DefaultExchange
+argument_list|(
+name|camelContext
+argument_list|)
+decl_stmt|;
+name|Message
+name|message
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+decl_stmt|;
+name|message
+operator|.
+name|setBody
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+return|return
+name|exchange
+return|;
+block|}
+comment|/**      * A helper method to create a list of Route objects for a given route      * builder.      */
 DECL|method|getRouteList (RouteBuilder builder)
 specifier|public
 specifier|static
@@ -1579,47 +1823,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Asserts that the text contains the given string      *      * @param text the text to compare      * @param containedText the text which must be contained inside the other      *            text parameter      */
-DECL|method|assertStringContains (String text, String containedText)
-specifier|public
-specifier|static
-name|void
-name|assertStringContains
-parameter_list|(
-name|String
-name|text
-parameter_list|,
-name|String
-name|containedText
-parameter_list|)
-block|{
-name|assertNotNull
-argument_list|(
-name|text
-argument_list|,
-literal|"Text should not be null!"
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|text
-operator|.
-name|contains
-argument_list|(
-name|containedText
-argument_list|)
-argument_list|,
-literal|"Text: "
-operator|+
-name|text
-operator|+
-literal|" does not contain: "
-operator|+
-name|containedText
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      * @return<tt>false</tt> if error deleting directory      */
+comment|/**      * Recursively delete a directory, useful to zapping test data. Deletion      * will be attempted up to five time before giving up.      *      * @param file the directory to be deleted      * @return<tt>false</tt> when an error occur while deleting directory      */
 DECL|method|deleteDirectory (String file)
 specifier|public
 specifier|static
@@ -1641,7 +1845,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      * @return<tt>false</tt> if error deleting directory      */
+comment|/**      * Recursively delete a directory, useful to zapping test data. Deletion      * will be attempted up to five time before giving up.      *      * @param file the directory to be deleted      * @return<tt>false</tt> when an error occur while deleting directory      */
 DECL|method|deleteDirectory (File file)
 specifier|public
 specifier|static
@@ -1723,8 +1927,9 @@ operator|!
 name|exists
 return|;
 block|}
+comment|/**      * Recursively delete a directory. Deletion will be attempted a single time      * before giving up.      *      * @param file the directory to be deleted      */
 DECL|method|recursivelyDeleteDirectory (File file)
-specifier|private
+specifier|public
 specifier|static
 name|void
 name|recursivelyDeleteDirectory
@@ -1806,7 +2011,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * create the directory      *      * @param file the directory to be created      */
+comment|/**      * Creates a given directory.      *      * @param file the directory to be created      */
 DECL|method|createDirectory (String file)
 specifier|public
 specifier|static
@@ -1832,242 +2037,15 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * To be used for folder/directory comparison that works across different      * platforms such as Window, Mac and Linux.      */
-DECL|method|assertDirectoryEquals (String expected, String actual)
-specifier|public
-specifier|static
-name|void
-name|assertDirectoryEquals
-parameter_list|(
-name|String
-name|expected
-parameter_list|,
-name|String
-name|actual
-parameter_list|)
-block|{
-name|assertDirectoryEquals
-argument_list|(
-literal|null
-argument_list|,
-name|expected
-argument_list|,
-name|actual
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * To be used for folder/directory comparison that works across different      * platforms such as Window, Mac and Linux.      */
-DECL|method|assertDirectoryEquals (String message, String expected, String actual)
-specifier|public
-specifier|static
-name|void
-name|assertDirectoryEquals
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|String
-name|expected
-parameter_list|,
-name|String
-name|actual
-parameter_list|)
-block|{
-comment|// must use single / as path separators
-name|String
-name|expectedPath
-init|=
-name|expected
-operator|.
-name|replace
-argument_list|(
-literal|'\\'
-argument_list|,
-literal|'/'
-argument_list|)
-decl_stmt|;
-name|String
-name|actualPath
-init|=
-name|actual
-operator|.
-name|replace
-argument_list|(
-literal|'\\'
-argument_list|,
-literal|'/'
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|message
-operator|!=
-literal|null
-condition|)
-block|{
-name|assertEquals
-argument_list|(
-name|message
-argument_list|,
-name|expectedPath
-argument_list|,
-name|actualPath
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
-argument_list|(
-name|expectedPath
-argument_list|,
-name|actualPath
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/**      * To be used to check is a directory is found in the file system      */
-DECL|method|assertDirectoryExists (String filename)
-specifier|public
-specifier|static
-name|void
-name|assertDirectoryExists
-parameter_list|(
-name|String
-name|filename
-parameter_list|)
-block|{
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|filename
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|,
-literal|"Directory "
-operator|+
-name|filename
-operator|+
-literal|" should exist"
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|file
-operator|.
-name|isDirectory
-argument_list|()
-argument_list|,
-literal|"Directory "
-operator|+
-name|filename
-operator|+
-literal|" should be a directory"
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * To be used to check is a file is found in the file system      */
-DECL|method|assertFileExists (String filename)
-specifier|public
-specifier|static
-name|void
-name|assertFileExists
-parameter_list|(
-name|String
-name|filename
-parameter_list|)
-block|{
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|filename
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|,
-literal|"File "
-operator|+
-name|filename
-operator|+
-literal|" should exist"
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|file
-operator|.
-name|isFile
-argument_list|()
-argument_list|,
-literal|"File "
-operator|+
-name|filename
-operator|+
-literal|" should be a file"
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * To be used to check is a file is<b>not</b> found in the file system      */
-DECL|method|assertFileNotExists (String filename)
-specifier|public
-specifier|static
-name|void
-name|assertFileNotExists
-parameter_list|(
-name|String
-name|filename
-parameter_list|)
-block|{
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|filename
-argument_list|)
-decl_stmt|;
-name|assertFalse
-argument_list|(
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|,
-literal|"File "
-operator|+
-name|filename
-operator|+
-literal|" should not exist"
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Is this OS the given platform.      *<p/>      * Uses<tt>os.name</tt> from the system properties to determine the OS.      *      * @param platform such as Windows      * @return<tt>true</tt> if its that platform.      */
-DECL|method|isPlatform (String platform)
+comment|/**      * Tells whether the current Operating System is the given expected      * platform.      *<p/>      * Uses<tt>os.name</tt> from the system properties to determine the      * Operating System.      *      * @param expectedPlatform such as Windows      * @return<tt>true</tt> when the current Operating System is the expected      *         platform,<tt>false</tt> otherwise.      */
+DECL|method|isPlatform (String expectedPlatform)
 specifier|public
 specifier|static
 name|boolean
 name|isPlatform
 parameter_list|(
 name|String
-name|platform
+name|expectedPlatform
 parameter_list|)
 block|{
 name|String
@@ -2092,7 +2070,7 @@ name|osName
 operator|.
 name|contains
 argument_list|(
-name|platform
+name|expectedPlatform
 operator|.
 name|toLowerCase
 argument_list|(
@@ -2103,15 +2081,15 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Is this Java by the given vendor.      *<p/>      * Uses<tt>java.vendor</tt> from the system properties to determine the      * vendor.      *      * @param vendor such as IBM      * @return<tt>true</tt> if its that vendor.      */
-DECL|method|isJavaVendor (String vendor)
+comment|/**      * Tells whether the current Java Virtual Machine has been issued by a given      * expected vendor.      *<p/>      * Uses<tt>java.vendor</tt> from the system properties to determine the      * vendor.      *      * @param expectedVendor such as IBM      * @return<tt>true</tt> when the current Java Virtual Machine has been      *         issued by the expected vendor,<tt>false</tt> otherwise.      */
+DECL|method|isJavaVendor (String expectedVendor)
 specifier|public
 specifier|static
 name|boolean
 name|isJavaVendor
 parameter_list|(
 name|String
-name|vendor
+name|expectedVendor
 parameter_list|)
 block|{
 name|String
@@ -2136,7 +2114,7 @@ name|javaVendor
 operator|.
 name|contains
 argument_list|(
-name|vendor
+name|expectedVendor
 operator|.
 name|toLowerCase
 argument_list|(
@@ -2147,58 +2125,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Is this Java 1.5      *      * @return<tt>true</tt> if its Java 1.5,<tt>false</tt> if its not (for      *         example Java 1.6 or better)      * @deprecated will be removed in the future as Camel requires JDK1.8+      */
-annotation|@
-name|Deprecated
-DECL|method|isJava15 ()
-specifier|public
-specifier|static
-name|boolean
-name|isJava15
-parameter_list|()
-block|{
-return|return
-name|getJavaMajorVersion
-argument_list|()
-operator|==
-literal|5
-return|;
-block|}
-comment|/**      * Is this Java 1.6      *      * @return<tt>true</tt> if its Java 1.6,<tt>false</tt> if its not (for      *         example Java 1.7 or better)      * @deprecated will be removed in the future as Camel requires JDK1.8+      */
-annotation|@
-name|Deprecated
-DECL|method|isJava16 ()
-specifier|public
-specifier|static
-name|boolean
-name|isJava16
-parameter_list|()
-block|{
-return|return
-name|getJavaMajorVersion
-argument_list|()
-operator|==
-literal|6
-return|;
-block|}
-comment|/**      * Is this Java 1.7      *      * @return<tt>true</tt> if its Java 1.7,<tt>false</tt> if its not (for      *         example Java 1.6 or older)      * @deprecated will be removed in the future as Camel requires JDK1.8+      */
-annotation|@
-name|Deprecated
-DECL|method|isJava17 ()
-specifier|public
-specifier|static
-name|boolean
-name|isJava17
-parameter_list|()
-block|{
-return|return
-name|getJavaMajorVersion
-argument_list|()
-operator|==
-literal|7
-return|;
-block|}
-comment|/**      * Is this Java 1.8      *      * @return<tt>true</tt> if its Java 1.8,<tt>false</tt> if its not (for      *         example Java 1.7 or older)      */
+comment|/**      * Tells whether the current Java version is 1.8.      *      * @return<tt>true</tt> if its Java 1.8,<tt>false</tt> if its not (for      *         example Java 1.7 or older)      */
 DECL|method|isJava18 ()
 specifier|public
 specifier|static
@@ -2213,7 +2140,7 @@ operator|==
 literal|8
 return|;
 block|}
-comment|/**      * Is this Java 1.9      *      * @return<tt>true</tt> if its Java 1.9,<tt>false</tt> if its not (for      *         example Java 1.8 or older)      */
+comment|/**      * Tells whether the current Java version is 1.9.      *      * @return<tt>true</tt> if its Java 1.9,<tt>false</tt> if its not (for      *         example Java 1.8 or older)      */
 DECL|method|isJava19 ()
 specifier|public
 specifier|static

@@ -106,6 +106,24 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit5
+operator|.
+name|TestSupport
+operator|.
+name|deleteDirectory
+import|;
+end_import
+
 begin_class
 DECL|class|IsMockEndpointsFileTest
 specifier|public

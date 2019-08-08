@@ -1088,8 +1088,6 @@ specifier|public
 specifier|abstract
 class|class
 name|CamelTestSupport
-extends|extends
-name|TestSupport
 implements|implements
 name|BeforeEachCallback
 implements|,
@@ -1669,14 +1667,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
 literal|"********************************************************************************"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1695,7 +1693,7 @@ operator|+
 literal|")"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -1881,7 +1879,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -1979,7 +1977,7 @@ name|Started
 argument_list|)
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2231,7 +2229,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2284,7 +2282,7 @@ range|:
 name|builders
 control|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2324,7 +2322,7 @@ condition|(
 name|skip
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2339,7 +2337,7 @@ name|isUseAdviceWith
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2359,7 +2357,7 @@ block|{
 name|replaceFromEndpoints
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2369,7 +2367,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -2500,14 +2498,14 @@ operator|.
 name|taken
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
 literal|"********************************************************************************"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2526,7 +2524,7 @@ operator|+
 literal|")"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2626,7 +2624,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -2688,7 +2686,7 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -2738,7 +2736,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -3338,7 +3336,7 @@ argument_list|(
 name|routesSummary
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -4402,7 +4400,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -4565,6 +4563,8 @@ name|uri
 parameter_list|)
 block|{
 return|return
+name|TestSupport
+operator|.
 name|resolveMandatoryEndpoint
 argument_list|(
 name|context
@@ -4595,6 +4595,8 @@ name|endpointType
 parameter_list|)
 block|{
 return|return
+name|TestSupport
+operator|.
 name|resolveMandatoryEndpoint
 argument_list|(
 name|context
@@ -4639,7 +4641,8 @@ parameter_list|)
 throws|throws
 name|NoSuchEndpointException
 block|{
-comment|// look for existing mock endpoints that have the same queue name, and to
+comment|// look for existing mock endpoints that have the same queue name, and
+comment|// to
 comment|// do that we need to normalize uri and strip out query parameters and
 comment|// whatnot
 name|String
@@ -5061,6 +5064,8 @@ name|body
 parameter_list|)
 block|{
 return|return
+name|TestSupport
+operator|.
 name|createExchangeWithBody
 argument_list|(
 name|context
@@ -5125,6 +5130,8 @@ operator|+
 name|language
 argument_list|)
 expr_stmt|;
+name|TestSupport
+operator|.
 name|assertExpression
 argument_list|(
 name|expression
@@ -5191,6 +5198,8 @@ operator|+
 name|language
 argument_list|)
 expr_stmt|;
+name|TestSupport
+operator|.
 name|assertPredicate
 argument_list|(
 name|predicate

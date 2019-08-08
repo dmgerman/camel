@@ -102,6 +102,26 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|DebugNoLazyTypeConverterTest
 specifier|public
@@ -110,6 +130,22 @@ name|DebugNoLazyTypeConverterTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DebugNoLazyTypeConverterTest
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|isLazyLoadingTypeConverter ()
@@ -166,7 +202,7 @@ comment|// this method is invoked before we are about to enter the given
 comment|// processor
 comment|// from your Java editor you can just add a breakpoint in the code line
 comment|// below
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
