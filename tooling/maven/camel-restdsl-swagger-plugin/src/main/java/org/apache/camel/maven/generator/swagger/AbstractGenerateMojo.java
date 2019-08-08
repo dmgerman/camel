@@ -475,8 +475,6 @@ literal|"restlet"
 block|,
 literal|"netty-http"
 block|,
-literal|"netty4-http"
-block|,
 literal|"spark-java"
 block|,
 literal|"coap"
