@@ -424,7 +424,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"netty4-http"
+literal|"netty-http"
 operator|.
 name|equals
 argument_list|(
@@ -432,7 +432,7 @@ name|scheme
 argument_list|)
 condition|)
 block|{
-comment|// the netty4-http stores host,port etc in other fields than httpURI so we can just remove the path parameter
+comment|// the netty-http stores host,port etc in other fields than httpURI so we can just remove the path parameter
 name|params
 operator|.
 name|remove

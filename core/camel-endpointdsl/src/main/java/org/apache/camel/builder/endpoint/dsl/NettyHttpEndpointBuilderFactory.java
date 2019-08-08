@@ -171,7 +171,7 @@ specifier|public
 interface|interface
 name|NettyHttpEndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint consumers for the Netty4 HTTP component.      */
+comment|/**      * Builder for endpoint consumers for the Netty HTTP component.      */
 DECL|interface|NettyHttpEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -1304,7 +1304,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint consumers for the Netty4 HTTP component.      */
+comment|/**      * Advanced builder for endpoint consumers for the Netty HTTP component.      */
 DECL|interface|AdvancedNettyHttpEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -2906,7 +2906,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint producers for the Netty4 HTTP component.      */
+comment|/**      * Builder for endpoint producers for the Netty HTTP component.      */
 DECL|interface|NettyHttpEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -3992,7 +3992,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint producers for the Netty4 HTTP component.      */
+comment|/**      * Advanced builder for endpoint producers for the Netty HTTP component.      */
 DECL|interface|AdvancedNettyHttpEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -5132,7 +5132,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint for the Netty4 HTTP component.      */
+comment|/**      * Builder for endpoint for the Netty HTTP component.      */
 DECL|interface|NettyHttpEndpointBuilder
 specifier|public
 interface|interface
@@ -6010,7 +6010,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the Netty4 HTTP component.      */
+comment|/**      * Advanced builder for endpoint for the Netty HTTP component.      */
 DECL|interface|AdvancedNettyHttpEndpointBuilder
 specifier|public
 interface|interface
@@ -6795,7 +6795,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Netty4 HTTP (camel-netty4-http)      * Netty HTTP server and client using the Netty 4.x library.      *       * Category: http      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-netty4-http      *       * Syntax:<code>netty-http:protocol:host:port/path</code>      *       * Path parameter: protocol (required)      * The protocol to use which is either http, https or proxy - a consumer      * only option.      * The value can be one of: http, https      *       * Path parameter: host (required)      * The local hostname such as localhost, or 0.0.0.0 when being a consumer.      * The remote HTTP server hostname when using producer.      *       * Path parameter: port      * The host port number      *       * Path parameter: path      * Resource path      */
+comment|/**      * Netty HTTP (camel-netty-http)      * Netty HTTP server and client using the Netty 4.x library.      *       * Category: http      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-netty-http      *       * Syntax:<code>netty-http:protocol:host:port/path</code>      *       * Path parameter: protocol (required)      * The protocol to use which is either http, https or proxy - a consumer      * only option.      * The value can be one of: http, https      *       * Path parameter: host (required)      * The local hostname such as localhost, or 0.0.0.0 when being a consumer.      * The remote HTTP server hostname when using producer.      *       * Path parameter: port      * The host port number      *       * Path parameter: path      * Resource path      */
 DECL|method|nettyHttp (String path)
 specifier|default
 name|NettyHttpEndpointBuilder
