@@ -245,7 +245,7 @@ specifier|private
 name|RestConfiguration
 name|restConfiguration
 decl_stmt|;
-comment|/**          * The Camel Rest component to use for the REST transport, such as          * netty4-http.          */
+comment|/**          * The Camel Rest component to use for the REST transport, such as          * netty-http.          */
 DECL|field|webhookComponentName
 specifier|private
 name|String

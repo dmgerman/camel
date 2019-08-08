@@ -260,7 +260,7 @@ argument_list|()
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"netty4-http:"
+literal|"netty-http:"
 operator|+
 name|url
 argument_list|,

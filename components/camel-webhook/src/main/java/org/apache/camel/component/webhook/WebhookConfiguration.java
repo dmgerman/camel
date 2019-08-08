@@ -811,7 +811,7 @@ operator|=
 name|restConfiguration
 expr_stmt|;
 block|}
-comment|/**      * The Camel Rest component to use for the REST transport, such as netty4-http.      */
+comment|/**      * The Camel Rest component to use for the REST transport, such as netty-http.      */
 DECL|method|setWebhookComponentName (String webhookComponentName)
 specifier|public
 name|void

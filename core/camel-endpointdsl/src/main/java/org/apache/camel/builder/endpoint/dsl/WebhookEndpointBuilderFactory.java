@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The Camel Rest component to use for the REST transport, such as          * netty4-http.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The Camel Rest component to use for the REST transport, such as          * netty-http.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|webhookComponentName ( String webhookComponentName)
 specifier|default
 name|WebhookEndpointBuilder

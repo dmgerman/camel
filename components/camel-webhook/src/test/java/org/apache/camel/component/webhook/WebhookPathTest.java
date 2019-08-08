@@ -133,7 +133,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4-http:http://localhost:"
+literal|"netty-http:http://localhost:"
 operator|+
 name|port
 operator|+
@@ -169,7 +169,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4-http:http://localhost:"
+literal|"netty-http:http://localhost:"
 operator|+
 name|port
 operator|+
@@ -209,7 +209,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4-http:http://localhost:"
+literal|"netty-http:http://localhost:"
 operator|+
 name|port
 argument_list|,
