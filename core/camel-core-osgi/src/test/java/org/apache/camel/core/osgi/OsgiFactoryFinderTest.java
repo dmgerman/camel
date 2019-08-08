@@ -114,6 +114,11 @@ literal|"file_test"
 argument_list|,
 literal|"strategy.factory."
 argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -122,10 +127,8 @@ argument_list|,
 name|clazz
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|clazz
-operator|=
+name|assertFalse
+argument_list|(
 name|finder
 operator|.
 name|findClass
@@ -134,33 +137,13 @@ literal|"nofile"
 argument_list|,
 literal|"strategy.factory."
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"We should get exception here"
+operator|.
+name|isPresent
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-literal|"Should get NoFactoryAvailableException"
-argument_list|,
-name|ex
-operator|instanceof
-name|NoFactoryAvailableException
-argument_list|)
-expr_stmt|;
-block|}
 try|try
 block|{
-name|clazz
-operator|=
 name|finder
 operator|.
 name|findClass
@@ -187,6 +170,9 @@ argument_list|(
 literal|"Should get IOException"
 argument_list|,
 name|ex
+operator|.
+name|getCause
+argument_list|()
 operator|instanceof
 name|IOException
 argument_list|)

@@ -1793,21 +1793,10 @@ name|CamelContext
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ClassNotFoundException
-name|e
-parameter_list|)
-block|{
-name|log
 operator|.
-name|trace
+name|orElse
 argument_list|(
-literal|"'strategy.factory.class' not found"
-argument_list|,
-name|e
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

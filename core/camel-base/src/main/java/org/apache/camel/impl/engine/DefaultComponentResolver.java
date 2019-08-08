@@ -370,8 +370,6 @@ name|CamelContext
 name|context
 parameter_list|)
 throws|throws
-name|ClassNotFoundException
-throws|,
 name|IOException
 block|{
 if|if
@@ -404,6 +402,11 @@ operator|.
 name|findClass
 argument_list|(
 name|name
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
 argument_list|)
 return|;
 block|}

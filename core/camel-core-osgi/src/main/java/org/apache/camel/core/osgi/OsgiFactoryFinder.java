@@ -64,19 +64,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|Optional
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|NoFactoryAvailableException
+name|Properties
 import|;
 end_import
 
@@ -208,9 +206,12 @@ annotation|@
 name|Override
 DECL|method|findClass (String key, String propertyPrefix, Class<?> checkClass)
 specifier|public
+name|Optional
+argument_list|<
 name|Class
 argument_list|<
 name|?
+argument_list|>
 argument_list|>
 name|findClass
 parameter_list|(
@@ -226,10 +227,6 @@ name|?
 argument_list|>
 name|checkClass
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
-throws|,
-name|IOException
 block|{
 specifier|final
 name|String
@@ -251,7 +248,12 @@ name|propertyPrefix
 operator|+
 name|key
 decl_stmt|;
-return|return
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|answer
+init|=
 name|addToClassMap
 argument_list|(
 name|classKey
@@ -392,15 +394,19 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|NoFactoryAvailableException
-argument_list|(
-name|classKey
+return|return
+literal|null
+return|;
+block|}
+block|}
 argument_list|)
-throw|;
-block|}
-block|}
+decl_stmt|;
+return|return
+name|Optional
+operator|.
+name|ofNullable
+argument_list|(
+name|answer
 argument_list|)
 return|;
 block|}
@@ -408,9 +414,12 @@ annotation|@
 name|Override
 DECL|method|findClass (String key, String propertyPrefix)
 specifier|public
+name|Optional
+argument_list|<
 name|Class
 argument_list|<
 name|?
+argument_list|>
 argument_list|>
 name|findClass
 parameter_list|(
@@ -420,10 +429,6 @@ parameter_list|,
 name|String
 name|propertyPrefix
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
-throws|,
-name|IOException
 block|{
 return|return
 name|findClass
@@ -481,8 +486,6 @@ decl_stmt|;
 name|Bundle
 index|[]
 name|bundles
-init|=
-literal|null
 decl_stmt|;
 name|bundles
 operator|=

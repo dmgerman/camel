@@ -290,8 +290,6 @@ argument_list|<
 name|?
 argument_list|>
 name|type
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -327,15 +325,12 @@ name|findClass
 argument_list|(
 name|name
 argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NoFactoryAvailableException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
 block|}
 catch|catch
 parameter_list|(

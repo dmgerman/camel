@@ -20,31 +20,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|NoFactoryAvailableException
+name|Optional
 import|;
 end_import
 
@@ -64,33 +42,31 @@ name|String
 name|getResourcePath
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new class instance using the key to lookup      *      * @param key is the key to add to the path to find a text file containing the factory name      * @return a newly created instance      * @throws org.apache.camel.NoFactoryAvailableException is thrown if no factories exist for the given key      */
+comment|/**      * Creates a new class instance using the key to lookup      *      * @param key is the key to add to the path to find a text file containing the factory name      * @return a newly created instance (if exists)      */
 DECL|method|newInstance (String key)
+name|Optional
+argument_list|<
 name|Object
+argument_list|>
 name|newInstance
 parameter_list|(
 name|String
 name|key
 parameter_list|)
-throws|throws
-name|NoFactoryAvailableException
 function_decl|;
-comment|/**      * Creates a new class instance using the key to lookup      *      * @param key is the key to add to the path to find a text file containing the factory name      * @param injector injector to use      * @param type expected type      * @return a newly created instance as the expected type      * @throws ClassNotFoundException is thrown if not found      * @throws java.io.IOException is thrown if loading the class or META-INF file not found      */
-DECL|method|newInstances (String key, Injector injector, Class<T> type)
+comment|/**      * Creates a new class instance using the key to lookup      *      * @param key is the key to add to the path to find a text file containing the factory name      * @param type the class type      * @return a newly created instance (if exists)      */
+DECL|method|newInstance (String key, Class<T> type)
 parameter_list|<
 name|T
 parameter_list|>
-name|List
+name|Optional
 argument_list|<
 name|T
 argument_list|>
-name|newInstances
+name|newInstance
 parameter_list|(
 name|String
 name|key
-parameter_list|,
-name|Injector
-name|injector
 parameter_list|,
 name|Class
 argument_list|<
@@ -98,32 +74,30 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
-throws|,
-name|IOException
 function_decl|;
-comment|/**      * Finds the given factory class using the key to lookup.      *      * @param key is the key to add to the path to find a text file containing the factory name      * @return the factory class      * @throws ClassNotFoundException is thrown if class not found      * @throws java.io.IOException is thrown if loading the class or META-INF file not found      */
+comment|/**      * Finds the given factory class using the key to lookup.      *      * @param key is the key to add to the path to find a text file containing the factory name      * @return the factory class      */
 DECL|method|findClass (String key)
+name|Optional
+argument_list|<
 name|Class
 argument_list|<
 name|?
+argument_list|>
 argument_list|>
 name|findClass
 parameter_list|(
 name|String
 name|key
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
-throws|,
-name|IOException
 function_decl|;
-comment|/**      * Finds the given factory class using the key to lookup.      *      * @param key is the key to add to the path to find a text file containing the factory name      * @param propertyPrefix prefix on key      * @return the factory class      * @throws ClassNotFoundException is thrown if not found      * @throws java.io.IOException is thrown if loading the class or META-INF file not found      */
+comment|/**      * Finds the given factory class using the key to lookup.      *      * @param key is the key to add to the path to find a text file containing the factory name      * @param propertyPrefix prefix on key      * @return the factory class      */
 DECL|method|findClass (String key, String propertyPrefix)
+name|Optional
+argument_list|<
 name|Class
 argument_list|<
 name|?
+argument_list|>
 argument_list|>
 name|findClass
 parameter_list|(
@@ -133,16 +107,15 @@ parameter_list|,
 name|String
 name|propertyPrefix
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
-throws|,
-name|IOException
 function_decl|;
-comment|/**      * Finds the given factory class using the key to lookup.      *      * @param key is the key to add to the path to find a text file containing the factory name      * @param propertyPrefix prefix on key      * @param clazz the class which is used for checking compatible      * @return the factory class      * @throws ClassNotFoundException is thrown if not found      * @throws java.io.IOException is thrown if loading the class or META-INF file not found      */
+comment|/**      * Finds the given factory class using the key to lookup.      *      * @param key is the key to add to the path to find a text file containing the factory name      * @param propertyPrefix prefix on key      * @param clazz the class which is used for checking compatible      * @return the factory class      */
 DECL|method|findClass (String key, String propertyPrefix, Class<?> clazz)
+name|Optional
+argument_list|<
 name|Class
 argument_list|<
 name|?
+argument_list|>
 argument_list|>
 name|findClass
 parameter_list|(
@@ -158,10 +131,6 @@ name|?
 argument_list|>
 name|clazz
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
-throws|,
-name|IOException
 function_decl|;
 block|}
 end_interface

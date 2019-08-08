@@ -750,6 +750,11 @@ name|findClass
 argument_list|(
 name|factoryKey
 argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

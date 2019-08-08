@@ -671,7 +671,19 @@ name|findClass
 argument_list|(
 name|serviceType
 argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|serviceClass
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 operator|(
 name|CamelReactiveStreamsServiceFactory
@@ -687,11 +699,7 @@ name|serviceClass
 argument_list|)
 return|;
 block|}
-catch|catch
-parameter_list|(
-name|ClassNotFoundException
-name|e
-parameter_list|)
+else|else
 block|{
 throw|throw
 operator|new
@@ -706,10 +714,9 @@ operator|+
 name|serviceType
 operator|+
 literal|"' not found"
-argument_list|,
-name|e
 argument_list|)
 throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
