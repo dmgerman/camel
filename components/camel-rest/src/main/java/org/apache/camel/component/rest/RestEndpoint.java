@@ -357,7 +357,7 @@ index|[]
 block|{
 literal|"coap"
 block|,
-literal|"netty4-http"
+literal|"netty-http"
 block|,
 literal|"jetty"
 block|,
@@ -384,7 +384,7 @@ index|[]
 block|{
 literal|"http"
 block|,
-literal|"netty4-http"
+literal|"netty-http"
 block|,
 literal|"restlet"
 block|,
