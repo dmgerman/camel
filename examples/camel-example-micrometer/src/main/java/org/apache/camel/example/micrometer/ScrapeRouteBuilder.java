@@ -133,12 +133,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:8088/metrics"
+literal|"netty-http:http://0.0.0.0:8088/metrics"
 argument_list|)
 operator|.
 name|routeId
 argument_list|(
-literal|"netty4-http:scrape"
+literal|"netty-http:scrape"
 argument_list|)
 operator|.
 name|log
