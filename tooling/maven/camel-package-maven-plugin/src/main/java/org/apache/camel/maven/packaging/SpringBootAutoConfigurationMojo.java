@@ -10206,16 +10206,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-literal|"netty4-http"
-operator|.
-name|equals
-argument_list|(
-name|model
-operator|.
-name|getScheme
-argument_list|()
-argument_list|)
-operator|||
 literal|"netty-http"
 operator|.
 name|equals
