@@ -1282,7 +1282,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Get's the {@link QueueReference} for the this endpoint.      * @return the reference, or<tt>null</tt> if no queue reference exists.      */
+comment|/**      * Get's the {@link QueueReference} for the this endpoint.      *      * @return the reference, or<tt>null</tt> if no queue reference exists.      */
 DECL|method|getQueueReference ()
 specifier|public
 specifier|synchronized
