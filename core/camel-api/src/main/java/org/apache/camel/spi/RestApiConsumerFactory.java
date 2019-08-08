@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows SPI to plugin a {@link RestApiConsumerFactory} that creates the Camel {@link Consumer} responsible  * for handling incoming HTTP GET requests from clients that request to access the REST API documentation.  *<p/>  * For example most of the Camel components that supports REST-DSL does that,  * such as<tt>camel-jetty</tt>,<tt>camel-netty4-http</tt>.  */
+comment|/**  * Allows SPI to plugin a {@link RestApiConsumerFactory} that creates the Camel {@link Consumer} responsible  * for handling incoming HTTP GET requests from clients that request to access the REST API documentation.  *<p/>  * For example most of the Camel components that supports REST-DSL does that,  * such as<tt>camel-jetty</tt>,<tt>camel-netty-http</tt>.  */
 end_comment
 
 begin_interface

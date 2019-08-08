@@ -168,7 +168,7 @@ specifier|private
 name|String
 name|producerApiDoc
 decl_stmt|;
-comment|/**      * Sets a leading context-path the REST services will be using. This can be      * used when using components such as camel-servlet where the deployed web      * application is deployed using a context-path. Or for components such as      * camel-jetty or camel-netty4-http that includes a HTTP server.      */
+comment|/**      * Sets a leading context-path the REST services will be using. This can be      * used when using components such as camel-servlet where the deployed web      * application is deployed using a context-path. Or for components such as      * camel-jetty or camel-netty-http that includes a HTTP server.      */
 DECL|field|contextPath
 specifier|private
 name|String
