@@ -174,7 +174,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4-http:http://localhost:{{netty.port}}/message"
+literal|"netty-http:http://localhost:{{netty.port}}/message"
 argument_list|,
 literal|null
 argument_list|,
