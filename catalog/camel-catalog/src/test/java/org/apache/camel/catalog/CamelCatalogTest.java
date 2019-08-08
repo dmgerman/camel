@@ -1345,7 +1345,7 @@ name|catalog
 operator|.
 name|asEndpointUri
 argument_list|(
-literal|"netty4-http"
+literal|"netty-http"
 argument_list|,
 name|map
 argument_list|,
@@ -1354,7 +1354,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:localhost:8080/foo/bar?disconnect=true"
+literal|"netty-http:http:localhost:8080/foo/bar?disconnect=true"
 argument_list|,
 name|uri
 argument_list|)
@@ -1375,7 +1375,7 @@ name|catalog
 operator|.
 name|asEndpointUri
 argument_list|(
-literal|"netty4-http"
+literal|"netty-http"
 argument_list|,
 name|map
 argument_list|,
@@ -1384,7 +1384,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:https:localhost:8080/foo/bar?disconnect=true"
+literal|"netty-http:https:localhost:8080/foo/bar?disconnect=true"
 argument_list|,
 name|uri
 argument_list|)
@@ -1414,7 +1414,7 @@ name|catalog
 operator|.
 name|asEndpointUri
 argument_list|(
-literal|"netty4-http"
+literal|"netty-http"
 argument_list|,
 name|map
 argument_list|,
@@ -1423,7 +1423,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:https:localhost:8080/foo/bar?verbose=true&disconnect=true"
+literal|"netty-http:https:localhost:8080/foo/bar?verbose=true&disconnect=true"
 argument_list|,
 name|uri
 argument_list|)
@@ -1981,7 +1981,7 @@ name|catalog
 operator|.
 name|asEndpointUri
 argument_list|(
-literal|"netty4-http"
+literal|"netty-http"
 argument_list|,
 name|map
 argument_list|,
@@ -1990,7 +1990,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:a-b-c.hostname.tld:8080/anything"
+literal|"netty-http:http:a-b-c.hostname.tld:8080/anything"
 argument_list|,
 name|uri
 argument_list|)
@@ -2044,7 +2044,7 @@ name|catalog
 operator|.
 name|asEndpointUri
 argument_list|(
-literal|"netty4-http"
+literal|"netty-http"
 argument_list|,
 name|map
 argument_list|,
@@ -2053,7 +2053,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:a-b-c.server.net:8888/service/v3"
+literal|"netty-http:http:a-b-c.server.net:8888/service/v3"
 argument_list|,
 name|uri
 argument_list|)
@@ -2072,7 +2072,7 @@ block|{
 name|String
 name|uri
 init|=
-literal|"netty4-http:http://a-b-c.hostname.tld:8080/anything"
+literal|"netty-http:http://a-b-c.hostname.tld:8080/anything"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -2152,7 +2152,7 @@ name|catalog
 operator|.
 name|asEndpointUri
 argument_list|(
-literal|"netty4-http"
+literal|"netty-http"
 argument_list|,
 name|params
 argument_list|,
@@ -2161,7 +2161,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:a-b-c.hostname.tld:8080"
+literal|"netty-http:http:a-b-c.hostname.tld:8080"
 argument_list|,
 name|resolved
 argument_list|)
@@ -2528,7 +2528,7 @@ name|catalog
 operator|.
 name|endpointProperties
 argument_list|(
-literal|"netty4-http:http:localhost:8080/foo/bar?disconnect=true&keepAlive=false"
+literal|"netty-http:http:localhost:8080/foo/bar?disconnect=true&keepAlive=false"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2641,7 +2641,7 @@ name|catalog
 operator|.
 name|endpointProperties
 argument_list|(
-literal|"netty4-http:http:localhost/foo/bar?disconnect=true&keepAlive=false"
+literal|"netty-http:http:localhost/foo/bar?disconnect=true&keepAlive=false"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2742,7 +2742,7 @@ name|catalog
 operator|.
 name|endpointProperties
 argument_list|(
-literal|"netty4-http:http:{{myhost}}:{{myport}}/foo/bar?disconnect=true&keepAlive=false"
+literal|"netty-http:http:{{myhost}}:{{myport}}/foo/bar?disconnect=true&keepAlive=false"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2855,7 +2855,7 @@ name|catalog
 operator|.
 name|endpointProperties
 argument_list|(
-literal|"netty4-http:http://localhost:8080/foo/bar?disconnect=true&keepAlive=false"
+literal|"netty-http:http://localhost:8080/foo/bar?disconnect=true&keepAlive=false"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -4787,7 +4787,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"netty4-http:http://myserver?foo=bar"
+literal|"netty-http:http://myserver?foo=bar"
 argument_list|,
 literal|false
 argument_list|,
@@ -4836,7 +4836,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"netty4-http:http://myserver?foo=bar"
+literal|"netty-http:http://myserver?foo=bar"
 argument_list|,
 literal|false
 argument_list|,
@@ -4890,7 +4890,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"netty4-http:http://myserver?foo=bar"
+literal|"netty-http:http://myserver?foo=bar"
 argument_list|,
 literal|true
 argument_list|,
@@ -4939,7 +4939,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"netty4-http:http://myserver?foo=bar"
+literal|"netty-http:http://myserver?foo=bar"
 argument_list|,
 literal|true
 argument_list|,
@@ -7665,7 +7665,7 @@ block|{
 name|String
 name|uri
 init|=
-literal|"netty4-http:http://10.192.1.10:8080/client/alerts/summary?throwExceptionOnFailure=false"
+literal|"netty-http:http://10.192.1.10:8080/client/alerts/summary?throwExceptionOnFailure=false"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -7703,7 +7703,7 @@ name|catalog
 operator|.
 name|asEndpointUri
 argument_list|(
-literal|"netty4-http"
+literal|"netty-http"
 argument_list|,
 name|params
 argument_list|,
@@ -7712,7 +7712,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:10.192.1.10:8080"
+literal|"netty-http:http:10.192.1.10:8080"
 argument_list|,
 name|resolved
 argument_list|)
@@ -7720,7 +7720,7 @@ expr_stmt|;
 comment|// another example with dash in hostname
 name|uri
 operator|=
-literal|"netty4-http:http://a-b-c.hostname.tld:8080/anything"
+literal|"netty-http:http://a-b-c.hostname.tld:8080/anything"
 expr_stmt|;
 name|params
 operator|=
@@ -7737,7 +7737,7 @@ name|catalog
 operator|.
 name|asEndpointUri
 argument_list|(
-literal|"netty4-http"
+literal|"netty-http"
 argument_list|,
 name|params
 argument_list|,
@@ -7746,7 +7746,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:a-b-c.hostname.tld:8080/anything"
+literal|"netty-http:http:a-b-c.hostname.tld:8080/anything"
 argument_list|,
 name|resolved
 argument_list|)
