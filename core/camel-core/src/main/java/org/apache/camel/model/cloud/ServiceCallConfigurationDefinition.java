@@ -1104,7 +1104,7 @@ block|}
 comment|// *****************************
 comment|// Fluent API
 comment|// *****************************
-comment|/**      * Sets the default Camel component to use for calling the remote service.      *<p/>      * By default the http component is used. You can configure this to use<tt>netty4-http</tt>,<tt>jetty</tt>,      *<tt>restlet</tt> or some other components of choice. If the service is not HTTP protocol you can use other      * components such as<tt>mqtt</tt>,<tt>jms</tt>,<tt>amqp</tt> etc.      *<p/>      * If the service call has been configured using an uri, then the component from the uri is used instead      * of this default component.      */
+comment|/**      * Sets the default Camel component to use for calling the remote service.      *<p/>      * By default the http component is used. You can configure this to use<tt>netty-http</tt>,<tt>jetty</tt>,      *<tt>restlet</tt> or some other components of choice. If the service is not HTTP protocol you can use other      * components such as<tt>mqtt</tt>,<tt>jms</tt>,<tt>amqp</tt> etc.      *<p/>      * If the service call has been configured using an uri, then the component from the uri is used instead      * of this default component.      */
 DECL|method|component (String component)
 specifier|public
 name|ServiceCallConfigurationDefinition
