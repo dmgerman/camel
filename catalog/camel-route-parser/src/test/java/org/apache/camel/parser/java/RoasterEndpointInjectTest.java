@@ -467,7 +467,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:someserver:80/hello"
+literal|"netty-http:http:someserver:80/hello"
 argument_list|,
 name|details
 operator|.
@@ -604,7 +604,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|1456
+literal|1455
 argument_list|,
 name|details
 operator|.

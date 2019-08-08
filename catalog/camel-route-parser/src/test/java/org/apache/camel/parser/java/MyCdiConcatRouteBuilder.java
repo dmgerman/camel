@@ -135,7 +135,7 @@ decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
-literal|"netty4-http:http:someserver:"
+literal|"netty-http:http:someserver:"
 operator|+
 name|PORT
 operator|+

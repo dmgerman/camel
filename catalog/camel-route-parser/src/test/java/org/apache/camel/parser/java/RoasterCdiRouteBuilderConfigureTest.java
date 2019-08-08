@@ -330,7 +330,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:someserver:80/hello"
+literal|"netty-http:http:someserver:80/hello"
 argument_list|,
 name|list
 operator|.

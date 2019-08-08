@@ -105,7 +105,7 @@ name|Inject
 annotation|@
 name|Uri
 argument_list|(
-literal|"netty4-http:http:someserver:80/hello"
+literal|"netty-http:http:someserver:80/hello"
 argument_list|)
 DECL|field|mynetty
 specifier|private
