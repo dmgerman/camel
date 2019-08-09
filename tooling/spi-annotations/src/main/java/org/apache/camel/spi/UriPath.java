@@ -160,6 +160,15 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Whether the option is secret/sensitive information such as a password.      */
+DECL|method|secret ()
+DECL|field|false
+name|boolean
+name|secret
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 comment|/**      * To re-associate the preferred Java type of this parameter.      *<p/>      * This is used for parameters which are of a specialized type but can be configured by another Java type, such as from a String.      */
 DECL|method|javaType ()
 name|String
