@@ -136,6 +136,132 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Group the consumer acknowledgments for the specified time in          * milliseconds - defaults to 100.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
+DECL|method|ackGroupTimeMillis ( long ackGroupTimeMillis)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|ackGroupTimeMillis
+parameter_list|(
+name|long
+name|ackGroupTimeMillis
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"ackGroupTimeMillis"
+argument_list|,
+name|ackGroupTimeMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Group the consumer acknowledgments for the specified time in          * milliseconds - defaults to 100.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
+DECL|method|ackGroupTimeMillis ( String ackGroupTimeMillis)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|ackGroupTimeMillis
+parameter_list|(
+name|String
+name|ackGroupTimeMillis
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"ackGroupTimeMillis"
+argument_list|,
+name|ackGroupTimeMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Timeout for unacknowledged messages in milliseconds - defaults to          * 10000.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
+DECL|method|ackTimeoutMillis ( long ackTimeoutMillis)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|ackTimeoutMillis
+parameter_list|(
+name|long
+name|ackTimeoutMillis
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"ackTimeoutMillis"
+argument_list|,
+name|ackTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Timeout for unacknowledged messages in milliseconds - defaults to          * 10000.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
+DECL|method|ackTimeoutMillis ( String ackTimeoutMillis)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|ackTimeoutMillis
+parameter_list|(
+name|String
+name|ackTimeoutMillis
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"ackTimeoutMillis"
+argument_list|,
+name|ackTimeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to allow manual message acknowledgements. If this option is          * enabled, then messages are not immediately acknowledged after being          * consumed. Instead, an instance of PulsarMessageReceipt is stored as a          * header on the org.apache.camel.Exchange. Messages can then be          * acknowledged using PulsarMessageReceipt at any time before the          * ackTimeout occurs.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|allowManualAcknowledgement ( boolean allowManualAcknowledgement)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|allowManualAcknowledgement
+parameter_list|(
+name|boolean
+name|allowManualAcknowledgement
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"allowManualAcknowledgement"
+argument_list|,
+name|allowManualAcknowledgement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to allow manual message acknowledgements. If this option is          * enabled, then messages are not immediately acknowledged after being          * consumed. Instead, an instance of PulsarMessageReceipt is stored as a          * header on the org.apache.camel.Exchange. Messages can then be          * acknowledged using PulsarMessageReceipt at any time before the          * ackTimeout occurs.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|allowManualAcknowledgement ( String allowManualAcknowledgement)
+specifier|default
+name|PulsarEndpointConsumerBuilder
+name|allowManualAcknowledgement
+parameter_list|(
+name|String
+name|allowManualAcknowledgement
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"allowManualAcknowledgement"
+argument_list|,
+name|allowManualAcknowledgement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default

@@ -104,6 +104,20 @@ specifier|private
 name|String
 name|pulsarClient
 decl_stmt|;
+comment|/**      * Whether to allow manual message acknowledgements. If this option is      * enabled, then messages are not immediately acknowledged after being      * consumed. Instead, an instance of PulsarMessageReceipt is stored as a      * header on the org.apache.camel.Exchange. Messages can then be      * acknowledged using PulsarMessageReceipt at any time before the ackTimeout      * occurs.      */
+DECL|field|allowManualAcknowledgement
+specifier|private
+name|Boolean
+name|allowManualAcknowledgement
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Provide a factory to create an alternate implementation of      * PulsarMessageReceipt. The option is a      * org.apache.camel.component.pulsar.PulsarMessageReceiptFactory type.      */
+DECL|field|pulsarMessageReceiptFactory
+specifier|private
+name|String
+name|pulsarMessageReceiptFactory
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -170,6 +184,58 @@ operator|.
 name|pulsarClient
 operator|=
 name|pulsarClient
+expr_stmt|;
+block|}
+DECL|method|getAllowManualAcknowledgement ()
+specifier|public
+name|Boolean
+name|getAllowManualAcknowledgement
+parameter_list|()
+block|{
+return|return
+name|allowManualAcknowledgement
+return|;
+block|}
+DECL|method|setAllowManualAcknowledgement (Boolean allowManualAcknowledgement)
+specifier|public
+name|void
+name|setAllowManualAcknowledgement
+parameter_list|(
+name|Boolean
+name|allowManualAcknowledgement
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowManualAcknowledgement
+operator|=
+name|allowManualAcknowledgement
+expr_stmt|;
+block|}
+DECL|method|getPulsarMessageReceiptFactory ()
+specifier|public
+name|String
+name|getPulsarMessageReceiptFactory
+parameter_list|()
+block|{
+return|return
+name|pulsarMessageReceiptFactory
+return|;
+block|}
+DECL|method|setPulsarMessageReceiptFactory ( String pulsarMessageReceiptFactory)
+specifier|public
+name|void
+name|setPulsarMessageReceiptFactory
+parameter_list|(
+name|String
+name|pulsarMessageReceiptFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pulsarMessageReceiptFactory
+operator|=
+name|pulsarMessageReceiptFactory
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()

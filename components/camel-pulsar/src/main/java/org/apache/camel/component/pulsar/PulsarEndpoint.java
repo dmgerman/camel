@@ -603,6 +603,24 @@ operator|+
 name|topic
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|PulsarComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|PulsarComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
