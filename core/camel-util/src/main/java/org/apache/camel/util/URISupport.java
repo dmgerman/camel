@@ -180,7 +180,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"([?&][^=]*(?:passphrase|password|secretKey|accessToken|clientSecret)[^=]*)=(RAW[({].*[)}]|[^&]*)"
+literal|"([?&][^=]*(?:passphrase|password|secretKey|accessToken|clientSecret|authorizationToken)[^=]*)=(RAW[({].*[)}]|[^&]*)"
 argument_list|,
 name|Pattern
 operator|.

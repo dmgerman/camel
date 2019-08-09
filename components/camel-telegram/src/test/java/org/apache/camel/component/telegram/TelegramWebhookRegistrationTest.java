@@ -197,7 +197,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"webhook:telegram:bots/mock-token"
+literal|"webhook:telegram:bots?authorizationToken=mock-token"
 argument_list|)
 operator|.
 name|to
@@ -307,7 +307,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"webhook:telegram:bots/mock-token?webhookAutoRegister=false"
+literal|"webhook:telegram:bots?authorizationToken=mock-token&webhookAutoRegister=false"
 argument_list|)
 operator|.
 name|to

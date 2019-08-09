@@ -332,7 +332,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"telegram:bots/mock-token?chatId=1234"
+literal|"telegram:bots?authorizationToken=mock-token&chatId=1234"
 argument_list|)
 expr_stmt|;
 block|}

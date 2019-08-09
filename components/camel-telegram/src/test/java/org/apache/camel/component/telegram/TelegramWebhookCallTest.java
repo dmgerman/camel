@@ -337,7 +337,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"webhook:telegram:bots/mock-token?webhookAutoRegister=false"
+literal|"webhook:telegram:bots?authorizationToken=mock-token&webhookAutoRegister=false"
 argument_list|)
 operator|.
 name|id

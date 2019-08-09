@@ -170,7 +170,9 @@ DECL|method|Application ()
 specifier|private
 name|Application
 parameter_list|()
-block|{      }
+block|{
+comment|// noop
+block|}
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

@@ -112,6 +112,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Camel meta-component for exposing other components through webhooks.  */
 end_comment
@@ -241,12 +255,11 @@ name|parameters
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|parameters
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 name|delegateUri
@@ -255,18 +268,11 @@ name|delegateUri
 operator|+
 literal|"?"
 operator|+
-name|uri
+name|URISupport
 operator|.
-name|substring
+name|createQueryString
 argument_list|(
-name|uri
-operator|.
-name|indexOf
-argument_list|(
-literal|'?'
-argument_list|)
-operator|+
-literal|1
+name|parameters
 argument_list|)
 expr_stmt|;
 block|}

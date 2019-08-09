@@ -401,7 +401,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"telegram:bots/mock-token"
+literal|"telegram:bots?authorizationToken=mock-token"
 argument_list|)
 operator|.
 name|to

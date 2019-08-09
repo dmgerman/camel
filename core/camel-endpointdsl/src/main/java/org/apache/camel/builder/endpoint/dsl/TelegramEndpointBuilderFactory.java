@@ -992,6 +992,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The authorization token for using the bot (ask the BotFather).          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
+DECL|method|authorizationToken ( String authorizationToken)
+specifier|default
+name|TelegramEndpointConsumerBuilder
+name|authorizationToken
+parameter_list|(
+name|String
+name|authorizationToken
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"authorizationToken"
+argument_list|,
+name|authorizationToken
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint consumers for the Telegram component.      */
 DECL|interface|AdvancedTelegramEndpointConsumerBuilder
@@ -1372,6 +1393,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The authorization token for using the bot (ask the BotFather).          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
+DECL|method|authorizationToken ( String authorizationToken)
+specifier|default
+name|TelegramEndpointProducerBuilder
+name|authorizationToken
+parameter_list|(
+name|String
+name|authorizationToken
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"authorizationToken"
+argument_list|,
+name|authorizationToken
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint producers for the Telegram component.      */
 DECL|interface|AdvancedTelegramEndpointProducerBuilder
@@ -1565,6 +1607,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The authorization token for using the bot (ask the BotFather).          *           * The option is a:<code>java.lang.String</code> type.          *           * Required: true          * Group: security          */
+DECL|method|authorizationToken ( String authorizationToken)
+specifier|default
+name|TelegramEndpointBuilder
+name|authorizationToken
+parameter_list|(
+name|String
+name|authorizationToken
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"authorizationToken"
+argument_list|,
+name|authorizationToken
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the Telegram component.      */
 DECL|interface|AdvancedTelegramEndpointBuilder
@@ -1674,7 +1737,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Telegram (camel-telegram)      * The telegram component provides access to the Telegram Bot API.      *       * Category: chat      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-telegram      *       * Syntax:<code>telegram:type/authorizationToken</code>      *       * Path parameter: type (required)      * The endpoint type. Currently, only the 'bots' type is supported.      * The value can be one of: bots      *       * Path parameter: authorizationToken (required)      * The authorization token for using the bot (ask the BotFather)      */
+comment|/**      * Telegram (camel-telegram)      * The telegram component provides access to the Telegram Bot API.      *       * Category: chat      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-telegram      *       * Syntax:<code>telegram:type</code>      *       * Path parameter: type (required)      * The endpoint type. Currently, only the 'bots' type is supported.      * The value can be one of: bots      */
 DECL|method|telegram (String path)
 specifier|default
 name|TelegramEndpointBuilder

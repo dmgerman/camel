@@ -278,7 +278,7 @@ literal|"Telegram"
 argument_list|,
 name|syntax
 operator|=
-literal|"telegram:type/authorizationToken"
+literal|"telegram:type"
 argument_list|,
 name|label
 operator|=

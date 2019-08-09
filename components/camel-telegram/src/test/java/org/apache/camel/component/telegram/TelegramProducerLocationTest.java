@@ -697,7 +697,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"telegram:bots/mock-token?chatId=my-id"
+literal|"telegram:bots?authorizationToken=mock-token&chatId=my-id"
 argument_list|)
 expr_stmt|;
 block|}

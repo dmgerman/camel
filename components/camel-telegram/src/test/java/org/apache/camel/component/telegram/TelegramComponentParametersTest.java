@@ -125,7 +125,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"telegram:bots/CUSTOM"
+literal|"telegram:bots?authorizationToken=CUSTOM"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -151,7 +151,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"telegram:bots/ANOTHER?chatId=123"
+literal|"telegram:bots?authorizationToken=ANOTHER&chatId=123"
 argument_list|)
 decl_stmt|;
 name|assertEquals

@@ -259,7 +259,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"telegram:bots/mock-token?chatId=12345&delay=2000&timeout=10&limit=60&proxyHost=127.0.0.1&proxyPort=1234"
+literal|"telegram:bots/?authorizationToken=mock-token&chatId=12345&delay=2000&timeout=10&limit=60&proxyHost=127.0.0.1&proxyPort=1234"
 argument_list|)
 expr_stmt|;
 block|}
