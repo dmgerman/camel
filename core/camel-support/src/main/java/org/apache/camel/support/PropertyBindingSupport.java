@@ -44,6 +44,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -196,7 +206,6 @@ specifier|static
 class|class
 name|Builder
 block|{
-comment|// TODO: add fluent for camel context, target, properties map, property key/value
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -958,16 +967,22 @@ name|Object
 argument_list|>
 name|properties
 init|=
-name|Collections
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|properties
 operator|.
-name|singletonMap
+name|put
 argument_list|(
 name|key
 argument_list|,
 name|value
 argument_list|)
-decl_stmt|;
-comment|// do not remove parameters as this is a single property
+expr_stmt|;
 return|return
 name|doBindProperties
 argument_list|(
@@ -981,7 +996,7 @@ name|optionPrefix
 argument_list|,
 name|ignoreCase
 argument_list|,
-literal|false
+name|removeParameters
 argument_list|,
 name|mandatory
 argument_list|,
