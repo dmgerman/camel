@@ -136,7 +136,10 @@ argument_list|()
 decl_stmt|;
 name|PropertyBindingSupport
 operator|.
-name|bindProperty
+name|build
+argument_list|()
+operator|.
+name|bind
 argument_list|(
 name|context
 argument_list|,

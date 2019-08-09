@@ -332,34 +332,23 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-comment|// need to make a copy of the component properties as
-comment|// IntrospectionSupport::setProperties will remove any that are set and
-comment|// we might be called multiple times
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|copyOfComponentProperties
-init|=
-operator|new
-name|LinkedHashMap
-argument_list|<>
-argument_list|(
-name|componentProperties
-argument_list|)
-decl_stmt|;
 name|PropertyBindingSupport
 operator|.
-name|bindProperties
+name|build
+argument_list|()
+operator|.
+name|withRemoteParameters
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|bind
 argument_list|(
 name|camelContext
 argument_list|,
 name|newlyCreated
 argument_list|,
-name|copyOfComponentProperties
+name|componentProperties
 argument_list|)
 expr_stmt|;
 name|ServiceHelper

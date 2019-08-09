@@ -681,7 +681,10 @@ block|{
 comment|// use the property binding which can do more advanced configuration
 name|PropertyBindingSupport
 operator|.
-name|bindProperties
+name|build
+argument_list|()
+operator|.
+name|bind
 argument_list|(
 name|context
 argument_list|,

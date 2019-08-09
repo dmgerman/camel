@@ -1382,7 +1382,10 @@ block|}
 block|}
 name|PropertyBindingSupport
 operator|.
-name|bindProperties
+name|build
+argument_list|()
+operator|.
+name|bind
 argument_list|(
 name|context
 argument_list|,

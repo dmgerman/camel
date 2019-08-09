@@ -1057,7 +1057,10 @@ condition|)
 block|{
 name|PropertyBindingSupport
 operator|.
-name|bindProperties
+name|build
+argument_list|()
+operator|.
+name|bind
 argument_list|(
 name|camelContext
 argument_list|,

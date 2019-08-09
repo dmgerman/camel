@@ -323,7 +323,10 @@ argument_list|)
 expr_stmt|;
 name|PropertyBindingSupport
 operator|.
-name|bindProperties
+name|build
+argument_list|()
+operator|.
+name|bind
 argument_list|(
 name|context
 argument_list|,
@@ -582,7 +585,10 @@ argument_list|)
 expr_stmt|;
 name|PropertyBindingSupport
 operator|.
-name|bindProperties
+name|build
+argument_list|()
+operator|.
+name|bind
 argument_list|(
 name|context
 argument_list|,
@@ -805,7 +811,10 @@ argument_list|)
 expr_stmt|;
 name|PropertyBindingSupport
 operator|.
-name|bindProperties
+name|build
+argument_list|()
+operator|.
+name|bind
 argument_list|(
 name|context
 argument_list|,
@@ -961,7 +970,10 @@ try|try
 block|{
 name|PropertyBindingSupport
 operator|.
-name|bindProperties
+name|build
+argument_list|()
+operator|.
+name|bind
 argument_list|(
 name|context
 argument_list|,
