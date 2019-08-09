@@ -1790,6 +1790,14 @@ init|=
 literal|false
 decl_stmt|;
 comment|// must set reference parameters first before the other bindings
+name|int
+name|size
+init|=
+name|properties
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 name|setReferenceProperties
 argument_list|(
 name|camelContext
@@ -1798,6 +1806,15 @@ name|target
 argument_list|,
 name|properties
 argument_list|)
+expr_stmt|;
+name|rc
+operator|=
+name|properties
+operator|.
+name|size
+argument_list|()
+operator|!=
+name|size
 expr_stmt|;
 name|String
 name|uOptionPrefix

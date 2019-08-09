@@ -108,7 +108,7 @@ specifier|private
 name|CamelPropertiesHelper
 parameter_list|()
 block|{     }
-comment|/**      * Sets the properties on the target bean.      *<p/>      * This method uses {@link PropertyBindingSupport} and therefore offers its capabilities such as:      *<ul>      *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>      *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>      *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>      *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a      *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>      *</ul>      * This implementation sets the properties using the following algorithm in the given order:      *<ul>      *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>      *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>      *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>      *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>      *<li>value as lookup - The value is used as-is (eg like #value) to lookup in the Registry if there is a bean then its set on the target</li>      *</ul>      * When an option has been set on the target bean, then its removed from the given properties map. If all the options has been set, then the map will be empty.      *      * @param context        the CamelContext      * @param target         the target bean      * @param properties     the properties      * @param failIfNotSet   whether to fail if an option either does not exists on the target bean or if the option cannot be due no suitable setter methods with the given type      * @return<tt>true</tt> if at least one option was configured      * @throws IllegalArgumentException is thrown if an option cannot be configured on the bean because there is no suitable setter method and failOnNoSet is true.      * @throws Exception for any other kind of error      */
+comment|/**      * Sets the properties on the target bean.      *<p/>      * This method uses {@link PropertyBindingSupport} and therefore offers its capabilities such as:      *<ul>      *<li>property placeholders - Keys and values using Camels property placeholder will be resolved</li>      *<li>nested - Properties can be nested using the dot syntax (OGNL and builder pattern using with as prefix), eg foo.bar=123</li>      *<li>map</li> - Properties can lookup in Map's using map syntax, eg foo[bar] where foo is the name of the property that is a Map instance, and bar is the name of the key.</li>      *<li>list</li> - Properties can refer or add to in List's using list syntax, eg foo[0] where foo is the name of the property that is a      *                     List instance, and 0 is the index. To refer to the last element, then use last as key.</li>      *</ul>      * This implementation sets the properties using the following algorithm in the given order:      *<ul>      *<li>reference by bean id - Values can refer to other beans in the registry by prefixing with with # or #bean: eg #myBean or #bean:myBean</li>      *<li>reference by type - Values can refer to singleton beans by their type in the registry by prefixing with #type: syntax, eg #type:com.foo.MyClassType</li>      *<li>autowire by type - Values can refer to singleton beans by auto wiring by setting the value to #autowired</li>      *<li>reference new class - Values can refer to creating new beans by their class name by prefixing with #class, eg #class:com.foo.MyClassType</li>      *<li>value as lookup - The value is used as-is (eg like #value) to lookup in the Registry if there is a bean then its set on the target</li>      *</ul>      * When an option has been set on the target bean, then its removed from the given properties map. If all the options has been set, then the map will be empty.      * The implementation ignores case for the property keys.      *      * @param context        the CamelContext      * @param target         the target bean      * @param properties     the properties      * @param failIfNotSet   whether to fail if an option either does not exists on the target bean or if the option cannot be due no suitable setter methods with the given type      * @return<tt>true</tt> if at least one option was configured      * @throws IllegalArgumentException is thrown if an option cannot be configured on the bean because there is no suitable setter method and failOnNoSet is true.      * @throws Exception for any other kind of error      */
 DECL|method|setCamelProperties (CamelContext context, Object target, Map<String, Object> properties, boolean failIfNotSet)
 specifier|public
 specifier|static
@@ -255,6 +255,11 @@ operator|.
 name|build
 argument_list|()
 operator|.
+name|withIgnoreCase
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|bind
 argument_list|(
 name|context
@@ -315,6 +320,11 @@ name|PropertyBindingSupport
 operator|.
 name|build
 argument_list|()
+operator|.
+name|withIgnoreCase
+argument_list|(
+literal|true
+argument_list|)
 operator|.
 name|bind
 argument_list|(
