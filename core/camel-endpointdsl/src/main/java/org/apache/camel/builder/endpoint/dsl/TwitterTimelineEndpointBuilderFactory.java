@@ -315,7 +315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Endpoint type to use. Only streaming supports event type.          *           * The option is a:          *<code>org.apache.camel.component.twitter.data.EndpointType</code>          * type.          *           * Group: consumer          */
+comment|/**          * Endpoint type to use.          *           * The option is a:          *<code>org.apache.camel.component.twitter.data.EndpointType</code>          * type.          *           * Group: consumer          */
 DECL|method|type (EndpointType type)
 specifier|default
 name|TwitterTimelineEndpointConsumerBuilder
@@ -336,7 +336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Endpoint type to use. Only streaming supports event type.          *           * The option will be converted to a          *<code>org.apache.camel.component.twitter.data.EndpointType</code>          * type.          *           * Group: consumer          */
+comment|/**          * Endpoint type to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.twitter.data.EndpointType</code>          * type.          *           * Group: consumer          */
 DECL|method|type (String type)
 specifier|default
 name|TwitterTimelineEndpointConsumerBuilder
@@ -546,7 +546,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To filter by user ids for streaming/filter. Multiple values can be          * separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
+comment|/**          * To filter by user ids for filter. Multiple values can be separated by          * comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: filter          */
 DECL|method|userIds (String userIds)
 specifier|default
 name|TwitterTimelineEndpointConsumerBuilder
@@ -1371,7 +1371,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Used by the non-stream geography search, to search by radius using          * the configured metrics. The unit can either be mi for miles, or km          * for kilometers. You need to configure all the following options:          * longitude, latitude, radius, and distanceMetric.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Used by the geography search, to search by radius using the          * configured metrics. The unit can either be mi for miles, or km for          * kilometers. You need to configure all the following options:          * longitude, latitude, radius, and distanceMetric.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|distanceMetric ( String distanceMetric)
 specifier|default
 name|AdvancedTwitterTimelineEndpointConsumerBuilder
@@ -1518,7 +1518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by the non-stream geography search to search by latitude. You          * need to configure all the following options: longitude, latitude,          * radius, and distanceMetric.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Used by the geography search to search by latitude. You need to          * configure all the following options: longitude, latitude, radius, and          * distanceMetric.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|latitude ( Double latitude)
 specifier|default
 name|AdvancedTwitterTimelineEndpointConsumerBuilder
@@ -1539,7 +1539,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by the non-stream geography search to search by latitude. You          * need to configure all the following options: longitude, latitude,          * radius, and distanceMetric.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Used by the geography search to search by latitude. You need to          * configure all the following options: longitude, latitude, radius, and          * distanceMetric.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|latitude ( String latitude)
 specifier|default
 name|AdvancedTwitterTimelineEndpointConsumerBuilder
@@ -1560,7 +1560,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Bounding boxes, created by pairs of lat/lons. Can be used for          * streaming/filter. A pair is defined as lat,lon. And multiple paris          * can be separated by semi colon.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Bounding boxes, created by pairs of lat/lons. Can be used for filter.          * A pair is defined as lat,lon. And multiple paris can be separated by          * semi colon.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|locations ( String locations)
 specifier|default
 name|AdvancedTwitterTimelineEndpointConsumerBuilder
@@ -1581,7 +1581,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by the non-stream geography search to search by longitude. You          * need to configure all the following options: longitude, latitude,          * radius, and distanceMetric.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Used by the geography search to search by longitude. You need to          * configure all the following options: longitude, latitude, radius, and          * distanceMetric.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|longitude ( Double longitude)
 specifier|default
 name|AdvancedTwitterTimelineEndpointConsumerBuilder
@@ -1602,7 +1602,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by the non-stream geography search to search by longitude. You          * need to configure all the following options: longitude, latitude,          * radius, and distanceMetric.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Used by the geography search to search by longitude. You need to          * configure all the following options: longitude, latitude, radius, and          * distanceMetric.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|longitude ( String longitude)
 specifier|default
 name|AdvancedTwitterTimelineEndpointConsumerBuilder
@@ -1665,7 +1665,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by the non-stream geography search to search by radius. You need          * to configure all the following options: longitude, latitude, radius,          * and distanceMetric.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Used by the geography search to search by radius. You need to          * configure all the following options: longitude, latitude, radius, and          * distanceMetric.          *           * The option is a:<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|radius ( Double radius)
 specifier|default
 name|AdvancedTwitterTimelineEndpointConsumerBuilder
@@ -1686,7 +1686,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Used by the non-stream geography search to search by radius. You need          * to configure all the following options: longitude, latitude, radius,          * and distanceMetric.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Used by the geography search to search by radius. You need to          * configure all the following options: longitude, latitude, radius, and          * distanceMetric.          *           * The option will be converted to a<code>java.lang.Double</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|radius ( String radius)
 specifier|default
 name|AdvancedTwitterTimelineEndpointConsumerBuilder
@@ -1701,48 +1701,6 @@ argument_list|(
 literal|"radius"
 argument_list|,
 name|radius
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom instance of TwitterStream.          *           * The option is a:<code>twitter4j.TwitterStream</code> type.          *           * Group: consumer (advanced)          */
-DECL|method|twitterStream ( Object twitterStream)
-specifier|default
-name|AdvancedTwitterTimelineEndpointConsumerBuilder
-name|twitterStream
-parameter_list|(
-name|Object
-name|twitterStream
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"twitterStream"
-argument_list|,
-name|twitterStream
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom instance of TwitterStream.          *           * The option will be converted to a          *<code>twitter4j.TwitterStream</code> type.          *           * Group: consumer (advanced)          */
-DECL|method|twitterStream ( String twitterStream)
-specifier|default
-name|AdvancedTwitterTimelineEndpointConsumerBuilder
-name|twitterStream
-parameter_list|(
-name|String
-name|twitterStream
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"twitterStream"
-argument_list|,
-name|twitterStream
 argument_list|)
 expr_stmt|;
 return|return
@@ -2566,9 +2524,6 @@ name|POLLING
 block|,
 DECL|enumConstant|DIRECT
 name|DIRECT
-block|,
-DECL|enumConstant|EVENT
-name|EVENT
 block|;     }
 comment|/**      * Twitter Timeline (camel-twitter)      * The Twitter Timeline component consumes twitter timeline or update the      * status of specific user.      *       * Category: api,social      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-twitter      *       * Syntax:<code>twitter-timeline:timelineType</code>      *       * Path parameter: timelineType (required)      * The timeline type to produce/consume.      * The value can be one of: PUBLIC, HOME, USER, MENTIONS, RETWEETSOFME,      * UNKNOWN      */
 DECL|method|twitterTimeline (String path)

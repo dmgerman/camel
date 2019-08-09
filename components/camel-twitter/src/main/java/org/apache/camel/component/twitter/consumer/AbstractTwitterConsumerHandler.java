@@ -160,7 +160,7 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-comment|/**      * Called by polling consumers during each poll.  It needs to be separate      * from directConsume() since, as an example, streaming API polling allows      * tweets to build up between polls.      */
+comment|/**      * Called by polling consumers during each poll.  It needs to be separate      * from directConsume() since, as an example, to allow tweets to build      * up between polls.      */
 DECL|method|pollConsume ()
 specifier|public
 specifier|abstract

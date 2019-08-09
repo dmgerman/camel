@@ -678,8 +678,6 @@ name|TwitterDirectMessageEndpointBuilderFactory
 extends|,
 name|TwitterSearchEndpointBuilderFactory
 extends|,
-name|TwitterStreamingEndpointBuilderFactory
-extends|,
 name|TwitterTimelineEndpointBuilderFactory
 extends|,
 name|UndertowEndpointBuilderFactory

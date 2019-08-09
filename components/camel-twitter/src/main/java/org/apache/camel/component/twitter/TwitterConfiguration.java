@@ -98,22 +98,6 @@ begin_import
 import|import
 name|twitter4j
 operator|.
-name|TwitterStream
-import|;
-end_import
-
-begin_import
-import|import
-name|twitter4j
-operator|.
-name|TwitterStreamFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|twitter4j
-operator|.
 name|conf
 operator|.
 name|Configuration
@@ -151,7 +135,7 @@ literal|"polling"
 argument_list|,
 name|enums
 operator|=
-literal|"polling,direct,event"
+literal|"polling,direct"
 argument_list|)
 DECL|field|type
 specifier|private
@@ -474,23 +458,11 @@ name|extendedMode
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Singleton, on demand instances of Twitter4J's Twitter& TwitterStream.      * This should not be created by an endpoint's doStart(), etc., since      * instances of twitter and/or twitterStream can be supplied by the route      * itself.  Further, as an example, we don't want to initialize twitter      * if we only need twitterStream.      */
+comment|/**      * Singleton, on demand instances of Twitter4J's Twitter.      * This should not be created by an endpoint's doStart(), etc., since      * instances of twitter can be supplied by the route      * itself.      */
 DECL|field|twitter
 specifier|private
 name|Twitter
 name|twitter
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer,advanced"
-argument_list|)
-DECL|field|twitterStream
-specifier|private
-name|TwitterStream
-name|twitterStream
 decl_stmt|;
 comment|/**      * Ensures required fields are available.      */
 DECL|method|checkComplete ()
@@ -502,10 +474,6 @@ block|{
 if|if
 condition|(
 name|twitter
-operator|==
-literal|null
-operator|&&
-name|twitterStream
 operator|==
 literal|null
 operator|&&
@@ -544,7 +512,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"twitter or twitterStream or all of consumerKey, consumerSecret, accessToken, and accessTokenSecret must be set!"
+literal|"twitter or all of consumerKey, consumerSecret, accessToken, and accessTokenSecret must be set!"
 argument_list|)
 throw|;
 block|}
@@ -721,63 +689,6 @@ operator|=
 name|twitter
 expr_stmt|;
 block|}
-DECL|method|getTwitterStream ()
-specifier|public
-name|TwitterStream
-name|getTwitterStream
-parameter_list|()
-block|{
-return|return
-name|twitterStream
-return|;
-block|}
-comment|/**      * To use a custom instance of TwitterStream      */
-DECL|method|setTwitterStream (TwitterStream twitterStream)
-specifier|public
-name|void
-name|setTwitterStream
-parameter_list|(
-name|TwitterStream
-name|twitterStream
-parameter_list|)
-block|{
-name|this
-operator|.
-name|twitterStream
-operator|=
-name|twitterStream
-expr_stmt|;
-block|}
-DECL|method|createTwitterStream ()
-specifier|public
-name|TwitterStream
-name|createTwitterStream
-parameter_list|()
-block|{
-if|if
-condition|(
-name|twitterStream
-operator|==
-literal|null
-condition|)
-block|{
-name|twitterStream
-operator|=
-operator|new
-name|TwitterStreamFactory
-argument_list|(
-name|getConfiguration
-argument_list|()
-argument_list|)
-operator|.
-name|getInstance
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|twitterStream
-return|;
-block|}
 DECL|method|getConsumerKey ()
 specifier|public
 name|String
@@ -896,7 +807,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Endpoint type to use. Only streaming supports event type.      */
+comment|/**      * Endpoint type to use.      */
 DECL|method|setType (EndpointType type)
 specifier|public
 name|void
@@ -923,7 +834,7 @@ return|return
 name|locations
 return|;
 block|}
-comment|/**      * Bounding boxes, created by pairs of lat/lons. Can be used for streaming/filter. A pair is defined as lat,lon. And multiple paris can be separated by semi colon.      */
+comment|/**      * Bounding boxes, created by pairs of lat/lons. Can be used for filter. A pair is defined as lat,lon. And multiple paris can be separated by semi colon.      */
 DECL|method|setLocations (String locations)
 specifier|public
 name|void
@@ -950,7 +861,7 @@ return|return
 name|userIds
 return|;
 block|}
-comment|/**      * To filter by user ids for streaming/filter. Multiple values can be separated by comma.      */
+comment|/**      * To filter by user ids for filter. Multiple values can be separated by comma.      */
 DECL|method|setUserIds (String userIds)
 specifier|public
 name|void
@@ -1247,7 +1158,7 @@ return|return
 name|longitude
 return|;
 block|}
-comment|/**      * Used by the non-stream geography search to search by longitude.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
+comment|/**      * Used by the geography search to search by longitude.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
 DECL|method|setLongitude (Double longitude)
 specifier|public
 name|void
@@ -1274,7 +1185,7 @@ return|return
 name|latitude
 return|;
 block|}
-comment|/**      * Used by the non-stream geography search to search by latitude.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
+comment|/**      * Used by the geography search to search by latitude.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
 DECL|method|setLatitude (Double latitude)
 specifier|public
 name|void
@@ -1301,7 +1212,7 @@ return|return
 name|radius
 return|;
 block|}
-comment|/**      * Used by the non-stream geography search to search by radius.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
+comment|/**      * Used by the geography search to search by radius.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
 DECL|method|setRadius (Double radius)
 specifier|public
 name|void
@@ -1328,7 +1239,7 @@ return|return
 name|distanceMetric
 return|;
 block|}
-comment|/**      * Used by the non-stream geography search, to search by radius using the configured metrics.      *<p/>      * The unit can either be mi for miles, or km for kilometers.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
+comment|/**      * Used by the geography search, to search by radius using the configured metrics.      *<p/>      * The unit can either be mi for miles, or km for kilometers.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
 DECL|method|setDistanceMetric (String distanceMetric)
 specifier|public
 name|void

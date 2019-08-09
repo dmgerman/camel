@@ -106,13 +106,6 @@ name|testComponent
 argument_list|(
 name|COMPONENT
 argument_list|,
-literal|"twitter-streaming"
-argument_list|)
-expr_stmt|;
-name|testComponent
-argument_list|(
-name|COMPONENT
-argument_list|,
 literal|"twitter-search"
 argument_list|)
 expr_stmt|;

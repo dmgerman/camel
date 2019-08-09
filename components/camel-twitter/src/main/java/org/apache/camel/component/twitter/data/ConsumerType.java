@@ -45,15 +45,12 @@ block|{
 DECL|enumConstant|TIMELINE
 DECL|enumConstant|SEARCH
 DECL|enumConstant|DIRECTMESSAGE
-DECL|enumConstant|STREAMING
 DECL|enumConstant|UNKNOWN
 name|TIMELINE
 block|,
 name|SEARCH
 block|,
 name|DIRECTMESSAGE
-block|,
-name|STREAMING
 block|,
 name|UNKNOWN
 block|;
