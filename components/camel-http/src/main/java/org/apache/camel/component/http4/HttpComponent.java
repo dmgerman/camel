@@ -2864,7 +2864,7 @@ name|getRestConfiguration
 argument_list|(
 literal|"http"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

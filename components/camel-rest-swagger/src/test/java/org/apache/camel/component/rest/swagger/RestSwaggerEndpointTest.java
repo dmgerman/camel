@@ -904,7 +904,7 @@ argument_list|)
 argument_list|,
 name|entry
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
 literal|"xyz"
 argument_list|)
@@ -945,7 +945,7 @@ argument_list|)
 argument_list|,
 name|entry
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
 literal|"xyz"
 argument_list|)
@@ -1002,7 +1002,7 @@ argument_list|)
 argument_list|,
 name|entry
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
 literal|"xyz"
 argument_list|)
@@ -1059,7 +1059,7 @@ argument_list|)
 argument_list|,
 name|entry
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
 literal|"xyz"
 argument_list|)
@@ -1109,7 +1109,7 @@ argument_list|)
 argument_list|,
 name|entry
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
 literal|"zyx"
 argument_list|)
@@ -1171,7 +1171,7 @@ argument_list|)
 argument_list|,
 name|entry
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
 literal|"zyx"
 argument_list|)
@@ -1235,7 +1235,7 @@ argument_list|)
 argument_list|,
 name|entry
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
 literal|"zyx"
 argument_list|)

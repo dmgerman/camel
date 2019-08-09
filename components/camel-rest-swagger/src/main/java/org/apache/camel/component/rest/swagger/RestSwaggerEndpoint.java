@@ -528,20 +528,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|LazyStartProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|ResourceHelper
 import|;
 end_import
@@ -1776,6 +1762,11 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+comment|// ensure rest configuration is available
+comment|//        final String componentName = determineComponentName();
+comment|//        if (componentName != null) {
+comment|//            RestConfiguration config = camelContext.getRestConfiguration(componentName, true);
+comment|//        }
 comment|// if there is a host then we should use this hardcoded host instead of any Header that may have an existing
 comment|// Host header from some other HTTP input, and if so then lets remove it
 return|return
@@ -2010,7 +2001,7 @@ name|parameters
 operator|.
 name|put
 argument_list|(
-literal|"componentName"
+literal|"producerComponentName"
 argument_list|,
 name|componentName
 argument_list|)

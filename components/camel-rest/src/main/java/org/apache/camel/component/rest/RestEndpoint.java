@@ -1682,26 +1682,9 @@ name|getRestConfiguration
 argument_list|(
 name|pname
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|config
-operator|==
-literal|null
-condition|)
-block|{
-comment|// fallback to default
-name|config
-operator|=
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRestConfiguration
-argument_list|()
-expr_stmt|;
-block|}
 name|Producer
 name|producer
 decl_stmt|;
