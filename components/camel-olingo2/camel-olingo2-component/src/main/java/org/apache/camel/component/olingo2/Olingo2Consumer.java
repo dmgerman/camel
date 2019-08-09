@@ -484,6 +484,16 @@ comment|// Allow consumer idle properties to properly handle an empty polling re
 comment|//
 if|if
 condition|(
+operator|(
+name|result
+index|[
+literal|0
+index|]
+operator|==
+literal|null
+operator|)
+operator|||
+operator|(
 name|result
 index|[
 literal|0
@@ -507,6 +517,7 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|)
 operator|)
 condition|)
 block|{
