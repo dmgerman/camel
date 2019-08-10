@@ -165,7 +165,7 @@ specifier|final
 name|String
 name|CONTAINER_IMAGE
 init|=
-literal|"consul:1.5.1"
+literal|"consul:1.5.3"
 decl_stmt|;
 DECL|field|CONTAINER_NAME
 specifier|public
