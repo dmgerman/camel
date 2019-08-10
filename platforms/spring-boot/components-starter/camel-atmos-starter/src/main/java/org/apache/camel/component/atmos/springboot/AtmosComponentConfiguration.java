@@ -98,7 +98,7 @@ specifier|private
 name|String
 name|fullTokenId
 decl_stmt|;
-comment|/**      * The secret key to pass to the Atmos client      */
+comment|/**      * The secret key to pass to the Atmos client (should be base64 encoded)      */
 DECL|field|secretKey
 specifier|private
 name|String

@@ -139,6 +139,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|fullTokenId
 specifier|private
@@ -151,6 +155,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|secretKey
 specifier|private
@@ -442,7 +450,7 @@ argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
-name|setEnableSslValidation
+name|setSslValidation
 argument_list|(
 name|this
 operator|.
@@ -514,7 +522,7 @@ return|return
 name|secretKey
 return|;
 block|}
-comment|/**      * The secret key to pass to the Atmos client      */
+comment|/**      * The secret key to pass to the Atmos client (should be base64 encoded)      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void

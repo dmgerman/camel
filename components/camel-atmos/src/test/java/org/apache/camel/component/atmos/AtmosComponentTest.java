@@ -346,7 +346,7 @@ literal|false
 argument_list|,
 name|configuration
 operator|.
-name|isEnableSslValidation
+name|isSslValidation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -469,7 +469,7 @@ name|parameters
 operator|.
 name|put
 argument_list|(
-literal|"enableSslValidation"
+literal|"sslValidation"
 argument_list|,
 literal|false
 argument_list|)
@@ -543,7 +543,7 @@ literal|false
 argument_list|,
 name|configuration
 operator|.
-name|isEnableSslValidation
+name|isSslValidation
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -210,6 +210,15 @@ name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|secretKey
 specifier|private
 name|String
@@ -245,6 +254,15 @@ name|query
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|fullTokenId
 specifier|private
 name|String
@@ -252,6 +270,11 @@ name|fullTokenId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|uri
 specifier|private
 name|String
@@ -259,10 +282,15 @@ name|uri
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|enableSslValidation
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|sslValidation
 specifier|private
 name|boolean
-name|enableSslValidation
+name|sslValidation
 decl_stmt|;
 DECL|method|setClient (AtmosApi client)
 specifier|public
@@ -342,7 +370,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|enableSslValidation
+name|sslValidation
 condition|)
 block|{
 name|config
@@ -406,7 +434,7 @@ return|return
 name|secretKey
 return|;
 block|}
-comment|/**      * Atmos shared secret      */
+comment|/**      * The secret key to pass to the Atmos client (should be base64 encoded)      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -612,31 +640,31 @@ return|return
 name|uri
 return|;
 block|}
-DECL|method|isEnableSslValidation ()
+DECL|method|isSslValidation ()
 specifier|public
 name|boolean
-name|isEnableSslValidation
+name|isSslValidation
 parameter_list|()
 block|{
 return|return
-name|enableSslValidation
+name|sslValidation
 return|;
 block|}
 comment|/**      * Atmos SSL validation      */
-DECL|method|setEnableSslValidation (boolean enableSslValidation)
+DECL|method|setSslValidation (boolean sslValidation)
 specifier|public
 name|void
-name|setEnableSslValidation
+name|setSslValidation
 parameter_list|(
 name|boolean
-name|enableSslValidation
+name|sslValidation
 parameter_list|)
 block|{
 name|this
 operator|.
-name|enableSslValidation
+name|sslValidation
 operator|=
-name|enableSslValidation
+name|sslValidation
 expr_stmt|;
 block|}
 block|}

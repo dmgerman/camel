@@ -136,69 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|enableSslValidation ( boolean enableSslValidation)
-specifier|default
-name|AtmosEndpointConsumerBuilder
-name|enableSslValidation
-parameter_list|(
-name|boolean
-name|enableSslValidation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"enableSslValidation"
-argument_list|,
-name|enableSslValidation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Atmos SSL validation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|enableSslValidation ( String enableSslValidation)
-specifier|default
-name|AtmosEndpointConsumerBuilder
-name|enableSslValidation
-parameter_list|(
-name|String
-name|enableSslValidation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"enableSslValidation"
-argument_list|,
-name|enableSslValidation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Atmos client fullTokenId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|fullTokenId (String fullTokenId)
-specifier|default
-name|AtmosEndpointConsumerBuilder
-name|fullTokenId
-parameter_list|(
-name|String
-name|fullTokenId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"fullTokenId"
-argument_list|,
-name|fullTokenId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Local path to put files.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|localPath (String localPath)
 specifier|default
@@ -283,48 +220,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Atmos shared secret.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|secretKey (String secretKey)
-specifier|default
-name|AtmosEndpointConsumerBuilder
-name|secretKey
-parameter_list|(
-name|String
-name|secretKey
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"secretKey"
-argument_list|,
-name|secretKey
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Atomos server uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
-specifier|default
-name|AtmosEndpointConsumerBuilder
-name|uri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -361,6 +256,90 @@ argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
 name|bridgeErrorHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Atmos client fullTokenId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|fullTokenId (String fullTokenId)
+specifier|default
+name|AtmosEndpointConsumerBuilder
+name|fullTokenId
+parameter_list|(
+name|String
+name|fullTokenId
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"fullTokenId"
+argument_list|,
+name|fullTokenId
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The secret key to pass to the Atmos client (should be base64          * encoded).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|secretKey (String secretKey)
+specifier|default
+name|AtmosEndpointConsumerBuilder
+name|secretKey
+parameter_list|(
+name|String
+name|secretKey
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"secretKey"
+argument_list|,
+name|secretKey
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
+DECL|method|sslValidation (boolean sslValidation)
+specifier|default
+name|AtmosEndpointConsumerBuilder
+name|sslValidation
+parameter_list|(
+name|boolean
+name|sslValidation
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sslValidation"
+argument_list|,
+name|sslValidation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Atmos SSL validation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
+DECL|method|sslValidation (String sslValidation)
+specifier|default
+name|AtmosEndpointConsumerBuilder
+name|sslValidation
+parameter_list|(
+name|String
+name|sslValidation
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sslValidation"
+argument_list|,
+name|sslValidation
 argument_list|)
 expr_stmt|;
 return|return
@@ -557,6 +536,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Atomos server uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|uri (String uri)
+specifier|default
+name|AdvancedAtmosEndpointConsumerBuilder
+name|uri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"uri"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Builder for endpoint producers for the Atmos component.      */
 DECL|interface|AtmosEndpointProducerBuilder
@@ -576,69 +576,6 @@ return|return
 operator|(
 name|AdvancedAtmosEndpointProducerBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|enableSslValidation ( boolean enableSslValidation)
-specifier|default
-name|AtmosEndpointProducerBuilder
-name|enableSslValidation
-parameter_list|(
-name|boolean
-name|enableSslValidation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"enableSslValidation"
-argument_list|,
-name|enableSslValidation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Atmos SSL validation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|enableSslValidation ( String enableSslValidation)
-specifier|default
-name|AtmosEndpointProducerBuilder
-name|enableSslValidation
-parameter_list|(
-name|String
-name|enableSslValidation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"enableSslValidation"
-argument_list|,
-name|enableSslValidation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Atmos client fullTokenId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|fullTokenId (String fullTokenId)
-specifier|default
-name|AtmosEndpointProducerBuilder
-name|fullTokenId
-parameter_list|(
-name|String
-name|fullTokenId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"fullTokenId"
-argument_list|,
-name|fullTokenId
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -726,48 +663,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Atmos shared secret.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|secretKey (String secretKey)
-specifier|default
-name|AtmosEndpointProducerBuilder
-name|secretKey
-parameter_list|(
-name|String
-name|secretKey
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"secretKey"
-argument_list|,
-name|secretKey
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Atomos server uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
-specifier|default
-name|AtmosEndpointProducerBuilder
-name|uri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"uri"
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
@@ -804,6 +699,90 @@ argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
 name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Atmos client fullTokenId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|fullTokenId (String fullTokenId)
+specifier|default
+name|AtmosEndpointProducerBuilder
+name|fullTokenId
+parameter_list|(
+name|String
+name|fullTokenId
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"fullTokenId"
+argument_list|,
+name|fullTokenId
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The secret key to pass to the Atmos client (should be base64          * encoded).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|secretKey (String secretKey)
+specifier|default
+name|AtmosEndpointProducerBuilder
+name|secretKey
+parameter_list|(
+name|String
+name|secretKey
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"secretKey"
+argument_list|,
+name|secretKey
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
+DECL|method|sslValidation (boolean sslValidation)
+specifier|default
+name|AtmosEndpointProducerBuilder
+name|sslValidation
+parameter_list|(
+name|boolean
+name|sslValidation
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sslValidation"
+argument_list|,
+name|sslValidation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Atmos SSL validation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
+DECL|method|sslValidation (String sslValidation)
+specifier|default
+name|AtmosEndpointProducerBuilder
+name|sslValidation
+parameter_list|(
+name|String
+name|sslValidation
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sslValidation"
+argument_list|,
+name|sslValidation
 argument_list|)
 expr_stmt|;
 return|return
@@ -916,6 +895,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Atomos server uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|uri (String uri)
+specifier|default
+name|AdvancedAtmosEndpointProducerBuilder
+name|uri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"uri"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Builder for endpoint for the Atmos component.      */
 DECL|interface|AtmosEndpointBuilder
@@ -937,69 +937,6 @@ return|return
 operator|(
 name|AdvancedAtmosEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|enableSslValidation ( boolean enableSslValidation)
-specifier|default
-name|AtmosEndpointBuilder
-name|enableSslValidation
-parameter_list|(
-name|boolean
-name|enableSslValidation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"enableSslValidation"
-argument_list|,
-name|enableSslValidation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Atmos SSL validation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|enableSslValidation ( String enableSslValidation)
-specifier|default
-name|AtmosEndpointBuilder
-name|enableSslValidation
-parameter_list|(
-name|String
-name|enableSslValidation
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"enableSslValidation"
-argument_list|,
-name|enableSslValidation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Atmos client fullTokenId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|fullTokenId (String fullTokenId)
-specifier|default
-name|AtmosEndpointBuilder
-name|fullTokenId
-parameter_list|(
-name|String
-name|fullTokenId
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"fullTokenId"
-argument_list|,
-name|fullTokenId
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -1087,7 +1024,28 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Atmos shared secret.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Atmos client fullTokenId.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|fullTokenId (String fullTokenId)
+specifier|default
+name|AtmosEndpointBuilder
+name|fullTokenId
+parameter_list|(
+name|String
+name|fullTokenId
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"fullTokenId"
+argument_list|,
+name|fullTokenId
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The secret key to pass to the Atmos client (should be base64          * encoded).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|secretKey (String secretKey)
 specifier|default
 name|AtmosEndpointBuilder
@@ -1108,21 +1066,42 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Atomos server uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|uri (String uri)
+comment|/**          * Atmos SSL validation.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
+DECL|method|sslValidation (boolean sslValidation)
 specifier|default
 name|AtmosEndpointBuilder
-name|uri
+name|sslValidation
 parameter_list|(
-name|String
-name|uri
+name|boolean
+name|sslValidation
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"uri"
+literal|"sslValidation"
 argument_list|,
-name|uri
+name|sslValidation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Atmos SSL validation.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
+DECL|method|sslValidation (String sslValidation)
+specifier|default
+name|AtmosEndpointBuilder
+name|sslValidation
+parameter_list|(
+name|String
+name|sslValidation
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sslValidation"
+argument_list|,
+name|sslValidation
 argument_list|)
 expr_stmt|;
 return|return
@@ -1231,6 +1210,27 @@ argument_list|(
 literal|"synchronous"
 argument_list|,
 name|synchronous
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Atomos server uri.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
+DECL|method|uri (String uri)
+specifier|default
+name|AdvancedAtmosEndpointBuilder
+name|uri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"uri"
+argument_list|,
+name|uri
 argument_list|)
 expr_stmt|;
 return|return
