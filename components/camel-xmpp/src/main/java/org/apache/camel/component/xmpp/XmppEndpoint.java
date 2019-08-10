@@ -649,6 +649,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
+DECL|field|roomPassword
+specifier|private
+name|String
+name|roomPassword
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"common"
 argument_list|)
 DECL|field|nickname
@@ -1835,6 +1851,33 @@ name|room
 operator|=
 name|room
 expr_stmt|;
+block|}
+comment|/**      * Password for room      */
+DECL|method|setRoomPassword (String roomPassword)
+specifier|public
+name|void
+name|setRoomPassword
+parameter_list|(
+name|String
+name|roomPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|roomPassword
+operator|=
+name|roomPassword
+expr_stmt|;
+block|}
+DECL|method|getRoomPassword ()
+specifier|protected
+name|String
+name|getRoomPassword
+parameter_list|()
+block|{
+return|return
+name|roomPassword
+return|;
 block|}
 DECL|method|getParticipant ()
 specifier|public

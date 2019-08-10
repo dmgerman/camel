@@ -528,6 +528,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Password for room.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|roomPassword (String roomPassword)
+specifier|default
+name|XmppEndpointConsumerBuilder
+name|roomPassword
+parameter_list|(
+name|String
+name|roomPassword
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"roomPassword"
+argument_list|,
+name|roomPassword
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * User name (without server name). If not specified, anonymous login          * will be attempted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|user (String user)
 specifier|default
@@ -1160,6 +1181,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Password for room.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|roomPassword (String roomPassword)
+specifier|default
+name|XmppEndpointProducerBuilder
+name|roomPassword
+parameter_list|(
+name|String
+name|roomPassword
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"roomPassword"
+argument_list|,
+name|roomPassword
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * User name (without server name). If not specified, anonymous login          * will be attempted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|user (String user)
 specifier|default
@@ -1662,6 +1704,27 @@ argument_list|(
 literal|"password"
 argument_list|,
 name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Password for room.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|roomPassword (String roomPassword)
+specifier|default
+name|XmppEndpointBuilder
+name|roomPassword
+parameter_list|(
+name|String
+name|roomPassword
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"roomPassword"
+argument_list|,
+name|roomPassword
 argument_list|)
 expr_stmt|;
 return|return
