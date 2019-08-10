@@ -3062,7 +3062,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets delivery delay to use for send calls for JMS.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
+comment|/**          * Sets delivery delay to use for send calls for JMS. This option          * requires JMS 2.0 compliant broker.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
 DECL|method|deliveryDelay (long deliveryDelay)
 specifier|default
 name|AMQPEndpointProducerBuilder
@@ -3083,7 +3083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets delivery delay to use for send calls for JMS.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
+comment|/**          * Sets delivery delay to use for send calls for JMS. This option          * requires JMS 2.0 compliant broker.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
 DECL|method|deliveryDelay (String deliveryDelay)
 specifier|default
 name|AMQPEndpointProducerBuilder

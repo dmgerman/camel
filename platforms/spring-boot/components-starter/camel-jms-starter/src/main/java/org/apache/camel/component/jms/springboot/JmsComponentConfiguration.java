@@ -3681,7 +3681,7 @@ name|formatDateHeadersToIso8601
 init|=
 literal|false
 decl_stmt|;
-comment|/**          * Sets delivery delay to use for send calls for JMS.          */
+comment|/**          * Sets delivery delay to use for send calls for JMS. This option          * requires JMS 2.0 compliant broker.          */
 DECL|field|deliveryDelay
 specifier|private
 name|Long

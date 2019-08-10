@@ -7170,7 +7170,7 @@ return|return
 name|deliveryDelay
 return|;
 block|}
-comment|/**      * Sets delivery delay to use for send calls for JMS.      */
+comment|/**      * Sets delivery delay to use for send calls for JMS. This option requires JMS 2.0 compliant broker.      */
 DECL|method|setDeliveryDelay (long deliveryDelay)
 specifier|public
 name|void
