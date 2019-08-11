@@ -1883,7 +1883,7 @@ argument_list|)
 operator|.
 name|getFactoryFinder
 argument_list|(
-literal|"META-INF/services/org/apache/camel"
+literal|"META-INF/services/org/apache/camel/"
 argument_list|)
 decl_stmt|;
 name|Class
