@@ -428,6 +428,38 @@ argument_list|>
 name|responseHandler
 parameter_list|)
 function_decl|;
+comment|/**      * Calls a OData action      * @param edm service Edm      * @param resourcePath resource path to action      * @param endpointHttpHeaders HTTP Headers to add/override the component versions      * @param data action data      * @param responseHandler {@link org.apache.olingo.client.api.domain.ClientEntity} callback handler      */
+DECL|method|action (Edm edm, String resourcePath, Map<String, String> endpointHttpHeaders, Object data, Olingo4ResponseHandler<T> responseHandler)
+parameter_list|<
+name|T
+parameter_list|>
+name|void
+name|action
+parameter_list|(
+name|Edm
+name|edm
+parameter_list|,
+name|String
+name|resourcePath
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointHttpHeaders
+parameter_list|,
+name|Object
+name|data
+parameter_list|,
+name|Olingo4ResponseHandler
+argument_list|<
+name|T
+argument_list|>
+name|responseHandler
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
