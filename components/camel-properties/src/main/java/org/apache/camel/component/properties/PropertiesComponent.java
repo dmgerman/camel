@@ -1868,6 +1868,40 @@ expr_stmt|;
 comment|// discover any 3rd party properties sources
 try|try
 block|{
+for|for
+control|(
+name|PropertiesSource
+name|source
+range|:
+name|getCamelContext
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|findByType
+argument_list|(
+name|PropertiesSource
+operator|.
+name|class
+argument_list|)
+control|)
+block|{
+name|addPropertiesSource
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"PropertiesComponent added custom PropertiesSource (registry): {}"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+block|}
 name|FactoryFinder
 name|factoryFinder
 init|=
@@ -1951,7 +1985,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"PropertiesComponent added custom PropertiesSource: {}"
+literal|"PropertiesComponent added custom PropertiesSource (factory): {}"
 argument_list|,
 name|ps
 argument_list|)
