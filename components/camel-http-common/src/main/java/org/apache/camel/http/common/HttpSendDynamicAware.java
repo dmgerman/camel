@@ -614,7 +614,7 @@ operator|.
 name|getUri
 argument_list|()
 decl_stmt|;
-comment|// remove scheme prefix (unless its camel-http or camel-http4)
+comment|// remove scheme prefix (unless its camel-http or camel-http)
 name|boolean
 name|httpComponent
 init|=

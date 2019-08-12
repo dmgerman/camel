@@ -660,7 +660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Register a custom configuration strategy for new HttpClient instances          * created by producers or consumers such as to configure authentication          * mechanisms etc.          *           * The option is a:          *<code>org.apache.camel.component.http4.HttpClientConfigurer</code>          * type.          *           * Group: advanced          */
+comment|/**          * Register a custom configuration strategy for new HttpClient instances          * created by producers or consumers such as to configure authentication          * mechanisms etc.          *           * The option is a:          *<code>org.apache.camel.component.http.HttpClientConfigurer</code>          * type.          *           * Group: advanced          */
 DECL|method|httpClientConfigurer ( Object httpClientConfigurer)
 specifier|default
 name|AdvancedHttpEndpointBuilder
@@ -681,7 +681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Register a custom configuration strategy for new HttpClient instances          * created by producers or consumers such as to configure authentication          * mechanisms etc.          *           * The option will be converted to a          *<code>org.apache.camel.component.http4.HttpClientConfigurer</code>          * type.          *           * Group: advanced          */
+comment|/**          * Register a custom configuration strategy for new HttpClient instances          * created by producers or consumers such as to configure authentication          * mechanisms etc.          *           * The option will be converted to a          *<code>org.apache.camel.component.http.HttpClientConfigurer</code>          * type.          *           * Group: advanced          */
 DECL|method|httpClientConfigurer ( String httpClientConfigurer)
 specifier|default
 name|AdvancedHttpEndpointBuilder

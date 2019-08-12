@@ -159,7 +159,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//The first two calls will test http4 producers
+comment|//The first two calls will test http producers
 comment|//The first call to our service will hit the first destination in the round robin load balancer
 comment|//this destination has the preserveProxyHeader parameter set to true, so we verify the Host header
 comment|//received by our downstream instance matches the address and port of the proxied service

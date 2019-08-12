@@ -8841,9 +8841,9 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${body.replaceFirst('http:', 'http4:')}"
+literal|"${body.replaceFirst('http:', 'https:')}"
 argument_list|,
-literal|"http4:camel.apache.org"
+literal|"https:camel.apache.org"
 argument_list|)
 expr_stmt|;
 name|assertExpression
