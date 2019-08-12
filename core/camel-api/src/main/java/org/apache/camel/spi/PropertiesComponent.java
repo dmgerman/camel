@@ -48,6 +48,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -126,11 +138,23 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Loads the properties from the default locations.      *      * @return the properties loaded.      */
+comment|/**      * Loads the properties from the default locations and sources.      *      * @return the properties loaded.      */
 DECL|method|loadProperties ()
 name|Properties
 name|loadProperties
 parameter_list|()
+function_decl|;
+comment|/**      * Loads the properties from the default locations and sources filtering them out according to a predicate.      *</p>      *<pre>{@code      *     PropertiesComponent pc = getPropertiesComponent();      *     Properties props = pc.loadProperties(key -> key.startsWith("camel.component.seda"));      * }</pre>      *      * @param filter the predicate used to filter out properties based on the key.      * @return the properties loaded.      */
+DECL|method|loadProperties (Predicate<String> filter)
+name|Properties
+name|loadProperties
+parameter_list|(
+name|Predicate
+argument_list|<
+name|String
+argument_list|>
+name|filter
+parameter_list|)
 function_decl|;
 comment|/**      * Gets the configured properties locations.      * This may be empty if the properties component has only been configured with {@link PropertiesSource}.      */
 DECL|method|getLocations ()

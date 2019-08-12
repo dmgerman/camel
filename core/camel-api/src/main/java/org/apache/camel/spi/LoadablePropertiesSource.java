@@ -28,6 +28,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -55,6 +67,18 @@ DECL|method|loadProperties ()
 name|Properties
 name|loadProperties
 parameter_list|()
+function_decl|;
+comment|/**      * Loads the properties from the source filtering them out according to a predicate.      *      * @param filter the predicate used to filter out properties based on the key.      * @return the properties loaded.      */
+DECL|method|loadProperties (Predicate<String> filter)
+name|Properties
+name|loadProperties
+parameter_list|(
+name|Predicate
+argument_list|<
+name|String
+argument_list|>
+name|filter
+parameter_list|)
 function_decl|;
 block|}
 end_interface
