@@ -26,7 +26,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Optional
+name|Properties
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|PropertiesSource
+name|LoadablePropertiesSource
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|CamelMicroProfilePropertiesSource
 extends|extends
 name|ServiceSupport
 implements|implements
-name|PropertiesSource
+name|LoadablePropertiesSource
 block|{
 DECL|field|config
 specifier|private
@@ -145,12 +145,7 @@ name|getConfig
 argument_list|()
 expr_stmt|;
 block|}
-name|Optional
-argument_list|<
-name|String
-argument_list|>
-name|value
-init|=
+return|return
 name|config
 operator|.
 name|getOptionalValue
@@ -161,9 +156,6 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-return|return
-name|value
 operator|.
 name|orElse
 argument_list|(
@@ -173,10 +165,74 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStart ()
+DECL|method|loadProperties ()
+specifier|public
+name|Properties
+name|loadProperties
+parameter_list|()
+block|{
+if|if
+condition|(
+name|config
+operator|==
+literal|null
+condition|)
+block|{
+name|config
+operator|=
+name|ConfigProvider
+operator|.
+name|getConfig
+argument_list|()
+expr_stmt|;
+block|}
+name|Properties
+name|answer
+init|=
+operator|new
+name|Properties
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|String
+name|key
+range|:
+name|config
+operator|.
+name|getPropertyNames
+argument_list|()
+control|)
+block|{
+name|answer
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+name|config
+operator|.
+name|getValue
+argument_list|(
+name|key
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doInit ()
 specifier|protected
 name|void
-name|doStart
+name|doInit
 parameter_list|()
 throws|throws
 name|Exception
@@ -188,6 +244,18 @@ operator|.
 name|getConfig
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override
