@@ -960,14 +960,36 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// sources are ordered according to {@link org.apache.camel.support.OrderComparator} so
+comment|// it is needed to iterate them in reverse order otherwise lower priority sources may
+comment|// override properties from higher priority ones
 for|for
 control|(
-name|PropertiesSource
-name|ps
-range|:
+name|int
+name|i
+init|=
 name|sources
+operator|.
+name|size
+argument_list|()
+init|;
+name|i
+operator|--
+operator|>
+literal|0
+condition|;
 control|)
 block|{
+name|PropertiesSource
+name|ps
+init|=
+name|sources
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|ps
