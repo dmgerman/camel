@@ -146,18 +146,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|isLazyLoadingTypeConverter ()
-specifier|protected
-name|boolean
-name|isLazyLoadingTypeConverter
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 comment|// START SNIPPET: e1
 annotation|@
 name|Override
