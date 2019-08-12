@@ -62,6 +62,22 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|placeholder
+operator|.
+name|DefinitionPropertiesPlaceholderProviderHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * To be used for configuring property placeholder options on the EIP models.  */
 end_comment
@@ -93,7 +109,7 @@ block|{
 name|DefinitionPropertyPlaceholderConfigurable
 name|aware
 init|=
-name|DefinitionPropertiesProviderHelper
+name|DefinitionPropertiesPlaceholderProviderHelper
 operator|.
 name|provider
 argument_list|(
@@ -141,7 +157,7 @@ block|{
 name|DefinitionPropertyPlaceholderConfigurable
 name|aware
 init|=
-name|DefinitionPropertiesProviderHelper
+name|DefinitionPropertiesPlaceholderProviderHelper
 operator|.
 name|provider
 argument_list|(

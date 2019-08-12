@@ -44,6 +44,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Comparator
 import|;
 end_import
@@ -95,18 +105,6 @@ operator|.
 name|util
 operator|.
 name|TreeSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Consumer
 import|;
 end_import
 
@@ -797,7 +795,7 @@ name|skipUnwanted
 init|=
 literal|true
 decl_stmt|;
-DECL|method|processModelClass (final ProcessingEnvironment processingEnv, final RoundEnvironment roundEnv, final TypeElement classElement)
+DECL|method|processModelClass (final ProcessingEnvironment processingEnv, final RoundEnvironment roundEnv, final TypeElement classElement, Set<String> propertyPlaceholderDefinitions, final boolean last)
 specifier|protected
 name|void
 name|processModelClass
@@ -813,6 +811,16 @@ parameter_list|,
 specifier|final
 name|TypeElement
 name|classElement
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|propertyPlaceholderDefinitions
+parameter_list|,
+specifier|final
+name|boolean
+name|last
 parameter_list|)
 block|{
 specifier|final
@@ -1002,7 +1010,7 @@ operator|+
 literal|".json"
 expr_stmt|;
 block|}
-comment|// write json schema
+comment|// write json schema and property placeholder provider
 name|processFile
 argument_list|(
 name|processingEnv
@@ -1028,11 +1036,31 @@ argument_list|,
 name|javaTypeName
 argument_list|,
 name|name
+argument_list|,
+name|propertyPlaceholderDefinitions
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// if last then generate
+if|if
+condition|(
+name|last
+condition|)
+block|{
+comment|// lets sort themfirst
+name|writePropertyPlaceholderDefinitionsHelper
+argument_list|(
+name|processingEnv
+argument_list|,
+name|roundEnv
+argument_list|,
+name|propertyPlaceholderDefinitions
+argument_list|)
+expr_stmt|;
 block|}
-DECL|method|writeJSonSchemeDocumentation (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String modelName)
+block|}
+comment|// TODO: rename this
+DECL|method|writeJSonSchemeDocumentation (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String modelName, Set<String> propertyPlaceholderDefinitions)
 specifier|protected
 name|void
 name|writeJSonSchemeDocumentation
@@ -1057,6 +1085,12 @@ name|javaTypeName
 parameter_list|,
 name|String
 name|modelName
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|propertyPlaceholderDefinitions
 parameter_list|)
 block|{
 comment|// gather eip information
@@ -1173,10 +1207,12 @@ argument_list|,
 name|eipModel
 argument_list|,
 name|eipOptions
+argument_list|,
+name|propertyPlaceholderDefinitions
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writePropertyPlaceholderProviderSource (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, EipModel eipModel, Set<EipOption> options)
+DECL|method|writePropertyPlaceholderProviderSource (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, EipModel eipModel, Set<EipOption> options, Set<String> propertyPlaceholderDefinitions)
 specifier|protected
 name|void
 name|writePropertyPlaceholderProviderSource
@@ -1201,6 +1237,12 @@ argument_list|<
 name|EipOption
 argument_list|>
 name|options
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|propertyPlaceholderDefinitions
 parameter_list|)
 block|{
 comment|// the following are valid class elements which we want to generate
@@ -1344,6 +1386,13 @@ argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
+name|propertyPlaceholderDefinitions
+operator|.
+name|add
+argument_list|(
+name|fqnDef
+argument_list|)
+expr_stmt|;
 comment|// we also need to generate from when we generate route as from can also configure property placeholders
 if|if
 condition|(
@@ -1465,6 +1514,13 @@ argument_list|,
 name|fqn
 argument_list|,
 name|options
+argument_list|)
+expr_stmt|;
+name|propertyPlaceholderDefinitions
+operator|.
+name|add
+argument_list|(
+name|fqnDef
 argument_list|)
 expr_stmt|;
 block|}
@@ -2260,6 +2316,378 @@ operator|.
 name|getName
 argument_list|()
 return|;
+block|}
+DECL|method|writePropertyPlaceholderDefinitionsHelper (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, Set<String> propertyPlaceholderDefinitions)
+specifier|private
+name|void
+name|writePropertyPlaceholderDefinitionsHelper
+parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
+name|RoundEnvironment
+name|roundEnv
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|propertyPlaceholderDefinitions
+parameter_list|)
+block|{
+name|Writer
+name|w
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|JavaFileObject
+name|src
+init|=
+name|processingEnv
+operator|.
+name|getFiler
+argument_list|()
+operator|.
+name|createSourceFile
+argument_list|(
+literal|"org.apache.camel.model.placeholder.DefinitionPropertiesPlaceholderProviderHelper"
+argument_list|)
+decl_stmt|;
+name|w
+operator|=
+name|src
+operator|.
+name|openWriter
+argument_list|()
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"/* Generated by camel-apt */\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"package org.apache.camel.model.placeholder;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import java.util.HashMap;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import java.util.Map;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import java.util.Optional;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import java.util.function.Function;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import java.util.function.Supplier;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import org.apache.camel.model.DefinitionPropertyPlaceholderConfigurable;\n"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|String
+name|def
+range|:
+name|propertyPlaceholderDefinitions
+control|)
+block|{
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import "
+operator|+
+name|def
+operator|+
+literal|";\n"
+argument_list|)
+expr_stmt|;
+block|}
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"public class DefinitionPropertiesPlaceholderProviderHelper {\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"    private static final Map<Class, Function<Object, DefinitionPropertyPlaceholderConfigurable>> MAP;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"    static {\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        Map<Class, Function<Object, DefinitionPropertyPlaceholderConfigurable>> map = new HashMap<>();\n"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|String
+name|def
+range|:
+name|propertyPlaceholderDefinitions
+control|)
+block|{
+name|String
+name|cn
+init|=
+name|def
+operator|.
+name|substring
+argument_list|(
+name|def
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'.'
+argument_list|)
+operator|+
+literal|1
+argument_list|)
+decl_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        map.put("
+operator|+
+name|cn
+operator|+
+literal|".class, "
+operator|+
+name|cn
+operator|+
+literal|"PropertyPlaceholderProvider::new);\n"
+argument_list|)
+expr_stmt|;
+block|}
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        MAP = map;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"    }\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"    public static Optional<DefinitionPropertyPlaceholderConfigurable> provider(Object definition) {\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        Function<Object, DefinitionPropertyPlaceholderConfigurable> func = MAP.get(definition.getClass());\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        if (func != null) {\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"            return Optional.of(func.apply(definition));\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        }\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        return Optional.empty();\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"    }\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"}\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|processingEnv
+operator|.
+name|getMessager
+argument_list|()
+operator|.
+name|printMessage
+argument_list|(
+name|Diagnostic
+operator|.
+name|Kind
+operator|.
+name|ERROR
+argument_list|,
+literal|"Unable to process annotated elements in "
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|dumpExceptionToErrorFile
+argument_list|(
+literal|"camel-apt-error.log"
+argument_list|,
+literal|"Error processing annotation in "
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|w
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|createParameterJsonSchema (EipModel eipModel, Set<EipOption> options)
 specifier|public

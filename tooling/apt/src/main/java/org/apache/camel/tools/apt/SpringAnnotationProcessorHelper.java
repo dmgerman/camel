@@ -478,7 +478,7 @@ specifier|public
 class|class
 name|SpringAnnotationProcessorHelper
 block|{
-DECL|method|processModelClass (final ProcessingEnvironment processingEnv, final RoundEnvironment roundEnv, final TypeElement classElement)
+DECL|method|processModelClass (final ProcessingEnvironment processingEnv, final RoundEnvironment roundEnv, final TypeElement classElement, final boolean last)
 specifier|protected
 name|void
 name|processModelClass
@@ -494,6 +494,10 @@ parameter_list|,
 specifier|final
 name|TypeElement
 name|classElement
+parameter_list|,
+specifier|final
+name|boolean
+name|last
 parameter_list|)
 block|{
 specifier|final
