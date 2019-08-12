@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -435,10 +425,10 @@ name|this
 return|;
 block|}
 comment|/**          * Whether parameters should be removed when its bound          */
-DECL|method|withRemoteParameters (boolean removeParameters)
+DECL|method|withRemoveParameters (boolean removeParameters)
 specifier|public
 name|Builder
-name|withRemoteParameters
+name|withRemoveParameters
 parameter_list|(
 name|boolean
 name|removeParameters

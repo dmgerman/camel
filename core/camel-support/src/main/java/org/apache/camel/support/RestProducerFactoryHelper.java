@@ -22,16 +22,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -125,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for creating configured {@link Component}s used by the  * {@link RestProducerFactory} contract.  *   * When {@link RestProducerFactory} contract is used it could instantiate, start  * and register the underlying component. During this process we have no way of  * configuring component properties, most notably the SSL properties.  */
+comment|/**  * Helper for creating configured {@link Component}s used by the  * {@link RestProducerFactory} contract.  *  * When {@link RestProducerFactory} contract is used it could instantiate, start  * and register the underlying component. During this process we have no way of  * configuring component properties, most notably the SSL properties.  */
 end_comment
 
 begin_class
@@ -337,7 +327,7 @@ operator|.
 name|build
 argument_list|()
 operator|.
-name|withRemoteParameters
+name|withRemoveParameters
 argument_list|(
 literal|false
 argument_list|)
