@@ -121,6 +121,7 @@ argument_list|,
 name|object
 argument_list|)
 expr_stmt|;
+comment|// TODO: Like ProcessorDefinitionHelper we want to avoid reflection
 comment|// find all getter/setter which we can use for property placeholders
 name|Map
 argument_list|<
