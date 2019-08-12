@@ -1834,12 +1834,27 @@ operator|=
 name|ignoreMissingLocation
 expr_stmt|;
 block|}
+comment|/**      * @return a list of properties which will be used before any locations are resolved (can't be null).      */
 DECL|method|getInitialProperties ()
 specifier|public
 name|Properties
 name|getInitialProperties
 parameter_list|()
 block|{
+if|if
+condition|(
+name|initialProperties
+operator|==
+literal|null
+condition|)
+block|{
+name|initialProperties
+operator|=
+operator|new
+name|Properties
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|initialProperties
 return|;
@@ -1863,12 +1878,27 @@ operator|=
 name|initialProperties
 expr_stmt|;
 block|}
+comment|/**      * @return a list of properties that take precedence and will use first, if a property exist (can't be null).      */
 DECL|method|getOverrideProperties ()
 specifier|public
 name|Properties
 name|getOverrideProperties
 parameter_list|()
 block|{
+if|if
+condition|(
+name|overrideProperties
+operator|==
+literal|null
+condition|)
+block|{
+name|overrideProperties
+operator|=
+operator|new
+name|Properties
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|overrideProperties
 return|;
