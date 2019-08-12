@@ -44,18 +44,6 @@ name|util
 operator|.
 name|function
 operator|.
-name|BiFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
 name|Consumer
 import|;
 end_import
@@ -242,7 +230,7 @@ argument_list|<
 name|ToDefinition
 argument_list|>
 implements|implements
-name|PropertyPlaceholderAware
+name|DefinitionPropertyPlaceholderConfigurable
 block|{
 annotation|@
 name|XmlAttribute
