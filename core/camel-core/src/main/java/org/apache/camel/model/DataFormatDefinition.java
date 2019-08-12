@@ -184,6 +184,8 @@ extends|extends
 name|IdentifiedType
 implements|implements
 name|OtherAttributesAware
+implements|,
+name|DefinitionPropertyPlaceholderConfigurable
 block|{
 annotation|@
 name|XmlTransient

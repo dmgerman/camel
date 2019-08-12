@@ -2497,6 +2497,10 @@ block|{
 if|if
 condition|(
 name|properties
+operator|==
+literal|null
+operator|||
+name|properties
 operator|.
 name|isEmpty
 argument_list|()
@@ -2723,6 +2727,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|readProperties
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|readProperties
 operator|.
@@ -2896,6 +2904,7 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
+comment|// TODO: implement this
 comment|/*         // find all String getter/setter         Map<String, Object> properties = new HashMap<>();         IntrospectionSupport.getProperties(definition, properties, null);          Map<String, Object> changedProperties = new HashMap<>();         if (!properties.isEmpty()) {             LOG.trace("There are {} properties on: {}", properties.size(), definition);              // lookup and resolve known constant fields for String based properties             for (Map.Entry<String, Object> entry : properties.entrySet()) {                 String name = entry.getKey();                 Object value = entry.getValue();                 if (value instanceof String) {                     // we can only resolve String typed values                     String text = (String) value;                      // is the value a known field (currently we only support constants from Exchange.class)                     if (text.startsWith("Exchange.")) {                         String field = StringHelper.after(text, "Exchange.");                         String constant = ObjectHelper.lookupConstantFieldValue(Exchange.class, field);                         if (constant != null) {                             // invoke setter as the text has changed                             IntrospectionSupport.setProperty(camelContext, definition, name, constant);                             changedProperties.put(name, value);                             if (LOG.isDebugEnabled()) {                                 LOG.debug("Changed property [{}] from: {} to: {}", name, value, constant);                             }                         } else {                             throw new IllegalArgumentException("Constant field with name: " + field + " not found on Exchange.class");                         }                     }                 }             }         }         addRestoreAction(camelContext, definition, changedProperties);*/
 block|}
 block|}
