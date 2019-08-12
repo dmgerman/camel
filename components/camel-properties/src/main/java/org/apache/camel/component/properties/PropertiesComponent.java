@@ -681,6 +681,20 @@ name|environmentVariableMode
 init|=
 name|ENVIRONMENT_VARIABLES_MODE_OVERRIDE
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|autoDiscoverPropertiesSources
+specifier|private
+name|boolean
+name|autoDiscoverPropertiesSources
+init|=
+literal|true
+decl_stmt|;
 DECL|method|PropertiesComponent ()
 specifier|public
 name|PropertiesComponent
@@ -1779,6 +1793,33 @@ operator|=
 name|environmentVariableMode
 expr_stmt|;
 block|}
+DECL|method|isAutoDiscoverPropertiesSources ()
+specifier|public
+name|boolean
+name|isAutoDiscoverPropertiesSources
+parameter_list|()
+block|{
+return|return
+name|autoDiscoverPropertiesSources
+return|;
+block|}
+comment|/**      * Whether to automatically discovery instances of {@link PropertiesSource} from registry and service factory.      */
+DECL|method|setAutoDiscoverPropertiesSources (boolean autoDiscoverPropertiesSources)
+specifier|public
+name|void
+name|setAutoDiscoverPropertiesSources
+parameter_list|(
+name|boolean
+name|autoDiscoverPropertiesSources
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoDiscoverPropertiesSources
+operator|=
+name|autoDiscoverPropertiesSources
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|addPropertiesSource (PropertiesSource propertiesSource)
@@ -1865,6 +1906,12 @@ operator|.
 name|doInit
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|isAutoDiscoverPropertiesSources
+argument_list|()
+condition|)
+block|{
 comment|// discover any 3rd party properties sources
 try|try
 block|{
@@ -2044,6 +2091,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|ServiceHelper
 operator|.

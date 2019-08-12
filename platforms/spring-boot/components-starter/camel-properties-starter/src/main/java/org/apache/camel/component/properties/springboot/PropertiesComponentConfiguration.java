@@ -189,6 +189,14 @@ name|environmentVariableMode
 init|=
 literal|2
 decl_stmt|;
+comment|/**      * Whether to automatically discovery instances of PropertiesSource from      * registry and service factory.      */
+DECL|field|autoDiscoverPropertiesSources
+specifier|private
+name|Boolean
+name|autoDiscoverPropertiesSources
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Whether the component should resolve property placeholders on itself when      * starting. Only properties which are of String type can use property      * placeholders.      */
 DECL|field|resolvePropertyPlaceholders
 specifier|private
@@ -469,6 +477,32 @@ operator|.
 name|environmentVariableMode
 operator|=
 name|environmentVariableMode
+expr_stmt|;
+block|}
+DECL|method|getAutoDiscoverPropertiesSources ()
+specifier|public
+name|Boolean
+name|getAutoDiscoverPropertiesSources
+parameter_list|()
+block|{
+return|return
+name|autoDiscoverPropertiesSources
+return|;
+block|}
+DECL|method|setAutoDiscoverPropertiesSources ( Boolean autoDiscoverPropertiesSources)
+specifier|public
+name|void
+name|setAutoDiscoverPropertiesSources
+parameter_list|(
+name|Boolean
+name|autoDiscoverPropertiesSources
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoDiscoverPropertiesSources
+operator|=
+name|autoDiscoverPropertiesSources
 expr_stmt|;
 block|}
 DECL|method|getResolvePropertyPlaceholders ()
