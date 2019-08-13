@@ -180,13 +180,17 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Disabled
 import|;
 end_import
 
 begin_class
 annotation|@
-name|Ignore
+name|Disabled
 argument_list|(
 literal|"Not yet migrated to work with Jetty 9"
 argument_list|)
