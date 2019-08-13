@@ -222,20 +222,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|PropertiesComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|service
@@ -353,28 +339,6 @@ DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
-decl_stmt|;
-annotation|@
-name|Metadata
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"Whether the component should resolve property placeholders on itself when starting. Only properties which are of String type can use property placeholders."
-argument_list|)
-DECL|field|resolvePropertyPlaceholders
-specifier|private
-name|boolean
-name|resolvePropertyPlaceholders
-init|=
-literal|true
 decl_stmt|;
 annotation|@
 name|Metadata
@@ -1203,34 +1167,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Whether the component should resolve property placeholders on itself when starting.      * Only properties which are of String type can use property placeholders.      */
-DECL|method|setResolvePropertyPlaceholders (boolean resolvePropertyPlaceholders)
-specifier|public
-name|void
-name|setResolvePropertyPlaceholders
-parameter_list|(
-name|boolean
-name|resolvePropertyPlaceholders
-parameter_list|)
-block|{
-name|this
-operator|.
-name|resolvePropertyPlaceholders
-operator|=
-name|resolvePropertyPlaceholders
-expr_stmt|;
-block|}
-comment|/**      * Whether the component should resolve property placeholders on itself when starting.      * Only properties which are of String type can use property placeholders.      */
-DECL|method|isResolvePropertyPlaceholders ()
-specifier|public
-name|boolean
-name|isResolvePropertyPlaceholders
-parameter_list|()
-block|{
-return|return
-name|resolvePropertyPlaceholders
-return|;
-block|}
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      */
 DECL|method|isBasicPropertyBinding ()
 specifier|public
@@ -1526,62 +1462,6 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isResolvePropertyPlaceholders
-argument_list|()
-condition|)
-block|{
-comment|// only resolve property placeholders if its in use
-name|PropertiesComponent
-name|existing
-init|=
-name|camelContext
-operator|.
-name|getPropertiesComponent
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|existing
-operator|!=
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Resolving property placeholders on component: {}"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-name|PropertyPlaceholdersHelper
-operator|.
-name|resolvePropertyPlaceholders
-argument_list|(
-name|camelContext
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Cannot resolve property placeholders on component: {} as PropertiesComponent is not in use"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 annotation|@
 name|Override
