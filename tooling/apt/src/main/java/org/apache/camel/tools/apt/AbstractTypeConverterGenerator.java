@@ -2173,31 +2173,7 @@ name|writer
 operator|.
 name|append
 argument_list|(
-literal|"            synchronized (this) {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                if ("
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|v
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" == null) {\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                    "
+literal|"            "
 argument_list|)
 operator|.
 name|append
@@ -2218,20 +2194,6 @@ operator|.
 name|append
 argument_list|(
 literal|"();\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"                }\n"
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|append
-argument_list|(
-literal|"            }\n"
 argument_list|)
 expr_stmt|;
 name|writer

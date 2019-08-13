@@ -76,6 +76,8 @@ name|SimpleTypeConverter
 implements|implements
 name|TypeConverter
 block|{
+annotation|@
+name|FunctionalInterface
 DECL|interface|ConversionMethod
 specifier|public
 interface|interface
