@@ -135,9 +135,15 @@ end_import
 begin_class
 DECL|class|PropertyPlaceholderGenerator
 specifier|public
+specifier|final
 class|class
 name|PropertyPlaceholderGenerator
 block|{
+DECL|method|PropertyPlaceholderGenerator ()
+specifier|private
+name|PropertyPlaceholderGenerator
+parameter_list|()
+block|{     }
 DECL|method|generatePropertyPlaceholderProviderSource (ProcessingEnvironment processingEnv, TypeElement parent, String def, String fqnDef, String cn, String fqn, Set<CoreEipAnnotationProcessorHelper.EipOption> options)
 specifier|public
 specifier|static
