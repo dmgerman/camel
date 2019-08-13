@@ -848,7 +848,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    public static String provider(String key) {\n"
+literal|"    public static String lookup(String key) {\n"
 argument_list|)
 expr_stmt|;
 name|w
