@@ -119,6 +119,26 @@ specifier|private
 name|Config
 name|config
 decl_stmt|;
+DECL|method|CamelMicroProfilePropertiesSource ()
+specifier|public
+name|CamelMicroProfilePropertiesSource
+parameter_list|()
+block|{     }
+DECL|method|CamelMicroProfilePropertiesSource (Config config)
+specifier|public
+name|CamelMicroProfilePropertiesSource
+parameter_list|(
+name|Config
+name|config
+parameter_list|)
+block|{
+name|this
+operator|.
+name|config
+operator|=
+name|config
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getName ()
@@ -280,9 +300,9 @@ control|(
 name|String
 name|name
 range|:
-name|answer
+name|config
 operator|.
-name|stringPropertyNames
+name|getPropertyNames
 argument_list|()
 control|)
 block|{
@@ -337,6 +357,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|config
+operator|==
+literal|null
+condition|)
+block|{
 name|config
 operator|=
 name|ConfigProvider
@@ -344,6 +371,7 @@ operator|.
 name|getConfig
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
