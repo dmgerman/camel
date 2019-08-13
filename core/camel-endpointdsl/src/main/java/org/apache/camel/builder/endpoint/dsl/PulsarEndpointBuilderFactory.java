@@ -705,6 +705,258 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Control whether automatic batching of messages is enabled for the          * producer. Default is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|batchingEnabled ( boolean batchingEnabled)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|batchingEnabled
+parameter_list|(
+name|boolean
+name|batchingEnabled
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"batchingEnabled"
+argument_list|,
+name|batchingEnabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Control whether automatic batching of messages is enabled for the          * producer. Default is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|batchingEnabled ( String batchingEnabled)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|batchingEnabled
+parameter_list|(
+name|String
+name|batchingEnabled
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"batchingEnabled"
+argument_list|,
+name|batchingEnabled
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the maximum number of messages permitted in a batch. Default          * 1,000.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|batchingMaxMessages ( int batchingMaxMessages)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|batchingMaxMessages
+parameter_list|(
+name|int
+name|batchingMaxMessages
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"batchingMaxMessages"
+argument_list|,
+name|batchingMaxMessages
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the maximum number of messages permitted in a batch. Default          * 1,000.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|batchingMaxMessages ( String batchingMaxMessages)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|batchingMaxMessages
+parameter_list|(
+name|String
+name|batchingMaxMessages
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"batchingMaxMessages"
+argument_list|,
+name|batchingMaxMessages
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the time period within which the messages sent will be batched if          * batch messages are enabled. If set to a non zero value, messages will          * be queued until either: this time interval expires the max number of          * messages in a batch is reached Default is 1ms.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
+DECL|method|batchingMaxPublishDelayMicros ( long batchingMaxPublishDelayMicros)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|batchingMaxPublishDelayMicros
+parameter_list|(
+name|long
+name|batchingMaxPublishDelayMicros
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"batchingMaxPublishDelayMicros"
+argument_list|,
+name|batchingMaxPublishDelayMicros
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the time period within which the messages sent will be batched if          * batch messages are enabled. If set to a non zero value, messages will          * be queued until either: this time interval expires the max number of          * messages in a batch is reached Default is 1ms.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
+DECL|method|batchingMaxPublishDelayMicros ( String batchingMaxPublishDelayMicros)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|batchingMaxPublishDelayMicros
+parameter_list|(
+name|String
+name|batchingMaxPublishDelayMicros
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"batchingMaxPublishDelayMicros"
+argument_list|,
+name|batchingMaxPublishDelayMicros
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set whether the send and asyncSend operations should block when the          * outgoing message queue is full. If set to false, send operations will          * immediately fail with ProducerQueueIsFullError when there is no space          * left in the pending queue. Default is false.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|blockIfQueueFull ( boolean blockIfQueueFull)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|blockIfQueueFull
+parameter_list|(
+name|boolean
+name|blockIfQueueFull
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"blockIfQueueFull"
+argument_list|,
+name|blockIfQueueFull
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set whether the send and asyncSend operations should block when the          * outgoing message queue is full. If set to false, send operations will          * immediately fail with ProducerQueueIsFullError when there is no space          * left in the pending queue. Default is false.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|blockIfQueueFull ( String blockIfQueueFull)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|blockIfQueueFull
+parameter_list|(
+name|String
+name|blockIfQueueFull
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"blockIfQueueFull"
+argument_list|,
+name|blockIfQueueFull
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the compression type for the producer. Supported compression          * types are: NONE: No compression LZ4: Compress with LZ4 algorithm.          * Faster but lower compression than ZLib ZLI: Standard ZLib compression          * Default is NONE.          *           * The option is a:          *<code>org.apache.pulsar.client.api.CompressionType</code> type.          *           * Group: producer          */
+DECL|method|compressionType ( CompressionType compressionType)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|compressionType
+parameter_list|(
+name|CompressionType
+name|compressionType
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"compressionType"
+argument_list|,
+name|compressionType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the compression type for the producer. Supported compression          * types are: NONE: No compression LZ4: Compress with LZ4 algorithm.          * Faster but lower compression than ZLib ZLI: Standard ZLib compression          * Default is NONE.          *           * The option will be converted to a          *<code>org.apache.pulsar.client.api.CompressionType</code> type.          *           * Group: producer          */
+DECL|method|compressionType ( String compressionType)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|compressionType
+parameter_list|(
+name|String
+name|compressionType
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"compressionType"
+argument_list|,
+name|compressionType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the baseline for the sequence ids for messages published by the          * producer. First message will be using (initialSequenceId 1) as its          * sequence id and subsequent messages will be assigned incremental          * sequence ids, if not otherwise specified.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
+DECL|method|initialSequenceId ( long initialSequenceId)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|initialSequenceId
+parameter_list|(
+name|long
+name|initialSequenceId
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"initialSequenceId"
+argument_list|,
+name|initialSequenceId
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the baseline for the sequence ids for messages published by the          * producer. First message will be using (initialSequenceId 1) as its          * sequence id and subsequent messages will be assigned incremental          * sequence ids, if not otherwise specified.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
+DECL|method|initialSequenceId ( String initialSequenceId)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|initialSequenceId
+parameter_list|(
+name|String
+name|initialSequenceId
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"initialSequenceId"
+argument_list|,
+name|initialSequenceId
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
@@ -747,6 +999,90 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Set the max size of the queue holding the messages pending to receive          * an acknowledgment from the broker. Default is 1000.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|maxPendingMessages ( int maxPendingMessages)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|maxPendingMessages
+parameter_list|(
+name|int
+name|maxPendingMessages
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"maxPendingMessages"
+argument_list|,
+name|maxPendingMessages
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the max size of the queue holding the messages pending to receive          * an acknowledgment from the broker. Default is 1000.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|maxPendingMessages ( String maxPendingMessages)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|maxPendingMessages
+parameter_list|(
+name|String
+name|maxPendingMessages
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"maxPendingMessages"
+argument_list|,
+name|maxPendingMessages
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the number of max pending messages across all the partitions.          * Default is 50000.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|maxPendingMessagesAcrossPartitions ( int maxPendingMessagesAcrossPartitions)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|maxPendingMessagesAcrossPartitions
+parameter_list|(
+name|int
+name|maxPendingMessagesAcrossPartitions
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"maxPendingMessagesAcrossPartitions"
+argument_list|,
+name|maxPendingMessagesAcrossPartitions
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the number of max pending messages across all the partitions.          * Default is 50000.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|maxPendingMessagesAcrossPartitions ( String maxPendingMessagesAcrossPartitions)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|maxPendingMessagesAcrossPartitions
+parameter_list|(
+name|String
+name|maxPendingMessagesAcrossPartitions
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"maxPendingMessagesAcrossPartitions"
+argument_list|,
+name|maxPendingMessagesAcrossPartitions
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Name of the producer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|producerName (String producerName)
 specifier|default
@@ -762,6 +1098,48 @@ argument_list|(
 literal|"producerName"
 argument_list|,
 name|producerName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Send timeout in milliseconds. Defaults to 30,000ms (30 seconds).          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|sendTimeoutMs (int sendTimeoutMs)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|sendTimeoutMs
+parameter_list|(
+name|int
+name|sendTimeoutMs
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sendTimeoutMs"
+argument_list|,
+name|sendTimeoutMs
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Send timeout in milliseconds. Defaults to 30,000ms (30 seconds).          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|sendTimeoutMs (String sendTimeoutMs)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|sendTimeoutMs
+parameter_list|(
+name|String
+name|sendTimeoutMs
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"sendTimeoutMs"
+argument_list|,
+name|sendTimeoutMs
 argument_list|)
 expr_stmt|;
 return|return
@@ -1020,6 +1398,26 @@ name|SHARED
 block|,
 DECL|enumConstant|FAILOVER
 name|FAILOVER
+block|;     }
+comment|/**      * Proxy enum for<code>org.apache.pulsar.client.api.CompressionType</code>      * enum.      */
+DECL|enum|CompressionType
+enum|enum
+name|CompressionType
+block|{
+DECL|enumConstant|NONE
+name|NONE
+block|,
+DECL|enumConstant|LZ4
+name|LZ4
+block|,
+DECL|enumConstant|ZLIB
+name|ZLIB
+block|,
+DECL|enumConstant|ZSTD
+name|ZSTD
+block|,
+DECL|enumConstant|SNAPPY
+name|SNAPPY
 block|;     }
 comment|/**      * Apache Pulsar (camel-pulsar)      * Camel Apache Pulsar Component      *       * Category: messaging      * Available as of version: 2.24      * Maven coordinates: org.apache.camel:camel-pulsar      *       * Syntax:<code>pulsar:persistence://tenant/namespace/topic</code>      *       * Path parameter: persistence (required)      * Whether the topic is persistent or non-persistent      * The value can be one of: persistent, non-persistent      *       * Path parameter: tenant (required)      * The tenant      *       * Path parameter: namespace (required)      * The namespace      *       * Path parameter: topic (required)      * The topic      */
 DECL|method|pulsar (String path)
