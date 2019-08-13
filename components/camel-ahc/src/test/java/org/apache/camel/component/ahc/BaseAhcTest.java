@@ -188,7 +188,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|junit5
 operator|.
 name|CamelTestSupport
 import|;
@@ -200,7 +200,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeAll
 import|;
 end_import
 
@@ -230,7 +234,7 @@ name|int
 name|port
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|BeforeAll
 DECL|method|initPort ()
 specifier|public
 specifier|static

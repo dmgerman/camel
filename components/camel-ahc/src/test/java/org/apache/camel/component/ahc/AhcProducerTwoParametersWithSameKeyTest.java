@@ -82,7 +82,59 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
 import|;
 end_import
 
@@ -127,12 +179,12 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"Should not fail"
-argument_list|,
 name|out
 operator|.
 name|isFailed
 argument_list|()
+argument_list|,
+literal|"Should not fail"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -271,12 +323,12 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"Should not fail"
-argument_list|,
 name|out
 operator|.
 name|isFailed
 argument_list|()
+argument_list|,
+literal|"Should not fail"
 argument_list|)
 expr_stmt|;
 name|assertEquals
