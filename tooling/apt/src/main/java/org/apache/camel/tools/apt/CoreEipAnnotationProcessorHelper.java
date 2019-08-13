@@ -44,16 +44,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Comparator
 import|;
 end_import
@@ -362,22 +352,6 @@ end_import
 
 begin_import
 import|import
-name|jdk
-operator|.
-name|nashorn
-operator|.
-name|internal
-operator|.
-name|ir
-operator|.
-name|debug
-operator|.
-name|ClassHistogramElement
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -473,24 +447,6 @@ operator|.
 name|AnnotationProcessorHelper
 operator|.
 name|dumpExceptionToErrorFile
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|tools
-operator|.
-name|apt
-operator|.
-name|AnnotationProcessorHelper
-operator|.
-name|error
 import|;
 end_import
 
@@ -683,7 +639,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json  * schema documentation  */
+comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json  * schema documentation and for some models java source code is generated  * which allows for faster property placeholder resolution at runtime; without the  * overhead of using reflections.  */
 end_comment
 
 begin_class
@@ -1021,7 +977,7 @@ name|fileName
 argument_list|,
 name|writer
 lambda|->
-name|writeJSonSchemeDocumentation
+name|writeJSonSchemeAndPropertyPlaceholderProvider
 argument_list|(
 name|processingEnv
 argument_list|,
@@ -1041,13 +997,13 @@ name|propertyPlaceholderDefinitions
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// if last then generate
+comment|// if last then generate source code for helper that contains all the generated property placeholder providers
+comment|// (this allows fast property placeholders at runtime without reflection overhead)
 if|if
 condition|(
 name|last
 condition|)
 block|{
-comment|// lets sort themfirst
 name|writePropertyPlaceholderDefinitionsHelper
 argument_list|(
 name|processingEnv
@@ -1059,11 +1015,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: rename this
-DECL|method|writeJSonSchemeDocumentation (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String modelName, Set<String> propertyPlaceholderDefinitions)
+DECL|method|writeJSonSchemeAndPropertyPlaceholderProvider (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String modelName, Set<String> propertyPlaceholderDefinitions)
 specifier|protected
 name|void
-name|writeJSonSchemeDocumentation
+name|writeJSonSchemeAndPropertyPlaceholderProvider
 parameter_list|(
 name|ProcessingEnvironment
 name|processingEnv
@@ -1176,6 +1131,7 @@ name|eipOptions
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// write json schema file
 name|String
 name|json
 init|=
@@ -1193,8 +1149,8 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
-comment|// write property placeholder source code
-name|writePropertyPlaceholderProviderSource
+comment|// generate property placeholder provider java source code
+name|generatePropertyPlaceholderProviderSource
 argument_list|(
 name|processingEnv
 argument_list|,
@@ -1212,10 +1168,10 @@ name|propertyPlaceholderDefinitions
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writePropertyPlaceholderProviderSource (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, EipModel eipModel, Set<EipOption> options, Set<String> propertyPlaceholderDefinitions)
+DECL|method|generatePropertyPlaceholderProviderSource (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, EipModel eipModel, Set<EipOption> options, Set<String> propertyPlaceholderDefinitions)
 specifier|protected
 name|void
-name|writePropertyPlaceholderProviderSource
+name|generatePropertyPlaceholderProviderSource
 parameter_list|(
 name|ProcessingEnvironment
 name|processingEnv
@@ -1245,7 +1201,8 @@ argument_list|>
 name|propertyPlaceholderDefinitions
 parameter_list|)
 block|{
-comment|// the following are valid class elements which we want to generate
+comment|// not ever model classes support property placeholders as this has been limited to mainly Camel routes
+comment|// so filter out unwanted models
 name|boolean
 name|rest
 init|=
@@ -1779,7 +1736,7 @@ expr_stmt|;
 name|String
 name|getOrSet
 init|=
-name|sanitizeOptionName
+name|sanitizePropertyPlaceholderOptionName
 argument_list|(
 name|def
 argument_list|,
@@ -2020,10 +1977,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|sanitizeOptionName (String def, EipOption option)
+comment|/**      * Some models have different setter/getter names vs the xml name (eg as defined in @XmlAttribute).      * So we need to correct this using this method.      */
+DECL|method|sanitizePropertyPlaceholderOptionName (String def, EipOption option)
 specifier|public
 name|String
-name|sanitizeOptionName
+name|sanitizePropertyPlaceholderOptionName
 parameter_list|(
 name|String
 name|def
@@ -2032,7 +1990,6 @@ name|EipOption
 name|option
 parameter_list|)
 block|{
-comment|// some elements have different setter/getter names vs the xml dsl
 if|if
 condition|(
 literal|"SimpleExpression"
@@ -2491,7 +2448,14 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"        Map<Class, Function<Object, DefinitionPropertyPlaceholderConfigurable>> map = new HashMap<>();\n"
+literal|"        Map<Class, Function<Object, DefinitionPropertyPlaceholderConfigurable>> map = new HashMap<>("
+operator|+
+name|propertyPlaceholderDefinitions
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|");\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -9773,26 +9737,26 @@ name|o2
 parameter_list|)
 block|{
 name|int
-name|weigth
+name|weight
 init|=
-name|weigth
+name|weight
 argument_list|(
 name|o1
 argument_list|)
 decl_stmt|;
 name|int
-name|weigth2
+name|weight2
 init|=
-name|weigth
+name|weight
 argument_list|(
 name|o2
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|weigth
+name|weight
 operator|==
-name|weigth2
+name|weight2
 condition|)
 block|{
 comment|// keep the current order
@@ -9804,16 +9768,16 @@ else|else
 block|{
 comment|// sort according to weight
 return|return
-name|weigth2
+name|weight2
 operator|-
-name|weigth
+name|weight
 return|;
 block|}
 block|}
-DECL|method|weigth (EipOption o)
+DECL|method|weight (EipOption o)
 specifier|private
 name|int
-name|weigth
+name|weight
 parameter_list|(
 name|EipOption
 name|o

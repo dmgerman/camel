@@ -1308,6 +1308,7 @@ name|PROCESSORS
 decl_stmt|;
 static|static
 block|{
+comment|// NOTE: if adding a new class then update the initial capacity of the HashMap
 name|Map
 argument_list|<
 name|Class
@@ -1338,7 +1339,9 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
+argument_list|(
+literal|65
+argument_list|)
 decl_stmt|;
 name|map
 operator|.
