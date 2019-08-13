@@ -3509,19 +3509,6 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
-comment|// resolve constant fields (eg Exchange.FILE_NAME)
-name|ProcessorDefinitionHelper
-operator|.
-name|resolveKnownConstantFields
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|output
-argument_list|)
-expr_stmt|;
 comment|// also resolve properties and constant fields on embedded expressions
 name|ProcessorDefinition
 argument_list|<
@@ -3571,19 +3558,6 @@ comment|// resolve properties before we create the processor
 name|ProcessorDefinitionHelper
 operator|.
 name|resolvePropertyPlaceholders
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|expressionDefinition
-argument_list|)
-expr_stmt|;
-comment|// resolve constant fields (eg Exchange.FILE_NAME)
-name|ProcessorDefinitionHelper
-operator|.
-name|resolveKnownConstantFields
 argument_list|(
 name|routeContext
 operator|.
@@ -3887,19 +3861,6 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-comment|// resolve constant fields (eg Exchange.FILE_NAME)
-name|ProcessorDefinitionHelper
-operator|.
-name|resolveKnownConstantFields
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|definition
-argument_list|)
-expr_stmt|;
 comment|// also resolve properties and constant fields on embedded expressions
 name|ProcessorDefinition
 argument_list|<
@@ -3943,19 +3904,6 @@ comment|// resolve properties before we create the processor
 name|ProcessorDefinitionHelper
 operator|.
 name|resolvePropertyPlaceholders
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|expressionDefinition
-argument_list|)
-expr_stmt|;
-comment|// resolve constant fields (eg Exchange.FILE_NAME)
-name|ProcessorDefinitionHelper
-operator|.
-name|resolveKnownConstantFields
 argument_list|(
 name|routeContext
 operator|.

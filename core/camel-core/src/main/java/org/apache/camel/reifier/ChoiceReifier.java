@@ -394,19 +394,6 @@ argument_list|,
 name|exp
 argument_list|)
 expr_stmt|;
-comment|// resolve constant fields (eg Exchange.FILE_NAME)
-name|ProcessorDefinitionHelper
-operator|.
-name|resolveKnownConstantFields
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|exp
-argument_list|)
-expr_stmt|;
 block|}
 name|FilterProcessor
 name|filter

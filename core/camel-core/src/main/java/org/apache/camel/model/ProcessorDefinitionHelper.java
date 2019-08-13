@@ -176,6 +176,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NamedNode
 import|;
 end_import
@@ -273,6 +285,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
 import|;
 end_import
 
@@ -2695,7 +2721,7 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved. The definition should implement {@link OtherAttributesAware}      *      * @param camelContext the Camel context      * @param definition   the definition which should implement {@link OtherAttributesAware}      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
+comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      * Additional properties are also resolved if the definition implements {@link OtherAttributesAware}.      * Also known constant fields on {@link Exchange} is replaced with their actual constant value, eg      *<tt>Exchange.FILE_NAME</tt> is replaced with<tt>CamelFileName</tt>.      *      * @param camelContext the Camel context      * @param definition   the definition which should implement {@link OtherAttributesAware}      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2796,26 +2822,26 @@ argument_list|(
 name|camelContext
 argument_list|)
 decl_stmt|;
-comment|// processor's may have additional placeholder properties (can typically be used by the XML DSL to
+comment|// definitions may have additional placeholder properties (can typically be used by the XML DSL to
 comment|// allow to configure using placeholders for properties that are not xs:string types)
 if|if
 condition|(
 name|definition
 operator|instanceof
-name|ProcessorDefinition
+name|OtherAttributesAware
 condition|)
 block|{
-name|ProcessorDefinition
-name|pd
+name|OtherAttributesAware
+name|ooa
 init|=
 operator|(
-name|ProcessorDefinition
+name|OtherAttributesAware
 operator|)
 name|definition
 decl_stmt|;
 if|if
 condition|(
-name|pd
+name|ooa
 operator|.
 name|getOtherAttributes
 argument_list|()
@@ -2823,7 +2849,7 @@ operator|!=
 literal|null
 operator|&&
 operator|!
-name|pd
+name|ooa
 operator|.
 name|getOtherAttributes
 argument_list|()
@@ -2914,7 +2940,7 @@ name|Object
 argument_list|>
 name|other
 init|=
-name|pd
+name|ooa
 operator|.
 name|getOtherAttributes
 argument_list|()
@@ -3207,6 +3233,75 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
+comment|// is the value a known field (currently we only support constants from Exchange.class)
+if|if
+condition|(
+name|text
+operator|!=
+literal|null
+operator|&&
+name|text
+operator|.
+name|startsWith
+argument_list|(
+literal|"Exchange."
+argument_list|)
+condition|)
+block|{
+name|String
+name|field
+init|=
+name|StringHelper
+operator|.
+name|after
+argument_list|(
+name|text
+argument_list|,
+literal|"Exchange."
+argument_list|)
+decl_stmt|;
+comment|// TODO: Avoid reflection via fields
+name|String
+name|constant
+init|=
+name|ObjectHelper
+operator|.
+name|lookupConstantFieldValue
+argument_list|(
+name|Exchange
+operator|.
+name|class
+argument_list|,
+name|field
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|constant
+operator|!=
+literal|null
+condition|)
+block|{
+name|text
+operator|=
+name|constant
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Constant field with name: "
+operator|+
+name|field
+operator|+
+literal|" not found on Exchange.class"
+argument_list|)
+throw|;
+block|}
+block|}
 if|if
 condition|(
 operator|!
@@ -3273,34 +3368,6 @@ argument_list|,
 name|changedProperties
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Inspects the given definition and resolves known fields      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will check if it refers to a known field (such as on Exchange).      *      * @param camelContext the camel context      * @param definition   the definition      */
-DECL|method|resolveKnownConstantFields (CamelContext camelContext, Object definition)
-specifier|public
-specifier|static
-name|void
-name|resolveKnownConstantFields
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|Object
-name|definition
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Resolving known fields for: {}"
-argument_list|,
-name|definition
-argument_list|)
-expr_stmt|;
-comment|// TODO: implement this
-comment|/*         // find all String getter/setter         Map<String, Object> properties = new HashMap<>();         IntrospectionSupport.getProperties(definition, properties, null);          Map<String, Object> changedProperties = new HashMap<>();         if (!properties.isEmpty()) {             LOG.trace("There are {} properties on: {}", properties.size(), definition);              // lookup and resolve known constant fields for String based properties             for (Map.Entry<String, Object> entry : properties.entrySet()) {                 String name = entry.getKey();                 Object value = entry.getValue();                 if (value instanceof String) {                     // we can only resolve String typed values                     String text = (String) value;                      // is the value a known field (currently we only support constants from Exchange.class)                     if (text.startsWith("Exchange.")) {                         String field = StringHelper.after(text, "Exchange.");                         String constant = ObjectHelper.lookupConstantFieldValue(Exchange.class, field);                         if (constant != null) {                             // invoke setter as the text has changed                             IntrospectionSupport.setProperty(camelContext, definition, name, constant);                             changedProperties.put(name, value);                             if (LOG.isDebugEnabled()) {                                 LOG.debug("Changed property [{}] from: {} to: {}", name, value, constant);                             }                         } else {                             throw new IllegalArgumentException("Constant field with name: " + field + " not found on Exchange.class");                         }                     }                 }             }         }         addRestoreAction(camelContext, definition, changedProperties);*/
 block|}
 block|}
 end_class
