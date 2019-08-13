@@ -1560,6 +1560,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|configuration
@@ -1580,7 +1581,6 @@ name|getSubscriptionName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|listenerContainer
 operator|.
