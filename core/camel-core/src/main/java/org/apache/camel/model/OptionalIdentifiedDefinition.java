@@ -148,7 +148,7 @@ parameter_list|>
 implements|implements
 name|NamedNode
 implements|,
-name|DefinitionPropertyPlaceholderConfigurable
+name|DefinitionPropertyPlaceholderConfigurer
 block|{
 DECL|field|id
 specifier|private

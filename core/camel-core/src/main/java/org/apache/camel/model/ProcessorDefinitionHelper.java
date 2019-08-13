@@ -242,7 +242,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|RouteContext
+name|PropertyPlaceholderConfigurer
 import|;
 end_import
 
@@ -254,9 +254,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|IntrospectionSupport
+name|RouteContext
 import|;
 end_import
 
@@ -2758,17 +2758,17 @@ operator|!
 operator|(
 name|definition
 operator|instanceof
-name|DefinitionPropertyPlaceholderConfigurable
+name|PropertyPlaceholderConfigurer
 operator|)
 condition|)
 block|{
 return|return;
 block|}
-name|DefinitionPropertyPlaceholderConfigurable
+name|PropertyPlaceholderConfigurer
 name|ppa
 init|=
 operator|(
-name|DefinitionPropertyPlaceholderConfigurable
+name|PropertyPlaceholderConfigurer
 operator|)
 name|definition
 decl_stmt|;

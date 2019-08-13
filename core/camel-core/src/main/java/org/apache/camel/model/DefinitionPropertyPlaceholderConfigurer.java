@@ -78,15 +78,31 @@ name|DefinitionPropertiesPlaceholderProviderHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|PropertyPlaceholderConfigurer
+import|;
+end_import
+
 begin_comment
 comment|/**  * To be used for configuring property placeholder options on the EIP models.  */
 end_comment
 
 begin_interface
-DECL|interface|DefinitionPropertyPlaceholderConfigurable
+DECL|interface|DefinitionPropertyPlaceholderConfigurer
 specifier|public
 interface|interface
-name|DefinitionPropertyPlaceholderConfigurable
+name|DefinitionPropertyPlaceholderConfigurer
+extends|extends
+name|PropertyPlaceholderConfigurer
 block|{
 comment|/**      * Gets the options on the model definition which supports property placeholders and can be resolved.      * This will be all the string based options.      *      * @return key/values of options      */
 DECL|method|getReadPropertyPlaceholderOptions (CamelContext camelContext)
@@ -106,8 +122,8 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-name|DefinitionPropertyPlaceholderConfigurable
-name|aware
+name|PropertyPlaceholderConfigurer
+name|configurer
 init|=
 name|DefinitionPropertiesPlaceholderProviderHelper
 operator|.
@@ -122,11 +138,11 @@ literal|null
 argument_list|)
 decl_stmt|;
 return|return
-name|aware
+name|configurer
 operator|!=
 literal|null
 condition|?
-name|aware
+name|configurer
 operator|.
 name|getReadPropertyPlaceholderOptions
 argument_list|(
@@ -154,7 +170,7 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-name|DefinitionPropertyPlaceholderConfigurable
+name|PropertyPlaceholderConfigurer
 name|aware
 init|=
 name|DefinitionPropertiesPlaceholderProviderHelper

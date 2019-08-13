@@ -282,7 +282,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|DefinitionPropertyPlaceholderConfigurable
+name|DefinitionPropertyPlaceholderConfigurer
 import|;
 end_import
 
@@ -458,7 +458,7 @@ name|OtherAttributesAware
 implements|,
 name|ExpressionFactory
 implements|,
-name|DefinitionPropertyPlaceholderConfigurable
+name|DefinitionPropertyPlaceholderConfigurer
 block|{
 annotation|@
 name|XmlAttribute

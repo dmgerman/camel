@@ -1287,7 +1287,7 @@ name|processingEnv
 argument_list|,
 name|roundEnv
 argument_list|,
-literal|"org.apache.camel.model.DefinitionPropertyPlaceholderConfigurable"
+literal|"org.apache.camel.spi.PropertyPlaceholderConfigurer"
 argument_list|)
 decl_stmt|;
 name|String
@@ -1619,7 +1619,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"import org.apache.camel.model.DefinitionPropertyPlaceholderConfigurable;\n"
+literal|"import org.apache.camel.spi.PropertyPlaceholderConfigurer;\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -1637,7 +1637,7 @@ literal|"public class "
 operator|+
 name|cn
 operator|+
-literal|" implements DefinitionPropertyPlaceholderConfigurable {\n"
+literal|" implements PropertyPlaceholderConfigurer {\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -2386,7 +2386,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"import org.apache.camel.model.DefinitionPropertyPlaceholderConfigurable;\n"
+literal|"import org.apache.camel.spi.PropertyPlaceholderConfigurer;\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -2434,7 +2434,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    private static final Map<Class, Function<Object, DefinitionPropertyPlaceholderConfigurable>> MAP;\n"
+literal|"    private static final Map<Class, Function<Object, PropertyPlaceholderConfigurer>> MAP;\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -2448,7 +2448,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"        Map<Class, Function<Object, DefinitionPropertyPlaceholderConfigurable>> map = new HashMap<>("
+literal|"        Map<Class, Function<Object, PropertyPlaceholderConfigurer>> map = new HashMap<>("
 operator|+
 name|propertyPlaceholderDefinitions
 operator|.
@@ -2524,14 +2524,14 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    public static Optional<DefinitionPropertyPlaceholderConfigurable> provider(Object definition) {\n"
+literal|"    public static Optional<PropertyPlaceholderConfigurer> provider(Object definition) {\n"
 argument_list|)
 expr_stmt|;
 name|w
 operator|.
 name|write
 argument_list|(
-literal|"        Function<Object, DefinitionPropertyPlaceholderConfigurable> func = MAP.get(definition.getClass());\n"
+literal|"        Function<Object, PropertyPlaceholderConfigurer> func = MAP.get(definition.getClass());\n"
 argument_list|)
 expr_stmt|;
 name|w
