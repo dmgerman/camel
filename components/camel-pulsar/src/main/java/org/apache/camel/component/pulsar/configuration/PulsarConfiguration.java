@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -81,18 +93,6 @@ operator|.
 name|api
 operator|.
 name|CompressionType
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
 import|;
 end_import
 
@@ -345,8 +345,6 @@ DECL|field|blockIfQueueFull
 specifier|private
 name|boolean
 name|blockIfQueueFull
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -379,7 +377,9 @@ literal|"producer"
 argument_list|,
 name|description
 operator|=
-literal|"The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions * maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition."
+literal|"The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if "
+operator|+
+literal|"(number of partitions * maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition."
 argument_list|,
 name|defaultValue
 operator|=
