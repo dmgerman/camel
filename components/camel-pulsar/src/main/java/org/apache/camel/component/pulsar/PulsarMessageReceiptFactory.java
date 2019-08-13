@@ -62,12 +62,17 @@ name|Message
 import|;
 end_import
 
+begin_comment
+comment|/**  * Factory to create a new {@link PulsarMessageReceipt} to store on the {@link Exchange}.  *<p>  * Implement this interface if an alternate implementation of {@link PulsarMessageReceipt} is required  * as newer Pulsar clients may have acknowledgement functionality not yet supported by {@link DefaultPulsarMessageReceipt}.  */
+end_comment
+
 begin_interface
 DECL|interface|PulsarMessageReceiptFactory
 specifier|public
 interface|interface
 name|PulsarMessageReceiptFactory
 block|{
+comment|/**      * Creates a new instance of {@link PulsarMessageReceipt}.      */
 DECL|method|newInstance (Exchange exchange, Message message, Consumer consumer)
 name|PulsarMessageReceipt
 name|newInstance
