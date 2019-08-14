@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|junit5
 operator|.
 name|CamelTestSupport
 import|;
@@ -210,7 +210,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterAll
 import|;
 end_import
 
@@ -220,7 +224,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterEach
 import|;
 end_import
 
@@ -230,7 +238,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeAll
 import|;
 end_import
 
@@ -240,7 +252,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -523,7 +539,7 @@ argument_list|()
 block|}
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|BeforeAll
 DECL|method|setUpClass ()
 specifier|public
 specifier|static
@@ -565,7 +581,7 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|AfterClass
+name|AfterAll
 DECL|method|tearDownClass ()
 specifier|public
 specifier|static
@@ -590,7 +606,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|Before
+name|BeforeEach
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -639,7 +655,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|After
+name|AfterEach
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -686,7 +702,7 @@ init|=
 operator|new
 name|DefaultCamelContext
 argument_list|(
-name|createRegistry
+name|createCamelRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -88,17 +88,27 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Test
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|junit
 operator|.
-name|Test
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertSame
 import|;
 end_import
 
@@ -174,8 +184,6 @@ operator|.
 name|getClassLoader
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertSame
 argument_list|(
 name|expectedClassLoader
@@ -272,8 +280,6 @@ operator|.
 name|getClassLoader
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertSame
 argument_list|(
 name|expectedClassLoader
@@ -334,8 +340,6 @@ operator|.
 name|getClassLoader
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertSame
 argument_list|(
 name|expectedClassLoader
