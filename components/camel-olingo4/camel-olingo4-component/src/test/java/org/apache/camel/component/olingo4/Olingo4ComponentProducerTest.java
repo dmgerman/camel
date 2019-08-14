@@ -2244,7 +2244,12 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|204
+name|HttpStatusCode
+operator|.
+name|NO_CONTENT
+operator|.
+name|getStatusCode
+argument_list|()
 argument_list|,
 name|status
 operator|.
@@ -2337,7 +2342,12 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|204
+name|HttpStatusCode
+operator|.
+name|NO_CONTENT
+operator|.
+name|getStatusCode
+argument_list|()
 argument_list|,
 name|status
 operator|.
