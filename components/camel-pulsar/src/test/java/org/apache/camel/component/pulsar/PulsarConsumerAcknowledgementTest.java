@@ -345,6 +345,7 @@ name|MockEndpoint
 name|to
 decl_stmt|;
 DECL|field|producer
+specifier|private
 name|Producer
 argument_list|<
 name|String
