@@ -128,7 +128,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterEach
 import|;
 end_import
 
@@ -137,6 +141,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -169,7 +177,7 @@ decl_stmt|;
 annotation|@
 name|Override
 annotation|@
-name|After
+name|AfterEach
 DECL|method|tearDown ()
 specifier|public
 name|void

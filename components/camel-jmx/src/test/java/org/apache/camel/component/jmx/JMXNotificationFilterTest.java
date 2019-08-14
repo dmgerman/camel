@@ -84,6 +84,10 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
 import|;
 end_import
@@ -94,7 +98,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertEquals
 import|;
@@ -144,14 +152,14 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"no notifications should have been filtered at this point"
-argument_list|,
 literal|0
 argument_list|,
 name|mRejected
 operator|.
 name|size
 argument_list|()
+argument_list|,
+literal|"no notifications should have been filtered at this point"
 argument_list|)
 expr_stmt|;
 comment|// we should only get 5 messages, which is 1/2 the number of times we touched the object.
@@ -196,14 +204,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"5 notifications should have been filtered"
-argument_list|,
 literal|5
 argument_list|,
 name|mRejected
 operator|.
 name|size
 argument_list|()
+argument_list|,
+literal|"5 notifications should have been filtered"
 argument_list|)
 expr_stmt|;
 comment|// assert that all of the rejected ones are odd and accepted ones even

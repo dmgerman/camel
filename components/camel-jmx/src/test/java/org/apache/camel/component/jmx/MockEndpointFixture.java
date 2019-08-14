@@ -130,7 +130,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertEquals
 import|;
@@ -142,7 +146,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertNotNull
 import|;
@@ -214,8 +222,6 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Expected number of messages didn't arrive before timeout"
-argument_list|,
 name|aMockEndpoint
 operator|.
 name|getExpectedCount
@@ -225,6 +231,8 @@ name|aMockEndpoint
 operator|.
 name|getReceivedCounter
 argument_list|()
+argument_list|,
+literal|"Expected number of messages didn't arrive before timeout"
 argument_list|)
 expr_stmt|;
 block|}

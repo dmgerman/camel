@@ -128,7 +128,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterEach
 import|;
 end_import
 
@@ -138,7 +142,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeEach
 import|;
 end_import
 
@@ -147,6 +155,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -158,7 +170,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertTrue
 import|;
@@ -170,7 +186,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|fail
 import|;
@@ -205,7 +225,7 @@ name|int
 name|port
 decl_stmt|;
 annotation|@
-name|Before
+name|BeforeEach
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -247,7 +267,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|After
+name|AfterEach
 DECL|method|tearDown ()
 specifier|public
 name|void

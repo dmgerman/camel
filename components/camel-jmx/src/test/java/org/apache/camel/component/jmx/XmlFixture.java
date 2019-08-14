@@ -170,7 +170,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertFalse
 import|;
@@ -285,6 +289,11 @@ try|try
 block|{
 name|assertFalse
 argument_list|(
+name|diff
+operator|.
+name|hasDifferences
+argument_list|()
+argument_list|,
 name|aMessage
 operator|+
 literal|":\n"
@@ -292,11 +301,6 @@ operator|+
 name|diff
 operator|.
 name|toString
-argument_list|()
-argument_list|,
-name|diff
-operator|.
-name|hasDifferences
 argument_list|()
 argument_list|)
 expr_stmt|;
