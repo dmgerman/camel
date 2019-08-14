@@ -215,8 +215,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|weaveAddLast
 argument_list|()
@@ -302,8 +300,6 @@ specifier|protected
 name|RoutesBuilder
 name|createRouteBuilder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 operator|new
@@ -316,8 +312,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|from
 argument_list|(

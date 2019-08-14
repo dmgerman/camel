@@ -195,8 +195,6 @@ specifier|public
 name|void
 name|testProcessorJunit5
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|String
 name|out
@@ -235,8 +233,6 @@ parameter_list|,
 name|TestReporter
 name|testReporter
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|assertNotNull
 argument_list|(
@@ -300,8 +296,6 @@ specifier|protected
 name|RoutesBuilder
 name|createRouteBuilder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 operator|new
@@ -314,8 +308,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|from
 argument_list|(

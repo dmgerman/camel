@@ -499,8 +499,6 @@ specifier|static
 name|void
 name|validateTearDown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(

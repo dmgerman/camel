@@ -604,8 +604,6 @@ specifier|static
 name|void
 name|shouldTearDown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// we are called before doPostTearDown so lets wait for that to be
 comment|// called
