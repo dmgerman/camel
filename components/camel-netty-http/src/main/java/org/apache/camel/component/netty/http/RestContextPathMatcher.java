@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link ContextPathMatcher} that supports the Rest DSL.  */
+comment|/**  * A {@link org.apache.camel.component.netty.http.ContextPathMatcher} that supports the Rest DSL.  */
 end_comment
 
 begin_class

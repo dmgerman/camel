@@ -262,24 +262,6 @@ name|netty
 operator|.
 name|http
 operator|.
-name|HttpServerInitializerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty
-operator|.
-name|http
-operator|.
 name|HttpServerConsumerChannelFactory
 import|;
 end_import
@@ -457,7 +439,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A multiplex {@link HttpServerInitializerFactory} which keeps a list of handlers, and delegates to the  * target handler based on the http context path in the incoming request. This is used to allow to reuse  * the same Netty consumer, allowing to have multiple routes on the same netty {@link io.netty.bootstrap.ServerBootstrap}  */
+comment|/**  * A multiplex {@link org.apache.camel.component.netty.http.HttpServerInitializerFactory} which keeps a list of handlers, and delegates to the  * target handler based on the http context path in the incoming request. This is used to allow to reuse  * the same Netty consumer, allowing to have multiple routes on the same netty {@link io.netty.bootstrap.ServerBootstrap}  */
 end_comment
 
 begin_class

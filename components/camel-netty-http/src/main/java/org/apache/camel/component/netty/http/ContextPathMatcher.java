@@ -20,28 +20,8 @@ name|http
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty
-operator|.
-name|http
-operator|.
-name|handlers
-operator|.
-name|HttpServerChannelHandler
-import|;
-end_import
-
 begin_comment
-comment|/**  * A matcher used for selecting the correct {@link HttpServerChannelHandler}  * to handle an incoming {@link io.netty.handler.codec.http.HttpRequest} when you use multiple routes on the same  * port.  *<p/>  * As when we do that, we need to multiplex and select the correct consumer route to process the HTTP request.  * To do that we need to match on the incoming HTTP request context-path from the request.  */
+comment|/**  * A matcher used for selecting the correct {@link org.apache.camel.component.netty.http.handlers.HttpServerChannelHandler}  * to handle an incoming {@link io.netty.handler.codec.http.HttpRequest} when you use multiple routes on the same  * port.  *<p/>  * As when we do that, we need to multiplex and select the correct consumer route to process the HTTP request.  * To do that we need to match on the incoming HTTP request context-path from the request.  */
 end_comment
 
 begin_interface

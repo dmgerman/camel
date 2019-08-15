@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link NettyHttpBinding} that supports the Rest DSL.  */
+comment|/**  * A {@link org.apache.camel.component.netty.http.NettyHttpBinding} that supports the Rest DSL.  */
 end_comment
 
 begin_class
