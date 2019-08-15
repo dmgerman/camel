@@ -213,7 +213,7 @@ name|clientProperties
 operator|.
 name|put
 argument_list|(
-literal|"maxRetreis"
+literal|"maxRetries"
 argument_list|,
 literal|"3"
 argument_list|)
