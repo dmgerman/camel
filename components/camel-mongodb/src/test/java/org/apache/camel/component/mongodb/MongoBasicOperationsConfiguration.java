@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.mongodb3
+DECL|package|org.apache.camel.component.mongodb
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mongodb3
+name|mongodb
 package|;
 end_package
 
@@ -73,7 +73,7 @@ argument_list|)
 annotation|@
 name|ImportResource
 argument_list|(
-literal|"org/apache/camel/component/mongodb3/mongoBasicOperationsTest.xml"
+literal|"org/apache/camel/component/mongodb/mongoBasicOperationsTest.xml"
 argument_list|)
 DECL|class|MongoBasicOperationsConfiguration
 specifier|public

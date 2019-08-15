@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.mongodb3.converters
+DECL|package|org.apache.camel.component.mongodb.converters
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mongodb3
+name|mongodb
 operator|.
 name|converters
 package|;

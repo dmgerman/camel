@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation ( MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType ( MongoDbOutputType outputType)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType (String outputType)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation ( MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1125,7 +1125,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType ( MongoDbOutputType outputType)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1146,7 +1146,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType (String outputType)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1780,7 +1780,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1801,7 +1801,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1822,7 +1822,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType (MongoDbOutputType outputType)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1843,7 +1843,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code>          * type.          *           * Group: common          */
+comment|/**          * Convert the output of the producer to the selected type :          * DocumentList Document or MongoIterable. DocumentList or MongoIterable          * applies to findAll and aggregate. Document applies to all other          * operations.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOutputType</code>          * type.          *           * Group: common          */
 DECL|method|outputType (String outputType)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -2267,7 +2267,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mongodb3.MongoDbOperation</code> enum.      */
+comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mongodb.MongoDbOperation</code> enum.      */
 DECL|enum|MongoDbOperation
 enum|enum
 name|MongoDbOperation
@@ -2314,7 +2314,7 @@ block|,
 DECL|enumConstant|command
 name|command
 block|;     }
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mongodb3.MongoDbOutputType</code> enum.      */
+comment|/**      * Proxy enum for      *<code>org.apache.camel.component.mongodb.MongoDbOutputType</code> enum.      */
 DECL|enum|MongoDbOutputType
 enum|enum
 name|MongoDbOutputType
