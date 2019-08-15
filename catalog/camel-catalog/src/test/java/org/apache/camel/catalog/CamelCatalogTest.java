@@ -1271,10 +1271,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAsEndpointUriNetty4http ()
+DECL|method|testAsEndpointUriNettyhttp ()
 specifier|public
 name|void
-name|testAsEndpointUriNetty4http
+name|testAsEndpointUriNettyhttp
 parameter_list|()
 throws|throws
 name|Exception
@@ -2508,10 +2508,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testEndpointPropertiesNetty4Http ()
+DECL|method|testEndpointPropertiesNettyHttp ()
 specifier|public
 name|void
-name|testEndpointPropertiesNetty4Http
+name|testEndpointPropertiesNettyHttp
 parameter_list|()
 throws|throws
 name|Exception
@@ -2621,10 +2621,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testEndpointPropertiesNetty4HttpDefaultPort ()
+DECL|method|testEndpointPropertiesNettyHttpDefaultPort ()
 specifier|public
 name|void
-name|testEndpointPropertiesNetty4HttpDefaultPort
+name|testEndpointPropertiesNettyHttpDefaultPort
 parameter_list|()
 throws|throws
 name|Exception
@@ -2722,10 +2722,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testEndpointPropertiesNetty4HttpPlaceholder ()
+DECL|method|testEndpointPropertiesNettyHttpPlaceholder ()
 specifier|public
 name|void
-name|testEndpointPropertiesNetty4HttpPlaceholder
+name|testEndpointPropertiesNettyHttpPlaceholder
 parameter_list|()
 throws|throws
 name|Exception
@@ -2835,10 +2835,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testEndpointPropertiesNetty4HttpWithDoubleSlash ()
+DECL|method|testEndpointPropertiesNettyHttpWithDoubleSlash ()
 specifier|public
 name|void
-name|testEndpointPropertiesNetty4HttpWithDoubleSlash
+name|testEndpointPropertiesNettyHttpWithDoubleSlash
 parameter_list|()
 throws|throws
 name|Exception

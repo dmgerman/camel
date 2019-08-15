@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * HL7 MLLP Decoder for Netty4  */
+comment|/**  * HL7 MLLP Decoder for Netty  */
 end_comment
 
 begin_class

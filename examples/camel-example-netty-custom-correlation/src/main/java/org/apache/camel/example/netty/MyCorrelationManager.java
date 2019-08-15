@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|netty4
+name|netty
 operator|.
 name|TimeoutCorrelationManagerSupport
 import|;
@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implement a timeout aware {@link org.apache.camel.component.netty4.NettyCamelStateCorrelationManager}  * that handles all the complexities for us, so we only need to implement how to extract the correlation id.  */
+comment|/**  * Implement a timeout aware {@link org.apache.camel.component.netty.NettyCamelStateCorrelationManager}  * that handles all the complexities for us, so we only need to implement how to extract the correlation id.  */
 end_comment
 
 begin_class

@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Support class for custom implementations of ServiceCall EIP components.  *<p/>  * Below are some examples how to call a service and what Camel endpoint URI is constructed based on the input:  *<pre>  serviceCall("myService") -> http://hostname:port  serviceCall("myService/foo") -> http://hostname:port/foo  serviceCall("http:myService/foo") -> http:hostname:port/foo  serviceCall("myService", "http:myService.host:myService.port/foo") -> http:hostname:port/foo  serviceCall("myService", "netty4:tcp:myService?connectTimeout=1000") -> netty:tcp:hostname:port?connectTimeout=1000  *</pre>  */
+comment|/**  * Support class for custom implementations of ServiceCall EIP components.  *<p/>  * Below are some examples how to call a service and what Camel endpoint URI is constructed based on the input:  *<pre>  serviceCall("myService") -> http://hostname:port  serviceCall("myService/foo") -> http://hostname:port/foo  serviceCall("http:myService/foo") -> http:hostname:port/foo  serviceCall("myService", "http:myService.host:myService.port/foo") -> http:hostname:port/foo  serviceCall("myService", "netty:tcp:myService?connectTimeout=1000") -> netty:tcp:hostname:port?connectTimeout=1000  *</pre>  */
 end_comment
 
 begin_class

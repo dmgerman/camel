@@ -857,7 +857,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option is a:          *<code>org.apache.camel.component.netty4.TextLineDelimiter</code>          * type.          *           * Group: codec          */
+comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option is a:          *<code>org.apache.camel.component.netty.TextLineDelimiter</code> type.          *           * Group: codec          */
 DECL|method|delimiter ( TextLineDelimiter delimiter)
 specifier|default
 name|NettyEndpointConsumerBuilder
@@ -878,7 +878,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty4.TextLineDelimiter</code>          * type.          *           * Group: codec          */
+comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty.TextLineDelimiter</code> type.          *           * Group: codec          */
 DECL|method|delimiter (String delimiter)
 specifier|default
 name|NettyEndpointConsumerBuilder
@@ -1747,7 +1747,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom NettyServerBootstrapFactory.          *           * The option is a:          *<code>org.apache.camel.component.netty4.NettyServerBootstrapFactory</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * To use a custom NettyServerBootstrapFactory.          *           * The option is a:          *<code>org.apache.camel.component.netty.NettyServerBootstrapFactory</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|nettyServerBootstrapFactory ( Object nettyServerBootstrapFactory)
 specifier|default
 name|AdvancedNettyEndpointConsumerBuilder
@@ -1768,7 +1768,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom NettyServerBootstrapFactory.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty4.NettyServerBootstrapFactory</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * To use a custom NettyServerBootstrapFactory.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty.NettyServerBootstrapFactory</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|nettyServerBootstrapFactory ( String nettyServerBootstrapFactory)
 specifier|default
 name|AdvancedNettyEndpointConsumerBuilder
@@ -1936,7 +1936,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ServerInitializerFactory.          *           * The option is a:          *<code>org.apache.camel.component.netty4.ServerInitializerFactory</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * To use a custom ServerInitializerFactory.          *           * The option is a:          *<code>org.apache.camel.component.netty.ServerInitializerFactory</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|serverInitializerFactory ( Object serverInitializerFactory)
 specifier|default
 name|AdvancedNettyEndpointConsumerBuilder
@@ -1957,7 +1957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ServerInitializerFactory.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty4.ServerInitializerFactory</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * To use a custom ServerInitializerFactory.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty.ServerInitializerFactory</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|serverInitializerFactory ( String serverInitializerFactory)
 specifier|default
 name|AdvancedNettyEndpointConsumerBuilder
@@ -3230,7 +3230,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option is a:          *<code>org.apache.camel.component.netty4.TextLineDelimiter</code>          * type.          *           * Group: codec          */
+comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option is a:          *<code>org.apache.camel.component.netty.TextLineDelimiter</code> type.          *           * Group: codec          */
 DECL|method|delimiter ( TextLineDelimiter delimiter)
 specifier|default
 name|NettyEndpointProducerBuilder
@@ -3251,7 +3251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty4.TextLineDelimiter</code>          * type.          *           * Group: codec          */
+comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty.TextLineDelimiter</code> type.          *           * Group: codec          */
 DECL|method|delimiter (String delimiter)
 specifier|default
 name|NettyEndpointProducerBuilder
@@ -3826,7 +3826,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ClientInitializerFactory.          *           * The option is a:          *<code>org.apache.camel.component.netty4.ClientInitializerFactory</code> type.          *           * Group: producer (advanced)          */
+comment|/**          * To use a custom ClientInitializerFactory.          *           * The option is a:          *<code>org.apache.camel.component.netty.ClientInitializerFactory</code> type.          *           * Group: producer (advanced)          */
 DECL|method|clientInitializerFactory ( Object clientInitializerFactory)
 specifier|default
 name|AdvancedNettyEndpointProducerBuilder
@@ -3847,7 +3847,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ClientInitializerFactory.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty4.ClientInitializerFactory</code> type.          *           * Group: producer (advanced)          */
+comment|/**          * To use a custom ClientInitializerFactory.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty.ClientInitializerFactory</code> type.          *           * Group: producer (advanced)          */
 DECL|method|clientInitializerFactory ( String clientInitializerFactory)
 specifier|default
 name|AdvancedNettyEndpointProducerBuilder
@@ -3868,7 +3868,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom correlation manager to manage how request and reply          * messages are mapped when using request/reply with the netty producer.          * This should only be used if you have a way to map requests together          * with replies such as if there is correlation ids in both the request          * and reply messages. This can be used if you want to multiplex          * concurrent messages on the same channel (aka connection) in netty.          * When doing this you must have a way to correlate the request and          * reply messages so you can store the right reply on the inflight Camel          * Exchange before its continued routed. We recommend extending the          * TimeoutCorrelationManagerSupport when you build custom correlation          * managers. This provides support for timeout and other complexities          * you otherwise would need to implement as well. See also the          * producerPoolEnabled option for more details.          *           * The option is a:          *<code>org.apache.camel.component.netty4.NettyCamelStateCorrelationManager</code> type.          *           * Group: producer (advanced)          */
+comment|/**          * To use a custom correlation manager to manage how request and reply          * messages are mapped when using request/reply with the netty producer.          * This should only be used if you have a way to map requests together          * with replies such as if there is correlation ids in both the request          * and reply messages. This can be used if you want to multiplex          * concurrent messages on the same channel (aka connection) in netty.          * When doing this you must have a way to correlate the request and          * reply messages so you can store the right reply on the inflight Camel          * Exchange before its continued routed. We recommend extending the          * TimeoutCorrelationManagerSupport when you build custom correlation          * managers. This provides support for timeout and other complexities          * you otherwise would need to implement as well. See also the          * producerPoolEnabled option for more details.          *           * The option is a:          *<code>org.apache.camel.component.netty.NettyCamelStateCorrelationManager</code> type.          *           * Group: producer (advanced)          */
 DECL|method|correlationManager ( Object correlationManager)
 specifier|default
 name|AdvancedNettyEndpointProducerBuilder
@@ -3889,7 +3889,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom correlation manager to manage how request and reply          * messages are mapped when using request/reply with the netty producer.          * This should only be used if you have a way to map requests together          * with replies such as if there is correlation ids in both the request          * and reply messages. This can be used if you want to multiplex          * concurrent messages on the same channel (aka connection) in netty.          * When doing this you must have a way to correlate the request and          * reply messages so you can store the right reply on the inflight Camel          * Exchange before its continued routed. We recommend extending the          * TimeoutCorrelationManagerSupport when you build custom correlation          * managers. This provides support for timeout and other complexities          * you otherwise would need to implement as well. See also the          * producerPoolEnabled option for more details.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty4.NettyCamelStateCorrelationManager</code> type.          *           * Group: producer (advanced)          */
+comment|/**          * To use a custom correlation manager to manage how request and reply          * messages are mapped when using request/reply with the netty producer.          * This should only be used if you have a way to map requests together          * with replies such as if there is correlation ids in both the request          * and reply messages. This can be used if you want to multiplex          * concurrent messages on the same channel (aka connection) in netty.          * When doing this you must have a way to correlate the request and          * reply messages so you can store the right reply on the inflight Camel          * Exchange before its continued routed. We recommend extending the          * TimeoutCorrelationManagerSupport when you build custom correlation          * managers. This provides support for timeout and other complexities          * you otherwise would need to implement as well. See also the          * producerPoolEnabled option for more details.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty.NettyCamelStateCorrelationManager</code> type.          *           * Group: producer (advanced)          */
 DECL|method|correlationManager ( String correlationManager)
 specifier|default
 name|AdvancedNettyEndpointProducerBuilder
@@ -5332,7 +5332,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option is a:          *<code>org.apache.camel.component.netty4.TextLineDelimiter</code>          * type.          *           * Group: codec          */
+comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option is a:          *<code>org.apache.camel.component.netty.TextLineDelimiter</code> type.          *           * Group: codec          */
 DECL|method|delimiter (TextLineDelimiter delimiter)
 specifier|default
 name|NettyEndpointBuilder
@@ -5353,7 +5353,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty4.TextLineDelimiter</code>          * type.          *           * Group: codec          */
+comment|/**          * The delimiter to use for the textline codec. Possible values are LINE          * and NULL.          *           * The option will be converted to a          *<code>org.apache.camel.component.netty.TextLineDelimiter</code> type.          *           * Group: codec          */
 DECL|method|delimiter (String delimiter)
 specifier|default
 name|NettyEndpointBuilder
@@ -6524,7 +6524,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.netty4.TextLineDelimiter</code> enum.      */
+comment|/**      * Proxy enum for      *<code>org.apache.camel.component.netty.TextLineDelimiter</code> enum.      */
 DECL|enum|TextLineDelimiter
 enum|enum
 name|TextLineDelimiter
