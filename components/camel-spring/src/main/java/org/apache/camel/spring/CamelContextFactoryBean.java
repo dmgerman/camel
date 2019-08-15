@@ -1039,6 +1039,13 @@ name|name
 operator|=
 literal|"depends-on"
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|displayName
+operator|=
+literal|"Depends On"
+argument_list|)
 DECL|field|dependsOn
 specifier|private
 name|String
@@ -1144,6 +1151,13 @@ name|shutdownEager
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|displayName
+operator|=
+literal|"Use MDC Logging"
+argument_list|)
 DECL|field|useMDCLogging
 specifier|private
 name|String
@@ -1151,6 +1165,13 @@ name|useMDCLogging
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|displayName
+operator|=
+literal|"MDC Logging Keys Pattern"
+argument_list|)
 DECL|field|mdcLoggingKeysPattern
 specifier|private
 name|String
@@ -1400,6 +1421,13 @@ operator|=
 name|CamelJMXAgentDefinition
 operator|.
 name|class
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|displayName
+operator|=
+literal|"JMX Agent"
 argument_list|)
 DECL|field|camelJMXAgent
 specifier|private
@@ -3453,7 +3481,7 @@ operator|=
 name|camelStreamCachingStrategy
 expr_stmt|;
 block|}
-comment|/**      * Configuration of JMX.      */
+comment|/**      * Configuration of JMX Agent.      */
 DECL|method|setCamelJMXAgent (CamelJMXAgentDefinition agent)
 specifier|public
 name|void
