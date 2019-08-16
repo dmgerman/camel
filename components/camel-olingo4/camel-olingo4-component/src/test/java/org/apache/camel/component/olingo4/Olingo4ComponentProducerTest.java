@@ -1262,10 +1262,9 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
-argument_list|(
-literal|"Resource Not Found [HTTP/1.1 404 Not Found]"
-argument_list|,
+name|String
+name|causeMsg
+init|=
 name|e
 operator|.
 name|getCause
@@ -1273,6 +1272,15 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|causeMsg
+operator|.
+name|contains
+argument_list|(
+literal|"[HTTP/1.1 404 Not Found]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1478,10 +1486,9 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
-argument_list|(
-literal|"Resource Not Found [HTTP/1.1 404 Not Found]"
-argument_list|,
+name|String
+name|causeMsg
+init|=
 name|e
 operator|.
 name|getCause
@@ -1489,6 +1496,15 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|causeMsg
+operator|.
+name|contains
+argument_list|(
+literal|"[HTTP/1.1 404 Not Found]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
