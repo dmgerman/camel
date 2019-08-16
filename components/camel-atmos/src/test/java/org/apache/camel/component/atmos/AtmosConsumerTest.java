@@ -162,7 +162,7 @@ name|Exception
 block|{
 name|fromF
 argument_list|(
-literal|"atmos:foo/get?remotePath=/path&fullTokenId=fakeToken&secretKey=%sSecret&uri=https://fake/uri"
+literal|"atmos:foo/get?remotePath=/path&fullTokenId=fakeToken&secretKey=%s&uri=https://fake/uri"
 argument_list|,
 name|fake
 argument_list|)
