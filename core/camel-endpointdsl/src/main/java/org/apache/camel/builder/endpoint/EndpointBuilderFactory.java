@@ -498,7 +498,7 @@ name|MiloClientEndpointBuilderFactory
 extends|,
 name|MiloServerEndpointBuilderFactory
 extends|,
-name|Mina2EndpointBuilderFactory
+name|MinaEndpointBuilderFactory
 extends|,
 name|MllpEndpointBuilderFactory
 extends|,

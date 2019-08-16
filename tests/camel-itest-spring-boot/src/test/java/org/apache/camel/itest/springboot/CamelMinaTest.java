@@ -167,7 +167,7 @@ argument_list|)
 operator|.
 name|unitTestExclusionPattern
 argument_list|(
-literal|".*(\\.integration\\..*|IntegrationTest$|BaseMina2Test$)"
+literal|".*(\\.integration\\..*|IntegrationTest$|BaseMinaTest$)"
 argument_list|)
 operator|.
 name|build
