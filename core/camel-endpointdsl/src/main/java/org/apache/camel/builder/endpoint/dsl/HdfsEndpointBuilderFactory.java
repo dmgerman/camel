@@ -252,7 +252,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          *           * Group: common          */
+comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsFileSystemType</code> type.          *           * Group: common          */
 DECL|method|fileSystemType ( HdfsFileSystemType fileSystemType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -273,7 +273,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          *           * Group: common          */
+comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsFileSystemType</code> type.          *           * Group: common          */
 DECL|method|fileSystemType (String fileSystemType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -294,7 +294,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          *           * Group: common          */
+comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsFileType</code> type.          *           * Group: common          */
 DECL|method|fileType (HdfsFileType fileType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -315,7 +315,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          *           * Group: common          */
+comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsFileType</code> type.          *           * Group: common          */
 DECL|method|fileType (String fileType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -336,7 +336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (WritableType keyType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -357,7 +357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -399,7 +399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|valueType (WritableType valueType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -420,7 +420,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|valueType (String valueType)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -1455,7 +1455,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The compression codec to use.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
+comment|/**          * The compression codec to use.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
 DECL|method|compressionCodec ( HdfsCompressionCodec compressionCodec)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
@@ -1476,7 +1476,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The compression codec to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
+comment|/**          * The compression codec to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
 DECL|method|compressionCodec ( String compressionCodec)
 specifier|default
 name|AdvancedHdfsEndpointConsumerBuilder
@@ -1750,7 +1750,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          *           * Group: common          */
+comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsFileSystemType</code> type.          *           * Group: common          */
 DECL|method|fileSystemType ( HdfsFileSystemType fileSystemType)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -1771,7 +1771,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          *           * Group: common          */
+comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsFileSystemType</code> type.          *           * Group: common          */
 DECL|method|fileSystemType (String fileSystemType)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -1792,7 +1792,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          *           * Group: common          */
+comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsFileType</code> type.          *           * Group: common          */
 DECL|method|fileType (HdfsFileType fileType)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -1813,7 +1813,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          *           * Group: common          */
+comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsFileType</code> type.          *           * Group: common          */
 DECL|method|fileType (String fileType)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -1834,7 +1834,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (WritableType keyType)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -1855,7 +1855,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -1897,7 +1897,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|valueType (WritableType valueType)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -1918,7 +1918,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|valueType (String valueType)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -2297,7 +2297,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The compression codec to use.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
+comment|/**          * The compression codec to use.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
 DECL|method|compressionCodec ( HdfsCompressionCodec compressionCodec)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
@@ -2318,7 +2318,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The compression codec to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
+comment|/**          * The compression codec to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
 DECL|method|compressionCodec ( String compressionCodec)
 specifier|default
 name|AdvancedHdfsEndpointProducerBuilder
@@ -2594,7 +2594,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          *           * Group: common          */
+comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsFileSystemType</code> type.          *           * Group: common          */
 DECL|method|fileSystemType ( HdfsFileSystemType fileSystemType)
 specifier|default
 name|HdfsEndpointBuilder
@@ -2615,7 +2615,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code>          * type.          *           * Group: common          */
+comment|/**          * Set to LOCAL to not use HDFS but local java.io.File instead.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsFileSystemType</code> type.          *           * Group: common          */
 DECL|method|fileSystemType (String fileSystemType)
 specifier|default
 name|HdfsEndpointBuilder
@@ -2636,7 +2636,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          *           * Group: common          */
+comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsFileType</code> type.          *           * Group: common          */
 DECL|method|fileType (HdfsFileType fileType)
 specifier|default
 name|HdfsEndpointBuilder
@@ -2657,7 +2657,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsFileType</code> type.          *           * Group: common          */
+comment|/**          * The file type to use. For more details see Hadoop HDFS documentation          * about the various files types.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsFileType</code> type.          *           * Group: common          */
 DECL|method|fileType (String fileType)
 specifier|default
 name|HdfsEndpointBuilder
@@ -2678,7 +2678,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (WritableType keyType)
 specifier|default
 name|HdfsEndpointBuilder
@@ -2699,7 +2699,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|HdfsEndpointBuilder
@@ -2741,7 +2741,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|valueType (WritableType valueType)
 specifier|default
 name|HdfsEndpointBuilder
@@ -2762,7 +2762,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.WritableType</code> type.          *           * Group: common          */
+comment|/**          * The type for the key in case of sequence or map files.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|valueType (String valueType)
 specifier|default
 name|HdfsEndpointBuilder
@@ -3017,7 +3017,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The compression codec to use.          *           * The option is a:          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
+comment|/**          * The compression codec to use.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
 DECL|method|compressionCodec ( HdfsCompressionCodec compressionCodec)
 specifier|default
 name|AdvancedHdfsEndpointBuilder
@@ -3038,7 +3038,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The compression codec to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
+comment|/**          * The compression codec to use.          *           * The option will be converted to a          *<code>org.apache.camel.component.hdfs.HdfsCompressionCodec</code>          * type.          *           * Group: advanced          */
 DECL|method|compressionCodec ( String compressionCodec)
 specifier|default
 name|AdvancedHdfsEndpointBuilder
@@ -3249,7 +3249,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hdfs2.HdfsFileSystemType</code> enum.      */
+comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hdfs.HdfsFileSystemType</code> enum.      */
 DECL|enum|HdfsFileSystemType
 enum|enum
 name|HdfsFileSystemType
@@ -3260,7 +3260,7 @@ block|,
 DECL|enumConstant|HDFS
 name|HDFS
 block|;     }
-comment|/**      * Proxy enum for<code>org.apache.camel.component.hdfs2.HdfsFileType</code>      * enum.      */
+comment|/**      * Proxy enum for<code>org.apache.camel.component.hdfs.HdfsFileType</code>      * enum.      */
 DECL|enum|HdfsFileType
 enum|enum
 name|HdfsFileType
@@ -3280,7 +3280,7 @@ block|,
 DECL|enumConstant|ARRAY_FILE
 name|ARRAY_FILE
 block|;     }
-comment|/**      * Proxy enum for<code>org.apache.camel.component.hdfs2.WritableType</code>      * enum.      */
+comment|/**      * Proxy enum for<code>org.apache.camel.component.hdfs.WritableType</code>      * enum.      */
 DECL|enum|WritableType
 enum|enum
 name|WritableType
@@ -3312,7 +3312,7 @@ block|,
 DECL|enumConstant|BYTES
 name|BYTES
 block|;     }
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hdfs2.HdfsCompressionCodec</code> enum.      */
+comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hdfs.HdfsCompressionCodec</code> enum.      */
 DECL|enum|HdfsCompressionCodec
 enum|enum
 name|HdfsCompressionCodec
