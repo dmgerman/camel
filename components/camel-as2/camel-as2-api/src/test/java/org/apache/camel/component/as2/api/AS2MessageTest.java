@@ -1101,9 +1101,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8080
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|RECIPIENT_DELIVERY_ADDRESS
 specifier|private

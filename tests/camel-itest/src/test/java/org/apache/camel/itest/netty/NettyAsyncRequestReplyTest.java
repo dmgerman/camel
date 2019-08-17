@@ -593,9 +593,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8000
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|from
 argument_list|(

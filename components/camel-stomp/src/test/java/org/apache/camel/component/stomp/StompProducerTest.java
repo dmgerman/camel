@@ -578,9 +578,12 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 operator|.
-name|to
+name|toF
 argument_list|(
-literal|"stomp:test"
+literal|"stomp:test?brokerURL=tcp://localhost:%s"
+argument_list|,
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -89,9 +89,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8888
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getPort ()

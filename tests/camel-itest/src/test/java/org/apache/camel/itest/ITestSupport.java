@@ -72,9 +72,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|61616
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|PORT4
 specifier|static
@@ -85,9 +83,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|61616
-argument_list|)
+argument_list|()
 decl_stmt|;
 static|static
 block|{

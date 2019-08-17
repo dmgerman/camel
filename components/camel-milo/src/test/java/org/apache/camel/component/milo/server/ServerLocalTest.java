@@ -78,9 +78,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|milo
+name|mock
 operator|.
-name|Ports
+name|MockEndpoint
 import|;
 end_import
 
@@ -92,11 +92,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|test
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|AvailablePortFinder
 import|;
 end_import
 
@@ -250,9 +248,9 @@ name|component
 operator|.
 name|setBindPort
 argument_list|(
-name|Ports
+name|AvailablePortFinder
 operator|.
-name|pickServerPort
+name|getNextAvailable
 argument_list|()
 argument_list|)
 expr_stmt|;

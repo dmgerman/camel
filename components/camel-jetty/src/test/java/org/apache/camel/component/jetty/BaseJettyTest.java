@@ -198,15 +198,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// start from somewhere in the 23xxx range
 name|port
 operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|23000
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// find another ports for proxy route test
 name|port2
@@ -214,9 +211,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|24000
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -312,32 +307,7 @@ return|return
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-name|port
-operator|+
-name|counter
-operator|.
-name|getAndIncrement
 argument_list|()
-argument_list|)
-return|;
-block|}
-DECL|method|getNextPort (int startWithPort)
-specifier|protected
-name|int
-name|getNextPort
-parameter_list|(
-name|int
-name|startWithPort
-parameter_list|)
-block|{
-return|return
-name|AvailablePortFinder
-operator|.
-name|getNextAvailable
-argument_list|(
-name|startWithPort
-argument_list|)
 return|;
 block|}
 DECL|method|setSSLProps (JettyHttpComponent jetty, String path, String keyStorePasswd, String keyPasswd)

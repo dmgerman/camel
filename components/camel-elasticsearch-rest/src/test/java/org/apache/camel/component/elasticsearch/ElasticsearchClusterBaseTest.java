@@ -236,11 +236,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-name|ES_BASE_HTTP_PORT
-operator|+
-literal|1
-argument_list|)
+argument_list|()
 decl_stmt|;
 annotation|@
 name|SuppressWarnings
@@ -278,6 +274,22 @@ operator|=
 operator|new
 name|ElasticsearchClusterRunner
 argument_list|()
+expr_stmt|;
+name|runner
+operator|.
+name|setMaxHttpPort
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|runner
+operator|.
+name|setMaxTransportPort
+argument_list|(
+operator|-
+literal|1
+argument_list|)
 expr_stmt|;
 comment|// create ES nodes
 name|runner
@@ -330,7 +342,18 @@ operator|.
 name|baseHttpPort
 argument_list|(
 name|ES_BASE_HTTP_PORT
+operator|-
+literal|1
 argument_list|)
+comment|// ElasticsearchClusterRunner add node id to port, so set it to ES_BASE_HTTP_PORT-1 to start node 1 exactly on ES_BASE_HTTP_PORT
+operator|.
+name|baseTransportPort
+argument_list|(
+name|ES_FIRST_NODE_TRANSPORT_PORT
+operator|-
+literal|1
+argument_list|)
+comment|// ElasticsearchClusterRunner add node id to port, so set it to ES_FIRST_NODE_TRANSPORT_PORT-1 to start node 1 exactly on ES_FIRST_NODE_TRANSPORT_PORT
 operator|.
 name|basePath
 argument_list|(
@@ -360,7 +383,7 @@ argument_list|(
 literal|"127.0.0.1"
 argument_list|)
 argument_list|,
-name|ES_FIRST_NODE_TRANSPORT_PORT
+name|ES_BASE_HTTP_PORT
 argument_list|)
 argument_list|)
 expr_stmt|;

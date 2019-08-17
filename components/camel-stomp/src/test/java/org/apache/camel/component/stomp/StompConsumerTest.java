@@ -353,9 +353,12 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|from
+name|fromF
 argument_list|(
-literal|"stomp:test"
+literal|"stomp:test?brokerURL=tcp://localhost:%s"
+argument_list|,
+name|getPort
+argument_list|()
 argument_list|)
 operator|.
 name|transform

@@ -191,7 +191,7 @@ name|REQUEST_STRING
 init|=
 literal|"user: Willem\n"
 operator|+
-literal|"GET http://localhost:8101/test HTTP/1.1\n"
+literal|"GET http://localhost:%s/test HTTP/1.1\n"
 operator|+
 literal|"another: value\n Host: localhost\n"
 decl_stmt|;
@@ -316,7 +316,7 @@ name|Exception
 block|{
 name|invokeService
 argument_list|(
-literal|8100
+name|port1
 argument_list|)
 expr_stmt|;
 block|}
@@ -380,7 +380,14 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
 name|REQUEST_STRING
+argument_list|,
+name|port
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -456,9 +463,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8100
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// set up a netty http proxy
 name|from

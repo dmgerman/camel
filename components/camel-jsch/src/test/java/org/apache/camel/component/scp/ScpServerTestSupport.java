@@ -469,9 +469,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|21000
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

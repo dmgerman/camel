@@ -205,9 +205,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|39000
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|registry
 operator|=

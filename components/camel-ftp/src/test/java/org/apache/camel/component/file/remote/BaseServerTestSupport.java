@@ -56,7 +56,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|Before
 import|;
 end_import
 
@@ -70,30 +70,44 @@ name|CamelTestSupport
 block|{
 DECL|field|port
 specifier|protected
-specifier|static
 name|int
 name|port
 decl_stmt|;
+DECL|field|portInitialized
+specifier|private
+name|boolean
+name|portInitialized
+decl_stmt|;
 annotation|@
-name|BeforeClass
+name|Before
 DECL|method|initPort ()
 specifier|public
-specifier|static
 name|void
 name|initPort
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|portInitialized
+condition|)
+block|{
+comment|// call only once per test method (Some tests can call this method manually in setUp method,
+comment|// which is called before this if setUp method is overridden)
 name|port
 operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|21000
-argument_list|)
+argument_list|()
 expr_stmt|;
+name|portInitialized
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 DECL|method|getPort ()
 specifier|protected

@@ -194,9 +194,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8000
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// configure a global transacted error handler
 name|errorHandler

@@ -293,18 +293,14 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8000
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|port2
 operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|9000
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// use jetty as server as it supports sending response as chunked encoding
 name|from

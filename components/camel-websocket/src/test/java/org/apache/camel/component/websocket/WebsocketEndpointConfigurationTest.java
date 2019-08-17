@@ -234,9 +234,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|16330
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|String
 name|uri
@@ -562,9 +560,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|16331
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|String
 name|uri
@@ -779,9 +775,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|16332
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|String
 name|uri

@@ -191,9 +191,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|22400
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// configure to use restlet on localhost with the given port
 name|restConfiguration

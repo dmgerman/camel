@@ -109,10 +109,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-operator|++
-name|port
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|System
 operator|.

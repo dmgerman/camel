@@ -165,9 +165,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|25000
-argument_list|)
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Test

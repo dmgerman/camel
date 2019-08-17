@@ -639,9 +639,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|23500
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|uri
 operator|=

@@ -501,7 +501,7 @@ name|clusterName
 operator|+
 literal|"?operation=Index&indexName=twitter&hostAddresses=localhost:"
 operator|+
-name|ES_FIRST_NODE_TRANSPORT_PORT
+name|ES_BASE_HTTP_PORT
 argument_list|)
 expr_stmt|;
 name|from
@@ -517,7 +517,7 @@ name|clusterName
 operator|+
 literal|"?operation=Index&indexName=twitter&enableSniffer=true&hostAddresses=localhost:"
 operator|+
-name|ES_FIRST_NODE_TRANSPORT_PORT
+name|ES_BASE_HTTP_PORT
 argument_list|)
 expr_stmt|;
 block|}
