@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|pollconsumer
 operator|.
-name|quartz2
+name|quartz
 operator|.
 name|QuartzScheduledPollConsumerScheduler
 import|;

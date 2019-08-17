@@ -172,14 +172,14 @@ name|SPRING_SCHEDULER
 init|=
 literal|"org.apache.camel.spring.pollingconsumer.SpringScheduledPollConsumerScheduler"
 decl_stmt|;
-DECL|field|QUARTZ_2_SCHEDULER
+DECL|field|QUARTZ_SCHEDULER
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|QUARTZ_2_SCHEDULER
+name|QUARTZ_SCHEDULER
 init|=
-literal|"org.apache.camel.pollconsumer.quartz2.QuartzScheduledPollConsumerScheduler"
+literal|"org.apache.camel.pollconsumer.quartz.QuartzScheduledPollConsumerScheduler"
 decl_stmt|;
 comment|// if adding more options then align with org.apache.camel.support.ScheduledPollConsumer
 annotation|@
@@ -807,7 +807,7 @@ argument_list|()
 operator|.
 name|resolveMandatoryClass
 argument_list|(
-name|QUARTZ_2_SCHEDULER
+name|QUARTZ_SCHEDULER
 argument_list|,
 name|ScheduledPollConsumerScheduler
 operator|.
@@ -841,7 +841,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Cannot load "
 operator|+
-name|QUARTZ_2_SCHEDULER
+name|QUARTZ_SCHEDULER
 operator|+
 literal|" from classpath. Make sure camel-quartz.jar is on the classpath."
 argument_list|,

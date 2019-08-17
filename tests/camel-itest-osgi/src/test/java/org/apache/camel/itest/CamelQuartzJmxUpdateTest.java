@@ -371,7 +371,7 @@ name|ObjectHelper
 operator|.
 name|loadResourceAsURL
 argument_list|(
-literal|"org/apache/camel/itest/CamelQuartz2JmxUpdateTest.xml"
+literal|"org/apache/camel/itest/CamelQuartzJmxUpdateTest.xml"
 argument_list|,
 name|CamelQuartzJmxUpdateTest
 operator|.
