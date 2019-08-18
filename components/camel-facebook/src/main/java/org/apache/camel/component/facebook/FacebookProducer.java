@@ -664,7 +664,7 @@ block|}
 comment|// producer returns a single response, even for methods with List return types
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
@@ -675,7 +675,7 @@ expr_stmt|;
 comment|// copy headers
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeaders
@@ -698,7 +698,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeader

@@ -130,14 +130,12 @@ argument_list|(
 literal|"facebook://getFeed?configuration=#configuration"
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
 literal|"Configuration bean wasn't taken into account!"
 argument_list|,
 literal|"fakeId"
-operator|.
-name|equals
-argument_list|(
+argument_list|,
 name|facebookEndpoint
 operator|.
 name|getConfiguration
@@ -146,16 +144,13 @@ operator|.
 name|getOAuthAppId
 argument_list|()
 argument_list|)
-argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
 literal|"Configuration bean wasn't taken into account!"
 argument_list|,
 literal|"fakeSecret"
-operator|.
-name|equals
-argument_list|(
+argument_list|,
 name|facebookEndpoint
 operator|.
 name|getConfiguration
@@ -163,7 +158,6 @@ argument_list|()
 operator|.
 name|getOAuthAppSecret
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

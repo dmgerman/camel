@@ -278,20 +278,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|PropertyBindingSupport
 import|;
 end_import
@@ -1085,7 +1071,7 @@ operator|=
 name|inBody
 expr_stmt|;
 block|}
-comment|/**      * Sets the {@link FacebookEndpointConfiguration} to use      *       * @param configuration the {@link FacebookEndpointConfiguration} to use      */
+comment|/**      * Sets the {@link FacebookEndpointConfiguration} to use      *      * @param configuration the {@link FacebookEndpointConfiguration} to use      */
 DECL|method|setConfiguration (FacebookEndpointConfiguration configuration)
 specifier|public
 name|void

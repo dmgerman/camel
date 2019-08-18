@@ -126,7 +126,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
-name|LinkedHashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -135,7 +135,7 @@ argument_list|>
 name|source
 init|=
 operator|(
-name|LinkedHashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -158,7 +158,7 @@ name|Reading
 argument_list|()
 decl_stmt|;
 specifier|final
-name|LinkedHashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -674,7 +674,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
-name|LinkedHashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -683,7 +683,7 @@ argument_list|>
 name|readingParameters
 init|=
 operator|(
-name|LinkedHashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -702,7 +702,7 @@ operator|.
 name|putAll
 argument_list|(
 operator|(
-name|LinkedHashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
