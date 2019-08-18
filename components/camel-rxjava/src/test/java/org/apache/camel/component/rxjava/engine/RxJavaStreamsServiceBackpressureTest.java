@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.rxjava2.engine
+DECL|package|org.apache.camel.component.rxjava.engine
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|rxjava2
+name|rxjava
 operator|.
 name|engine
 package|;
@@ -120,23 +120,13 @@ name|camel
 operator|.
 name|component
 operator|.
-name|rxjava2
+name|rxjava
 operator|.
 name|engine
 operator|.
-name|suport
+name|support
 operator|.
 name|TestSubscriber
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
 import|;
 end_import
 
@@ -316,8 +306,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|latch
@@ -332,8 +320,6 @@ name|SECONDS
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|20
@@ -357,8 +343,6 @@ range|:
 name|queue
 control|)
 block|{
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|num
@@ -533,8 +517,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|latch
@@ -564,8 +546,6 @@ argument_list|(
 literal|19
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|latch2
@@ -588,8 +568,6 @@ literal|200
 argument_list|)
 expr_stmt|;
 comment|// add other time to ensure no other items arrive
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -624,8 +602,6 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|3
@@ -804,8 +780,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|latch1
@@ -835,8 +809,6 @@ argument_list|(
 literal|19
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|latch2
@@ -861,8 +833,6 @@ expr_stmt|;
 comment|// add other time to ensure no other items arrive
 comment|// TODO: the chain caches two elements instead of one: change it if you find an EmitterProcessor without prefetch
 comment|// Assert.assertEquals(2, queue.size());
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|3
@@ -898,8 +868,6 @@ name|get
 argument_list|()
 decl_stmt|;
 comment|// Assert.assertEquals(21, sum); // 1 + 20 = 21
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|23

@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.rxjava2.engine
+DECL|package|org.apache.camel.component.rxjava.engine
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|rxjava2
+name|rxjava
 operator|.
 name|engine
 package|;
