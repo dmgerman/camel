@@ -65,10 +65,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RxJava2PlatformTest
+DECL|class|RxJavaPlatformTest
 specifier|public
 class|class
-name|RxJava2PlatformTest
+name|RxJavaPlatformTest
 extends|extends
 name|AbstractPlatformTestSupport
 block|{
