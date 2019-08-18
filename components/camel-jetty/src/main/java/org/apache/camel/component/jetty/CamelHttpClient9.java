@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jetty9
+DECL|package|org.apache.camel.component.jetty
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jetty9
+name|jetty
 package|;
 end_package
 
@@ -27,22 +27,6 @@ operator|.
 name|concurrent
 operator|.
 name|Executor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jetty
-operator|.
-name|CamelHttpClient
 import|;
 end_import
 
