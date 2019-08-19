@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jetty.springboot
+DECL|package|org.apache.camel.component.jetty9.springboot
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jetty
+name|jetty9
 operator|.
 name|springboot
 package|;
@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jetty
+name|jetty9
 operator|.
 name|JettyHttpComponent9
 import|;

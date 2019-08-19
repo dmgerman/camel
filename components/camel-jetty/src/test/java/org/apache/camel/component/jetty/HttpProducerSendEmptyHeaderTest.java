@@ -110,13 +110,24 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// Jetty 8 treats an empty header as "" while Jetty 9 treats it as null
+name|String
+name|expectedValue
+init|=
+name|isJetty8
+argument_list|()
+condition|?
+literal|""
+else|:
+literal|null
+decl_stmt|;
 name|mock
 operator|.
 name|expectedHeaderReceived
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|null
+name|expectedValue
 argument_list|)
 expr_stmt|;
 name|template

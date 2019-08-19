@@ -530,6 +530,37 @@ name|filterStrat
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isJetty8 ()
+specifier|protected
+name|boolean
+name|isJetty8
+parameter_list|()
+block|{
+name|String
+name|majorVersion
+init|=
+name|Server
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|split
+argument_list|(
+literal|"\\."
+argument_list|)
+index|[
+literal|0
+index|]
+decl_stmt|;
+return|return
+literal|"8"
+operator|.
+name|equals
+argument_list|(
+name|majorVersion
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
