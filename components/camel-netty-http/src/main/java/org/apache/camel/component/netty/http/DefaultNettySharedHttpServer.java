@@ -92,11 +92,7 @@ name|component
 operator|.
 name|netty
 operator|.
-name|http
-operator|.
-name|handlers
-operator|.
-name|HttpServerMultiplexChannelHandler
+name|NettyServerBootstrapFactory
 import|;
 end_import
 
@@ -112,7 +108,11 @@ name|component
 operator|.
 name|netty
 operator|.
-name|NettyServerBootstrapFactory
+name|http
+operator|.
+name|handlers
+operator|.
+name|HttpServerMultiplexChannelHandler
 import|;
 end_import
 

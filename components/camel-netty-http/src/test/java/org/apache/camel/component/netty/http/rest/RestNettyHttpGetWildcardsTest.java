@@ -86,7 +86,7 @@ name|netty
 operator|.
 name|http
 operator|.
-name|RestNettyHttpBinding
+name|BaseNettyTest
 import|;
 end_import
 
@@ -104,7 +104,7 @@ name|netty
 operator|.
 name|http
 operator|.
-name|BaseNettyTest
+name|RestNettyHttpBinding
 import|;
 end_import
 
