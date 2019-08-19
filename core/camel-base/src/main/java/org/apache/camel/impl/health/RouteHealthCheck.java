@@ -533,8 +533,8 @@ condition|)
 block|{
 comment|// If JMX is enabled, use the Managed MBeans to determine route
 comment|// health based on performance counters.
-name|ManagedRouteMBean
-name|managedRoute
+name|ManagedCamelContext
+name|managedCamelContext
 init|=
 name|context
 operator|.
@@ -544,6 +544,18 @@ name|ManagedCamelContext
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|managedCamelContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|ManagedRouteMBean
+name|managedRoute
+init|=
+name|managedCamelContext
 operator|.
 name|getManagedRoute
 argument_list|(
@@ -601,6 +613,7 @@ name|DOWN
 condition|)
 block|{
 break|break;
+block|}
 block|}
 block|}
 block|}
