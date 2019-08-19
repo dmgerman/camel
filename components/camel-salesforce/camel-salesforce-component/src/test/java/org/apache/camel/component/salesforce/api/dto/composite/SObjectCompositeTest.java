@@ -272,6 +272,23 @@ name|AccountContactJunction__c
 extends|extends
 name|AbstractDescribedSObjectBase
 block|{
+DECL|method|AccountContactJunction__c ()
+specifier|public
+name|AccountContactJunction__c
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|getAttributes
+argument_list|()
+operator|.
+name|setType
+argument_list|(
+literal|"AccountContactJunction__c"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|field|account__c
 specifier|private
 name|String

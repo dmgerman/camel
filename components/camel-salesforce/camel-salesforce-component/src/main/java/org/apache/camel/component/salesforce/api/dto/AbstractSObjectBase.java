@@ -46,6 +46,20 @@ name|JsonProperty
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|thoughtworks
+operator|.
+name|xstream
+operator|.
+name|annotations
+operator|.
+name|XStreamOmitField
+import|;
+end_import
+
 begin_comment
 comment|//CHECKSTYLE:OFF
 end_comment
@@ -62,6 +76,8 @@ block|{
 comment|// WARNING: these fields have case sensitive names,
 comment|// the field name MUST match the field name used by Salesforce
 comment|// DO NOT change these field names to camel case!!!
+annotation|@
+name|XStreamOmitField
 DECL|field|attributes
 specifier|private
 name|Attributes
@@ -127,6 +143,18 @@ specifier|private
 name|ZonedDateTime
 name|LastReferencedDate
 decl_stmt|;
+DECL|method|AbstractSObjectBase ()
+specifier|public
+name|AbstractSObjectBase
+parameter_list|()
+block|{
+name|attributes
+operator|=
+operator|new
+name|Attributes
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Utility method to clear all system {@link AbstractSObjectBase} fields.      *<p>Useful when reusing a DTO for a new record, or for update/upsert.</p>      *<p>This method does not clear {@code Name} to allow updating it, so it must be explicitly set to {@code null} if needed.</p>      */
 DECL|method|clearBaseFields ()
 specifier|public
@@ -172,6 +200,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|JsonProperty
+argument_list|(
+literal|"attributes"
+argument_list|)
 DECL|method|getAttributes ()
 specifier|public
 name|Attributes
@@ -182,6 +215,11 @@ return|return
 name|attributes
 return|;
 block|}
+annotation|@
+name|JsonProperty
+argument_list|(
+literal|"attributes"
+argument_list|)
 DECL|method|setAttributes (Attributes attributes)
 specifier|public
 name|void

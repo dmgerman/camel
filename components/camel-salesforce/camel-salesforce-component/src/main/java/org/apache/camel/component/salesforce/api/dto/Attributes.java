@@ -22,6 +22,20 @@ name|dto
 package|;
 end_package
 
+begin_import
+import|import
+name|com
+operator|.
+name|thoughtworks
+operator|.
+name|xstream
+operator|.
+name|annotations
+operator|.
+name|XStreamAsAttribute
+import|;
+end_import
+
 begin_class
 DECL|class|Attributes
 specifier|public
@@ -30,15 +44,25 @@ name|Attributes
 extends|extends
 name|AbstractDTOBase
 block|{
+annotation|@
+name|XStreamAsAttribute
 DECL|field|type
 specifier|private
 name|String
 name|type
 decl_stmt|;
+annotation|@
+name|XStreamAsAttribute
 DECL|field|url
 specifier|private
 name|String
 name|url
+decl_stmt|;
+annotation|@
+name|XStreamAsAttribute
+DECL|field|referenceId
+name|String
+name|referenceId
 decl_stmt|;
 DECL|method|getType ()
 specifier|public
@@ -91,6 +115,52 @@ name|url
 operator|=
 name|url
 expr_stmt|;
+block|}
+DECL|method|getReferenceId ()
+specifier|public
+name|String
+name|getReferenceId
+parameter_list|()
+block|{
+return|return
+name|referenceId
+return|;
+block|}
+DECL|method|setReferenceId (String referenceId)
+specifier|public
+name|void
+name|setReferenceId
+parameter_list|(
+name|String
+name|referenceId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|referenceId
+operator|=
+name|referenceId
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Attribute<type: "
+operator|+
+name|type
+operator|+
+literal|", referenceId: "
+operator|+
+name|referenceId
+operator|+
+literal|">"
+return|;
 block|}
 block|}
 end_class

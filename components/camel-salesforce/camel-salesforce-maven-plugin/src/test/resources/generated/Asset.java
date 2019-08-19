@@ -90,6 +90,26 @@ name|api
 operator|.
 name|dto
 operator|.
+name|Attributes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|dto
+operator|.
 name|ChildRelationShip
 import|;
 end_import
@@ -250,6 +270,31 @@ name|Asset
 extends|extends
 name|AbstractDescribedSObjectBase
 block|{
+DECL|method|Asset ()
+specifier|public
+name|Asset
+parameter_list|()
+block|{
+name|Attributes
+name|attributes
+init|=
+operator|new
+name|Attributes
+argument_list|()
+decl_stmt|;
+name|attributes
+operator|.
+name|setType
+argument_list|(
+literal|"Asset"
+argument_list|)
+expr_stmt|;
+name|setAttributes
+argument_list|(
+name|attributes
+argument_list|)
+expr_stmt|;
+block|}
 DECL|field|DESCRIPTION
 specifier|private
 specifier|static
@@ -260,7 +305,6 @@ init|=
 name|createSObjectDescription
 argument_list|()
 decl_stmt|;
-comment|// InstallDate
 DECL|field|InstallDate
 specifier|private
 name|java
@@ -316,7 +360,6 @@ operator|=
 name|InstallDate
 expr_stmt|;
 block|}
-comment|// date_time
 DECL|field|date_time
 specifier|private
 name|java
@@ -372,7 +415,6 @@ operator|=
 name|date_time
 expr_stmt|;
 block|}
-comment|// time
 DECL|field|time
 specifier|private
 name|java

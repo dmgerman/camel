@@ -120,11 +120,9 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"CustomerPriority__c"
+literal|"External_Id__c"
 argument_list|,
-literal|"SLA__c"
-argument_list|,
-literal|"Active__c"
+literal|"Shipping_Location__c"
 argument_list|)
 expr_stmt|;
 block|}
@@ -180,23 +178,27 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"SELECT Id, IsDeleted, MasterRecordId, Name, Type, ParentId, BillingStreet, BillingCity, BillingState, "
+literal|"SELECT Id, IsDeleted, MasterRecordId, Name, Type, ParentId, BillingStreet, BillingCity, "
 operator|+
-literal|"BillingPostalCode, BillingCountry, BillingLatitude, BillingLongitude, BillingAddress, ShippingStreet, "
+literal|"BillingState, BillingPostalCode, BillingCountry, BillingLatitude, BillingLongitude, "
 operator|+
-literal|"ShippingCity, ShippingState, ShippingPostalCode, ShippingCountry, ShippingLatitude, ShippingLongitude, "
+literal|"BillingGeocodeAccuracy, BillingAddress, ShippingStreet, ShippingCity, ShippingState, "
 operator|+
-literal|"ShippingAddress, Phone, Fax, AccountNumber, Website, PhotoUrl, Sic, Industry, AnnualRevenue, NumberOfEmployees, "
+literal|"ShippingPostalCode, ShippingCountry, ShippingLatitude, ShippingLongitude, "
 operator|+
-literal|"Ownership, TickerSymbol, Description, Rating, Site, OwnerId, CreatedDate, CreatedById, LastModifiedDate, "
+literal|"ShippingGeocodeAccuracy, ShippingAddress, Phone, Fax, AccountNumber, Website, "
 operator|+
-literal|"LastModifiedById, SystemModstamp, LastActivityDate, LastViewedDate, LastReferencedDate, Jigsaw, JigsawCompanyId, "
+literal|"PhotoUrl, Sic, Industry, AnnualRevenue, NumberOfEmployees, Ownership, TickerSymbol, "
 operator|+
-literal|"CleanStatus, AccountSource, DunsNumber, Tradestyle, NaicsCode, NaicsDesc, YearStarted, SicDesc, DandbCompanyId, "
+literal|"Description, Rating, Site, OwnerId, CreatedDate, CreatedById, LastModifiedDate, "
 operator|+
-literal|"CustomerPriority__c, SLA__c, Active__c, NumberofLocations__c, UpsellOpportunity__c, SLASerialNumber__c, "
+literal|"LastModifiedById, SystemModstamp, LastActivityDate, LastViewedDate, LastReferencedDate, "
 operator|+
-literal|"SLAExpirationDate__c, Shipping_Location__Latitude__s, Shipping_Location__Longitude__s, Shipping_Location__c FROM Account"
+literal|"Jigsaw, JigsawCompanyId, CleanStatus, AccountSource, DunsNumber, Tradestyle, NaicsCode, "
+operator|+
+literal|"NaicsDesc, YearStarted, SicDesc, DandbCompanyId, OperatingHoursId, Shipping_Location__Latitude__s, "
+operator|+
+literal|"Shipping_Location__Longitude__s, Shipping_Location__c, External_Id__c FROM Account"
 argument_list|)
 expr_stmt|;
 block|}
@@ -208,6 +210,22 @@ name|void
 name|shouldGenerateQueryForFilteredFields
 parameter_list|()
 block|{
+name|String
+name|s
+init|=
+name|QueryHelper
+operator|.
+name|queryToFetchFilteredFieldsOf
+argument_list|(
+operator|new
+name|Account
+argument_list|()
+argument_list|,
+name|SObjectField
+operator|::
+name|isCustom
+argument_list|)
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|QueryHelper
@@ -226,9 +244,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"SELECT CustomerPriority__c, SLA__c, Active__c, NumberofLocations__c, UpsellOpportunity__c, SLASerialNumber__c, "
-operator|+
-literal|"SLAExpirationDate__c, Shipping_Location__Latitude__s, Shipping_Location__Longitude__s, Shipping_Location__c FROM Account"
+literal|"SELECT Shipping_Location__Latitude__s, Shipping_Location__Longitude__s, Shipping_Location__c, External_Id__c FROM Account"
 argument_list|)
 expr_stmt|;
 block|}

@@ -133,7 +133,7 @@ specifier|final
 name|String
 name|TEST_JSON
 init|=
-literal|"{\"MspField\":\"Value1;Value2;Value3\"}"
+literal|"{\"attributes\":{\"type\":\"MSPTest\"},\"MspField\":\"Value1;Value2;Value3\"}"
 decl_stmt|;
 DECL|field|TEST_NULL_JSON
 specifier|private
@@ -142,7 +142,7 @@ specifier|final
 name|String
 name|TEST_NULL_JSON
 init|=
-literal|"{\"MspField\":null}"
+literal|"{\"attributes\":{\"type\":\"MSPTest\"},\"MspField\":null}"
 decl_stmt|;
 DECL|field|objectMapper
 specifier|private

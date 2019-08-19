@@ -470,6 +470,24 @@ name|fetchDescriptionOf
 argument_list|)
 return|;
 block|}
+DECL|method|hasDescription (final String name)
+name|boolean
+name|hasDescription
+parameter_list|(
+specifier|final
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|descriptions
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 DECL|method|externalIdsOf (final String name)
 name|List
 argument_list|<

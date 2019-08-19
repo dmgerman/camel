@@ -122,6 +122,26 @@ name|api
 operator|.
 name|dto
 operator|.
+name|Attributes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|dto
+operator|.
 name|ChildRelationShip
 import|;
 end_import
@@ -282,6 +302,31 @@ name|Case
 extends|extends
 name|AbstractDescribedSObjectBase
 block|{
+DECL|method|Case ()
+specifier|public
+name|Case
+parameter_list|()
+block|{
+name|Attributes
+name|attributes
+init|=
+operator|new
+name|Attributes
+argument_list|()
+decl_stmt|;
+name|attributes
+operator|.
+name|setType
+argument_list|(
+literal|"Case"
+argument_list|)
+expr_stmt|;
+name|setAttributes
+argument_list|(
+name|attributes
+argument_list|)
+expr_stmt|;
+block|}
 DECL|field|DESCRIPTION
 specifier|private
 specifier|static
@@ -292,7 +337,6 @@ init|=
 name|createSObjectDescription
 argument_list|()
 decl_stmt|;
-comment|// PickListAccentMark
 annotation|@
 name|XStreamConverter
 argument_list|(
@@ -343,7 +387,6 @@ operator|=
 name|PickListAccentMark
 expr_stmt|;
 block|}
-comment|// PickListSlash
 annotation|@
 name|XStreamConverter
 argument_list|(
@@ -394,7 +437,6 @@ operator|=
 name|PickListSlash
 expr_stmt|;
 block|}
-comment|// PickListQuotationMark
 annotation|@
 name|XStreamConverter
 argument_list|(

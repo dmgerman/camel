@@ -249,6 +249,20 @@ name|MSPTest
 extends|extends
 name|AbstractSObjectBase
 block|{
+DECL|method|MSPTest ()
+specifier|public
+name|MSPTest
+parameter_list|()
+block|{
+name|getAttributes
+argument_list|()
+operator|.
+name|setType
+argument_list|(
+literal|"MSPTest"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|XStreamConverter
 argument_list|(

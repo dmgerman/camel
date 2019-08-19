@@ -348,6 +348,13 @@ name|urls
 operator|=
 name|urls
 expr_stmt|;
+name|pruned
+operator|.
+name|setChildRelationships
+argument_list|(
+name|childRelationships
+argument_list|)
+expr_stmt|;
 return|return
 name|pruned
 return|;

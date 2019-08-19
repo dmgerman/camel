@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents one node in the SObject tree request. SObject trees ({@link SObjectTree}) are composed from instances of  * {@link SObjectNode}s. Each {@link SObjectNode} contains {@link Attributes}, the SObject ({@link AbstractSObjectBase})  * and any child records linked to it. SObjects at root level are added to {@link SObjectTree} using  * {@link SObjectTree#addObject(AbstractSObjectBase)}, then you can add child records on the {@link SObjectNode}  * returned by using {@link #addChild(AbstractDescribedSObjectBase)},  * {@link #addChildren(AbstractDescribedSObjectBase, AbstractDescribedSObjectBase...)} or  * {@link #addChild(String, AbstractSObjectBase)} and  * {@link #addChildren(String, AbstractSObjectBase, AbstractSObjectBase...)}.  *<p/>  * Upon submission to the Salesforce Composite API the {@link SObjectTree} and the {@link SObjectNode}s in it might  * contain errors that you need to fetch using {@link #getErrors()} method.  *  * @see SObjectTree  * @see RestError  */
+comment|/**  * Represents one node in the SObject tree request. SObject trees ({@link SObjectTree}) are composed from instances of  * {@link SObjectNode}s. Each {@link SObjectNode} contains the SObject ({@link AbstractSObjectBase})  * and any child records linked to it. SObjects at root level are added to {@link SObjectTree} using  * {@link SObjectTree#addObject(AbstractSObjectBase)}, then you can add child records on the {@link SObjectNode}  * returned by using {@link #addChild(AbstractDescribedSObjectBase)},  * {@link #addChildren(AbstractDescribedSObjectBase, AbstractDescribedSObjectBase...)} or  * {@link #addChild(String, AbstractSObjectBase)} and  * {@link #addChildren(String, AbstractSObjectBase, AbstractSObjectBase...)}.  *<p/>  * Upon submission to the Salesforce Composite API the {@link SObjectTree} and the {@link SObjectNode}s in it might  * contain errors that you need to fetch using {@link #getErrors()} method.  *  * @see SObjectTree  * @see RestError  */
 end_comment
 
 begin_class
@@ -383,13 +383,6 @@ name|long
 name|serialVersionUID
 init|=
 literal|1L
-decl_stmt|;
-annotation|@
-name|JsonProperty
-DECL|field|attributes
-specifier|final
-name|Attributes
-name|attributes
 decl_stmt|;
 annotation|@
 name|JsonUnwrapped
@@ -498,23 +491,18 @@ argument_list|,
 literal|"Root SObject cannot be null"
 argument_list|)
 expr_stmt|;
-name|attributes
-operator|=
-operator|new
-name|Attributes
+name|object
+operator|.
+name|getAttributes
+argument_list|()
+operator|.
+name|setReferenceId
 argument_list|(
 name|referenceGenerator
 operator|.
 name|nextReferenceFor
 argument_list|(
 name|object
-argument_list|)
-argument_list|,
-name|requireNonNull
-argument_list|(
-name|type
-argument_list|,
-literal|"Object type cannot be null"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1203,15 +1191,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|getAttributes ()
-name|Attributes
-name|getAttributes
-parameter_list|()
-block|{
-return|return
-name|attributes
-return|;
-block|}
 annotation|@
 name|JsonIgnore
 DECL|method|getObjectType ()
@@ -1220,9 +1199,13 @@ name|getObjectType
 parameter_list|()
 block|{
 return|return
-name|attributes
+name|object
 operator|.
-name|type
+name|getAttributes
+argument_list|()
+operator|.
+name|getType
+argument_list|()
 return|;
 block|}
 DECL|method|objectTypes ()

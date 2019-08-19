@@ -91,6 +91,20 @@ name|Asset
 extends|extends
 name|AbstractSObjectBase
 block|{
+DECL|method|Asset ()
+specifier|public
+name|Asset
+parameter_list|()
+block|{
+name|getAttributes
+argument_list|()
+operator|.
+name|setType
+argument_list|(
+literal|"Asset"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// ContactId
 DECL|field|ContactId
 specifier|private
