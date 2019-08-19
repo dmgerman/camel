@@ -134,7 +134,12 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"?username=admin&knownHostsFile=./src/test/resources/known_hosts&privateKeyFile=./src/test/resources/id_rsa"
+literal|"?username=admin&knownHostsFile="
+operator|+
+name|getKnownHostsFile
+argument_list|()
+operator|+
+literal|"&privateKeyFile=./src/test/resources/id_rsa"
 operator|+
 literal|"&privateKeyPassphrase=secret&delay=500&disconnect=false&delete=true"
 return|;

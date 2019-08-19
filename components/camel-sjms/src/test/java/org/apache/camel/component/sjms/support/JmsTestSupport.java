@@ -465,9 +465,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|33333
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|host
 operator|=
@@ -510,11 +508,7 @@ argument_list|(
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-name|port
-operator|+
-literal|1
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configureBroker

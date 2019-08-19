@@ -516,9 +516,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|18080
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|/**      * The local address to bind to.      * The host is an IP number rather than "localhost" to avoid surprises      * on hosts that map "localhost" to an IPv6 address or something else.      * The port is 0 to let the system pick one.      */
 DECL|field|TEST_SERVER_ADDR

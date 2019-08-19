@@ -205,9 +205,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|6000
-argument_list|)
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Override

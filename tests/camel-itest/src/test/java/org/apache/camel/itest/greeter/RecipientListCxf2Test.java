@@ -171,9 +171,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|20012
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|port2
 specifier|private
@@ -184,9 +182,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|20023
-argument_list|)
+argument_list|()
 decl_stmt|;
 static|static
 block|{

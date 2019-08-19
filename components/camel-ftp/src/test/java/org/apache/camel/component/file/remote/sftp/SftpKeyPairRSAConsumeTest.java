@@ -434,10 +434,8 @@ name|bind
 argument_list|(
 literal|"knownHosts"
 argument_list|,
-name|getBytesFromFile
-argument_list|(
-literal|"./src/test/resources/known_hosts"
-argument_list|)
+name|buildKnownHosts
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

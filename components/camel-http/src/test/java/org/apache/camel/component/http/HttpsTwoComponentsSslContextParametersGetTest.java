@@ -378,12 +378,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-name|localServer
-operator|.
-name|getLocalPort
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|from
 argument_list|(

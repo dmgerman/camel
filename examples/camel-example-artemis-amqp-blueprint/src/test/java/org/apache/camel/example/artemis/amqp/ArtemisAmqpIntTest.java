@@ -120,9 +120,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|9090
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

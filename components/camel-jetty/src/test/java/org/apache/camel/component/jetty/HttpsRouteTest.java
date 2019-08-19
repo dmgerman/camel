@@ -397,11 +397,7 @@ expr_stmt|;
 name|port2
 operator|=
 name|getNextPort
-argument_list|(
-name|port1
-operator|+
-literal|1
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|super
 operator|.

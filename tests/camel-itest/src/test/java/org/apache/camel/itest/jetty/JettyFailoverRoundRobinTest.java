@@ -113,9 +113,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|23021
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|port2
 specifier|private
@@ -126,9 +124,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|23022
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|port3
 specifier|private
@@ -139,9 +135,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|23023
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|port4
 specifier|private
@@ -152,9 +146,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|23024
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|bad
 specifier|private

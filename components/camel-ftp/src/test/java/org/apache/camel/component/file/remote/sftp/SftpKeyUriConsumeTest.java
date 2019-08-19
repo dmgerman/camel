@@ -206,7 +206,12 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"?username=admin&knownHostsUri=file:./src/test/resources/known_hosts&privateKeyUri=file:./src/test/resources/id_rsa&privateKeyPassphrase=secret&delay=10s&disconnect=true"
+literal|"?username=admin&knownHostsUri=file:"
+operator|+
+name|getKnownHostsFile
+argument_list|()
+operator|+
+literal|"&privateKeyUri=file:./src/test/resources/id_rsa&privateKeyPassphrase=secret&delay=10s&disconnect=true"
 argument_list|)
 operator|.
 name|routeId

@@ -287,6 +287,9 @@ name|canTest
 operator|=
 literal|false
 expr_stmt|;
+name|initPort
+argument_list|()
+expr_stmt|;
 name|FtpServerFactory
 name|factory
 init|=
@@ -482,15 +485,13 @@ name|assertTrue
 argument_list|(
 literal|"Port number is not initialized in an expected range: "
 operator|+
-name|BaseServerTestSupport
-operator|.
-name|port
+name|getPort
+argument_list|()
 argument_list|,
-name|BaseServerTestSupport
-operator|.
-name|port
-operator|>=
-literal|21000
+name|getPort
+argument_list|()
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 name|NativeFileSystemFactory
@@ -556,9 +557,8 @@ name|factory
 operator|.
 name|setPort
 argument_list|(
-name|BaseServerTestSupport
-operator|.
-name|port
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|FtpServerFactory

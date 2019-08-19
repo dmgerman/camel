@@ -276,9 +276,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|23500
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// act
 name|Endpoint

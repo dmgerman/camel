@@ -176,18 +176,14 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8000
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|port2
 operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|9000
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getPort ()
@@ -305,14 +301,7 @@ return|return
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-name|port
-operator|+
-name|counter
-operator|.
-name|getAndIncrement
 argument_list|()
-argument_list|)
 return|;
 block|}
 DECL|method|getNextPort (int startWithPort)
@@ -328,9 +317,7 @@ return|return
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-name|startWithPort
-argument_list|)
+argument_list|()
 return|;
 block|}
 block|}

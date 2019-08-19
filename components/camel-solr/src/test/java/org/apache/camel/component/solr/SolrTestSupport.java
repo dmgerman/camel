@@ -95,18 +95,14 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8999
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|httpsPort
 operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8999
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|//TODO : add test for TLSv1.3
 name|System

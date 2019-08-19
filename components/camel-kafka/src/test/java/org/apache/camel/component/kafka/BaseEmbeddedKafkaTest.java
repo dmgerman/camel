@@ -212,9 +212,7 @@ argument_list|(
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|23000
-argument_list|)
+argument_list|()
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -233,9 +231,7 @@ argument_list|,
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|24000
-argument_list|)
+argument_list|()
 argument_list|,
 name|zookeeper
 operator|.

@@ -118,9 +118,7 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|8000
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// if its a 404 then regard it as handled
 name|onException
