@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -575,6 +585,51 @@ argument_list|(
 literal|"exchangePattern"
 argument_list|,
 name|exchangePattern
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies a comma-delimited set of io.undertow.server.HttpHandler          * instances in your Registry (such as your Spring ApplicationContext).          * These handlers are added to the Undertow handler chain (for example,          * to add security). Important: You can not use different handlers with          * different Undertow endpoints using the same port number. The handlers          * is associated to the port number. If you need different handlers,          * then use different port numbers.          *           * The option is a:          *<code>java.util.Set&lt;org.apache.camel.component.undertow.HttpHandlerRegistrationInfo&gt;</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|handlers ( Set<Object> handlers)
+specifier|default
+name|AdvancedUndertowEndpointConsumerBuilder
+name|handlers
+parameter_list|(
+name|Set
+argument_list|<
+name|Object
+argument_list|>
+name|handlers
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"handlers"
+argument_list|,
+name|handlers
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies a comma-delimited set of io.undertow.server.HttpHandler          * instances in your Registry (such as your Spring ApplicationContext).          * These handlers are added to the Undertow handler chain (for example,          * to add security). Important: You can not use different handlers with          * different Undertow endpoints using the same port number. The handlers          * is associated to the port number. If you need different handlers,          * then use different port numbers.          *           * The option will be converted to a          *<code>java.util.Set&lt;org.apache.camel.component.undertow.HttpHandlerRegistrationInfo&gt;</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|handlers (String handlers)
+specifier|default
+name|AdvancedUndertowEndpointConsumerBuilder
+name|handlers
+parameter_list|(
+name|String
+name|handlers
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"handlers"
+argument_list|,
+name|handlers
 argument_list|)
 expr_stmt|;
 return|return

@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Locale
 import|;
 end_import
@@ -827,6 +837,35 @@ DECL|field|fireWebSocketChannelEvents
 specifier|private
 name|boolean
 name|fireWebSocketChannelEvents
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies a comma-delimited set of Undertow HttpHandler instances to lookup in your Registry."
+operator|+
+literal|" These handlers are added to the Undertow handler chain (for example, to add security)."
+operator|+
+literal|" Important: You can not use different handlers with different Undertow endpoints using the same port number."
+operator|+
+literal|" The handlers is associated to the port number. If you need different handlers, then use different port numbers."
+argument_list|)
+DECL|field|handlers
+specifier|private
+name|List
+argument_list|<
+name|CamelUndertowHttpHandler
+argument_list|>
+name|handlers
 decl_stmt|;
 DECL|method|UndertowEndpoint (String uri, UndertowComponent component)
 specifier|public
@@ -2157,6 +2196,39 @@ operator|.
 name|accessLogReceiver
 operator|=
 name|accessLogReceiver
+expr_stmt|;
+block|}
+DECL|method|getHandlers ()
+specifier|public
+name|List
+argument_list|<
+name|CamelUndertowHttpHandler
+argument_list|>
+name|getHandlers
+parameter_list|()
+block|{
+return|return
+name|handlers
+return|;
+block|}
+comment|/**      * Specifies a comma-delimited set of io.undertow.server.HttpHandler instances in your Registry (such as your Spring ApplicationContext).      * These handlers are added to the Undertow handler chain (for example, to add security).      * Important: You can not use different handlers with different Undertow endpoints using the same port number.      * The handlers is associated to the port number. If you need different handlers, then use different port numbers.      */
+DECL|method|setHandlers (List<CamelUndertowHttpHandler> handlers)
+specifier|public
+name|void
+name|setHandlers
+parameter_list|(
+name|List
+argument_list|<
+name|CamelUndertowHttpHandler
+argument_list|>
+name|handlers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handlers
+operator|=
+name|handlers
 expr_stmt|;
 block|}
 block|}
