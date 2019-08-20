@@ -1165,7 +1165,8 @@ name|callback
 parameter_list|)
 block|{
 comment|// Highly memory inefficient,
-comment|// but buffer the request content to allow it to be replayed for authentication retries
+comment|// but buffer the request content to allow it to be replayed for
+comment|// authentication retries
 specifier|final
 name|ContentProvider
 name|content
@@ -1301,7 +1302,8 @@ argument_list|()
 condition|)
 block|{
 comment|// Failure!!!
-comment|// including Salesforce errors reported as exception from SalesforceSecurityHandler
+comment|// including Salesforce errors reported as exception
+comment|// from SalesforceSecurityHandler
 name|Throwable
 name|failure
 init|=
@@ -1604,7 +1606,8 @@ name|getContentAsInputStream
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// for APIs that return body on status 400, such as Composite API we need content as well
+comment|// for APIs that return body on status 400, such as
+comment|// Composite API we need content as well
 name|callback
 operator|.
 name|onResponse

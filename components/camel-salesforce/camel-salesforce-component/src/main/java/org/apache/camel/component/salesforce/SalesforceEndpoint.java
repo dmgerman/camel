@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The salesforce component is used for integrating Camel with the massive Salesforce API.  */
+comment|/**  * The salesforce component is used for integrating Camel with the massive  * Salesforce API.  */
 end_comment
 
 begin_class
@@ -341,7 +341,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// producer requires an operation, topicName must be the invalid operation name
+comment|// producer requires an operation, topicName must be the invalid
+comment|// operation name
 if|if
 condition|(
 name|operationName
@@ -407,7 +408,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// consumer requires a topicName, operation name must be the invalid topic name
+comment|// consumer requires a topicName, operation name must be the invalid
+comment|// topic name
 if|if
 condition|(
 name|topicName
@@ -575,7 +577,8 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// check if this endpoint has its own http client that needs to be started
+comment|// check if this endpoint has its own http client that needs to be
+comment|// started
 specifier|final
 name|HttpClient
 name|httpClient
@@ -657,7 +660,8 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// check if this endpoint has its own http client that needs to be stopped
+comment|// check if this endpoint has its own http client that needs to be
+comment|// stopped
 specifier|final
 name|HttpClient
 name|httpClient

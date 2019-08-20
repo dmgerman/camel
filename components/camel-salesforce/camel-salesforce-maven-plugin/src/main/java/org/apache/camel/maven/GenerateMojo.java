@@ -3692,7 +3692,9 @@ literal|"Byte"
 block|}
 block|,
 comment|//
-comment|// the blob base64Binary type is mapped to String URL for retrieving
+comment|// the blob base64Binary type
+comment|// is mapped to String URL
+comment|// for retrieving
 comment|// the blob
 block|{
 literal|"base64Binary"
@@ -3750,7 +3752,9 @@ literal|"java.time.ZonedDateTime"
 block|}
 block|,
 comment|//
-comment|// Salesforce maps any types like string, picklist, reference, etc.
+comment|// Salesforce maps any types
+comment|// like string, picklist,
+comment|// reference, etc.
 comment|// to string
 block|{
 literal|"anyType"

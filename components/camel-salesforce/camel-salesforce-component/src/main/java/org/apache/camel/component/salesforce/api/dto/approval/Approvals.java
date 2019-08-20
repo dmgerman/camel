@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holds approvals resource data.  *  * @see<a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals.htm">  *      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals.htm</a>  */
+comment|/**  * Holds approvals resource data.  *  * @see<a href=  *      "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals.htm">  *      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals.htm</a>  */
 end_comment
 
 begin_class
@@ -446,7 +446,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns approvals for specific Salesforce object type.      *      * @param object      *            type      * @return approvals of specified type      */
+comment|/**      * Returns approvals for specific Salesforce object type.      *      * @param object type      * @return approvals of specified type      */
 DECL|method|approvalsFor (final String object)
 specifier|public
 name|List
@@ -475,7 +475,7 @@ argument_list|)
 return|;
 block|}
 empty_stmt|;
-comment|/**      * Returns approvals by Salesforce object type. You might have approvals for "Account" and "Case" Salesforce      * objects, then the resulting map would hold a list of {@link Info} objects keyed by the object type, i.e.:      *      *<pre>      * Approvals approvals = ...;      * List<Info> accountApprovals = approvals.getApprovals("Account");      * List<Info> caseApprovals = approvals.getApprovals("Case");      *</pre>      *      * @return approval info by object type      */
+comment|/**      * Returns approvals by Salesforce object type. You might have approvals for      * "Account" and "Case" Salesforce objects, then the resulting map would      * hold a list of {@link Info} objects keyed by the object type, i.e.:      *      *<pre>      * Approvals approvals = ...;      * List<Info> accountApprovals = approvals.getApprovals("Account");      * List<Info> caseApprovals = approvals.getApprovals("Case");      *</pre>      *      * @return approval info by object type      */
 DECL|method|getApprovals ()
 specifier|public
 name|Map

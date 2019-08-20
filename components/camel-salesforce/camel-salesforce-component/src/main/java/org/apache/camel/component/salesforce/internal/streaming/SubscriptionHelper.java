@@ -1121,7 +1121,8 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// reconnected to Salesforce, subscribe to existing channels
+comment|// reconnected to Salesforce, subscribe to existing
+comment|// channels
 specifier|final
 name|Map
 argument_list|<
@@ -1944,7 +1945,8 @@ parameter_list|)
 throws|throws
 name|SalesforceException
 block|{
-comment|// use default Jetty client from SalesforceComponent, its shared by all consumers
+comment|// use default Jetty client from SalesforceComponent, its shared by all
+comment|// consumers
 specifier|final
 name|SalesforceHttpClient
 name|httpClient
@@ -2634,7 +2636,8 @@ operator|.
 name|getDefaultReplayId
 argument_list|()
 decl_stmt|;
-comment|// the endpoint values have priority over component values, and the default values posteriority
+comment|// the endpoint values have priority over component values, and the
+comment|// default values posteriority
 comment|// over give topic values
 return|return
 name|Stream

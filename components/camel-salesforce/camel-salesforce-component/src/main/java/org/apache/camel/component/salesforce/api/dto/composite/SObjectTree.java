@@ -373,7 +373,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Payload and response for the SObject tree Composite API. The main interface for specifying what to include in the  * sumission to the API endpoint. To build the tree out use:<blockquote>  *  *<pre>  * {@code  * Account account = ...  * Contact president = ...  * Contact marketing = ...  *  * Account anotherAccount = ...  * Contact sales = ...  * Asset someAsset = ...  *  * SObjectTree request = new SObjectTree();  * request.addObject(account).addChildren(president, marketing);  * request.addObject(anotherAccount).addChild(sales).addChild(someAsset);  * }  *</pre>  *  *</blockquote>  *  * This will generate a tree of SObjects resembling:<blockquote>  *  *<pre>  * .  * |-- account  * |   |-- president  * |   `-- marketing  * `-- anotherAccount  *     `-- sales  *         `-- someAsset  *</pre>  *  *</blockquote>  *  * By default references that correlate between SObjects in the tree and returned identifiers and errors are handled  * automatically, if you wish to customize the generation of the reference implement {@link ReferenceGenerator} and  * supply it as constructor argument to {@link #SObjectTree(ReferenceGenerator)}.  *<p/>  * Note that the tree can hold single object type at the root of the tree.  *  * @see ReferenceGenerator  * @see SObjectNode  * @see AbstractSObjectBase  * @see AbstractDescribedSObjectBase  */
+comment|/**  * Payload and response for the SObject tree Composite API. The main interface  * for specifying what to include in the sumission to the API endpoint. To build  * the tree out use:<blockquote>  *  *<pre>  * {@code  * Account account = ...  * Contact president = ...  * Contact marketing = ...  *  * Account anotherAccount = ...  * Contact sales = ...  * Asset someAsset = ...  *  * SObjectTree request = new SObjectTree();  * request.addObject(account).addChildren(president, marketing);  * request.addObject(anotherAccount).addChild(sales).addChild(someAsset);  * }  *</pre>  *  *</blockquote> This will generate a tree of SObjects resembling:<blockquote>  *  *<pre>  * .  * |-- account  * |   |-- president  * |   `-- marketing  * `-- anotherAccount  *     `-- sales  *         `-- someAsset  *</pre>  *  *</blockquote> By default references that correlate between SObjects in the  * tree and returned identifiers and errors are handled automatically, if you  * wish to customize the generation of the reference implement  * {@link ReferenceGenerator} and supply it as constructor argument to  * {@link #SObjectTree(ReferenceGenerator)}.  *<p/>  * Note that the tree can hold single object type at the root of the tree.  *  * @see ReferenceGenerator  * @see SObjectNode  * @see AbstractSObjectBase  * @see AbstractDescribedSObjectBase  */
 end_comment
 
 begin_class
@@ -466,7 +466,7 @@ literal|"You must specify the ReferenceGenerator implementation"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add SObject at the root of the tree.      *      * @param object      *            SObject to add      * @return {@link SObjectNode} for the given SObject      */
+comment|/**      * Add SObject at the root of the tree.      *      * @param object SObject to add      * @return {@link SObjectNode} for the given SObject      */
 DECL|method|addObject (final AbstractSObjectBase object)
 specifier|public
 name|SObjectNode
@@ -646,7 +646,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets errors for the given reference. Used when processing the response of API invocation.      *      * @param referenceId      *            reference identifier      * @param errors      *            list of {@link RestError}      */
+comment|/**      * Sets errors for the given reference. Used when processing the response of      * API invocation.      *      * @param referenceId reference identifier      * @param errors list of {@link RestError}      */
 DECL|method|setErrorFor (final String referenceId, final List<RestError> errors)
 specifier|public
 name|void
@@ -689,7 +689,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|/**      * Sets identifier of SObject for the given reference. Used when processing the response of API invocation.      *      * @param referenceId      *            reference identifier      * @param id      *            SObject identifier      */
+comment|/**      * Sets identifier of SObject for the given reference. Used when processing      * the response of API invocation.      *      * @param referenceId reference identifier      * @param id SObject identifier      */
 DECL|method|setIdFor (final String referenceId, final String id)
 specifier|public
 name|void

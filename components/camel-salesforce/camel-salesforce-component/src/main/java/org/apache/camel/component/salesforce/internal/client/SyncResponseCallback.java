@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Thin wrapper to handle callback for {@link RestClient.ResponseCallback} and allow waiting for results  */
+comment|/**  * Thin wrapper to handle callback for {@link RestClient.ResponseCallback} and  * allow waiting for results  */
 end_comment
 
 begin_class

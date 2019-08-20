@@ -46,6 +46,12 @@ name|AbstractDTOBase
 block|{
 annotation|@
 name|XStreamAsAttribute
+DECL|field|referenceId
+name|String
+name|referenceId
+decl_stmt|;
+annotation|@
+name|XStreamAsAttribute
 DECL|field|type
 specifier|private
 name|String
@@ -57,12 +63,6 @@ DECL|field|url
 specifier|private
 name|String
 name|url
-decl_stmt|;
-annotation|@
-name|XStreamAsAttribute
-DECL|field|referenceId
-name|String
-name|referenceId
 decl_stmt|;
 DECL|method|getType ()
 specifier|public

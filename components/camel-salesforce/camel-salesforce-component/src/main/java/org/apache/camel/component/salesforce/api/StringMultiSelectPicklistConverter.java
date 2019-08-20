@@ -425,7 +425,8 @@ name|Class
 name|aClass
 parameter_list|)
 block|{
-comment|// check whether the Class is an array, and whether the array element is a String
+comment|// check whether the Class is an array, and whether the array element is
+comment|// a String
 specifier|final
 name|Class
 argument_list|<

@@ -1570,7 +1570,8 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|// if its not an operation name, treat is as topic name for consumer endpoints
+comment|// if its not an operation name, treat is as topic name for consumer
+comment|// endpoints
 name|topicName
 operator|=
 name|remaining
@@ -1800,7 +1801,8 @@ range|:
 name|classes
 control|)
 block|{
-comment|// findImplementations also returns AbstractSObjectBase for some reason!!!
+comment|// findImplementations also returns AbstractSObjectBase for some
+comment|// reason!!!
 if|if
 condition|(
 name|AbstractSObjectBase
@@ -3361,7 +3363,8 @@ operator|new
 name|SalesforceEndpointConfig
 argument_list|()
 decl_stmt|;
-comment|// let's work with a copy for IntrospectionSupport so original properties are intact
+comment|// let's work with a copy for IntrospectionSupport so original
+comment|// properties are intact
 name|PropertyBindingSupport
 operator|.
 name|bindProperties
@@ -3386,7 +3389,8 @@ operator|new
 name|SalesforceLoginConfig
 argument_list|()
 decl_stmt|;
-comment|// let's work with a copy for IntrospectionSupport so original properties are intact
+comment|// let's work with a copy for IntrospectionSupport so original
+comment|// properties are intact
 name|PropertyBindingSupport
 operator|.
 name|bindProperties
@@ -3426,7 +3430,8 @@ name|SSLContextParameters
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// let's work with a copy for IntrospectionSupport so original properties are intact
+comment|// let's work with a copy for IntrospectionSupport so original
+comment|// properties are intact
 name|PropertyBindingSupport
 operator|.
 name|bindProperties
@@ -4296,7 +4301,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// let's not put `false` values in client properties if no proxy is used
+comment|// let's not put `false` values in client properties if no proxy is
+comment|// used
 name|putValueIfGivenTo
 argument_list|(
 name|httpClientProperties

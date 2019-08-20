@@ -709,7 +709,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory class for creating {@linkplain com.fasterxml.jackson.databind.ObjectMapper}  */
+comment|/**  * Factory class for creating  * {@linkplain com.fasterxml.jackson.databind.ObjectMapper}  */
 end_comment
 
 begin_class
@@ -1322,7 +1322,8 @@ case|:
 case|case
 literal|"base64Binary"
 case|:
-comment|// Salesforce maps any types like string, picklist, reference, etc. to string
+comment|// Salesforce maps any types like string, picklist, reference,
+comment|// etc. to string
 case|case
 literal|"anyType"
 case|:
@@ -1596,7 +1597,8 @@ break|break;
 case|case
 literal|"multipicklist"
 case|:
-comment|// TODO regex needs more work to not allow values not separated by ','
+comment|// TODO regex needs more work to not allow values not separated
+comment|// by ','
 name|fieldSchema
 operator|.
 name|asStringSchema
@@ -1794,7 +1796,8 @@ literal|","
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// JSON schema currently does not support the above attributes so we'll store this information
+comment|// JSON schema currently does not support the above attributes so
+comment|// we'll store this information
 comment|// in the description
 name|fieldSchema
 operator|.

@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents one node in the SObject tree request. SObject trees ({@link SObjectTree}) are composed from instances of  * {@link SObjectNode}s. Each {@link SObjectNode} contains the SObject ({@link AbstractSObjectBase})  * and any child records linked to it. SObjects at root level are added to {@link SObjectTree} using  * {@link SObjectTree#addObject(AbstractSObjectBase)}, then you can add child records on the {@link SObjectNode}  * returned by using {@link #addChild(AbstractDescribedSObjectBase)},  * {@link #addChildren(AbstractDescribedSObjectBase, AbstractDescribedSObjectBase...)} or  * {@link #addChild(String, AbstractSObjectBase)} and  * {@link #addChildren(String, AbstractSObjectBase, AbstractSObjectBase...)}.  *<p/>  * Upon submission to the Salesforce Composite API the {@link SObjectTree} and the {@link SObjectNode}s in it might  * contain errors that you need to fetch using {@link #getErrors()} method.  *  * @see SObjectTree  * @see RestError  */
+comment|/**  * Represents one node in the SObject tree request. SObject trees  * ({@link SObjectTree}) are composed from instances of {@link SObjectNode}s.  * Each {@link SObjectNode} contains the SObject ({@link AbstractSObjectBase})  * and any child records linked to it. SObjects at root level are added to  * {@link SObjectTree} using {@link SObjectTree#addObject(AbstractSObjectBase)},  * then you can add child records on the {@link SObjectNode} returned by using  * {@link #addChild(AbstractDescribedSObjectBase)},  * {@link #addChildren(AbstractDescribedSObjectBase, AbstractDescribedSObjectBase...)}  * or {@link #addChild(String, AbstractSObjectBase)} and  * {@link #addChildren(String, AbstractSObjectBase, AbstractSObjectBase...)}.  *<p/>  * Upon submission to the Salesforce Composite API the {@link SObjectTree} and  * the {@link SObjectNode}s in it might contain errors that you need to fetch  * using {@link #getErrors()} method.  *  * @see SObjectTree  * @see RestError  */
 end_comment
 
 begin_class
@@ -579,7 +579,7 @@ name|getSimpleName
 argument_list|()
 return|;
 block|}
-comment|/**      * Add a described child with the metadata needed already present within it to the this node.      *      * @param child      *            to add      * @return the newly created node, used in builder fashion to add more child objects to it (on the next level)      */
+comment|/**      * Add a described child with the metadata needed already present within it      * to the this node.      *      * @param child to add      * @return the newly created node, used in builder fashion to add more child      *         objects to it (on the next level)      */
 DECL|method|addChild (final AbstractDescribedSObjectBase child)
 specifier|public
 name|SObjectNode
@@ -611,7 +611,7 @@ name|child
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a child that does not contain the required metadata to the this node. You need to specify the plural form of      * the child (e.g. `Account` its `Accounts`).      *      * @param labelPlural      *            plural form      * @param child      *            to add      * @return the newly created node, used in builder fashion to add more child objects to it (on the next level)      */
+comment|/**      * Add a child that does not contain the required metadata to the this node.      * You need to specify the plural form of the child (e.g. `Account` its      * `Accounts`).      *      * @param labelPlural plural form      * @param child to add      * @return the newly created node, used in builder fashion to add more child      *         objects to it (on the next level)      */
 DECL|method|addChild (final String labelPlural, final AbstractSObjectBase child)
 specifier|public
 name|SObjectNode
@@ -670,7 +670,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Add multiple described children with the metadata needed already present within them to the this node..      *      * @param first      *            first child to add      * @param others      *            any other children to add      */
+comment|/**      * Add multiple described children with the metadata needed already present      * within them to the this node..      *      * @param first first child to add      * @param others any other children to add      */
 DECL|method|addChildren (final AbstractDescribedSObjectBase first, final AbstractDescribedSObjectBase... others)
 specifier|public
 name|void
@@ -729,7 +729,7 @@ name|addChild
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a child that does not contain the required metadata to the this node. You need to specify the plural form of      * the child (e.g. `Account` its `Accounts`).      *      * @param labelPlural      *            plural form      * @param first      *            first child to add      * @param others      *            any other children to add      */
+comment|/**      * Add a child that does not contain the required metadata to the this node.      * You need to specify the plural form of the child (e.g. `Account` its      * `Accounts`).      *      * @param labelPlural plural form      * @param first first child to add      * @param others any other children to add      */
 DECL|method|addChildren (final String labelPlural, final AbstractSObjectBase first, final AbstractSObjectBase... others)
 specifier|public
 name|void
@@ -832,7 +832,7 @@ name|stream
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns all children of this node (one level deep) of certain type (in plural form).      *      * @param type      *            type of child requested in plural form (e.g for `Account` is `Accounts`)      * @return children of this node of specified type      */
+comment|/**      * Returns all children of this node (one level deep) of certain type (in      * plural form).      *      * @param type type of child requested in plural form (e.g for `Account` is      *            `Accounts`)      * @return children of this node of specified type      */
 DECL|method|getChildNodesOfType (final String type)
 specifier|public
 name|Stream
@@ -908,7 +908,7 @@ name|getObject
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns child SObjects of this node (one level deep) of certain type (in plural form)      *      * @param type      *            type of child requested in plural form (e.g for `Account` is `Accounts`)      * @return child SObjects of this node      */
+comment|/**      * Returns child SObjects of this node (one level deep) of certain type (in      * plural form)      *      * @param type type of child requested in plural form (e.g for `Account` is      *            `Accounts`)      * @return child SObjects of this node      */
 DECL|method|getChildrenOfType (final String type)
 specifier|public
 name|Stream
@@ -955,7 +955,7 @@ name|getObject
 argument_list|)
 return|;
 block|}
-comment|/**      * Errors reported against this this node received in response to the SObject tree being submitted.      *      * @return errors for this node      */
+comment|/**      * Errors reported against this this node received in response to the      * SObject tree being submitted.      *      * @return errors for this node      */
 annotation|@
 name|JsonIgnore
 DECL|method|getErrors ()

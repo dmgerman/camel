@@ -277,7 +277,7 @@ name|ex
 parameter_list|)
 function_decl|;
 block|}
-comment|/**      * Creates a Bulk Job      *      * @param jobInfo  {@link JobInfo} with required fields      * @param callback {@link JobInfoResponseCallback} to be invoked on response or error      */
+comment|/**      * Creates a Bulk Job      *      * @param jobInfo {@link JobInfo} with required fields      * @param callback {@link JobInfoResponseCallback} to be invoked on response      *            or error      */
 DECL|method|createJob (JobInfo jobInfo, Map<String, List<String>> header, JobInfoResponseCallback callback)
 name|void
 name|createJob

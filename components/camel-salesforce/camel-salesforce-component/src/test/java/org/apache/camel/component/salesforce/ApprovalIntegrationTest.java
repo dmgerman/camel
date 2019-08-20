@@ -350,8 +350,10 @@ name|getInstanceStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// as it stands on 18.11.2016. the GET method on /vXX.X/process/approvals/ with Accept other than
-comment|// `application/json` results in HTTP status 500, so only JSON is supported
+comment|// as it stands on 18.11.2016. the GET method on
+comment|// /vXX.X/process/approvals/ with Accept other than
+comment|// `application/json` results in HTTP status 500, so only JSON is
+comment|// supported
 specifier|final
 name|Approvals
 name|approvals

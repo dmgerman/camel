@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class that holds {@link TypeReference} instances needed for Jackson mapper to support generics.  */
+comment|/**  * Class that holds {@link TypeReference} instances needed for Jackson mapper to  * support generics.  */
 end_comment
 
 begin_class

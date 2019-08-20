@@ -204,7 +204,8 @@ operator|=
 name|ex
 expr_stmt|;
 block|}
-comment|//assert ObjectMapper deserialized the SF OAuth response and returned a valid token back
+comment|// assert ObjectMapper deserialized the SF OAuth response and returned a
+comment|// valid token back
 name|assertNotNull
 argument_list|(
 literal|"An invalid token was returned"
@@ -212,7 +213,8 @@ argument_list|,
 name|token
 argument_list|)
 expr_stmt|;
-comment|//assert No exception was thrown during the JSON deserialization process
+comment|// assert No exception was thrown during the JSON deserialization
+comment|// process
 name|assertNull
 argument_list|(
 literal|"Exception was thrown during JSON deserialisation"
@@ -220,7 +222,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-comment|//assert one of the token fields
+comment|// assert one of the token fields
 name|assertEquals
 argument_list|(
 literal|"false"

@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Abstract base DTO for Salesforce SOQL Query records.  *<p>  * Derived classes must follow the template below:  *</p>  *<pre>  * {@code  * public class QueryResultMySObject extends AbstractQueryRecordsBase {  *     @XStreamImplicit  *     private List<MySObject> records;  *  *     public List<MySObject> getRecords() {  *         return records;  *     }  *  *     public void setRecords(List<MySObject> records) {  *         this.records = records;  *     }  *  * }  * }  *</pre>  */
+comment|/**  * Abstract base DTO for Salesforce SOQL Query records.  *<p>  * Derived classes must follow the template below:  *</p>  *   *<pre>  * {  *&#64;code  *     public class QueryResultMySObject extends AbstractQueryRecordsBase {  *&#64;XStreamImplicit  *         private List<MySObject> records;  *  *         public List<MySObject> getRecords() {  *             return records;  *         }  *  *         public void setRecords(List<MySObject> records) {  *             this.records = records;  *         }  *  *     }  * }  *</pre>  */
 end_comment
 
 begin_class

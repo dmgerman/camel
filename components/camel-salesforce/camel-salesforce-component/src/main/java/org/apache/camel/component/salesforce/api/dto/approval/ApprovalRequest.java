@@ -446,7 +446,7 @@ name|nextApproverId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates new {@link ApprovalRequest} by combining values from the given template with the values currently      * present. If the value is not present and the template has the corresponding value, then the template value is      * set. The net result is that all set values of an {@link ApprovalRequest} are preserved, while the values set on      * template are used for undefined (<code>null</code>) values.      *      * @param template      *            template to apply      * @return newly created object with applied template      */
+comment|/**      * Creates new {@link ApprovalRequest} by combining values from the given      * template with the values currently present. If the value is not present      * and the template has the corresponding value, then the template value is      * set. The net result is that all set values of an {@link ApprovalRequest}      * are preserved, while the values set on template are used for undefined (      *<code>null</code>) values.      *      * @param template template to apply      * @return newly created object with applied template      */
 DECL|method|applyTemplate (final ApprovalRequest template)
 specifier|public
 name|ApprovalRequest

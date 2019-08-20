@@ -540,7 +540,7 @@ throws|throws
 name|Exception
 block|{
 comment|// test topic subscription
-comment|//from("salesforce:CamelTestTopic?notifyForFields=ALL&notifyForOperations=ALL&"
+comment|// from("salesforce:CamelTestTopic?notifyForFields=ALL&notifyForOperations=ALL&"
 name|from
 argument_list|(
 literal|"salesforce:CamelTestTopic?notifyForFields=ALL&"

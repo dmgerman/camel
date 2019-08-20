@@ -271,7 +271,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Data given by the `Limits` resource on Salesforce.  *  * @see<a href= "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_limits.htm">  *      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_limits.htm</a>  */
+comment|/**  * Data given by the `Limits` resource on Salesforce.  *  * @see<a href=  *      "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_limits.htm">  *      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_limits.htm</a>  */
 end_comment
 
 begin_class
@@ -354,75 +354,75 @@ enum|enum
 name|Operation
 block|{
 DECL|enumConstant|ConcurrentAsyncGetReportInstances
+DECL|enumConstant|ConcurrentSyncReportRuns
+DECL|enumConstant|DailyApiRequests
 name|ConcurrentAsyncGetReportInstances
 block|,
-DECL|enumConstant|ConcurrentSyncReportRuns
 name|ConcurrentSyncReportRuns
 block|,
-DECL|enumConstant|DailyApiRequests
 name|DailyApiRequests
 block|,
 DECL|enumConstant|DailyAsyncApexExecutions
+DECL|enumConstant|DailyBulkApiRequests
+DECL|enumConstant|DailyDurableGenericStreamingApiEvents
 name|DailyAsyncApexExecutions
 block|,
-DECL|enumConstant|DailyBulkApiRequests
 name|DailyBulkApiRequests
 block|,
-DECL|enumConstant|DailyDurableGenericStreamingApiEvents
 name|DailyDurableGenericStreamingApiEvents
 block|,
 DECL|enumConstant|DailyDurableStreamingApiEvents
+DECL|enumConstant|DailyGenericStreamingApiEvents
+DECL|enumConstant|DailyStreamingApiEvents
 name|DailyDurableStreamingApiEvents
 block|,
-DECL|enumConstant|DailyGenericStreamingApiEvents
 name|DailyGenericStreamingApiEvents
 block|,
-DECL|enumConstant|DailyStreamingApiEvents
 name|DailyStreamingApiEvents
 block|,
 DECL|enumConstant|DailyWorkflowEmails
+DECL|enumConstant|DataStorageMB
+DECL|enumConstant|DurableStreamingApiConcurrentClients
+DECL|enumConstant|FileStorageMB
 name|DailyWorkflowEmails
 block|,
-DECL|enumConstant|DataStorageMB
 name|DataStorageMB
 block|,
-DECL|enumConstant|DurableStreamingApiConcurrentClients
 name|DurableStreamingApiConcurrentClients
 block|,
-DECL|enumConstant|FileStorageMB
 name|FileStorageMB
 block|,
 DECL|enumConstant|HourlyAsyncReportRuns
+DECL|enumConstant|HourlyDashboardRefreshes
+DECL|enumConstant|HourlyDashboardResults
+DECL|enumConstant|HourlyDashboardStatuses
 name|HourlyAsyncReportRuns
 block|,
-DECL|enumConstant|HourlyDashboardRefreshes
 name|HourlyDashboardRefreshes
 block|,
-DECL|enumConstant|HourlyDashboardResults
 name|HourlyDashboardResults
 block|,
-DECL|enumConstant|HourlyDashboardStatuses
 name|HourlyDashboardStatuses
 block|,
 DECL|enumConstant|HourlyODataCallout
+DECL|enumConstant|HourlySyncReportRuns
+DECL|enumConstant|HourlyTimeBasedWorkflow
+DECL|enumConstant|MassEmail
+DECL|enumConstant|PermissionSets
 name|HourlyODataCallout
 block|,
-DECL|enumConstant|HourlySyncReportRuns
 name|HourlySyncReportRuns
 block|,
-DECL|enumConstant|HourlyTimeBasedWorkflow
 name|HourlyTimeBasedWorkflow
 block|,
-DECL|enumConstant|MassEmail
 name|MassEmail
 block|,
-DECL|enumConstant|PermissionSets
 name|PermissionSets
 block|,
 DECL|enumConstant|SingleEmail
+DECL|enumConstant|StreamingApiConcurrentClients
 name|SingleEmail
 block|,
-DECL|enumConstant|StreamingApiConcurrentClients
 name|StreamingApiConcurrentClients
 block|}
 comment|/**      * Encapsulates usage limits for single operation.      */
@@ -949,7 +949,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Daily durable generic streaming events (if generic streaming is enabled for your organization)      */
+comment|/**      * Daily durable generic streaming events (if generic streaming is enabled      * for your organization)      */
 DECL|method|getDailyDurableGenericStreamingApiEvents ()
 specifier|public
 name|Usage
@@ -968,7 +968,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Daily durable streaming events (if generic streaming is enabled for your organization)      */
+comment|/**      * Daily durable streaming events (if generic streaming is enabled for your      * organization)      */
 DECL|method|getDailyDurableStreamingApiEvents ()
 specifier|public
 name|Usage
@@ -987,7 +987,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Daily generic streaming events (if generic streaming is enabled for your organization)      */
+comment|/**      * Daily generic streaming events (if generic streaming is enabled for your      * organization)      */
 DECL|method|getDailyGenericStreamingApiEvents ()
 specifier|public
 name|Usage
@@ -1234,7 +1234,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Daily number of mass emails that are sent to external email addresses by using Apex or Force.com APIs      */
+comment|/**      * Daily number of mass emails that are sent to external email addresses by      * using Apex or Force.com APIs      */
 DECL|method|getMassEmail ()
 specifier|public
 name|Usage
@@ -1272,7 +1272,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Daily number of single emails that are sent to external email addresses by using Apex or Force.com APIs      */
+comment|/**      * Daily number of single emails that are sent to external email addresses      * by using Apex or Force.com APIs      */
 DECL|method|getSingleEmail ()
 specifier|public
 name|Usage

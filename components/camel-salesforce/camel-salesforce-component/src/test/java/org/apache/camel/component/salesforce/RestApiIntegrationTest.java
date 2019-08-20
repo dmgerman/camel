@@ -3025,7 +3025,8 @@ name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// set component config to bad password to cause relogin attempts to fail
+comment|// set component config to bad password to cause relogin attempts to
+comment|// fail
 specifier|final
 name|String
 name|password
@@ -3265,7 +3266,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// look by external Id to cause 300 error
-comment|// note that the request SObject overrides settings on the endpoint for LineItem__c
+comment|// note that the request SObject overrides settings on the endpoint
+comment|// for LineItem__c
 try|try
 block|{
 name|template

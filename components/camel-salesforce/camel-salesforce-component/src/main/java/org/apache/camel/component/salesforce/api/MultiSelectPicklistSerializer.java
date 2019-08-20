@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jackson Serializer for generating ';' separated strings for MultiSelect pick-lists.  */
+comment|/**  * Jackson Serializer for generating ';' separated strings for MultiSelect  * pick-lists.  */
 end_comment
 
 begin_class

@@ -546,7 +546,8 @@ name|APPROVAL
 init|=
 literal|"approval"
 decl_stmt|;
-comment|// default maximum authentication retries on failed authentication or expired session
+comment|// default maximum authentication retries on failed authentication or
+comment|// expired session
 DECL|field|DEFAULT_MAX_AUTHENTICATION_RETRIES
 specifier|public
 specifier|static
@@ -976,7 +977,8 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
-comment|// nothing to deep copy, getApexQueryParams() is readonly, so no need to deep copy
+comment|// nothing to deep copy, getApexQueryParams() is readonly, so no
+comment|// need to deep copy
 return|return
 name|copy
 return|;
@@ -1006,7 +1008,7 @@ return|return
 name|format
 return|;
 block|}
-comment|/**      * Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON      */
+comment|/**      * Payload format to use for Salesforce API calls, either JSON or XML,      * defaults to JSON      */
 DECL|method|setFormat (PayloadFormat format)
 specifier|public
 name|void
@@ -1033,7 +1035,7 @@ return|return
 name|rawPayload
 return|;
 block|}
-comment|/**      * Use raw payload {@link String} for request and response (either JSON or XML depending on {@code format}),      * instead of DTOs, false by default      */
+comment|/**      * Use raw payload {@link String} for request and response (either JSON or      * XML depending on {@code format}), instead of DTOs, false by default      */
 DECL|method|setRawPayload (boolean rawPayload)
 specifier|public
 name|void
@@ -1060,7 +1062,7 @@ return|return
 name|apiVersion
 return|;
 block|}
-comment|/**      * Salesforce API version, defaults to SalesforceEndpointConfig.DEFAULT_VERSION      */
+comment|/**      * Salesforce API version, defaults to      * SalesforceEndpointConfig.DEFAULT_VERSION      */
 DECL|method|setApiVersion (String apiVersion)
 specifier|public
 name|void
@@ -1249,7 +1251,7 @@ return|return
 name|sObjectClass
 return|;
 block|}
-comment|/**      * Fully qualified SObject class name, usually generated using camel-salesforce-maven-plugin      */
+comment|/**      * Fully qualified SObject class name, usually generated using      * camel-salesforce-maven-plugin      */
 DECL|method|setSObjectClass (String sObjectClass)
 specifier|public
 name|void
@@ -1320,7 +1322,7 @@ operator|=
 name|sObjectSearch
 expr_stmt|;
 block|}
-comment|/**      * Should the NULL values of given DTO be serialized with      * empty (NULL) values. This affects only JSON data format.      */
+comment|/**      * Should the NULL values of given DTO be serialized with empty (NULL)      * values. This affects only JSON data format.      */
 DECL|method|setSerializeNulls (boolean serializeNulls)
 specifier|public
 name|void
@@ -1613,7 +1615,7 @@ return|return
 name|updateTopic
 return|;
 block|}
-comment|/**      * Whether to update an existing Push Topic when using the Streaming API, defaults to false      */
+comment|/**      * Whether to update an existing Push Topic when using the Streaming API,      * defaults to false      */
 DECL|method|setUpdateTopic (boolean updateTopic)
 specifier|public
 name|void
@@ -1667,7 +1669,7 @@ return|return
 name|notifyForOperations
 return|;
 block|}
-comment|/**      * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API version< 29.0)      */
+comment|/**      * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API      * version< 29.0)      */
 DECL|method|setNotifyForOperations (NotifyForOperationsEnum notifyForOperations)
 specifier|public
 name|void
@@ -1947,7 +1949,7 @@ return|return
 name|backoffIncrement
 return|;
 block|}
-comment|/**      * Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.      */
+comment|/**      * Backoff interval increment for Streaming connection restart attempts for      * failures beyond CometD auto-reconnect.      */
 DECL|method|setBackoffIncrement (long backoffIncrement)
 specifier|public
 name|void
@@ -1974,7 +1976,7 @@ return|return
 name|maxBackoff
 return|;
 block|}
-comment|/**      * Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect.      */
+comment|/**      * Maximum backoff interval for Streaming connection restart attempts for      * failures beyond CometD auto-reconnect.      */
 DECL|method|setMaxBackoff (long maxBackoff)
 specifier|public
 name|void
@@ -1991,7 +1993,7 @@ operator|=
 name|maxBackoff
 expr_stmt|;
 block|}
-comment|/**      * Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.      */
+comment|/**      * Custom Jackson ObjectMapper to use when serializing/deserializing      * Salesforce objects.      */
 DECL|method|setObjectMapper (ObjectMapper objectMapper)
 specifier|public
 name|void
@@ -2316,7 +2318,7 @@ return|return
 name|defaultReplayId
 return|;
 block|}
-comment|/**      * Default replayId setting if no value is found in {@link #initialReplayIdMap}      *       * @param defaultReplayId      */
+comment|/**      * Default replayId setting if no value is found in      * {@link #initialReplayIdMap}      *       * @param defaultReplayId      */
 DECL|method|setDefaultReplayId (Long defaultReplayId)
 specifier|public
 name|void
@@ -2393,7 +2395,7 @@ return|return
 name|limit
 return|;
 block|}
-comment|/**      * Limit on number of returned records. Applicable to some of the API, check the Salesforce documentation.      *       * @param limit      */
+comment|/**      * Limit on number of returned records. Applicable to some of the API, check      * the Salesforce documentation.      *       * @param limit      */
 DECL|method|setLimit (final Integer limit)
 specifier|public
 name|void
@@ -2648,7 +2650,7 @@ name|comments
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The ID of the submitter whoâs requesting the approval record.       *      * @param contextActorId      */
+comment|/**      * The ID of the submitter whoâs requesting the approval record.      *      * @param contextActorId      */
 DECL|method|setApprovalContextActorId (final String contextActorId)
 specifier|public
 name|void
@@ -2714,7 +2716,7 @@ name|contextId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * If the process requires specification of the next approval, the ID of the user to be assigned the next request.      *      * @param nextApproverIds      */
+comment|/**      * If the process requires specification of the next approval, the ID of the      * user to be assigned the next request.      *      * @param nextApproverIds      */
 DECL|method|setApprovalNextApproverIds (final List<String> nextApproverIds)
 specifier|public
 name|void
@@ -2750,7 +2752,7 @@ name|nextApproverIds
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * If the process requires specification of the next approval, the ID of the user to be assigned the next request.      *      * @param nextApproverIds      */
+comment|/**      * If the process requires specification of the next approval, the ID of the      * user to be assigned the next request.      *      * @param nextApproverIds      */
 DECL|method|setApprovalNextApproverIds (String nextApproverId)
 specifier|public
 name|void
@@ -2815,7 +2817,7 @@ name|processDefinitionNameOrId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Determines whether to evaluate the entry criteria for the process (true) or not (false) if the process definition      * name or ID isnât null. If the process definition name or ID isnât specified, this argument is ignored, and       * standard evaluation is followed based on process order. By default, the entry criteria isnât skipped if itâs not      * set by this request.      *      * @param skipEntryCriteria      */
+comment|/**      * Determines whether to evaluate the entry criteria for the process (true)      * or not (false) if the process definition name or ID isnât null. If the      * process definition name or ID isnât specified, this argument is ignored,      * and standard evaluation is followed based on process order. By default,      * the entry criteria isnât skipped if itâs not set by this request.      *      * @param skipEntryCriteria      */
 DECL|method|setApprovalSkipEntryCriteria (final boolean skipEntryCriteria)
 specifier|public
 name|void

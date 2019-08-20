@@ -399,7 +399,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Integration test for Salesforce analytics API endpoints.   */
+comment|/**  * Integration test for Salesforce analytics API endpoints.  */
 end_comment
 
 begin_class
@@ -520,7 +520,7 @@ specifier|private
 name|boolean
 name|bodyMetadata
 decl_stmt|;
-comment|/**      * Get test report developer names as data points.      * @return test report developer names in test-salesforce-login.properties      * @throws Exception      */
+comment|/**      * Get test report developer names as data points.      *       * @return test report developer names in test-salesforce-login.properties      * @throws Exception      */
 annotation|@
 name|DataPoints
 DECL|method|getTestReportDeveloperNames ()

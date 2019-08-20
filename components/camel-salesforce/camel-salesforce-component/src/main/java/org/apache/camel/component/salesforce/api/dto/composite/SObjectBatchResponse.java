@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The response of the batch request it contains individual results of each request submitted in a batch at the same  * index. The flag {@link #hasErrors()} indicates if any of the requests in the batch has failed with status 400 or 500.  */
+comment|/**  * The response of the batch request it contains individual results of each  * request submitted in a batch at the same index. The flag {@link #hasErrors()}  * indicates if any of the requests in the batch has failed with status 400 or  * 500.  */
 end_comment
 
 begin_class

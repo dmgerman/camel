@@ -397,7 +397,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Salesforce report results to<code>List&lt;List&lt;String&gt;&gt;</code>converter.  */
+comment|/**  * Salesforce report results to  *<code>List&lt;List&lt;String&gt;&gt;</code>converter.  */
 end_comment
 
 begin_class

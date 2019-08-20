@@ -840,7 +840,8 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-comment|// JSON and XML structure are different, XML has `LimitsSnapshot` node, JSON does not
+comment|// JSON and XML structure are different, XML has `LimitsSnapshot` node,
+comment|// JSON does not
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -901,7 +902,8 @@ argument_list|(
 literal|"DailyApiRequests"
 argument_list|)
 decl_stmt|;
-comment|// for JSON value will be Integer, for XML (no type information) it will be String
+comment|// for JSON value will be Integer, for XML (no type information) it will
+comment|// be String
 comment|// This number can be different per org, and future releases,
 comment|// so let's just make sure it's greater than zero
 name|assertTrue
@@ -1026,7 +1028,8 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-comment|// JSON and XML structure are different, XML has `Result` node, JSON does not
+comment|// JSON and XML structure are different, XML has `Result` node, JSON
+comment|// does not
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1190,7 +1193,8 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-comment|// JSON and XML structure are different, XML has `Account` node, JSON does not
+comment|// JSON and XML structure are different, XML has `Account` node, JSON
+comment|// does not
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1376,7 +1380,8 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-comment|// JSON and XML structure are different, XML has `QueryResult` node, JSON does not
+comment|// JSON and XML structure are different, XML has `QueryResult` node,
+comment|// JSON does not
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1503,7 +1508,8 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-comment|// JSON and XML structure are different, XML has `QueryResult` node, JSON does not
+comment|// JSON and XML structure are different, XML has `QueryResult` node,
+comment|// JSON does not
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1660,7 +1666,8 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-comment|// JSON and XML structure are different, XML has `User` node, JSON does not
+comment|// JSON and XML structure are different, XML has `User` node, JSON does
+comment|// not
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1735,8 +1742,10 @@ argument_list|(
 name|version
 argument_list|)
 decl_stmt|;
-comment|// we cannot rely on search returning the `Composite API Batch` account as the search indexer runs
-comment|// asynchronously to object creation, so that account might not be indexed at this time, so we search for
+comment|// we cannot rely on search returning the `Composite API Batch` account
+comment|// as the search indexer runs
+comment|// asynchronously to object creation, so that account might not be
+comment|// indexed at this time, so we search for
 comment|// `United` Account that should be created with developer instance
 name|batch
 operator|.
@@ -1797,17 +1806,22 @@ operator|instanceof
 name|Map
 condition|)
 block|{
-comment|// the JSON and XML responses differ, XML has a root node which can be either SearchResults or
+comment|// the JSON and XML responses differ, XML has a root node which can
+comment|// be either SearchResults or
 comment|// SearchResultWithMetadata
-comment|// furthermore version 37.0 search results are no longer array, but dictionary of {
-comment|// "searchRecords": [<array>] } and the XML output changed to<SearchResultWithMetadata><searchRecords>, so
+comment|// furthermore version 37.0 search results are no longer array, but
+comment|// dictionary of {
+comment|// "searchRecords": [<array>] } and the XML output changed to
+comment|//<SearchResultWithMetadata><searchRecords>, so
 comment|// we have:
 comment|// @formatter:off
-comment|// | version | format | response syntax                                                       |
-comment|// |    34   |  JSON  | {attributes={type=Account...                                          |
-comment|// |    34   |  XML   | {SearchResults={attributes={type=Account...                           |
-comment|// |    37   |  JSON  | {searchRecords=[{attributes={type=Account...                          |
-comment|// |    37   |  XML   | {SearchResultWithMetadata={searchRecords={attributes={type=Account... |
+comment|// | version | format | response syntax |
+comment|// | 34 | JSON | {attributes={type=Account... |
+comment|// | 34 | XML | {SearchResults={attributes={type=Account... |
+comment|// | 37 | JSON | {searchRecords=[{attributes={type=Account... |
+comment|// | 37 | XML |
+comment|// {SearchResultWithMetadata={searchRecords={attributes={type=Account...
+comment|// |
 comment|// @formatter:on
 annotation|@
 name|SuppressWarnings
@@ -1864,7 +1878,8 @@ argument_list|,
 name|tmp
 argument_list|)
 decl_stmt|;
-comment|// JSON and XML structure are different, XML has `SearchResults` node, JSON does not
+comment|// JSON and XML structure are different, XML has `SearchResults`
+comment|// node, JSON does not
 name|searchResult
 operator|=
 name|nested

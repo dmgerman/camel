@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * JUnit group tag interface for tests that need to be run standalone, i.e. not in parallel with other tests.  */
+comment|/**  * JUnit group tag interface for tests that need to be run standalone, i.e. not  * in parallel with other tests.  */
 end_comment
 
 begin_interface

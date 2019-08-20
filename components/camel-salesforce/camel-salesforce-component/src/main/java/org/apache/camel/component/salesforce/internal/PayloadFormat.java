@@ -27,9 +27,9 @@ enum|enum
 name|PayloadFormat
 block|{
 DECL|enumConstant|JSON
+DECL|enumConstant|XML
 name|JSON
 block|,
-DECL|enumConstant|XML
 name|XML
 block|}
 end_enum

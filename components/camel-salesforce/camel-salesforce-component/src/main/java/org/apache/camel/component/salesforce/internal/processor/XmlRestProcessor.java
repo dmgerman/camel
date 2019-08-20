@@ -456,9 +456,11 @@ name|XmlRestProcessor
 extends|extends
 name|AbstractRestProcessor
 block|{
-comment|// although XStream is generally thread safe, because of the way we use aliases
+comment|// although XStream is generally thread safe, because of the way we use
+comment|// aliases
 comment|// for GET_BASIC_INFO and GET_DESCRIPTION, we need to use a ThreadLocal
-comment|// not very efficient when both JSON and XML are used together with a single Thread pool
+comment|// not very efficient when both JSON and XML are used together with a single
+comment|// Thread pool
 comment|// but this will do for now
 DECL|field|xStream
 specifier|private
@@ -603,7 +605,8 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// need to add alias for Salesforce XML that uses SObject name as root element
+comment|// need to add alias for Salesforce XML that uses SObject name as
+comment|// root element
 name|exchange
 operator|.
 name|setProperty
@@ -638,7 +641,8 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// need to add alias for Salesforce XML that uses SObject name as root element
+comment|// need to add alias for Salesforce XML that uses SObject name as
+comment|// root element
 name|exchange
 operator|.
 name|setProperty
@@ -661,7 +665,8 @@ break|break;
 case|case
 name|GET_SOBJECT
 case|:
-comment|// need to add alias for Salesforce XML that uses SObject name as root element
+comment|// need to add alias for Salesforce XML that uses SObject name as
+comment|// root element
 name|exchange
 operator|.
 name|setProperty
@@ -700,7 +705,8 @@ break|break;
 case|case
 name|GET_SOBJECT_WITH_ID
 case|:
-comment|// need to add alias for Salesforce XML that uses SObject name as root element
+comment|// need to add alias for Salesforce XML that uses SObject name as
+comment|// root element
 name|exchange
 operator|.
 name|setProperty
@@ -745,7 +751,8 @@ case|:
 case|case
 name|QUERY_MORE
 case|:
-comment|// need to add alias for Salesforce XML that uses SObject name as root element
+comment|// need to add alias for Salesforce XML that uses SObject name as
+comment|// root element
 name|exchange
 operator|.
 name|setProperty
@@ -775,7 +782,8 @@ break|break;
 case|case
 name|APEX_CALL
 case|:
-comment|// need to add alias for Salesforce XML that uses SObject name as root element
+comment|// need to add alias for Salesforce XML that uses SObject name as
+comment|// root element
 name|exchange
 operator|.
 name|setProperty
@@ -816,7 +824,8 @@ literal|0
 argument_list|)
 throw|;
 default|default:
-comment|// ignore, some operations do not require alias or class exchange properties
+comment|// ignore, some operations do not require alias or class exchange
+comment|// properties
 block|}
 block|}
 annotation|@
@@ -1275,7 +1284,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// its ok to call this multiple times, as xstream ignores duplicate calls
+comment|// its ok to call this multiple times, as xstream ignores
+comment|// duplicate calls
 name|localXStream
 operator|.
 name|processAnnotations
@@ -1305,7 +1315,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// extremely dirty, need to flush entire cache if its holding on to an old alias!!!
+comment|// extremely dirty, need to flush entire cache if its
+comment|// holding on to an old alias!!!
 specifier|final
 name|CachingMapper
 name|mapper
@@ -1345,7 +1356,8 @@ name|CannotResolveClassException
 name|ignore
 parameter_list|)
 block|{
-comment|// recent XStream versions add a ClassNotFoundException to cache
+comment|// recent XStream versions add a
+comment|// ClassNotFoundException to cache
 name|mapper
 operator|.
 name|flushCache

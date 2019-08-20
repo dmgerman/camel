@@ -1877,7 +1877,7 @@ parameter_list|(
 name|IOException
 name|ignore
 parameter_list|)
-block|{                             }
+block|{                         }
 block|}
 block|}
 name|processResponse
@@ -2099,7 +2099,7 @@ parameter_list|(
 name|IOException
 name|ignore
 parameter_list|)
-block|{                             }
+block|{                         }
 block|}
 block|}
 name|processResponse

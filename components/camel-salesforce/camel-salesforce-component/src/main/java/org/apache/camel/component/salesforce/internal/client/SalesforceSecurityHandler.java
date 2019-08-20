@@ -495,7 +495,8 @@ argument_list|(
 name|AUTHENTICATION_RETRIES_ATTRIBUTE
 argument_list|)
 decl_stmt|;
-comment|// is this an authentication response for a previously handled conversation?
+comment|// is this an authentication response for a previously handled
+comment|// conversation?
 if|if
 condition|(
 name|conversation
@@ -532,7 +533,8 @@ name|getStatus
 argument_list|()
 decl_stmt|;
 comment|// handle UNAUTHORIZED and BAD_REQUEST for Bulk API,
-comment|// the actual InvalidSessionId Bulk API error is checked and handled in the listener
+comment|// the actual InvalidSessionId Bulk API error is checked and handled in
+comment|// the listener
 comment|// also check retries haven't exceeded maxAuthenticationRetries
 return|return
 operator|(
@@ -675,7 +677,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|// get AbstractClientBase if request originated from one, for updating token and setting auth header
+comment|// get AbstractClientBase if request originated from one, for
+comment|// updating token and setting auth header
 specifier|final
 name|AbstractClientBase
 name|client
@@ -765,7 +768,8 @@ name|SalesforceException
 name|e
 parameter_list|)
 block|{
-comment|// retry login request on error if we have login attempts left
+comment|// retry login request on error if we have login attempts
+comment|// left
 if|if
 condition|(
 name|retries
@@ -885,7 +889,8 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
-comment|// remember original request and send a relogin request in current conversation
+comment|// remember original request and send a relogin request in
+comment|// current conversation
 name|retryLogin
 argument_list|(
 name|request
@@ -911,7 +916,8 @@ name|MULTIPLE_CHOICES_300
 condition|)
 block|{
 comment|// HTTP failure status
-comment|// get detailed cause, if request comes from an AbstractClientBase
+comment|// get detailed cause, if request comes from an
+comment|// AbstractClientBase
 specifier|final
 name|InputStream
 name|inputStream
@@ -1169,7 +1175,8 @@ name|copy
 parameter_list|)
 block|{
 comment|// copy the request to resend
-comment|// TODO handle a change in Salesforce instanceUrl, right now we retry with the same destination
+comment|// TODO handle a change in Salesforce instanceUrl, right now we
+comment|// retry with the same destination
 specifier|final
 name|Request
 name|newRequest
@@ -1211,7 +1218,8 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-comment|// copy cookies and host for subscriptions to avoid '403::Unknown Client' errors
+comment|// copy cookies and host for subscriptions to avoid
+comment|// '403::Unknown Client' errors
 for|for
 control|(
 name|HttpField
@@ -1555,7 +1563,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// no @Override annotation here to keep it compatible with Jetty 9.2, getName was added in 9.3
+comment|// no @Override annotation here to keep it compatible with Jetty 9.2,
+comment|// getName was added in 9.3
 annotation|@
 name|Override
 DECL|method|getName ()

@@ -517,7 +517,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of {@link org.apache.camel.component.salesforce.internal.client.AnalyticsApiClient}.  */
+comment|/**  * Default implementation of  * {@link org.apache.camel.component.salesforce.internal.client.AnalyticsApiClient}.  */
 end_comment
 
 begin_class
@@ -1877,7 +1877,8 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
-comment|// set request and response content type and charset, which is always JSON for analytics API
+comment|// set request and response content type and charset, which is always
+comment|// JSON for analytics API
 name|request
 operator|.
 name|header

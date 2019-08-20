@@ -2619,7 +2619,8 @@ operator|.
 name|__UTF8
 argument_list|)
 expr_stmt|;
-comment|// TODO check if this is really needed or not, since SF response content type seems fixed
+comment|// TODO check if this is really needed or not, since SF response content
+comment|// type seems fixed
 comment|// check if the default accept content type must be used
 if|if
 condition|(
@@ -2948,7 +2949,8 @@ name|SAXException
 name|ex
 parameter_list|)
 block|{
-comment|// LOG.debug("Error setting feature on parser: " + ex.getMessage());
+comment|// LOG.debug("Error setting feature on parser: " +
+comment|// ex.getMessage());
 block|}
 name|Source
 name|xmlSource

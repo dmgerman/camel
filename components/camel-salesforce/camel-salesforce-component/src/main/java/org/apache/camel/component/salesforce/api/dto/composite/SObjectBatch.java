@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for Composite API batch request. Composite API is available from Salesforce API version 34.0 onwards its a  * way to combine multiple requests in a batch and submit them in one HTTP request. This object help to build the  * payload of the batch request. Most requests that are supported in the Composite batch API the helper builder methods  * are provided. For batch requests that do not have their corresponding helper builder method, use  * {@link #addGeneric(Method, String)} or {@link #addGeneric(Method, String, Object)} methods. To build the batch use:  *<blockquote>  *  *<pre>  * {@code  * SObjectBatch batch = new SObjectBatch("37.0");  *  * final Account account = new Account();  * account.setName("NewAccountName");  * account.setIndustry(Account_IndustryEnum.ENVIRONMENTAL);  * batch.addCreate(account);  *  * batch.addDelete("Account", "001D000000K0fXOIAZ");  *  * batch.addGet("Account", "0010Y00000Arwt6QAB", "Name", "BillingPostalCode");  * }  *  *</pre>  *  *</blockquote>  *  * This will build a batch of three operations, one to create new Account, one to delete an Account, and one to get two  * fields from an Account.  */
+comment|/**  * Builder for Composite API batch request. Composite API is available from  * Salesforce API version 34.0 onwards its a way to combine multiple requests in  * a batch and submit them in one HTTP request. This object help to build the  * payload of the batch request. Most requests that are supported in the  * Composite batch API the helper builder methods are provided. For batch  * requests that do not have their corresponding helper builder method, use  * {@link #addGeneric(Method, String)} or  * {@link #addGeneric(Method, String, Object)} methods. To build the batch use:  *<blockquote>  *  *<pre>  * {  *&#64;code  *     SObjectBatch batch = new SObjectBatch("37.0");  *  *     final Account account = new Account();  *     account.setName("NewAccountName");  *     account.setIndustry(Account_IndustryEnum.ENVIRONMENTAL);  *     batch.addCreate(account);  *  *     batch.addDelete("Account", "001D000000K0fXOIAZ");  *  *     batch.addGet("Account", "0010Y00000Arwt6QAB", "Name", "BillingPostalCode");  * }  *  *</pre>  *  *</blockquote> This will build a batch of three operations, one to create new  * Account, one to delete an Account, and one to get two fields from an Account.  */
 end_comment
 
 begin_class
@@ -376,7 +376,7 @@ specifier|final
 name|Version
 name|version
 decl_stmt|;
-comment|/**      * Create new batch request. You must specify the API version of the batch request. The API version cannot be newer      * than the version configured in the Salesforce Camel component. Some of the batched requests are available only      * from certain Salesforce API versions, when this is the case it is noted in the documentation of the builder      * method, if uncertain consult the Salesforce API documentation.      *      * @param apiVersion      *            API version for the batch request      */
+comment|/**      * Create new batch request. You must specify the API version of the batch      * request. The API version cannot be newer than the version configured in      * the Salesforce Camel component. Some of the batched requests are      * available only from certain Salesforce API versions, when this is the      * case it is noted in the documentation of the builder method, if uncertain      * consult the Salesforce API documentation.      *      * @param apiVersion API version for the batch request      */
 DECL|method|SObjectBatch (final String apiVersion)
 specifier|public
 name|SObjectBatch
@@ -478,7 +478,7 @@ literal|""
 return|;
 block|}
 block|}
-comment|/**      * Add create SObject to the batch request.      *      * @param data      *            object to create      *      * @return this batch builder      */
+comment|/**      * Add create SObject to the batch request.      *      * @param data object to create      * @return this batch builder      */
 DECL|method|addCreate (final AbstractDescribedSObjectBase data)
 specifier|public
 name|SObjectBatch
@@ -517,7 +517,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add delete SObject with identifier to the batch request.      *      * @param type      *            type of SObject      * @param id      *            identifier of the object      * @return this batch builder      */
+comment|/**      * Add delete SObject with identifier to the batch request.      *      * @param type type of SObject      * @param id identifier of the object      * @return this batch builder      */
 DECL|method|addDelete (final String type, final String id)
 specifier|public
 name|SObjectBatch
@@ -554,7 +554,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Generic way to add requests to batch. Given URL starts from the version, so in order to retrieve SObject specify      * just {@code /sobjects/Account/identifier} which results in      * {@code /services/data/v37.0/sobjects/Account/identifier}. Note the leading slash.      *      * @param method      *            HTTP method      * @param url      *            URL starting from the version      * @return this batch builder      */
+comment|/**      * Generic way to add requests to batch. Given URL starts from the version,      * so in order to retrieve SObject specify just      * {@code /sobjects/Account/identifier} which results in      * {@code /services/data/v37.0/sobjects/Account/identifier}. Note the      * leading slash.      *      * @param method HTTP method      * @param url URL starting from the version      * @return this batch builder      */
 DECL|method|addGeneric (final Method method, final String url)
 specifier|public
 name|SObjectBatch
@@ -582,7 +582,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Generic way to add requests to batch with {@code richInput} payload. Given URL starts from the version, so in      * order to update SObject specify just {@code /sobjects/Account/identifier} which results in      * {@code /services/data/v37.0/sobjects/Account/identifier}. Note the leading slash.      *      * @param method      *            HTTP method      * @param url      *            URL starting from the version      * @param richInput      *            body of the request, to be placed in richInput      * @return this batch builder      */
+comment|/**      * Generic way to add requests to batch with {@code richInput} payload.      * Given URL starts from the version, so in order to update SObject specify      * just {@code /sobjects/Account/identifier} which results in      * {@code /services/data/v37.0/sobjects/Account/identifier}. Note the      * leading slash.      *      * @param method HTTP method      * @param url URL starting from the version      * @param richInput body of the request, to be placed in richInput      * @return this batch builder      */
 DECL|method|addGeneric (final Method method, final String url, final Object richInput)
 specifier|public
 name|SObjectBatch
@@ -620,7 +620,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add field retrieval of an SObject by identifier to the batch request.      *      * @param type      *            type of SObject      * @param id      *            identifier of SObject      * @param fields      *            to return      * @return this batch builder      */
+comment|/**      * Add field retrieval of an SObject by identifier to the batch request.      *      * @param type type of SObject      * @param id identifier of SObject      * @param fields to return      * @return this batch builder      */
 DECL|method|addGet (final String type, final String id, final String... fields)
 specifier|public
 name|SObjectBatch
@@ -673,7 +673,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add field retrieval of an SObject by external identifier to the batch request.      *      * @param type      *            type of SObject      * @param fieldName      *            external identifier field name      * @param fieldValue      *            external identifier field value      * @param fields      *            to return      * @return this batch builder      */
+comment|/**      * Add field retrieval of an SObject by external identifier to the batch      * request.      *      * @param type type of SObject      * @param fieldName external identifier field name      * @param fieldValue external identifier field value      * @param fields to return      * @return this batch builder      */
 DECL|method|addGetByExternalId (final String type, final String fieldName, final String fieldValue)
 specifier|public
 name|SObjectBatch
@@ -716,7 +716,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add retrieval of related SObject fields by identifier. For example {@code Account} has a relation to      * {@code CreatedBy}. To fetch fields from that related object ({@code User} SObject) use:<blockquote>      *      *<pre>      * {@code batch.addGetRelated("Account", identifier, "CreatedBy", "Name", "Id")}      *</pre>      *      *</blockquote>      *      * @param type      *            type of SObject      * @param id      *            identifier of SObject      * @param relation      *            name of the related SObject field      * @param fields      *            to return      * @return this batch builder      */
+comment|/**      * Add retrieval of related SObject fields by identifier. For example      * {@code Account} has a relation to {@code CreatedBy}. To fetch fields from      * that related object ({@code User} SObject) use:<blockquote>      *      *<pre>      * {@code batch.addGetRelated("Account", identifier, "CreatedBy", "Name", "Id")}      *</pre>      *      *</blockquote>      *      * @param type type of SObject      * @param id identifier of SObject      * @param relation name of the related SObject field      * @param fields to return      * @return this batch builder      */
 DECL|method|addGetRelated (final String type, final String id, final String relation, final String... fields)
 specifier|public
 name|SObjectBatch
@@ -817,7 +817,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add retrieval of SObject records by query to the batch.      *      * @param query      *            SOQL query to execute      * @return this batch builder      */
+comment|/**      * Add retrieval of SObject records by query to the batch.      *      * @param query SOQL query to execute      * @return this batch builder      */
 DECL|method|addQuery (final String query)
 specifier|public
 name|SObjectBatch
@@ -854,7 +854,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add retrieval of all SObject records by query to the batch.      *      * @param query      *            SOQL query to execute      * @return this batch builder      */
+comment|/**      * Add retrieval of all SObject records by query to the batch.      *      * @param query SOQL query to execute      * @return this batch builder      */
 DECL|method|addQueryAll (final String query)
 specifier|public
 name|SObjectBatch
@@ -891,7 +891,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add retrieval of SObject records by search to the batch.      *      * @param query      *            SOSL search to execute      * @return this batch builder      */
+comment|/**      * Add retrieval of SObject records by search to the batch.      *      * @param query SOSL search to execute      * @return this batch builder      */
 DECL|method|addSearch (final String searchString)
 specifier|public
 name|SObjectBatch
@@ -928,7 +928,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add update of SObject record to the batch. The given {@code data} parameter must contain only the fields that      * need updating and must not contain the {@code Id} field. So set any fields to {@code null} that you do not want      * changed along with {@code Id} field.      *      * @param type      *            type of SObject      * @param id      *            identifier of SObject      * @param data      *            SObject with fields to change      * @return this batch builder      */
+comment|/**      * Add update of SObject record to the batch. The given {@code data}      * parameter must contain only the fields that need updating and must not      * contain the {@code Id} field. So set any fields to {@code null} that you      * do not want changed along with {@code Id} field.      *      * @param type type of SObject      * @param id identifier of SObject      * @param data SObject with fields to change      * @return this batch builder      */
 DECL|method|addUpdate (final String type, final String id, final AbstractSObjectBase data)
 specifier|public
 name|SObjectBatch
@@ -976,7 +976,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add update of SObject record by external identifier to the batch. The given {@code data} parameter must contain      * only the fields that need updating and must not contain the {@code Id} field. So set any fields to {@code null}      * that you do not want changed along with {@code Id} field.      *      * @param type      *            type of SObject      * @param fieldName      *            name of the field holding the external identifier      * @param id      *            external identifier value      * @param data      *            SObject with fields to change      * @return this batch builder      */
+comment|/**      * Add update of SObject record by external identifier to the batch. The      * given {@code data} parameter must contain only the fields that need      * updating and must not contain the {@code Id} field. So set any fields to      * {@code null} that you do not want changed along with {@code Id} field.      *      * @param type type of SObject      * @param fieldName name of the field holding the external identifier      * @param id external identifier value      * @param data SObject with fields to change      * @return this batch builder      */
 DECL|method|addUpdateByExternalId (final String type, final String fieldName, final String fieldValue, final AbstractSObjectBase data)
 specifier|public
 name|SObjectBatch
@@ -1025,7 +1025,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add insert or update of SObject record by external identifier to the batch. The given {@code data} parameter must      * contain only the fields that need updating and must not contain the {@code Id} field. So set any fields to      * {@code null} that you do not want changed along with {@code Id} field.      *      * @param type      *            type of SObject      * @param fieldName      *            name of the field holding the external identifier      * @param id      *            external identifier value      * @param data      *            SObject with fields to change      * @return this batch builder      */
+comment|/**      * Add insert or update of SObject record by external identifier to the      * batch. The given {@code data} parameter must contain only the fields that      * need updating and must not contain the {@code Id} field. So set any      * fields to {@code null} that you do not want changed along with {@code Id}      * field.      *      * @param type type of SObject      * @param fieldName name of the field holding the external identifier      * @param id external identifier value      * @param data SObject with fields to change      * @return this batch builder      */
 DECL|method|addUpsertByExternalId (final String type, final String fieldName, final String fieldValue, final AbstractSObjectBase data)
 specifier|public
 name|SObjectBatch
@@ -1093,7 +1093,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/**      * Returns all object types nested within this batch, needed for serialization.      *      * @return all object types in this batch      */
+comment|/**      * Returns all object types nested within this batch, needed for      * serialization.      *      * @return all object types in this batch      */
 DECL|method|objectTypes ()
 specifier|public
 name|Class

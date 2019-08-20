@@ -996,7 +996,7 @@ return|return
 name|accessToken
 return|;
 block|}
-comment|/**      * Creates login request, allows SalesforceSecurityHandler to create a login request for a failed authentication      * conversation      *       * @return login POST request.      */
+comment|/**      * Creates login request, allows SalesforceSecurityHandler to create a login      * request for a failed authentication conversation      *       * @return login POST request.      */
 DECL|method|getLoginRequest (HttpConversation conversation)
 specifier|public
 name|Request
@@ -1632,7 +1632,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Parses login response, allows SalesforceSecurityHandler to parse a login request for a failed authentication      * conversation.      */
+comment|/**      * Parses login response, allows SalesforceSecurityHandler to parse a login      * request for a failed authentication conversation.      */
 DECL|method|parseLoginResponse (ContentResponse loginResponse, String responseContent)
 specifier|public
 specifier|synchronized

@@ -388,7 +388,7 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Gets String value for a parameter from header, endpoint config, or      * exchange body (optional).      *      * @param exchange          exchange to inspect      * @param convertInBody     converts In body to String value if true      * @param propName          name of property      * @param optional          if {@code true} returns null, otherwise throws RestException      * @return value of property, or {@code null} for optional parameters if not found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException      *          if the property can't be found or on conversion errors.      */
+comment|/**      * Gets String value for a parameter from header, endpoint config, or      * exchange body (optional).      *      * @param exchange exchange to inspect      * @param convertInBody converts In body to String value if true      * @param propName name of property      * @param optional if {@code true} returns null, otherwise throws      *            RestException      * @return value of property, or {@code null} for optional parameters if not      *         found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException if      *         the property can't be found or on conversion errors.      */
 DECL|method|getParameter (final String propName, final Exchange exchange, final boolean convertInBody, final boolean optional)
 specifier|protected
 specifier|final
@@ -431,7 +431,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets value for a parameter from header, endpoint config, or exchange body (optional).      *      * @param exchange          exchange to inspect      * @param convertInBody     converts In body to parameterClass value if true      * @param propName          name of property      * @param optional          if {@code true} returns null, otherwise throws RestException      * @param parameterClass    parameter type      * @return value of property, or {@code null} for optional parameters if not found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException      *          if the property can't be found or on conversion errors.      */
+comment|/**      * Gets value for a parameter from header, endpoint config, or exchange body      * (optional).      *      * @param exchange exchange to inspect      * @param convertInBody converts In body to parameterClass value if true      * @param propName name of property      * @param optional if {@code true} returns null, otherwise throws      *            RestException      * @param parameterClass parameter type      * @return value of property, or {@code null} for optional parameters if not      *         found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException if      *         the property can't be found or on conversion errors.      */
 DECL|method|getParameter (final String propName, final Exchange exchange, final boolean convertInBody, final boolean optional, final Class<T> parameterClass)
 specifier|protected
 specifier|final

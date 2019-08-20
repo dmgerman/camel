@@ -25,7 +25,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * SObject tree Composite API interface for {@code referenceId} generation. For each object given to the  * {@link ReferenceGenerator#nextReferenceFor(Object)} method, the implementation should generate reference identifiers.  * Reference identifiers need to be unique within one SObject tree request and should start with alphanumeric character.  *<p/>  * For example you can provide your {@link ReferenceGenerator} implementation that uses identities within your own  * system as references, i.e. primary keys of records in your database.  *  * @see Counter  */
+comment|/**  * SObject tree Composite API interface for {@code referenceId} generation. For  * each object given to the {@link ReferenceGenerator#nextReferenceFor(Object)}  * method, the implementation should generate reference identifiers. Reference  * identifiers need to be unique within one SObject tree request and should  * start with alphanumeric character.  *<p/>  * For example you can provide your {@link ReferenceGenerator} implementation  * that uses identities within your own system as references, i.e. primary keys  * of records in your database.  *  * @see Counter  */
 end_comment
 
 begin_interface
@@ -34,7 +34,7 @@ specifier|public
 interface|interface
 name|ReferenceGenerator
 block|{
-comment|/**      * Generates unique, within a request, reference identifier for the given object. Reference identifier must start      * with an alphanumeric.      *      * @param object      *            object to generate reference identifier for      * @return generated reference identifier      */
+comment|/**      * Generates unique, within a request, reference identifier for the given      * object. Reference identifier must start with an alphanumeric.      *      * @param object object to generate reference identifier for      * @return generated reference identifier      */
 DECL|method|nextReferenceFor (Object object)
 name|String
 name|nextReferenceFor

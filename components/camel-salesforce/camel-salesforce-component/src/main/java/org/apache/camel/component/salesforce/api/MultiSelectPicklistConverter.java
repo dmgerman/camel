@@ -522,7 +522,8 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// check whether the Class is an array, and whether the array elment is a Picklist enum class
+comment|// check whether the Class is an array, and whether the array elment
+comment|// is a Picklist enum class
 specifier|final
 name|Class
 name|componentType

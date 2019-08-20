@@ -108,7 +108,8 @@ name|String
 name|password
 decl_stmt|;
 comment|// allow lazy login into Salesforce
-comment|// note that login issues may not surface until a message needs to be processed
+comment|// note that login issues may not surface until a message needs to be
+comment|// processed
 DECL|field|lazyLogin
 specifier|private
 name|boolean
@@ -463,7 +464,7 @@ operator|=
 name|clientSecret
 expr_stmt|;
 block|}
-comment|/**      * Keystore parameters for keystore containing certificate and private key needed for OAuth 2.0 JWT Bearer Token      * Flow.      */
+comment|/**      * Keystore parameters for keystore containing certificate and private key      * needed for OAuth 2.0 JWT Bearer Token Flow.      */
 DECL|method|setKeystore (final KeyStoreParameters keystore)
 specifier|public
 name|void
@@ -750,7 +751,7 @@ return|return
 name|lazyLogin
 return|;
 block|}
-comment|/**      * Flag to enable/disable lazy OAuth, default is false. When enabled, OAuth token retrieval or generation is not      * done until the first API call      */
+comment|/**      * Flag to enable/disable lazy OAuth, default is false. When enabled, OAuth      * token retrieval or generation is not done until the first API call      */
 DECL|method|setLazyLogin (boolean lazyLogin)
 specifier|public
 name|void

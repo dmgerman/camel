@@ -297,7 +297,7 @@ operator|=
 name|namedLayoutInfos
 expr_stmt|;
 block|}
-comment|/**      * Removes some of the less used properties from this object. Useful to reduce serialized form or for code      * generation that relies on reflection.      */
+comment|/**      * Removes some of the less used properties from this object. Useful to      * reduce serialized form or for code generation that relies on reflection.      */
 DECL|method|prune ()
 specifier|public
 name|SObjectDescription

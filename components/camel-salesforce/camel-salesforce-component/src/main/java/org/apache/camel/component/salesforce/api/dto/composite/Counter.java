@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link ReferenceGenerator} implementation that generates a counted sequence of references (ref1, ref2, ...).  */
+comment|/**  * Default {@link ReferenceGenerator} implementation that generates a counted  * sequence of references (ref1, ref2, ...).  */
 end_comment
 
 begin_class

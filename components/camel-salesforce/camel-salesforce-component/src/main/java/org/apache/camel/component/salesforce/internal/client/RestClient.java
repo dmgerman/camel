@@ -101,7 +101,7 @@ name|exception
 parameter_list|)
 function_decl|;
 block|}
-comment|/**      * Lists summary information about each API version currently available,      * including the version, label, and a link to each version's root.      *      * @param headers  additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Lists summary information about each API version currently available,      * including the version, label, and a link to each version's root.      *      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getVersions (Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|getVersions
@@ -121,7 +121,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Lists available resources for the specified API version, including resource name and URI.      *      * @param headers  additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Lists available resources for the specified API version, including      * resource name and URI.      *      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getResources (Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|getResources
@@ -141,7 +141,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Lists the available objects and their metadata for your organization's data.      *      * @param headers  additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Lists the available objects and their metadata for your organization's      * data.      *      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getGlobalObjects (Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|getGlobalObjects
@@ -161,7 +161,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Describes the individual metadata for the specified object.      *      * @param sObjectName specified object name      * @param headers     additional HTTP headers to send      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Describes the individual metadata for the specified object.      *      * @param sObjectName specified object name      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getBasicInfo (String sObjectName, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|getBasicInfo
@@ -184,7 +184,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Completely describes the individual metadata at all levels for the specified object.      *      * @param sObjectName specified object name      * @param headers     additional HTTP headers to send      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Completely describes the individual metadata at all levels for the      * specified object.      *      * @param sObjectName specified object name      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getDescription (String sObjectName, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|getDescription
@@ -207,7 +207,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Retrieves a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param headers     additional HTTP headers to send      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Retrieves a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id object id      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getSObject (String sObjectName, String id, String[] fields, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|getSObject
@@ -237,7 +237,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a record for the specified object.      *      * @param sObjectName specified object name      * @param headers     additional HTTP headers to send      * @param sObject     request entity      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Creates a record for the specified object.      *      * @param sObjectName specified object name      * @param headers additional HTTP headers to send      * @param sObject request entity      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|createSObject (String sObjectName, InputStream sObject, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|createSObject
@@ -263,7 +263,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Updates a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param headers     additional HTTP headers to send      * @param sObject     request entity      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Updates a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id object id      * @param headers additional HTTP headers to send      * @param sObject request entity      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|updateSObject (String sObjectName, String id, InputStream sObject, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|updateSObject
@@ -292,7 +292,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param headers     additional HTTP headers to send      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Deletes a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id object id      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|deleteSObject (String sObjectName, String id, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|deleteSObject
@@ -318,7 +318,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Retrieves a record for the specified external ID.      *      * @param sObjectName specified object name      * @param fieldName   external field name      * @param fieldValue  external field value      * @param headers     additional HTTP headers to send      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Retrieves a record for the specified external ID.      *      * @param sObjectName specified object name      * @param fieldName external field name      * @param fieldValue external field value      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getSObjectWithId (String sObjectName, String fieldName, String fieldValue, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|getSObjectWithId
@@ -347,7 +347,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Creates or updates a record based on the value of a specified external ID field.      *      * @param sObjectName specified object name      * @param fieldName   external field name      * @param fieldValue  external field value      * @param headers     additional HTTP headers to send      * @param sObject     input object to insert or update      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Creates or updates a record based on the value of a specified external ID      * field.      *      * @param sObjectName specified object name      * @param fieldName external field name      * @param fieldValue external field value      * @param headers additional HTTP headers to send      * @param sObject input object to insert or update      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|upsertSObject (String sObjectName, String fieldName, String fieldValue, Map<String, List<String>> headers, InputStream sObject, ResponseCallback callback)
 name|void
 name|upsertSObject
@@ -379,7 +379,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes a record based on the value of a specified external ID field.      *      * @param sObjectName specified object name      * @param fieldName   external field name      * @param fieldValue  external field value      * @param headers     additional HTTP headers to send      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Deletes a record based on the value of a specified external ID field.      *      * @param sObjectName specified object name      * @param fieldName external field name      * @param fieldValue external field value      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|deleteSObjectWithId (String sObjectName, String fieldName, String fieldValue, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|deleteSObjectWithId
@@ -408,7 +408,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Retrieves the specified blob field from an individual record.      *      * @param sObjectName   specified object name      * @param id            identifier of the object      * @param blobFieldName name of the field holding the blob      * @param headers       additional HTTP headers to send      * @param callback    {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Retrieves the specified blob field from an individual record.      *      * @param sObjectName specified object name      * @param id identifier of the object      * @param blobFieldName name of the field holding the blob      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getBlobField (String sObjectName, String id, String blobFieldName, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|getBlobField
@@ -437,7 +437,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Executes the specified SOQL query.      *      * @param soqlQuery SOQL query      * @param headers   additional HTTP headers to send      * @param callback  {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Executes the specified SOQL query.      *      * @param soqlQuery SOQL query      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|query (String soqlQuery, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|query
@@ -460,7 +460,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Get SOQL query results using nextRecordsUrl.      *      * @param nextRecordsUrl URL for next records to fetch, returned by query()      * @param headers        additional HTTP headers to send      * @param callback       {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Get SOQL query results using nextRecordsUrl.      *      * @param nextRecordsUrl URL for next records to fetch, returned by query()      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|queryMore (String nextRecordsUrl, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|queryMore
@@ -483,7 +483,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Executes the specified SOQL query including deleted records.      *      * @param soqlQuery SOQL query      * @param headers   additional HTTP headers to send      * @param callback  {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Executes the specified SOQL query including deleted records.      *      * @param soqlQuery SOQL query      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|queryAll (String soqlQuery, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|queryAll
@@ -506,7 +506,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Executes the specified SOSL search.      *      * @param soslQuery SOSL query      * @param headers   additional HTTP headers to send      * @param callback  {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Executes the specified SOSL search.      *      * @param soslQuery SOSL query      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|search (String soslQuery, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|search
@@ -529,7 +529,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Executes a user defined APEX REST API call.      *      * @param httpMethod    HTTP method to execute.      * @param apexUrl       APEX api url.      * @param queryParams   optional query parameters for GET methods, may be empty.      * @param requestDto    optional input DTO for POST, etc. may be null.      * @param headers       additional HTTP headers to send      * @param callback      {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Executes a user defined APEX REST API call.      *      * @param httpMethod HTTP method to execute.      * @param apexUrl APEX api url.      * @param queryParams optional query parameters for GET methods, may be      *            empty.      * @param requestDto optional input DTO for POST, etc. may be null.      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|apexCall (String httpMethod, String apexUrl, Map<String, Object> queryParams, InputStream requestDto, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|apexCall
@@ -566,7 +566,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Fetches recently viewed records.      *      * @param limit      *            optional limit that specifies the maximum number of records to be returned. If this parameter is not      *            specified, the default maximum number of records returned is the maximum number of entries in      *            RecentlyViewed, which is 200 records per object.      * @param headers additional HTTP headers to send      * @param responseCallback      *            {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Fetches recently viewed records.      *      * @param limit optional limit that specifies the maximum number of records      *            to be returned. If this parameter is not specified, the      *            default maximum number of records returned is the maximum      *            number of entries in RecentlyViewed, which is 200 records per      *            object.      * @param headers additional HTTP headers to send      * @param responseCallback {@link ResponseCallback} to handle response or      *            exception      */
 DECL|method|recent (Integer limit, Map<String, List<String>> headers, ResponseCallback responseCallback)
 name|void
 name|recent
@@ -589,7 +589,7 @@ name|ResponseCallback
 name|responseCallback
 parameter_list|)
 function_decl|;
-comment|/**      * Fetches Organization Limits.      *      * @param headers          additional HTTP headers to send      * @param responseCallback {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Fetches Organization Limits.      *      * @param headers additional HTTP headers to send      * @param responseCallback {@link ResponseCallback} to handle response or      *            exception      */
 DECL|method|limits (Map<String, List<String>> headers, ResponseCallback responseCallback)
 name|void
 name|limits
@@ -609,7 +609,7 @@ name|ResponseCallback
 name|responseCallback
 parameter_list|)
 function_decl|;
-comment|/**      * Submits, approves or rejects particular record.      *      * @param headers   additional HTTP headers to send      * @param callback      *            {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Submits, approves or rejects particular record.      *      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|approval (InputStream request, Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|approval
@@ -632,7 +632,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a list of all approval processes.      *      * @param headers   additional HTTP headers to send      * @param callback      *            {@link ResponseCallback} to handle response or exception      */
+comment|/**      * Returns a list of all approval processes.      *      * @param headers additional HTTP headers to send      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|approvals (Map<String, List<String>> headers, ResponseCallback callback)
 name|void
 name|approvals

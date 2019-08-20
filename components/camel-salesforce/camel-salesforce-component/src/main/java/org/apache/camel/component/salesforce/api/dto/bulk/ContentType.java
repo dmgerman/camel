@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for ContentType.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;simpleType name="ContentType">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="XML"/>  *&lt;enumeration value="CSV"/>  *&lt;enumeration value="JSON"/>  *&lt;enumeration value="ZIP_XML"/>  *&lt;enumeration value="ZIP_CSV"/>  *&lt;enumeration value="ZIP_JSON"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
+comment|/**  *<p>  * Java class for ContentType.  *<p/>  *<p>  * The following schema fragment specifies the expected content contained within  * this class.  *<p/>  *   *<pre>  *&lt;simpleType name="ContentType">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="XML"/>  *&lt;enumeration value="CSV"/>  *&lt;enumeration value="JSON"/>  *&lt;enumeration value="ZIP_XML"/>  *&lt;enumeration value="ZIP_CSV"/>  *&lt;enumeration value="ZIP_JSON"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
 end_comment
 
 begin_enum
@@ -72,21 +72,21 @@ enum|enum
 name|ContentType
 block|{
 DECL|enumConstant|XML
+DECL|enumConstant|CSV
+DECL|enumConstant|JSON
+DECL|enumConstant|ZIP_XML
+DECL|enumConstant|ZIP_CSV
+DECL|enumConstant|ZIP_JSON
 name|XML
 block|,
-DECL|enumConstant|CSV
 name|CSV
 block|,
-DECL|enumConstant|JSON
 name|JSON
 block|,
-DECL|enumConstant|ZIP_XML
 name|ZIP_XML
 block|,
-DECL|enumConstant|ZIP_CSV
 name|ZIP_CSV
 block|,
-DECL|enumConstant|ZIP_JSON
 name|ZIP_JSON
 block|;
 DECL|method|value ()

@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Subclass of {@link AbstractSObjectBase} that contains additional metadata about SObject. The  * {@code camel-salesforce-maven-plugin} generates Data Transfer Objects (DTO) by subclassing this class and  * implementing the {@link AbstractDescribedSObjectBase#description()} method from the metadata received from  * Salesforce. Note that there are no guarantees about all fields in the {@link SObjectDescription} being set. This is  * to prevent unnecessary memory usage, and to prevent running into Java method length limit.  */
+comment|/**  * Subclass of {@link AbstractSObjectBase} that contains additional metadata  * about SObject. The {@code camel-salesforce-maven-plugin} generates Data  * Transfer Objects (DTO) by subclassing this class and implementing the  * {@link AbstractDescribedSObjectBase#description()} method from the metadata  * received from Salesforce. Note that there are no guarantees about all fields  * in the {@link SObjectDescription} being set. This is to prevent unnecessary  * memory usage, and to prevent running into Java method length limit.  */
 end_comment
 
 begin_class
@@ -35,7 +35,7 @@ name|AbstractDescribedSObjectBase
 extends|extends
 name|AbstractSObjectBase
 block|{
-comment|/**      * Additional metadata about this SObject. There are no guarantees that all of the fields of      * {@link SObjectDescription} will be set.      *      * @return metadata description of this SObject      */
+comment|/**      * Additional metadata about this SObject. There are no guarantees that all      * of the fields of {@link SObjectDescription} will be set.      *      * @return metadata description of this SObject      */
 DECL|method|description ()
 specifier|public
 specifier|abstract

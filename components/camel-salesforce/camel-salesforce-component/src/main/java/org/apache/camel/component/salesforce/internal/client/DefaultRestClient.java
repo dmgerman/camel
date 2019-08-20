@@ -2119,8 +2119,9 @@ argument_list|,
 name|headers
 argument_list|)
 decl_stmt|;
-comment|// TODO this doesn't seem to be required, the response is always the content binary stream
-comment|//get.header(HttpHeader.ACCEPT_ENCODING, "base64");
+comment|// TODO this doesn't seem to be required, the response is always the
+comment|// content binary stream
+comment|// get.header(HttpHeader.ACCEPT_ENCODING, "base64");
 comment|// requires authorization token
 name|setAccessToken
 argument_list|(

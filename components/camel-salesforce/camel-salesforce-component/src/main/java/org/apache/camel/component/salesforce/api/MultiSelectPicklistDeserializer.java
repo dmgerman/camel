@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jackson deserializer base class for reading ';' separated strings for MultiSelect pick-lists.  */
+comment|/**  * Jackson deserializer base class for reading ';' separated strings for  * MultiSelect pick-lists.  */
 end_comment
 
 begin_class

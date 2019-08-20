@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Custom Salesforce HTTP Client that creates {@link SalesforceHttpRequest} requests.  */
+comment|/**  * Custom Salesforce HTTP Client that creates {@link SalesforceHttpRequest}  * requests.  */
 end_comment
 
 begin_class

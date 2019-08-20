@@ -1376,7 +1376,8 @@ name|approvalRequestFromHeader
 operator|!=
 literal|null
 decl_stmt|;
-comment|// find if there is a ApprovalRequest as `approval` in the message header
+comment|// find if there is a ApprovalRequest as `approval` in the message
+comment|// header
 specifier|final
 name|ApprovalRequest
 name|approvalHeader
@@ -1476,7 +1477,8 @@ operator|.
 name|hasNext
 argument_list|()
 decl_stmt|;
-comment|// body contains nothing of interest if it's null, holds an empty iterable or cannot be converted to
+comment|// body contains nothing of interest if it's null, holds an empty
+comment|// iterable or cannot be converted to
 comment|// ApprovalRequest
 specifier|final
 name|boolean
@@ -1625,7 +1627,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// we've looked at the body, and are expecting to see something resembling ApprovalRequest in there
+comment|// we've looked at the body, and are expecting to see something
+comment|// resembling ApprovalRequest in there
 comment|// but lets see if that is so
 specifier|final
 name|ApprovalRequest
@@ -4297,7 +4300,8 @@ name|getApexQueryParams
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// look for individual properties, allowing endpoint properties to be overridden
+comment|// look for individual properties, allowing endpoint properties to be
+comment|// overridden
 for|for
 control|(
 name|Map
@@ -4487,7 +4491,8 @@ name|SalesforceException
 name|e
 parameter_list|)
 block|{
-comment|// YES, the exchange may fail if the property cannot be reset!!!
+comment|// YES, the exchange may fail if the property cannot be
+comment|// reset!!!
 name|exchange
 operator|.
 name|setException
@@ -4865,7 +4870,7 @@ function_decl|;
 end_function_decl
 
 begin_comment
-comment|/**      * Returns {@link InputStream} to serialized form of the given object.      *       * @param object      *            object to serialize      * @return stream to read serialized object from      */
+comment|/**      * Returns {@link InputStream} to serialized form of the given object.      *       * @param object object to serialize      * @return stream to read serialized object from      */
 end_comment
 
 begin_function_decl

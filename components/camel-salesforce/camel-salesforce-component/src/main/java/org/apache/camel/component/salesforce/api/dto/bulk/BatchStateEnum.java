@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for BatchStateEnum.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;simpleType name="BatchStateEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="Queued"/>  *&lt;enumeration value="InProgress"/>  *&lt;enumeration value="Completed"/>  *&lt;enumeration value="Failed"/>  *&lt;enumeration value="NotProcessed"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
+comment|/**  *<p>  * Java class for BatchStateEnum.  *<p/>  *<p>  * The following schema fragment specifies the expected content contained within  * this class.  *<p/>  *   *<pre>  *&lt;simpleType name="BatchStateEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="Queued"/>  *&lt;enumeration value="InProgress"/>  *&lt;enumeration value="Completed"/>  *&lt;enumeration value="Failed"/>  *&lt;enumeration value="NotProcessed"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
 end_comment
 
 begin_enum
@@ -92,48 +92,48 @@ argument_list|(
 literal|"Queued"
 argument_list|)
 DECL|enumConstant|QUEUED
+DECL|enumConstant|XmlEnumValue
 name|QUEUED
 argument_list|(
 literal|"Queued"
 argument_list|)
 block|,
-DECL|enumConstant|XmlEnumValue
 annotation|@
 name|XmlEnumValue
 argument_list|(
 literal|"InProgress"
 argument_list|)
 DECL|enumConstant|IN_PROGRESS
+DECL|enumConstant|XmlEnumValue
 name|IN_PROGRESS
 argument_list|(
 literal|"InProgress"
 argument_list|)
 block|,
-DECL|enumConstant|XmlEnumValue
 annotation|@
 name|XmlEnumValue
 argument_list|(
 literal|"Completed"
 argument_list|)
 DECL|enumConstant|COMPLETED
+DECL|enumConstant|XmlEnumValue
 name|COMPLETED
 argument_list|(
 literal|"Completed"
 argument_list|)
 block|,
-DECL|enumConstant|XmlEnumValue
 annotation|@
 name|XmlEnumValue
 argument_list|(
 literal|"Failed"
 argument_list|)
 DECL|enumConstant|FAILED
+DECL|enumConstant|XmlEnumValue
 name|FAILED
 argument_list|(
 literal|"Failed"
 argument_list|)
 block|,
-DECL|enumConstant|XmlEnumValue
 annotation|@
 name|XmlEnumValue
 argument_list|(

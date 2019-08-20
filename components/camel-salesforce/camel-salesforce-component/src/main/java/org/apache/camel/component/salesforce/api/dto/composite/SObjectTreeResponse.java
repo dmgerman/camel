@@ -162,8 +162,10 @@ name|XStreamAlias
 argument_list|(
 literal|"Result"
 argument_list|)
-comment|// you might be wondering why `Result` and not `SObjectTreeResponse` as in documentation, well,
-comment|// the difference between documentation and practice is usually found in practice, this depends
+comment|// you might be wondering why `Result` and not
+comment|// `SObjectTreeResponse` as in documentation, well,
+comment|// the difference between documentation and practice is
+comment|// usually found in practice, this depends
 comment|// on the version of the API that's used
 DECL|class|SObjectTreeResponse
 specifier|public
