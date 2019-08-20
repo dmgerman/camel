@@ -236,6 +236,7 @@ block|}
 comment|// *********************************
 comment|// Parameters validation
 comment|// *********************************
+comment|/**      * Basic check of the parameters (they are not empty)      *      * @param parameters      * @return      */
 annotation|@
 name|Override
 DECL|method|verifyParameters (Map<String, Object> parameters)
@@ -326,6 +327,7 @@ block|}
 comment|// *********************************
 comment|// Connectivity validation
 comment|// *********************************
+comment|/**      * To verify the connectivity, we will try a basic test connection to extract the       * list of tables and see if it fails      *      * @param parameters      * @return      */
 annotation|@
 name|Override
 DECL|method|verifyConnectivity (Map<String, Object> parameters)
