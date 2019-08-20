@@ -160,6 +160,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|TestInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -209,6 +223,15 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|TestInstance
+argument_list|(
+name|TestInstance
+operator|.
+name|Lifecycle
+operator|.
+name|PER_METHOD
+argument_list|)
 DECL|class|CreateCamelContextPerTestFalseTest
 specifier|public
 class|class
@@ -274,18 +297,6 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|isCreateCamelContextPerClass ()
-specifier|public
-name|boolean
-name|isCreateCamelContextPerClass
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|createCamelContext ()

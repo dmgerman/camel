@@ -682,6 +682,22 @@ name|jupiter
 operator|.
 name|api
 operator|.
+name|TestInstance
+operator|.
+name|Lifecycle
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|extension
 operator|.
 name|AfterAllCallback
@@ -701,6 +717,22 @@ operator|.
 name|extension
 operator|.
 name|AfterTestExecutionCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|extension
+operator|.
+name|BeforeAllCallback
 import|;
 end_import
 
@@ -818,6 +850,8 @@ implements|implements
 name|BeforeEachCallback
 implements|,
 name|AfterAllCallback
+implements|,
+name|BeforeAllCallback
 implements|,
 name|BeforeTestExecutionCallback
 implements|,
@@ -1042,6 +1076,13 @@ specifier|private
 name|String
 name|currentTestName
 decl_stmt|;
+DECL|field|isCreateCamelContextPerClass
+specifier|private
+name|boolean
+name|isCreateCamelContextPerClass
+init|=
+literal|false
+decl_stmt|;
 DECL|field|routeCoverageDumper
 specifier|private
 name|CamelRouteCoverageDumper
@@ -1121,6 +1162,42 @@ operator|=
 name|context
 operator|.
 name|getDisplayName
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|beforeAll (ExtensionContext context)
+specifier|public
+name|void
+name|beforeAll
+parameter_list|(
+name|ExtensionContext
+name|context
+parameter_list|)
+block|{
+name|isCreateCamelContextPerClass
+operator|=
+name|context
+operator|.
+name|getTestInstanceLifecycle
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|lc
+lambda|->
+name|lc
+operator|.
+name|equals
+argument_list|(
+name|Lifecycle
+operator|.
+name|PER_CLASS
+argument_list|)
+argument_list|)
+operator|.
+name|isPresent
 argument_list|()
 expr_stmt|;
 block|}
@@ -1222,15 +1299,16 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Override to control whether {@link CamelContext} should be setup per test      * or per class.      *<p/>      * By default it will be setup/teardown per test (per test method). If you      * want to re-use {@link CamelContext} between test methods you can override      * this method and return<tt>true</tt>      *<p/>      *<b>Important:</b> Use this with care as the {@link CamelContext} will      * carry over state from previous tests, such as endpoints, components etc.      * So you cannot use this in all your tests.      *<p/>      * Setting up {@link CamelContext} uses the {@link #doPreSetup()},      * {@link #doSetUp()}, and {@link #doPostSetup()} methods in that given      * order.      *      * @return<tt>true</tt> per class,<tt>false</tt> per test.      */
+comment|/**      * Tells whether {@link CamelContext} should be setup per test or per class.      *<p/>      * By default it will be setup/teardown per test method. This method returns      *<code>true</code> when the camel test class is annotated      * with @TestInstance(TestInstance.Lifecycle.PER_CLASS).      *<p/>      *<b>Important:</b> Use this with care as the {@link CamelContext} will      * carry over state from previous tests, such as endpoints, components etc.      * So you cannot use this in all your tests.      *<p/>      * Setting up {@link CamelContext} uses the {@link #doPreSetup()},      * {@link #doSetUp()}, and {@link #doPostSetup()} methods in that given      * order.      *      * @return<tt>true</tt> per class,<tt>false</tt> per test.      */
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
+specifier|final
 name|boolean
 name|isCreateCamelContextPerClass
 parameter_list|()
 block|{
 return|return
-literal|false
+name|isCreateCamelContextPerClass
 return|;
 block|}
 comment|/**      * Override to enable auto mocking endpoints based on the pattern.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see EndpointHelper#matchEndpoint(CamelContext, String, String)      */
@@ -2410,7 +2488,7 @@ name|isCreateCamelContextPerClass
 argument_list|()
 condition|)
 block|{
-comment|// will tear down test specially in CamelTearDownRule
+comment|// will tear down test specially in afterAll callback
 block|}
 else|else
 block|{

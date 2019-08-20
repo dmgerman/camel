@@ -64,6 +64,20 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|TestInstance
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests filtering using Camel Test  */
 end_comment
@@ -73,6 +87,15 @@ comment|// START SNIPPET: example
 end_comment
 
 begin_class
+annotation|@
+name|TestInstance
+argument_list|(
+name|TestInstance
+operator|.
+name|Lifecycle
+operator|.
+name|PER_CLASS
+argument_list|)
 DECL|class|FilterCreateCamelContextPerClassTest
 specifier|public
 class|class
@@ -80,21 +103,6 @@ name|FilterCreateCamelContextPerClassTest
 extends|extends
 name|CamelTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|isCreateCamelContextPerClass ()
-specifier|public
-name|boolean
-name|isCreateCamelContextPerClass
-parameter_list|()
-block|{
-comment|// we override this method and return true, to tell Camel test-kit that
-comment|// it should only create CamelContext once (per class), so we will
-comment|// re-use the CamelContext between each test method in this class
-return|return
-literal|true
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|testSendMatchingMessage ()
