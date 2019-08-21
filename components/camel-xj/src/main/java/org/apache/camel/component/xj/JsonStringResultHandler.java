@@ -20,6 +20,42 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|StringWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|Result
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|stax
+operator|.
+name|StAXResult
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -74,41 +110,9 @@ name|ResultHandler
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|Result
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|stax
-operator|.
-name|StAXResult
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringWriter
-import|;
-end_import
+begin_comment
+comment|/**  * Result handler impl. to write a json document into a {@link String}  */
+end_comment
 
 begin_class
 DECL|class|JsonStringResultHandler
@@ -130,6 +134,7 @@ specifier|final
 name|Result
 name|result
 decl_stmt|;
+comment|/**      * Creates a new json to string result handler instance      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
 DECL|method|JsonStringResultHandler (JsonFactory jsonFactory)
 specifier|public
 name|JsonStringResultHandler
@@ -176,6 +181,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|getResult ()
@@ -190,6 +196,7 @@ operator|.
 name|result
 return|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|setBody (Message in)

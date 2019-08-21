@@ -20,6 +20,74 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|stream
+operator|.
+name|XMLStreamReader
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|Source
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|stax
+operator|.
+name|StAXSource
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -72,71 +140,23 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|stream
+name|camel
 operator|.
-name|XMLStreamReader
+name|component
+operator|.
+name|xslt
+operator|.
+name|SourceHandlerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|Source
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|stax
-operator|.
-name|StAXSource
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
+begin_comment
+comment|/**  * Handler for json sources  */
+end_comment
 
 begin_class
 DECL|class|JsonSourceHandlerFactoryImpl
@@ -158,6 +178,7 @@ name|isFailOnNullBody
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Creates a new instance      * @param jsonFactory the jsonFactory to use to read the json document      */
 DECL|method|JsonSourceHandlerFactoryImpl (JsonFactory jsonFactory)
 specifier|public
 name|JsonSourceHandlerFactoryImpl
@@ -173,6 +194,7 @@ operator|=
 name|jsonFactory
 expr_stmt|;
 block|}
+comment|/**      * Returns if we fail when the body is null      */
 DECL|method|isFailOnNullBody ()
 specifier|public
 name|boolean
@@ -183,6 +205,7 @@ return|return
 name|isFailOnNullBody
 return|;
 block|}
+comment|/**      * Set if we should fail when the body is null      * @param failOnNullBody      */
 DECL|method|setFailOnNullBody (boolean failOnNullBody)
 specifier|public
 name|void
@@ -197,6 +220,7 @@ operator|=
 name|failOnNullBody
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|getSource (Exchange exchange)

@@ -76,6 +76,10 @@ name|ResultHandlerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * {@JsonStreamResultHandler} factory  */
+end_comment
+
 begin_class
 DECL|class|JsonStreamResultHandlerFactory
 specifier|public
@@ -90,6 +94,7 @@ specifier|final
 name|JsonFactory
 name|jsonFactory
 decl_stmt|;
+comment|/**      * Creates a new json to stream result handler factory      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
 DECL|method|JsonStreamResultHandlerFactory (JsonFactory jsonFactory)
 specifier|public
 name|JsonStreamResultHandlerFactory
@@ -105,6 +110,7 @@ operator|=
 name|jsonFactory
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|createResult (Exchange exchange)

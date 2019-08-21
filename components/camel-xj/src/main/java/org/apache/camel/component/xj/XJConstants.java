@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|core
-operator|.
-name|JsonToken
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -62,12 +48,27 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|core
+operator|.
+name|JsonToken
+import|;
+end_import
+
 begin_class
 DECL|class|XJConstants
 specifier|public
 class|class
 name|XJConstants
 block|{
+comment|/**      * The namespace used by xj for typehints      */
 DECL|field|NS_XJ
 specifier|public
 specifier|static
@@ -77,6 +78,7 @@ name|NS_XJ
 init|=
 literal|"http://camel.apache.org/component/xj"
 decl_stmt|;
+comment|/**      * The namespace prefix used by xj for typehints      */
 DECL|field|NS_PREFIX_XJ
 specifier|public
 specifier|static
@@ -86,6 +88,7 @@ name|NS_PREFIX_XJ
 init|=
 literal|"xj"
 decl_stmt|;
+comment|/**      * Name typehint. Used to instruct xj to write a field with that name when converting to json. On the otherhand      * when converting to xml xj writes the json field name in that attribute.      */
 DECL|field|TYPE_HINT_NAME
 specifier|public
 specifier|static
@@ -95,6 +98,7 @@ name|TYPE_HINT_NAME
 init|=
 literal|"name"
 decl_stmt|;
+comment|/**      * JSON-Type hint. Used to instruct xj of which type the output is when converting to json. Otherwise when converting      * to xml the attribute holds the type that was in the original json document.      */
 DECL|field|TYPE_HINT_TYPE
 specifier|public
 specifier|static
@@ -104,8 +108,8 @@ name|TYPE_HINT_TYPE
 init|=
 literal|"type"
 decl_stmt|;
+comment|/**      * Mapping from json-types to typehint names      */
 DECL|field|JSONTYPE_TYPE_MAP
-specifier|public
 specifier|static
 specifier|final
 name|Map
@@ -116,8 +120,8 @@ name|String
 argument_list|>
 name|JSONTYPE_TYPE_MAP
 decl_stmt|;
+comment|/**      * Mapping from typehint names to json-types      */
 DECL|field|TYPE_JSONTYPE_MAP
-specifier|public
 specifier|static
 specifier|final
 name|Map
@@ -129,7 +133,6 @@ argument_list|>
 name|TYPE_JSONTYPE_MAP
 decl_stmt|;
 DECL|field|UNSUPPORTED_OPERATION_EXCEPTION_MESSAGE
-specifier|public
 specifier|static
 specifier|final
 name|String

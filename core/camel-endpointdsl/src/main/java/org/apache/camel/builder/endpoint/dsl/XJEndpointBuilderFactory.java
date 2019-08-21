@@ -120,6 +120,90 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Sets the transform direction.          *           * The option is a:          *<code>org.apache.camel.component.xj.TransformDirection</code> type.          *           * Required: true          * Group: producer          */
+DECL|method|transformDirection ( TransformDirection transformDirection)
+specifier|default
+name|XJEndpointBuilder
+name|transformDirection
+parameter_list|(
+name|TransformDirection
+name|transformDirection
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"transformDirection"
+argument_list|,
+name|transformDirection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the transform direction.          *           * The option will be converted to a          *<code>org.apache.camel.component.xj.TransformDirection</code> type.          *           * Required: true          * Group: producer          */
+DECL|method|transformDirection (String transformDirection)
+specifier|default
+name|XJEndpointBuilder
+name|transformDirection
+parameter_list|(
+name|String
+name|transformDirection
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"transformDirection"
+argument_list|,
+name|transformDirection
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|allowStAX (boolean allowStAX)
+specifier|default
+name|XJEndpointBuilder
+name|allowStAX
+parameter_list|(
+name|boolean
+name|allowStAX
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"allowStAX"
+argument_list|,
+name|allowStAX
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|allowStAX (String allowStAX)
+specifier|default
+name|XJEndpointBuilder
+name|allowStAX
+parameter_list|(
+name|String
+name|allowStAX
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"allowStAX"
+argument_list|,
+name|allowStAX
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Cache for the resource content (the stylesheet file) when it is          * loaded. If set to false Camel will reload the stylesheet file on each          * message processing. This is good for development. A cached stylesheet          * can be forced to reload at runtime via JMX using the          * clearCachedStylesheet operation.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|contentCache (boolean contentCache)
 specifier|default
@@ -324,48 +408,6 @@ argument_list|(
 literal|"saxon"
 argument_list|,
 name|saxon
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The transform direction. Either XML2JSON or JSON2XML.          *           * The option is a:          *<code>org.apache.camel.component.xj.TransformDirection</code> type.          *           * Required: true          * Group: producer          */
-DECL|method|transformDirection ( TransformDirection transformDirection)
-specifier|default
-name|XJEndpointBuilder
-name|transformDirection
-parameter_list|(
-name|TransformDirection
-name|transformDirection
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"transformDirection"
-argument_list|,
-name|transformDirection
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The transform direction. Either XML2JSON or JSON2XML.          *           * The option will be converted to a          *<code>org.apache.camel.component.xj.TransformDirection</code> type.          *           * Required: true          * Group: producer          */
-DECL|method|transformDirection (String transformDirection)
-specifier|default
-name|XJEndpointBuilder
-name|transformDirection
-parameter_list|(
-name|String
-name|transformDirection
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"transformDirection"
-argument_list|,
-name|transformDirection
 argument_list|)
 expr_stmt|;
 return|return
@@ -839,6 +881,17 @@ name|this
 return|;
 block|}
 block|}
+comment|/**      * Proxy enum for      *<code>org.apache.camel.component.xj.TransformDirection</code> enum.      */
+DECL|enum|TransformDirection
+enum|enum
+name|TransformDirection
+block|{
+DECL|enumConstant|XML2JSON
+name|XML2JSON
+block|,
+DECL|enumConstant|JSON2XML
+name|JSON2XML
+block|;     }
 comment|/**      * Proxy enum for<code>org.apache.camel.component.xslt.XsltOutput</code>      * enum.      */
 DECL|enum|XsltOutput
 enum|enum
@@ -856,18 +909,7 @@ block|,
 DECL|enumConstant|file
 name|file
 block|;     }
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.xj.TransformDirection</code> enum.      */
-DECL|enum|TransformDirection
-enum|enum
-name|TransformDirection
-block|{
-DECL|enumConstant|XML2JSON
-name|XML2JSON
-block|,
-DECL|enumConstant|JSON2XML
-name|JSON2XML
-block|;     }
-comment|/**      * XJ (camel-xj)      * Transforms json/xml message back and forth using a XSLT.      *       * Category: transformation      * Available as of version: 2.25      * Maven coordinates: org.apache.camel:camel-xj      *       * Syntax:<code>xj:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the template. The following is supported by the default      * URIResolver. You can prefix with: classpath, file, http, ref, or bean.      * classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod      */
+comment|/**      * XJ (camel-xj)      * Transforms json/xml message back and forth using a XSLT.      *       * Category: transformation      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-xj      *       * Syntax:<code>xj:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the template. The following is supported by the default      * URIResolver. You can prefix with: classpath, file, http, ref, or bean.      * classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod      */
 DECL|method|xJ (String path)
 specifier|default
 name|XJEndpointBuilder

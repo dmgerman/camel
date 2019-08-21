@@ -787,6 +787,8 @@ block|{
 name|loadResource
 argument_list|(
 name|resourceUri
+argument_list|,
+name|xslt
 argument_list|)
 expr_stmt|;
 block|}
@@ -1434,13 +1436,16 @@ name|parameters
 expr_stmt|;
 block|}
 comment|/**      * Loads the resource.      *      * @param resourceUri  the resource to load      * @throws TransformerException is thrown if error loading resource      * @throws IOException is thrown if error loading resource      */
-DECL|method|loadResource (String resourceUri)
+DECL|method|loadResource (String resourceUri, XsltBuilder xslt)
 specifier|protected
 name|void
 name|loadResource
 parameter_list|(
 name|String
 name|resourceUri
+parameter_list|,
+name|XsltBuilder
+name|xslt
 parameter_list|)
 throws|throws
 name|TransformerException
@@ -1521,6 +1526,28 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+comment|// the processor is the xslt builder
+name|setXslt
+argument_list|(
+name|createXsltBuilder
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setProcessor
+argument_list|(
+name|getXslt
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|createXsltBuilder ()
+specifier|protected
+name|XsltBuilder
+name|createXsltBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 specifier|final
 name|CamelContext
 name|ctx
@@ -1557,10 +1584,10 @@ argument_list|,
 name|resourceUri
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
+specifier|final
+name|XsltBuilder
 name|xslt
-operator|=
+init|=
 name|injector
 operator|.
 name|newInstance
@@ -1569,7 +1596,7 @@ name|XsltBuilder
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|boolean
 name|useSaxon
 init|=
@@ -1845,14 +1872,13 @@ comment|// must load resource first which sets a template and do a stylesheet co
 name|loadResource
 argument_list|(
 name|resourceUri
-argument_list|)
-expr_stmt|;
-comment|// the processor is the xslt builder
-name|setProcessor
-argument_list|(
+argument_list|,
 name|xslt
 argument_list|)
 expr_stmt|;
+return|return
+name|xslt
+return|;
 block|}
 DECL|method|configureOutput (XsltBuilder xslt, String output)
 specifier|protected
@@ -1979,7 +2005,8 @@ name|ServiceHelper
 operator|.
 name|stopService
 argument_list|(
-name|xslt
+name|getXslt
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

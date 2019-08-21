@@ -18,6 +18,10 @@ name|xj
 package|;
 end_package
 
+begin_comment
+comment|/**  * Enum with the possible transform directions.  */
+end_comment
+
 begin_enum
 DECL|enum|TransformDirection
 specifier|public

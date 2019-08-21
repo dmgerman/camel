@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -90,15 +100,9 @@ name|ExchangeHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
+begin_comment
+comment|/**  * {@JsonFileResultHandler} factory  */
+end_comment
 
 begin_class
 DECL|class|JsonFileResultHandlerFactory
@@ -114,6 +118,7 @@ specifier|final
 name|JsonFactory
 name|jsonFactory
 decl_stmt|;
+comment|/**      * Creates a new json to file result handler factory      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
 DECL|method|JsonFileResultHandlerFactory (JsonFactory jsonFactory)
 specifier|public
 name|JsonFileResultHandlerFactory
@@ -129,6 +134,7 @@ operator|=
 name|jsonFactory
 expr_stmt|;
 block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|createResult (Exchange exchange)

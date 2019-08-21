@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.xj
+DECL|package|org.apache.camel.component.xslt
 package|package
 name|org
 operator|.
@@ -14,21 +14,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|xj
+name|xslt
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
 
 begin_import
 import|import
@@ -42,12 +30,29 @@ name|Source
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_comment
+comment|/**  * Interface to be implemented by concrete source handlers/converters  */
+end_comment
+
 begin_interface
 DECL|interface|SourceHandlerFactory
 specifier|public
 interface|interface
 name|SourceHandlerFactory
 block|{
+comment|/**      * Creates a specific {@link Source} depending on the current message exchanged      * @param exchange the exchange      * @return the source created from the message      * @throws Exception if the source couldn't be created      */
 DECL|method|getSource (Exchange exchange)
 name|Source
 name|getSource
