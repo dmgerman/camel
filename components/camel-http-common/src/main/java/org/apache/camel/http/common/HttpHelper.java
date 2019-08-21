@@ -926,6 +926,13 @@ condition|(
 name|is
 operator|==
 literal|null
+operator|||
+name|is
+operator|.
+name|available
+argument_list|()
+operator|<=
+literal|0
 condition|)
 block|{
 return|return
@@ -1016,6 +1023,13 @@ condition|(
 name|is
 operator|==
 literal|null
+operator|||
+name|is
+operator|.
+name|available
+argument_list|()
+operator|<=
+literal|0
 condition|)
 block|{
 return|return
