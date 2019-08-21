@@ -247,7 +247,8 @@ operator|.
 name|format
 argument_list|(
 literal|"aws-sqs://MyQueue?amazonSQSClient=#amazonSQSClient"
-comment|// note we will NOT delete if this message gets filtered out
+comment|// note we will NOT delete if this
+comment|// message gets filtered out
 operator|+
 literal|"&deleteIfFiltered=false"
 operator|+
@@ -303,7 +304,8 @@ name|from
 argument_list|(
 name|sqsURI
 argument_list|)
-comment|// try to filter using a non-existent header... should not go through
+comment|// try to filter using a non-existent header... should not
+comment|// go through
 operator|.
 name|filter
 argument_list|(
@@ -384,7 +386,8 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
-comment|// however, the message should not be deleted, that is, it should be left on the queue
+comment|// however, the message should not be deleted, that is, it should be
+comment|// left on the queue
 name|String
 name|response
 init|=
@@ -441,8 +444,11 @@ operator|.
 name|format
 argument_list|(
 literal|"aws-sqs://MyQueue?amazonSQSClient=#amazonSQSClient"
-comment|// note we will NOT delete if this message gets filtered out, but if it goes
-comment|// through filter, it should be deleted!
+comment|// note we will NOT delete if this
+comment|// message gets filtered out, but if
+comment|// it goes
+comment|// through filter, it should be
+comment|// deleted!
 operator|+
 literal|"&deleteIfFiltered=false"
 operator|+
@@ -589,7 +595,8 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
-comment|// however, the message should not be deleted, that is, it should be left on the queue
+comment|// however, the message should not be deleted, that is, it should be
+comment|// left on the queue
 name|String
 name|response
 init|=

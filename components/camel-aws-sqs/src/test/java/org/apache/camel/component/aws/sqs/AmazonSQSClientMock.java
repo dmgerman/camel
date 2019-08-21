@@ -957,7 +957,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/*      * Cancel (put back onto queue) in flight messages if the visibility time has expired      * and has not been manually deleted (ack'd)      */
+comment|/*      * Cancel (put back onto queue) in flight messages if the visibility time      * has expired and has not been manually deleted (ack'd)      */
 DECL|method|scheduleCancelInflight (final String queueUrl, final Message message)
 specifier|private
 name|void

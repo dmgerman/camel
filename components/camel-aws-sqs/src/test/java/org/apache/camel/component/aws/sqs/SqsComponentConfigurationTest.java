@@ -1533,7 +1533,8 @@ literal|"aws-sqs://MyQueue?accessKey=xxx"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Setting extendMessageVisibility on an SQS consumer should make visibilityTimeout compulsory
+comment|// Setting extendMessageVisibility on an SQS consumer should make
+comment|// visibilityTimeout compulsory
 annotation|@
 name|Test
 argument_list|(

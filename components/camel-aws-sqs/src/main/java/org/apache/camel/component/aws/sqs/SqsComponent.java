@@ -495,7 +495,8 @@ literal|"AmazonSQSClient or accessKey and secretKey must be specified."
 argument_list|)
 throw|;
 block|}
-comment|// Verify that visibilityTimeout is set if extendMessageVisibility is set to true.
+comment|// Verify that visibilityTimeout is set if extendMessageVisibility is
+comment|// set to true.
 if|if
 condition|(
 name|configuration
@@ -647,7 +648,7 @@ name|getRegion
 argument_list|()
 return|;
 block|}
-comment|/**      * Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL.      */
+comment|/**      * Specify the queue region which could be used with queueOwnerAWSAccountId      * to build the service URL.      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void

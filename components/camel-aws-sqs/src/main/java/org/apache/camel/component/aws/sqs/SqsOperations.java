@@ -27,12 +27,12 @@ enum|enum
 name|SqsOperations
 block|{
 DECL|enumConstant|sendBatchMessage
+DECL|enumConstant|deleteMessage
+DECL|enumConstant|listQueues
 name|sendBatchMessage
 block|,
-DECL|enumConstant|deleteMessage
 name|deleteMessage
 block|,
-DECL|enumConstant|listQueues
 name|listQueues
 block|}
 end_enum

@@ -207,7 +207,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// simple test to make sure that concurrent consumers were used in the test
+comment|// simple test to make sure that concurrent consumers were used in the
+comment|// test
 name|NotifyBuilder
 name|notifier
 init|=
@@ -257,7 +258,8 @@ comment|// threading is different on windows
 block|}
 else|else
 block|{
-comment|// usually we use all threads evenly but sometimes threads are reused so just test that 50%+ was used
+comment|// usually we use all threads evenly but sometimes threads are
+comment|// reused so just test that 50%+ was used
 if|if
 condition|(
 name|threadNumbers

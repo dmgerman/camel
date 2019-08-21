@@ -370,7 +370,9 @@ argument_list|(
 literal|6
 argument_list|)
 decl_stmt|;
-comment|// Should be 1.5 x TIMEOUT as takes into account the delay period
+comment|// Should be 1.5 x TIMEOUT
+comment|// as takes into account
+comment|// the delay period
 name|assertEquals
 argument_list|(
 name|expectedTimeout

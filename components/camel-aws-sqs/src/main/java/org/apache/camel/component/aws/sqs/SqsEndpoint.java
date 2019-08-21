@@ -481,7 +481,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-sqs component is used for sending and receiving messages to Amazon's SQS service.  */
+comment|/**  * The aws-sqs component is used for sending and receiving messages to Amazon's  * SQS service.  */
 end_comment
 
 begin_class
@@ -783,8 +783,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// If both region and Account ID is provided the queue URL can be built manually.
-comment|// This allows accessing queues where you don't have permission to list queues or query queues
+comment|// If both region and Account ID is provided the queue URL can be
+comment|// built manually.
+comment|// This allows accessing queues where you don't have permission to
+comment|// list queues or query queues
 if|if
 condition|(
 name|configuration
@@ -2115,15 +2117,16 @@ name|getMessageAttributes
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//Need to apply the SqsHeaderFilterStrategy this time
+comment|// Need to apply the SqsHeaderFilterStrategy this time
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 init|=
 name|getHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
-comment|//add all sqs message attributes as camel message headers so that knowledge of
-comment|//the Sqs class MessageAttributeValue will not leak to the client
+comment|// add all sqs message attributes as camel message headers so that
+comment|// knowledge of
+comment|// the Sqs class MessageAttributeValue will not leak to the client
 for|for
 control|(
 name|Entry
@@ -2257,7 +2260,7 @@ operator|=
 name|client
 expr_stmt|;
 block|}
-comment|/**      * Provide the possibility to override this method for an mock implementation      * @return AmazonSQSClient      */
+comment|/**      * Provide the possibility to override this method for an mock      * implementation      *       * @return AmazonSQSClient      */
 DECL|method|createClient ()
 name|AmazonSQS
 name|createClient
@@ -2508,7 +2511,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
-comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Is default unlimited, but use 0 or negative number to disable it as unlimited.      */
+comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Is default unlimited, but use 0 or negative number to disable it as      * unlimited.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
