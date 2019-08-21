@@ -186,7 +186,7 @@ name|Exception
 block|{
 name|endpoint
 operator|.
-name|doStart
+name|doInit
 argument_list|()
 expr_stmt|;
 name|assertEquals

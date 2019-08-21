@@ -716,14 +716,19 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStart ()
+DECL|method|doInit ()
 specifier|protected
 name|void
-name|doStart
+name|doInit
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doInit
+argument_list|()
+expr_stmt|;
 name|client
 operator|=
 name|getConfiguration

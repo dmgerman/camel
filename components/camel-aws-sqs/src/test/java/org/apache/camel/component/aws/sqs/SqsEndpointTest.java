@@ -313,7 +313,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|doStart
+name|doInit
 argument_list|()
 expr_stmt|;
 name|Mockito
@@ -387,7 +387,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|doStart
+name|doInit
 argument_list|()
 expr_stmt|;
 name|Mockito
