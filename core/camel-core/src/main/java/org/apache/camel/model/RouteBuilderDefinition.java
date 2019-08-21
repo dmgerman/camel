@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To refer to a Java {@link org.apache.camel.builder.RouteBuilder} instance to use.  */
+comment|/**  * To refer to a Java {@link org.apache.camel.builder.RouteBuilder} instance to  * use.  */
 end_comment
 
 begin_class

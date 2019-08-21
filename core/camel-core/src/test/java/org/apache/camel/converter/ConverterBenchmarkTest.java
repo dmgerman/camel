@@ -371,7 +371,8 @@ operator|new
 name|OptionsBuilder
 argument_list|()
 comment|// Specify which benchmarks to run.
-comment|// You can be more specific if you'd like to run only one benchmark per test.
+comment|// You can be more specific if you'd like to run only one benchmark
+comment|// per test.
 operator|.
 name|include
 argument_list|(
@@ -450,8 +451,8 @@ name|shouldDoGC
 argument_list|(
 literal|true
 argument_list|)
-comment|//.jvmArgs("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintInlining")
-comment|//.addProfiler(WinPerfAsmProfiler.class)
+comment|// .jvmArgs("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintInlining")
+comment|// .addProfiler(WinPerfAsmProfiler.class)
 operator|.
 name|build
 argument_list|()

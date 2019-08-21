@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build a {@link org.apache.camel.spi.Transformer} and register into {@link org.apache.camel.CamelContext}.  * It requires 'scheme' or a pair of 'from' and 'to' to be specified by scheme(), from() and to() method.  * And then you can choose a type of transformer by withUri(), withDataFormat(), withJava() or withBean() method.  */
+comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is used to  * build a {@link org.apache.camel.spi.Transformer} and register into  * {@link org.apache.camel.CamelContext}. It requires 'scheme' or a pair of  * 'from' and 'to' to be specified by scheme(), from() and to() method. And then  * you can choose a type of transformer by withUri(), withDataFormat(),  * withJava() or withBean() method.  */
 end_comment
 
 begin_class
@@ -198,7 +198,7 @@ specifier|private
 name|String
 name|beanRef
 decl_stmt|;
-comment|/**      * Set the scheme name supported by the transformer.      * If you specify 'csv', the transformer will be picked up for all of 'csv' from/to      * Java transformation. Note that the scheme matching is performed only when      * no exactly matched transformer exists.      *      * @param scheme scheme name      */
+comment|/**      * Set the scheme name supported by the transformer. If you specify 'csv',      * the transformer will be picked up for all of 'csv' from/to Java      * transformation. Note that the scheme matching is performed only when no      * exactly matched transformer exists.      *      * @param scheme scheme name      */
 DECL|method|scheme (String scheme)
 specifier|public
 name|TransformerBuilder
@@ -218,7 +218,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the 'from' data type name.      * If you specify 'xml:XYZ', the transformer will be picked up if source type is      * 'xml:XYZ'. If you specify just 'xml', the transformer matches with all of      * 'xml' source type like 'xml:ABC' or 'xml:DEF'.      *      * @param from 'from' data type name      */
+comment|/**      * Set the 'from' data type name. If you specify 'xml:XYZ', the transformer      * will be picked up if source type is 'xml:XYZ'. If you specify just 'xml',      * the transformer matches with all of 'xml' source type like 'xml:ABC' or      * 'xml:DEF'.      *      * @param from 'from' data type name      */
 DECL|method|fromType (String from)
 specifier|public
 name|TransformerBuilder
@@ -268,7 +268,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the 'to' data type name.      * If you specify 'json:XYZ', the transformer will be picked up if destination type is      * 'json:XYZ'. If you specify just 'json', the transformer matches with all of      * 'json' destination type like 'json:ABC' or 'json:DEF'.      *      * @param to 'to' data type      */
+comment|/**      * Set the 'to' data type name. If you specify 'json:XYZ', the transformer      * will be picked up if destination type is 'json:XYZ'. If you specify just      * 'json', the transformer matches with all of 'json' destination type like      * 'json:ABC' or 'json:DEF'.      *      * @param to 'to' data type      */
 DECL|method|toType (String to)
 specifier|public
 name|TransformerBuilder
@@ -341,7 +341,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the {@code DataFormatDefinition} to be used for the {@code DataFormat} {@code Transformer}.      */
+comment|/**      * Set the {@code DataFormatDefinition} to be used for the      * {@code DataFormat} {@code Transformer}.      */
 DECL|method|withDataFormat (DataFormatDefinition dataFormatDefinition)
 specifier|public
 name|TransformerBuilder
@@ -364,7 +364,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the Java {@code Class} represents a custom {@code Transformer} implementation class.      */
+comment|/**      * Set the Java {@code Class} represents a custom {@code Transformer}      * implementation class.      */
 DECL|method|withJava (Class<? extends Transformer> clazz)
 specifier|public
 name|TransformerBuilder
@@ -446,7 +446,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Configure a Transformer according to the configurations built on this builder      * and register it into given {@code CamelContext}.      *       * @param camelContext {@code CamelContext}      */
+comment|/**      * Configure a Transformer according to the configurations built on this      * builder and register it into given {@code CamelContext}.      *       * @param camelContext {@code CamelContext}      */
 DECL|method|configure (CamelContext camelContext)
 specifier|public
 name|void

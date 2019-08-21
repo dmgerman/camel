@@ -391,7 +391,8 @@ name|String
 name|custId
 parameter_list|)
 block|{
-comment|// store the message body into the data store, using the custId as the claim check
+comment|// store the message body into the data store, using the custId as
+comment|// the claim check
 name|dataStore
 operator|.
 name|put
@@ -453,7 +454,8 @@ name|String
 name|claimCheck
 parameter_list|)
 block|{
-comment|// query the data store using the claim check as the key and add the data
+comment|// query the data store using the claim check as the key and add the
+comment|// data
 comment|// back into the message body
 name|exchange
 operator|.

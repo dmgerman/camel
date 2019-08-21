@@ -477,7 +477,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Configures the stream-based resequencing algorithm using the given      * {@link StreamResequencerConfig}.      *      * @param config  the config      * @return the builder      */
+comment|/**      * Configures the stream-based resequencing algorithm using the given      * {@link StreamResequencerConfig}.      *      * @param config the config      * @return the builder      */
 DECL|method|stream (StreamResequencerConfig config)
 specifier|public
 name|ResequenceDefinition
@@ -503,7 +503,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures the batch-based resequencing algorithm using the given      * {@link BatchResequencerConfig}.      *      * @param config  the config      * @return the builder      */
+comment|/**      * Configures the batch-based resequencing algorithm using the given      * {@link BatchResequencerConfig}.      *      * @param config the config      * @return the builder      */
 DECL|method|batch (BatchResequencerConfig config)
 specifier|public
 name|ResequenceDefinition
@@ -529,7 +529,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the timeout      * @param timeout  timeout in millis      * @return the builder      */
+comment|/**      * Sets the timeout      *       * @param timeout timeout in millis      * @return the builder      */
 DECL|method|timeout (long timeout)
 specifier|public
 name|ResequenceDefinition
@@ -580,7 +580,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the interval in milli seconds the stream resequencer will at most wait      * while waiting for condition of being able to deliver.      *      * @param deliveryAttemptInterval  interval in millis      * @return the builder      */
+comment|/**      * Sets the interval in milli seconds the stream resequencer will at most      * wait while waiting for condition of being able to deliver.      *      * @param deliveryAttemptInterval interval in millis      * @return the builder      */
 DECL|method|deliveryAttemptInterval (long deliveryAttemptInterval)
 specifier|public
 name|ResequenceDefinition
@@ -616,7 +616,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the rejectOld flag to throw an error when a message older than the last delivered message is processed      * @return the builder      */
+comment|/**      * Sets the rejectOld flag to throw an error when a message older than the      * last delivered message is processed      *       * @return the builder      */
 DECL|method|rejectOld ()
 specifier|public
 name|ResequenceDefinition
@@ -649,7 +649,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the in batch size for number of exchanges received      * @param batchSize  the batch size      * @return the builder      */
+comment|/**      * Sets the in batch size for number of exchanges received      *       * @param batchSize the batch size      * @return the builder      */
 DECL|method|size (int batchSize)
 specifier|public
 name|ResequenceDefinition
@@ -697,7 +697,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the capacity for the stream resequencer      *      * @param capacity  the capacity      * @return the builder      */
+comment|/**      * Sets the capacity for the stream resequencer      *      * @param capacity the capacity      * @return the builder      */
 DECL|method|capacity (int capacity)
 specifier|public
 name|ResequenceDefinition
@@ -733,7 +733,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables duplicates for the batch resequencer mode      * @return the builder      */
+comment|/**      * Enables duplicates for the batch resequencer mode      *       * @return the builder      */
 DECL|method|allowDuplicates ()
 specifier|public
 name|ResequenceDefinition
@@ -778,7 +778,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables reverse mode for the batch resequencer mode.      *<p/>      * This means the expression for determine the sequence order will be reversed.      * Can be used for Z..A or 9..0 ordering.      *      * @return the builder      */
+comment|/**      * Enables reverse mode for the batch resequencer mode.      *<p/>      * This means the expression for determine the sequence order will be      * reversed. Can be used for Z..A or 9..0 ordering.      *      * @return the builder      */
 DECL|method|reverse ()
 specifier|public
 name|ResequenceDefinition
@@ -823,7 +823,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If an incoming {@link org.apache.camel.Exchange} is invalid, then it will be ignored.      *      * @return builder      */
+comment|/**      * If an incoming {@link org.apache.camel.Exchange} is invalid, then it will      * be ignored.      *      * @return builder      */
 DECL|method|ignoreInvalidExchanges ()
 specifier|public
 name|ResequenceDefinition
@@ -871,7 +871,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the comparator to use for stream resequencer      *      * @param comparator  the comparator      * @return the builder      */
+comment|/**      * Sets the comparator to use for stream resequencer      *      * @param comparator the comparator      * @return the builder      */
 DECL|method|comparator (ExpressionResultComparator comparator)
 specifier|public
 name|ResequenceDefinition
@@ -980,7 +980,7 @@ return|return
 name|resequencerConfig
 return|;
 block|}
-comment|/**      * To configure the resequencer in using either batch or stream configuration. Will by default use batch configuration.      */
+comment|/**      * To configure the resequencer in using either batch or stream      * configuration. Will by default use batch configuration.      */
 DECL|method|setResequencerConfig (ResequencerConfig resequencerConfig)
 specifier|public
 name|void
@@ -1103,7 +1103,7 @@ return|return
 name|expression
 return|;
 block|}
-comment|/**      * Expression to use for re-ordering the messages, such as a header with a sequence number      */
+comment|/**      * Expression to use for re-ordering the messages, such as a header with a      * sequence number      */
 DECL|method|setExpression (ExpressionDefinition expression)
 specifier|public
 name|void
@@ -1120,7 +1120,7 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
-comment|/**      * Expression to use for re-ordering the messages, such as a header with a sequence number      */
+comment|/**      * Expression to use for re-ordering the messages, such as a header with a      * sequence number      */
 DECL|method|setExpression (Expression expression)
 specifier|public
 name|void

@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Set the expected data type of the input message. If the actual message type is different at runtime,  * camel look for a required {@link Transformer} and apply if exists. If validate attribute is true  * then camel applies {@link Validator} as well.  * Type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'  * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.  * It's also possible to specify only scheme part, so that it works like a wildcard. If only 'xml'  * is specified, all the XML message matches. It's handy to add only one transformer/validator  * for all the transformation from/to XML.  *   * @see {@link OutputTypeDefinition} {@link Transformer} {@link Validator}  */
+comment|/**  * Set the expected data type of the input message. If the actual message type  * is different at runtime, camel look for a required {@link Transformer} and  * apply if exists. If validate attribute is true then camel applies  * {@link Validator} as well. Type name consists of two parts, 'scheme' and  * 'name' connected with ':'. For Java type 'name' is a fully qualified class  * name. For example {@code java:java.lang.String}, {@code json:ABCOrder}. It's  * also possible to specify only scheme part, so that it works like a wildcard.  * If only 'xml' is specified, all the XML message matches. It's handy to add  * only one transformer/validator for all the transformation from/to XML.  *   * @see {@link OutputTypeDefinition} {@link Transformer} {@link Validator}  */
 end_comment
 
 begin_class
@@ -157,7 +157,7 @@ specifier|public
 name|InputTypeDefinition
 parameter_list|()
 block|{     }
-comment|/**      * Get input type URN.      * @return input type URN      */
+comment|/**      * Get input type URN.      *       * @return input type URN      */
 DECL|method|getUrn ()
 specifier|public
 name|String
@@ -168,7 +168,7 @@ return|return
 name|urn
 return|;
 block|}
-comment|/**      * Set input type URN.      * @param urn input type URN      */
+comment|/**      * Set input type URN.      *       * @param urn input type URN      */
 DECL|method|setUrn (String urn)
 specifier|public
 name|void
@@ -185,7 +185,7 @@ operator|=
 name|urn
 expr_stmt|;
 block|}
-comment|/**      * Set input type via Java Class.      * @param clazz Java Class      */
+comment|/**      * Set input type via Java Class.      *       * @param clazz Java Class      */
 DECL|method|setJavaClass (Class<?> clazz)
 specifier|public
 name|void
@@ -210,7 +210,7 @@ name|getName
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Get if validation is required for this input type.      * @return true if validate      */
+comment|/**      * Get if validation is required for this input type.      *       * @return true if validate      */
 DECL|method|isValidate ()
 specifier|public
 name|boolean
@@ -223,7 +223,7 @@ operator|.
 name|validate
 return|;
 block|}
-comment|/**      * Set if validation is required for this input type.      * @param validate true if validate      */
+comment|/**      * Set if validation is required for this input type.      *       * @param validate true if validate      */
 DECL|method|setValidate (boolean validate)
 specifier|public
 name|void

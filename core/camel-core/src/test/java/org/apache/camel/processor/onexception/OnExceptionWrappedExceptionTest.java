@@ -286,7 +286,8 @@ name|Object
 name|value
 parameter_list|)
 block|{
-comment|// simulate @Converter where we wrap thrown exception in RuntimeCamelException
+comment|// simulate @Converter where we wrap thrown exception in
+comment|// RuntimeCamelException
 throw|throw
 name|wrapRuntimeCamelException
 argument_list|(

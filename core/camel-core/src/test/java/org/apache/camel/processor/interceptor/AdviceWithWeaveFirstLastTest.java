@@ -134,7 +134,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// insert at first the given piece of route to the existing route
+comment|// insert at first the given piece of route to the existing
+comment|// route
 name|weaveAddFirst
 argument_list|()
 operator|.
@@ -249,7 +250,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// insert at the end of the existing route, the given piece of route
+comment|// insert at the end of the existing route, the given piece of
+comment|// route
 name|weaveAddLast
 argument_list|()
 operator|.

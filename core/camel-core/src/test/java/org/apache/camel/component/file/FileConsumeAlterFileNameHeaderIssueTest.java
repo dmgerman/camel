@@ -260,7 +260,8 @@ name|hasHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the original file should have been deleted, as the file consumer should be resilient against
+comment|// the original file should have been deleted, as the file consumer
+comment|// should be resilient against
 comment|// end users deleting headers
 name|assertFalse
 argument_list|(
@@ -385,7 +386,8 @@ operator|.
 name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
-comment|// the original file should have been deleted, as the file consumer should be resilient against
+comment|// the original file should have been deleted, as the file consumer
+comment|// should be resilient against
 comment|// end users changing headers
 name|assertFalse
 argument_list|(
@@ -513,7 +515,8 @@ name|hasHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the original file should have been moved, as the file consumer should be resilient against
+comment|// the original file should have been moved, as the file consumer should
+comment|// be resilient against
 comment|// end users deleting headers
 name|assertTrue
 argument_list|(
@@ -638,7 +641,8 @@ operator|.
 name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
-comment|// the original file should have been moved, as the file consumer should be resilient against
+comment|// the original file should have been moved, as the file consumer should
+comment|// be resilient against
 comment|// end users changing headers
 name|assertTrue
 argument_list|(

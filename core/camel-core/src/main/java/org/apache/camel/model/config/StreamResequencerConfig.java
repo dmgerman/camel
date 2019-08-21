@@ -221,7 +221,7 @@ specifier|private
 name|Boolean
 name|rejectOld
 decl_stmt|;
-comment|/**      * Creates a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (1000) and<code>timeout</code>      * (1000L). Elements of the sequence are compared using the      * default {@link ExpressionResultComparator}.      */
+comment|/**      * Creates a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (1000) and<code>timeout</code> (1000L).      * Elements of the sequence are compared using the default      * {@link ExpressionResultComparator}.      */
 DECL|method|StreamResequencerConfig ()
 specifier|public
 name|StreamResequencerConfig
@@ -235,7 +235,7 @@ literal|1000L
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared using the default      * {@link ExpressionResultComparator}.      *       * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      */
+comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements of      * the sequence are compared using the default      * {@link ExpressionResultComparator}.      *       * @param capacity capacity of the resequencer's inbound queue.      * @param timeout minimum time to wait for missing elements (messages).      */
 DECL|method|StreamResequencerConfig (int capacity, long timeout)
 specifier|public
 name|StreamResequencerConfig
@@ -259,7 +259,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared with the given      * {@link ExpressionResultComparator}.      *       * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      * @param comparator comparator for sequence comparision      */
+comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements of      * the sequence are compared with the given      * {@link ExpressionResultComparator}.      *       * @param capacity capacity of the resequencer's inbound queue.      * @param timeout minimum time to wait for missing elements (messages).      * @param comparator comparator for sequence comparision      */
 DECL|method|StreamResequencerConfig (int capacity, long timeout, ExpressionResultComparator comparator)
 specifier|public
 name|StreamResequencerConfig
@@ -286,7 +286,7 @@ name|comparator
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared using the default      * {@link ExpressionResultComparator}.      *      * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      * @param rejectOld  if true, throws an exception when messages older than the last delivered message are processed      */
+comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements of      * the sequence are compared using the default      * {@link ExpressionResultComparator}.      *      * @param capacity capacity of the resequencer's inbound queue.      * @param timeout minimum time to wait for missing elements (messages).      * @param rejectOld if true, throws an exception when messages older than      *            the last delivered message are processed      */
 DECL|method|StreamResequencerConfig (int capacity, long timeout, Boolean rejectOld)
 specifier|public
 name|StreamResequencerConfig
@@ -313,7 +313,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared with the given {@link ExpressionResultComparator}.      *      * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      * @param rejectOld  if true, throws an exception when messages older than the last delivered message are processed      * @param comparator comparator for sequence comparision      */
+comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements of      * the sequence are compared with the given      * {@link ExpressionResultComparator}.      *      * @param capacity capacity of the resequencer's inbound queue.      * @param timeout minimum time to wait for missing elements (messages).      * @param rejectOld if true, throws an exception when messages older than      *            the last delivered message are processed      * @param comparator comparator for sequence comparision      */
 DECL|method|StreamResequencerConfig (int capacity, long timeout, Boolean rejectOld, ExpressionResultComparator comparator)
 specifier|public
 name|StreamResequencerConfig
@@ -356,7 +356,7 @@ operator|=
 name|comparator
 expr_stmt|;
 block|}
-comment|/**      * Returns a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (1000) and<code>timeout</code>      * (1000L). Elements of the sequence are compared using the      * default {@link ExpressionResultComparator}.      *       * @return a default {@link StreamResequencerConfig}.      */
+comment|/**      * Returns a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (1000) and<code>timeout</code> (1000L).      * Elements of the sequence are compared using the default      * {@link ExpressionResultComparator}.      *       * @return a default {@link StreamResequencerConfig}.      */
 DECL|method|getDefault ()
 specifier|public
 specifier|static
@@ -434,7 +434,7 @@ return|return
 name|deliveryAttemptInterval
 return|;
 block|}
-comment|/**      * Sets the interval in milli seconds the stream resequencer will at most wait      * while waiting for condition of being able to deliver.      */
+comment|/**      * Sets the interval in milli seconds the stream resequencer will at most      * wait while waiting for condition of being able to deliver.      */
 DECL|method|setDeliveryAttemptInterval (Long deliveryAttemptInterval)
 specifier|public
 name|void
@@ -532,7 +532,7 @@ operator|=
 name|comparatorRef
 expr_stmt|;
 block|}
-comment|/**      * If true, throws an exception when messages older than the last delivered message are processed      */
+comment|/**      * If true, throws an exception when messages older than the last delivered      * message are processed      */
 DECL|method|setRejectOld (boolean value)
 specifier|public
 name|void

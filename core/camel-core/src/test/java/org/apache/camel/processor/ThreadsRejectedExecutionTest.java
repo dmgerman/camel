@@ -193,8 +193,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use a custom pool which rejects any new tasks while currently in progress
-comment|// this should force the ThreadsProcessor to run the tasks itself
+comment|// use a custom pool which rejects any new tasks while currently
+comment|// in progress
+comment|// this should force the ThreadsProcessor to run the tasks
+comment|// itself
 name|ExecutorService
 name|pool
 init|=
@@ -330,8 +332,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use a custom pool which rejects any new tasks while currently in progress
-comment|// this should force the ThreadsProcessor to run the tasks itself
+comment|// use a custom pool which rejects any new tasks while currently
+comment|// in progress
+comment|// this should force the ThreadsProcessor to run the tasks
+comment|// itself
 name|ExecutorService
 name|pool
 init|=
@@ -1280,7 +1284,8 @@ operator|.
 name|create
 argument_list|()
 decl_stmt|;
-comment|// there should be error handling for aborted tasks (eg no redeliveries and no error handling)
+comment|// there should be error handling for aborted tasks (eg no redeliveries
+comment|// and no error handling)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:error"

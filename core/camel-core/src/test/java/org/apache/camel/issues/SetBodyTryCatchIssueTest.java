@@ -267,9 +267,11 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-comment|// we copy the headers by mistake by setting it as a reference from the IN
+comment|// we copy the headers by mistake by setting it as a reference from the
+comment|// IN
 comment|// but we should ideally do as below instead
-comment|// but we want to let Camel handle this situation as well, otherwise headers may appear as lost
+comment|// but we want to let Camel handle this situation as well, otherwise
+comment|// headers may appear as lost
 comment|// exchange.getOut().getHeaders().putAll(headers);
 name|exchange
 operator|.

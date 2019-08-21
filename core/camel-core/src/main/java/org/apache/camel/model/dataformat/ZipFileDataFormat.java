@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Zip File data format is a message compression and de-compression format of zip files.  */
+comment|/**  * The Zip File data format is a message compression and de-compression format  * of zip files.  */
 end_comment
 
 begin_class
@@ -205,7 +205,7 @@ return|return
 name|preservePathElements
 return|;
 block|}
-comment|/**      * If the zip file has more then one entry, the setting this option to true, allows to work with the splitter EIP,      * to split the data using an iterator in a streaming mode.      */
+comment|/**      * If the zip file has more then one entry, the setting this option to true,      * allows to work with the splitter EIP, to split the data using an iterator      * in a streaming mode.      */
 DECL|method|setUsingIterator (Boolean usingIterator)
 specifier|public
 name|void
@@ -222,7 +222,7 @@ operator|=
 name|usingIterator
 expr_stmt|;
 block|}
-comment|/**      * If the zip file has more then one entry, setting this option to true, allows to get the iterator      * even if the directory is empty      */
+comment|/**      * If the zip file has more then one entry, setting this option to true,      * allows to get the iterator even if the directory is empty      */
 DECL|method|setAllowEmptyDirectory (Boolean allowEmptyDirectory)
 specifier|public
 name|void
@@ -239,7 +239,7 @@ operator|=
 name|allowEmptyDirectory
 expr_stmt|;
 block|}
-comment|/**      * If the file name contains path elements, setting this option to true, allows the path to be maintained      * in the zip file.      */
+comment|/**      * If the file name contains path elements, setting this option to true,      * allows the path to be maintained in the zip file.      */
 DECL|method|setPreservePathElements (Boolean preservePathElements)
 specifier|public
 name|void

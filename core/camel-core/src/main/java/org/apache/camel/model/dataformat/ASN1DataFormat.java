@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The ASN.1 data format is used for file transfer with telecommunications protocols.  */
+comment|/**  * The ASN.1 data format is used for file transfer with telecommunications  * protocols.  */
 end_comment
 
 begin_class
@@ -219,7 +219,7 @@ return|return
 name|usingIterator
 return|;
 block|}
-comment|/**      * If the asn1 file has more then one entry, the setting this option to true, allows to work with the splitter EIP,      * to split the data using an iterator in a streaming mode.      */
+comment|/**      * If the asn1 file has more then one entry, the setting this option to      * true, allows to work with the splitter EIP, to split the data using an      * iterator in a streaming mode.      */
 DECL|method|setUsingIterator (Boolean usingIterator)
 specifier|public
 name|void

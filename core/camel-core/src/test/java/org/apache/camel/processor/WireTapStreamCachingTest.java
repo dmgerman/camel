@@ -296,7 +296,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// the used file should contain more than one character in order to be streamed into the file system
+comment|// the used file should contain more than one character in order to be
+comment|// streamed into the file system
 name|template
 operator|.
 name|sendBody
@@ -435,7 +436,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// set stream threshold to 1, in order to stream into the file system
+comment|// set stream threshold to 1, in order to stream into the file
+comment|// system
 name|context
 operator|.
 name|getStreamCachingStrategy
@@ -464,7 +466,8 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//stream caching should fix re-readability issues when wire tapping messages
+comment|// stream caching should fix re-readability issues when wire
+comment|// tapping messages
 name|from
 argument_list|(
 literal|"direct:a"
@@ -500,7 +503,8 @@ argument_list|(
 literal|"mock:x"
 argument_list|)
 expr_stmt|;
-comment|// even if a process takes more time then the others the wire tap shall work
+comment|// even if a process takes more time then the others the wire
+comment|// tap shall work
 name|from
 argument_list|(
 literal|"direct:y"

@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Avro data format is used for serialization and deserialization of messages using Apache Avro binary dataformat.  */
+comment|/**  * The Avro data format is used for serialization and deserialization of  * messages using Apache Avro binary dataformat.  */
 end_comment
 
 begin_class

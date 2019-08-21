@@ -155,7 +155,8 @@ argument_list|(
 literal|"Hello from foo"
 argument_list|)
 expr_stmt|;
-comment|// Make sure loaded route can process a XML payload with namespaces attached
+comment|// Make sure loaded route can process a XML payload with namespaces
+comment|// attached
 name|context
 operator|.
 name|createProducerTemplate

@@ -642,7 +642,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// Set the exchange pattern to InOut, then send it from direct:inOnly to mock:result endpoint
+comment|// Set the exchange pattern to InOut, then send it from
+comment|// direct:inOnly to mock:result endpoint
 name|from
 argument_list|(
 literal|"direct:testSetToInOnlyThenTo"

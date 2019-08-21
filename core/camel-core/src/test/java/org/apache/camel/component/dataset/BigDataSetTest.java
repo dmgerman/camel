@@ -205,7 +205,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// start this first to make sure the "direct:foo" consumer is ready
+comment|// start this first to make sure the "direct:foo" consumer is
+comment|// ready
 name|from
 argument_list|(
 literal|"direct:foo"

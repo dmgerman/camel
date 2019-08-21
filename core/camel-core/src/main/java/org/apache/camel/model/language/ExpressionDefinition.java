@@ -1072,7 +1072,8 @@ name|trim
 argument_list|()
 expr_stmt|;
 block|}
-comment|// resolve the expression as it may be an external script from the classpath/file etc
+comment|// resolve the expression as it may be an external script from
+comment|// the classpath/file etc
 name|exp
 operator|=
 name|ScriptHelper
@@ -1268,7 +1269,8 @@ name|trim
 argument_list|()
 expr_stmt|;
 block|}
-comment|// resolve the expression as it may be an external script from the classpath/file etc
+comment|// resolve the expression as it may be an external script from
+comment|// the classpath/file etc
 name|exp
 operator|=
 name|ScriptHelper
@@ -1438,7 +1440,7 @@ return|return
 name|trim
 return|;
 block|}
-comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and line breaks      */
+comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and      * line breaks      */
 DECL|method|setTrim (Boolean trim)
 specifier|public
 name|void
@@ -1587,7 +1589,8 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
-comment|// allows to perform additional logic after the properties has been configured which may be needed
+comment|// allows to perform additional logic after the properties has been
+comment|// configured which may be needed
 comment|// in the various camel components outside camel-core
 if|if
 condition|(
@@ -1622,7 +1625,8 @@ name|Expression
 name|expression
 parameter_list|)
 block|{
-comment|// allows to perform additional logic after the properties has been configured which may be needed
+comment|// allows to perform additional logic after the properties has been
+comment|// configured which may be needed
 comment|// in the various camel components outside camel-core
 if|if
 condition|(

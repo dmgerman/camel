@@ -335,7 +335,7 @@ literal|"]"
 return|;
 block|}
 comment|// Fluent API
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the reference name of the message id repository      *      * @param messageIdRepositoryRef the reference name of message id repository      * @return builder      */
 DECL|method|messageIdRepositoryRef (String messageIdRepositoryRef)
 specifier|public
@@ -399,7 +399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to eagerly add the key to the idempotent repository or wait until the exchange      * is complete. Eager is default enabled.      *      * @param eager<tt>true</tt> to add the key before processing,<tt>false</tt> to wait until      *              the exchange is complete.      * @return builder      */
+comment|/**      * Sets whether to eagerly add the key to the idempotent repository or wait      * until the exchange is complete. Eager is default enabled.      *      * @param eager<tt>true</tt> to add the key before processing,      *<tt>false</tt> to wait until the exchange is complete.      * @return builder      */
 DECL|method|eager (boolean eager)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -418,7 +418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to complete the idempotent consumer eager or when the exchange is done.      *<p/>      * If this option is<tt>true</tt> to complete eager, then the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *<p/>      * If this option is<tt>false</tt> (default) to<b>not</b> complete eager, then the idempotent consumer      * will complete when the exchange is done being routed. So if the exchange is continued routed after the block ends,      * then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *      * @param completionEager   whether to complete eager or complete when the exchange is done      * @return builder      */
+comment|/**      * Sets whether to complete the idempotent consumer eager or when the      * exchange is done.      *<p/>      * If this option is<tt>true</tt> to complete eager, then the idempotent      * consumer will trigger its completion when the exchange reached the end of      * the block of the idempotent consumer pattern. So if the exchange is      * continued routed after the block ends, then whatever happens there does      * not affect the state.      *<p/>      * If this option is<tt>false</tt> (default) to<b>not</b> complete eager,      * then the idempotent consumer will complete when the exchange is done      * being routed. So if the exchange is continued routed after the block      * ends, then whatever happens there<b>also</b> affect the state. For      * example if the exchange failed due to an exception, then the state of the      * idempotent consumer will be a rollback.      *      * @param completionEager whether to complete eager or complete when the      *            exchange is done      * @return builder      */
 DECL|method|completionEager (boolean completionEager)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -437,7 +437,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to remove or keep the key on failure.      *<p/>      * The default behavior is to remove the key on failure.      *      * @param removeOnFailure<tt>true</tt> to remove the key,<tt>false</tt> to keep the key      *                        if the exchange fails.      * @return builder      */
+comment|/**      * Sets whether to remove or keep the key on failure.      *<p/>      * The default behavior is to remove the key on failure.      *      * @param removeOnFailure<tt>true</tt> to remove the key,<tt>false</tt> to      *            keep the key if the exchange fails.      * @return builder      */
 DECL|method|removeOnFailure (boolean removeOnFailure)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -456,7 +456,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to skip duplicates or not.      *<p/>      * The default behavior is to skip duplicates.      *<p/>      * A duplicate message would have the Exchange property {@link org.apache.camel.Exchange#DUPLICATE_MESSAGE} set      * to a {@link Boolean#TRUE} value. A none duplicate message will not have this property set.      *      * @param skipDuplicate<tt>true</tt> to skip duplicates,<tt>false</tt> to allow duplicates.      * @return builder      */
+comment|/**      * Sets whether to skip duplicates or not.      *<p/>      * The default behavior is to skip duplicates.      *<p/>      * A duplicate message would have the Exchange property      * {@link org.apache.camel.Exchange#DUPLICATE_MESSAGE} set to a      * {@link Boolean#TRUE} value. A none duplicate message will not have this      * property set.      *      * @param skipDuplicate<tt>true</tt> to skip duplicates,<tt>false</tt> to      *            allow duplicates.      * @return builder      */
 DECL|method|skipDuplicate (boolean skipDuplicate)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -475,7 +475,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Expression used to calculate the correlation key to use for duplicate check.      * The Exchange which has the same correlation key is regarded as a duplicate and will be rejected.      */
+comment|/**      * Expression used to calculate the correlation key to use for duplicate      * check. The Exchange which has the same correlation key is regarded as a      * duplicate and will be rejected.      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)

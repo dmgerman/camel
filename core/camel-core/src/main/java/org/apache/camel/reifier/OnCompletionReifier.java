@@ -194,10 +194,14 @@ throws|throws
 name|Exception
 block|{
 comment|// assign whether this was a route scoped onCompletion or not
-comment|// we need to know this later when setting the parent, as only route scoped should have parent
-comment|// Note: this logic can possible be removed when the Camel routing engine decides at runtime
-comment|// to apply onCompletion in a more dynamic fashion than current code base
-comment|// and therefore is in a better position to decide among context/route scoped OnCompletion at runtime
+comment|// we need to know this later when setting the parent, as only route
+comment|// scoped should have parent
+comment|// Note: this logic can possible be removed when the Camel routing
+comment|// engine decides at runtime
+comment|// to apply onCompletion in a more dynamic fashion than current code
+comment|// base
+comment|// and therefore is in a better position to decide among context/route
+comment|// scoped OnCompletion at runtime
 name|Boolean
 name|routeScoped
 init|=

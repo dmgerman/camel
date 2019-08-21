@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XSTream data format is used for unmarshal a XML payload to POJO or to marshal POJO back to XML payload.  */
+comment|/**  * XSTream data format is used for unmarshal a XML payload to POJO or to marshal  * POJO back to XML payload.  */
 end_comment
 
 begin_class
@@ -489,7 +489,7 @@ return|return
 name|driver
 return|;
 block|}
-comment|/**      * To use a custom XStream driver.      * The instance must be of type com.thoughtworks.xstream.io.HierarchicalStreamDriver      */
+comment|/**      * To use a custom XStream driver. The instance must be of type      * com.thoughtworks.xstream.io.HierarchicalStreamDriver      */
 DECL|method|setDriver (String driver)
 specifier|public
 name|void
@@ -516,7 +516,7 @@ return|return
 name|driverRef
 return|;
 block|}
-comment|/**      * To refer to a custom XStream driver to lookup in the registry.      * The instance must be of type com.thoughtworks.xstream.io.HierarchicalStreamDriver      */
+comment|/**      * To refer to a custom XStream driver to lookup in the registry. The      * instance must be of type      * com.thoughtworks.xstream.io.HierarchicalStreamDriver      */
 DECL|method|setDriverRef (String driverRef)
 specifier|public
 name|void
@@ -573,7 +573,7 @@ return|return
 name|converters
 return|;
 block|}
-comment|/**      * List of class names for using custom XStream converters.      * The classes must be of type com.thoughtworks.xstream.converters.Converter      */
+comment|/**      * List of class names for using custom XStream converters. The classes must      * be of type com.thoughtworks.xstream.converters.Converter      */
 DECL|method|setConverters (List<String> converters)
 specifier|public
 name|void
@@ -646,7 +646,7 @@ return|return
 name|omitFields
 return|;
 block|}
-comment|/**      * Prevents a field from being serialized. To omit a field you must always provide the      * declaring type and not necessarily the type that is converted.      */
+comment|/**      * Prevents a field from being serialized. To omit a field you must always      * provide the declaring type and not necessarily the type that is      * converted.      */
 DECL|method|setOmitFields (Map<String, String[]> omitFields)
 specifier|public
 name|void
@@ -685,7 +685,7 @@ return|return
 name|implicitCollections
 return|;
 block|}
-comment|/**      * Adds a default implicit collection which is used for any unmapped XML tag.      */
+comment|/**      * Adds a default implicit collection which is used for any unmapped XML      * tag.      */
 DECL|method|setImplicitCollections (Map<String, String[]> implicitCollections)
 specifier|public
 name|void
@@ -718,7 +718,7 @@ return|return
 name|permissions
 return|;
 block|}
-comment|/**      * Adds permissions that controls which Java packages and classes XStream is allowed to use during      * unmarshal from xml/json to Java beans.      *<p/>      * A permission must be configured either here or globally using a JVM system property. The permission      * can be specified in a syntax where a plus sign is allow, and minus sign is deny.      *<br/>      * Wildcards is supported by using<tt>.*</tt> as prefix. For example to allow<tt>com.foo</tt> and all subpackages      * then specfy<tt>+com.foo.*</tt>. Multiple permissions can be configured separated by comma, such as      *<tt>+com.foo.*,-com.foo.bar.MySecretBean</tt>.      *<br/>      * The following default permission is always included:<tt>"-*,java.lang.*,java.util.*"</tt> unless      * its overridden by specifying a JVM system property with they key<tt>org.apache.camel.xstream.permissions</tt>.      */
+comment|/**      * Adds permissions that controls which Java packages and classes XStream is      * allowed to use during unmarshal from xml/json to Java beans.      *<p/>      * A permission must be configured either here or globally using a JVM      * system property. The permission can be specified in a syntax where a plus      * sign is allow, and minus sign is deny.<br/>      * Wildcards is supported by using<tt>.*</tt> as prefix. For example to      * allow<tt>com.foo</tt> and all subpackages then specfy      *<tt>+com.foo.*</tt>. Multiple permissions can be configured separated by      * comma, such as<tt>+com.foo.*,-com.foo.bar.MySecretBean</tt>.<br/>      * The following default permission is always included:      *<tt>"-*,java.lang.*,java.util.*"</tt> unless its overridden by specifying      * a JVM system property with they key      *<tt>org.apache.camel.xstream.permissions</tt>.      */
 DECL|method|setPermissions (String permissions)
 specifier|public
 name|void
@@ -735,7 +735,7 @@ operator|=
 name|permissions
 expr_stmt|;
 block|}
-comment|/**      * To add permission for the given pojo classes.      * @param type the pojo class(es) xstream should use as allowed permission      * @see #setPermissions(String)      */
+comment|/**      * To add permission for the given pojo classes.      *       * @param type the pojo class(es) xstream should use as allowed permission      * @see #setPermissions(String)      */
 DECL|method|setPermissions (Class<?>.... type)
 specifier|public
 name|void

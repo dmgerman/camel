@@ -297,13 +297,15 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// our route is aggregating from the direct queue and sending the response to the mock
+comment|// our route is aggregating from the direct queue and sending
+comment|// the response to the mock
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
 comment|// aggregated by header id
-comment|// as we have not configured more on the aggregator it will default to aggregate the
+comment|// as we have not configured more on the aggregator it will
+comment|// default to aggregate the
 comment|// latest exchange only
 operator|.
 name|aggregate

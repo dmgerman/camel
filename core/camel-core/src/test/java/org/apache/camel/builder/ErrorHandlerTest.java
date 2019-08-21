@@ -444,7 +444,8 @@ argument_list|(
 literal|"seda:b"
 argument_list|)
 expr_stmt|;
-comment|// this route will use the default error handler (DeadLetterChannel)
+comment|// this route will use the default error handler
+comment|// (DeadLetterChannel)
 name|from
 argument_list|(
 literal|"seda:b"
@@ -645,7 +646,8 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// configures dead letter channel to use seda queue for errors and use at most 2 redelveries
+comment|// configures dead letter channel to use seda queue for errors
+comment|// and use at most 2 redelveries
 comment|// and exponential backoff
 name|errorHandler
 argument_list|(

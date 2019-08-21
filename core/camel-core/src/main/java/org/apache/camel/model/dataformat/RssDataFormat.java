@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RSS data format is used for working with RSS sync feed Java Objects and transforming to XML and vice-versa.  */
+comment|/**  * RSS data format is used for working with RSS sync feed Java Objects and  * transforming to XML and vice-versa.  */
 end_comment
 
 begin_class

@@ -198,7 +198,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// add the output as a intercept strategy to the route context so its invoked on each processing step
+comment|// add the output as a intercept strategy to the route context so its
+comment|// invoked on each processing step
 name|routeContext
 operator|.
 name|getInterceptStrategies

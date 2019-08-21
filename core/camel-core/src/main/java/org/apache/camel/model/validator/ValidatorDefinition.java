@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Represents a {@link Validator} which declaratively validates message content  * according to the input type declared by {@link InputTypeDefinition} and/or output type  * declared by {@link OutputTypeDefinition}.</p>  *<p>If you specify type='xml:ABC', the validator  * will be picked up when current message type is 'xml:ABC'.  * If you specify type='json', then it will be picked up for all of json validation.  *   * {@see Validator}  * {@see InputTypeDefinition}  * {@see OutputTypeDefinition}  */
+comment|/**  *<p>  * Represents a {@link Validator} which declaratively validates message content  * according to the input type declared by {@link InputTypeDefinition} and/or  * output type declared by {@link OutputTypeDefinition}.  *</p>  *<p>  * If you specify type='xml:ABC', the validator will be picked up when current  * message type is 'xml:ABC'. If you specify type='json', then it will be picked  * up for all of json validation. {@see Validator} {@see InputTypeDefinition}  * {@see OutputTypeDefinition}  */
 end_comment
 
 begin_class
@@ -193,7 +193,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Set the data type name.      * If you specify 'xml:XYZ', the validator will be picked up if message type is      * 'xml:XYZ'. If you specify just 'xml', the validator matches with all of      * 'xml' message type like 'xml:ABC' or 'xml:DEF'.      *       * @param type data type name      */
+comment|/**      * Set the data type name. If you specify 'xml:XYZ', the validator will be      * picked up if message type is 'xml:XYZ'. If you specify just 'xml', the      * validator matches with all of 'xml' message type like 'xml:ABC' or      * 'xml:DEF'.      *       * @param type data type name      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -210,7 +210,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/**      * Set the data type using Java class.      * @param clazz Java class      */
+comment|/**      * Set the data type using Java class.      *       * @param clazz Java class      */
 DECL|method|setType (Class<?> clazz)
 specifier|public
 name|void

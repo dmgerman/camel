@@ -398,7 +398,7 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|//assert re-readability of the cached StreamSource
+comment|// assert re-readability of the cached StreamSource
 name|XmlConverter
 name|converter
 init|=
@@ -478,7 +478,7 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|//assert re-readability of the cached InputStream
+comment|// assert re-readability of the cached InputStream
 name|String
 name|data
 init|=

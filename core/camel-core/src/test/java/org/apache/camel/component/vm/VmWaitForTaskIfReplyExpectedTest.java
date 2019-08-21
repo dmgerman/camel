@@ -199,7 +199,8 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|// we do not expect a reply and thus do no wait so we just get our own input back
+comment|// we do not expect a reply and thus do no wait so we just get our own
+comment|// input back
 name|assertEquals
 argument_list|(
 literal|"Hello World"

@@ -552,7 +552,8 @@ name|routeId
 init|=
 literal|null
 decl_stmt|;
-comment|// only get the route id, if the exception type is route scoped
+comment|// only get the route id, if the exception type is route
+comment|// scoped
 if|if
 condition|(
 name|exceptionType
@@ -807,7 +808,7 @@ return|return
 name|exceptionPolicyStrategy
 return|;
 block|}
-comment|/**      * Sets the exception policy strategy to use for resolving the {@link org.apache.camel.model.OnExceptionDefinition}      * to use for a given thrown exception      *      * @param exceptionPolicyStrategy  the exception policy strategy      */
+comment|/**      * Sets the exception policy strategy to use for resolving the      * {@link org.apache.camel.model.OnExceptionDefinition} to use for a given      * thrown exception      *      * @param exceptionPolicyStrategy the exception policy strategy      */
 DECL|method|setExceptionPolicyStrategy (ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
 name|void

@@ -100,7 +100,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|Any23DataFormat
+name|ASN1DataFormat
 import|;
 end_import
 
@@ -116,7 +116,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|ASN1DataFormat
+name|Any23DataFormat
 import|;
 end_import
 
@@ -727,7 +727,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An expression for constructing the different possible {@link org.apache.camel.spi.DataFormat}  * options.  */
+comment|/**  * An expression for constructing the different possible  * {@link org.apache.camel.spi.DataFormat} options.  */
 end_comment
 
 begin_class
@@ -1288,7 +1288,7 @@ name|dataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Bindy data format      *      * @param type      the type of bindy data format to use      * @param classType the POJO class type      */
+comment|/**      * Uses the Bindy data format      *      * @param type the type of bindy data format to use      * @param classType the POJO class type      */
 DECL|method|bindy (BindyType type, Class<?> classType)
 specifier|public
 name|T
@@ -1332,7 +1332,7 @@ name|bindy
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Bindy data format      *      * @param type      the type of bindy data format to use      * @param classType the POJO class type      * @param unwrapSingleInstance whether unmarshal should unwrap if there is a single instance in the result      */
+comment|/**      * Uses the Bindy data format      *      * @param type the type of bindy data format to use      * @param classType the POJO class type      * @param unwrapSingleInstance whether unmarshal should unwrap if there is a      *            single instance in the result      */
 DECL|method|bindy (BindyType type, Class<?> classType, boolean unwrapSingleInstance)
 specifier|public
 name|T
@@ -1402,7 +1402,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the CBOR data format      *      * @param unmarshalType      *            unmarshal type for cbor type      */
+comment|/**      * Uses the CBOR data format      *      * @param unmarshalType unmarshal type for cbor type      */
 DECL|method|cbor (Class<?> unmarshalType)
 specifier|public
 name|T
@@ -1452,7 +1452,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the CSV data format for a huge file.      * Sequential access through an iterator.      */
+comment|/**      * Uses the CSV data format for a huge file. Sequential access through an      * iterator.      */
 DECL|method|csvLazyLoad ()
 specifier|public
 name|T
@@ -1725,7 +1725,7 @@ name|mm
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the MIME Multipart data format      *      * @param multipartSubType           the subtype of the MIME Multipart      * @param multipartWithoutAttachment defines whether a message without attachment is also marshaled      *                                   into a MIME Multipart (with only one body part).      * @param headersInline              define the MIME Multipart headers as part of the message body      *                                   or as Camel headers      * @param binaryContent              have binary encoding for binary content (true) or use Base-64      *                                   encoding for binary content (false)      */
+comment|/**      * Uses the MIME Multipart data format      *      * @param multipartSubType the subtype of the MIME Multipart      * @param multipartWithoutAttachment defines whether a message without      *            attachment is also marshaled into a MIME Multipart (with only      *            one body part).      * @param headersInline define the MIME Multipart headers as part of the      *            message body or as Camel headers      * @param binaryContent have binary encoding for binary content (true) or      *            use Base-64 encoding for binary content (false)      */
 DECL|method|mimeMultipart (String multipartSubType, boolean multipartWithoutAttachment, boolean headersInline, boolean binaryContent)
 specifier|public
 name|T
@@ -1786,7 +1786,7 @@ name|mm
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the MIME Multipart data format      *      * @param multipartSubType           the subtype of the MIME Multipart      * @param multipartWithoutAttachment defines whether a message without attachment is also marshaled      *                                   into a MIME Multipart (with only one body part).      * @param headersInline              define the MIME Multipart headers as part of the message body      *                                   or as Camel headers      * @param includeHeaders            if headersInline is set to true all camel headers matching this      *                                   regex are also stored as MIME headers on the Multipart      * @param binaryContent              have binary encoding for binary content (true) or use Base-64      *                                   encoding for binary content (false)      */
+comment|/**      * Uses the MIME Multipart data format      *      * @param multipartSubType the subtype of the MIME Multipart      * @param multipartWithoutAttachment defines whether a message without      *            attachment is also marshaled into a MIME Multipart (with only      *            one body part).      * @param headersInline define the MIME Multipart headers as part of the      *            message body or as Camel headers      * @param includeHeaders if headersInline is set to true all camel headers      *            matching this regex are also stored as MIME headers on the      *            Multipart      * @param binaryContent have binary encoding for binary content (true) or      *            use Base-64 encoding for binary content (false)      */
 DECL|method|mimeMultipart (String multipartSubType, boolean multipartWithoutAttachment, boolean headersInline, String includeHeaders, boolean binaryContent)
 specifier|public
 name|T
@@ -1857,7 +1857,7 @@ name|mm
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the MIME Multipart data format      *      * @param multipartWithoutAttachment defines whether a message without attachment is also marshaled      *                                   into a MIME Multipart (with only one body part).      * @param headersInline              define the MIME Multipart headers as part of the message body      *                                   or as Camel headers      * @param binaryContent              have binary encoding for binary content (true) or use Base-64      *                                   encoding for binary content (false)      */
+comment|/**      * Uses the MIME Multipart data format      *      * @param multipartWithoutAttachment defines whether a message without      *            attachment is also marshaled into a MIME Multipart (with only      *            one body part).      * @param headersInline define the MIME Multipart headers as part of the      *            message body or as Camel headers      * @param binaryContent have binary encoding for binary content (true) or      *            use Base-64 encoding for binary content (false)      */
 DECL|method|mimeMultipart (boolean multipartWithoutAttachment, boolean headersInline, boolean binaryContent)
 specifier|public
 name|T
@@ -2087,7 +2087,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType      *            unmarshal type for xml jackson type      */
+comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType unmarshal type for xml jackson type      */
 DECL|method|jacksonxml (Class<?> unmarshalType)
 specifier|public
 name|T
@@ -2121,7 +2121,7 @@ name|jacksonXMLDataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType      *            unmarshal type for xml jackson type      * @param jsonView      *            the view type for xml jackson type      */
+comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType unmarshal type for xml jackson type      * @param jsonView the view type for xml jackson type      */
 DECL|method|jacksonxml (Class<?> unmarshalType, Class<?> jsonView)
 specifier|public
 name|T
@@ -2168,7 +2168,7 @@ name|jacksonXMLDataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson XML data format using the Jackson library turning pretty      * printing on or off      *      * @param prettyPrint      *            turn pretty printing on or off      */
+comment|/**      * Uses the Jackson XML data format using the Jackson library turning pretty      * printing on or off      *      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|jacksonxml (boolean prettyPrint)
 specifier|public
 name|T
@@ -2199,7 +2199,7 @@ name|jacksonXMLDataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType      *            unmarshal type for xml jackson type      * @param prettyPrint      *            turn pretty printing on or off      */
+comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType unmarshal type for xml jackson type      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|jacksonxml (Class<?> unmarshalType, boolean prettyPrint)
 specifier|public
 name|T
@@ -2243,7 +2243,7 @@ name|jacksonXMLDataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType      *            unmarshal type for xml jackson type      * @param jsonView      *            the view type for xml jackson type      * @param prettyPrint      *            turn pretty printing on or off      */
+comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType unmarshal type for xml jackson type      * @param jsonView the view type for xml jackson type      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|jacksonxml (Class<?> unmarshalType, Class<?> jsonView, boolean prettyPrint)
 specifier|public
 name|T
@@ -2300,7 +2300,7 @@ name|jacksonXMLDataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType      *            unmarshal type for xml jackson type      * @param jsonView      *            the view type for xml jackson type      * @param include      *            include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.      */
+comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType unmarshal type for xml jackson type      * @param jsonView the view type for xml jackson type      * @param include include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.      */
 DECL|method|jacksonxml (Class<?> unmarshalType, Class<?> jsonView, String include)
 specifier|public
 name|T
@@ -2357,7 +2357,7 @@ name|jacksonXMLDataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType      *            unmarshal type for xml jackson type      * @param jsonView      *            the view type for xml jackson type      * @param include      *            include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.      * @param prettyPrint      *            turn pretty printing on or off      */
+comment|/**      * Uses the Jackson XML data format      *      * @param unmarshalType unmarshal type for xml jackson type      * @param jsonView the view type for xml jackson type      * @param include include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|jacksonxml (Class<?> unmarshalType, Class<?> jsonView, String include, boolean prettyPrint)
 specifier|public
 name|T
@@ -2508,7 +2508,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format using the XStream json library turning pretty printing on or off      *      * @param prettyPrint turn pretty printing on or off      */
+comment|/**      * Uses the JSON data format using the XStream json library turning pretty      * printing on or off      *      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (boolean prettyPrint)
 specifier|public
 name|T
@@ -2560,7 +2560,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      *      * @param library     the json library to use      * @param prettyPrint turn pretty printing on or off      */
+comment|/**      * Uses the JSON data format      *      * @param library the json library to use      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (JsonLibrary library, boolean prettyPrint)
 specifier|public
 name|T
@@ -2596,7 +2596,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      */
+comment|/**      * Uses the JSON data format      *      * @param type the json type to use      * @param unmarshalType unmarshal type for json jackson type      */
 DECL|method|json (JsonLibrary type, Class<?> unmarshalType)
 specifier|public
 name|T
@@ -2635,7 +2635,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      * @param prettyPrint   turn pretty printing on or off      */
+comment|/**      * Uses the JSON data format      *      * @param type the json type to use      * @param unmarshalType unmarshal type for json jackson type      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (JsonLibrary type, Class<?> unmarshalType, boolean prettyPrint)
 specifier|public
 name|T
@@ -2684,7 +2684,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      */
+comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView the view type for json jackson type      */
 DECL|method|json (Class<?> unmarshalType, Class<?> jsonView)
 specifier|public
 name|T
@@ -2735,7 +2735,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      * @param prettyPrint   turn pretty printing on or off      */
+comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView the view type for json jackson type      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (Class<?> unmarshalType, Class<?> jsonView, boolean prettyPrint)
 specifier|public
 name|T
@@ -2796,7 +2796,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      * @param include       include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.      */
+comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView the view type for json jackson type      * @param include include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.      */
 DECL|method|json (Class<?> unmarshalType, Class<?> jsonView, String include)
 specifier|public
 name|T
@@ -2857,7 +2857,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      * @param include       include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.       * @param prettyPrint  turn pretty printing on or off      */
+comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView the view type for json jackson type      * @param include include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (Class<?> unmarshalType, Class<?> jsonView, String include, boolean prettyPrint)
 specifier|public
 name|T
@@ -3464,7 +3464,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Return WellFormed HTML (an XML Document) either      * {@link java.lang.String} or {@link org.w3c.dom.Node}      */
+comment|/**      * Return WellFormed HTML (an XML Document) either {@link java.lang.String}      * or {@link org.w3c.dom.Node}      */
 DECL|method|tidyMarkup (Class<?> dataObjectType)
 specifier|public
 name|T
@@ -3488,7 +3488,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Return TidyMarkup in the default format      * as {@link org.w3c.dom.Node}      */
+comment|/**      * Return TidyMarkup in the default format as {@link org.w3c.dom.Node}      */
 DECL|method|tidyMarkup ()
 specifier|public
 name|T

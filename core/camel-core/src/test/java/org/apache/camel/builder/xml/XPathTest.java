@@ -2076,7 +2076,8 @@ name|xml
 init|=
 literal|"<header><value>12</value></header>"
 decl_stmt|;
-comment|// it can throw the exception if we put the xalan into the test class path
+comment|// it can throw the exception if we put the xalan into the test
+comment|// class path
 name|assertExpression
 argument_list|(
 name|builder
@@ -2586,7 +2587,8 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
-comment|// convert the node concurrently to test that XML Parser is not thread safe when
+comment|// convert the node concurrently to test that XML Parser is not thread
+comment|// safe when
 comment|// importing nodes to a new Document, so try a test for that
 specifier|final
 name|List
@@ -3039,7 +3041,8 @@ argument_list|(
 literal|"foo/bar"
 argument_list|)
 decl_stmt|;
-comment|// will evaluate as XPathConstants.NODESET and have Camel convert that to String
+comment|// will evaluate as XPathConstants.NODESET and have Camel convert that
+comment|// to String
 comment|// this should return the String incl. xml tags
 name|String
 name|name
@@ -3064,7 +3067,8 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-comment|// will evaluate using XPathConstants.STRING which just return the text content (eg like text())
+comment|// will evaluate using XPathConstants.STRING which just return the text
+comment|// content (eg like text())
 name|name
 operator|=
 name|builder

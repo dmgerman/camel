@@ -518,7 +518,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// return null to let the default implementation create the processor, we just wanted to alter the definition
+comment|// return null to let the default implementation create the
+comment|// processor, we just wanted to alter the definition
 comment|// before the processor was created
 return|return
 literal|null

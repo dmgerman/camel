@@ -182,7 +182,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// should not load the content of the body into memory unless demand for it
+comment|// should not load the content of the body into memory unless demand for
+comment|// it
 comment|// so the type received should be a GenericFile (holder for the file)
 name|mock
 operator|.
@@ -233,7 +234,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// should not load the content of the body into memory unless demand for it
+comment|// should not load the content of the body into memory unless demand for
+comment|// it
 comment|// so the type received should be a GenericFile (holder for the file)
 name|mock
 operator|.
@@ -293,7 +295,8 @@ argument_list|,
 literal|"copenhagen.txt"
 argument_list|)
 expr_stmt|;
-comment|// should not load the content of the body into memory unless demand for it
+comment|// should not load the content of the body into memory unless demand for
+comment|// it
 comment|// so the type received should be a GenericFile (holder for the file)
 name|mock
 operator|.

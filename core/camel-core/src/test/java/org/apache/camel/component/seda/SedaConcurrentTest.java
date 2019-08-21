@@ -502,7 +502,8 @@ argument_list|(
 literal|500
 argument_list|)
 expr_stmt|;
-comment|// use our own template that has a higher thread pool than default camel that uses 5
+comment|// use our own template that has a higher thread pool than default camel
+comment|// that uses 5
 name|ExecutorService
 name|executor
 init|=

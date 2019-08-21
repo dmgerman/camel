@@ -166,8 +166,10 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// use a property placeholder for the option stopOnException on the Multicast EIP
-comment|// which should have the value of {{stop}} key being looked up in the properties file
+comment|// use a property placeholder for the option stopOnException
+comment|// on the Multicast EIP
+comment|// which should have the value of {{stop}} key being looked
+comment|// up in the properties file
 operator|.
 name|multicast
 argument_list|()

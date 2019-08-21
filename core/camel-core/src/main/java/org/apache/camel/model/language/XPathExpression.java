@@ -652,7 +652,7 @@ return|return
 name|threadSafety
 return|;
 block|}
-comment|/**      * Whether to enable thread-safety for the returned result of the xpath expression.      * This applies to when using NODESET as the result type, and the returned set has      * multiple elements. In this situation there can be thread-safety issues if you      * process the NODESET concurrently such as from a Camel Splitter EIP in parallel processing mode.      * This option prevents concurrency issues by doing defensive copies of the nodes.      *<p/>      * It is recommended to turn this option on if you are using camel-saxon or Saxon in your application.      * Saxon has thread-safety issues which can be prevented by turning this option on.      */
+comment|/**      * Whether to enable thread-safety for the returned result of the xpath      * expression. This applies to when using NODESET as the result type, and      * the returned set has multiple elements. In this situation there can be      * thread-safety issues if you process the NODESET concurrently such as from      * a Camel Splitter EIP in parallel processing mode. This option prevents      * concurrency issues by doing defensive copies of the nodes.      *<p/>      * It is recommended to turn this option on if you are using camel-saxon or      * Saxon in your application. Saxon has thread-safety issues which can be      * prevented by turning this option on.      */
 DECL|method|setThreadSafety (Boolean threadSafety)
 specifier|public
 name|void
@@ -1034,7 +1034,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// moved the super configuration to the bottom so that the namespace init picks up the newly set XPath Factory
+comment|// moved the super configuration to the bottom so that the namespace
+comment|// init picks up the newly set XPath Factory
 name|super
 operator|.
 name|configureExpression
@@ -1234,7 +1235,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// moved the super configuration to the bottom so that the namespace init picks up the newly set XPath Factory
+comment|// moved the super configuration to the bottom so that the namespace
+comment|// init picks up the newly set XPath Factory
 name|super
 operator|.
 name|configurePredicate
@@ -1254,8 +1256,12 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-comment|// Factory and Object Model can be set simultaneously. The underlying XPathBuilder allows for setting Saxon too, as it is simply a shortcut for
-comment|// setting the appropriate Object Model, it is not wise to allow this in XML because the order of invocation of the setters by JAXB may cause undeterministic behaviour
+comment|// Factory and Object Model can be set simultaneously. The underlying
+comment|// XPathBuilder allows for setting Saxon too, as it is simply a shortcut
+comment|// for
+comment|// setting the appropriate Object Model, it is not wise to allow this in
+comment|// XML because the order of invocation of the setters by JAXB may cause
+comment|// undeterministic behaviour
 if|if
 condition|(
 operator|(

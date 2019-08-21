@@ -87,7 +87,8 @@ throw|throw
 name|io
 throw|;
 block|}
-comment|// to unit test that we can set a type to the @ExchangeException that we want this caused by exception
+comment|// to unit test that we can set a type to the @ExchangeException that we
+comment|// want this caused by exception
 comment|// in the exception hieracy
 DECL|method|handleException (@xchangeException MyCustomException custom)
 specifier|public

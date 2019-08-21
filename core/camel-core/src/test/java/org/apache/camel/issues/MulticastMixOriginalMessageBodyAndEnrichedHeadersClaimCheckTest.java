@@ -124,8 +124,10 @@ name|handled
 argument_list|(
 literal|true
 argument_list|)
-comment|// merge the message with the original message body but keep any existing headers
-comment|// (we could also use Push/Pop operation instead, then without using the "myOriginalBody" key)
+comment|// merge the message with the original message body but keep
+comment|// any existing headers
+comment|// (we could also use Push/Pop operation instead, then
+comment|// without using the "myOriginalBody" key)
 operator|.
 name|claimCheck
 argument_list|(
@@ -147,9 +149,11 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// we want to preserve the real original message body and then include other headers that have been
+comment|// we want to preserve the real original message body and
+comment|// then include other headers that have been
 comment|// set later during routing
-comment|// (we could also use Push/Pop operation instead, then without using the "myOriginalBody" key)
+comment|// (we could also use Push/Pop operation instead, then
+comment|// without using the "myOriginalBody" key)
 operator|.
 name|claimCheck
 argument_list|(

@@ -1438,6 +1438,9 @@ implements|implements
 name|ApiMethod
 block|{
 DECL|enumConstant|SAYHI
+DECL|enumConstant|SAYHI_1
+DECL|enumConstant|GREETME
+DECL|enumConstant|GREETUS
 name|SAYHI
 argument_list|(
 name|String
@@ -1447,7 +1450,6 @@ argument_list|,
 literal|"sayHi"
 argument_list|)
 block|,
-DECL|enumConstant|SAYHI_1
 name|SAYHI_1
 argument_list|(
 name|String
@@ -1466,7 +1468,6 @@ name|class
 argument_list|)
 argument_list|)
 block|,
-DECL|enumConstant|GREETME
 name|GREETME
 argument_list|(
 name|String
@@ -1485,13 +1486,14 @@ name|class
 argument_list|)
 argument_list|)
 block|,
-DECL|enumConstant|GREETUS
 name|GREETUS
 argument_list|(
 name|String
 operator|.
 name|class
 argument_list|,
+DECL|enumConstant|GREETALL
+DECL|enumConstant|GREETALL_1
 literal|"greetUs"
 argument_list|,
 name|arg
@@ -1513,7 +1515,6 @@ name|class
 argument_list|)
 argument_list|)
 block|,
-DECL|enumConstant|GREETALL
 name|GREETALL
 argument_list|(
 name|String
@@ -1537,13 +1538,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 block|,
-DECL|enumConstant|GREETALL_1
 name|GREETALL_1
 argument_list|(
 name|String
 operator|.
 name|class
 argument_list|,
+DECL|enumConstant|GREETALL_2
+DECL|enumConstant|GREETTIMES
 literal|"greetAll"
 argument_list|,
 name|arg
@@ -1556,7 +1558,6 @@ name|class
 argument_list|)
 argument_list|)
 block|,
-DECL|enumConstant|GREETALL_2
 name|GREETALL_2
 argument_list|(
 name|Map
@@ -1575,7 +1576,6 @@ name|class
 argument_list|)
 argument_list|)
 block|,
-DECL|enumConstant|GREETTIMES
 name|GREETTIMES
 argument_list|(
 operator|new
@@ -1589,6 +1589,7 @@ argument_list|()
 argument_list|,
 literal|"greetTimes"
 argument_list|,
+DECL|enumConstant|GREETINNERCHILD
 name|arg
 argument_list|(
 literal|"name"
@@ -1608,7 +1609,6 @@ name|class
 argument_list|)
 argument_list|)
 block|,
-DECL|enumConstant|GREETINNERCHILD
 name|GREETINNERCHILD
 argument_list|(
 operator|new

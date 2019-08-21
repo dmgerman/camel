@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The XML Security data format facilitates encryption and decryption of XML payloads.  */
+comment|/**  * The XML Security data format facilitates encryption and decryption of XML  * payloads.  */
 end_comment
 
 begin_class
@@ -369,7 +369,7 @@ return|return
 name|xmlCipherAlgorithm
 return|;
 block|}
-comment|/**      * The cipher algorithm to be used for encryption/decryption of the XML message content. The available choices are:      *<ul>      *<li>XMLCipher.TRIPLEDES</li>      *<li>XMLCipher.AES_128</li>      *<li>XMLCipher.AES_128_GCM</li>      *<li>XMLCipher.AES_192</li>      *<li>XMLCipher.AES_192_GCM</li>      *<li>XMLCipher.AES_256</li>      *<li>XMLCipher.AES_256_GCM</li>      *<li>XMLCipher.SEED_128</li>      *<li>XMLCipher.CAMELLIA_128</li>      *<li>XMLCipher.CAMELLIA_192</li>      *<li>XMLCipher.CAMELLIA_256</li>      *</ul>      * The default value is MLCipher.TRIPLEDES      */
+comment|/**      * The cipher algorithm to be used for encryption/decryption of the XML      * message content. The available choices are:      *<ul>      *<li>XMLCipher.TRIPLEDES</li>      *<li>XMLCipher.AES_128</li>      *<li>XMLCipher.AES_128_GCM</li>      *<li>XMLCipher.AES_192</li>      *<li>XMLCipher.AES_192_GCM</li>      *<li>XMLCipher.AES_256</li>      *<li>XMLCipher.AES_256_GCM</li>      *<li>XMLCipher.SEED_128</li>      *<li>XMLCipher.CAMELLIA_128</li>      *<li>XMLCipher.CAMELLIA_192</li>      *<li>XMLCipher.CAMELLIA_256</li>      *</ul>      * The default value is MLCipher.TRIPLEDES      */
 DECL|method|setXmlCipherAlgorithm (String xmlCipherAlgorithm)
 specifier|public
 name|void
@@ -396,7 +396,7 @@ return|return
 name|passPhrase
 return|;
 block|}
-comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase has to be provided.      * If no passPhrase is specified, a default passPhrase is used.      * The passPhrase needs to be put together in conjunction with the appropriate encryption algorithm.      * For example using TRIPLEDES the passPhase can be a "Only another 24 Byte key"      */
+comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. If no passPhrase is specified, a default passPhrase      * is used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a "Only another 24 Byte key"      */
 DECL|method|setPassPhrase (String passPhrase)
 specifier|public
 name|void
@@ -424,7 +424,7 @@ return|return
 name|passPhraseByte
 return|;
 block|}
-comment|/**      * A byte[] used as passPhrase to encrypt/decrypt content. The passPhrase has to be provided.      * If no passPhrase is specified, a default passPhrase is used.      * The passPhrase needs to be put together in conjunction with the appropriate encryption algorithm.      * For example using TRIPLEDES the passPhase can be a "Only another 24 Byte key"      */
+comment|/**      * A byte[] used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. If no passPhrase is specified, a default passPhrase      * is used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a "Only another 24 Byte key"      */
 DECL|method|setPassPhraseByte (byte[] passPhraseByte)
 specifier|public
 name|void
@@ -452,7 +452,7 @@ return|return
 name|secureTag
 return|;
 block|}
-comment|/**      * The XPath reference to the XML Element selected for encryption/decryption. If no tag is specified, the entire payload is encrypted/decrypted.      */
+comment|/**      * The XPath reference to the XML Element selected for      * encryption/decryption. If no tag is specified, the entire payload is      * encrypted/decrypted.      */
 DECL|method|setSecureTag (String secureTag)
 specifier|public
 name|void
@@ -479,7 +479,7 @@ return|return
 name|secureTagContents
 return|;
 block|}
-comment|/**      * A boolean value to specify whether the XML Element is to be encrypted or the contents of the XML Element      * false = Element Level      * true = Element Content Level      */
+comment|/**      * A boolean value to specify whether the XML Element is to be encrypted or      * the contents of the XML Element false = Element Level true = Element      * Content Level      */
 DECL|method|setSecureTagContents (Boolean secureTagContents)
 specifier|public
 name|void
@@ -496,7 +496,7 @@ operator|=
 name|secureTagContents
 expr_stmt|;
 block|}
-comment|/**      * The cipher algorithm to be used for encryption/decryption of the asymmetric key. The available choices are:      *<ul>      *<li>XMLCipher.RSA_v1dot5</li>      *<li>XMLCipher.RSA_OAEP</li>      *<li>XMLCipher.RSA_OAEP_11</li>      *</ul>      * The default value is XMLCipher.RSA_OAEP      */
+comment|/**      * The cipher algorithm to be used for encryption/decryption of the      * asymmetric key. The available choices are:      *<ul>      *<li>XMLCipher.RSA_v1dot5</li>      *<li>XMLCipher.RSA_OAEP</li>      *<li>XMLCipher.RSA_OAEP_11</li>      *</ul>      * The default value is XMLCipher.RSA_OAEP      */
 DECL|method|setKeyCipherAlgorithm (String keyCipherAlgorithm)
 specifier|public
 name|void
@@ -523,7 +523,7 @@ return|return
 name|keyCipherAlgorithm
 return|;
 block|}
-comment|/**      * The key alias to be used when retrieving the recipient's public or private key from a KeyStore when performing asymmetric key encryption or decryption.      */
+comment|/**      * The key alias to be used when retrieving the recipient's public or      * private key from a KeyStore when performing asymmetric key encryption or      * decryption.      */
 DECL|method|setRecipientKeyAlias (String recipientKeyAlias)
 specifier|public
 name|void
@@ -550,7 +550,7 @@ return|return
 name|recipientKeyAlias
 return|;
 block|}
-comment|/**      * Refers to a KeyStore instance to lookup in the registry, which is used for      * configuration options for creating and loading a KeyStore instance that represents the sender's trustStore or recipient's keyStore.      */
+comment|/**      * Refers to a KeyStore instance to lookup in the registry, which is used      * for configuration options for creating and loading a KeyStore instance      * that represents the sender's trustStore or recipient's keyStore.      */
 DECL|method|setKeyOrTrustStoreParametersRef (String id)
 specifier|public
 name|void
@@ -589,7 +589,7 @@ return|return
 name|keyOrTrustStoreParameters
 return|;
 block|}
-comment|/**      * Configuration options for creating and loading a KeyStore instance that represents the sender's trustStore or recipient's keyStore.      */
+comment|/**      * Configuration options for creating and loading a KeyStore instance that      * represents the sender's trustStore or recipient's keyStore.      */
 DECL|method|setKeyOrTrustStoreParameters (KeyStoreParameters keyOrTrustStoreParameters)
 specifier|public
 name|void
@@ -618,7 +618,7 @@ operator|.
 name|keyPassword
 return|;
 block|}
-comment|/**      * The password to be used for retrieving the private key from the KeyStore. This key is used for asymmetric decryption.      */
+comment|/**      * The password to be used for retrieving the private key from the KeyStore.      * This key is used for asymmetric decryption.      */
 DECL|method|setKeyPassword (String keyPassword)
 specifier|public
 name|void
@@ -645,7 +645,7 @@ return|return
 name|digestAlgorithm
 return|;
 block|}
-comment|/**      * The digest algorithm to use with the RSA OAEP algorithm. The available choices are:      *<ul>      *<li>XMLCipher.SHA1</li>      *<li>XMLCipher.SHA256</li>      *<li>XMLCipher.SHA512</li>      *</ul>      * The default value is XMLCipher.SHA1      */
+comment|/**      * The digest algorithm to use with the RSA OAEP algorithm. The available      * choices are:      *<ul>      *<li>XMLCipher.SHA1</li>      *<li>XMLCipher.SHA256</li>      *<li>XMLCipher.SHA512</li>      *</ul>      * The default value is XMLCipher.SHA1      */
 DECL|method|setDigestAlgorithm (String digestAlgorithm)
 specifier|public
 name|void
@@ -672,7 +672,7 @@ return|return
 name|mgfAlgorithm
 return|;
 block|}
-comment|/**      * The MGF Algorithm to use with the RSA OAEP algorithm. The available choices are:      *<ul>      *<li>EncryptionConstants.MGF1_SHA1</li>      *<li>EncryptionConstants.MGF1_SHA256</li>      *<li>EncryptionConstants.MGF1_SHA512</li>      *</ul>      * The default value is EncryptionConstants.MGF1_SHA1      */
+comment|/**      * The MGF Algorithm to use with the RSA OAEP algorithm. The available      * choices are:      *<ul>      *<li>EncryptionConstants.MGF1_SHA1</li>      *<li>EncryptionConstants.MGF1_SHA256</li>      *<li>EncryptionConstants.MGF1_SHA512</li>      *</ul>      * The default value is EncryptionConstants.MGF1_SHA1      */
 DECL|method|setMgfAlgorithm (String mgfAlgorithm)
 specifier|public
 name|void
@@ -699,7 +699,7 @@ return|return
 name|addKeyValueForEncryptedKey
 return|;
 block|}
-comment|/**      * Whether to add the public key used to encrypt the session key as a KeyValue in the EncryptedKey structure or not.      */
+comment|/**      * Whether to add the public key used to encrypt the session key as a      * KeyValue in the EncryptedKey structure or not.      */
 DECL|method|setAddKeyValueForEncryptedKey (Boolean addKeyValueForEncryptedKey)
 specifier|public
 name|void

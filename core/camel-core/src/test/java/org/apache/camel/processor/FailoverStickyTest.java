@@ -210,8 +210,10 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 comment|// Use failover load balancer in stateful sticky mode
-comment|// which mean it will failover immediately in case of an exception
-comment|// as it does NOT inherit error handler. It will also keep retrying as
+comment|// which mean it will failover immediately in case of an
+comment|// exception
+comment|// as it does NOT inherit error handler. It will also keep
+comment|// retrying as
 comment|// its configured to newer exhaust.
 operator|.
 name|loadBalance

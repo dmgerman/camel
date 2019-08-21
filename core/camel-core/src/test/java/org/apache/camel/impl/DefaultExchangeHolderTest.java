@@ -541,7 +541,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use a mixed list, the MyFoo is not serializable so the entire list should be skipped
+comment|// use a mixed list, the MyFoo is not serializable so the entire list
+comment|// should be skipped
 name|List
 argument_list|<
 name|Object
@@ -694,7 +695,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use a mixed Map, the MyFoo is not serializable so the entire map should be skipped
+comment|// use a mixed Map, the MyFoo is not serializable so the entire map
+comment|// should be skipped
 name|Map
 argument_list|<
 name|String
@@ -853,7 +855,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use a mixed list, the MyFoo is not serializable so the entire list should be skipped
+comment|// use a mixed list, the MyFoo is not serializable so the entire list
+comment|// should be skipped
 name|List
 argument_list|<
 name|Object

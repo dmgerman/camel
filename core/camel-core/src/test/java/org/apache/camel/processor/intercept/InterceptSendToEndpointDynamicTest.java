@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for intercepting sending to endpoint with dynamic endpoints  * and uri matching  */
+comment|/**  * Unit test for intercepting sending to endpoint with dynamic endpoints and uri  * matching  */
 end_comment
 
 begin_class
@@ -173,7 +173,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// intercept sending to any file endpoint, send it to our mock instead
+comment|// intercept sending to any file endpoint, send it to our mock
+comment|// instead
 comment|// and do not send it to the original intended endpoint
 name|interceptSendToEndpoint
 argument_list|(
@@ -390,7 +391,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// intercept sending to to either target/data/foo or target/data/bar directory
+comment|// intercept sending to to either target/data/foo or
+comment|// target/data/bar directory
 name|interceptSendToEndpoint
 argument_list|(
 literal|"file://target/data/(foo|bar)"
@@ -546,8 +548,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// we use a dynamic endpoint URI that Camel does not know beforehand
-comment|// but it should still be intercepted as we intercept all file endpoints
+comment|// we use a dynamic endpoint URI that Camel does not
+comment|// know beforehand
+comment|// but it should still be intercepted as we intercept
+comment|// all file endpoints
 name|template
 operator|.
 name|sendBodyAndHeader

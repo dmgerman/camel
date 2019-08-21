@@ -300,7 +300,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// because the first is a sync then it will wait and thus use the same thread to continue
+comment|// because the first is a sync then it will wait and
+comment|// thus use the same thread to continue
 name|afterThreadName
 operator|=
 name|Thread

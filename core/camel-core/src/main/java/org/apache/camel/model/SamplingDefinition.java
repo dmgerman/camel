@@ -160,7 +160,8 @@ argument_list|<
 name|SamplingDefinition
 argument_list|>
 block|{
-comment|// use Long to let it be optional in JAXB so when using XML the default is 1 second
+comment|// use Long to let it be optional in JAXB so when using XML the default is 1
+comment|// second
 annotation|@
 name|XmlAttribute
 annotation|@
@@ -361,7 +362,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the sample message count which only a single {@link org.apache.camel.Exchange} will pass through after this many received.      *      * @param messageFrequency       * @return the builder      */
+comment|/**      * Sets the sample message count which only a single      * {@link org.apache.camel.Exchange} will pass through after this many      * received.      *      * @param messageFrequency      * @return the builder      */
 DECL|method|sampleMessageFrequency (long messageFrequency)
 specifier|public
 name|SamplingDefinition
@@ -380,7 +381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the sample period during which only a single {@link org.apache.camel.Exchange} will pass through.      *      * @param samplePeriod the period      * @return the builder      */
+comment|/**      * Sets the sample period during which only a single      * {@link org.apache.camel.Exchange} will pass through.      *      * @param samplePeriod the period      * @return the builder      */
 DECL|method|samplePeriod (long samplePeriod)
 specifier|public
 name|SamplingDefinition
@@ -430,7 +431,7 @@ return|return
 name|samplePeriod
 return|;
 block|}
-comment|/**      * Sets the sample period during which only a single Exchange will pass through.      */
+comment|/**      * Sets the sample period during which only a single Exchange will pass      * through.      */
 DECL|method|setSamplePeriod (Long samplePeriod)
 specifier|public
 name|void
@@ -457,7 +458,7 @@ return|return
 name|messageFrequency
 return|;
 block|}
-comment|/**      * Sets the sample message count which only a single Exchange will pass through after this many received.      */
+comment|/**      * Sets the sample message count which only a single Exchange will pass      * through after this many received.      */
 DECL|method|setMessageFrequency (Long messageFrequency)
 specifier|public
 name|void

@@ -244,7 +244,8 @@ argument_list|,
 name|rollback
 argument_list|)
 expr_stmt|;
-comment|// prepare for 2nd run but this time it should not thrown an exception on poll
+comment|// prepare for 2nd run but this time it should not thrown an exception
+comment|// on poll
 name|rollback
 operator|=
 literal|false

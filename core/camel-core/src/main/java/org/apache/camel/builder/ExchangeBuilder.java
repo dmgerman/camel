@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder to create {@link Exchange} and add headers and set body on the Exchange {@link Message}.  *<p/>  * Use the {@link #build()} method when done setting up the exchange.  */
+comment|/**  * Builder to create {@link Exchange} and add headers and set body on the  * Exchange {@link Message}.  *<p/>  * Use the {@link #build()} method when done setting up the exchange.  */
 end_comment
 
 begin_class
@@ -169,7 +169,7 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-comment|/**      * Create the exchange by setting the camel context      *      * @param context the camel context       * @return exchange builder      */
+comment|/**      * Create the exchange by setting the camel context      *      * @param context the camel context      * @return exchange builder      */
 DECL|method|anExchange (CamelContext context)
 specifier|public
 specifier|static
@@ -280,7 +280,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Build up the exchange from the exchange builder      *      * @return exchange       */
+comment|/**      * Build up the exchange from the exchange builder      *      * @return exchange      */
 DECL|method|build ()
 specifier|public
 name|Exchange

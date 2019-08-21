@@ -122,7 +122,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// as its round robin and sticky based it remembers that last good endpoint
+comment|// as its round robin and sticky based it remembers that last good
+comment|// endpoint
 comment|// and will invoke the last good
 name|resetMocks
 argument_list|()
@@ -209,9 +210,12 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// Use failover load balancer in stateful round robin and sticky mode
-comment|// which mean it will failover immediately in case of an exception
-comment|// as it does NOT inherit error handler. It will also keep retrying as
+comment|// Use failover load balancer in stateful round robin and
+comment|// sticky mode
+comment|// which mean it will failover immediately in case of an
+comment|// exception
+comment|// as it does NOT inherit error handler. It will also keep
+comment|// retrying as
 comment|// its configured to newer exhaust.
 operator|.
 name|loadBalance

@@ -201,7 +201,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we do stop so we should NOT continue and thus baz do not receive any message
+comment|// we do stop so we should NOT continue and thus baz do not receive any
+comment|// message
 name|getMockEndpoint
 argument_list|(
 literal|"mock:baz"

@@ -403,7 +403,8 @@ name|CamelContext
 name|createCamelContext
 parameter_list|()
 block|{
-comment|// disable stream cache otherwise to much hazzle in this unit test to filter the stream cache
+comment|// disable stream cache otherwise to much hazzle in this unit test to
+comment|// filter the stream cache
 comment|// in all the assertion codes
 name|DefaultCamelContext
 name|ctx

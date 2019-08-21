@@ -188,8 +188,10 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// this error handler will try up till 20 redelivery attempts with 1 second between.
-comment|// however if we are stopping then do not allow any redeliver attempts.
+comment|// this error handler will try up till 20 redelivery attempts
+comment|// with 1 second between.
+comment|// however if we are stopping then do not allow any redeliver
+comment|// attempts.
 name|errorHandler
 argument_list|(
 name|defaultErrorHandler

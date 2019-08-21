@@ -280,7 +280,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// we should only get one as we only poll a single file using the file expression
+comment|// we should only get one as we only poll a single file using the file
+comment|// expression
 name|MockEndpoint
 name|mock
 init|=
@@ -400,7 +401,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// we should only get one as we only poll a single file using the file expression
+comment|// we should only get one as we only poll a single file using the file
+comment|// expression
 name|MockEndpoint
 name|mock
 init|=

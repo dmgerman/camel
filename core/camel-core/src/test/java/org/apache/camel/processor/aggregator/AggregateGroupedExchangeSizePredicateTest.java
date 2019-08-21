@@ -433,7 +433,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// must use eagerCheckCompletion so we can check the groupSize header on the incoming exchange
+comment|// must use eagerCheckCompletion so we can check the
+comment|// groupSize header on the incoming exchange
 operator|.
 name|aggregate
 argument_list|(

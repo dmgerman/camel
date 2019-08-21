@@ -146,7 +146,7 @@ specifier|private
 name|ExpressionNodeHelper
 parameter_list|()
 block|{     }
-comment|/**      * Determines which {@link ExpressionDefinition} describes the given expression best possible.      *<p/>      * This implementation will use types such as {@link SimpleExpression}, {@link XPathExpression} etc.      * if the given expression is detect as such a type.      *      * @param expression the expression      * @return a definition which describes the expression      */
+comment|/**      * Determines which {@link ExpressionDefinition} describes the given      * expression best possible.      *<p/>      * This implementation will use types such as {@link SimpleExpression},      * {@link XPathExpression} etc. if the given expression is detect as such a      * type.      *      * @param expression the expression      * @return a definition which describes the expression      */
 DECL|method|toExpressionDefinition (Expression expression)
 specifier|public
 specifier|static
@@ -172,7 +172,8 @@ name|SimpleBuilder
 operator|)
 name|expression
 decl_stmt|;
-comment|// we keep the original expression by using the constructor that accepts an expression
+comment|// we keep the original expression by using the constructor that
+comment|// accepts an expression
 name|SimpleExpression
 name|answer
 init|=
@@ -235,7 +236,8 @@ name|ExpressionResultTypeAware
 operator|)
 name|expression
 decl_stmt|;
-comment|// we keep the original expression by using the constructor that accepts an expression
+comment|// we keep the original expression by using the constructor that
+comment|// accepts an expression
 name|XPathExpression
 name|answer
 init|=
@@ -316,7 +318,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Determines which {@link ExpressionDefinition} describes the given predicate best possible.      *<p/>      * This implementation will use types such as {@link SimpleExpression}, {@link XPathExpression} etc.      * if the given predicate is detect as such a type.      *      * @param predicate the predicate      * @return a definition which describes the predicate      */
+comment|/**      * Determines which {@link ExpressionDefinition} describes the given      * predicate best possible.      *<p/>      * This implementation will use types such as {@link SimpleExpression},      * {@link XPathExpression} etc. if the given predicate is detect as such a      * type.      *      * @param predicate the predicate      * @return a definition which describes the predicate      */
 DECL|method|toExpressionDefinition (Predicate predicate)
 specifier|public
 specifier|static
@@ -342,7 +344,8 @@ name|SimpleBuilder
 operator|)
 name|predicate
 decl_stmt|;
-comment|// we keep the original expression by using the constructor that accepts an expression
+comment|// we keep the original expression by using the constructor that
+comment|// accepts an expression
 name|SimpleExpression
 name|answer
 init|=
@@ -403,7 +406,8 @@ name|Expression
 operator|)
 name|predicate
 decl_stmt|;
-comment|// we keep the original expression by using the constructor that accepts an expression
+comment|// we keep the original expression by using the constructor that
+comment|// accepts an expression
 name|XPathExpression
 name|answer
 init|=

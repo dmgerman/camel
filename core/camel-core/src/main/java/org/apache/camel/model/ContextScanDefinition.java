@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Scans for Java {@link org.apache.camel.builder.RouteBuilder} instances in the context {@link org.apache.camel.spi.Registry}.  */
+comment|/**  * Scans for Java {@link org.apache.camel.builder.RouteBuilder} instances in the  * context {@link org.apache.camel.spi.Registry}.  */
 end_comment
 
 begin_class

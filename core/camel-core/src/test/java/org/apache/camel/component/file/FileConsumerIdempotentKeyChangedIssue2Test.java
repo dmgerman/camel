@@ -173,7 +173,8 @@ argument_list|(
 literal|"Hello World Again"
 argument_list|)
 expr_stmt|;
-comment|// wait a bit to allow the consumer to poll once and see a non-changed file
+comment|// wait a bit to allow the consumer to poll once and see a non-changed
+comment|// file
 name|Thread
 operator|.
 name|sleep

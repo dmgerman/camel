@@ -150,7 +150,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// the error is handled and the file is regarded as success and therefore moved to .camel
+comment|// the error is handled and the file is regarded as success and
+comment|// therefore moved to .camel
 name|assertFileNotExists
 argument_list|(
 literal|"target/data/messages/input/hello.txt"

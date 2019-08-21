@@ -219,7 +219,7 @@ specifier|private
 name|Service
 name|camelContextService
 decl_stmt|;
-comment|/**      * Use the RouteBuilder or not      * @return       *  If the return value is true, the camel context will be started in the setup method.      *  If the return value is false, the camel context will not be started in the setup method.      */
+comment|/**      * Use the RouteBuilder or not      *       * @return If the return value is true, the camel context will be started in      *         the setup method. If the return value is false, the camel context      *         will not be started in the setup method.      */
 DECL|method|isUseRouteBuilder ()
 specifier|public
 name|boolean
@@ -273,7 +273,7 @@ operator|=
 name|camelContextService
 expr_stmt|;
 block|}
-comment|/**      * Convenient api to create a NotifyBuilder to be notified of a specific event      */
+comment|/**      * Convenient api to create a NotifyBuilder to be notified of a specific      * event      */
 DECL|method|event ()
 specifier|protected
 name|NotifyBuilder
@@ -391,7 +391,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// create a default notifier when 1 exchange is done which is the most common case
+comment|// create a default notifier when 1 exchange is done which is the most
+comment|// common case
 name|oneExchangeDone
 operator|=
 name|event
@@ -728,7 +729,7 @@ name|createInitialContext
 argument_list|()
 return|;
 block|}
-comment|/**      * Factory method which derived classes can use to create a {@link RouteBuilder}      * to define the routes for testing      */
+comment|/**      * Factory method which derived classes can use to create a      * {@link RouteBuilder} to define the routes for testing      */
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -772,7 +773,7 @@ argument_list|()
 block|}
 return|;
 block|}
-comment|/**      * Resolves a mandatory endpoint for the given URI or an exception is thrown      *      * @param uri the Camel<a href="">URI</a> to use to create or resolve an endpoint      * @return the endpoint      */
+comment|/**      * Resolves a mandatory endpoint for the given URI or an exception is thrown      *      * @param uri the Camel<a href="">URI</a> to use to create or resolve an      *            endpoint      * @return the endpoint      */
 DECL|method|resolveMandatoryEndpoint (String uri)
 specifier|protected
 name|Endpoint
@@ -791,7 +792,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves a mandatory endpoint for the given URI and expected type or an exception is thrown      *      * @param uri the Camel<a href="">URI</a> to use to create or resolve an endpoint      * @return the endpoint      */
+comment|/**      * Resolves a mandatory endpoint for the given URI and expected type or an      * exception is thrown      *      * @param uri the Camel<a href="">URI</a> to use to create or resolve an      *            endpoint      * @return the endpoint      */
 DECL|method|resolveMandatoryEndpoint (String uri, Class<T> endpointType)
 specifier|protected
 parameter_list|<
@@ -823,7 +824,7 @@ name|endpointType
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the mandatory Mock endpoint using a URI of the form<code>mock:someName</code>      *      * @param uri the URI which typically starts with "mock:" and has some name      * @return the mandatory mock endpoint or an exception is thrown if it could not be resolved      */
+comment|/**      * Resolves the mandatory Mock endpoint using a URI of the form      *<code>mock:someName</code>      *      * @param uri the URI which typically starts with "mock:" and has some name      * @return the mandatory mock endpoint or an exception is thrown if it could      *         not be resolved      */
 DECL|method|getMockEndpoint (String uri)
 specifier|protected
 name|MockEndpoint
@@ -844,7 +845,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends a message to the given endpoint URI with the body value      *      * @param endpointUri the URI of the endpoint to send to      * @param body        the body for the message      */
+comment|/**      * Sends a message to the given endpoint URI with the body value      *      * @param endpointUri the URI of the endpoint to send to      * @param body the body for the message      */
 DECL|method|sendBody (String endpointUri, final Object body)
 specifier|protected
 name|void
@@ -906,7 +907,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends a message to the given endpoint URI with the body value and specified headers      *      * @param endpointUri the URI of the endpoint to send to      * @param body        the body for the message      * @param headers     any headers to set on the message      */
+comment|/**      * Sends a message to the given endpoint URI with the body value and      * specified headers      *      * @param endpointUri the URI of the endpoint to send to      * @param body the body for the message      * @param headers any headers to set on the message      */
 DECL|method|sendBody (String endpointUri, final Object body, final Map<String, Object> headers)
 specifier|protected
 name|void
@@ -1011,7 +1012,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends messages to the given endpoint for each of the specified bodies      *      * @param endpointUri the endpoint URI to send to      * @param bodies      the bodies to send, one per message      */
+comment|/**      * Sends messages to the given endpoint for each of the specified bodies      *      * @param endpointUri the endpoint URI to send to      * @param bodies the bodies to send, one per message      */
 DECL|method|sendBodies (String endpointUri, Object... bodies)
 specifier|protected
 name|void

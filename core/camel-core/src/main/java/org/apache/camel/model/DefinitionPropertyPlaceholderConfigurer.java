@@ -104,7 +104,7 @@ name|DefinitionPropertyPlaceholderConfigurer
 extends|extends
 name|PropertyPlaceholderConfigurer
 block|{
-comment|/**      * Gets the options on the model definition which supports property placeholders and can be resolved.      * This will be all the string based options.      *      * @return key/values of options      */
+comment|/**      * Gets the options on the model definition which supports property      * placeholders and can be resolved. This will be all the string based      * options.      *      * @return key/values of options      */
 DECL|method|getReadPropertyPlaceholderOptions (CamelContext camelContext)
 specifier|default
 name|Map
@@ -152,7 +152,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * To update an existing property using the function with the key/value and returning the changed value      * This will be all the string based options.      */
+comment|/**      * To update an existing property using the function with the key/value and      * returning the changed value This will be all the string based options.      */
 DECL|method|getWritePropertyPlaceholderOptions (CamelContext camelContext)
 specifier|default
 name|Map

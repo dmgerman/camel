@@ -361,7 +361,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//start with a clean slate
+comment|// start with a clean slate
 name|DefaultCamelContext
 operator|.
 name|setContextCounter
@@ -716,7 +716,7 @@ name|expected
 argument_list|)
 return|;
 block|}
-comment|/**      * Asserts that the given exchange has an OUT message of the given body value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the expected class type      */
+comment|/**      * Asserts that the given exchange has an OUT message of the given body      * value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the      *             expected class type      */
 DECL|method|assertInMessageBodyEquals (Exchange exchange, Object expected)
 specifier|public
 specifier|static
@@ -815,7 +815,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that the given exchange has an OUT message of the given body value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the expected class type      */
+comment|/**      * Asserts that the given exchange has an OUT message of the given body      * value      *      * @param exchange the exchange which should have an OUT message      * @param expected the expected value of the OUT message      * @throws InvalidPayloadException is thrown if the payload is not the      *             expected class type      */
 annotation|@
 name|Deprecated
 DECL|method|assertOutMessageBodyEquals (Exchange exchange, Object expected)
@@ -1609,7 +1609,7 @@ return|return
 name|list
 return|;
 block|}
-comment|/**      * A helper method to create a list of Route objects for a given route builder      */
+comment|/**      * A helper method to create a list of Route objects for a given route      * builder      */
 DECL|method|getRouteList (RouteBuilder builder)
 specifier|public
 specifier|static
@@ -1664,7 +1664,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Asserts that the text contains the given string      *      * @param text          the text to compare      * @param containedText the text which must be contained inside the other text parameter      */
+comment|/**      * Asserts that the text contains the given string      *      * @param text the text to compare      * @param containedText the text which must be contained inside the other      *            text parameter      */
 DECL|method|assertStringContains (String text, String containedText)
 specifier|public
 specifier|static
@@ -1704,7 +1704,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or DelegateAsyncProcessor objects      * this call will drill through them and return the wrapped Processor.      */
+comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or      * DelegateAsyncProcessor objects this call will drill through them and      * return the wrapped Processor.      */
 DECL|method|unwrap (Processor processor)
 specifier|public
 specifier|static
@@ -1748,7 +1748,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or DelegateAsyncProcessor objects      * this call will drill through them and return the Channel.      *<p/>      * Returns null if no channel is found.      */
+comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or      * DelegateAsyncProcessor objects this call will drill through them and      * return the Channel.      *<p/>      * Returns null if no channel is found.      */
 DECL|method|unwrapChannel (Processor processor)
 specifier|public
 specifier|static
@@ -1949,7 +1949,7 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * To be used for folder/directory comparison that works across different platforms such      * as Window, Mac and Linux.      */
+comment|/**      * To be used for folder/directory comparison that works across different      * platforms such as Window, Mac and Linux.      */
 DECL|method|assertDirectoryEquals (String expected, String actual)
 specifier|public
 specifier|static
@@ -1973,7 +1973,7 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To be used for folder/directory comparison that works across different platforms such      * as Window, Mac and Linux.      */
+comment|/**      * To be used for folder/directory comparison that works across different      * platforms such as Window, Mac and Linux.      */
 DECL|method|assertDirectoryEquals (String message, String expected, String actual)
 specifier|public
 specifier|static
@@ -2220,7 +2220,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Is this Java by the given vendor.      *<p/>      * Uses<tt>java.vendor</tt> from the system properties to determine the vendor.      *      * @param vendor such as IBM      * @return<tt>true</tt> if its that vendor.      */
+comment|/**      * Is this Java by the given vendor.      *<p/>      * Uses<tt>java.vendor</tt> from the system properties to determine the      * vendor.      *      * @param vendor such as IBM      * @return<tt>true</tt> if its that vendor.      */
 DECL|method|isJavaVendor (String vendor)
 specifier|public
 specifier|static
@@ -2264,7 +2264,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Is this version the given Java version.      *<p/>      * Uses<tt>java.version</tt> from the system properties to determine the version.      *      * @param version such as 1.6 or 6      * @return<tt>true</tt> if its that vendor.      */
+comment|/**      * Is this version the given Java version.      *<p/>      * Uses<tt>java.version</tt> from the system properties to determine the      * version.      *      * @param version such as 1.6 or 6      * @return<tt>true</tt> if its that vendor.      */
 DECL|method|isJavaVersion (String version)
 specifier|public
 specifier|static
@@ -2285,7 +2285,7 @@ literal|"."
 argument_list|)
 condition|)
 block|{
-comment|//before jdk 9
+comment|// before jdk 9
 return|return
 name|Integer
 operator|.
@@ -2321,7 +2321,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Returns the current major Java version e.g 8.      *<p/>      * Uses<tt>java.specification.version</tt> from the system properties to determine the major version.       * @return the current major Java version.      */
+comment|/**      * Returns the current major Java version e.g 8.      *<p/>      * Uses<tt>java.specification.version</tt> from the system properties to      * determine the major version.      *       * @return the current major Java version.      */
 DECL|method|getJavaMajorVersion ()
 specifier|public
 specifier|static
@@ -2349,7 +2349,7 @@ literal|"."
 argument_list|)
 condition|)
 block|{
-comment|//before jdk 9
+comment|// before jdk 9
 return|return
 name|Integer
 operator|.
@@ -2379,7 +2379,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Used for registering a sysetem property.      *<p/>      * if the property already contains the passed value nothing will happen.      * If the system property has already a value, the passed value will be appended separated by<tt>separator</tt>      *      * @param sysPropertyName   the name of the system property to be set      * @param sysPropertyValue  the value to be set for the system property passed as sysPropertyName      * @param separator         the property separator to be used to append sysPropertyValue      *      */
+comment|/**      * Used for registering a sysetem property.      *<p/>      * if the property already contains the passed value nothing will happen. If      * the system property has already a value, the passed value will be      * appended separated by<tt>separator</tt>      *      * @param sysPropertyName the name of the system property to be set      * @param sysPropertyValue the value to be set for the system property      *            passed as sysPropertyName      * @param separator the property separator to be used to append      *            sysPropertyValue      */
 DECL|method|registerSystemProperty (String sysPropertyName, String sysPropertyValue, String separator)
 specifier|public
 specifier|static

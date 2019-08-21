@@ -343,7 +343,8 @@ name|from
 argument_list|(
 literal|"file:target/data/pair?initialDelay=0&delay=10"
 argument_list|)
-comment|// split the order child tags, and inherit namespaces from the orders root tag
+comment|// split the order child tags, and inherit namespaces from
+comment|// the orders root tag
 operator|.
 name|split
 argument_list|()

@@ -119,7 +119,7 @@ literal|"mock:result"
 argument_list|)
 decl_stmt|;
 comment|// B will timeout so we only get A and/or C
-comment|//mock.message(0).body().not(body().contains("B"));
+comment|// mock.message(0).body().not(body().contains("B"));
 name|mock
 operator|.
 name|expectedBodiesReceived

@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a CustomTransformer. One of the bean reference (ref) or fully qualified class name (type)  * of the custom {@link Transformer} needs to be specified.  *   * {@see TransformerDefinition}  * {@see Transformer}  */
+comment|/**  * Represents a CustomTransformer. One of the bean reference (ref) or fully  * qualified class name (type) of the custom {@link Transformer} needs to be  * specified. {@see TransformerDefinition} {@see Transformer}  */
 end_comment
 
 begin_class

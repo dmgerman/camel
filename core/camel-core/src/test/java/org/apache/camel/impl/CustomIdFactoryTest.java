@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Demonstrates how you can use a custom id factory to assign ids to Camel Java routes  * and then attach your own debugger and be able to use the custom ids to know at what  * point you are debugging  */
+comment|/**  * Demonstrates how you can use a custom id factory to assign ids to Camel Java  * routes and then attach your own debugger and be able to use the custom ids to  * know at what point you are debugging  */
 end_comment
 
 begin_class
@@ -290,7 +290,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use our own id factory so we can generate the keys we like to use
+comment|// use our own id factory so we can generate the keys we like to
+comment|// use
 name|context
 operator|.
 name|adapt
@@ -331,7 +332,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// add our debugger so we can debug camel routes when we send in messages
+comment|// add our debugger so we can debug camel routes when we send in
+comment|// messages
 name|context
 operator|.
 name|adapt
@@ -348,7 +350,8 @@ name|MyDebuggerCheckingId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// a little content based router so we got 2 paths to route at runtime
+comment|// a little content based router so we got 2 paths to route at
+comment|// runtime
 name|from
 argument_list|(
 literal|"direct:start"

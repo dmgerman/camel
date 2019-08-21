@@ -561,7 +561,12 @@ name|deliveryAttemptInterval
 argument_list|(
 literal|10
 argument_list|)
-comment|// use low timeout to run faster
+comment|// use
+comment|// low
+comment|// timeout
+comment|// to
+comment|// run
+comment|// faster
 operator|.
 name|to
 argument_list|(

@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Routes a copy of a message (or creates a new message) to a secondary destination while continue routing the original message.  */
+comment|/**  * Routes a copy of a message (or creates a new message) to a secondary  * destination while continue routing the original message.  */
 end_comment
 
 begin_class
@@ -489,7 +489,7 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Uses a custom thread pool      *      * @param executorService a custom {@link ExecutorService} to use as thread pool      *                        for sending tapped exchanges      * @return the builder      */
+comment|/**      * Uses a custom thread pool      *      * @param executorService a custom {@link ExecutorService} to use as thread      *            pool for sending tapped exchanges      * @return the builder      */
 annotation|@
 name|Override
 DECL|method|executorService (ExecutorService executorService)
@@ -513,7 +513,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses a custom thread pool      *      * @param executorServiceRef reference to lookup a custom {@link ExecutorService}      *                           to use as thread pool for sending tapped exchanges      * @return the builder      */
+comment|/**      * Uses a custom thread pool      *      * @param executorServiceRef reference to lookup a custom      *            {@link ExecutorService} to use as thread pool for sending      *            tapped exchanges      * @return the builder      */
 annotation|@
 name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
@@ -556,7 +556,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses a copy of the original exchange      *      * @param copy if it is true camel will copy the original exchange,      *             if it is false camel will not copy the original exchange       * @return the builder      */
+comment|/**      * Uses a copy of the original exchange      *      * @param copy if it is true camel will copy the original exchange, if it is      *            false camel will not copy the original exchange      * @return the builder      */
 DECL|method|copy (boolean copy)
 specifier|public
 name|WireTapDefinition
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether the uri is dynamic or static.      * If the uri is dynamic then the simple language is used to evaluate a dynamic uri to use as the wire-tap destination,      * for each incoming message. This works similar to how the<tt>toD</tt> EIP pattern works.      * If static then the uri is used as-is as the wire-tap destination.      *      * @param dynamicUri  whether to use dynamic or static uris      * @return the builder      */
+comment|/**      * Whether the uri is dynamic or static. If the uri is dynamic then the      * simple language is used to evaluate a dynamic uri to use as the wire-tap      * destination, for each incoming message. This works similar to how the      *<tt>toD</tt> EIP pattern works. If static then the uri is used as-is as      * the wire-tap destination.      *      * @param dynamicUri whether to use dynamic or static uris      * @return the builder      */
 DECL|method|dynamicUri (boolean dynamicUri)
 specifier|public
 name|WireTapDefinition
@@ -600,7 +600,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param expression expression that creates the new body to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using      * {@link ExchangePattern#InOnly}      *      * @param expression expression that creates the new body to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
 DECL|method|newExchangeBody (Expression expression)
 specifier|public
 name|WireTapDefinition
@@ -626,7 +626,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param ref reference to the {@link Processor} to lookup in the {@link org.apache.camel.spi.Registry} to      *            be used for preparing the new exchange to send      * @return the builder      */
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using      * {@link ExchangePattern#InOnly}      *      * @param ref reference to the {@link Processor} to lookup in the      *            {@link org.apache.camel.spi.Registry} to be used for preparing      *            the new exchange to send      * @return the builder      */
 DECL|method|newExchangeRef (String ref)
 specifier|public
 name|WireTapDefinition
@@ -648,7 +648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param processor  processor preparing the new exchange to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using      * {@link ExchangePattern#InOnly}      *      * @param processor processor preparing the new exchange to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
 DECL|method|newExchange (Processor processor)
 specifier|public
 name|WireTapDefinition
@@ -670,7 +670,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}      *      * @param processor  processor preparing the new exchange to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
+comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, using      * {@link ExchangePattern#InOnly}      *      * @param processor processor preparing the new exchange to send      * @return the builder      * @see #newExchangeHeader(String, org.apache.camel.Expression)      */
 DECL|method|newExchange (Supplier<Processor> processor)
 specifier|public
 name|WireTapDefinition
@@ -698,7 +698,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a header on the<i>new</i> Exchange, instead of tapping an existing, using {@link ExchangePattern#InOnly}.      *<p/>      * Use this together with the {@link #newExchangeBody(org.apache.camel.Expression)} or {@link #newExchange(org.apache.camel.Processor)}      * methods.      *      * @param headerName  the header name      * @param expression  the expression setting the header value      * @return the builder      */
+comment|/**      * Sets a header on the<i>new</i> Exchange, instead of tapping an existing,      * using {@link ExchangePattern#InOnly}.      *<p/>      * Use this together with the      * {@link #newExchangeBody(org.apache.camel.Expression)} or      * {@link #newExchange(org.apache.camel.Processor)} methods.      *      * @param headerName the header name      * @param expression the expression setting the header value      * @return the builder      */
 DECL|method|newExchangeHeader (String headerName, Expression expression)
 specifier|public
 name|WireTapDefinition
@@ -731,7 +731,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
+comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
 DECL|method|onPrepare (Processor onPrepare)
 specifier|public
 name|WireTapDefinition
@@ -753,7 +753,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
+comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
 DECL|method|onPrepare (Supplier<Processor> onPrepare)
 specifier|public
 name|WireTapDefinition
@@ -781,7 +781,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepareRef reference to the processor to lookup in the {@link org.apache.camel.spi.Registry}      * @return the builder      */
+comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepareRef reference to the processor to lookup in the      *            {@link org.apache.camel.spi.Registry}      * @return the builder      */
 DECL|method|onPrepareRef (String onPrepareRef)
 specifier|public
 name|WireTapDefinition
@@ -803,7 +803,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum size used by the {@link org.apache.camel.spi.ProducerCache} which is used      * to cache and reuse producers, when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+comment|/**      * Sets the maximum size used by the      * {@link org.apache.camel.spi.ProducerCache} which is used to cache and      * reuse producers, when uris are reused.      *      * @param cacheSize the cache size, use<tt>0</tt> for default cache size,      *            or<tt>-1</tt> to turn cache off.      * @return the builder      */
 annotation|@
 name|Override
 DECL|method|cacheSize (int cacheSize)
@@ -827,7 +827,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
+comment|/**      * Ignore the invalidate endpoint exception when try to create a producer      * with that endpoint      *      * @return the builder      */
 annotation|@
 name|Override
 DECL|method|ignoreInvalidEndpoint ()
@@ -849,7 +849,7 @@ name|this
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 annotation|@
 name|Override
 DECL|method|getUri ()
@@ -865,7 +865,7 @@ name|getUri
 argument_list|()
 return|;
 block|}
-comment|/**      * The uri of the endpoint to wiretap to. The uri can be dynamic computed using the {@link org.apache.camel.language.simple.SimpleLanguage} expression.      */
+comment|/**      * The uri of the endpoint to wiretap to. The uri can be dynamic computed      * using the {@link org.apache.camel.language.simple.SimpleLanguage}      * expression.      */
 annotation|@
 name|Override
 DECL|method|setUri (String uri)
@@ -895,7 +895,7 @@ return|return
 name|newExchangeProcessor
 return|;
 block|}
-comment|/**      * To use a Processor for creating a new body as the message to use for wire tapping      */
+comment|/**      * To use a Processor for creating a new body as the message to use for wire      * tapping      */
 DECL|method|setNewExchangeProcessor (Processor processor)
 specifier|public
 name|void
@@ -922,7 +922,7 @@ return|return
 name|newExchangeProcessorRef
 return|;
 block|}
-comment|/**      * Reference to a Processor to use for creating a new body as the message to use for wire tapping      */
+comment|/**      * Reference to a Processor to use for creating a new body as the message to      * use for wire tapping      */
 DECL|method|setNewExchangeProcessorRef (String ref)
 specifier|public
 name|void
@@ -949,7 +949,7 @@ return|return
 name|newExchangeExpression
 return|;
 block|}
-comment|/**      * Uses the expression for creating a new body as the message to use for wire tapping      */
+comment|/**      * Uses the expression for creating a new body as the message to use for      * wire tapping      */
 DECL|method|setNewExchangeExpression (ExpressionSubElementDefinition newExchangeExpression)
 specifier|public
 name|void

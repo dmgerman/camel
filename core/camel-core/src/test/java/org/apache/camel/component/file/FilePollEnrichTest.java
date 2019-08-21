@@ -312,7 +312,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// force stop route after use to prevent firing timer again
+comment|// force stop route after use to prevent firing
+comment|// timer again
 name|exchange
 operator|.
 name|getContext

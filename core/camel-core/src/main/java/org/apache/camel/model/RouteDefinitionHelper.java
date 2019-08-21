@@ -283,7 +283,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for {@link RouteDefinition}  *<p/>  * Utility methods to help preparing {@link RouteDefinition} before they are added to  * {@link org.apache.camel.CamelContext}.  */
+comment|/**  * Helper for {@link RouteDefinition}  *<p/>  * Utility methods to help preparing {@link RouteDefinition} before they are  * added to {@link org.apache.camel.CamelContext}.  */
 end_comment
 
 begin_class
@@ -309,7 +309,7 @@ specifier|private
 name|RouteDefinitionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Gather all the endpoint uri's the route is using from the EIPs that has a static endpoint defined.      *      * @param route          the route      * @param includeInputs  whether to include inputs      * @param includeOutputs whether to include outputs      * @return the endpoints uris      */
+comment|/**      * Gather all the endpoint uri's the route is using from the EIPs that has a      * static endpoint defined.      *      * @param route the route      * @param includeInputs whether to include inputs      * @param includeOutputs whether to include outputs      * @return the endpoints uris      */
 DECL|method|gatherAllStaticEndpointUris (CamelContext camelContext, RouteDefinition route, boolean includeInputs, boolean includeOutputs)
 specifier|public
 specifier|static
@@ -347,7 +347,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Gather all the endpoint uri's the route is using from the EIPs that has a static or dynamic endpoint defined.      *      * @param route          the route      * @param includeInput  whether to include inputs      * @param includeOutputs whether to include outputs      * @param includeDynamic whether to include dynamic outputs which has been in use during routing at runtime, gathered from the {@link org.apache.camel.spi.RuntimeEndpointRegistry}.      * @return the endpoints uris      */
+comment|/**      * Gather all the endpoint uri's the route is using from the EIPs that has a      * static or dynamic endpoint defined.      *      * @param route the route      * @param includeInput whether to include inputs      * @param includeOutputs whether to include outputs      * @param includeDynamic whether to include dynamic outputs which has been      *            in use during routing at runtime, gathered from the      *            {@link org.apache.camel.spi.RuntimeEndpointRegistry}.      * @return the endpoints uris      */
 DECL|method|gatherAllEndpointUris (CamelContext camelContext, RouteDefinition route, boolean includeInput, boolean includeOutputs, boolean includeDynamic)
 specifier|public
 specifier|static
@@ -584,7 +584,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Force assigning ids to the routes      *      * @param context the camel context      * @param routes  the routes      * @throws Exception is thrown if error force assign ids to the routes      */
+comment|/**      * Force assigning ids to the routes      *      * @param context the camel context      * @param routes the routes      * @throws Exception is thrown if error force assign ids to the routes      */
 DECL|method|forceAssignIds (CamelContext context, List<RouteDefinition> routes)
 specifier|public
 specifier|static
@@ -603,7 +603,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// handle custom assigned id's first, and then afterwards assign auto generated ids
+comment|// handle custom assigned id's first, and then afterwards assign auto
+comment|// generated ids
 name|Set
 argument_list|<
 name|String
@@ -624,7 +625,8 @@ range|:
 name|routes
 control|)
 block|{
-comment|// if there was a custom id assigned, then make sure to support property placeholders
+comment|// if there was a custom id assigned, then make sure to support
+comment|// property placeholders
 if|if
 condition|(
 name|route
@@ -653,7 +655,8 @@ argument_list|(
 name|originalId
 argument_list|)
 decl_stmt|;
-comment|// only set id if its changed, such as we did property placeholder
+comment|// only set id if its changed, such as we did property
+comment|// placeholder
 if|if
 condition|(
 operator|!
@@ -1059,7 +1062,8 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if its the rest/rest-api endpoints then they should include the route id as well
+comment|// if its the rest/rest-api endpoints then they should include
+comment|// the route id as well
 if|if
 condition|(
 name|ObjectHelper
@@ -1242,9 +1246,12 @@ name|length
 argument_list|()
 condition|)
 block|{
-comment|//if there are multiple verb uri match, select the most specific one
-comment|//for example if the endpoint Uri is rest:get:/user:/{id}/user?produces=text%2Fplain
-comment|//then the verbUri rest:get:/user:/{id}/user should overweigh the est:get:/user:/{id}
+comment|// if there are multiple verb uri match, select the most
+comment|// specific one
+comment|// for example if the endpoint Uri is
+comment|// rest:get:/user:/{id}/user?produces=text%2Fplain
+comment|// then the verbUri rest:get:/user:/{id}/user should overweigh
+comment|// the est:get:/user:/{id}
 name|preVerbUri
 operator|=
 name|verbUri
@@ -1259,7 +1266,7 @@ return|return
 name|ret
 return|;
 block|}
-comment|/**      * Validates that the target route has no duplicate id's from any of the existing routes.      *      * @param target  the target route      * @param routes  the existing routes      * @return<tt>null</tt> if no duplicate id's detected, otherwise the first found duplicate id is returned.      */
+comment|/**      * Validates that the target route has no duplicate id's from any of the      * existing routes.      *      * @param target the target route      * @param routes the existing routes      * @return<tt>null</tt> if no duplicate id's detected, otherwise the first      *         found duplicate id is returned.      */
 DECL|method|validateUniqueIds (RouteDefinition target, List<RouteDefinition> routes)
 specifier|public
 specifier|static
@@ -1287,8 +1294,10 @@ name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// gather all ids for the existing route, but only include custom ids, and no abstract ids
-comment|// as abstract nodes is cross-cutting functionality such as interceptors etc
+comment|// gather all ids for the existing route, but only include custom ids,
+comment|// and no abstract ids
+comment|// as abstract nodes is cross-cutting functionality such as interceptors
+comment|// etc
 for|for
 control|(
 name|RouteDefinition
@@ -1321,8 +1330,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|// gather all ids for the target route, but only include custom ids, and no abstract ids
-comment|// as abstract nodes is cross-cutting functionality such as interceptors etc
+comment|// gather all ids for the target route, but only include custom ids, and
+comment|// no abstract ids
+comment|// as abstract nodes is cross-cutting functionality such as interceptors
+comment|// etc
 name|Set
 argument_list|<
 name|String
@@ -1510,7 +1521,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Prepares the route.      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context the camel context      * @param route   the route      */
+comment|/**      * Prepares the route.      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context the camel context      * @param route the route      */
 DECL|method|prepareRoute (CamelContext context, RouteDefinition route)
 specifier|public
 specifier|static
@@ -1542,7 +1553,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prepares the route which supports context scoped features such as onException, interceptors and onCompletions      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context                            the camel context      * @param route                              the route      * @param onExceptions                       optional list of onExceptions      * @param intercepts                         optional list of interceptors      * @param interceptFromDefinitions           optional list of interceptFroms      * @param interceptSendToEndpointDefinitions optional list of interceptSendToEndpoints      * @param onCompletions                      optional list onCompletions      */
+comment|/**      * Prepares the route which supports context scoped features such as      * onException, interceptors and onCompletions      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context the camel context      * @param route the route      * @param onExceptions optional list of onExceptions      * @param intercepts optional list of interceptors      * @param interceptFromDefinitions optional list of interceptFroms      * @param interceptSendToEndpointDefinitions optional list of      *            interceptSendToEndpoints      * @param onCompletions optional list onCompletions      */
 DECL|method|prepareRoute (CamelContext context, RouteDefinition route, List<OnExceptionDefinition> onExceptions, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions, List<OnCompletionDefinition> onCompletions)
 specifier|public
 specifier|static
@@ -1624,7 +1635,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Prepares the route which supports context scoped features such as onException, interceptors and onCompletions      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context                            the camel context      * @param route                              the route      * @param onExceptions                       optional list of onExceptions      * @param intercepts                         optional list of interceptors      * @param interceptFromDefinitions           optional list of interceptFroms      * @param interceptSendToEndpointDefinitions optional list of interceptSendToEndpoints      * @param onCompletions                      optional list onCompletions      */
+comment|/**      * Prepares the route which supports context scoped features such as      * onException, interceptors and onCompletions      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context the camel context      * @param route the route      * @param onExceptions optional list of onExceptions      * @param intercepts optional list of interceptors      * @param interceptFromDefinitions optional list of interceptFroms      * @param interceptSendToEndpointDefinitions optional list of      *            interceptSendToEndpoints      * @param onCompletions optional list onCompletions      */
 DECL|method|prepareRouteImp (CamelContext context, RouteDefinition route, List<OnExceptionDefinition> onExceptions, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions, List<OnCompletionDefinition> onCompletions)
 specifier|private
 specifier|static
@@ -1694,7 +1705,8 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// upper is the cross cutting concerns such as interceptors, error handlers etc
+comment|// upper is the cross cutting concerns such as interceptors, error
+comment|// handlers etc
 name|List
 argument_list|<
 name|ProcessorDefinition
@@ -1966,7 +1978,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Validates that top-level only definitions is not added in the wrong places, such as nested      * inside a splitter etc.      */
+comment|/**      * Validates that top-level only definitions is not added in the wrong      * places, such as nested inside a splitter etc.      */
 DECL|method|validateTopLevel (List<ProcessorDefinition<?>> children)
 specifier|private
 specifier|static
@@ -2082,7 +2094,8 @@ name|FromDefinition
 name|input
 parameter_list|)
 block|{
-comment|// resolve property placeholders on route input which hasn't been done yet
+comment|// resolve property placeholders on route input which hasn't been done
+comment|// yet
 if|if
 condition|(
 name|input
@@ -2154,8 +2167,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// let the route inherit the error handler builder from camel context if none already set
-comment|// must clone to avoid side effects while building routes using multiple RouteBuilders
+comment|// let the route inherit the error handler builder from camel
+comment|// context if none already set
+comment|// must clone to avoid side effects while building routes using
+comment|// multiple RouteBuilders
 name|ErrorHandlerFactory
 name|builder
 init|=
@@ -2333,9 +2348,11 @@ operator|instanceof
 name|OnExceptionDefinition
 condition|)
 block|{
-comment|// on exceptions must be added at top, so the route flow is correct as
+comment|// on exceptions must be added at top, so the route flow is
+comment|// correct as
 comment|// on exceptions should be the first outputs
-comment|// find the index to add the on exception, it should be in the top
+comment|// find the index to add the on exception, it should be in the
+comment|// top
 comment|// but it should add itself after any existing onException
 name|int
 name|index
@@ -2654,8 +2671,10 @@ argument_list|(
 name|intercept
 argument_list|)
 expr_stmt|;
-comment|// add as first output so intercept is handled before the actual route and that gives
-comment|// us the needed head start to init and be able to intercept all the remaining processing steps
+comment|// add as first output so intercept is handled before the actual
+comment|// route and that gives
+comment|// us the needed head start to init and be able to intercept all
+comment|// the remaining processing steps
 name|upper
 operator|.
 name|add
@@ -2705,7 +2724,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// the uri can have property placeholders so resolve them first
+comment|// the uri can have property placeholders so resolve them
+comment|// first
 name|String
 name|pattern
 decl_stmt|;
@@ -2760,7 +2780,8 @@ name|match
 operator|=
 literal|false
 expr_stmt|;
-comment|// a bit more logic to lookup the endpoint as it can be uri/ref based
+comment|// a bit more logic to lookup the endpoint as it can be
+comment|// uri/ref based
 name|String
 name|uri
 init|=
@@ -2772,7 +2793,8 @@ operator|.
 name|getEndpointUri
 argument_list|()
 decl_stmt|;
-comment|// if the pattern is not a ref itself, then resolve the ref uris, so we can match the actual uri's with each other
+comment|// if the pattern is not a ref itself, then resolve the ref
+comment|// uris, so we can match the actual uri's with each other
 if|if
 condition|(
 operator|!
@@ -2856,8 +2878,10 @@ argument_list|(
 name|intercept
 argument_list|)
 expr_stmt|;
-comment|// add as first output so intercept is handled before the actual route and that gives
-comment|// us the needed head start to init and be able to intercept all the remaining processing steps
+comment|// add as first output so intercept is handled before the
+comment|// actual route and that gives
+comment|// us the needed head start to init and be able to intercept
+comment|// all the remaining processing steps
 name|upper
 operator|.
 name|add
@@ -2903,8 +2927,10 @@ argument_list|(
 name|intercept
 argument_list|)
 expr_stmt|;
-comment|// add as first output so intercept is handled before the actual route and that gives
-comment|// us the needed head start to init and be able to intercept all the remaining processing steps
+comment|// add as first output so intercept is handled before the actual
+comment|// route and that gives
+comment|// us the needed head start to init and be able to intercept all
+comment|// the remaining processing steps
 name|upper
 operator|.
 name|add
@@ -3257,7 +3283,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Force assigning ids to the give node and all its children (recursively).      *<p/>      * This is needed when doing tracing or the likes, where each node should have its id assigned      * so the tracing can pin point exactly.      *      * @param context   the camel context      * @param processor the node      */
+comment|/**      * Force assigning ids to the give node and all its children (recursively).      *<p/>      * This is needed when doing tracing or the likes, where each node should      * have its id assigned so the tracing can pin point exactly.      *      * @param context the camel context      * @param processor the node      */
 DECL|method|forceAssignIds (CamelContext context, final ProcessorDefinition processor)
 specifier|public
 specifier|static
@@ -3290,7 +3316,8 @@ name|getNodeIdFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// if there was a custom id assigned, then make sure to support property placeholders
+comment|// if there was a custom id assigned, then make sure to support property
+comment|// placeholders
 if|if
 condition|(
 name|processor
@@ -3320,7 +3347,8 @@ argument_list|(
 name|originalId
 argument_list|)
 decl_stmt|;
-comment|// only set id if its changed, such as we did property placeholder
+comment|// only set id if its changed, such as we did property
+comment|// placeholder
 if|if
 condition|(
 operator|!
@@ -3438,7 +3466,8 @@ name|String
 name|route
 parameter_list|)
 block|{
-comment|// ensure to sanitize uri's in the route so we do not show sensitive information such as passwords
+comment|// ensure to sanitize uri's in the route so we do not show sensitive
+comment|// information such as passwords
 name|route
 operator|=
 name|URISupport
@@ -3449,7 +3478,8 @@ name|route
 argument_list|)
 expr_stmt|;
 comment|// cut the route after 60 chars so it won't be too big in the message
-comment|// users just need to be able to identify the route so they know where to look
+comment|// users just need to be able to identify the route so they know where
+comment|// to look
 if|if
 condition|(
 name|route

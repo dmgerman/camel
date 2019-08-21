@@ -1140,7 +1140,7 @@ name|DefaultCamelContext
 extends|extends
 name|AbstractModelCamelContext
 block|{
-comment|/**      * Creates the {@link CamelContext} using {@link DefaultRegistry} as registry.      *<p/>      * Use one of the other constructors to force use an explicit registry.      */
+comment|/**      * Creates the {@link CamelContext} using {@link DefaultRegistry} as      * registry.      *<p/>      * Use one of the other constructors to force use an explicit registry.      */
 DECL|method|DefaultCamelContext ()
 specifier|public
 name|DefaultCamelContext
@@ -1150,7 +1150,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link CamelContext} using the given {@link BeanRepository}      * as first-choice repository, and the {@link org.apache.camel.support.SimpleRegistry} as fallback, via      * the {@link DefaultRegistry} implementation.      *      * @param repository the bean repository.      */
+comment|/**      * Creates the {@link CamelContext} using the given {@link BeanRepository}      * as first-choice repository, and the      * {@link org.apache.camel.support.SimpleRegistry} as fallback, via the      * {@link DefaultRegistry} implementation.      *      * @param repository the bean repository.      */
 DECL|method|DefaultCamelContext (BeanRepository repository)
 specifier|public
 name|DefaultCamelContext
@@ -1169,7 +1169,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the registry      *      * @param jndiContext the JNDI context      * @deprecated create a new {@link JndiRegistry} and use the constructor that accepts this registry.      */
+comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the      * registry      *      * @param jndiContext the JNDI context      * @deprecated create a new {@link JndiRegistry} and use the constructor      *             that accepts this registry.      */
 annotation|@
 name|Deprecated
 DECL|method|DefaultCamelContext (Context jndiContext)
@@ -1205,7 +1205,7 @@ name|registry
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link CamelContext} and allows to control whether the context      * should automatic initialize or not.      *<p/>      * This is used by some Camel components such as camel-cdi and camel-blueprint, however      * this constructor is not intended for regular Camel end users.      *      * @param init whether to automatic initialize.      */
+comment|/**      * Creates the {@link CamelContext} and allows to control whether the      * context should automatic initialize or not.      *<p/>      * This is used by some Camel components such as camel-cdi and      * camel-blueprint, however this constructor is not intended for regular      * Camel end users.      *      * @param init whether to automatic initialize.      */
 DECL|method|DefaultCamelContext (boolean init)
 specifier|public
 name|DefaultCamelContext

@@ -441,7 +441,8 @@ name|from
 argument_list|(
 literal|"direct:start1"
 argument_list|)
-comment|// using the async utility component to ensure that the async routing engine kicks in
+comment|// using the async utility component to ensure that the
+comment|// async routing engine kicks in
 operator|.
 name|enrich
 argument_list|(

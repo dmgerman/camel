@@ -369,7 +369,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To refer to a custom thread pool or use a thread pool profile (as overlay)      */
+comment|/**      * To refer to a custom thread pool or use a thread pool profile (as      * overlay)      */
 annotation|@
 name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
@@ -447,7 +447,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the keep alive time unit.      * By default SECONDS is used.      *      * @param keepAliveTimeUnits time unit      * @return the builder      */
+comment|/**      * Sets the keep alive time unit. By default SECONDS is used.      *      * @param keepAliveTimeUnits time unit      * @return the builder      */
 DECL|method|timeUnit (TimeUnit keepAliveTimeUnits)
 specifier|public
 name|ThreadsDefinition
@@ -485,7 +485,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the handler for tasks which cannot be executed by the thread pool.      *      * @param rejectedPolicy  the policy for the handler      * @return the builder      */
+comment|/**      * Sets the handler for tasks which cannot be executed by the thread pool.      *      * @param rejectedPolicy the policy for the handler      * @return the builder      */
 DECL|method|rejectedPolicy (ThreadPoolRejectedPolicy rejectedPolicy)
 specifier|public
 name|ThreadsDefinition
@@ -523,7 +523,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether or not to use as caller runs as<b>fallback</b> when a task is rejected being added to the thread pool (when its full).      * This is only used as fallback if no rejectedPolicy has been configured, or the thread pool has no configured rejection handler.      *<p/>      * Is by default<tt>true</tt>      *      * @param callerRunsWhenRejected whether or not the caller should run      * @return the builder      */
+comment|/**      * Whether or not to use as caller runs as<b>fallback</b> when a task is      * rejected being added to the thread pool (when its full). This is only      * used as fallback if no rejectedPolicy has been configured, or the thread      * pool has no configured rejection handler.      *<p/>      * Is by default<tt>true</tt>      *      * @param callerRunsWhenRejected whether or not the caller should run      * @return the builder      */
 DECL|method|callerRunsWhenRejected (boolean callerRunsWhenRejected)
 specifier|public
 name|ThreadsDefinition
@@ -542,7 +542,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether idle core threads is allowed to timeout and therefore can shrink the pool size below the core pool size      *<p/>      * Is by default<tt>false</tt>      *      * @param allowCoreThreadTimeOut<tt>true</tt> to allow timeout      * @return the builder      */
+comment|/**      * Whether idle core threads is allowed to timeout and therefore can shrink      * the pool size below the core pool size      *<p/>      * Is by default<tt>false</tt>      *      * @param allowCoreThreadTimeOut<tt>true</tt> to allow timeout      * @return the builder      */
 DECL|method|allowCoreThreadTimeOut (boolean allowCoreThreadTimeOut)
 specifier|public
 name|ThreadsDefinition

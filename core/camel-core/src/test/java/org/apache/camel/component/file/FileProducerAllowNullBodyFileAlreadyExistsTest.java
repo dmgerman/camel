@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit tests to ensure that when the option allowNullBody is set to true then  * If the fileExist option is set to Append the file's contents will not be modified  * If the fileExist option is set to Override the file's contents will be empty  */
+comment|/**  * Unit tests to ensure that when the option allowNullBody is set to true then  * If the fileExist option is set to Append the file's contents will not be  * modified If the fileExist option is set to Override the file's contents will  * be empty  */
 end_comment
 
 begin_class

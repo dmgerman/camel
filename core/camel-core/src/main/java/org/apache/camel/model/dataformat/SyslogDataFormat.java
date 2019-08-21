@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Syslog dataformat is used for working with RFC3164 and RFC5424 messages (logging and monitoring).  */
+comment|/**  * The Syslog dataformat is used for working with RFC3164 and RFC5424 messages  * (logging and monitoring).  */
 end_comment
 
 begin_class

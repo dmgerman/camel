@@ -109,8 +109,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// using "toD" instead of "to" make use of the exchange context to resolve the direct endpoint at route execution.
-comment|// if the exchange context is not the excepted one, the toD will fail
+comment|// using "toD" instead of "to" make use of the exchange context
+comment|// to resolve the direct endpoint at route execution.
+comment|// if the exchange context is not the excepted one, the toD will
+comment|// fail
 name|from
 argument_list|(
 literal|"vm:test"

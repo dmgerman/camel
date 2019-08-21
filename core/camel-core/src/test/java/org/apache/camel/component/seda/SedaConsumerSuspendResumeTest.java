@@ -246,8 +246,10 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// wait a bit to ensure consumer is suspended, as it could be in a poll mode where
-comment|// it would poll and route (there is a little slack (up till 1 sec) before suspension is empowered)
+comment|// wait a bit to ensure consumer is suspended, as it could be in a poll
+comment|// mode where
+comment|// it would poll and route (there is a little slack (up till 1 sec)
+comment|// before suspension is empowered)
 name|await
 argument_list|()
 operator|.
@@ -312,7 +314,8 @@ argument_list|,
 literal|"B"
 argument_list|)
 expr_stmt|;
-comment|// wait a little to ensure seda consumer thread would have tried to poll otherwise
+comment|// wait a little to ensure seda consumer thread would have tried to poll
+comment|// otherwise
 name|mock
 operator|.
 name|assertIsSatisfied

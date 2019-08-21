@@ -182,7 +182,8 @@ argument_list|(
 literal|"mock:split"
 argument_list|)
 decl_stmt|;
-comment|// we do stop so we stop splitting when the exception occurs and thus we only receive 1 message
+comment|// we do stop so we stop splitting when the exception occurs and thus we
+comment|// only receive 1 message
 name|mock
 operator|.
 name|expectedBodiesReceived

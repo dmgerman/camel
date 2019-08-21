@@ -338,8 +338,10 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 block|{
-comment|// must use the class resolver from CamelContext to load classes to ensure it can
-comment|// be loaded in all kind of environments such as JEE servers and OSGi etc.
+comment|// must use the class resolver from CamelContext to load classes to
+comment|// ensure it can
+comment|// be loaded in all kind of environments such as JEE servers and OSGi
+comment|// etc.
 name|List
 argument_list|<
 name|String

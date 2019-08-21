@@ -235,7 +235,8 @@ argument_list|)
 operator|.
 name|choice
 argument_list|()
-comment|// does not make so much sense to use a tokenPair in a predicate
+comment|// does not make so much sense to use a tokenPair in a
+comment|// predicate
 comment|// but you can do it nevertheless
 operator|.
 name|when

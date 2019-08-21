@@ -480,7 +480,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// need a little delay to slow these okays down so we better can test stop when parallel
+comment|// need a little delay to slow these okays down so we better can
+comment|// test stop when parallel
 name|from
 argument_list|(
 literal|"direct:foo"
@@ -559,7 +560,8 @@ argument_list|(
 literal|"mock:bar"
 argument_list|)
 expr_stmt|;
-comment|// need a little delay to slow these okays down so we better can test stop when parallel
+comment|// need a little delay to slow these okays down so we better can
+comment|// test stop when parallel
 name|from
 argument_list|(
 literal|"direct:baz"

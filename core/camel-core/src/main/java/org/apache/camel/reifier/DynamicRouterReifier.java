@@ -285,7 +285,8 @@ operator|.
 name|getErrorHandlerFactory
 argument_list|()
 decl_stmt|;
-comment|// create error handler (create error handler directly to keep it light weight,
+comment|// create error handler (create error handler directly to keep it light
+comment|// weight,
 comment|// instead of using ProcessorReifier.wrapInErrorHandler)
 name|AsyncProcessor
 name|errorHandler

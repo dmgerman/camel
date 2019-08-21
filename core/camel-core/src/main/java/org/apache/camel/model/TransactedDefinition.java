@@ -164,7 +164,8 @@ argument_list|<
 name|TransactedDefinition
 argument_list|>
 block|{
-comment|// JAXB does not support changing the ref attribute from required to optional
+comment|// JAXB does not support changing the ref attribute from required to
+comment|// optional
 comment|// if we extend PolicyDefinition so we must make a copy of the class
 annotation|@
 name|XmlTransient
@@ -394,7 +395,8 @@ name|boolean
 name|isTopLevelOnly
 parameter_list|()
 block|{
-comment|// transacted is top level as we only allow have it configured once per route
+comment|// transacted is top level as we only allow have it configured once per
+comment|// route
 return|return
 literal|true
 return|;
@@ -462,7 +464,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Sets a policy type that this definition should scope within.      *<p/>      * Is used for convention over configuration situations where the policy      * should be automatic looked up in the registry and it should be based      * on this type. For instance a {@link org.apache.camel.spi.TransactedPolicy}      * can be set as type for easy transaction configuration.      *<p/>      * Will by default scope to the wide {@link Policy}      *      * @param type the policy type      */
+comment|/**      * Sets a policy type that this definition should scope within.      *<p/>      * Is used for convention over configuration situations where the policy      * should be automatic looked up in the registry and it should be based on      * this type. For instance a {@link org.apache.camel.spi.TransactedPolicy}      * can be set as type for easy transaction configuration.      *<p/>      * Will by default scope to the wide {@link Policy}      *      * @param type the policy type      */
 DECL|method|setType (Class<? extends Policy> type)
 specifier|public
 name|void

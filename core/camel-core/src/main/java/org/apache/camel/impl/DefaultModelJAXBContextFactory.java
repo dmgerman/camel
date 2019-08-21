@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of {@link org.apache.camel.spi.ModelJAXBContextFactory}.  */
+comment|/**  * Default implementation of  * {@link org.apache.camel.spi.ModelJAXBContextFactory}.  */
 end_comment
 
 begin_class

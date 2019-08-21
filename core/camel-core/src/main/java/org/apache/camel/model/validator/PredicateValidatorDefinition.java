@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a predicate {@link Validator} which leverages expression or predicates to  * perform content validation. A {@link org.apache.camel.impl.validator.ProcessorValidator}  * will be created internally with a {@link org.apache.camel.processor.validation.PredicateValidatingProcessor}  * which validates the message according to specified expression/predicates.  *   * {@see ValidatorDefinition}  * {@see Validator}  */
+comment|/**  * Represents a predicate {@link Validator} which leverages expression or  * predicates to perform content validation. A  * {@link org.apache.camel.impl.validator.ProcessorValidator} will be created  * internally with a  * {@link org.apache.camel.processor.validation.PredicateValidatingProcessor}  * which validates the message according to specified expression/predicates.  * {@see ValidatorDefinition} {@see Validator}  */
 end_comment
 
 begin_class
@@ -215,7 +215,8 @@ name|ExpressionDefinition
 name|expression
 parameter_list|)
 block|{
-comment|// favour using the helper to set the expression as it can unwrap some unwanted builders when using Java DSL
+comment|// favour using the helper to set the expression as it can unwrap some
+comment|// unwanted builders when using Java DSL
 if|if
 condition|(
 name|expression

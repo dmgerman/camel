@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for including portions of the<a  * href="http://camel.apache.org/expression.html">expression</a> and  *<a href="http://camel.apache.org/predicate.html">predicate</a><a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *<p/>  * Implementation of this builder should favor build expressions using the definition classes  * from the<tt>org.apache.camel.model.language</tt> package, to build the routes using the same  * types as it would happen when using XML DSL.  */
+comment|/**  * A helper class for including portions of the  *<a href="http://camel.apache.org/expression.html">expression</a> and  *<a href="http://camel.apache.org/predicate.html">predicate</a>  *<a href="http://camel.apache.org/dsl.html">Java DSL</a>  *<p/>  * Implementation of this builder should favor build expressions using the  * definition classes from the<tt>org.apache.camel.model.language</tt> package,  * to build the routes using the same types as it would happen when using XML  * DSL.  */
 end_comment
 
 begin_class
@@ -155,7 +155,7 @@ specifier|private
 name|Builder
 parameter_list|()
 block|{     }
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder.      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean      * expression</a> value builder.      *<p/>      * This method accepts dual parameters. Either an bean instance or a      * reference to a bean (String).      *      * @param beanOrBeanRef either an instanceof a bean or a reference to bean      *            to lookup in the Registry      * @return the builder      */
 DECL|method|bean (final Object beanOrBeanRef)
 specifier|public
 specifier|static
@@ -176,7 +176,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder.      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @param method the method name      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean      * expression</a> value builder.      *<p/>      * This method accepts dual parameters. Either an bean instance or a      * reference to a bean (String).      *      * @param beanOrBeanRef either an instanceof a bean or a reference to bean      *            to lookup in the Registry      * @param method the method name      * @return the builder      */
 DECL|method|bean (Object beanOrBeanRef, String method)
 specifier|public
 specifier|static
@@ -235,7 +235,7 @@ name|exp
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the bean class which will be invoked      * @param method   name of method to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean      * expression</a> value builder      *      * @param beanType the bean class which will be invoked      * @param method name of method to invoke      * @return the builder      */
 DECL|method|bean (Class<?> beanType, String method)
 specifier|public
 specifier|static
@@ -357,7 +357,7 @@ name|exp
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a simple expression        */
+comment|/**      * Returns a simple expression      */
 DECL|method|simple (String value)
 specifier|public
 specifier|static
@@ -627,7 +627,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the exception message on an exchange      */
+comment|/**      * Returns a predicate and value builder for the exception message on an      * exchange      */
 DECL|method|exceptionMessage ()
 specifier|public
 specifier|static
@@ -652,7 +652,7 @@ name|exp
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the exception stacktrace on an exchange      */
+comment|/**      * Returns a predicate and value builder for the exception stacktrace on an      * exchange      */
 DECL|method|exceptionStackTrace ()
 specifier|public
 specifier|static
@@ -677,7 +677,7 @@ name|exp
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression that replaces all occurrences of the regular       * expression with the given replacement      */
+comment|/**      * Returns an expression that replaces all occurrences of the regular      * expression with the given replacement      */
 DECL|method|regexReplaceAll (Expression content, String regex, String replacement)
 specifier|public
 specifier|static
@@ -716,7 +716,7 @@ name|newExp
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression that replaces all occurrences of the regular       * expression with the given replacement      */
+comment|/**      * Returns an expression that replaces all occurrences of the regular      * expression with the given replacement      */
 DECL|method|regexReplaceAll (Expression content, String regex, Expression replacement)
 specifier|public
 specifier|static

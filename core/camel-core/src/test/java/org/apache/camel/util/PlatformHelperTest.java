@@ -137,14 +137,14 @@ class|class
 name|BlueprintCamelContext
 extends|extends
 name|DefaultCamelContext
-block|{ }
+block|{     }
 DECL|class|OsgiDefaultCamelContext
 specifier|private
 class|class
 name|OsgiDefaultCamelContext
 extends|extends
 name|DefaultCamelContext
-block|{ }
+block|{     }
 block|}
 end_class
 

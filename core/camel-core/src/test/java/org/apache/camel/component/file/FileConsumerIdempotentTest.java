@@ -293,7 +293,8 @@ argument_list|(
 name|renamed
 argument_list|)
 expr_stmt|;
-comment|// should NOT consume the file again, let a bit time pass to let the consumer try to consume it but it should not
+comment|// should NOT consume the file again, let a bit time pass to let the
+comment|// consumer try to consume it but it should not
 name|Thread
 operator|.
 name|sleep

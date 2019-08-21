@@ -259,7 +259,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// if configured from XML then streamConfig has been set with the configuration
+comment|// if configured from XML then streamConfig has been set with the
+comment|// configuration
 if|if
 condition|(
 name|definition
@@ -365,7 +366,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Creates a batch {@link Resequencer} instance applying the given<code>config</code>.      *      * @param routeContext route context.      * @param config batch resequencer configuration.      * @return the configured batch resequencer.      * @throws Exception can be thrown      */
+comment|/**      * Creates a batch {@link Resequencer} instance applying the given      *<code>config</code>.      *      * @param routeContext route context.      * @param config batch resequencer configuration.      * @return the configured batch resequencer.      * @throws Exception can be thrown      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -564,7 +565,7 @@ return|return
 name|resequencer
 return|;
 block|}
-comment|/**      * Creates a {@link StreamResequencer} instance applying the given<code>config</code>.      *      * @param routeContext route context.      * @param config stream resequencer configuration.      * @return the configured stream resequencer.      * @throws Exception can be thrwon      */
+comment|/**      * Creates a {@link StreamResequencer} instance applying the given      *<code>config</code>.      *      * @param routeContext route context.      * @param config stream resequencer configuration.      * @return the configured stream resequencer.      * @throws Exception can be thrwon      */
 DECL|method|createStreamResequencer (RouteContext routeContext, StreamResequencerConfig config)
 specifier|protected
 name|StreamResequencer

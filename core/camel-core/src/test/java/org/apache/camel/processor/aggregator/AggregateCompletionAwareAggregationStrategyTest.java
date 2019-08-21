@@ -324,7 +324,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// copy body so we can test what the body was when this callback was invoked
+comment|// copy body so we can test what the body was when this callback was
+comment|// invoked
 name|exchange
 operator|.
 name|getIn

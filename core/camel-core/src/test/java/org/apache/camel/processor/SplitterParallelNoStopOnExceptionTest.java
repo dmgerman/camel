@@ -279,7 +279,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we do NOT stop so we receive all messages except the one that goes kaboom
+comment|// we do NOT stop so we receive all messages except the one that goes
+comment|// kaboom
 name|mock
 operator|.
 name|allMessages

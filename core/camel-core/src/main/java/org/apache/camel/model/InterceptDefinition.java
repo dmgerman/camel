@@ -296,7 +296,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * This method is<b>only</b> for handling some post configuration      * that is needed since this is an interceptor, and we have to do      * a bit of magic logic to fixup to handle predicates      * with or without proceed/stop set as well.      */
+comment|/**      * This method is<b>only</b> for handling some post configuration that is      * needed since this is an interceptor, and we have to do a bit of magic      * logic to fixup to handle predicates with or without proceed/stop set as      * well.      */
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void
@@ -387,7 +387,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remove the moved from the original output, by just keeping the first one
+comment|// remove the moved from the original output, by just keeping the
+comment|// first one
 name|ProcessorDefinition
 argument_list|<
 name|?

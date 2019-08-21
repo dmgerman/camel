@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Claim Check EIP allows you to replace message content with a claim check (a unique key),  * which can be used to retrieve the message content at a later time.  */
+comment|/**  * The Claim Check EIP allows you to replace message content with a claim check  * (a unique key), which can be used to retrieve the message content at a later  * time.  */
 end_comment
 
 begin_class
@@ -291,8 +291,8 @@ literal|"claimCheck"
 return|;
 block|}
 comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * The claim check operation to use.      * The following operations is supported:      *<ul>      *<li>Get</li> - Gets (does not remove) the claim check by the given key.      *<li>GetAndRemove</li> - Gets and remove the claim check by the given key.      *<li>Set</li> - Sets a new (will override if key already exists) claim check with the given key.      *<li>Push</li> - Sets a new claim check on the stack (does not use key).      *<li>Pop</li> - Gets the latest claim check from the stack (does not use key).      *</ul>      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * The claim check operation to use. The following operations is supported:      *<ul>      *<li>Get</li> - Gets (does not remove) the claim check by the given key.      *<li>GetAndRemove</li> - Gets and remove the claim check by the given key.      *<li>Set</li> - Sets a new (will override if key already exists) claim      * check with the given key.      *<li>Push</li> - Sets a new claim check on the stack (does not use key).      *<li>Pop</li> - Gets the latest claim check from the stack (does not use      * key).      *</ul>      */
 DECL|method|operation (ClaimCheckOperation operation)
 specifier|public
 name|ClaimCheckDefinition
@@ -311,7 +311,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a specific key for claim check id (for dynamic keys use simple language syntax as the key).      */
+comment|/**      * To use a specific key for claim check id (for dynamic keys use simple      * language syntax as the key).      */
 DECL|method|key (String key)
 specifier|public
 name|ClaimCheckDefinition
@@ -330,7 +330,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specified a filter to control what data gets merging data back from the claim check repository.      *      * The following syntax is supported:      *<ul>      *<li>body</li> - to aggregate the message body      *<li>attachments</li> - to aggregate all the message attachments      *<li>headers</li> - to aggregate all the message headers      *<li>header:pattern</li> - to aggregate all the message headers that matches the pattern.      *</ul>      * The pattern uses the following rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the name starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *<p>      * You can specify multiple rules separated by comma. For example to include the message body and all headers starting with foo      *<tt>body,header:foo*</tt>.      * The syntax supports the following prefixes which can be used to specify include,exclude, or remove      *<ul>      *<li>+</li> - to include (which is the default mode)      *<li>-</li> - to exclude (exclude takes precedence over include)      *<li>--</li> - to remove (remove takes precedence)      *</ul>      * For example to exclude a header name foo, and remove all headers starting with bar      *<tt>-header:foo,--headers:bar*</tt>      * Note you cannot have both include and exclude<tt>header:pattern</tt> at the same time.      */
+comment|/**      * Specified a filter to control what data gets merging data back from the      * claim check repository. The following syntax is supported:      *<ul>      *<li>body</li> - to aggregate the message body      *<li>attachments</li> - to aggregate all the message attachments      *<li>headers</li> - to aggregate all the message headers      *<li>header:pattern</li> - to aggregate all the message headers that      * matches the pattern.      *</ul>      * The pattern uses the following rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the name starts with the      * pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *<p>      * You can specify multiple rules separated by comma. For example to include      * the message body and all headers starting with foo      *<tt>body,header:foo*</tt>. The syntax supports the following prefixes      * which can be used to specify include,exclude, or remove      *<ul>      *<li>+</li> - to include (which is the default mode)      *<li>-</li> - to exclude (exclude takes precedence over include)      *<li>--</li> - to remove (remove takes precedence)      *</ul>      * For example to exclude a header name foo, and remove all headers starting      * with bar<tt>-header:foo,--headers:bar*</tt> Note you cannot have both      * include and exclude<tt>header:pattern</tt> at the same time.      */
 DECL|method|filter (String filter)
 specifier|public
 name|ClaimCheckDefinition
@@ -349,7 +349,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a custom {@link AggregationStrategy} instead of the default implementation.      * Notice you cannot use both custom aggregation strategy and configure data at the same time.      */
+comment|/**      * To use a custom {@link AggregationStrategy} instead of the default      * implementation. Notice you cannot use both custom aggregation strategy      * and configure data at the same time.      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|ClaimCheckDefinition
@@ -368,7 +368,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a custom {@link AggregationStrategy} instead of the default implementation.      * Notice you cannot use both custom aggregation strategy and configure data at the same time.      */
+comment|/**      * To use a custom {@link AggregationStrategy} instead of the default      * implementation. Notice you cannot use both custom aggregation strategy      * and configure data at the same time.      */
 DECL|method|aggregationStrategy (Supplier<AggregationStrategy> aggregationStrategy)
 specifier|public
 name|ClaimCheckDefinition
@@ -393,7 +393,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a custom {@link AggregationStrategy} instead of the default implementation.      * Notice you cannot use both custom aggregation strategy and configure data at the same time.      */
+comment|/**      * To use a custom {@link AggregationStrategy} instead of the default      * implementation. Notice you cannot use both custom aggregation strategy      * and configure data at the same time.      */
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|ClaimCheckDefinition
@@ -412,7 +412,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
+comment|/**      * This option can be used to explicit declare the method name to use, when      * using POJOs as the AggregationStrategy.      */
 DECL|method|aggregationStrategyMethodName (String aggregationStrategyMethodName)
 specifier|public
 name|ClaimCheckDefinition
@@ -432,7 +432,7 @@ name|this
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getKey ()
 specifier|public
 name|String

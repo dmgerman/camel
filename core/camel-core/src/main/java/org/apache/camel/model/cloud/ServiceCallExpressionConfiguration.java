@@ -764,7 +764,7 @@ return|return
 name|hostHeader
 return|;
 block|}
-comment|/**      * The header that holds the service host information, default ServiceCallConstants.SERVICE_HOST      */
+comment|/**      * The header that holds the service host information, default      * ServiceCallConstants.SERVICE_HOST      */
 DECL|method|setHostHeader (String hostHeader)
 specifier|public
 name|void
@@ -791,7 +791,7 @@ return|return
 name|portHeader
 return|;
 block|}
-comment|/**      * The header that holds the service port information, default ServiceCallConstants.SERVICE_PORT      */
+comment|/**      * The header that holds the service port information, default      * ServiceCallConstants.SERVICE_PORT      */
 DECL|method|setPortHeader (String portHeader)
 specifier|public
 name|void
@@ -860,7 +860,7 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
-comment|/**      * The header that holds the service host information, default ServiceCallConstants.SERVICE_HOST      */
+comment|/**      * The header that holds the service host information, default      * ServiceCallConstants.SERVICE_HOST      */
 DECL|method|hostHeader (String hostHeader)
 specifier|public
 name|ServiceCallExpressionConfiguration
@@ -879,7 +879,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The header that holds the service port information, default ServiceCallConstants.SERVICE_PORT      */
+comment|/**      * The header that holds the service port information, default      * ServiceCallConstants.SERVICE_PORT      */
 DECL|method|portHeader (String portHeader)
 specifier|public
 name|ServiceCallExpressionConfiguration
@@ -1024,7 +1024,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// If a factory is found in the registry do not re-configure it as
+comment|// If a factory is found in the registry do not re-configure it
+comment|// as
 comment|// it should be pre-configured.
 name|answer
 operator|=

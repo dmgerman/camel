@@ -335,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether or not the caller should run the task when it was rejected by the thread pool.      *<p/>      * Is by default<tt>true</tt>      *      * @param callerRunsWhenRejected whether or not the caller should run      * @return the builder      */
+comment|/**      * Whether or not the caller should run the task when it was rejected by the      * thread pool.      *<p/>      * Is by default<tt>true</tt>      *      * @param callerRunsWhenRejected whether or not the caller should run      * @return the builder      */
 DECL|method|callerRunsWhenRejected (boolean callerRunsWhenRejected)
 specifier|public
 name|DelayDefinition
@@ -354,7 +354,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block while delaying.      */
+comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block      * while delaying.      */
 DECL|method|asyncDelayed ()
 specifier|public
 name|DelayDefinition
@@ -370,7 +370,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block while delaying.      */
+comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block      * while delaying.      */
 DECL|method|syncDelayed ()
 specifier|public
 name|DelayDefinition

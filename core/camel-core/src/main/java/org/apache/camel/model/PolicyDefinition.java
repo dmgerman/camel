@@ -360,7 +360,8 @@ name|boolean
 name|isTopLevelOnly
 parameter_list|()
 block|{
-comment|// a policy is often top-level but you can have it in lower-levels as well
+comment|// a policy is often top-level but you can have it in lower-levels as
+comment|// well
 return|return
 literal|false
 return|;
@@ -403,7 +404,7 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-comment|/**      * Sets a policy type that this definition should scope within.      *<p/>      * Is used for convention over configuration situations where the policy      * should be automatic looked up in the registry and it should be based      * on this type. For instance a {@link org.apache.camel.spi.TransactedPolicy}      * can be set as type for easy transaction configuration.      *<p/>      * Will by default scope to the wide {@link Policy}      *      * @param type the policy type      */
+comment|/**      * Sets a policy type that this definition should scope within.      *<p/>      * Is used for convention over configuration situations where the policy      * should be automatic looked up in the registry and it should be based on      * this type. For instance a {@link org.apache.camel.spi.TransactedPolicy}      * can be set as type for easy transaction configuration.      *<p/>      * Will by default scope to the wide {@link Policy}      *      * @param type the policy type      */
 DECL|method|setType (Class<? extends Policy> type)
 specifier|public
 name|void

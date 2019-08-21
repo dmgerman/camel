@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for generating route ids based on uris.  *<p>  * For direct/seda routes it returns route name (direct:start -> start).  * For rest routes it returns its method and context path formatted as one string.  *<p>  * When id cannot be generated, falls back to other {@link NodeIdFactory} implementation.  * If none is passed in the constructor, then {@link DefaultNodeIdFactory} is used.  */
+comment|/**  * Factory for generating route ids based on uris.  *<p>  * For direct/seda routes it returns route name (direct:start -> start). For  * rest routes it returns its method and context path formatted as one string.  *<p>  * When id cannot be generated, falls back to other {@link NodeIdFactory}  * implementation. If none is passed in the constructor, then  * {@link DefaultNodeIdFactory} is used.  */
 end_comment
 
 begin_class

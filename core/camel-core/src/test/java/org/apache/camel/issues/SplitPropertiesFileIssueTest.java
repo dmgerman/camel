@@ -341,7 +341,8 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-comment|// must copy from the original exchange as Camel holds information about the file in progress
+comment|// must copy from the original exchange as Camel holds information
+comment|// about the file in progress
 name|Message
 name|msg1
 init|=
@@ -482,7 +483,8 @@ block|}
 block|}
 comment|// as we use the recipientList afterwards we set the destination
 comment|// as well on our message where we want to route it
-comment|// as we are an unit test then just store the list using toString so its easier to test
+comment|// as we are an unit test then just store the list using toString so
+comment|// its easier to test
 name|msg1
 operator|.
 name|setBody
@@ -521,7 +523,8 @@ argument_list|,
 literal|"mock:bar"
 argument_list|)
 expr_stmt|;
-comment|// just cast it to T as its safe as its Object anyway for custom expressions
+comment|// just cast it to T as its safe as its Object anyway for custom
+comment|// expressions
 return|return
 operator|(
 name|T

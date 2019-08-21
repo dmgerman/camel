@@ -570,7 +570,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets only the headers with non-null and non-empty names. It returns {@code null} if there's no such headers.      *      * @return The headers with non-null and non-empty names      */
+comment|/**      * Gets only the headers with non-null and non-empty names. It returns      * {@code null} if there's no such headers.      *      * @return The headers with non-null and non-empty names      */
 DECL|method|getValidHeaderNames ()
 specifier|private
 name|String

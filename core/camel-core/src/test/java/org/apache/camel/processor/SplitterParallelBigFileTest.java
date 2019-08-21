@@ -409,7 +409,7 @@ throws|throws
 name|Exception
 block|{
 comment|// lower max pool to 10 for less number of concurrent threads
-comment|//context.getExecutorServiceStrategy().getDefaultThreadPoolProfile().setMaxPoolSize(10);
+comment|// context.getExecutorServiceStrategy().getDefaultThreadPoolProfile().setMaxPoolSize(10);
 name|from
 argument_list|(
 literal|"file:target/data/split?initialDelay=0&delay=10"

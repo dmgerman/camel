@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Synchronization facade for {@link ResequencerEngine} for testing purposes  * only. This facade is used for both exclusion purposes and for visibility of  * changes performed by different threads in unit tests. This facade is<i>not</i>  * needed in {@link ResequencerEngine} applications because it is expected that  * resequencing is performed by a single thread.  */
+comment|/**  * Synchronization facade for {@link ResequencerEngine} for testing purposes  * only. This facade is used for both exclusion purposes and for visibility of  * changes performed by different threads in unit tests. This facade is  *<i>not</i> needed in {@link ResequencerEngine} applications because it is  * expected that resequencing is performed by a single thread.  */
 end_comment
 
 begin_class

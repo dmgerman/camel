@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Performs sanity check on the model classes that their JAXB annotations and getter/setter match up.  */
+comment|/**  * Performs sanity check on the model classes that their JAXB annotations and  * getter/setter match up.  */
 end_comment
 
 begin_class
@@ -408,7 +408,8 @@ argument_list|)
 operator|!=
 literal|null
 decl_stmt|;
-comment|// only one of those 3 is allowed, so check that we don't have 2+ of them
+comment|// only one of those 3 is allowed, so check that we don't have
+comment|// 2+ of them
 if|if
 condition|(
 operator|(
@@ -564,7 +565,8 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// special for OptionalIdentifiedDefinition as it has setter, so we should skip it
+comment|// special for OptionalIdentifiedDefinition as it has setter, so
+comment|// we should skip it
 if|if
 condition|(
 name|clazz

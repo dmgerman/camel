@@ -259,7 +259,8 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 comment|// exception thrown here, should not trigger the
-comment|// onException(IllegalArgumentException.class) as we would
+comment|// onException(IllegalArgumentException.class) as we
+comment|// would
 comment|// then go into endless loop
 throw|throw
 operator|new

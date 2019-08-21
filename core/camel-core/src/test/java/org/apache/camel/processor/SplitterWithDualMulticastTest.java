@@ -143,7 +143,8 @@ argument_list|,
 literal|"C"
 argument_list|)
 expr_stmt|;
-comment|// should have the bar header because multicast uses UseLatestAggregationStrategy by default
+comment|// should have the bar header because multicast uses
+comment|// UseLatestAggregationStrategy by default
 name|getMockEndpoint
 argument_list|(
 literal|"mock:split"
@@ -156,7 +157,8 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// should NOT have the foo header because multicast uses UseLatestAggregationStrategy by default
+comment|// should NOT have the foo header because multicast uses
+comment|// UseLatestAggregationStrategy by default
 name|getMockEndpoint
 argument_list|(
 literal|"mock:split"
@@ -187,7 +189,8 @@ argument_list|,
 literal|"C"
 argument_list|)
 expr_stmt|;
-comment|// should have the bar header from the previous multicast (which value 123)
+comment|// should have the bar header from the previous multicast (which value
+comment|// 123)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:split2"

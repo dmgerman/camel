@@ -154,7 +154,8 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the navigate API is a bit simple at this time of writing so it does take a little
+comment|// the navigate API is a bit simple at this time of writing so it does
+comment|// take a little
 comment|// bit of ugly code to find the correct processor in the runtime route
 name|assertIsInstanceOf
 argument_list|(

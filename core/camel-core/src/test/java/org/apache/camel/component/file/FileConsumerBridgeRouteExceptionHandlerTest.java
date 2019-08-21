@@ -296,8 +296,10 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 expr_stmt|;
-comment|// this is the file route that pickup files, notice how we bridge the consumer to use the Camel routing error handler
-comment|// the exclusiveReadLockStrategy is only configured because this is from an unit test, so we use that to simulate exceptions
+comment|// this is the file route that pickup files, notice how we
+comment|// bridge the consumer to use the Camel routing error handler
+comment|// the exclusiveReadLockStrategy is only configured because this
+comment|// is from an unit test, so we use that to simulate exceptions
 name|from
 argument_list|(
 literal|"file:target/data/nospace?exclusiveReadLockStrategy=#myReadLockStrategy&consumer.bridgeErrorHandler=true&initialDelay=0&delay=10"
@@ -407,7 +409,8 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// force an exception on acquire attempt for the bye.txt file, on the first attempt
+comment|// force an exception on acquire attempt for the bye.txt
+comment|// file, on the first attempt
 throw|throw
 operator|new
 name|IOException

@@ -140,7 +140,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// adjustment of processor a causes effects in processor b as its not a deep clone
+comment|// adjustment of processor a causes effects in processor b as its not a
+comment|// deep clone
 name|getMockEndpoint
 argument_list|(
 literal|"mock:b"

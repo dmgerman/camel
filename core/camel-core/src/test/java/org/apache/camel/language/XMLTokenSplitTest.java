@@ -440,7 +440,8 @@ name|from
 argument_list|(
 literal|"file:target/data/xtokenizer?initialDelay=0&delay=10"
 argument_list|)
-comment|// split the order child tags, and inherit namespaces from the orders root tag
+comment|// split the order child tags, and inherit namespaces from
+comment|// the orders root tag
 operator|.
 name|split
 argument_list|()
@@ -462,7 +463,8 @@ name|from
 argument_list|(
 literal|"file:target/data/xtokenizer2?initialDelay=0&delay=10"
 argument_list|)
-comment|// split the order child tags, and inherit namespaces from the orders root tag
+comment|// split the order child tags, and inherit namespaces from
+comment|// the orders root tag
 operator|.
 name|split
 argument_list|(

@@ -277,7 +277,8 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-comment|// force an exception early, to test that the onException error handlers
+comment|// force an exception early, to test that the onException error
+comment|// handlers
 comment|// can kick in anyway
 throw|throw
 operator|new

@@ -282,7 +282,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Expression used as the predicate to evaluate whether this when should trigger and route the message or not.      */
+comment|/**      * Expression used as the predicate to evaluate whether this when should      * trigger and route the message or not.      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)
@@ -314,7 +314,8 @@ argument_list|>
 name|endParent
 parameter_list|()
 block|{
-comment|// when using when in the DSL we don't want to end back to this when, but instead
+comment|// when using when in the DSL we don't want to end back to this when,
+comment|// but instead
 comment|// the parent of this, so return the parent
 return|return
 name|this

@@ -48,7 +48,7 @@ name|String
 name|getLanguageName
 parameter_list|()
 function_decl|;
-comment|/**      * Asserts that the given predicate expression evaluated on the current language and message      * exchange evaluates to true      */
+comment|/**      * Asserts that the given predicate expression evaluated on the current      * language and message exchange evaluates to true      */
 DECL|method|assertPredicate (String expression)
 specifier|protected
 name|void
@@ -68,7 +68,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that the given predicate expression evaluated on the current language and message      * exchange evaluates to false      */
+comment|/**      * Asserts that the given predicate expression evaluated on the current      * language and message exchange evaluates to false      */
 DECL|method|assertPredicateFails (String expression)
 specifier|protected
 name|void
@@ -88,7 +88,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that the given predicate expression evaluated on the current language and message      * exchange evaluates to the expected value      */
+comment|/**      * Asserts that the given predicate expression evaluated on the current      * language and message exchange evaluates to the expected value      */
 DECL|method|assertPredicate (String expression, boolean expected)
 specifier|protected
 name|void
@@ -139,7 +139,7 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that this language expression evaluates to the given value on the given exchange      */
+comment|/**      * Asserts that this language expression evaluates to the given value on the      * given exchange      */
 DECL|method|assertExpression (Exchange exchange, String expressionText, Object expectedValue)
 specifier|protected
 name|void
@@ -168,7 +168,7 @@ name|expectedValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Asserts that this language expression evaluates to the given value on the current exchange      */
+comment|/**      * Asserts that this language expression evaluates to the given value on the      * current exchange      */
 DECL|method|assertExpression (String expressionText, Object expectedValue)
 specifier|protected
 name|void

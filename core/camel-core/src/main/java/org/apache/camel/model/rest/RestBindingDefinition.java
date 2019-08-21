@@ -328,7 +328,7 @@ return|return
 name|consumes
 return|;
 block|}
-comment|/**      * Adds a default value for the query parameter      *      * @param paramName   query parameter name      * @param defaultValue the default value      */
+comment|/**      * Adds a default value for the query parameter      *      * @param paramName query parameter name      * @param defaultValue the default value      */
 DECL|method|addDefaultValue (String paramName, String defaultValue)
 specifier|public
 name|void
@@ -366,7 +366,7 @@ name|defaultValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a required query parameter      *      * @param paramName   query parameter name      */
+comment|/**      * Adds a required query parameter      *      * @param paramName query parameter name      */
 DECL|method|addRequiredQueryParameter (String paramName)
 specifier|public
 name|void
@@ -412,7 +412,7 @@ return|return
 name|requiredQueryParameters
 return|;
 block|}
-comment|/**      * Adds a required HTTP header      *      * @param headerName   HTTP header name      */
+comment|/**      * Adds a required HTTP header      *      * @param headerName HTTP header name      */
 DECL|method|addRequiredHeader (String headerName)
 specifier|public
 name|void
@@ -500,7 +500,7 @@ return|return
 name|defaultValues
 return|;
 block|}
-comment|/**      * Sets the component name that this definition will apply to        */
+comment|/**      * Sets the component name that this definition will apply to      */
 DECL|method|setComponent (String component)
 specifier|public
 name|void
@@ -527,7 +527,7 @@ return|return
 name|component
 return|;
 block|}
-comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json      */
+comment|/**      * To define the content type what the REST service consumes (accept as      * input), such as application/xml or application/json      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -554,7 +554,7 @@ return|return
 name|produces
 return|;
 block|}
-comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      */
+comment|/**      * To define the content type what the REST service produces (uses for      * output), such as application/xml or application/json      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -608,7 +608,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      *<p/>      * The canonical name of the class of the input data. Append a [] to the end of the canonical name      * if you want the input to be an array type.      */
+comment|/**      * Sets the class name to use for binding from input to POJO for the      * incoming data      *<p/>      * The canonical name of the class of the input data. Append a [] to the end      * of the canonical name if you want the input to be an array type.      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -635,7 +635,7 @@ return|return
 name|outType
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      *<p/>      * The canonical name of the class of the input data. Append a [] to the end of the canonical name      * if you want the input to be an array type.      */
+comment|/**      * Sets the class name to use for binding from POJO to output for the      * outgoing data      *<p/>      * The canonical name of the class of the input data. Append a [] to the end      * of the canonical name if you want the input to be an array type.      */
 DECL|method|setOutType (String outType)
 specifier|public
 name|void
@@ -662,7 +662,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
-comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      */
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code      * header. This allows to build custom error messages that do not bind to      * json / xml etc, as success messages otherwise will do.      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -689,7 +689,7 @@ return|return
 name|clientRequestValidation
 return|;
 block|}
-comment|/**      * Whether to enable validation of the client request to check whether the Content-Type and Accept headers from      * the client is supported by the Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error, then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
+comment|/**      * Whether to enable validation of the client request to check whether the      * Content-Type and Accept headers from the client is supported by the      * Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error,      * then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
 DECL|method|setClientRequestValidation (Boolean clientRequestValidation)
 specifier|public
 name|void

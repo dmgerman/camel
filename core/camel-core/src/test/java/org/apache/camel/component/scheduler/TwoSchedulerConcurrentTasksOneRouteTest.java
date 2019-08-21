@@ -177,7 +177,8 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// let this route scheduler use all 2 concurrent tasks at the same time
+comment|// let this route scheduler use all 2 concurrent tasks at the
+comment|// same time
 name|from
 argument_list|(
 literal|"scheduler://foo?delay=250&scheduler.concurrentTasks=2"

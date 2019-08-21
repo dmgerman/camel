@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A route for simple performance testing that can be used when we suspect  * something is wrong. Inspired by end user on forum doing this as proof of concept.  */
+comment|/**  * A route for simple performance testing that can be used when we suspect  * something is wrong. Inspired by end user on forum doing this as proof of  * concept.  */
 end_comment
 
 begin_class

@@ -442,7 +442,7 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
-comment|//pipeline
+comment|// pipeline
 operator|.
 name|pipeline
 argument_list|()
@@ -472,11 +472,11 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
-comment|//pipeline
+comment|// pipeline
 operator|.
 name|end
 argument_list|()
-comment|//multicast
+comment|// multicast
 operator|.
 name|to
 argument_list|(

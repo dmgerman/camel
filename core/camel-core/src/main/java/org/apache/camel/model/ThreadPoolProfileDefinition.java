@@ -638,7 +638,7 @@ return|return
 name|allowCoreThreadTimeOut
 return|;
 block|}
-comment|/**      * Whether idle core threads is allowed to timeout and therefore can shrink the pool size below the core pool size      *<p/>      * Is by default<tt>false</tt>      */
+comment|/**      * Whether idle core threads is allowed to timeout and therefore can shrink      * the pool size below the core pool size      *<p/>      * Is by default<tt>false</tt>      */
 DECL|method|setAllowCoreThreadTimeOut (String allowCoreThreadTimeOut)
 specifier|public
 name|void
@@ -665,7 +665,7 @@ return|return
 name|timeUnit
 return|;
 block|}
-comment|/**      * Sets the time unit to use for keep alive time      * By default SECONDS is used.      */
+comment|/**      * Sets the time unit to use for keep alive time By default SECONDS is used.      */
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void

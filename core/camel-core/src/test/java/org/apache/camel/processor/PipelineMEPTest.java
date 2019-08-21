@@ -447,11 +447,15 @@ name|number
 operator|+
 literal|1
 expr_stmt|;
-comment|// this is a bit evil we let you set on OUT body even if the MEP is InOnly
-comment|// however the result after the routing is correct using APIs to get the result
-comment|// however the exchange will carry body IN and OUT when the route completes, as
+comment|// this is a bit evil we let you set on OUT body even if the MEP
+comment|// is InOnly
+comment|// however the result after the routing is correct using APIs to
+comment|// get the result
+comment|// however the exchange will carry body IN and OUT when the
+comment|// route completes, as
 comment|// we operate on the original exchange in this processor
-comment|// (= we are the first node in the route after the from consumer)
+comment|// (= we are the first node in the route after the from
+comment|// consumer)
 name|exchange
 operator|.
 name|getMessage
@@ -484,7 +488,8 @@ name|process
 argument_list|(
 name|outProcessor
 argument_list|)
-comment|// this pipeline is not really needed by to have some more routing in there to test with
+comment|// this pipeline is not really needed by to have some more
+comment|// routing in there to test with
 operator|.
 name|pipeline
 argument_list|(

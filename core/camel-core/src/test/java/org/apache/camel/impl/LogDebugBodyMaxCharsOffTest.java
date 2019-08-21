@@ -246,7 +246,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// should be empty body as toString on the message will return an empty body
+comment|// should be empty body as toString on the message will return an empty
+comment|// body
 name|TraceExchangeFormatter
 name|myFormatter
 init|=

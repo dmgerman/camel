@@ -297,7 +297,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we should wait for the async response as we ask for the result as a String body
+comment|// we should wait for the async response as we ask for the result as a
+comment|// String body
 name|route
 operator|+=
 literal|"A"
@@ -355,13 +356,17 @@ literal|" World"
 argument_list|)
 argument_list|)
 comment|// now turn the route into async from this point forward
-comment|// the caller will have a Future<Exchange> returned as response in OUT
-comment|// to be used to grap the async response when he fell like it
+comment|// the caller will have a Future<Exchange> returned as
+comment|// response in OUT
+comment|// to be used to grap the async response when he fell like
+comment|// it
 operator|.
 name|threads
 argument_list|()
-comment|// from this point forward this is the async route doing its work
-comment|// so we do a bit of delay to simulate heavy work that takes time
+comment|// from this point forward this is the async route doing its
+comment|// work
+comment|// so we do a bit of delay to simulate heavy work that takes
+comment|// time
 operator|.
 name|to
 argument_list|(
@@ -372,7 +377,8 @@ name|delay
 argument_list|(
 literal|100
 argument_list|)
-comment|// and we also work with the message so we can prepare a response
+comment|// and we also work with the message so we can prepare a
+comment|// response
 operator|.
 name|process
 argument_list|(

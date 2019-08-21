@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows to declare saga actions to complete or compensate a saga  *  */
+comment|/**  * Allows to declare saga actions to complete or compensate a saga  */
 end_comment
 
 begin_class

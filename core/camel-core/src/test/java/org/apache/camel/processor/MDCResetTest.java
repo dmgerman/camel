@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests that MDC works as a stack remembering old values  * when using a producer template to send in new messages during routing.  */
+comment|/**  * Tests that MDC works as a stack remembering old values when using a producer  * template to send in new messages during routing.  */
 end_comment
 
 begin_class
@@ -331,7 +331,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// use a producer template to send to b, instead of in the route DSL
+comment|// use a producer template to send to b, instead of in
+comment|// the route DSL
 name|body
 operator|=
 name|template

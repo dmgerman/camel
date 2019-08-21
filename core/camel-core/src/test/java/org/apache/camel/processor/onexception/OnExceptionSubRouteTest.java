@@ -83,11 +83,14 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// if a MyTechnicalException is thrown we will not try to redeliver and we mark it as handled
+comment|// if a MyTechnicalException is thrown we will not try to
+comment|// redeliver and we mark it as handled
 comment|// so the caller does not get a failure
-comment|// since we have no to then the exchange will continue to be routed to the normal error handler
+comment|// since we have no to then the exchange will continue to be
+comment|// routed to the normal error handler
 comment|// destination that is mock:error as defined above
-comment|// we MUST use .end() to indicate that this sub block is ended
+comment|// we MUST use .end() to indicate that this sub block is
+comment|// ended
 operator|.
 name|onException
 argument_list|(
@@ -108,9 +111,12 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
-comment|// if a MyFunctionalException is thrown we do not want Camel to redelivery but handle it our self using
-comment|// our bean myOwnHandler, then the exchange is not routed to the default error (mock:error)
-comment|// we MUST use .end() to indicate that this sub block is ended
+comment|// if a MyFunctionalException is thrown we do not want Camel
+comment|// to redelivery but handle it our self using
+comment|// our bean myOwnHandler, then the exchange is not routed to
+comment|// the default error (mock:error)
+comment|// we MUST use .end() to indicate that this sub block is
+comment|// ended
 operator|.
 name|onException
 argument_list|(

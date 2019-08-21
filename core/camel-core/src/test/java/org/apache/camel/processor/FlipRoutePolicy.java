@@ -280,7 +280,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// let the exception handle handle it, which is often just to log it
+comment|// let the exception handle handle it, which is often just to
+comment|// log it
 name|getExceptionHandler
 argument_list|()
 operator|.

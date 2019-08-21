@@ -252,8 +252,10 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// sort by JMSPriority by allowing duplicates (message can have same JMSPriority)
-comment|// and use reverse ordering so 9 is first output (most important), and 0 is last
+comment|// sort by JMSPriority by allowing duplicates (message can
+comment|// have same JMSPriority)
+comment|// and use reverse ordering so 9 is first output (most
+comment|// important), and 0 is last
 operator|.
 name|resequence
 argument_list|(

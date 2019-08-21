@@ -184,8 +184,10 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// here we qualify onCompletion to only invoke when the exchange completed with success
-comment|// if the exchange failed this onCompletion route will NOT be routed then
+comment|// here we qualify onCompletion to only invoke when the
+comment|// exchange completed with success
+comment|// if the exchange failed this onCompletion route will NOT
+comment|// be routed then
 operator|.
 name|onCompletion
 argument_list|()

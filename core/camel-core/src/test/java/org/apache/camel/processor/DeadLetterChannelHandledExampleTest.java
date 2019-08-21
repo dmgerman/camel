@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that handled policy is working as expected for wiki documentation.  */
+comment|/**  * Unit test to verify that handled policy is working as expected for wiki  * documentation.  */
 end_comment
 
 begin_class
@@ -289,21 +289,25 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// we do special error handling for when OrderFailedException is thrown
+comment|// we do special error handling for when OrderFailedException is
+comment|// thrown
 name|onException
 argument_list|(
 name|OrderFailedException
 operator|.
 name|class
 argument_list|)
-comment|// we mark the exchange as handled so the caller doesn't receive the
-comment|// OrderFailedException but whatever we want to return instead
+comment|// we mark the exchange as handled so the caller doesn't
+comment|// receive the
+comment|// OrderFailedException but whatever we want to return
+comment|// instead
 operator|.
 name|handled
 argument_list|(
 literal|true
 argument_list|)
-comment|// this bean handles the error handling where we can customize the error
+comment|// this bean handles the error handling where we can
+comment|// customize the error
 comment|// response using java code
 operator|.
 name|bean
@@ -321,7 +325,8 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 expr_stmt|;
-comment|// this is just the generic error handler where we set the destination
+comment|// this is just the generic error handler where we set the
+comment|// destination
 comment|// and the number of redeliveries we want to try
 name|errorHandler
 argument_list|(
@@ -371,7 +376,7 @@ specifier|static
 class|class
 name|OrderService
 block|{
-comment|/**          * This method handle our order input and return the order          *          * @param headers      the in headers          * @param payload the in payload          * @return the out payload          * @throws OrderFailedException is thrown if the order cannot be processed          */
+comment|/**          * This method handle our order input and return the order          *          * @param headers the in headers          * @param payload the in payload          * @return the out payload          * @throws OrderFailedException is thrown if the order cannot be          *             processed          */
 DECL|method|handleOrder (@eaders Map headers, @Body String payload)
 specifier|public
 name|Object
@@ -438,7 +443,7 @@ literal|"Order OK"
 return|;
 block|}
 block|}
-comment|/**          * This method creates the response to the caller if the order could not be processed          * @param headers      the in headers          * @param payload the in payload          * @return the out payload          */
+comment|/**          * This method creates the response to the caller if the order could not          * be processed          *           * @param headers the in headers          * @param payload the in payload          * @return the out payload          */
 DECL|method|orderFailed (@eaders Map headers, @Body String payload)
 specifier|public
 name|Object

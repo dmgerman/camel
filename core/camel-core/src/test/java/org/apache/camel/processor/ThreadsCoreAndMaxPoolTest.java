@@ -154,7 +154,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// will use a a custom thread pool with 5 in core and 10 as max
+comment|// will use a a custom thread pool with 5 in core and 10 as
+comment|// max
 operator|.
 name|threads
 argument_list|(

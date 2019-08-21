@@ -580,7 +580,9 @@ operator|+
 name|TOLERANCE
 argument_list|)
 expr_stmt|;
-comment|// sleep here to ensure the first throttle rate does not influence the next one.
+comment|// sleep here to ensure the
+comment|// first throttle rate does not
+comment|// influence the next one.
 name|resultEndpoint
 operator|.
 name|reset
@@ -608,7 +610,9 @@ operator|+
 name|TOLERANCE
 argument_list|)
 expr_stmt|;
-comment|// sleep here to ensure the first throttle rate does not influence the next one.
+comment|// sleep here to ensure the
+comment|// first throttle rate does not
+comment|// influence the next one.
 name|resultEndpoint
 operator|.
 name|reset
@@ -636,7 +640,9 @@ operator|+
 name|TOLERANCE
 argument_list|)
 expr_stmt|;
-comment|// sleep here to ensure the first throttle rate does not influence the next one.
+comment|// sleep here to ensure the
+comment|// first throttle rate does not
+comment|// influence the next one.
 name|resultEndpoint
 operator|.
 name|reset
@@ -687,7 +693,8 @@ name|int
 name|messageCount
 parameter_list|)
 block|{
-comment|// now assert that they have actually been throttled (use +/- 50 as slack)
+comment|// now assert that they have actually been throttled (use +/- 50 as
+comment|// slack)
 name|long
 name|minimum
 init|=

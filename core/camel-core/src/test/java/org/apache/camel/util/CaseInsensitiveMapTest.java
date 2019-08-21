@@ -2522,7 +2522,8 @@ literal|"FOO"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// CaseInsensitiveMap preserves the original keys, which would be the 1st key we put
+comment|// CaseInsensitiveMap preserves the original keys, which would be the
+comment|// 1st key we put
 name|assertEquals
 argument_list|(
 literal|true
@@ -2572,7 +2573,8 @@ argument_list|,
 literal|"value"
 argument_list|)
 expr_stmt|;
-comment|// force entry set to be created which could cause the map to be non serializable
+comment|// force entry set to be created which could cause the map to be non
+comment|// serializable
 name|testMap
 operator|.
 name|entrySet

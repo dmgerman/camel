@@ -2078,7 +2078,8 @@ argument_list|(
 literal|"newDefault"
 argument_list|)
 decl_stmt|;
-comment|// just change the max pool as the default profile should then inherit the old default profile
+comment|// just change the max pool as the default profile should then inherit
+comment|// the old default profile
 name|newDefault
 operator|.
 name|setMaxPoolSize

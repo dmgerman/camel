@@ -279,7 +279,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// we have 2 interceptors, which may both trigger, or either or, or none
+comment|// we have 2 interceptors, which may both trigger, or either or,
+comment|// or none
 name|interceptSendToEndpoint
 argument_list|(
 literal|"mock:skip"

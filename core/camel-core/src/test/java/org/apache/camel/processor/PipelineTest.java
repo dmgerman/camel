@@ -122,7 +122,7 @@ name|PipelineTest
 extends|extends
 name|ContextTestSupport
 block|{
-comment|/**      * Simple processor the copies the in to the out and increments a counter.      * Used to verify that the pipeline actually takes the output of one stage of       * the pipe and feeds it in as input into the next stage.      */
+comment|/**      * Simple processor the copies the in to the out and increments a counter.      * Used to verify that the pipeline actually takes the output of one stage      * of the pipe and feeds it in as input into the next stage.      */
 DECL|class|InToOut
 specifier|private
 specifier|static
@@ -599,7 +599,8 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
-comment|// Create a route that uses the  InToOut processor 3 times. the copy-counter header should be == 3
+comment|// Create a route that uses the InToOut processor 3 times. the
+comment|// copy-counter header should be == 3
 name|from
 argument_list|(
 literal|"direct:b"

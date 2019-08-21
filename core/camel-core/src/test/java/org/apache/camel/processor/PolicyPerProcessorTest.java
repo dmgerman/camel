@@ -386,7 +386,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// only wrap policy foo around the to(mock:foo) - notice the end()
+comment|// only wrap policy foo around the to(mock:foo) - notice the
+comment|// end()
 operator|.
 name|policy
 argument_list|(
@@ -400,7 +401,8 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
-comment|// only wrap policy bar around the to(mock:bar) - notice the end()
+comment|// only wrap policy bar around the to(mock:bar) - notice the
+comment|// end()
 operator|.
 name|policy
 argument_list|(

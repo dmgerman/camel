@@ -169,7 +169,8 @@ literal|"mock:dead"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// must use share UoW if we want the error handler to react on exceptions
+comment|// must use share UoW if we want the error handler to react on
+comment|// exceptions
 comment|// from the aggregation strategy also.
 name|from
 argument_list|(

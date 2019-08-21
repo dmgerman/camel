@@ -221,7 +221,8 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|// tell Camel to handle and continue when this exception is thrown
+comment|// tell Camel to handle and continue when this exception is
+comment|// thrown
 name|onException
 argument_list|(
 name|IllegalArgumentException
@@ -289,7 +290,8 @@ name|to
 argument_list|(
 literal|"mock:middle"
 argument_list|)
-comment|//throw a second time to validate that the exchange is reset appropriately
+comment|// throw a second time to validate that the exchange is
+comment|// reset appropriately
 operator|.
 name|throwException
 argument_list|(

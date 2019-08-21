@@ -311,7 +311,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// DLC does not handle the exception as we failed during processing in onException
+comment|// DLC does not handle the exception as we failed during processing in
+comment|// onException
 name|MockEndpoint
 name|error
 init|=
@@ -514,9 +515,11 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// if a MyTechnicalException is thrown we will not try to redeliver and we mark it as handled
+comment|// if a MyTechnicalException is thrown we will not try to
+comment|// redeliver and we mark it as handled
 comment|// so the caller does not get a failure
-comment|// since we have no to then the exchange will continue to be routed to the normal error handler
+comment|// since we have no to then the exchange will continue to be
+comment|// routed to the normal error handler
 comment|// destination that is mock:error as defined above
 name|onException
 argument_list|(
@@ -535,8 +538,10 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// if a MyFunctionalException is thrown we do not want Camel to redelivery but handle it our self using
-comment|// our bean myOwnHandler, then the exchange is not routed to the default error (mock:error)
+comment|// if a MyFunctionalException is thrown we do not want Camel to
+comment|// redelivery but handle it our self using
+comment|// our bean myOwnHandler, then the exchange is not routed to the
+comment|// default error (mock:error)
 name|onException
 argument_list|(
 name|MyFunctionalException

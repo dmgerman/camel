@@ -160,7 +160,8 @@ argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
-comment|// we should not receive it as we wait at most 0.01 sec and it take 0.1 sec to send
+comment|// we should not receive it as we wait at most 0.01 sec and it take 0.1
+comment|// sec to send
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied

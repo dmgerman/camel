@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that tests that the header contains the absolute path to the filename it used.  */
+comment|/**  * Unit test that tests that the header contains the absolute path to the  * filename it used.  */
 end_comment
 
 begin_class
@@ -119,7 +119,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// the absolute path to the file written should contain the target folder
+comment|// the absolute path to the file written should contain the target
+comment|// folder
 name|mock
 operator|.
 name|message

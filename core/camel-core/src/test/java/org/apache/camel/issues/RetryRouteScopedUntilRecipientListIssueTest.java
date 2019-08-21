@@ -1276,7 +1276,8 @@ specifier|public
 class|class
 name|MyRetryBean
 block|{
-comment|// using bean binding we can bind the information from the exchange to the types we have in our method signature
+comment|// using bean binding we can bind the information from the exchange to
+comment|// the types we have in our method signature
 DECL|method|retry (@eaderExchange.REDELIVERY_COUNTER) Integer counter, @Body String body, @ExchangeException Exception causedBy)
 specifier|public
 name|boolean
@@ -1309,7 +1310,8 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-comment|// we can of course do what ever we want to determine the result but this is a unit test so we end after 3 attempts
+comment|// we can of course do what ever we want to determine the result but
+comment|// this is a unit test so we end after 3 attempts
 return|return
 name|counter
 operator|<

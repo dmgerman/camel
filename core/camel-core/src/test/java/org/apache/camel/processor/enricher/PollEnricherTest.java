@@ -165,7 +165,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// -------------------------------------------------------------
-comment|//  InOnly routes
+comment|// InOnly routes
 comment|// -------------------------------------------------------------
 annotation|@
 name|Test
@@ -390,7 +390,8 @@ argument_list|,
 literal|"test"
 argument_list|)
 expr_stmt|;
-comment|// should take approx 1 sec to complete as the other thread is sending a bit later and we wait
+comment|// should take approx 1 sec to complete as the other thread is sending a
+comment|// bit later and we wait
 name|mock
 operator|.
 name|assertIsSatisfied
@@ -419,7 +420,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// -------------------------------------------------------------
-comment|//  InOut routes
+comment|// InOut routes
 comment|// -------------------------------------------------------------
 annotation|@
 name|Test
@@ -606,7 +607,7 @@ name|configure
 parameter_list|()
 block|{
 comment|// -------------------------------------------------------------
-comment|//  InOnly routes
+comment|// InOnly routes
 comment|// -------------------------------------------------------------
 name|from
 argument_list|(
@@ -665,7 +666,7 @@ literal|"mock:mock"
 argument_list|)
 expr_stmt|;
 comment|// -------------------------------------------------------------
-comment|//  InOut routes
+comment|// InOut routes
 comment|// -------------------------------------------------------------
 name|from
 argument_list|(

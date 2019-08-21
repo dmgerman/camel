@@ -112,7 +112,7 @@ name|definition
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link FilterProcessor} from the expression node.      *      * @param routeContext  the route context      * @return the created {@link FilterProcessor}      * @throws Exception is thrown if error creating the processor      */
+comment|/**      * Creates the {@link FilterProcessor} from the expression node.      *      * @param routeContext the route context      * @return the created {@link FilterProcessor}      * @throws Exception is thrown if error creating the processor      */
 DECL|method|createFilterProcessor (RouteContext routeContext)
 specifier|protected
 name|FilterProcessor
@@ -145,7 +145,7 @@ name|childProcessor
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates the {@link Predicate} from the expression node.      *      * @param routeContext  the route context      * @return the created predicate      */
+comment|/**      * Creates the {@link Predicate} from the expression node.      *      * @param routeContext the route context      * @return the created predicate      */
 DECL|method|createPredicate (RouteContext routeContext)
 specifier|protected
 name|Predicate

@@ -229,12 +229,14 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// our route is aggregating from the direct queue and sending the response to the mock
+comment|// our route is aggregating from the direct queue and sending
+comment|// the response to the mock
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// aggregated by header id and use our own strategy how to aggregate
+comment|// aggregated by header id and use our own strategy how to
+comment|// aggregate
 operator|.
 name|aggregate
 argument_list|(
@@ -294,7 +296,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// the first time we only have the new exchange so it wins the first round
+comment|// the first time we only have the new exchange so it wins the
+comment|// first round
 return|return
 name|newExchange
 return|;

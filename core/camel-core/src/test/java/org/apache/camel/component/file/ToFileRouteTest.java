@@ -223,7 +223,8 @@ throws|throws
 name|Exception
 block|{
 comment|// the reports from the seda queue is processed by our processor
-comment|// before they are written to files in the target/data/reports directory
+comment|// before they are written to files in the target/data/reports
+comment|// directory
 name|from
 argument_list|(
 literal|"direct:reports"
@@ -293,7 +294,8 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// set the output filename using java code logic, notice that this is done by setting
+comment|// set the output filename using java code logic, notice that this
+comment|// is done by setting
 comment|// a special header property of the out exchange
 name|exchange
 operator|.

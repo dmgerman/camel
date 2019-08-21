@@ -446,7 +446,7 @@ return|return
 name|writeAsString
 return|;
 block|}
-comment|/**      * Whether to write the output of each row/element as a JSON String value instead of a Map/POJO value.      */
+comment|/**      * Whether to write the output of each row/element as a JSON String value      * instead of a Map/POJO value.      */
 DECL|method|setWriteAsString (Boolean writeAsString)
 specifier|public
 name|void

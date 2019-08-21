@@ -257,10 +257,14 @@ argument_list|(
 literal|1
 argument_list|)
 comment|// N.B. *no* parallelProcessing() nor optimisticLocking() !
-comment|// each thread releases 1 permit and then blocks waiting for other threads.
-comment|// if there are<THREAD_COUNT> threads running in parallel, then all N threads will release
-comment|// and we will proceed. If the threads are prevented from running simultaneously due to the
-comment|// lock in AggregateProcessor.doProcess() then only 1 thread will run and will not release
+comment|// each thread releases 1 permit and then blocks waiting for
+comment|// other threads.
+comment|// if there are<THREAD_COUNT> threads running in parallel,
+comment|// then all N threads will release
+comment|// and we will proceed. If the threads are prevented from
+comment|// running simultaneously due to the
+comment|// lock in AggregateProcessor.doProcess() then only 1 thread
+comment|// will run and will not release
 comment|// the current thread, causing the test to time out.
 operator|.
 name|log

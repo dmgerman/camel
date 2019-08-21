@@ -196,7 +196,7 @@ else|:
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Used for filtering routes routes matching the given pattern, which follows the following rules:      *      * - Match by route id      * - Match by route input endpoint uri      *      * The matching is using exact match, by wildcard and regular expression as documented by {@link PatternHelper#matchPattern(String, String)}.      *      * For example to only include routes which starts with foo in their route id's, use: include=foo&#42;      * And to exclude routes which starts from JMS endpoints, use: exclude=jms:&#42;      *      * Multiple patterns can be separated by comma, for example to exclude both foo and bar routes, use: exclude=foo&#42;,bar&#42;      *      * Exclude takes precedence over include.      *      * @param include  the include pattern      * @param exclude  the exclude pattern      */
+comment|/**      * Used for filtering routes routes matching the given pattern, which      * follows the following rules: - Match by route id - Match by route input      * endpoint uri The matching is using exact match, by wildcard and regular      * expression as documented by      * {@link PatternHelper#matchPattern(String, String)}. For example to only      * include routes which starts with foo in their route id's, use:      * include=foo&#42; And to exclude routes which starts from JMS endpoints,      * use: exclude=jms:&#42; Multiple patterns can be separated by comma, for      * example to exclude both foo and bar routes, use:      * exclude=foo&#42;,bar&#42; Exclude takes precedence over include.      *      * @param include the include pattern      * @param exclude the exclude pattern      */
 DECL|method|filterByPattern (String include, String exclude)
 specifier|public
 specifier|static
@@ -406,7 +406,8 @@ block|}
 block|}
 else|else
 block|{
-comment|// if include has not been set then, we assume its matched as it was not excluded
+comment|// if include has not been set then, we assume its matched as it was
+comment|// not excluded
 name|match
 operator|=
 literal|true

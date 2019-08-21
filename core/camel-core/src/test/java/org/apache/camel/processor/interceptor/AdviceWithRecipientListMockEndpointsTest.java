@@ -141,7 +141,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// log:bar is a dynamic endpoint created on-the-fly (eg not in the route)
+comment|// log:bar is a dynamic endpoint created on-the-fly (eg not in the
+comment|// route)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:log:bar"

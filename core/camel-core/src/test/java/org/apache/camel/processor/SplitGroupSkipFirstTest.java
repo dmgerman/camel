@@ -161,7 +161,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// split by new line and group by 3, and skip the very first element
+comment|// split by new line and group by 3, and skip the very first
+comment|// element
 operator|.
 name|split
 argument_list|()

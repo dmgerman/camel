@@ -585,7 +585,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Write a file without chmod set, should work normally and not throw an exception for invalid chmod value      * @throws Exception      */
+comment|/**      * Write a file without chmod set, should work normally and not throw an      * exception for invalid chmod value      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testWriteNoChmod ()

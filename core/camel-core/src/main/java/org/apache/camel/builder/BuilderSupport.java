@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  */
+comment|/**  * Base class for implementation inheritance for different clauses in the  *<a href="http://camel.apache.org/dsl.html">Java DSL</a>  */
 end_comment
 
 begin_class
@@ -425,7 +425,7 @@ name|exp
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a JSonPath expression value builder      *      * @param value      The JSonPath expression      * @param resultType The result type that the JSonPath expression will return.      */
+comment|/**      * Returns a JSonPath expression value builder      *      * @param value The JSonPath expression      * @param resultType The result type that the JSonPath expression will      *            return.      */
 DECL|method|jsonpath (String value, Class<?> resultType)
 specifier|public
 name|ValueBuilder
@@ -536,7 +536,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a simple expression value builder, using String.format style      */
-DECL|method|simpleF (String format, Object...values)
+DECL|method|simpleF (String format, Object... values)
 specifier|public
 name|SimpleBuilder
 name|simpleF
@@ -561,7 +561,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a simple expression value builder, using String.format style      */
-DECL|method|simpleF (String format, Class<?> resultType, Object...values)
+DECL|method|simpleF (String format, Class<?> resultType, Object... values)
 specifier|public
 name|SimpleBuilder
 name|simpleF
@@ -614,7 +614,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a xpath expression value builder      *      * @param value      the XPath expression      * @param resultType the result type that the XPath expression will return.      * @return the builder      */
+comment|/**      * Returns a xpath expression value builder      *      * @param value the XPath expression      * @param resultType the result type that the XPath expression will return.      * @return the builder      */
 DECL|method|xpath (String value, Class<?> resultType)
 specifier|public
 name|ValueBuilder
@@ -641,7 +641,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a xpath expression value builder      *      * @param value      the XPath expression      * @param namespaces namespace mappings      * @return the builder      */
+comment|/**      * Returns a xpath expression value builder      *      * @param value the XPath expression      * @param namespaces namespace mappings      * @return the builder      */
 DECL|method|xpath (String value, Namespaces namespaces)
 specifier|public
 name|ValueBuilder
@@ -665,7 +665,7 @@ name|namespaces
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a xpath expression value builder      *      * @param value      the XPath expression      * @param resultType the result type that the XPath expression will return.      * @param namespaces namespace mappings      * @return the builder      */
+comment|/**      * Returns a xpath expression value builder      *      * @param value the XPath expression      * @param resultType the result type that the XPath expression will return.      * @param namespaces namespace mappings      * @return the builder      */
 DECL|method|xpath (String value, Class<?> resultType, Namespaces namespaces)
 specifier|public
 name|ValueBuilder
@@ -684,7 +684,8 @@ name|Namespaces
 name|namespaces
 parameter_list|)
 block|{
-comment|// the value may contain property placeholders as it may be used directly from Java DSL
+comment|// the value may contain property placeholders as it may be used
+comment|// directly from Java DSL
 try|try
 block|{
 name|value
@@ -755,7 +756,7 @@ name|exp
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method      * call expression</a> value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a      * reference to a bean (String).      *      * @param beanOrBeanRef either an instanceof a bean or a reference to bean      *            to lookup in the Registry      * @return the builder      */
 DECL|method|method (Object beanOrBeanRef)
 specifier|public
 name|ValueBuilder
@@ -774,7 +775,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method      * call expression</a> value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a      * reference to a bean (String).      *      * @param beanOrBeanRef either an instanceof a bean or a reference to bean      *            to lookup in the Registry      * @param method name of method to invoke      * @return the builder      */
 DECL|method|method (Object beanOrBeanRef, String method)
 specifier|public
 name|ValueBuilder
@@ -798,7 +799,7 @@ name|method
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method      * call expression</a> value builder      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder      */
 DECL|method|method (Class<?> beanType)
 specifier|public
 name|ValueBuilder
@@ -820,7 +821,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param method   name of method to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method      * call expression</a> value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param method name of method to invoke      * @return the builder      */
 DECL|method|method (Class<?> beanType, String method)
 specifier|public
 name|ValueBuilder
@@ -919,7 +920,7 @@ name|exceptionMessage
 argument_list|()
 return|;
 block|}
-comment|/**      * Resolves the given URI to an endpoint      *      * @param uri  the uri to resolve      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      * @return the endpoint      */
+comment|/**      * Resolves the given URI to an endpoint      *      * @param uri the uri to resolve      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      * @return the endpoint      */
 DECL|method|endpoint (String uri)
 specifier|public
 name|Endpoint
@@ -970,7 +971,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Resolves the given URI to an endpoint of the specified type      *      * @param uri  the uri to resolve      * @param type the excepted type of the endpoint      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      * @return the endpoint      */
+comment|/**      * Resolves the given URI to an endpoint of the specified type      *      * @param uri the uri to resolve      * @param type the excepted type of the endpoint      * @throws NoSuchEndpointException if the endpoint URI could not be resolved      * @return the endpoint      */
 DECL|method|endpoint (String uri, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1034,7 +1035,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      *      * @param uris  list of endpoints to resolve      * @throws NoSuchEndpointException if an endpoint URI could not be resolved      * @return list of endpoints      */
+comment|/**      * Resolves the list of URIs into a list of {@link Endpoint} instances      *      * @param uris list of endpoints to resolve      * @throws NoSuchEndpointException if an endpoint URI could not be resolved      * @return list of endpoints      */
 DECL|method|endpoints (String... uris)
 specifier|public
 name|List
@@ -1084,7 +1085,7 @@ return|return
 name|endpoints
 return|;
 block|}
-comment|/**      * Helper method to create a list of {@link Endpoint} instances      *      * @param endpoints  endpoints      * @return list of the given endpoints      */
+comment|/**      * Helper method to create a list of {@link Endpoint} instances      *      * @param endpoints endpoints      * @return list of the given endpoints      */
 DECL|method|endpoints (Endpoint... endpoints)
 specifier|public
 name|List
@@ -1125,7 +1126,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a default<a href="http://camel.apache.org/error-handler.html">error handler</a>.      *      * @return the builder      */
+comment|/**      * Creates a default      *<a href="http://camel.apache.org/error-handler.html">error handler</a>.      *      * @return the builder      */
 DECL|method|defaultErrorHandler ()
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -1138,7 +1139,7 @@ name|DefaultErrorHandlerBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a disabled<a href="http://camel.apache.org/error-handler.html">error handler</a>      * for removing the default error handler      *      * @return the builder      */
+comment|/**      * Creates a disabled      *<a href="http://camel.apache.org/error-handler.html">error handler</a>      * for removing the default error handler      *      * @return the builder      */
 DECL|method|noErrorHandler ()
 specifier|public
 name|NoErrorHandlerBuilder
@@ -1151,7 +1152,7 @@ name|NoErrorHandlerBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intended destination.      *      * @param deadLetterUri  uri to the dead letter endpoint storing dead messages      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter      * Channel EIP:</a> is a error handler for handling messages that could not      * be delivered to it's intended destination.      *      * @param deadLetterUri uri to the dead letter endpoint storing dead      *            messages      * @return the builder      */
 DECL|method|deadLetterChannel (String deadLetterUri)
 specifier|public
 name|DeadLetterChannelBuilder
@@ -1171,7 +1172,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter Channel EIP:</a>      * is a error handler for handling messages that could not be delivered to it's intended destination.      *      * @param deadLetterEndpoint  dead letter endpoint storing dead messages      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter      * Channel EIP:</a> is a error handler for handling messages that could not      * be delivered to it's intended destination.      *      * @param deadLetterEndpoint dead letter endpoint storing dead messages      * @return the builder      */
 DECL|method|deadLetterChannel (Endpoint deadLetterEndpoint)
 specifier|public
 name|DeadLetterChannelBuilder

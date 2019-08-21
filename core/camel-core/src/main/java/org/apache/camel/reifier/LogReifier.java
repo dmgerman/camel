@@ -383,7 +383,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// first - try to lookup single instance in the registry, just like LogComponent
+comment|// first - try to lookup single instance in the registry, just like
+comment|// LogComponent
 name|Map
 argument_list|<
 name|String

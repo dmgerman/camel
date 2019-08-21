@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class tests an issue where an input file is not picked up due to a dynamic  * doneFileName containing two dots.  */
+comment|/**  * This class tests an issue where an input file is not picked up due to a  * dynamic doneFileName containing two dots.  */
 end_comment
 
 begin_class

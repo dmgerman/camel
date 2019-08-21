@@ -273,7 +273,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Handles the given exception      *      * @param exceptionType  the exception      * @return the try builder      */
+comment|/**      * Handles the given exception      *      * @param exceptionType the exception      * @return the try builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -308,7 +308,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Handles the given exception(s)      *      * @param exceptionType  the exception(s)      * @return the try builder      */
+comment|/**      * Handles the given exception(s)      *      * @param exceptionType the exception(s)      * @return the try builder      */
 DECL|method|doCatch (Class<? extends Throwable>.... exceptionType)
 specifier|public
 name|TryDefinition
@@ -368,7 +368,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The finally block for a given handle      *      * @return  the try builder      */
+comment|/**      * The finally block for a given handle      *      * @return the try builder      */
 DECL|method|doFinally ()
 specifier|public
 name|TryDefinition
@@ -399,7 +399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets an additional predicate that should be true before the onCatch is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets an additional predicate that should be true before the onCatch is      * triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should      * be intercepted by this exception type or not.      *      * @param predicate predicate that determines true or false      * @return the builder      */
 DECL|method|onWhen (@sPredicate Predicate predicate)
 specifier|public
 name|TryDefinition
@@ -411,7 +411,8 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
-comment|// we must use a delegate so we can use the fluent builder based on TryDefinition
+comment|// we must use a delegate so we can use the fluent builder based on
+comment|// TryDefinition
 comment|// to configure all with try .. catch .. finally
 comment|// set the onWhen predicate on all the catch definitions
 name|Iterator

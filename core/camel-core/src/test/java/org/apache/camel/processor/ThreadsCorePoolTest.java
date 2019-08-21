@@ -283,7 +283,8 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-comment|// will use a a custom thread pool with 5 in core and 5 as max
+comment|// will use a a custom thread pool with 5 in core and 5 as
+comment|// max
 operator|.
 name|threads
 argument_list|(

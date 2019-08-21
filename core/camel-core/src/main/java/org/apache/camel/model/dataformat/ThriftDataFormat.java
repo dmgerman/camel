@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Thrift data format is used for serialization and deserialization of messages using Apache Thrift binary dataformat.  */
+comment|/**  * The Thrift data format is used for serialization and deserialization of  * messages using Apache Thrift binary dataformat.  */
 end_comment
 
 begin_class
@@ -269,7 +269,7 @@ operator|=
 name|instanceClass
 expr_stmt|;
 block|}
-comment|/**      * Defines a content type format in which thrift message will be      * serialized/deserialized from(to) the Java been.      * The format can either be native or json for either native binary thrift, json or simple json fields representation.      * The default value is binary.      */
+comment|/**      * Defines a content type format in which thrift message will be      * serialized/deserialized from(to) the Java been. The format can either be      * native or json for either native binary thrift, json or simple json      * fields representation. The default value is binary.      */
 DECL|method|setContentTypeFormat (String contentTypeFormat)
 specifier|public
 name|void

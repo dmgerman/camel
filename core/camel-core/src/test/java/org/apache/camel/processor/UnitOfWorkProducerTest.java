@@ -356,7 +356,8 @@ operator|.
 name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
-comment|// there should be 1 completed events as direct endpoint will be like a direct method call
+comment|// there should be 1 completed events as direct endpoint will be like a
+comment|// direct method call
 comment|// and the UoW will be re-used
 name|assertEquals
 argument_list|(

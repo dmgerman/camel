@@ -240,9 +240,12 @@ name|from
 argument_list|(
 literal|"direct:a"
 argument_list|)
-comment|// disable redelivery here as most often your load balancer over external
-comment|// endpoints you do not have control off, such as a web service call
-comment|// but we use mock for unit testing so no error handler here please
+comment|// disable redelivery here as most often your load balancer
+comment|// over external
+comment|// endpoints you do not have control off, such as a web
+comment|// service call
+comment|// but we use mock for unit testing so no error handler here
+comment|// please
 operator|.
 name|errorHandler
 argument_list|(
@@ -268,9 +271,12 @@ name|from
 argument_list|(
 literal|"direct:b"
 argument_list|)
-comment|// disable redelivery here as most often your load balancer over external
-comment|// endpoints you do not have control off, such as a web service call
-comment|// but we use mock for unit testing so no error handler here please
+comment|// disable redelivery here as most often your load balancer
+comment|// over external
+comment|// endpoints you do not have control off, such as a web
+comment|// service call
+comment|// but we use mock for unit testing so no error handler here
+comment|// please
 operator|.
 name|errorHandler
 argument_list|(

@@ -155,7 +155,8 @@ specifier|private
 name|String
 name|excludePattern
 decl_stmt|;
-comment|// in XML we cannot use String[] for attributes, so we provide a single attribute instead
+comment|// in XML we cannot use String[] for attributes, so we provide a single
+comment|// attribute instead
 annotation|@
 name|XmlTransient
 DECL|field|excludePatterns
@@ -252,7 +253,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Name or pattern of properties to remove.      *      * The pattern is matched in the following order:      * 1 = exact match      * 2 = wildcard (pattern ends with a * and the name starts with the pattern)      * 3 = regular expression      * (all of above is case in-sensitive).      */
+comment|/**      * Name or pattern of properties to remove. The pattern is matched in the      * following order: 1 = exact match 2 = wildcard (pattern ends with a * and      * the name starts with the pattern) 3 = regular expression (all of above is      * case in-sensitive).      */
 DECL|method|setPattern (String pattern)
 specifier|public
 name|void
@@ -290,7 +291,7 @@ return|return
 name|excludePatterns
 return|;
 block|}
-comment|/**      * Name or pattern of properties to not remove.      *      * The pattern is matched in the following order:      * 1 = exact match      * 2 = wildcard (pattern ends with a * and the name starts with the pattern)      * 3 = regular expression      * (all of above is case in-sensitive).      */
+comment|/**      * Name or pattern of properties to not remove. The pattern is matched in      * the following order: 1 = exact match 2 = wildcard (pattern ends with a *      * and the name starts with the pattern) 3 = regular expression (all of      * above is case in-sensitive).      */
 DECL|method|setExcludePatterns (String[] excludePatterns)
 specifier|public
 name|void
@@ -318,7 +319,7 @@ return|return
 name|excludePattern
 return|;
 block|}
-comment|/**      * Name or pattern of properties to not remove.      *      * The pattern is matched in the following order:      * 1 = exact match      * 2 = wildcard (pattern ends with a * and the name starts with the pattern)      * 3 = regular expression      * (all of above is case in-sensitive).      */
+comment|/**      * Name or pattern of properties to not remove. The pattern is matched in      * the following order: 1 = exact match 2 = wildcard (pattern ends with a *      * and the name starts with the pattern) 3 = regular expression (all of      * above is case in-sensitive).      */
 DECL|method|setExcludePattern (String excludePattern)
 specifier|public
 name|void

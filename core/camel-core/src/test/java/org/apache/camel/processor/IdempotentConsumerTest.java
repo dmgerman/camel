@@ -599,7 +599,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// instruct idempotent consumer to not skip duplicates as we will filter then our self
+comment|// instruct idempotent consumer to not skip duplicates as we
+comment|// will filter then our self
 operator|.
 name|idempotentConsumer
 argument_list|(
@@ -633,7 +634,8 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|)
-comment|// filter out duplicate messages by sending them to someplace else and then stop
+comment|// filter out duplicate messages by sending them to
+comment|// someplace else and then stop
 operator|.
 name|to
 argument_list|(

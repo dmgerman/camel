@@ -84,7 +84,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// stopping foo route, which should not stop context scoped error handler
+comment|// stopping foo route, which should not stop context scoped error
+comment|// handler
 name|context
 operator|.
 name|getRouteController

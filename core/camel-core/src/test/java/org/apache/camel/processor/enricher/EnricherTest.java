@@ -165,7 +165,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// -------------------------------------------------------------
-comment|//  InOnly routes
+comment|// InOnly routes
 comment|// -------------------------------------------------------------
 annotation|@
 name|Test
@@ -311,7 +311,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// -------------------------------------------------------------
-comment|//  InOut routes
+comment|// InOut routes
 comment|// -------------------------------------------------------------
 annotation|@
 name|Test
@@ -559,7 +559,7 @@ name|configure
 parameter_list|()
 block|{
 comment|// -------------------------------------------------------------
-comment|//  InOnly routes
+comment|// InOnly routes
 comment|// -------------------------------------------------------------
 name|from
 argument_list|(
@@ -605,7 +605,8 @@ argument_list|(
 name|noErrorHandler
 argument_list|()
 argument_list|)
-comment|// avoid re-deliveries
+comment|// avoid
+comment|// re-deliveries
 operator|.
 name|enrich
 argument_list|(
@@ -620,7 +621,7 @@ literal|"mock:mock"
 argument_list|)
 expr_stmt|;
 comment|// -------------------------------------------------------------
-comment|//  InOut routes
+comment|// InOut routes
 comment|// -------------------------------------------------------------
 name|from
 argument_list|(
@@ -656,7 +657,8 @@ argument_list|(
 name|noErrorHandler
 argument_list|()
 argument_list|)
-comment|// avoid re-deliveries
+comment|// avoid
+comment|// re-deliveries
 operator|.
 name|enrich
 argument_list|(
@@ -666,7 +668,7 @@ name|aggregationStrategy
 argument_list|)
 expr_stmt|;
 comment|// -------------------------------------------------------------
-comment|//  Enricher resources
+comment|// Enricher resources
 comment|// -------------------------------------------------------------
 name|from
 argument_list|(

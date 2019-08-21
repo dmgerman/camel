@@ -160,7 +160,8 @@ name|getCurrentCacheSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// test that we cache at most 500 producers to avoid it eating to much memory
+comment|// test that we cache at most 500 producers to avoid it eating to much
+comment|// memory
 for|for
 control|(
 name|int

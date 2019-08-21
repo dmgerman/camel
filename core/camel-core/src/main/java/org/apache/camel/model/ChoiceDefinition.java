@@ -315,7 +315,8 @@ argument_list|>
 name|getOutputs
 parameter_list|()
 block|{
-comment|// wrap the outputs into a list where we can on the inside control the when/otherwise
+comment|// wrap the outputs into a list where we can on the inside control the
+comment|// when/otherwise
 comment|// but make it appear as a list on the outside
 return|return
 operator|new
@@ -732,7 +733,8 @@ operator|instanceof
 name|OtherwiseDefinition
 condition|)
 block|{
-comment|// okay we are adding a when or otherwise so allow any kind of output after this again
+comment|// okay we are adding a when or otherwise so allow any kind of
+comment|// output after this again
 name|onlyWhenOrOtherwise
 operator|=
 literal|false
@@ -931,7 +933,8 @@ name|String
 name|value
 parameter_list|)
 block|{
-comment|// when setting id, we should set it on the fine grained element, if possible
+comment|// when setting id, we should set it on the fine grained element, if
+comment|// possible
 if|if
 condition|(
 name|otherwise
@@ -1227,10 +1230,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// if using the Java DSL then the expression may have been set using the
-comment|// ExpressionClause which is a fancy builder to define expressions and predicates
-comment|// using fluent builders in the DSL. However we need afterwards a callback to
-comment|// reset the expression to the expression type the ExpressionClause did build for us
+comment|// if using the Java DSL then the expression may have been
+comment|// set using the
+comment|// ExpressionClause which is a fancy builder to define
+comment|// expressions and predicates
+comment|// using fluent builders in the DSL. However we need
+comment|// afterwards a callback to
+comment|// reset the expression to the expression type the
+comment|// ExpressionClause did build for us
 name|ExpressionFactory
 name|model
 init|=

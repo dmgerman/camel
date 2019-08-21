@@ -297,7 +297,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// stop on exception can cause tasks which hasnt been started yet to not run
+comment|// stop on exception can cause tasks which hasnt been started yet to not
+comment|// run
 comment|// so it can either be 0 or 1 message
 name|getMockEndpoint
 argument_list|(

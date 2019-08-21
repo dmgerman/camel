@@ -211,7 +211,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// will be called twice because of the two exceptions because the circular exception is detected to break out
+comment|// will be called twice because of the two exceptions because the
+comment|// circular exception is detected to break out
 name|getMockEndpoint
 argument_list|(
 literal|"mock:c"
@@ -440,7 +441,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we will only be called once because when the route fails its not under error handler
+comment|// we will only be called once because when the route fails its not
+comment|// under error handler
 comment|// and therefore onException wont trigger the 2nd time
 name|getMockEndpoint
 argument_list|(

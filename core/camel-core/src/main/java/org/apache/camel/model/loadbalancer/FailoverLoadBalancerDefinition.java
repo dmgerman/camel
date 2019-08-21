@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Failover load balancer  *  * The failover load balancer is capable of trying the next processor in case an Exchange failed with an exception during processing.  * You can constrain the failover to activate only when one exception of a list you specify occurs.  * If you do not specify a list any exception will cause fail over to occur.  * This balancer uses the same strategy for matching exceptions as the Exception Clause does for the onException.  */
+comment|/**  * Failover load balancer The failover load balancer is capable of trying the  * next processor in case an Exchange failed with an exception during  * processing. You can constrain the failover to activate only when one  * exception of a list you specify occurs. If you do not specify a list any  * exception will cause fail over to occur. This balancer uses the same strategy  * for matching exceptions as the Exception Clause does for the onException.  */
 end_comment
 
 begin_class
@@ -267,7 +267,7 @@ return|return
 name|exceptions
 return|;
 block|}
-comment|/**      * A list of class names for specific exceptions to monitor.      * If no exceptions is configured then all exceptions is monitored      */
+comment|/**      * A list of class names for specific exceptions to monitor. If no      * exceptions is configured then all exceptions is monitored      */
 DECL|method|setExceptions (List<String> exceptions)
 specifier|public
 name|void
@@ -303,7 +303,7 @@ return|return
 name|exceptionTypes
 return|;
 block|}
-comment|/**      * A list of specific exceptions to monitor.      * If no exceptions is configured then all exceptions is monitored      */
+comment|/**      * A list of specific exceptions to monitor. If no exceptions is configured      * then all exceptions is monitored      */
 DECL|method|setExceptionTypes (List<Class<?>> exceptionTypes)
 specifier|public
 name|void
@@ -336,7 +336,7 @@ return|return
 name|roundRobin
 return|;
 block|}
-comment|/**      * Whether or not the failover load balancer should operate in round robin mode or not.      * If not, then it will always start from the first endpoint when a new message is to be processed.      * In other words it restart from the top for every message.      * If round robin is enabled, then it keeps state and will continue with the next endpoint in a round robin fashion.      *<p/>      * You can also enable sticky mode together with round robin, if so then it will pick the last known good endpoint      * to use when starting the load balancing (instead of using the next when starting).      */
+comment|/**      * Whether or not the failover load balancer should operate in round robin      * mode or not. If not, then it will always start from the first endpoint      * when a new message is to be processed. In other words it restart from the      * top for every message. If round robin is enabled, then it keeps state and      * will continue with the next endpoint in a round robin fashion.      *<p/>      * You can also enable sticky mode together with round robin, if so then it      * will pick the last known good endpoint to use when starting the load      * balancing (instead of using the next when starting).      */
 DECL|method|setRoundRobin (Boolean roundRobin)
 specifier|public
 name|void
@@ -363,7 +363,7 @@ return|return
 name|sticky
 return|;
 block|}
-comment|/**      * Whether or not the failover load balancer should operate in sticky mode or not.      * If not, then it will always start from the first endpoint when a new message is to be processed.      * In other words it restart from the top for every message.      * If sticky is enabled, then it keeps state and will continue with the last known good endpoint.      *<p/>      * You can also enable sticky mode together with round robin, if so then it will pick the last known good endpoint      * to use when starting the load balancing (instead of using the next when starting).      */
+comment|/**      * Whether or not the failover load balancer should operate in sticky mode      * or not. If not, then it will always start from the first endpoint when a      * new message is to be processed. In other words it restart from the top      * for every message. If sticky is enabled, then it keeps state and will      * continue with the last known good endpoint.      *<p/>      * You can also enable sticky mode together with round robin, if so then it      * will pick the last known good endpoint to use when starting the load      * balancing (instead of using the next when starting).      */
 DECL|method|setSticky (Boolean sticky)
 specifier|public
 name|void
@@ -390,7 +390,7 @@ return|return
 name|maximumFailoverAttempts
 return|;
 block|}
-comment|/**      * A value to indicate after X failover attempts we should exhaust (give up).      * Use -1 to indicate never give up and continuously try to failover. Use 0 to never failover.      * And use e.g. 3 to failover at most 3 times before giving up.      * his option can be used whether or not roundRobin is enabled or not.      */
+comment|/**      * A value to indicate after X failover attempts we should exhaust (give      * up). Use -1 to indicate never give up and continuously try to failover.      * Use 0 to never failover. And use e.g. 3 to failover at most 3 times      * before giving up. his option can be used whether or not roundRobin is      * enabled or not.      */
 DECL|method|setMaximumFailoverAttempts (Integer maximumFailoverAttempts)
 specifier|public
 name|void

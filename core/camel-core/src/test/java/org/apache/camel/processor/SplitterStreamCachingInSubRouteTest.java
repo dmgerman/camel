@@ -662,7 +662,7 @@ name|oldBody
 operator|+
 name|newBody
 decl_stmt|;
-comment|//also do stream caching in the aggregation strategy
+comment|// also do stream caching in the aggregation strategy
 name|CachedOutputStream
 name|cos
 init|=

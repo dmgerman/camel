@@ -299,7 +299,7 @@ name|childProcessor
 argument_list|)
 return|;
 block|}
-comment|/**      * Strategy method to resolve the {@link org.apache.camel.spi.IdempotentRepository} to use      *      * @param routeContext route context      * @return the repository      */
+comment|/**      * Strategy method to resolve the      * {@link org.apache.camel.spi.IdempotentRepository} to use      *      * @param routeContext route context      * @return the repository      */
 DECL|method|resolveMessageIdRepository (RouteContext routeContext)
 specifier|protected
 parameter_list|<

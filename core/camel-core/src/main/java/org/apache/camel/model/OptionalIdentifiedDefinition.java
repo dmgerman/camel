@@ -210,7 +210,7 @@ return|return
 name|description
 return|;
 block|}
-comment|/**      * Sets the description of this node      *      * @param description  sets the text description, use null to not set a text      */
+comment|/**      * Sets the description of this node      *      * @param description sets the text description, use null to not set a text      */
 annotation|@
 name|XmlElement
 DECL|method|setDescription (DescriptionDefinition description)
@@ -243,7 +243,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the description of this node      *      * @param text  sets the text description, use null to not set a text      * @return the builder      */
+comment|/**      * Sets the description of this node      *      * @param text sets the text description, use null to not set a text      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -294,7 +294,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sets the description of this node      *      * @param id  sets the id, use null to not set an id      * @param text  sets the text description, use null to not set a text      * @param lang  sets the language for the description, use null to not set a language      * @return the builder      */
+comment|/**      * Sets the description of this node      *      * @param id sets the id, use null to not set an id      * @param text sets the text description, use null to not set a text      * @param lang sets the language for the description, use null to not set a      *            language      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -393,7 +393,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sets the id of this node      *      * @param id  the id      * @return the builder      */
+comment|/**      * Sets the id of this node      *      * @param id the id      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -495,7 +495,7 @@ operator|&&
 name|customId
 return|;
 block|}
-comment|/**      * Returns the description text or null if there is no description text associated with this node      */
+comment|/**      * Returns the description text or null if there is no description text      * associated with this node      */
 annotation|@
 name|Override
 DECL|method|getDescriptionText ()

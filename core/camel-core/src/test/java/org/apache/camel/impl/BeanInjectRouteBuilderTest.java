@@ -192,7 +192,8 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-comment|// manual post process us as ContextTestSupport in camel-core doesn't do that out of the box
+comment|// manual post process us as ContextTestSupport in camel-core doesn't do
+comment|// that out of the box
 name|CamelBeanPostProcessor
 name|post
 init|=

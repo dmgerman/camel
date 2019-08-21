@@ -1951,7 +1951,8 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|// Sspp on client params overrides  secure socket protocols filter on client
+comment|// Sspp on client params overrides secure socket protocols filter on
+comment|// client
 name|filter
 operator|.
 name|getInclude
@@ -2148,14 +2149,14 @@ index|[]
 name|configured
 parameter_list|)
 block|{
-comment|//With the IBM JDK, an "default" unconfigured control socket is more
-comment|//restricted than with the Sun JDK.   For example, with
-comment|//SSLContext.getInstance("TLS"), on Sun, you get
+comment|// With the IBM JDK, an "default" unconfigured control socket is more
+comment|// restricted than with the Sun JDK. For example, with
+comment|// SSLContext.getInstance("TLS"), on Sun, you get
 comment|// TLSv1, SSLv3, SSLv2Hello
-comment|//but with IBM, you only get:
+comment|// but with IBM, you only get:
 comment|// TLSv1
-comment|//We'll check to make sure the "default" protocols are amongst the list
-comment|//that are in after configuration.
+comment|// We'll check to make sure the "default" protocols are amongst the list
+comment|// that are in after configuration.
 name|assertTrue
 argument_list|(
 name|Arrays
@@ -3014,7 +3015,8 @@ argument_list|,
 literal|"TLS"
 argument_list|)
 expr_stmt|;
-comment|// Sspp on client params overrides  secure socket protocols filter on client
+comment|// Sspp on client params overrides secure socket protocols filter on
+comment|// client
 name|filter
 operator|.
 name|getInclude
@@ -4525,7 +4527,8 @@ argument_list|,
 literal|"TLS"
 argument_list|)
 expr_stmt|;
-comment|//checkProtocols(controlServerSocket.getEnabledProtocols(), serverSocket.getEnabledProtocols());
+comment|// checkProtocols(controlServerSocket.getEnabledProtocols(),
+comment|// serverSocket.getEnabledProtocols());
 comment|// empty sspp
 name|SecureSocketProtocolsParameters
 name|sspp

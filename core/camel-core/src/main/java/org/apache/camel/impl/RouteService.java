@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the runtime objects for a given {@link RouteDefinition} so that it can be stopped independently  * of other routes  */
+comment|/**  * Represents the runtime objects for a given {@link RouteDefinition} so that it  * can be stopped independently of other routes  */
 end_comment
 
 begin_class
@@ -376,8 +376,10 @@ return|return
 literal|false
 return|;
 block|}
-comment|// if error handler ref is configured it may refer to a context scoped, so we need to check this first
-comment|// the XML DSL will configure error handlers using refs, so we need this additional test
+comment|// if error handler ref is configured it may refer to a context scoped,
+comment|// so we need to check this first
+comment|// the XML DSL will configure error handlers using refs, so we need this
+comment|// additional test
 if|if
 condition|(
 name|routeDefinition
@@ -431,7 +433,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Gather all other kind of route scoped services from the given route, except error handler      */
+comment|/**      * Gather all other kind of route scoped services from the given route,      * except error handler      */
 annotation|@
 name|Override
 DECL|method|doGetRouteScopedServices (List<Service> services)

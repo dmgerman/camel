@@ -204,7 +204,7 @@ return|return
 name|context
 return|;
 block|}
-comment|/**      * Ensure the expected message count for a consumer-only endpoint defaults to zero      */
+comment|/**      * Ensure the expected message count for a consumer-only endpoint defaults      * to zero      */
 annotation|@
 name|Test
 DECL|method|testConsumerOnlyEndpoint ()
@@ -306,7 +306,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Ensure the expected message count for a consumer-producer endpoint defaults to the size of the dataset      */
+comment|/**      * Ensure the expected message count for a consumer-producer endpoint      * defaults to the size of the dataset      */
 annotation|@
 name|Test
 DECL|method|testConsumerWithProducer ()

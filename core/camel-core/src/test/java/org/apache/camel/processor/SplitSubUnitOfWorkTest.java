@@ -321,8 +321,10 @@ name|to
 argument_list|(
 literal|"mock:a"
 argument_list|)
-comment|// share unit of work in the splitter, which tells Camel to propagate failures from
-comment|// processing the splitted messages back to the result of the splitter, which allows
+comment|// share unit of work in the splitter, which tells Camel to
+comment|// propagate failures from
+comment|// processing the splitted messages back to the result of
+comment|// the splitter, which allows
 comment|// it to act as a combined unit of work
 operator|.
 name|split

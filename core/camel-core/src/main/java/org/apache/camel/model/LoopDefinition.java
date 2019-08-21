@@ -225,7 +225,7 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Enables copy mode so a copy of the input Exchange is used for each iteration.      * @return the builder      */
+comment|/**      * Enables copy mode so a copy of the input Exchange is used for each      * iteration.      *       * @return the builder      */
 DECL|method|copy ()
 specifier|public
 name|LoopDefinition
@@ -261,7 +261,7 @@ return|return
 name|doWhile
 return|;
 block|}
-comment|/**      * Enables the while loop that loops until the predicate evaluates to false or null.      */
+comment|/**      * Enables the while loop that loops until the predicate evaluates to false      * or null.      */
 DECL|method|setDoWhile (Boolean doWhile)
 specifier|public
 name|void
@@ -278,7 +278,7 @@ operator|=
 name|doWhile
 expr_stmt|;
 block|}
-comment|/**      * If the copy attribute is true, a copy of the input Exchange is used for each iteration.      * That means each iteration will start from a copy of the same message.      *<p/>      * By default loop will loop the same exchange all over, so each iteration may      * have different message content.      */
+comment|/**      * If the copy attribute is true, a copy of the input Exchange is used for      * each iteration. That means each iteration will start from a copy of the      * same message.      *<p/>      * By default loop will loop the same exchange all over, so each iteration      * may have different message content.      */
 DECL|method|setCopy (Boolean copy)
 specifier|public
 name|void
@@ -346,7 +346,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Expression to define how many times we should loop. Notice the expression is only evaluated once, and should return      * a number as how many times to loop. A value of zero or negative means no looping. The loop is like a for-loop fashion,      * if you want a while loop, then the dynamic router may be a better choice.      */
+comment|/**      * Expression to define how many times we should loop. Notice the expression      * is only evaluated once, and should return a number as how many times to      * loop. A value of zero or negative means no looping. The loop is like a      * for-loop fashion, if you want a while loop, then the dynamic router may      * be a better choice.      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)

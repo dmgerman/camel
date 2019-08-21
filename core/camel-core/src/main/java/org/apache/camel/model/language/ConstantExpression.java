@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use a constant value in Camel expressions or predicates.  *  *<b>Important:</b> this is a fixed constant value that is only set once during starting up the route,  * do not use this if you want dynamic values during routing.  */
+comment|/**  * To use a constant value in Camel expressions or predicates.<b>Important:</b>  * this is a fixed constant value that is only set once during starting up the  * route, do not use this if you want dynamic values during routing.  */
 end_comment
 
 begin_class

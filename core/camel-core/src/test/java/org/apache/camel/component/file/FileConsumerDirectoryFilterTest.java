@@ -494,7 +494,8 @@ argument_list|>
 name|file
 parameter_list|)
 block|{
-comment|// remember the name due unit testing (should not be needed in regular use-cases)
+comment|// remember the name due unit testing (should not be needed in
+comment|// regular use-cases)
 name|names
 operator|.
 name|add
@@ -505,7 +506,8 @@ name|getFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we dont accept any files within directory starting with skip in the name
+comment|// we dont accept any files within directory starting with skip in
+comment|// the name
 if|if
 condition|(
 name|file

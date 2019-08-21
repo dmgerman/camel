@@ -393,7 +393,8 @@ argument_list|(
 literal|"mock:dead"
 argument_list|)
 expr_stmt|;
-comment|// configure the consumer to bridge with the Camel error handler,
+comment|// configure the consumer to bridge with the Camel error
+comment|// handler,
 comment|// so the above error handler will trigger if exceptions also
 comment|// occurs inside the consumer
 name|from
@@ -693,7 +694,8 @@ parameter_list|()
 block|{
 try|try
 block|{
-comment|// do not start before the mocks has been setup and is ready
+comment|// do not start before the mocks has been setup and is
+comment|// ready
 name|latch
 operator|.
 name|await

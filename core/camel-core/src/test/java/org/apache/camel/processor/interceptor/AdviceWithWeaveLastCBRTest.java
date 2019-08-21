@@ -133,7 +133,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// insert at the end of the existing route, the given piece of route
+comment|// insert at the end of the existing route, the given piece of
+comment|// route
 name|weaveAddLast
 argument_list|()
 operator|.
@@ -245,7 +246,8 @@ argument_list|(
 literal|"mock:foo2"
 argument_list|)
 expr_stmt|;
-comment|// insert at the end of the existing route, the given piece of route
+comment|// insert at the end of the existing route, the given piece of
+comment|// route
 name|weaveAddLast
 argument_list|()
 operator|.

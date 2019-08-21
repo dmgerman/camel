@@ -341,7 +341,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// marshal using our custom data format. (my is an instance of MyDataFormat)
+comment|// marshal using our custom data format. (my is an instance of
+comment|// MyDataFormat)
 name|from
 argument_list|(
 literal|"direct:a"

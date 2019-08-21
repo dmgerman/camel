@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Predicate to determine if the message should be sent or not to the endpoint, when using interceptSentToEndpoint.  */
+comment|/**  * Predicate to determine if the message should be sent or not to the endpoint,  * when using interceptSentToEndpoint.  */
 end_comment
 
 begin_class
@@ -114,7 +114,7 @@ return|return
 literal|"whenSkipSendToEndpoint"
 return|;
 block|}
-comment|/**      * Expression used as the predicate to evaluate whether the message should be sent or not to the endpoint      */
+comment|/**      * Expression used as the predicate to evaluate whether the message should      * be sent or not to the endpoint      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)

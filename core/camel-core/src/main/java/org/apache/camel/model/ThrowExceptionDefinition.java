@@ -334,7 +334,7 @@ return|return
 name|message
 return|;
 block|}
-comment|/**      * To create a new exception instance and use the given message as caused message (supports simple language)      */
+comment|/**      * To create a new exception instance and use the given message as caused      * message (supports simple language)      */
 DECL|method|setMessage (String message)
 specifier|public
 name|void

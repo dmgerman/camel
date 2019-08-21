@@ -298,7 +298,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// do not propagate charset to avoid side effects with double conversion etc
+comment|// do not propagate charset to avoid side effects with double conversion
+comment|// etc
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"
@@ -389,7 +390,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// do not propagate charset to avoid side effects with double conversion etc
+comment|// do not propagate charset to avoid side effects with double conversion
+comment|// etc
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"

@@ -299,7 +299,7 @@ return|return
 name|serviceFilterConfigurations
 return|;
 block|}
-comment|/**      * List of ServiceFilter configuration to use      * @param serviceFilterConfigurations      */
+comment|/**      * List of ServiceFilter configuration to use      *       * @param serviceFilterConfigurations      */
 DECL|method|setServiceFilterConfigurations (List<ServiceCallServiceFilterConfiguration> serviceFilterConfigurations)
 specifier|public
 name|void
@@ -319,7 +319,7 @@ operator|=
 name|serviceFilterConfigurations
 expr_stmt|;
 block|}
-comment|/**      *  Add a ServiceFilter configuration      */
+comment|/**      * Add a ServiceFilter configuration      */
 DECL|method|addServiceFilterConfiguration (ServiceCallServiceFilterConfiguration serviceFilterConfiguration)
 specifier|public
 name|void
@@ -355,7 +355,7 @@ block|}
 comment|// *************************************************************************
 comment|// Fluent API
 comment|// *************************************************************************
-comment|/**      *  List of ServiceFilter configuration to use      */
+comment|/**      * List of ServiceFilter configuration to use      */
 DECL|method|serviceFilterConfigurations (List<ServiceCallServiceFilterConfiguration> serviceFilterConfigurations)
 specifier|public
 name|CombinedServiceCallServiceFilterConfiguration
@@ -377,7 +377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *  Add a ServiceFilter configuration      */
+comment|/**      * Add a ServiceFilter configuration      */
 DECL|method|serviceFilterConfiguration (ServiceCallServiceFilterConfiguration serviceFilterConfiguration)
 specifier|public
 name|CombinedServiceCallServiceFilterConfiguration

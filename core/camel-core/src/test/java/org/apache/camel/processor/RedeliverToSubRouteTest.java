@@ -224,7 +224,8 @@ name|from
 argument_list|(
 literal|"direct:sub"
 argument_list|)
-comment|// disable error handler, so the entire route can be retried in case of redelivery
+comment|// disable error handler, so the entire route can be retried
+comment|// in case of redelivery
 operator|.
 name|errorHandler
 argument_list|(

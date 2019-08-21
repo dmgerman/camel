@@ -132,7 +132,8 @@ name|void
 name|testBeanInvocationFailure
 parameter_list|()
 block|{
-comment|// must create an exchange to get the result as an exchange where we can get the caused exception
+comment|// must create an exchange to get the result as an exchange where we can
+comment|// get the caused exception
 name|Exchange
 name|exchange
 init|=

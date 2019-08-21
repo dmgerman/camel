@@ -66,7 +66,7 @@ name|InterceptSendToEndpointConditionalSkipTest
 extends|extends
 name|ContextTestSupport
 block|{
-comment|/**      * Verify that the endpoint is only skipped if the adjacent 'when' condition is satisfied      */
+comment|/**      * Verify that the endpoint is only skipped if the adjacent 'when' condition      * is satisfied      */
 annotation|@
 name|Test
 DECL|method|testInterceptSendToEndpointSkipConditionSatisfied ()
@@ -130,7 +130,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Verify that the endpoint is not skipped if the adjacent 'when' condition evaluates to false      */
+comment|/**      * Verify that the endpoint is not skipped if the adjacent 'when' condition      * evaluates to false      */
 annotation|@
 name|Test
 DECL|method|testInterceptSendToEndpointSkipConditionNotSatisfied ()
@@ -194,7 +194,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Verify that the conditional skip support is only activated when using interceptSendToEndpoint().when() and not      * interceptSendToEndpoint().choice()..., as the choice keyword is not directly associated with the interception behaviour and it belongs to the      * interception body (initiating a new routing block)      */
+comment|/**      * Verify that the conditional skip support is only activated when using      * interceptSendToEndpoint().when() and not      * interceptSendToEndpoint().choice()..., as the choice keyword is not      * directly associated with the interception behaviour and it belongs to the      * interception body (initiating a new routing block)      */
 annotation|@
 name|Test
 DECL|method|testInterceptSendToEndpointSkipConditionNoEffectChoice ()
@@ -277,7 +277,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test that when multiple conditions are chained together in Java DSL, only the first one will determine whether the endpoint is skipped or not      */
+comment|/**      * Test that when multiple conditions are chained together in Java DSL, only      * the first one will determine whether the endpoint is skipped or not      */
 annotation|@
 name|Test
 DECL|method|testInterceptSendToEndpointSkipMultipleConditions ()
@@ -390,7 +390,8 @@ argument_list|(
 literal|"mock:detour"
 argument_list|)
 expr_stmt|;
-comment|// always skip with a normal with a normal choice inside instructing where to route instead
+comment|// always skip with a normal with a normal choice inside
+comment|// instructing where to route instead
 name|interceptSendToEndpoint
 argument_list|(
 literal|"mock:skippableNoEffect"
@@ -426,7 +427,8 @@ argument_list|(
 literal|"mock:noSkipOW"
 argument_list|)
 expr_stmt|;
-comment|// in this case, the original endpoint will be skipped but no message will be sent to mock:detour
+comment|// in this case, the original endpoint will be skipped but no
+comment|// message will be sent to mock:detour
 name|interceptSendToEndpoint
 argument_list|(
 literal|"mock:skippableMultipleConditions"

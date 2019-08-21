@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Flexible Aggregation Strategy is a highly customizable, fluently configurable aggregation strategy. It allows you to quickly whip up an {@link AggregationStrategy}   * that is capable of performing the most typical aggregation duties, with zero Java code.  *<p/>  * It can perform the following logic:  *<ul>  *<li>Filtering results based on a defined {@link Predicate} written in any language, such as XPath, OGNL, Groovy, Simple, etc.</li>  *<li>Picking specific data elements for aggregation.</li>  *<li>Accumulating results in any designated {@link Collection} type, e.g. in a HashSet, LinkedList, ArrayList, etc.</li>  *<li>Storing the output in a specific place in the Exchange: a property, a header or in the body.</li>  *</ul>  *   * It also includes the ability to specify both aggregation batch completion actions and timeout actions, in an abbreviated manner.  *<p/>  * This Aggregation Strategy is suitable for usage in aggregate, split, multicast, enrich and recipient list EIPs.  */
+comment|/**  * The Flexible Aggregation Strategy is a highly customizable, fluently  * configurable aggregation strategy. It allows you to quickly whip up an  * {@link AggregationStrategy} that is capable of performing the most typical  * aggregation duties, with zero Java code.  *<p/>  * It can perform the following logic:  *<ul>  *<li>Filtering results based on a defined {@link Predicate} written in any  * language, such as XPath, OGNL, Groovy, Simple, etc.</li>  *<li>Picking specific data elements for aggregation.</li>  *<li>Accumulating results in any designated {@link Collection} type, e.g. in a  * HashSet, LinkedList, ArrayList, etc.</li>  *<li>Storing the output in a specific place in the Exchange: a property, a  * header or in the body.</li>  *</ul>  * It also includes the ability to specify both aggregation batch completion  * actions and timeout actions, in an abbreviated manner.  *<p/>  * This Aggregation Strategy is suitable for usage in aggregate, split,  * multicast, enrich and recipient list EIPs.  */
 end_comment
 
 begin_class
@@ -248,13 +248,13 @@ specifier|private
 name|CompletionAwareMixin
 name|completionMixin
 decl_stmt|;
-comment|/**      * Initializes a new instance with {@link Object} as the {@link FlexibleAggregationStrategy#castAs} type.      */
+comment|/**      * Initializes a new instance with {@link Object} as the      * {@link FlexibleAggregationStrategy#castAs} type.      */
 DECL|method|FlexibleAggregationStrategy ()
 specifier|public
 name|FlexibleAggregationStrategy
 parameter_list|()
 block|{     }
-comment|/**      * Initializes a new instance with the specified type as the {@link FlexibleAggregationStrategy#castAs} type.      * @param type The castAs type.      */
+comment|/**      * Initializes a new instance with the specified type as the      * {@link FlexibleAggregationStrategy#castAs} type.      *       * @param type The castAs type.      */
 DECL|method|FlexibleAggregationStrategy (Class<E> type)
 specifier|public
 name|FlexibleAggregationStrategy
@@ -273,7 +273,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/**      * Set an expression to extract the element to be aggregated from the incoming {@link Exchange}.      * All results are cast to the {@link FlexibleAggregationStrategy#castAs} type (or the type specified in the constructor).      *<p/>      * By default, it picks the full IN message body of the incoming exchange.       * @param expression The picking expression.      * @return This instance.      */
+comment|/**      * Set an expression to extract the element to be aggregated from the      * incoming {@link Exchange}. All results are cast to the      * {@link FlexibleAggregationStrategy#castAs} type (or the type specified in      * the constructor).      *<p/>      * By default, it picks the full IN message body of the incoming exchange.      *       * @param expression The picking expression.      * @return This instance.      */
 DECL|method|pick (Expression expression)
 specifier|public
 name|FlexibleAggregationStrategy
@@ -296,7 +296,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set a filter condition such as only results satisfying it will be aggregated.       * By default, all picked values will be processed.      * @param predicate The condition.      * @return This instance.      */
+comment|/**      * Set a filter condition such as only results satisfying it will be      * aggregated. By default, all picked values will be processed.      *       * @param predicate The condition.      * @return This instance.      */
 DECL|method|condition (Predicate predicate)
 specifier|public
 name|FlexibleAggregationStrategy
@@ -319,7 +319,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Accumulate the result of the<i>pick expression</i> in a collection of the designated type.       * No<tt>null</tt>s will stored unless the {@link FlexibleAggregationStrategy#storeNulls()} option is enabled.      * @param collectionType The type of the Collection to aggregate into.      * @return This instance.      */
+comment|/**      * Accumulate the result of the<i>pick expression</i> in a collection of      * the designated type. No<tt>null</tt>s will stored unless the      * {@link FlexibleAggregationStrategy#storeNulls()} option is enabled.      *       * @param collectionType The type of the Collection to aggregate into.      * @return This instance.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -352,7 +352,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Store the result of this Aggregation Strategy (whether an atomic element or a Collection) in a property with      * the designated name.      * @param propertyName The property name.      * @return This instance.      */
+comment|/**      * Store the result of this Aggregation Strategy (whether an atomic element      * or a Collection) in a property with the designated name.      *       * @param propertyName The property name.      * @return This instance.      */
 DECL|method|storeInProperty (String propertyName)
 specifier|public
 name|FlexibleAggregationStrategy
@@ -381,7 +381,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Store the result of this Aggregation Strategy (whether an atomic element or a Collection) in an IN message header with      * the designated name.      * @param headerName The header name.      * @return This instance.      */
+comment|/**      * Store the result of this Aggregation Strategy (whether an atomic element      * or a Collection) in an IN message header with the designated name.      *       * @param headerName The header name.      * @return This instance.      */
 DECL|method|storeInHeader (String headerName)
 specifier|public
 name|FlexibleAggregationStrategy
@@ -410,7 +410,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Store the result of this Aggregation Strategy (whether an atomic element or a Collection) in the body of the IN message.      * @return This instance.      */
+comment|/**      * Store the result of this Aggregation Strategy (whether an atomic element      * or a Collection) in the body of the IN message.      *       * @return This instance.      */
 DECL|method|storeInBody ()
 specifier|public
 name|FlexibleAggregationStrategy
@@ -434,7 +434,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Cast the result of the<i>pick expression</i> to this type.      * @param castAs Type for the cast.      * @return This instance.      */
+comment|/**      * Cast the result of the<i>pick expression</i> to this type.      *       * @param castAs Type for the cast.      * @return This instance.      */
 DECL|method|castAs (Class<E> castAs)
 specifier|public
 name|FlexibleAggregationStrategy
@@ -467,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables storing null values in the resulting collection.      * By default, this aggregation strategy will drop null values.      * @return This instance.      */
+comment|/**      * Enables storing null values in the resulting collection. By default, this      * aggregation strategy will drop null values.      *       * @return This instance.      */
 DECL|method|storeNulls ()
 specifier|public
 name|FlexibleAggregationStrategy
@@ -487,7 +487,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Ignores invalid casts instead of throwing an exception if the<i>pick expression</i> result cannot be casted to the       * specified type.      * By default, this aggregation strategy will throw an exception if an invalid cast occurs.      * @return This instance.      */
+comment|/**      * Ignores invalid casts instead of throwing an exception if the<i>pick      * expression</i> result cannot be casted to the specified type. By default,      * this aggregation strategy will throw an exception if an invalid cast      * occurs.      *       * @return This instance.      */
 DECL|method|ignoreInvalidCasts ()
 specifier|public
 name|FlexibleAggregationStrategy
@@ -507,7 +507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Plugs in logic to execute when a timeout occurs.      * @param timeoutMixin      * @return This instance.      */
+comment|/**      * Plugs in logic to execute when a timeout occurs.      *       * @param timeoutMixin      * @return This instance.      */
 DECL|method|timeoutAware (TimeoutAwareMixin timeoutMixin)
 specifier|public
 name|FlexibleAggregationStrategy
@@ -530,7 +530,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Plugs in logic to execute when an aggregation batch completes.      * @param completionMixin      * @return This instance.      */
+comment|/**      * Plugs in logic to execute when an aggregation batch completes.      *       * @param completionMixin      * @return This instance.      */
 DECL|method|completionAware (CompletionAwareMixin completionMixin)
 specifier|public
 name|FlexibleAggregationStrategy
@@ -629,8 +629,9 @@ return|return
 name|exchange
 return|;
 block|}
-comment|// 2. Pick the appropriate element of the incoming message, casting it to the specified class
-comment|//    If null, act accordingly based on storeNulls
+comment|// 2. Pick the appropriate element of the incoming message, casting it
+comment|// to the specified class
+comment|// If null, act accordingly based on storeNulls
 name|E
 name|picked
 init|=

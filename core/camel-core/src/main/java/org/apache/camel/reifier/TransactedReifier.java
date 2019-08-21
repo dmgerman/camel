@@ -352,7 +352,8 @@ name|Service
 operator|)
 condition|)
 block|{
-comment|// wrap the target so it becomes a service and we can manage its lifecycle
+comment|// wrap the target so it becomes a service and we can manage its
+comment|// lifecycle
 name|target
 operator|=
 operator|new
@@ -491,7 +492,8 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|// no explicit reference given from user so we can use some convention over configuration here
+comment|// no explicit reference given from user so we can use some convention
+comment|// over configuration here
 comment|// try to lookup by scoped type
 name|Policy
 name|answer
@@ -505,7 +507,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// try find by type, note that this method is not supported by all registry
+comment|// try find by type, note that this method is not supported by all
+comment|// registry
 name|Map
 argument_list|<
 name|String
@@ -593,7 +596,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// this logic only applies if we are a transacted policy
-comment|// still no policy found then try lookup the platform transaction manager and use it as policy
+comment|// still no policy found then try lookup the platform transaction
+comment|// manager and use it as policy
 if|if
 condition|(
 name|answer
@@ -633,7 +637,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// see if we can find the platform transaction manager in the registry
+comment|// see if we can find the platform transaction manager in the
+comment|// registry
 name|Map
 argument_list|<
 name|String
@@ -659,12 +664,17 @@ operator|==
 literal|1
 condition|)
 block|{
-comment|// only one platform manager then use it as default and create a transacted
+comment|// only one platform manager then use it as default and
+comment|// create a transacted
 comment|// policy with it and default to required
-comment|// as we do not want dependency on spring jars in the camel-core we use
-comment|// reflection to lookup classes and create new objects and call methods
-comment|// as this is only done during route building it does not matter that we
-comment|// use reflection as performance is no a concern during route building
+comment|// as we do not want dependency on spring jars in the
+comment|// camel-core we use
+comment|// reflection to lookup classes and create new objects and
+comment|// call methods
+comment|// as this is only done during route building it does not
+comment|// matter that we
+comment|// use reflection as performance is no a concern during
+comment|// route building
 name|Object
 name|transactionManager
 init|=

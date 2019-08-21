@@ -242,7 +242,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// this test actually removes the route... so in effect we have one route consuming
+comment|// this test actually removes the route... so in effect we have one
+comment|// route consuming
 comment|// a "multipleConsumer" seda queue
 name|camelContext
 operator|.

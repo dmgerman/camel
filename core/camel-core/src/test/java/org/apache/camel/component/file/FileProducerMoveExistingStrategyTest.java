@@ -415,8 +415,10 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// need to evaluate using a dummy and simulate the file first, to have access to all the file attributes
-comment|// create a dummy exchange as Exchange is needed for expression evaluation
+comment|// need to evaluate using a dummy and simulate the file first, to
+comment|// have access to all the file attributes
+comment|// create a dummy exchange as Exchange is needed for expression
+comment|// evaluation
 comment|// we support only the following 3 tokens.
 name|Exchange
 name|dummy
@@ -550,7 +552,8 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we must normalize it (to avoid having both \ and / in the name which confuses java.io.File)
+comment|// we must normalize it (to avoid having both \ and / in the name
+comment|// which confuses java.io.File)
 name|to
 operator|=
 name|FileUtil
@@ -580,7 +583,8 @@ name|fileName
 argument_list|)
 throw|;
 block|}
-comment|// ensure any paths is created before we rename as the renamed file may be in a different path (which may be non exiting)
+comment|// ensure any paths is created before we rename as the renamed file
+comment|// may be in a different path (which may be non exiting)
 comment|// use java.io.File to compute the file path
 name|File
 name|toFile

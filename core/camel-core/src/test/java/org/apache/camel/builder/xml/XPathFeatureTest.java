@@ -212,7 +212,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*         Field field = CoreStaticTypeConverterLoader.class.getDeclaredField("INSTANCE");         field.setAccessible(true);         Field modifiersField = Field.class.getDeclaredField("modifiers");         modifiersField.setAccessible(true);         modifiersField.setInt(field, field.getModifiers()& ~Modifier.FINAL);         Constructor<?> cns = CoreStaticTypeConverterLoader.class.getDeclaredConstructor();         cns.setAccessible(true);         field.set(null, cns.newInstance());         */
+comment|/*          * Field field =          * CoreStaticTypeConverterLoader.class.getDeclaredField("INSTANCE");          * field.setAccessible(true); Field modifiersField =          * Field.class.getDeclaredField("modifiers");          * modifiersField.setAccessible(true); modifiersField.setInt(field,          * field.getModifiers()& ~Modifier.FINAL); Constructor<?> cns =          * CoreStaticTypeConverterLoader.class.getDeclaredConstructor();          * cns.setAccessible(true); field.set(null, cns.newInstance());          */
 block|}
 annotation|@
 name|Override

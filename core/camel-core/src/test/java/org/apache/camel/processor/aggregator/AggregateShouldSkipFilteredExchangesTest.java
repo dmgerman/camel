@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that Aggregate aggregator does not included filtered exchanges.  */
+comment|/**  * Unit test to verify that Aggregate aggregator does not included filtered  * exchanges.  */
 end_comment
 
 begin_class

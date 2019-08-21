@@ -294,7 +294,8 @@ name|completionTimeoutCheckerInterval
 argument_list|(
 literal|10
 argument_list|)
-comment|// and if timeout occurred then just discard the aggregated message
+comment|// and if timeout occurred then just discard the aggregated
+comment|// message
 operator|.
 name|discardOnCompletionTimeout
 argument_list|()

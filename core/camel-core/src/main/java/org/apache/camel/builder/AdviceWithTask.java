@@ -26,7 +26,7 @@ specifier|public
 interface|interface
 name|AdviceWithTask
 block|{
-comment|/**      * The task to execute      *      * @throws Exception is thrown if error during executing the task, or invalid input.      */
+comment|/**      * The task to execute      *      * @throws Exception is thrown if error during executing the task, or      *             invalid input.      */
 DECL|method|task ()
 name|void
 name|task

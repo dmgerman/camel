@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Flatpack data format is used for working with flat payloads (such as CSV, delimited, or fixed length formats).  */
+comment|/**  * The Flatpack data format is used for working with flat payloads (such as CSV,  * delimited, or fixed length formats).  */
 end_comment
 
 begin_class
@@ -241,7 +241,7 @@ return|return
 name|definition
 return|;
 block|}
-comment|/**      * The flatpack pzmap configuration file. Can be omitted in simpler situations, but its preferred to use the pzmap.      */
+comment|/**      * The flatpack pzmap configuration file. Can be omitted in simpler      * situations, but its preferred to use the pzmap.      */
 DECL|method|setDefinition (String definition)
 specifier|public
 name|void
@@ -268,7 +268,7 @@ return|return
 name|fixed
 return|;
 block|}
-comment|/**      * Delimited or fixed.      * Is by default false = delimited      */
+comment|/**      * Delimited or fixed. Is by default false = delimited      */
 DECL|method|setFixed (Boolean fixed)
 specifier|public
 name|void
@@ -295,7 +295,7 @@ return|return
 name|ignoreFirstRecord
 return|;
 block|}
-comment|/**      * Whether the first line is ignored for delimited files (for the column headers).      *<p/>      * Is by default true.      */
+comment|/**      * Whether the first line is ignored for delimited files (for the column      * headers).      *<p/>      * Is by default true.      */
 DECL|method|setIgnoreFirstRecord (Boolean ignoreFirstRecord)
 specifier|public
 name|void
@@ -376,7 +376,7 @@ return|return
 name|allowShortLines
 return|;
 block|}
-comment|/**      * Allows for lines to be shorter than expected and ignores the extra characters      */
+comment|/**      * Allows for lines to be shorter than expected and ignores the extra      * characters      */
 DECL|method|setAllowShortLines (Boolean allowShortLines)
 specifier|public
 name|void
@@ -403,7 +403,7 @@ return|return
 name|ignoreExtraColumns
 return|;
 block|}
-comment|/**      * Allows for lines to be longer than expected and ignores the extra characters.      */
+comment|/**      * Allows for lines to be longer than expected and ignores the extra      * characters.      */
 DECL|method|setIgnoreExtraColumns (Boolean ignoreExtraColumns)
 specifier|public
 name|void

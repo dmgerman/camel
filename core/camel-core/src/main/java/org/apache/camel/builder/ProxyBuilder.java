@@ -124,7 +124,7 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-comment|/**      * Send the proxied message to this endpoint      *      * @param url  uri of endpoint      * @return the builder      */
+comment|/**      * Send the proxied message to this endpoint      *      * @param url uri of endpoint      * @return the builder      */
 DECL|method|endpoint (String url)
 specifier|public
 name|ProxyBuilder
@@ -149,7 +149,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Send the proxied message to this endpoint      *      * @param endpoint  the endpoint      * @return the builder      */
+comment|/**      * Send the proxied message to this endpoint      *      * @param endpoint the endpoint      * @return the builder      */
 DECL|method|endpoint (Endpoint endpoint)
 specifier|public
 name|ProxyBuilder
@@ -169,7 +169,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Builds the proxy.      *      * @param interfaceClass  the service interface      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
+comment|/**      * Builds the proxy.      *      * @param interfaceClass the service interface      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -214,7 +214,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Builds the proxy.      *      * @param interfaceClasses  the service interface(s)      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
+comment|/**      * Builds the proxy.      *      * @param interfaceClasses the service interface(s)      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
 DECL|method|build (Class<T>.... interfaceClasses)
 specifier|public
 parameter_list|<

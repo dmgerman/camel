@@ -610,7 +610,7 @@ specifier|public
 specifier|static
 class|class
 name|A
-block|{ }
+block|{     }
 block|}
 end_class
 

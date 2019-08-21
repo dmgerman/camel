@@ -556,7 +556,8 @@ name|int
 name|messageCount
 parameter_list|)
 block|{
-comment|// now assert that they have actually been throttled (use +/- 50 as slack)
+comment|// now assert that they have actually been throttled (use +/- 50 as
+comment|// slack)
 name|long
 name|minimum
 init|=

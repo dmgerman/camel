@@ -193,7 +193,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|//ensure stream is spooled to disk
+comment|// ensure stream is spooled to disk
 name|context
 operator|.
 name|getStreamCachingStrategy

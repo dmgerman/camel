@@ -761,7 +761,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// properties component can also have {{ }} around but its not needed
+comment|// properties component can also have {{ }} around but its not
+comment|// needed
 name|from
 argument_list|(
 literal|"direct:start"
@@ -1963,7 +1964,8 @@ argument_list|(
 literal|"org/apache/camel/component/properties/env.properties"
 argument_list|)
 expr_stmt|;
-comment|// lets override the OS environment variable by setting a JVM system property
+comment|// lets override the OS environment variable by setting a JVM system
+comment|// property
 name|System
 operator|.
 name|setProperty

@@ -95,7 +95,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Tests that external DTD call is executed for StringSource by expecting an UnkonwHostException. */
+comment|/**      * Tests that external DTD call is executed for StringSource by expecting an      * UnkonwHostException.      */
 annotation|@
 name|Test
 DECL|method|testInvalidMessageWithExternalDTDStringSource ()
@@ -141,7 +141,7 @@ name|finallyEndpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Tests that external DTD call is executed  for StreamSourceby expecting an UnkonwHostException. */
+comment|/**      * Tests that external DTD call is executed for StreamSourceby expecting an      * UnkonwHostException.      */
 annotation|@
 name|Test
 DECL|method|testInvalidMessageWithExternalDTDStreamSource ()
@@ -203,7 +203,7 @@ name|finallyEndpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Tests that XXE is possible for StreamSource by expecting an UnkonwHostException. */
+comment|/**      * Tests that XXE is possible for StreamSource by expecting an      * UnkonwHostException.      */
 annotation|@
 name|Test
 DECL|method|testInvalidMessageXXESourceStream ()

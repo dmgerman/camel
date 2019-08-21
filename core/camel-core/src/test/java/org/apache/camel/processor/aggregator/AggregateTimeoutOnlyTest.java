@@ -116,7 +116,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// by default the use latest aggregation strategy is used so we get message 9
+comment|// by default the use latest aggregation strategy is used so we get
+comment|// message 9
 name|result
 operator|.
 name|expectedBodiesReceived

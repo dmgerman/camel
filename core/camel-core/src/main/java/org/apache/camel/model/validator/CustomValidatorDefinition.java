@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a CustomValidator. One of the bean reference (ref) or fully qualified class name (className)  * of the custom {@link Validator} needs to be specified.  *   * {@see ValidatorDefinition}  * {@see Validator}  */
+comment|/**  * Represents a CustomValidator. One of the bean reference (ref) or fully  * qualified class name (className) of the custom {@link Validator} needs to be  * specified. {@see ValidatorDefinition} {@see Validator}  */
 end_comment
 
 begin_class

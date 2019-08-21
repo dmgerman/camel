@@ -271,7 +271,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// force the answer as a multicast processor even if there is only one child processor in the multicast
+comment|// force the answer as a multicast processor even if there is only one
+comment|// child processor in the multicast
 if|if
 condition|(
 operator|!

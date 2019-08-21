@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for try .. handle routing where it should handle wrapped exceptions as well.  */
+comment|/**  * Unit test for try .. handle routing where it should handle wrapped exceptions  * as well.  */
 end_comment
 
 begin_class

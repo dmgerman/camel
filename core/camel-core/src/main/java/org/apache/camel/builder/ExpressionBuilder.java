@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a>.  */
+comment|/**  * A helper class for working with  *<a href="http://camel.apache.org/expression.html">expressions</a>.  */
 end_comment
 
 begin_class
@@ -39,7 +39,8 @@ name|builder
 operator|.
 name|ExpressionBuilder
 block|{
-comment|// this class is included in camel-core to be backwards compatible by extending from camel-support
+comment|// this class is included in camel-core to be backwards compatible by
+comment|// extending from camel-support
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|ExpressionBuilder ()
 specifier|private

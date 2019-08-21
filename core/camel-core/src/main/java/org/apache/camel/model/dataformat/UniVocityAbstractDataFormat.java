@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the common parts of all uniVocity {@link org.apache.camel.spi.DataFormat} parsers.  */
+comment|/**  * Represents the common parts of all uniVocity  * {@link org.apache.camel.spi.DataFormat} parsers.  */
 end_comment
 
 begin_class
@@ -418,7 +418,7 @@ return|return
 name|headersDisabled
 return|;
 block|}
-comment|/**      * Whether or not the headers are disabled. When defined, this option explicitly sets the headers as null which indicates that there is no header.      *<p/>      * The default value is false      */
+comment|/**      * Whether or not the headers are disabled. When defined, this option      * explicitly sets the headers as null which indicates that there is no      * header.      *<p/>      * The default value is false      */
 DECL|method|setHeadersDisabled (Boolean headersDisabled)
 specifier|public
 name|void
@@ -478,7 +478,7 @@ return|return
 name|headerExtractionEnabled
 return|;
 block|}
-comment|/**      * Whether or not the header must be read in the first line of the test document      *<p/>      * The default value is false      */
+comment|/**      * Whether or not the header must be read in the first line of the test      * document      *<p/>      * The default value is false      */
 DECL|method|setHeaderExtractionEnabled (Boolean headerExtractionEnabled)
 specifier|public
 name|void
@@ -640,7 +640,7 @@ return|return
 name|lazyLoad
 return|;
 block|}
-comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines on the fly or if all the lines must be read at one.      *<p/>      * The default value is false      */
+comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines      * on the fly or if all the lines must be read at one.      *<p/>      * The default value is false      */
 DECL|method|setLazyLoad (Boolean lazyLoad)
 specifier|public
 name|void
@@ -667,7 +667,7 @@ return|return
 name|asMap
 return|;
 block|}
-comment|/**      * Whether the unmarshalling should produce maps for the lines values instead of lists.      * It requires to have header (either defined or collected).      *<p/>      * The default value is false      */
+comment|/**      * Whether the unmarshalling should produce maps for the lines values      * instead of lists. It requires to have header (either defined or      * collected).      *<p/>      * The default value is false      */
 DECL|method|setAsMap (Boolean asMap)
 specifier|public
 name|void

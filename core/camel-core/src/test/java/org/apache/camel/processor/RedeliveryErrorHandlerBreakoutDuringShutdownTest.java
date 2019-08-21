@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests that the redelivery error handler will break out if CamelContext is shutting down.  */
+comment|/**  * Tests that the redelivery error handler will break out if CamelContext is  * shutting down.  */
 end_comment
 
 begin_class

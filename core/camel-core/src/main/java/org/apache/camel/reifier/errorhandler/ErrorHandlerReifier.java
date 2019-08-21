@@ -1219,7 +1219,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Lookup the error handler by the given ref      *      * @param routeContext the route context      * @param ref          reference id for the error handler      * @return the error handler      */
+comment|/**      * Lookup the error handler by the given ref      *      * @param routeContext the route context      * @param ref reference id for the error handler      * @return the error handler      */
 DECL|method|lookupErrorHandlerFactory (RouteContext routeContext, String ref)
 specifier|public
 specifier|static
@@ -1244,7 +1244,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Lookup the error handler by the given ref      *      * @param routeContext the route context      * @param ref          reference id for the error handler      * @param mandatory    whether the error handler must exists, if not a {@link org.apache.camel.NoSuchBeanException} is thrown      * @return the error handler      */
+comment|/**      * Lookup the error handler by the given ref      *      * @param routeContext the route context      * @param ref reference id for the error handler      * @param mandatory whether the error handler must exists, if not a      *            {@link org.apache.camel.NoSuchBeanException} is thrown      * @return the error handler      */
 DECL|method|lookupErrorHandlerFactory (RouteContext routeContext, String ref, boolean mandatory)
 specifier|public
 specifier|static
@@ -1264,9 +1264,12 @@ block|{
 name|ErrorHandlerFactory
 name|answer
 decl_stmt|;
-comment|// if the ref is the default then we do not have any explicit error handler configured
-comment|// if that is the case then use error handlers configured on the route, as for instance
-comment|// the transacted error handler could have been configured on the route so we should use that one
+comment|// if the ref is the default then we do not have any explicit error
+comment|// handler configured
+comment|// if that is the case then use error handlers configured on the route,
+comment|// as for instance
+comment|// the transacted error handler could have been configured on the route
+comment|// so we should use that one
 if|if
 condition|(
 operator|!
@@ -1333,7 +1336,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// fallback to the default error handler if none configured on the route
+comment|// fallback to the default error handler if none configured on
+comment|// the route
 name|answer
 operator|=
 operator|new
@@ -1341,7 +1345,8 @@ name|DefaultErrorHandlerBuilder
 argument_list|()
 expr_stmt|;
 block|}
-comment|// check if its also a ref with no error handler configuration like me
+comment|// check if its also a ref with no error handler configuration like
+comment|// me
 if|if
 condition|(
 name|answer
@@ -1374,7 +1379,8 @@ name|otherRef
 argument_list|)
 condition|)
 block|{
-comment|// the other has also no explicit error handler configured then fallback to the handler
+comment|// the other has also no explicit error handler configured
+comment|// then fallback to the handler
 comment|// configured on the parent camel context
 name|answer
 operator|=
@@ -1394,8 +1400,10 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// the other has also no explicit error handler configured then fallback to the default error handler
-comment|// otherwise we could recursive loop forever (triggered by createErrorHandler method)
+comment|// the other has also no explicit error handler configured
+comment|// then fallback to the default error handler
+comment|// otherwise we could recursive loop forever (triggered by
+comment|// createErrorHandler method)
 name|answer
 operator|=
 operator|new
@@ -1403,8 +1411,10 @@ name|DefaultErrorHandlerBuilder
 argument_list|()
 expr_stmt|;
 block|}
-comment|// inherit the error handlers from the other as they are to be shared
-comment|// this is needed by camel-spring when none error handler has been explicit configured
+comment|// inherit the error handlers from the other as they are to be
+comment|// shared
+comment|// this is needed by camel-spring when none error handler has
+comment|// been explicit configured
 name|routeContext
 operator|.
 name|addErrorHandlerFactoryReference
@@ -1556,7 +1566,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns whether a specific error handler builder has been configured or not.      *<p/>      * Can be used to test if none has been configured and then install a custom error handler builder      * replacing the default error handler (that would have been used as fallback otherwise).      *<br/>      * This is for instance used by the transacted policy to setup a TransactedErrorHandlerBuilder      * in camel-spring.      */
+comment|/**      * Returns whether a specific error handler builder has been configured or      * not.      *<p/>      * Can be used to test if none has been configured and then install a custom      * error handler builder replacing the default error handler (that would      * have been used as fallback otherwise).<br/>      * This is for instance used by the transacted policy to setup a      * TransactedErrorHandlerBuilder in camel-spring.      */
 DECL|method|isErrorHandlerFactoryConfigured (String ref)
 specifier|public
 specifier|static
@@ -1695,7 +1705,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Note: Not for end users - this method is used internally by camel-blueprint      */
+comment|/**      * Note: Not for end users - this method is used internally by      * camel-blueprint      */
 DECL|method|createRedeliveryPolicy (RedeliveryPolicyDefinition definition, CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 specifier|static

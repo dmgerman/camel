@@ -194,8 +194,10 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
-comment|// fully asynchronous support for multicasting is too complex
-comment|// so the main thread will block and wait for both to complete
+comment|// fully asynchronous support for multicasting is too
+comment|// complex
+comment|// so the main thread will block and wait for both to
+comment|// complete
 comment|// before it routes to the end
 operator|.
 name|to

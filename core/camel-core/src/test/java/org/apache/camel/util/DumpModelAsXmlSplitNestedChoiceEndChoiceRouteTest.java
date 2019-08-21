@@ -107,7 +107,13 @@ name|to
 argument_list|(
 literal|"mock:foo"
 argument_list|)
-comment|// eg we can use .endChoice() here also
+comment|// eg
+comment|// we
+comment|// can
+comment|// use
+comment|// .endChoice()
+comment|// here
+comment|// also
 operator|.
 name|when
 argument_list|(
@@ -121,7 +127,9 @@ name|to
 argument_list|(
 literal|"mock:bar"
 argument_list|)
-comment|// eg we can use .endChoice() here also
+comment|// eg we can use
+comment|// .endChoice() here
+comment|// also
 operator|.
 name|otherwise
 argument_list|()
@@ -133,7 +141,8 @@ argument_list|)
 operator|.
 name|endChoice
 argument_list|()
-comment|// end choice goes back to same level as choice (eg such as ending the otherwise),
+comment|// end choice goes back to same level as choice (eg such as
+comment|// ending the otherwise),
 comment|// so we need a 2nd end to end the choice block in general
 operator|.
 name|end

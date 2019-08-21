@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use a custom data format implementation that does not come out of the box from Apache Camel.  */
+comment|/**  * To use a custom data format implementation that does not come out of the box  * from Apache Camel.  */
 end_comment
 
 begin_class
@@ -171,7 +171,7 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-comment|/**      * Reference to the custom {@link org.apache.camel.spi.DataFormat} to lookup from the Camel registry.      */
+comment|/**      * Reference to the custom {@link org.apache.camel.spi.DataFormat} to lookup      * from the Camel registry.      */
 DECL|method|getRef ()
 specifier|public
 name|String
@@ -182,7 +182,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * Reference to the custom {@link org.apache.camel.spi.DataFormat} to lookup from the Camel registry.      */
+comment|/**      * Reference to the custom {@link org.apache.camel.spi.DataFormat} to lookup      * from the Camel registry.      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

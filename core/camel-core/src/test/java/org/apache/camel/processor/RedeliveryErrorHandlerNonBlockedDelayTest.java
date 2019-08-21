@@ -170,7 +170,8 @@ argument_list|,
 literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
-comment|// we use NON blocked redelivery delay so the messages arrive which completes first
+comment|// we use NON blocked redelivery delay so the messages arrive which
+comment|// completes first
 name|MockEndpoint
 name|result
 init|=

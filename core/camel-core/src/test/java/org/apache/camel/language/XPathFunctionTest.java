@@ -170,7 +170,8 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// The SpringChoiceTest.java can't setup the header by Spring configure file
+comment|// The SpringChoiceTest.java can't setup the header by Spring configure
+comment|// file
 comment|// x.expectedHeaderReceived("name", "a");
 name|expectsMessageCount
 argument_list|(

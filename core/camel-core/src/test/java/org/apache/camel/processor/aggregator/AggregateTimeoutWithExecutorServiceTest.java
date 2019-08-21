@@ -181,7 +181,8 @@ operator|+
 name|i
 argument_list|)
 decl_stmt|;
-comment|// by default the use latest aggregation strategy is used so we get message 4
+comment|// by default the use latest aggregation strategy is used so we get
+comment|// message 4
 name|result
 operator|.
 name|expectedBodiesReceived

@@ -406,7 +406,8 @@ name|from
 argument_list|(
 literal|"direct:body"
 argument_list|)
-comment|// here we use a POJO bean mySplitterBean to do the split of the payload
+comment|// here we use a POJO bean mySplitterBean to do the split of
+comment|// the payload
 operator|.
 name|split
 argument_list|()
@@ -427,7 +428,8 @@ name|from
 argument_list|(
 literal|"direct:message"
 argument_list|)
-comment|// here we use a POJO bean mySplitterBean to do the split of the message
+comment|// here we use a POJO bean mySplitterBean to do the split of
+comment|// the message
 comment|// with a certain header value
 operator|.
 name|split
@@ -456,7 +458,7 @@ specifier|public
 class|class
 name|MySplitterBean
 block|{
-comment|/**          * The split body method returns something that is iteratable such as a java.util.List.          *          * @param body the payload of the incoming message          * @return a list containing each part splitted          */
+comment|/**          * The split body method returns something that is iteratable such as a          * java.util.List.          *          * @param body the payload of the incoming message          * @return a list containing each part splitted          */
 DECL|method|splitBody (String body)
 specifier|public
 name|List
@@ -516,7 +518,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**          * The split message method returns something that is iteratable such as a java.util.List.          *          * @param header the header of the incoming message with the name user          * @param body the payload of the incoming message          * @return a list containing each part splitted          */
+comment|/**          * The split message method returns something that is iteratable such as          * a java.util.List.          *          * @param header the header of the incoming message with the name user          * @param body the payload of the incoming message          * @return a list containing each part splitted          */
 DECL|method|splitMessage (@eadervalue = R) String header, @Body String body, CamelContext camelContext)
 specifier|public
 name|List

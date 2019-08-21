@@ -374,7 +374,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// can be 0 or 1 depending whether the task was executed or not (we run parallel)
+comment|// can be 0 or 1 depending whether the task was executed or not (we run
+comment|// parallel)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"
@@ -536,7 +537,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// can be 0 or 1 depending whether the task was executed or not (we run parallel)
+comment|// can be 0 or 1 depending whether the task was executed or not (we run
+comment|// parallel)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"

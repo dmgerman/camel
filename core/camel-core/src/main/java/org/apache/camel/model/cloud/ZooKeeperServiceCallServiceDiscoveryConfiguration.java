@@ -250,7 +250,7 @@ return|return
 name|namespace
 return|;
 block|}
-comment|/**      * As ZooKeeper is a shared space, users of a given cluster should stay within      * a pre-defined namespace. If a namespace is set here, all paths will get pre-pended      * with the namespace      */
+comment|/**      * As ZooKeeper is a shared space, users of a given cluster should stay      * within a pre-defined namespace. If a namespace is set here, all paths      * will get pre-pended with the namespace      */
 DECL|method|setNamespace (String namespace)
 specifier|public
 name|void

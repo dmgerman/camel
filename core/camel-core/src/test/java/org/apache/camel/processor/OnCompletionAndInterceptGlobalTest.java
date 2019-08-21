@@ -316,7 +316,8 @@ argument_list|(
 literal|"mock:intercept"
 argument_list|)
 expr_stmt|;
-comment|// define a global on completion that is invoked when the exchage is complete
+comment|// define a global on completion that is invoked when the
+comment|// exchage is complete
 name|onCompletion
 argument_list|()
 operator|.

@@ -157,7 +157,8 @@ argument_list|,
 literal|"customer"
 argument_list|)
 expr_stmt|;
-comment|// the rest becomes routes and the input is a seda endpoint created by the DummyRestConsumerFactory
+comment|// the rest becomes routes and the input is a seda endpoint created by
+comment|// the DummyRestConsumerFactory
 name|template
 operator|.
 name|sendBody
@@ -203,7 +204,8 @@ argument_list|,
 literal|"admin"
 argument_list|)
 expr_stmt|;
-comment|// the rest becomes routes and the input is a seda endpoint created by the DummyRestConsumerFactory
+comment|// the rest becomes routes and the input is a seda endpoint created by
+comment|// the DummyRestConsumerFactory
 name|template
 operator|.
 name|sendBodyAndHeader

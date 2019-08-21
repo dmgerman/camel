@@ -155,9 +155,12 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we don't expect any thrown exception here as there's no onException clause defined for this test
-comment|// so that the general purpose dead letter channel will come into the play and then when all the attempts
-comment|// to redelivery fails the exchange will be moved to "mock:error" and then from the client point of
+comment|// we don't expect any thrown exception here as there's no onException
+comment|// clause defined for this test
+comment|// so that the general purpose dead letter channel will come into the
+comment|// play and then when all the attempts
+comment|// to redelivery fails the exchange will be moved to "mock:error" and
+comment|// then from the client point of
 comment|// view the exchange is completed.
 name|template
 operator|.

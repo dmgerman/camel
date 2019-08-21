@@ -2048,7 +2048,8 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// there is no upper case method on byte array, but we can convert to String as below
+comment|// there is no upper case method on byte array, but we can convert to
+comment|// String as below
 try|try
 block|{
 name|assertPredicate
@@ -2154,7 +2155,8 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// there is no upper case method on byte array, but we can convert to String as below
+comment|// there is no upper case method on byte array, but we can convert to
+comment|// String as below
 try|try
 block|{
 name|assertPredicate
@@ -11088,8 +11090,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// when using type: function we need special logic to not lazy evaluate it so its evaluated only once
-comment|// and won't fool Camel to think its a nested OGNL method call expression instead (CAMEL-10664)
+comment|// when using type: function we need special logic to not lazy evaluate
+comment|// it so its evaluated only once
+comment|// and won't fool Camel to think its a nested OGNL method call
+comment|// expression instead (CAMEL-10664)
 name|exchange
 operator|.
 name|setProperty

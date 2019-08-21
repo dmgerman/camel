@@ -167,7 +167,7 @@ parameter_list|()
 block|{
 comment|// need a single test method to not fail because of no test methods
 block|}
-comment|/**      * Process 100 files with a sorted file endpoint. For each exchange the body will be replaced      * by a large buffer. In reality a similar thing happens if you have a lot of large files      * and use convertBodyTo(String.class). In both cases the Exchanges becomes quite large.      * The test will consume a lot of memory if all exchanges are kept in a list while doing      * the batch processing. This is because the garbage collector can not clean them as they      * are referenced in the list of exchanges.      *<p/>      * The test is not really a good integration test as it simply waits and does not fail      * or succeed fast      */
+comment|/**      * Process 100 files with a sorted file endpoint. For each exchange the body      * will be replaced by a large buffer. In reality a similar thing happens if      * you have a lot of large files and use convertBodyTo(String.class). In      * both cases the Exchanges becomes quite large. The test will consume a lot      * of memory if all exchanges are kept in a list while doing the batch      * processing. This is because the garbage collector can not clean them as      * they are referenced in the list of exchanges.      *<p/>      * The test is not really a good integration test as it simply waits and      * does not fail or succeed fast      */
 annotation|@
 name|Test
 DECL|method|testMemoryLeak ()
@@ -178,7 +178,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// run this manually and browse the memory usage, eg in IDEA there is a Statistics tab
+comment|// run this manually and browse the memory usage, eg in IDEA there is a
+comment|// Statistics tab
 name|deleteDirectory
 argument_list|(
 literal|"target/data/filesorter/archiv"

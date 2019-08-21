@@ -221,7 +221,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Intercept incoming messages from the uri or uri pattern.      * If this option is not configured, then all incoming messages is intercepted.      */
+comment|/**      * Intercept incoming messages from the uri or uri pattern. If this option      * is not configured, then all incoming messages is intercepted.      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void

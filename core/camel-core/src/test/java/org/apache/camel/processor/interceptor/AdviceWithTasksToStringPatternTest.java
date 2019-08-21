@@ -224,7 +224,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// weave nodes in the route which has foo anywhere in their to string representation
+comment|// weave nodes in the route which has foo anywhere in their to
+comment|// string representation
 comment|// and replace them with the following route path
 name|weaveByToString
 argument_list|(

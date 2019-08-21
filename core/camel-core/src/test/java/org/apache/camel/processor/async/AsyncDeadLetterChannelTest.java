@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that error handling using threads() also works as expected.  */
+comment|/**  * Unit test to verify that error handling using threads() also works as  * expected.  */
 end_comment
 
 begin_class

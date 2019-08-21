@@ -1188,7 +1188,8 @@ argument_list|,
 literal|"bar"
 argument_list|)
 expr_stmt|;
-comment|// we aggregate parallel and therefore its not thread-safe when setting values
+comment|// we aggregate parallel and therefore its not thread-safe when setting
+comment|// values
 block|}
 annotation|@
 name|Test
@@ -1420,7 +1421,8 @@ name|SPLIT_COMPLETE
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//this header cannot be set when streaming is used, except for the last exchange
+comment|// this header cannot be set when streaming is used, except for
+comment|// the last exchange
 name|assertNull
 argument_list|(
 name|exchange

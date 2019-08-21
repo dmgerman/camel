@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The FHIR XML data format is used to marshall/unmarshall from/to FHIR objects to/from XML.  */
+comment|/**  * The FHIR XML data format is used to marshall/unmarshall from/to FHIR objects  * to/from XML.  */
 end_comment
 
 begin_class

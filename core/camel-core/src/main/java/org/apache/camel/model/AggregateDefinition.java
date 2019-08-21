@@ -938,10 +938,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// if using the Java DSL then the expression may have been set using the
-comment|// ExpressionClause which is a fancy builder to define expressions and predicates
-comment|// using fluent builders in the DSL. However we need afterwards a callback to
-comment|// reset the expression to the expression type the ExpressionClause did build for us
+comment|// if using the Java DSL then the expression may have been set
+comment|// using the
+comment|// ExpressionClause which is a fancy builder to define
+comment|// expressions and predicates
+comment|// using fluent builders in the DSL. However we need afterwards
+comment|// a callback to
+comment|// reset the expression to the expression type the
+comment|// ExpressionClause did build for us
 name|ExpressionFactory
 name|model
 init|=
@@ -987,7 +991,7 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
-comment|/**      * The AggregationStrategy to use.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the incoming Exchange with the existing already merged exchanges.      * At first call the oldExchange parameter is null.      * On subsequent invocations the oldExchange contains the merged exchanges and newExchange is of course the new incoming Exchange.      */
+comment|/**      * The AggregationStrategy to use.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the      * incoming Exchange with the existing already merged exchanges. At first      * call the oldExchange parameter is null. On subsequent invocations the      * oldExchange contains the merged exchanges and newExchange is of course      * the new incoming Exchange.      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -1014,7 +1018,7 @@ return|return
 name|strategyRef
 return|;
 block|}
-comment|/**      * A reference to lookup the AggregationStrategy in the Registry.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the incoming Exchange with the existing already merged exchanges.      * At first call the oldExchange parameter is null.      * On subsequent invocations the oldExchange contains the merged exchanges and newExchange is of course the new incoming Exchange.      */
+comment|/**      * A reference to lookup the AggregationStrategy in the Registry.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the      * incoming Exchange with the existing already merged exchanges. At first      * call the oldExchange parameter is null. On subsequent invocations the      * oldExchange contains the merged exchanges and newExchange is of course      * the new incoming Exchange.      */
 DECL|method|setAggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|void
@@ -1041,7 +1045,7 @@ return|return
 name|strategyRef
 return|;
 block|}
-comment|/**      * A reference to lookup the AggregationStrategy in the Registry.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the incoming Exchange with the existing already merged exchanges.      * At first call the oldExchange parameter is null.      * On subsequent invocations the oldExchange contains the merged exchanges and newExchange is of course the new incoming Exchange.      */
+comment|/**      * A reference to lookup the AggregationStrategy in the Registry.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the      * incoming Exchange with the existing already merged exchanges. At first      * call the oldExchange parameter is null. On subsequent invocations the      * oldExchange contains the merged exchanges and newExchange is of course      * the new incoming Exchange.      */
 DECL|method|setStrategyRef (String strategyRef)
 specifier|public
 name|void
@@ -1068,7 +1072,7 @@ return|return
 name|strategyMethodName
 return|;
 block|}
-comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
+comment|/**      * This option can be used to explicit declare the method name to use, when      * using POJOs as the AggregationStrategy.      */
 DECL|method|setAggregationStrategyMethodName (String strategyMethodName)
 specifier|public
 name|void
@@ -1105,7 +1109,7 @@ return|return
 name|strategyMethodName
 return|;
 block|}
-comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
+comment|/**      * This option can be used to explicit declare the method name to use, when      * using POJOs as the AggregationStrategy.      */
 DECL|method|setStrategyMethodName (String strategyMethodName)
 specifier|public
 name|void
@@ -1122,7 +1126,7 @@ operator|=
 name|strategyMethodName
 expr_stmt|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used for the very first aggregation.      * If this option is true then null values is used as the oldExchange (at the very first aggregation),      * when using POJOs as the AggregationStrategy.      */
+comment|/**      * If this option is false then the aggregate method is not used for the      * very first aggregation. If this option is true then null values is used      * as the oldExchange (at the very first aggregation), when using POJOs as      * the AggregationStrategy.      */
 DECL|method|setStrategyMethodAllowNull (Boolean strategyMethodAllowNull)
 specifier|public
 name|void
@@ -1139,7 +1143,7 @@ operator|=
 name|strategyMethodAllowNull
 expr_stmt|;
 block|}
-comment|/**      * The expression used to calculate the correlation key to use for aggregation.      * The Exchange which has the same correlation key is aggregated together.      * If the correlation key could not be evaluated an Exception is thrown.      * You can disable this by using the ignoreBadCorrelationKeys option.      */
+comment|/**      * The expression used to calculate the correlation key to use for      * aggregation. The Exchange which has the same correlation key is      * aggregated together. If the correlation key could not be evaluated an      * Exception is thrown. You can disable this by using the      * ignoreBadCorrelationKeys option.      */
 DECL|method|setCorrelationExpression (ExpressionSubElementDefinition correlationExpression)
 specifier|public
 name|void
@@ -1358,7 +1362,7 @@ return|return
 name|completionTimeoutExpression
 return|;
 block|}
-comment|/**      * Time in millis that an aggregated exchange should be inactive before its complete (timeout).      * This option can be set as either a fixed value or using an Expression which allows you to evaluate      * a timeout dynamically - will use Long as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      * You cannot use this option together with completionInterval, only one of the two can be used.      *<p/>      * By default the timeout checker runs every second, you can use the completionTimeoutCheckerInterval option      * to configure how frequently to run the checker.      * The timeout is an approximation and there is no guarantee that the a timeout is triggered exactly after the timeout value.      * It is not recommended to use very low timeout values or checker intervals.      *      * @param completionTimeoutExpression  the timeout as an {@link Expression} which is evaluated as a {@link Long} type      */
+comment|/**      * Time in millis that an aggregated exchange should be inactive before its      * complete (timeout). This option can be set as either a fixed value or      * using an Expression which allows you to evaluate a timeout dynamically -      * will use Long as result. If both are set Camel will fallback to use the      * fixed value if the Expression result was null or 0. You cannot use this      * option together with completionInterval, only one of the two can be used.      *<p/>      * By default the timeout checker runs every second, you can use the      * completionTimeoutCheckerInterval option to configure how frequently to      * run the checker. The timeout is an approximation and there is no      * guarantee that the a timeout is triggered exactly after the timeout      * value. It is not recommended to use very low timeout values or checker      * intervals.      *      * @param completionTimeoutExpression the timeout as an {@link Expression}      *            which is evaluated as a {@link Long} type      */
 DECL|method|setCompletionTimeoutExpression (ExpressionSubElementDefinition completionTimeoutExpression)
 specifier|public
 name|void
@@ -1385,7 +1389,7 @@ return|return
 name|completionSizeExpression
 return|;
 block|}
-comment|/**      * Number of messages aggregated before the aggregation is complete. This option can be set as either      * a fixed value or using an Expression which allows you to evaluate a size dynamically - will use Integer as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      *      * @param completionSizeExpression  the completion size as an {@link org.apache.camel.Expression} which is evaluated as a {@link Integer} type      */
+comment|/**      * Number of messages aggregated before the aggregation is complete. This      * option can be set as either a fixed value or using an Expression which      * allows you to evaluate a size dynamically - will use Integer as result.      * If both are set Camel will fallback to use the fixed value if the      * Expression result was null or 0.      *      * @param completionSizeExpression the completion size as an      *            {@link org.apache.camel.Expression} which is evaluated as a      *            {@link Integer} type      */
 DECL|method|setCompletionSizeExpression (ExpressionSubElementDefinition completionSizeExpression)
 specifier|public
 name|void
@@ -1888,7 +1892,7 @@ return|return
 name|aggregateControllerRef
 return|;
 block|}
-comment|/**      * To use a {@link org.apache.camel.processor.aggregate.AggregateController} to allow external sources to control      * this aggregator.      */
+comment|/**      * To use a {@link org.apache.camel.processor.aggregate.AggregateController}      * to allow external sources to control this aggregator.      */
 DECL|method|setAggregateControllerRef (String aggregateControllerRef)
 specifier|public
 name|void
@@ -1906,8 +1910,8 @@ name|aggregateControllerRef
 expr_stmt|;
 block|}
 comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Use eager completion checking which means that the completionPredicate will use the incoming Exchange.      * As opposed to without eager completion checking the completionPredicate will use the aggregated Exchange.      *      * @return builder      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * Use eager completion checking which means that the completionPredicate      * will use the incoming Exchange. As opposed to without eager completion      * checking the completionPredicate will use the aggregated Exchange.      *      * @return builder      */
 DECL|method|eagerCheckCompletion ()
 specifier|public
 name|AggregateDefinition
@@ -1923,7 +1927,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If a correlation key cannot be successfully evaluated it will be ignored by logging a DEBUG and then just      * ignore the incoming Exchange.      *      * @return builder      */
+comment|/**      * If a correlation key cannot be successfully evaluated it will be ignored      * by logging a DEBUG and then just ignore the incoming Exchange.      *      * @return builder      */
 DECL|method|ignoreInvalidCorrelationKeys ()
 specifier|public
 name|AggregateDefinition
@@ -1939,7 +1943,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Closes a correlation key when its complete. Any<i>late</i> received exchanges which has a correlation key      * that has been closed, it will be defined and a ClosedCorrelationKeyException      * is thrown.      *      * @param capacity the maximum capacity of the closed correlation key cache.      *                 Use<tt>0</tt> or negative value for unbounded capacity.      * @return builder      */
+comment|/**      * Closes a correlation key when its complete. Any<i>late</i> received      * exchanges which has a correlation key that has been closed, it will be      * defined and a ClosedCorrelationKeyException is thrown.      *      * @param capacity the maximum capacity of the closed correlation key cache.      *            Use<tt>0</tt> or negative value for unbounded capacity.      * @return builder      */
 DECL|method|closeCorrelationKeyOnCompletion (int capacity)
 specifier|public
 name|AggregateDefinition
@@ -1958,7 +1962,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Discards the aggregated message on completion timeout.      *<p/>      * This means on timeout the aggregated message is dropped and not sent out of the aggregator.      *      * @return builder      */
+comment|/**      * Discards the aggregated message on completion timeout.      *<p/>      * This means on timeout the aggregated message is dropped and not sent out      * of the aggregator.      *      * @return builder      */
 DECL|method|discardOnCompletionTimeout ()
 specifier|public
 name|AggregateDefinition
@@ -1974,7 +1978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Discards the aggregated message when aggregation failed (an exception was thrown from {@link AggregationStrategy}.      * This means the partly aggregated message is dropped and not sent out of the aggregator.      *<p/>      * This option cannot be used together with completionFromBatchConsumer.      *      * @return builder      */
+comment|/**      * Discards the aggregated message when aggregation failed (an exception was      * thrown from {@link AggregationStrategy}. This means the partly aggregated      * message is dropped and not sent out of the aggregator.      *<p/>      * This option cannot be used together with completionFromBatchConsumer.      *      * @return builder      */
 DECL|method|discardOnAggregationFailure ()
 specifier|public
 name|AggregateDefinition
@@ -1990,7 +1994,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables the batch completion mode where we aggregate from a {@link org.apache.camel.BatchConsumer}      * and aggregate the total number of exchanges the {@link org.apache.camel.BatchConsumer} has reported      * as total by checking the exchange property {@link org.apache.camel.Exchange#BATCH_COMPLETE} when its complete.      *<p/>      * This option cannot be used together with discardOnAggregationFailure.      *      * @return builder      */
+comment|/**      * Enables the batch completion mode where we aggregate from a      * {@link org.apache.camel.BatchConsumer} and aggregate the total number of      * exchanges the {@link org.apache.camel.BatchConsumer} has reported as      * total by checking the exchange property      * {@link org.apache.camel.Exchange#BATCH_COMPLETE} when its complete.      *<p/>      * This option cannot be used together with discardOnAggregationFailure.      *      * @return builder      */
 DECL|method|completionFromBatchConsumer ()
 specifier|public
 name|AggregateDefinition
@@ -2006,7 +2010,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables completion on all previous groups when a new incoming correlation group. This can for example be used      * to complete groups with same correlation keys when they are in consecutive order.      * Notice when this is enabled then only 1 correlation group can be in progress as when a new correlation group      * starts, then the previous groups is forced completed.      *      * @return builder      */
+comment|/**      * Enables completion on all previous groups when a new incoming correlation      * group. This can for example be used to complete groups with same      * correlation keys when they are in consecutive order. Notice when this is      * enabled then only 1 correlation group can be in progress as when a new      * correlation group starts, then the previous groups is forced completed.      *      * @return builder      */
 DECL|method|completionOnNewCorrelationGroup ()
 specifier|public
 name|AggregateDefinition
@@ -2022,7 +2026,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Number of messages aggregated before the aggregation is complete. This option can be set as either      * a fixed value or using an Expression which allows you to evaluate a size dynamically - will use Integer as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      *      * @param completionSize  the completion size, must be a positive number      * @return builder      */
+comment|/**      * Number of messages aggregated before the aggregation is complete. This      * option can be set as either a fixed value or using an Expression which      * allows you to evaluate a size dynamically - will use Integer as result.      * If both are set Camel will fallback to use the fixed value if the      * Expression result was null or 0.      *      * @param completionSize the completion size, must be a positive number      * @return builder      */
 DECL|method|completionSize (int completionSize)
 specifier|public
 name|AggregateDefinition
@@ -2041,7 +2045,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Number of messages aggregated before the aggregation is complete. This option can be set as either      * a fixed value or using an Expression which allows you to evaluate a size dynamically - will use Integer as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      *      * @param completionSize  the completion size as an {@link org.apache.camel.Expression} which is evaluated as a {@link Integer} type      * @return builder      */
+comment|/**      * Number of messages aggregated before the aggregation is complete. This      * option can be set as either a fixed value or using an Expression which      * allows you to evaluate a size dynamically - will use Integer as result.      * If both are set Camel will fallback to use the fixed value if the      * Expression result was null or 0.      *      * @param completionSize the completion size as an      *            {@link org.apache.camel.Expression} which is evaluated as a      *            {@link Integer} type      * @return builder      */
 DECL|method|completionSize (Expression completionSize)
 specifier|public
 name|AggregateDefinition
@@ -2064,7 +2068,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * A repeating period in millis by which the aggregator will complete all current aggregated exchanges.      * Camel has a background task which is triggered every period. You cannot use this option together      * with completionTimeout, only one of them can be used.      *      * @param completionInterval  the interval in millis, must be a positive value      * @return the builder      */
+comment|/**      * A repeating period in millis by which the aggregator will complete all      * current aggregated exchanges. Camel has a background task which is      * triggered every period. You cannot use this option together with      * completionTimeout, only one of them can be used.      *      * @param completionInterval the interval in millis, must be a positive      *            value      * @return the builder      */
 DECL|method|completionInterval (long completionInterval)
 specifier|public
 name|AggregateDefinition
@@ -2083,7 +2087,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Time in millis that an aggregated exchange should be inactive before its complete (timeout).      * This option can be set as either a fixed value or using an Expression which allows you to evaluate      * a timeout dynamically - will use Long as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      * You cannot use this option together with completionInterval, only one of the two can be used.      *<p/>      * By default the timeout checker runs every second, you can use the completionTimeoutCheckerInterval option      * to configure how frequently to run the checker.      * The timeout is an approximation and there is no guarantee that the a timeout is triggered exactly after the timeout value.      * It is not recommended to use very low timeout values or checker intervals.      *      * @param completionTimeout  the timeout in millis, must be a positive value      * @return the builder      */
+comment|/**      * Time in millis that an aggregated exchange should be inactive before its      * complete (timeout). This option can be set as either a fixed value or      * using an Expression which allows you to evaluate a timeout dynamically -      * will use Long as result. If both are set Camel will fallback to use the      * fixed value if the Expression result was null or 0. You cannot use this      * option together with completionInterval, only one of the two can be used.      *<p/>      * By default the timeout checker runs every second, you can use the      * completionTimeoutCheckerInterval option to configure how frequently to      * run the checker. The timeout is an approximation and there is no      * guarantee that the a timeout is triggered exactly after the timeout      * value. It is not recommended to use very low timeout values or checker      * intervals.      *      * @param completionTimeout the timeout in millis, must be a positive value      * @return the builder      */
 DECL|method|completionTimeout (long completionTimeout)
 specifier|public
 name|AggregateDefinition
@@ -2102,7 +2106,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Time in millis that an aggregated exchange should be inactive before its complete (timeout).      * This option can be set as either a fixed value or using an Expression which allows you to evaluate      * a timeout dynamically - will use Long as result.      * If both are set Camel will fallback to use the fixed value if the Expression result was null or 0.      * You cannot use this option together with completionInterval, only one of the two can be used.      *<p/>      * By default the timeout checker runs every second, you can use the completionTimeoutCheckerInterval option      * to configure how frequently to run the checker.      * The timeout is an approximation and there is no guarantee that the a timeout is triggered exactly after the timeout value.      * It is not recommended to use very low timeout values or checker intervals.      *      * @param completionTimeout  the timeout as an {@link Expression} which is evaluated as a {@link Long} type      * @return the builder      */
+comment|/**      * Time in millis that an aggregated exchange should be inactive before its      * complete (timeout). This option can be set as either a fixed value or      * using an Expression which allows you to evaluate a timeout dynamically -      * will use Long as result. If both are set Camel will fallback to use the      * fixed value if the Expression result was null or 0. You cannot use this      * option together with completionInterval, only one of the two can be used.      *<p/>      * By default the timeout checker runs every second, you can use the      * completionTimeoutCheckerInterval option to configure how frequently to      * run the checker. The timeout is an approximation and there is no      * guarantee that the a timeout is triggered exactly after the timeout      * value. It is not recommended to use very low timeout values or checker      * intervals.      *      * @param completionTimeout the timeout as an {@link Expression} which is      *            evaluated as a {@link Long} type      * @return the builder      */
 DECL|method|completionTimeout (Expression completionTimeout)
 specifier|public
 name|AggregateDefinition
@@ -2125,7 +2129,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Interval in millis that is used by the background task that checks for timeouts ({@link org.apache.camel.TimeoutMap}).      *<p/>      * By default the timeout checker runs every second.      * The timeout is an approximation and there is no guarantee that the a timeout is triggered exactly after the timeout value.      * It is not recommended to use very low timeout values or checker intervals.      *      * @param completionTimeoutCheckerInterval  the interval in millis, must be a positive value      * @return the builder      */
+comment|/**      * Interval in millis that is used by the background task that checks for      * timeouts ({@link org.apache.camel.TimeoutMap}).      *<p/>      * By default the timeout checker runs every second. The timeout is an      * approximation and there is no guarantee that the a timeout is triggered      * exactly after the timeout value. It is not recommended to use very low      * timeout values or checker intervals.      *      * @param completionTimeoutCheckerInterval the interval in millis, must be a      *            positive value      * @return the builder      */
 DECL|method|completionTimeoutCheckerInterval (long completionTimeoutCheckerInterval)
 specifier|public
 name|AggregateDefinition
@@ -2193,7 +2197,7 @@ name|aggregationStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      * @deprecated use {@link #aggregationStrategy(AggregationStrategy)}      */
+comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy the aggregate strategy to use      * @return the builder      * @deprecated use {@link #aggregationStrategy(AggregationStrategy)}      */
 annotation|@
 name|Deprecated
 DECL|method|strategy (AggregationStrategy aggregationStrategy)
@@ -2212,7 +2216,7 @@ name|aggregationStrategy
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
+comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy the aggregate strategy to use      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|AggregateDefinition
@@ -2231,7 +2235,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy  the aggregate strategy to use      * @return the builder      */
+comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategy the aggregate strategy to use      * @return the builder      */
 DECL|method|aggregationStrategy (Supplier<AggregationStrategy> aggregationStrategy)
 specifier|public
 name|AggregateDefinition
@@ -2256,7 +2260,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategyRef  reference to the strategy to lookup in the registry      * @return the builder      */
+comment|/**      * Sets the aggregate strategy to use      *      * @param aggregationStrategyRef reference to the strategy to lookup in the      *            registry      * @return the builder      */
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|AggregateDefinition
@@ -2275,7 +2279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the method name to use when using a POJO as {@link AggregationStrategy}.      *      * @param  methodName the method name to call      * @return the builder      */
+comment|/**      * Sets the method name to use when using a POJO as      * {@link AggregationStrategy}.      *      * @param methodName the method name to call      * @return the builder      */
 DECL|method|aggregationStrategyMethodName (String methodName)
 specifier|public
 name|AggregateDefinition
@@ -2310,7 +2314,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the custom aggregate repository to use.      *<p/>      * Will by default use {@link org.apache.camel.processor.aggregate.MemoryAggregationRepository}      *      * @param aggregationRepository  the aggregate repository to use      * @return the builder      */
+comment|/**      * Sets the custom aggregate repository to use.      *<p/>      * Will by default use      * {@link org.apache.camel.processor.aggregate.MemoryAggregationRepository}      *      * @param aggregationRepository the aggregate repository to use      * @return the builder      */
 DECL|method|aggregationRepository (AggregationRepository aggregationRepository)
 specifier|public
 name|AggregateDefinition
@@ -2329,7 +2333,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the custom aggregate repository to use.      *<p/>      * Will by default use {@link org.apache.camel.processor.aggregate.MemoryAggregationRepository}      *      * @param aggregationRepository  the aggregate repository to use      * @return the builder      */
+comment|/**      * Sets the custom aggregate repository to use.      *<p/>      * Will by default use      * {@link org.apache.camel.processor.aggregate.MemoryAggregationRepository}      *      * @param aggregationRepository the aggregate repository to use      * @return the builder      */
 DECL|method|aggregationRepository (Supplier<AggregationRepository> aggregationRepository)
 specifier|public
 name|AggregateDefinition
@@ -2354,7 +2358,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the custom aggregate repository to use      *<p/>      * Will by default use {@link org.apache.camel.processor.aggregate.MemoryAggregationRepository}      *      * @param aggregationRepositoryRef  reference to the repository to lookup in the registry      * @return the builder      */
+comment|/**      * Sets the custom aggregate repository to use      *<p/>      * Will by default use      * {@link org.apache.camel.processor.aggregate.MemoryAggregationRepository}      *      * @param aggregationRepositoryRef reference to the repository to lookup in      *            the registry      * @return the builder      */
 DECL|method|aggregationRepositoryRef (String aggregationRepositoryRef)
 specifier|public
 name|AggregateDefinition
@@ -2373,7 +2377,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * A Predicate to indicate when an aggregated exchange is complete.      * If this is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
+comment|/**      * A Predicate to indicate when an aggregated exchange is complete. If this      * is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
 DECL|method|completionPredicate (@sPredicate Predicate predicate)
 specifier|public
 name|AggregateDefinition
@@ -2401,7 +2405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * A Predicate to indicate when an aggregated exchange is complete.      * If this is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
+comment|/**      * A Predicate to indicate when an aggregated exchange is complete. If this      * is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
 annotation|@
 name|AsPredicate
 DECL|method|completionPredicate ()
@@ -2435,7 +2439,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * A Predicate to indicate when an aggregated exchange is complete.      * If this is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
+comment|/**      * A Predicate to indicate when an aggregated exchange is complete. If this      * is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
 annotation|@
 name|AsPredicate
 DECL|method|completion ()
@@ -2452,7 +2456,7 @@ name|completionPredicate
 argument_list|()
 return|;
 block|}
-comment|/**      * A Predicate to indicate when an aggregated exchange is complete.      * If this is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
+comment|/**      * A Predicate to indicate when an aggregated exchange is complete. If this      * is not specified and the AggregationStrategy object implements Predicate,      * the aggregationStrategy object will be used as the completionPredicate.      */
 DECL|method|completion (@sPredicate Predicate predicate)
 specifier|public
 name|AggregateDefinition
@@ -2471,7 +2475,7 @@ name|predicate
 argument_list|)
 return|;
 block|}
-comment|/**      * Indicates to complete all current aggregated exchanges when the context is stopped      */
+comment|/**      * Indicates to complete all current aggregated exchanges when the context      * is stopped      */
 DECL|method|forceCompletionOnStop ()
 specifier|public
 name|AggregateDefinition
@@ -2487,7 +2491,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Indicates to wait to complete all current and partial (pending) aggregated exchanges when the context is stopped.      *<p/>      * This also means that we will wait for all pending exchanges which are stored in the aggregation repository      * to complete so the repository is empty before we can stop.      *<p/>      * You may want to enable this when using the memory based aggregation repository that is memory based only,      * and do not store data on disk. When this option is enabled, then the aggregator is waiting to complete      * all those exchanges before its stopped, when stopping CamelContext or the route using it.      */
+comment|/**      * Indicates to wait to complete all current and partial (pending)      * aggregated exchanges when the context is stopped.      *<p/>      * This also means that we will wait for all pending exchanges which are      * stored in the aggregation repository to complete so the repository is      * empty before we can stop.      *<p/>      * You may want to enable this when using the memory based aggregation      * repository that is memory based only, and do not store data on disk. When      * this option is enabled, then the aggregator is waiting to complete all      * those exchanges before its stopped, when stopping CamelContext or the      * route using it.      */
 DECL|method|completeAllOnStop ()
 specifier|public
 name|AggregateDefinition
@@ -2503,7 +2507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * When aggregated are completed they are being send out of the aggregator.      * This option indicates whether or not Camel should use a thread pool with multiple threads for concurrency.      * If no custom thread pool has been specified then Camel creates a default pool with 10 concurrent threads.      */
+comment|/**      * When aggregated are completed they are being send out of the aggregator.      * This option indicates whether or not Camel should use a thread pool with      * multiple threads for concurrency. If no custom thread pool has been      * specified then Camel creates a default pool with 10 concurrent threads.      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|AggregateDefinition
@@ -2519,7 +2523,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * When aggregated are completed they are being send out of the aggregator.      * This option indicates whether or not Camel should use a thread pool with multiple threads for concurrency.      * If no custom thread pool has been specified then Camel creates a default pool with 10 concurrent threads.      */
+comment|/**      * When aggregated are completed they are being send out of the aggregator.      * This option indicates whether or not Camel should use a thread pool with      * multiple threads for concurrency. If no custom thread pool has been      * specified then Camel creates a default pool with 10 concurrent threads.      */
 DECL|method|parallelProcessing (boolean parallelProcessing)
 specifier|public
 name|AggregateDefinition
@@ -2538,7 +2542,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Turns on using optimistic locking, which requires the aggregationRepository being used,      * is supporting this by implementing {@link org.apache.camel.spi.OptimisticLockingAggregationRepository}.      */
+comment|/**      * Turns on using optimistic locking, which requires the      * aggregationRepository being used, is supporting this by implementing      * {@link org.apache.camel.spi.OptimisticLockingAggregationRepository}.      */
 DECL|method|optimisticLocking ()
 specifier|public
 name|AggregateDefinition
@@ -2573,7 +2577,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If using parallelProcessing you can specify a custom thread pool to be used.      * In fact also if you are not using parallelProcessing this custom thread pool is used to send out aggregated exchanges as well.      */
+comment|/**      * If using parallelProcessing you can specify a custom thread pool to be      * used. In fact also if you are not using parallelProcessing this custom      * thread pool is used to send out aggregated exchanges as well.      */
 annotation|@
 name|Override
 DECL|method|executorService (ExecutorService executorService)
@@ -2594,7 +2598,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If using parallelProcessing you can specify a custom thread pool to be used.      * In fact also if you are not using parallelProcessing this custom thread pool is used to send out aggregated exchanges as well.      */
+comment|/**      * If using parallelProcessing you can specify a custom thread pool to be      * used. In fact also if you are not using parallelProcessing this custom      * thread pool is used to send out aggregated exchanges as well.      */
 annotation|@
 name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
@@ -2615,7 +2619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or completionInterval options a      * background thread is created to check for the completion for every aggregator.      * Set this option to provide a custom thread pool to be used rather than creating a new thread for every aggregator.      */
+comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or      * completionInterval options a background thread is created to check for      * the completion for every aggregator. Set this option to provide a custom      * thread pool to be used rather than creating a new thread for every      * aggregator.      */
 DECL|method|timeoutCheckerExecutorService (ScheduledExecutorService executorService)
 specifier|public
 name|AggregateDefinition
@@ -2634,7 +2638,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or completionInterval options a      * background thread is created to check for the completion for every aggregator.      * Set this option to provide a custom thread pool to be used rather than creating a new thread for every aggregator.      */
+comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or      * completionInterval options a background thread is created to check for      * the completion for every aggregator. Set this option to provide a custom      * thread pool to be used rather than creating a new thread for every      * aggregator.      */
 DECL|method|timeoutCheckerExecutorService (Supplier<ScheduledExecutorService> executorService)
 specifier|public
 name|AggregateDefinition
@@ -2659,7 +2663,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or completionInterval options a      * background thread is created to check for the completion for every aggregator.      * Set this option to provide a custom thread pool to be used rather than creating a new thread for every aggregator.      */
+comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or      * completionInterval options a background thread is created to check for      * the completion for every aggregator. Set this option to provide a custom      * thread pool to be used rather than creating a new thread for every      * aggregator.      */
 DECL|method|timeoutCheckerExecutorServiceRef (String executorServiceRef)
 specifier|public
 name|AggregateDefinition
@@ -2678,7 +2682,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a {@link org.apache.camel.processor.aggregate.AggregateController} to allow external sources to control      * this aggregator.      */
+comment|/**      * To use a {@link org.apache.camel.processor.aggregate.AggregateController}      * to allow external sources to control this aggregator.      */
 DECL|method|aggregateController (AggregateController aggregateController)
 specifier|public
 name|AggregateDefinition
@@ -2697,7 +2701,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a {@link org.apache.camel.processor.aggregate.AggregateController} to allow external sources to control      * this aggregator.      */
+comment|/**      * To use a {@link org.apache.camel.processor.aggregate.AggregateController}      * to allow external sources to control this aggregator.      */
 DECL|method|aggregateController (Supplier<AggregateController> aggregateController)
 specifier|public
 name|AggregateDefinition
@@ -2723,7 +2727,8 @@ name|this
 return|;
 block|}
 comment|// Section - Methods from ExpressionNode
-comment|// Needed to copy methods from ExpressionNode here so that I could specify the
+comment|// Needed to copy methods from ExpressionNode here so that I could specify
+comment|// the
 comment|// correlation expression as optional in JAXB
 DECL|method|getExpression ()
 specifier|public

@@ -183,7 +183,8 @@ name|to
 argument_list|(
 literal|"mock:a"
 argument_list|)
-comment|// this route has error handler, so any exception will redeliver (eg calling the foo route again)
+comment|// this route has error handler, so any exception will
+comment|// redeliver (eg calling the foo route again)
 operator|.
 name|to
 argument_list|(
@@ -195,7 +196,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// this route has no error handler, so any exception will not be redelivered
+comment|// this route has no error handler, so any exception will not be
+comment|// redelivered
 name|from
 argument_list|(
 literal|"direct:foo"

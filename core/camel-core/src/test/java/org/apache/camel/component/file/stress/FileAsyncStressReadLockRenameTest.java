@@ -116,7 +116,8 @@ throws|throws
 name|Exception
 block|{
 comment|// leverage the fact that we can limit to max 50 files per poll
-comment|// this will result in polling again and potentially picking up files
+comment|// this will result in polling again and potentially picking up
+comment|// files
 comment|// that already are in progress
 name|from
 argument_list|(

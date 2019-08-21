@@ -245,7 +245,8 @@ argument_list|)
 operator|.
 name|choice
 argument_list|()
-comment|// using $headerName is special notation in Camel to get the header key
+comment|// using $headerName is special notation in Camel to get the
+comment|// header key
 operator|.
 name|when
 argument_list|()

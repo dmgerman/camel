@@ -436,7 +436,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Removes all existing {@link org.apache.camel.model.OnCompletionDefinition} from the definition.      *<p/>      * This is used to let route scoped<tt>onCompletion</tt> overrule any global<tt>onCompletion</tt>.      * Hence we remove all existing as they are global.      *      * @param definition the parent definition that is the route      */
+comment|/**      * Removes all existing      * {@link org.apache.camel.model.OnCompletionDefinition} from the      * definition.      *<p/>      * This is used to let route scoped<tt>onCompletion</tt> overrule any      * global<tt>onCompletion</tt>. Hence we remove all existing as they are      * global.      *      * @param definition the parent definition that is the route      */
 DECL|method|removeAllOnCompletionDefinition (ProcessorDefinition<?> definition)
 specifier|public
 name|void
@@ -475,7 +475,8 @@ argument_list|>
 name|end
 parameter_list|()
 block|{
-comment|// pop parent block, as we added our self as block to parent when synchronized was defined in the route
+comment|// pop parent block, as we added our self as block to parent when
+comment|// synchronized was defined in the route
 name|getParent
 argument_list|()
 operator|.
@@ -489,7 +490,7 @@ name|end
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the mode to be after route is done (default due backwards compatible).      *<p/>      * This executes the on completion work<i>after</i> the route consumer have written response      * back to the callee (if its InOut mode).      *      * @return the builder      */
+comment|/**      * Sets the mode to be after route is done (default due backwards      * compatible).      *<p/>      * This executes the on completion work<i>after</i> the route consumer have      * written response back to the callee (if its InOut mode).      *      * @return the builder      */
 DECL|method|modeAfterConsumer ()
 specifier|public
 name|OnCompletionDefinition
@@ -507,7 +508,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the mode to be before consumer is done.      *<p/>      * This allows the on completion work to execute<i>before</i> the route consumer, writes any response      * back to the callee (if its InOut mode).      *      * @return the builder      */
+comment|/**      * Sets the mode to be before consumer is done.      *<p/>      * This allows the on completion work to execute<i>before</i> the route      * consumer, writes any response back to the callee (if its InOut mode).      *      * @return the builder      */
 DECL|method|modeBeforeConsumer ()
 specifier|public
 name|OnCompletionDefinition
@@ -525,7 +526,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Will only synchronize when the {@link org.apache.camel.Exchange} completed successfully (no errors).      *      * @return the builder      */
+comment|/**      * Will only synchronize when the {@link org.apache.camel.Exchange}      * completed successfully (no errors).      *      * @return the builder      */
 DECL|method|onCompleteOnly ()
 specifier|public
 name|OnCompletionDefinition
@@ -558,7 +559,8 @@ name|this
 argument_list|)
 throw|;
 block|}
-comment|// must define return type as OutputDefinition and not this type to avoid end user being able
+comment|// must define return type as OutputDefinition and not this type to
+comment|// avoid end user being able
 comment|// to invoke onFailureOnly/onCompleteOnly more than once
 name|setOnCompleteOnly
 argument_list|(
@@ -578,7 +580,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Will only synchronize when the {@link org.apache.camel.Exchange} ended with failure (exception or FAULT message).      *      * @return the builder      */
+comment|/**      * Will only synchronize when the {@link org.apache.camel.Exchange} ended      * with failure (exception or FAULT message).      *      * @return the builder      */
 DECL|method|onFailureOnly ()
 specifier|public
 name|OnCompletionDefinition
@@ -611,7 +613,8 @@ name|this
 argument_list|)
 throw|;
 block|}
-comment|// must define return type as OutputDefinition and not this type to avoid end user being able
+comment|// must define return type as OutputDefinition and not this type to
+comment|// avoid end user being able
 comment|// to invoke onFailureOnly/onCompleteOnly more than once
 name|setOnCompleteOnly
 argument_list|(
@@ -631,7 +634,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets an additional predicate that should be true before the onCompletion is triggered.      *<p/>      * To be used for fine grained controlling whether a completion callback should be invoked or not      *      * @param predicate predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets an additional predicate that should be true before the onCompletion      * is triggered.      *<p/>      * To be used for fine grained controlling whether a completion callback      * should be invoked or not      *      * @param predicate predicate that determines true or false      * @return the builder      */
 DECL|method|onWhen (@sPredicate Predicate predicate)
 specifier|public
 name|OnCompletionDefinition
@@ -656,7 +659,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Will use the original input message body when an {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      *      * @return the builder      */
+comment|/**      * Will use the original input message body when an      * {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      *      * @return the builder      */
 DECL|method|useOriginalBody ()
 specifier|public
 name|OnCompletionDefinition
@@ -674,7 +677,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
+comment|/**      * To use a custom Thread Pool to be used for parallel processing. Notice if      * you set this option, then parallel processing is automatic implied, and      * you do not have to enable that option as well.      */
 annotation|@
 name|Override
 DECL|method|executorService (ExecutorService executorService)
@@ -695,7 +698,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Refers to a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
+comment|/**      * Refers to a custom Thread Pool to be used for parallel processing. Notice      * if you set this option, then parallel processing is automatic implied,      * and you do not have to enable that option as well.      */
 annotation|@
 name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
@@ -716,7 +719,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If enabled then the on completion process will run asynchronously by a separate thread from a thread pool.      * By default this is false, meaning the on completion process will run synchronously using the same caller thread as from the route.      *      * @return the builder      */
+comment|/**      * If enabled then the on completion process will run asynchronously by a      * separate thread from a thread pool. By default this is false, meaning the      * on completion process will run synchronously using the same caller thread      * as from the route.      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|OnCompletionDefinition
@@ -732,7 +735,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If enabled then the on completion process will run asynchronously by a separate thread from a thread pool.      * By default this is false, meaning the on completion process will run synchronously using the same caller thread as from the route.      *      * @return the builder      */
+comment|/**      * If enabled then the on completion process will run asynchronously by a      * separate thread from a thread pool. By default this is false, meaning the      * on completion process will run synchronously using the same caller thread      * as from the route.      *      * @return the builder      */
 DECL|method|parallelProcessing (boolean parallelProcessing)
 specifier|public
 name|OnCompletionDefinition
@@ -966,7 +969,7 @@ return|return
 name|useOriginalMessagePolicy
 return|;
 block|}
-comment|/**      * Will use the original input message body when an {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      */
+comment|/**      * Will use the original input message body when an      * {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      */
 DECL|method|setUseOriginalMessagePolicy (Boolean useOriginalMessagePolicy)
 specifier|public
 name|void

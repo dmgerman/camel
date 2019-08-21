@@ -94,8 +94,10 @@ argument_list|(
 literal|"mock:split"
 argument_list|)
 decl_stmt|;
-comment|// we expect to receive results that have namespace definitions on each token
-comment|// we could receive nodes from multiple namespaces since we did not specify a namespace prefix,
+comment|// we expect to receive results that have namespace definitions on each
+comment|// token
+comment|// we could receive nodes from multiple namespaces since we did not
+comment|// specify a namespace prefix,
 name|mock
 operator|.
 name|expectedBodiesReceived
@@ -141,8 +143,10 @@ argument_list|(
 literal|"mock:split"
 argument_list|)
 decl_stmt|;
-comment|// we expect to receive results that have namespace definitions on each token
-comment|// we provided an explicit namespace prefix value in the route, so we will only receive nodes that have a matching prefix value
+comment|// we expect to receive results that have namespace definitions on each
+comment|// token
+comment|// we provided an explicit namespace prefix value in the route, so we
+comment|// will only receive nodes that have a matching prefix value
 name|mock
 operator|.
 name|expectedBodiesReceived

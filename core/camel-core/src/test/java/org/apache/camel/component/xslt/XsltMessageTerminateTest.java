@@ -150,7 +150,8 @@ argument_list|(
 name|cause
 argument_list|)
 expr_stmt|;
-comment|// we have the xsl termination message as a warning property on the exchange
+comment|// we have the xsl termination message as a warning property on the
+comment|// exchange
 name|Exception
 name|warning
 init|=

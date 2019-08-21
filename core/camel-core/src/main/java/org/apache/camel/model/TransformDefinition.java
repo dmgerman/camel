@@ -198,7 +198,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Expression to return the transformed message body (the new message body to use)      */
+comment|/**      * Expression to return the transformed message body (the new message body      * to use)      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)

@@ -170,7 +170,8 @@ argument_list|,
 literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
-comment|// we use NON blocked redelivery delay so the messages arrive which completes first
+comment|// we use NON blocked redelivery delay so the messages arrive which
+comment|// completes first
 name|MockEndpoint
 name|result
 init|=
@@ -247,7 +248,8 @@ throws|throws
 name|Exception
 block|{
 comment|// use async delayed which means non blocking
-comment|// set a high default value which we override by the headers so this test can complete in due time
+comment|// set a high default value which we override by the headers so
+comment|// this test can complete in due time
 name|errorHandler
 argument_list|(
 name|defaultErrorHandler

@@ -2721,7 +2721,8 @@ specifier|private
 name|Company
 name|work
 decl_stmt|;
-comment|// has no default value but Camel can automatic create one if there is a setter
+comment|// has no default value but Camel can automatic
+comment|// create one if there is a setter
 DECL|field|goldCustomer
 specifier|private
 name|boolean
@@ -2768,7 +2769,8 @@ name|goldCustomer
 return|;
 block|}
 comment|// this has no setter but only builders
-comment|// and mix the builders with both styles (with as prefix and no prefix at all)
+comment|// and mix the builders with both styles (with as prefix and no prefix
+comment|// at all)
 DECL|method|withAge (int age)
 specifier|public
 name|Bar

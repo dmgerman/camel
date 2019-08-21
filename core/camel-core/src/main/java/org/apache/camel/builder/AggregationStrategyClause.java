@@ -224,7 +224,7 @@ block|}
 comment|// *******************************
 comment|// Message
 comment|// *******************************
-comment|/**      * Define an aggregation strategy which targets Exchanges In Message.      *      *<blockquote><pre>{@code      * from("direct:aggregate")      *     .aggregate()      *         .message((old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             String oldBody = old.getBody(String.class);      *             String newBody = new.getBody(String.class);      *      *             old.setBody(oldBody + "+" + newBody);      *      *             return old;      *         });      * }</pre></blockquote>      */
+comment|/**      * Define an aggregation strategy which targets Exchanges In Message.      *<blockquote>      *       *<pre>      * {@code      * from("direct:aggregate")      *     .aggregate()      *         .message((old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             String oldBody = old.getBody(String.class);      *             String newBody = new.getBody(String.class);      *      *             old.setBody(oldBody + "+" + newBody);      *      *             return old;      *         });      * }      *</pre>      *       *</blockquote>      */
 DECL|method|message (final BiFunction<Message, Message, Message> function)
 specifier|public
 name|T
@@ -333,7 +333,7 @@ block|}
 comment|// *******************************
 comment|// Body
 comment|// *******************************
-comment|/**      * Define an aggregation strategy which targets Exchanges In Body.      *      *<blockquote><pre>{@code      * from("direct:aggregate")      *     .aggregate()      *         .body((old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             return old.toString() + new.toString();      *         });      * }</pre></blockquote>      */
+comment|/**      * Define an aggregation strategy which targets Exchanges In Body.      *<blockquote>      *       *<pre>      * {@code      * from("direct:aggregate")      *     .aggregate()      *         .body((old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             return old.toString() + new.toString();      *         });      * }      *</pre>      *       *</blockquote>      */
 DECL|method|body (final BiFunction<Object, Object, Object> function)
 specifier|public
 name|T
@@ -362,7 +362,7 @@ name|function
 argument_list|)
 return|;
 block|}
-comment|/**      * Define an aggregation strategy which targets Exchanges In Body.      *      *<blockquote><pre>{@code      * from("direct:aggregate")      *     .aggregate()      *         .body(String.class, (old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             return old + new;      *         });      * }</pre></blockquote>      */
+comment|/**      * Define an aggregation strategy which targets Exchanges In Body.      *<blockquote>      *       *<pre>      * {@code      * from("direct:aggregate")      *     .aggregate()      *         .body(String.class, (old, new) -> {      *             if (old == null) {      *                 return new;      *             }      *      *             return old + new;      *         });      * }      *</pre>      *       *</blockquote>      */
 DECL|method|body (final Class<B> type, final BiFunction<B, B, Object> function)
 specifier|public
 parameter_list|<

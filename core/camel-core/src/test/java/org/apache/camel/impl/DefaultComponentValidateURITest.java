@@ -214,7 +214,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// test that we support both notations of scheduled polling consumer options
+comment|// test that we support both notations of scheduled polling consumer
+comment|// options
 comment|// with consumer. prefix
 name|Endpoint
 name|endpint

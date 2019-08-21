@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests that a Seda producer supports the blockWhenFull option by blocking  * when a message is sent while the queue is full.  */
+comment|/**  * Tests that a Seda producer supports the blockWhenFull option by blocking when  * a message is sent while the queue is full.  */
 end_comment
 
 begin_class

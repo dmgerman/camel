@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Weighted load balancer  *  * The weighted load balancing policy allows you to specify a processing load distribution ratio for each server  * with respect to others. In addition to the weight, endpoint selection is then further refined using  * random distribution based on weight.  */
+comment|/**  * Weighted load balancer The weighted load balancing policy allows you to  * specify a processing load distribution ratio for each server with respect to  * others. In addition to the weight, endpoint selection is then further refined  * using random distribution based on weight.  */
 end_comment
 
 begin_class
@@ -183,7 +183,7 @@ return|return
 name|roundRobin
 return|;
 block|}
-comment|/**      * To enable round robin mode. By default the weighted distribution mode is used.      *<p/>      * The default value is false.      */
+comment|/**      * To enable round robin mode. By default the weighted distribution mode is      * used.      *<p/>      * The default value is false.      */
 DECL|method|setRoundRobin (Boolean roundRobin)
 specifier|public
 name|void
@@ -210,7 +210,7 @@ return|return
 name|distributionRatio
 return|;
 block|}
-comment|/**      * The distribution ratio is a delimited String consisting on integer weights separated by delimiters for example "2,3,5".      * The distributionRatio must match the number of endpoints and/or processors specified in the load balancer list.      */
+comment|/**      * The distribution ratio is a delimited String consisting on integer      * weights separated by delimiters for example "2,3,5". The      * distributionRatio must match the number of endpoints and/or processors      * specified in the load balancer list.      */
 DECL|method|setDistributionRatio (String distributionRatio)
 specifier|public
 name|void

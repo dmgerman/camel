@@ -125,7 +125,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// will use a a custom thread pool with -1 in core and 2 max
+comment|// will use a a custom thread pool with -1 in core and 2
+comment|// max
 operator|.
 name|threads
 argument_list|(
@@ -229,7 +230,8 @@ name|from
 argument_list|(
 literal|"direct:foo"
 argument_list|)
-comment|// only change thread name and max, but rely on default settings
+comment|// only change thread name and max, but rely on default
+comment|// settings
 operator|.
 name|threads
 argument_list|()

@@ -232,7 +232,8 @@ name|Service
 operator|)
 condition|)
 block|{
-comment|// wrap the target so it becomes a service and we can manage its lifecycle
+comment|// wrap the target so it becomes a service and we can manage its
+comment|// lifecycle
 name|target
 operator|=
 operator|new

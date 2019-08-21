@@ -233,7 +233,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Expression to determine if the message should be filtered or not. If the expression returns an empty value or<tt>false</tt>      * then the message is filtered (dropped), otherwise the message is continued being routed.      */
+comment|/**      * Expression to determine if the message should be filtered or not. If the      * expression returns an empty value or<tt>false</tt> then the message is      * filtered (dropped), otherwise the message is continued being routed.      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)

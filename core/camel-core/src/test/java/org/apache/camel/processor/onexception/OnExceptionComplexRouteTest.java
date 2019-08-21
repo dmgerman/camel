@@ -461,7 +461,8 @@ name|Exception
 block|{
 comment|// START SNIPPET: e1
 comment|// global error handler
-comment|// as its based on a unit test we do not have any delays between and do not log the stack trace
+comment|// as its based on a unit test we do not have any delays between
+comment|// and do not log the stack trace
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -508,7 +509,8 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 comment|// route specific on exception for MyFunctionalException
-comment|// we MUST use .end() to indicate that this sub block is ended
+comment|// we MUST use .end() to indicate that this sub block is
+comment|// ended
 operator|.
 name|onException
 argument_list|(
@@ -539,9 +541,12 @@ name|from
 argument_list|(
 literal|"direct:start2"
 argument_list|)
-comment|// route specific on exception for MyFunctionalException that is different than the previous route
-comment|// here we marked it as handled and send it to a different destination mock:handled
-comment|// we MUST use .end() to indicate that this sub block is ended
+comment|// route specific on exception for MyFunctionalException
+comment|// that is different than the previous route
+comment|// here we marked it as handled and send it to a different
+comment|// destination mock:handled
+comment|// we MUST use .end() to indicate that this sub block is
+comment|// ended
 operator|.
 name|onException
 argument_list|(

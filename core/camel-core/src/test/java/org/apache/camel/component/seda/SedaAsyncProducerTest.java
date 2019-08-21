@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The new Async API version of doing async routing based on the old AsyncProcessor API  * In the old SedaAsyncProcessorTest a seda endpoint was needed to really turn it into async. This is not  * needed by the new API so we send it using direct instead.  */
+comment|/**  * The new Async API version of doing async routing based on the old  * AsyncProcessor API In the old SedaAsyncProcessorTest a seda endpoint was  * needed to really turn it into async. This is not needed by the new API so we  * send it using direct instead.  */
 end_comment
 
 begin_class

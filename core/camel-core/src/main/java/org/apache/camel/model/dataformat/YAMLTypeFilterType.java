@@ -41,9 +41,9 @@ enum|enum
 name|YAMLTypeFilterType
 block|{
 DECL|enumConstant|type
+DECL|enumConstant|regexp
 name|type
 block|,
-DECL|enumConstant|regexp
 name|regexp
 block|}
 end_enum

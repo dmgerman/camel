@@ -142,7 +142,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// send the message as InOnly to SEDA as we want to continue routing
+comment|// send the message as InOnly to SEDA as we want to continue
+comment|// routing
 comment|// (as we don't want to do request/reply over SEDA)
 comment|// In EIP patterns the WireTap pattern is what this would be
 name|from

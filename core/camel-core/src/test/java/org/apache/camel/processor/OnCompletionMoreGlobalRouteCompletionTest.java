@@ -498,7 +498,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// no route on completion so this one uses all the global ones
+comment|// no route on completion so this one uses all the global
+comment|// ones
 operator|.
 name|process
 argument_list|(

@@ -188,7 +188,8 @@ argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// here we register exception cause for MyFunctionException
-comment|// when this exception occur we want it to be processed by our processor
+comment|// when this exception occur we want it to be processed by our
+comment|// processor
 name|onException
 argument_list|(
 name|MyFunctionalException
@@ -287,9 +288,12 @@ argument_list|(
 name|caused
 argument_list|)
 expr_stmt|;
-comment|// here you can do what you want, but Camel regard this exception as handled, and
-comment|// this processor as a failurehandler, so it wont do redeliveries. So this is the
-comment|// end of this route. But if we want to route it somewhere we can just get a
+comment|// here you can do what you want, but Camel regard this exception as
+comment|// handled, and
+comment|// this processor as a failurehandler, so it wont do redeliveries.
+comment|// So this is the
+comment|// end of this route. But if we want to route it somewhere we can
+comment|// just get a
 comment|// producer template and send it.
 comment|// send it to our mock endpoint
 name|exchange

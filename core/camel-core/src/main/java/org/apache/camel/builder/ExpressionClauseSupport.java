@@ -363,8 +363,10 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|// Implementation detail: We must use the specific model.language.xxx classes to make the DSL use these specific types
-comment|// which ensures that the route model dumped as XML uses these types, eg<header> instead of<language name="header"> etc.
+comment|// Implementation detail: We must use the specific model.language.xxx
+comment|// classes to make the DSL use these specific types
+comment|// which ensures that the route model dumped as XML uses these types, eg
+comment|//<header> instead of<language name="header"> etc.
 DECL|field|result
 specifier|private
 name|T
@@ -451,7 +453,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Specify the constant expression value.      *      *<b>Important:</b> this is a fixed constant value that is only set once during starting up the route,      * do not use this if you want dynamic values during routing.      */
+comment|/**      * Specify the constant expression value.<b>Important:</b> this is a fixed      * constant value that is only set once during starting up the route, do not      * use this if you want dynamic values during routing.      */
 DECL|method|constant (Object value)
 specifier|public
 name|T
@@ -538,7 +540,8 @@ name|T
 name|body
 parameter_list|()
 block|{
-comment|// reuse simple as this allows the model to represent this as a known JAXB type
+comment|// reuse simple as this allows the model to represent this as a known
+comment|// JAXB type
 return|return
 name|expression
 argument_list|(
@@ -670,7 +673,7 @@ return|;
 block|}
 comment|// Languages
 comment|// -------------------------------------------------------------------------
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param bean the name of the bean looked up the registry      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a> which      * basically means the bean is invoked to determine the expression value.      *      * @param bean the name of the bean looked up the registry      * @return the builder to continue processing the DSL      */
 DECL|method|method (String bean)
 specifier|public
 name|T
@@ -691,7 +694,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a> which      * basically means the bean is invoked to determine the expression value.      *      * @param instance the instance of the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (Object instance)
 specifier|public
 name|T
@@ -712,7 +715,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a> which      * basically means the bean is invoked to determine the expression value.      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder to continue processing the DSL      */
 DECL|method|method (Class<?> beanType)
 specifier|public
 name|T
@@ -736,7 +739,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a> which      * basically means the bean is invoked to determine the expression value.      *      * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (String bean, String method)
 specifier|public
 name|T
@@ -762,7 +765,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a> which      * basically means the bean is invoked to determine the expression value.      *      * @param instance the instance of the bean      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (Object instance, String method)
 specifier|public
 name|T
@@ -788,7 +791,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param beanType the Class of the bean which we want to invoke      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a> which      * basically means the bean is invoked to determine the expression value.      *      * @param beanType the Class of the bean which we want to invoke      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (Class<?> beanType, String method)
 specifier|public
 name|T
@@ -857,7 +860,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as      *            PathNotFoundException      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpath (String text, boolean suppressExceptions)
 specifier|public
 name|T
@@ -893,7 +896,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the json path expression      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as      *            PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the      *            json path expression      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpath (String text, boolean suppressExceptions, boolean allowSimple)
 specifier|public
 name|T
@@ -980,7 +983,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as      *            PathNotFoundException      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpath (String text, boolean suppressExceptions, Class<?> resultType)
 specifier|public
 name|T
@@ -1031,7 +1034,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the json path expression      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as      *            PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the      *            json path expression      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpath (String text, boolean suppressExceptions, boolean allowSimple, Class<?> resultType)
 specifier|public
 name|T
@@ -1092,7 +1095,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the json path expression      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as      *            PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the      *            json path expression      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpath (String text, boolean suppressExceptions, boolean allowSimple, Class<?> resultType, String headerName)
 specifier|public
 name|T
@@ -1182,7 +1185,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as      *            PathNotFoundException      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpathWriteAsString (String text, boolean suppressExceptions)
 specifier|public
 name|T
@@ -1225,7 +1228,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the json path expression      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as      *            PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the      *            json path expression      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpathWriteAsString (String text, boolean suppressExceptions, boolean allowSimple)
 specifier|public
 name|T
@@ -1278,7 +1281,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the json path expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a> with writeAsString enabled.      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as      *            PathNotFoundException      * @param allowSimple whether to allow in inlined simple exceptions in the      *            json path expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpathWriteAsString (String text, boolean suppressExceptions, boolean allowSimple, String headerName)
 specifier|public
 name|T
@@ -1974,7 +1977,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a token pair expression on the message body      *      * @param startToken the start token      * @param endToken   the end token      * @param includeTokens whether to include tokens      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a token pair expression on the message body      *      * @param startToken the start token      * @param endToken the end token      * @param includeTokens whether to include tokens      * @return the builder to continue processing the DSL      */
 DECL|method|tokenizePair (String startToken, String endToken, boolean includeTokens)
 specifier|public
 name|T
@@ -2027,7 +2030,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  optional parent or root tag name that contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName optional parent or root tag name that      *            contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
 DECL|method|tokenizeXMLPair (String tagName, String inheritNamespaceTagName, int group)
 specifier|public
 name|T
@@ -2056,7 +2059,7 @@ name|group
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  optional parent or root tag name that contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName optional parent or root tag name that      *            contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
 DECL|method|tokenizeXMLPair (String tagName, String inheritNamespaceTagName, String group)
 specifier|public
 name|T
@@ -2116,7 +2119,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an XML token expression on the message body with XML content      *       * @param path the xpath like path notation specifying the child nodes to tokenize      * @param mode one of 'i', 'w', or 'u' to inject the namespaces to the token, to      *        wrap the token with its ancestor contet, or to unwrap to its element child      * @param namespaces the namespace map to the namespace bindings       * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an XML token expression on the message body with XML content      *       * @param path the xpath like path notation specifying the child nodes to      *            tokenize      * @param mode one of 'i', 'w', or 'u' to inject the namespaces to the      *            token, to wrap the token with its ancestor contet, or to      *            unwrap to its element child      * @param namespaces the namespace map to the namespace bindings      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
 DECL|method|xtokenize (String path, char mode, Namespaces namespaces, int group)
 specifier|public
 name|T
@@ -2288,7 +2291,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type on the supplied      * header name's contents      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type on the supplied header      * name's contents      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text, Class<?> resultType, String headerName)
 specifier|public
 name|T
@@ -2553,7 +2556,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xquery.html">XQuery      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text)
 specifier|public
 name|T
@@ -2610,7 +2613,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xquery.html">XQuery      * expression</a> with the specified result type      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class<?> resultType)
 specifier|public
 name|T
@@ -2651,7 +2654,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xquery.html">XQuery      * expression</a> with the specified result type      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class<?> resultType, String headerName)
 specifier|public
 name|T
@@ -2695,7 +2698,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xquery.html">XQuery      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class<?> resultType, Namespaces namespaces)
 specifier|public
 name|T
@@ -2728,7 +2731,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xquery.html">XQuery      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class<?> resultType, Namespaces namespaces, String headerName)
 specifier|public
 name|T
@@ -2792,7 +2795,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type and set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xquery.html">XQuery      * expression</a> with the specified result type and set of namespace      * prefixes and URIs      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class<?> resultType, Map<String, String> namespaces)
 specifier|public
 name|T
@@ -2848,7 +2851,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xquery.html">XQuery      * expression</a> with the specified set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Namespaces namespaces)
 specifier|public
 name|T
@@ -2873,7 +2876,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xquery.html">XQuery      * expression</a> with the specified set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Map<String, String> namespaces)
 specifier|public
 name|T

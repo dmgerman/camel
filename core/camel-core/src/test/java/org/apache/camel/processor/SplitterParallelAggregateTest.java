@@ -170,7 +170,8 @@ name|SplitterParallelAggregateTest
 extends|extends
 name|ContextTestSupport
 block|{
-comment|// run this test manually as it takes some time to process, but shows that parallel aggregate can
+comment|// run this test manually as it takes some time to process, but shows that
+comment|// parallel aggregate can
 comment|// be faster when enabled.
 DECL|field|enabled
 specifier|private

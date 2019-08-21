@@ -150,7 +150,8 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
-comment|// here we use stop() to tell Camel to NOT continue routing the message.
+comment|// here we use stop() to tell Camel to NOT continue routing
+comment|// the message.
 comment|// this let us act as a filter, to drop certain messages.
 operator|.
 name|stop

@@ -286,7 +286,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// let it run for a little while and since it fails first time we should never get a message
+comment|// let it run for a little while and since it fails first time we should
+comment|// never get a message
 name|mock
 operator|.
 name|assertIsSatisfied

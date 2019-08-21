@@ -273,7 +273,8 @@ operator|.
 name|failover
 argument_list|()
 comment|// the last would succeed
-comment|// and make it complex by having a direct endpoint which is not a real async processor
+comment|// and make it complex by having a direct endpoint which is
+comment|// not a real async processor
 operator|.
 name|to
 argument_list|(

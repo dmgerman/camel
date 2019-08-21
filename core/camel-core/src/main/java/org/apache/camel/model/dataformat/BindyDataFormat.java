@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Bindy data format is used for working with flat payloads (such as CSV, delimited, fixed length formats, or FIX messages).  */
+comment|/**  * The Bindy data format is used for working with flat payloads (such as CSV,  * delimited, fixed length formats, or FIX messages).  */
 end_comment
 
 begin_class
@@ -315,7 +315,7 @@ return|return
 name|locale
 return|;
 block|}
-comment|/**      * To configure a default locale to use, such as<tt>us</tt> for united states.      *<p/>      * To use the JVM platform default locale then use the name<tt>default</tt>      */
+comment|/**      * To configure a default locale to use, such as<tt>us</tt> for united      * states.      *<p/>      * To use the JVM platform default locale then use the name<tt>default</tt>      */
 DECL|method|setLocale (String locale)
 specifier|public
 name|void
@@ -342,7 +342,7 @@ return|return
 name|unwrapSingleInstance
 return|;
 block|}
-comment|/**      * When unmarshalling should a single instance be unwrapped and returned instead of wrapped in a<tt>java.util.List</tt>.      */
+comment|/**      * When unmarshalling should a single instance be unwrapped and returned      * instead of wrapped in a<tt>java.util.List</tt>.      */
 DECL|method|setUnwrapSingleInstance (Boolean unwrapSingleInstance)
 specifier|public
 name|void

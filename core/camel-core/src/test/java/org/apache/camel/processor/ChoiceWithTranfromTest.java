@@ -258,7 +258,7 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-comment|//context.getRouteDefinition("out").toString();
+comment|// context.getRouteDefinition("out").toString();
 block|}
 block|}
 end_class

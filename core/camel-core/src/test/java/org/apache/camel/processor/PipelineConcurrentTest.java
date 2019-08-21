@@ -251,7 +251,8 @@ control|)
 block|{
 try|try
 block|{
-comment|// do some random sleep to simulate spread in user activity
+comment|// do some random sleep to simulate spread in user
+comment|// activity
 name|Thread
 operator|.
 name|sleep

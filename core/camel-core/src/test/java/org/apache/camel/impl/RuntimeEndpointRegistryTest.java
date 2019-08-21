@@ -182,7 +182,8 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we have 2 at the start as we have all endpoints for the route consumers
+comment|// we have 2 at the start as we have all endpoints for the route
+comment|// consumers
 name|assertEquals
 argument_list|(
 literal|2

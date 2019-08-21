@@ -275,8 +275,10 @@ block|{
 comment|// START SNIPPET: e1
 comment|// this routes starts from the direct:start endpoint
 comment|// the body is then splitted based on @ separator
-comment|// the splitter in Camel supports InOut as well and for that we need
-comment|// to be able to aggregate what response we need to send back, so we provide our
+comment|// the splitter in Camel supports InOut as well and for that we
+comment|// need
+comment|// to be able to aggregate what response we need to send back,
+comment|// so we provide our
 comment|// own strategy with the class MyOrderStrategy.
 name|from
 argument_list|(
@@ -297,20 +299,25 @@ operator|new
 name|MyOrderStrategy
 argument_list|()
 argument_list|)
-comment|// each splitted message is then send to this bean where we can process it
+comment|// each splitted message is then send to this bean where we
+comment|// can process it
 operator|.
 name|to
 argument_list|(
 literal|"bean:MyOrderService?method=handleOrder"
 argument_list|)
-comment|// this is important to end the splitter route as we do not want to do more routing
+comment|// this is important to end the splitter route as we do not
+comment|// want to do more routing
 comment|// on each splitted message
 operator|.
 name|end
 argument_list|()
-comment|// after we have splitted and handled each message we want to send a single combined
-comment|// response back to the original caller, so we let this bean build it for us
-comment|// this bean will receive the result of the aggregate strategy: MyOrderStrategy
+comment|// after we have splitted and handled each message we want
+comment|// to send a single combined
+comment|// response back to the original caller, so we let this bean
+comment|// build it for us
+comment|// this bean will receive the result of the aggregate
+comment|// strategy: MyOrderStrategy
 operator|.
 name|to
 argument_list|(
@@ -372,7 +379,7 @@ operator|+
 literal|")"
 return|;
 block|}
-comment|/**          * We use the same bean for building the combined response to send          * back to the original caller          */
+comment|/**          * We use the same bean for building the combined response to send back          * to the original caller          */
 DECL|method|buildCombinedResponse (String line)
 specifier|public
 name|String
@@ -402,7 +409,7 @@ block|}
 block|}
 comment|// END SNIPPET: e2
 comment|// START SNIPPET: e3
-comment|/**      * This is our own order aggregation strategy where we can control      * how each splitted message should be combined. As we do not want to      * loos any message we copy from the new to the old to preserve the      * order lines as long we process them      */
+comment|/**      * This is our own order aggregation strategy where we can control how each      * splitted message should be combined. As we do not want to loos any      * message we copy from the new to the old to preserve the order lines as      * long we process them      */
 DECL|class|MyOrderStrategy
 specifier|public
 specifier|static
@@ -425,7 +432,8 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
-comment|// put order together in old exchange by adding the order from new exchange
+comment|// put order together in old exchange by adding the order from new
+comment|// exchange
 if|if
 condition|(
 name|oldExchange
@@ -507,7 +515,8 @@ argument_list|(
 name|orders
 argument_list|)
 expr_stmt|;
-comment|// return old as this is the one that has all the orders gathered until now
+comment|// return old as this is the one that has all the orders gathered
+comment|// until now
 return|return
 name|oldExchange
 return|;

@@ -202,7 +202,8 @@ name|from
 argument_list|(
 literal|"seda:foo"
 argument_list|)
-comment|// we do not want parallel as we want to change the message before the consumer writes the response
+comment|// we do not want parallel as we want to change the message
+comment|// before the consumer writes the response
 operator|.
 name|onCompletion
 argument_list|()
@@ -254,7 +255,8 @@ name|from
 argument_list|(
 literal|"seda:bar"
 argument_list|)
-comment|// need to use parallel to make copy so we do not do side-effects
+comment|// need to use parallel to make copy so we do not do
+comment|// side-effects
 operator|.
 name|onCompletion
 argument_list|()

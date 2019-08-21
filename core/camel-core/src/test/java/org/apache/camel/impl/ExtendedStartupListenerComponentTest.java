@@ -205,7 +205,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// we are invoked 2 times and then 1 extra when we add new routes because the component
+comment|// we are invoked 2 times and then 1 extra when we add new routes
+comment|// because the component
 comment|// will trigger again when the new routes are being started
 name|assertEquals
 argument_list|(

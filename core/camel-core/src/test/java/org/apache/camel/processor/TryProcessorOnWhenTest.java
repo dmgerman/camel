@@ -493,8 +493,10 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// here is our try where we try processing the exchange in the route below if it fails
-comment|// we can catch it below, just like regular try .. catch .. finally in Java
+comment|// here is our try where we try processing the exchange in
+comment|// the route below if it fails
+comment|// we can catch it below, just like regular try .. catch ..
+comment|// finally in Java
 operator|.
 name|doTry
 argument_list|()
@@ -511,7 +513,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 comment|// here we catch the following 2 exceptions but only if
-comment|// the onWhen predicate matches, eg if the exception messsage
+comment|// the onWhen predicate matches, eg if the exception
+comment|// messsage
 comment|// conatins the string word Damn
 operator|.
 name|doCatch
@@ -540,7 +543,8 @@ name|to
 argument_list|(
 literal|"mock:catch"
 argument_list|)
-comment|// another catch for CamelExchangeException that does not have any onWhen predicate
+comment|// another catch for CamelExchangeException that does not
+comment|// have any onWhen predicate
 operator|.
 name|doCatch
 argument_list|(

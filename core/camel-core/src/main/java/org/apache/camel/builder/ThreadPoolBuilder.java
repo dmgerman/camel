@@ -310,7 +310,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Builds the new thread pool      *      * @param source the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name   name which is appended to the thread name      * @return the created thread pool      * @throws Exception is thrown if error building the thread pool      */
+comment|/**      * Builds the new thread pool      *      * @param source the source object, usually it should be<tt>this</tt>      *            passed in as parameter      * @param name name which is appended to the thread name      * @return the created thread pool      * @throws Exception is thrown if error building the thread pool      */
 DECL|method|build (Object source, String name)
 specifier|public
 name|ExecutorService
@@ -380,7 +380,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Builds the new scheduled thread pool      *      * @param source the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name   name which is appended to the thread name      * @return the created scheduled thread pool      * @throws Exception is thrown if error building the scheduled thread pool      */
+comment|/**      * Builds the new scheduled thread pool      *      * @param source the source object, usually it should be<tt>this</tt>      *            passed in as parameter      * @param name name which is appended to the thread name      * @return the created scheduled thread pool      * @throws Exception is thrown if error building the scheduled thread pool      */
 DECL|method|buildScheduled (Object source, String name)
 specifier|public
 name|ScheduledExecutorService

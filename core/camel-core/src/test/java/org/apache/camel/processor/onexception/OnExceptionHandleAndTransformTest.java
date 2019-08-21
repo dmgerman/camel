@@ -131,8 +131,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
-comment|// we catch MyFunctionalException and want to mark it as handled (= no failure returned to client)
-comment|// but we want to return a fixed text response, so we transform OUT body as Sorry.
+comment|// we catch MyFunctionalException and want to mark it as handled
+comment|// (= no failure returned to client)
+comment|// but we want to return a fixed text response, so we transform
+comment|// OUT body as Sorry.
 name|onException
 argument_list|(
 name|MyFunctionalException
@@ -251,8 +253,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e2
-comment|// we catch MyFunctionalException and want to mark it as handled (= no failure returned to client)
-comment|// but we want to return a fixed text response, so we transform OUT body and return the exception message
+comment|// we catch MyFunctionalException and want to mark it as handled
+comment|// (= no failure returned to client)
+comment|// but we want to return a fixed text response, so we transform
+comment|// OUT body and return the exception message
 name|onException
 argument_list|(
 name|MyFunctionalException
@@ -369,9 +373,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e3
-comment|// we catch MyFunctionalException and want to mark it as handled (= no failure returned to client)
-comment|// but we want to return a fixed text response, so we transform OUT body and return a nice message
-comment|// using the simple language where we want insert the exception message
+comment|// we catch MyFunctionalException and want to mark it as handled
+comment|// (= no failure returned to client)
+comment|// but we want to return a fixed text response, so we transform
+comment|// OUT body and return a nice message
+comment|// using the simple language where we want insert the exception
+comment|// message
 name|onException
 argument_list|(
 name|MyFunctionalException

@@ -116,7 +116,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|Any23DataFormat
+name|ASN1DataFormat
 import|;
 end_import
 
@@ -132,7 +132,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|ASN1DataFormat
+name|Any23DataFormat
 import|;
 end_import
 
@@ -1513,7 +1513,7 @@ name|creator
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Factory method to create the data format      *      * @param camelContext the camel context      * @param type         the data format type      * @param ref          reference to lookup for a data format      * @return the data format or null if not possible to create      */
+comment|/**      * Factory method to create the data format      *      * @param camelContext the camel context      * @param type the data format type      * @param ref reference to lookup for a data format      * @return the data format or null if not possible to create      */
 DECL|method|getDataFormat (CamelContext camelContext, DataFormatDefinition type, String ref)
 specifier|public
 specifier|static
@@ -1574,7 +1574,8 @@ return|return
 name|dataFormat
 return|;
 block|}
-comment|// try to let resolver see if it can resolve it, its not always possible
+comment|// try to let resolver see if it can resolve it, its not always
+comment|// possible
 name|type
 operator|=
 name|camelContext
@@ -1838,7 +1839,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// ignore as this option is optional and not all data formats support this
+comment|// ignore as this option is optional and not all data
+comment|// formats support this
 block|}
 comment|// configure the rest of the options
 name|configureDataFormat
@@ -1903,7 +1905,8 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-comment|// must use getDataFormatName() as we need special logic in json dataformat
+comment|// must use getDataFormatName() as we need special logic in json
+comment|// dataformat
 if|if
 condition|(
 name|definition

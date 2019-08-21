@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for Java 8 {@link CompletableFuture} as return type on a bean being called from a Camel route.  */
+comment|/**  * Unit test for Java 8 {@link CompletableFuture} as return type on a bean being  * called from a Camel route.  */
 end_comment
 
 begin_class

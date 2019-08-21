@@ -403,7 +403,8 @@ name|removeHeaders
 argument_list|(
 literal|"dude*"
 argument_list|)
-comment|// remove all beers, excluding Heineken or Tuborg, which we want to keep
+comment|// remove all beers, excluding Heineken or Tuborg, which we
+comment|// want to keep
 operator|.
 name|removeHeaders
 argument_list|(

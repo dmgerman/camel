@@ -62,7 +62,7 @@ comment|/**      * Join the existing saga or create a new one if it does not exi
 DECL|enumConstant|REQUIRED
 name|REQUIRED
 block|,
-comment|/**      * Always create a new saga. Suspend the old saga and resume it when the new one terminates.      */
+comment|/**      * Always create a new saga. Suspend the old saga and resume it when the new      * one terminates.      */
 DECL|enumConstant|REQUIRES_NEW
 name|REQUIRES_NEW
 block|,
@@ -74,7 +74,7 @@ comment|/**      * If a saga already exists, then join it.      */
 DECL|enumConstant|SUPPORTS
 name|SUPPORTS
 block|,
-comment|/**      * If a saga already exists, it is suspended and resumed when the current block completes.      */
+comment|/**      * If a saga already exists, it is suspended and resumed when the current      * block completes.      */
 DECL|enumConstant|NOT_SUPPORTED
 name|NOT_SUPPORTED
 block|,

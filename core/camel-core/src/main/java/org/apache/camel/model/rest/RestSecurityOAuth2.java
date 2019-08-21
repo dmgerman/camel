@@ -232,7 +232,7 @@ return|return
 name|authorizationUrl
 return|;
 block|}
-comment|/**      * The authorization URL to be used for this flow. This SHOULD be in the form of a URL.      * Required for implicit and access code flows      */
+comment|/**      * The authorization URL to be used for this flow. This SHOULD be in the      * form of a URL. Required for implicit and access code flows      */
 DECL|method|setAuthorizationUrl (String authorizationUrl)
 specifier|public
 name|void
@@ -259,7 +259,7 @@ return|return
 name|tokenUrl
 return|;
 block|}
-comment|/**      * The token URL to be used for this flow. This SHOULD be in the form of a URL.      * Required for password, application, and access code flows.      */
+comment|/**      * The token URL to be used for this flow. This SHOULD be in the form of a      * URL. Required for password, application, and access code flows.      */
 DECL|method|setTokenUrl (String tokenUrl)
 specifier|public
 name|void
@@ -286,7 +286,7 @@ return|return
 name|flow
 return|;
 block|}
-comment|/**      * The flow used by the OAuth2 security scheme.      * Valid values are "implicit", "password", "application" or "accessCode".      */
+comment|/**      * The flow used by the OAuth2 security scheme. Valid values are "implicit",      * "password", "application" or "accessCode".      */
 DECL|method|setFlow (String flow)
 specifier|public
 name|void

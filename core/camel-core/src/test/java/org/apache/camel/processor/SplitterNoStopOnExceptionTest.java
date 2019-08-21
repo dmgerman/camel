@@ -172,7 +172,8 @@ argument_list|(
 literal|"mock:split"
 argument_list|)
 decl_stmt|;
-comment|// we do not stop so we split to completion and thus we receive 3 messages
+comment|// we do not stop so we split to completion and thus we receive 3
+comment|// messages
 name|mock
 operator|.
 name|expectedBodiesReceived

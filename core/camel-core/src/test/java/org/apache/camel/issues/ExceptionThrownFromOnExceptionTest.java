@@ -199,7 +199,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// on exception to catch all IO exceptions and handle them specially
+comment|// on exception to catch all IO exceptions and handle them
+comment|// specially
 name|onException
 argument_list|(
 name|IOException
@@ -502,7 +503,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// on exception to catch all IO exceptions and handle them specially
+comment|// on exception to catch all IO exceptions and handle them
+comment|// specially
 name|onException
 argument_list|(
 name|IOException
@@ -827,7 +829,8 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// on exception to catch all IO exceptions and handle them specially
+comment|// on exception to catch all IO exceptions and handle them
+comment|// specially
 name|onException
 argument_list|(
 name|IOException
@@ -1012,7 +1015,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// the error will not be handled by DLC since we had an onException, and that failed,
+comment|// the error will not be handled by DLC since we had an onException, and
+comment|// that failed,
 comment|// so the exchange will throw an exception
 name|getMockEndpoint
 argument_list|(
@@ -1158,7 +1162,8 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// on exception to catch all IO exceptions and handle them specially
+comment|// on exception to catch all IO exceptions and handle them
+comment|// specially
 name|onException
 argument_list|(
 name|IOException
@@ -1349,7 +1354,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// the error will not be handled by DLC since we had an onException, and that failed,
+comment|// the error will not be handled by DLC since we had an onException, and
+comment|// that failed,
 comment|// so the exchange will throw an exception
 name|getMockEndpoint
 argument_list|(
@@ -1495,7 +1501,8 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// on exception to catch all IO exceptions and handle them specially
+comment|// on exception to catch all IO exceptions and handle them
+comment|// specially
 name|onException
 argument_list|(
 name|IOException
@@ -1822,7 +1829,8 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// on exception to catch all IO exceptions and handle them specially
+comment|// on exception to catch all IO exceptions and handle them
+comment|// specially
 name|onException
 argument_list|(
 name|IOException

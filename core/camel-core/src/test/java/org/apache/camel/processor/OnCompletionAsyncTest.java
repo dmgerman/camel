@@ -851,7 +851,8 @@ argument_list|(
 literal|"OnComplete:${body}"
 argument_list|)
 argument_list|)
-comment|// this exception does not cause any side effect as we are in async mode
+comment|// this exception does not cause any side effect as we are
+comment|// in async mode
 operator|.
 name|throwException
 argument_list|(

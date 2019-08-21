@@ -130,7 +130,8 @@ argument_list|(
 literal|"start-a"
 argument_list|)
 expr_stmt|;
-comment|// the onCustomCompletion should be send very last (as it will be handed over)
+comment|// the onCustomCompletion should be send very last (as it will be handed
+comment|// over)
 name|getMockEndpoint
 argument_list|(
 literal|"mock:c"

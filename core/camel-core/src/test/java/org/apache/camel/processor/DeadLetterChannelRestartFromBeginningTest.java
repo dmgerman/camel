@@ -241,7 +241,8 @@ name|useOriginalMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the seda:start could be any other kind of fire and forget endpoint
+comment|// the seda:start could be any other kind of fire and forget
+comment|// endpoint
 name|from
 argument_list|(
 literal|"seda:start"
@@ -336,7 +337,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// store a property on the exchange with the number of total attempts
+comment|// store a property on the exchange with the number of total
+comment|// attempts
 name|int
 name|attempts
 init|=

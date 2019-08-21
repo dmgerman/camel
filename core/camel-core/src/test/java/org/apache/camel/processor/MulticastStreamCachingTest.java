@@ -399,7 +399,8 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//stream caching should fix re-readability issues when multicasting messages
+comment|// stream caching should fix re-readability issues when
+comment|// multicasting messages
 name|from
 argument_list|(
 literal|"direct:a"

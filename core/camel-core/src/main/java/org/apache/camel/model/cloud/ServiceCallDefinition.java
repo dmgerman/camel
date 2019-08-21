@@ -798,7 +798,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * The uri of the endpoint to send to.      * The uri can be dynamic computed using the {@link org.apache.camel.language.simple.SimpleLanguage} expression.      */
+comment|/**      * The uri of the endpoint to send to. The uri can be dynamic computed using      * the {@link org.apache.camel.language.simple.SimpleLanguage} expression.      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -1507,7 +1507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a custom {@link Expression} to use through an expression builder clause.      *      * @return a expression builder clause to set the body      */
+comment|/**      * Sets a custom {@link Expression} to use through an expression builder      * clause.      *      * @return a expression builder clause to set the body      */
 DECL|method|expression ()
 specifier|public
 name|ExpressionClause

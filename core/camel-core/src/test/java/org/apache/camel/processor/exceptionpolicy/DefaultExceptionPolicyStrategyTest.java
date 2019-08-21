@@ -237,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for DefaultExceptionPolicy   */
+comment|/**  * Unit test for DefaultExceptionPolicy  */
 end_comment
 
 begin_class

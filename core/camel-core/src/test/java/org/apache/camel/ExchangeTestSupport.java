@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for a test which requires a {@link CamelContext} and  * a populated {@link Exchange}  */
+comment|/**  * A base class for a test which requires a {@link CamelContext} and a populated  * {@link Exchange}  */
 end_comment
 
 begin_class
@@ -61,7 +61,7 @@ name|context
 argument_list|)
 return|;
 block|}
-comment|/**      * A strategy method to populate an exchange with some example values for use      * by language plugins      */
+comment|/**      * A strategy method to populate an exchange with some example values for      * use by language plugins      */
 DECL|method|populateExchange (Exchange exchange)
 specifier|protected
 name|void

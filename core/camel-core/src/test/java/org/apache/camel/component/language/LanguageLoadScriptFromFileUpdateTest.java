@@ -211,7 +211,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// the script will be loaded on each message, as we disabled cache
+comment|// the script will be loaded on each message, as we disabled
+comment|// cache
 operator|.
 name|to
 argument_list|(

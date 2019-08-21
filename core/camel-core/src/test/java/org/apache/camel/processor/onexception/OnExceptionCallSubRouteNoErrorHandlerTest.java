@@ -231,7 +231,8 @@ name|from
 argument_list|(
 literal|"direct:bar"
 argument_list|)
-comment|// disable error handling so we can handle the exceptions in the doTry .. doCatch
+comment|// disable error handling so we can handle the exceptions in
+comment|// the doTry .. doCatch
 operator|.
 name|errorHandler
 argument_list|(

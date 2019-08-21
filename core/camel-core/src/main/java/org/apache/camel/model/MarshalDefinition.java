@@ -98,7 +98,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|Any23DataFormat
+name|ASN1DataFormat
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|ASN1DataFormat
+name|Any23DataFormat
 import|;
 end_import
 
@@ -741,7 +741,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marshals data into a specified format for transmission over a transport or component  */
+comment|/**  * Marshals data into a specified format for transmission over a transport or  * component  */
 end_comment
 
 begin_class

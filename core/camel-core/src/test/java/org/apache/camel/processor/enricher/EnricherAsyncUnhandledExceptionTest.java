@@ -247,7 +247,8 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 decl_stmt|;
-comment|// wait five seconds at most; else, let's assume something went wrong
+comment|// wait five seconds at most; else, let's assume something went
+comment|// wrong
 name|obj
 operator|.
 name|get
@@ -266,9 +267,12 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// if we receive an exception, the async routing engine is working correctly
-comment|// before the Enricher was fixed for cases where routing was async and the AggregationStrategy
-comment|// threw an exception, the call to requestBody would stall indefinitely
+comment|// if we receive an exception, the async routing engine is working
+comment|// correctly
+comment|// before the Enricher was fixed for cases where routing was async
+comment|// and the AggregationStrategy
+comment|// threw an exception, the call to requestBody would stall
+comment|// indefinitely
 comment|// unwrap the exception chain
 name|assertTrue
 argument_list|(
@@ -451,7 +455,8 @@ name|to
 argument_list|(
 literal|"mock:pickedUp"
 argument_list|)
-comment|// using the async utility component to ensure that the async routing engine kicks in
+comment|// using the async utility component to ensure that the
+comment|// async routing engine kicks in
 operator|.
 name|enrich
 argument_list|(

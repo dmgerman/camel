@@ -612,7 +612,8 @@ literal|true
 return|;
 block|}
 comment|// in this test we use start/stop to implement logic
-comment|// this is however discouraged, as you should prefer to use doStart/doStop
+comment|// this is however discouraged, as you should prefer to use
+comment|// doStart/doStop
 annotation|@
 name|Override
 DECL|method|doStart ()

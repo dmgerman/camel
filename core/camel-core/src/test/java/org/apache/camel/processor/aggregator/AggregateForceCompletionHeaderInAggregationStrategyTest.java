@@ -227,7 +227,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we start a new correlation group, so complete all previous groups
+comment|// we start a new correlation group, so complete all previous
+comment|// groups
 name|newExchange
 operator|.
 name|setProperty

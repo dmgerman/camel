@@ -157,7 +157,8 @@ argument_list|,
 literal|"done"
 argument_list|)
 expr_stmt|;
-comment|// wait a bit and it should not pickup the written file as there are no target file
+comment|// wait a bit and it should not pickup the written file as there are no
+comment|// target file
 name|Thread
 operator|.
 name|sleep

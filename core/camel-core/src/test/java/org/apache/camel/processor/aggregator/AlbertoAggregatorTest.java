@@ -848,7 +848,15 @@ argument_list|)
 operator|.
 name|process
 argument_list|(
-comment|// Split the name, erase the surname and put it in a
+comment|// Split
+comment|// the
+comment|// name,
+comment|// erase
+comment|// the
+comment|// surname
+comment|// and
+comment|// put it
+comment|// in a
 comment|// header
 operator|new
 name|Processor

@@ -455,7 +455,8 @@ name|parallel
 condition|)
 block|{
 comment|// executor service is mandatory for the Aggregator
-comment|// we do not run in parallel mode, but use a synchronous executor, so we run in current thread
+comment|// we do not run in parallel mode, but use a synchronous executor,
+comment|// so we run in current thread
 name|threadPool
 operator|=
 operator|new
@@ -549,7 +550,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// this EIP supports using a shared timeout checker thread pool or fallback to create a new thread pool
+comment|// this EIP supports using a shared timeout checker thread pool or
+comment|// fallback to create a new thread pool
 name|boolean
 name|shutdownTimeoutThreadPool
 init|=
@@ -601,7 +603,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// then create a thread pool assuming the ref is a thread pool profile id
+comment|// then create a thread pool assuming the ref is a thread pool
+comment|// profile id
 name|timeoutThreadPool
 operator|=
 name|routeContext
@@ -773,7 +776,8 @@ operator|instanceof
 name|Predicate
 condition|)
 block|{
-comment|// if aggregation strategy implements predicate and was not configured then use as fallback
+comment|// if aggregation strategy implements predicate and was not
+comment|// configured then use as fallback
 name|log
 operator|.
 name|debug

@@ -886,7 +886,7 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
-comment|//Negative Tests
+comment|// Negative Tests
 annotation|@
 name|Test
 DECL|method|testIllegalHMSTimePattern ()

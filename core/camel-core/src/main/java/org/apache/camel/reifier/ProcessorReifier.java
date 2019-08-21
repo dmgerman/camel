@@ -1308,7 +1308,8 @@ name|PROCESSORS
 decl_stmt|;
 static|static
 block|{
-comment|// NOTE: if adding a new class then update the initial capacity of the HashMap
+comment|// NOTE: if adding a new class then update the initial capacity of the
+comment|// HashMap
 name|Map
 argument_list|<
 name|Class
@@ -2346,7 +2347,7 @@ name|definition
 argument_list|)
 throw|;
 block|}
-comment|/**      * Override this in definition class and implement logic to create the processor      * based on the definition model.      */
+comment|/**      * Override this in definition class and implement logic to create the      * processor based on the definition model.      */
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 specifier|abstract
@@ -2394,7 +2395,7 @@ name|outputs
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates the child processor (outputs) from the current definition      *      * @param routeContext   the route context      * @param mandatory      whether or not children is mandatory (ie the definition should have outputs)      * @return the created children, or<tt>null</tt> if definition had no output      * @throws Exception is thrown if error creating the child or if it was mandatory and there was no output defined on definition      */
+comment|/**      * Creates the child processor (outputs) from the current definition      *      * @param routeContext the route context      * @param mandatory whether or not children is mandatory (ie the definition      *            should have outputs)      * @return the created children, or<tt>null</tt> if definition had no      *         output      * @throws Exception is thrown if error creating the child or if it was      *             mandatory and there was no output defined on definition      */
 DECL|method|createChildProcessor (RouteContext routeContext, boolean mandatory)
 specifier|protected
 name|Processor
@@ -2462,7 +2463,8 @@ name|mandatory
 argument_list|)
 expr_stmt|;
 block|}
-comment|// fallback to default implementation if factory did not create the child
+comment|// fallback to default implementation if factory did not create the
+comment|// child
 if|if
 condition|(
 name|children
@@ -2539,7 +2541,8 @@ name|isRouteAdded
 argument_list|()
 condition|)
 block|{
-comment|// are we routing to an endpoint interceptor, if so we should not add it as an event driven
+comment|// are we routing to an endpoint interceptor, if so we should not
+comment|// add it as an event driven
 comment|// processor as we use the producer to trigger the interceptor
 name|boolean
 name|endpointInterceptor
@@ -2588,7 +2591,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Wraps the child processor in whatever necessary interceptors and error handlers      */
+comment|/**      * Wraps the child processor in whatever necessary interceptors and error      * handlers      */
 DECL|method|wrapProcessor (RouteContext routeContext, Processor processor)
 specifier|public
 name|Channel
@@ -2688,7 +2691,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// put a channel in between this and each output to control the route flow logic
+comment|// put a channel in between this and each output to control the route
+comment|// flow logic
 name|DefaultChannel
 name|channel
 init|=
@@ -2696,7 +2700,8 @@ operator|new
 name|DefaultChannel
 argument_list|()
 decl_stmt|;
-comment|// add interceptor strategies to the channel must be in this order: camel context, route context, local
+comment|// add interceptor strategies to the channel must be in this order:
+comment|// camel context, route context, local
 name|List
 argument_list|<
 name|InterceptStrategy
@@ -2767,12 +2772,18 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-comment|// fix parent/child relationship. This will be the case of the routes has been
-comment|// defined using XML DSL or end user may have manually assembled a route from the model.
-comment|// Background note: parent/child relationship is assembled on-the-fly when using Java DSL (fluent builders)
-comment|// where as when using XML DSL (JAXB) then it fixed after, but if people are using custom interceptors
-comment|// then we need to fix the parent/child relationship beforehand, and thus we can do it here
-comment|// ideally we need the design time route -> runtime route to be a 2-phase pass (scheduled work for Camel 3.0)
+comment|// fix parent/child relationship. This will be the case of the routes
+comment|// has been
+comment|// defined using XML DSL or end user may have manually assembled a route
+comment|// from the model.
+comment|// Background note: parent/child relationship is assembled on-the-fly
+comment|// when using Java DSL (fluent builders)
+comment|// where as when using XML DSL (JAXB) then it fixed after, but if people
+comment|// are using custom interceptors
+comment|// then we need to fix the parent/child relationship beforehand, and
+comment|// thus we can do it here
+comment|// ideally we need the design time route -> runtime route to be a
+comment|// 2-phase pass (scheduled work for Camel 3.0)
 if|if
 condition|(
 name|child
@@ -2915,7 +2926,8 @@ name|wrap
 init|=
 literal|false
 decl_stmt|;
-comment|// set the error handler, must be done after init as we can set the error handler as first in the chain
+comment|// set the error handler, must be done after init as we can set the
+comment|// error handler as first in the chain
 if|if
 condition|(
 name|definition
@@ -2931,7 +2943,8 @@ operator|instanceof
 name|FinallyDefinition
 condition|)
 block|{
-comment|// do not use error handler for try .. catch .. finally blocks as it will handle errors itself
+comment|// do not use error handler for try .. catch .. finally blocks as it
+comment|// will handle errors itself
 name|log
 operator|.
 name|trace
@@ -2985,8 +2998,10 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// do not use error handler for try .. catch .. finally blocks as it will handle errors itself
-comment|// by checking that any of our parent(s) is not a try .. catch or finally type
+comment|// do not use error handler for try .. catch .. finally blocks as it
+comment|// will handle errors itself
+comment|// by checking that any of our parent(s) is not a try .. catch or
+comment|// finally type
 name|log
 operator|.
 name|trace
@@ -3027,7 +3042,8 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-comment|// do not use error handler for onExceptions blocks as it will handle errors itself
+comment|// do not use error handler for onExceptions blocks as it will
+comment|// handle errors itself
 block|}
 elseif|else
 if|if
@@ -3050,8 +3066,10 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// do not use error handler for hystrix as it offers circuit breaking with fallback for its outputs
-comment|// however if inherit error handler is enabled, we need to wrap an error handler on the hystrix parent
+comment|// do not use error handler for hystrix as it offers circuit
+comment|// breaking with fallback for its outputs
+comment|// however if inherit error handler is enabled, we need to wrap an
+comment|// error handler on the hystrix parent
 if|if
 condition|(
 name|inheritErrorHandler
@@ -3092,8 +3110,10 @@ operator|instanceof
 name|MulticastDefinition
 condition|)
 block|{
-comment|// do not use error handler for multicast as it offers fine grained error handlers for its outputs
-comment|// however if share unit of work is enabled, we need to wrap an error handler on the multicast parent
+comment|// do not use error handler for multicast as it offers fine grained
+comment|// error handlers for its outputs
+comment|// however if share unit of work is enabled, we need to wrap an
+comment|// error handler on the multicast parent
 name|MulticastDefinition
 name|def
 init|=
@@ -3189,7 +3209,7 @@ return|return
 name|channel
 return|;
 block|}
-comment|/**      * Wraps the given channel in error handler (if error handler is inherited)      *      * @param channel             the channel      * @param routeContext        the route context      * @param inheritErrorHandler whether to inherit error handler      * @throws Exception can be thrown if failed to create error handler builder      */
+comment|/**      * Wraps the given channel in error handler (if error handler is inherited)      *      * @param channel the channel      * @param routeContext the route context      * @param inheritErrorHandler whether to inherit error handler      * @throws Exception can be thrown if failed to create error handler builder      */
 DECL|method|wrapChannelInErrorHandler (DefaultChannel channel, RouteContext routeContext, Boolean inheritErrorHandler)
 specifier|private
 name|void
@@ -3337,7 +3357,7 @@ return|return
 name|errorHandler
 return|;
 block|}
-comment|/**      * Adds the given list of interceptors to the channel.      *      * @param routeContext  the route context      * @param interceptors  the list to add strategies      * @param strategies    list of strategies to add.      */
+comment|/**      * Adds the given list of interceptors to the channel.      *      * @param routeContext the route context      * @param interceptors the list to add strategies      * @param strategies list of strategies to add.      */
 DECL|method|addInterceptStrategies (RouteContext routeContext, List<InterceptStrategy> interceptors, List<InterceptStrategy> strategies)
 specifier|protected
 name|void
@@ -3367,7 +3387,7 @@ name|strategies
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance of some kind of composite processor which defaults      * to using a {@link Pipeline} but derived classes could change the behaviour      */
+comment|/**      * Creates a new instance of some kind of composite processor which defaults      * to using a {@link Pipeline} but derived classes could change the      * behaviour      */
 DECL|method|createCompositeProcessor (RouteContext routeContext, List<Processor> list)
 specifier|protected
 name|Processor
@@ -3419,7 +3439,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// We will save list of actions to restore the outputs back to the original state.
+comment|// We will save list of actions to restore the outputs back to the
+comment|// original state.
 name|Runnable
 name|propertyPlaceholdersChangeReverter
 init|=
@@ -3512,7 +3533,8 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
-comment|// also resolve properties and constant fields on embedded expressions
+comment|// also resolve properties and constant fields on embedded
+comment|// expressions
 name|ProcessorDefinition
 argument_list|<
 name|?
@@ -3646,7 +3668,8 @@ name|channel
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if more than one output wrap than in a composite processor else just keep it as is
+comment|// if more than one output wrap than in a composite processor else just
+comment|// keep it as is
 name|Processor
 name|processor
 init|=
@@ -3766,7 +3789,8 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
-comment|// fallback to default implementation if factory did not create the processor
+comment|// fallback to default implementation if factory did not create the
+comment|// processor
 if|if
 condition|(
 name|processor
@@ -3791,7 +3815,7 @@ return|return
 name|processor
 return|;
 block|}
-comment|/**      * Creates the processor and wraps it in any necessary interceptors and error handlers      */
+comment|/**      * Creates the processor and wraps it in any necessary interceptors and      * error handlers      */
 DECL|method|makeProcessor (RouteContext routeContext)
 specifier|protected
 name|Channel
@@ -3803,7 +3827,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// We will save list of actions to restore the definition back to the original state.
+comment|// We will save list of actions to restore the definition back to the
+comment|// original state.
 name|Runnable
 name|propertyPlaceholdersChangeReverter
 init|=
@@ -3964,7 +3989,8 @@ name|definition
 argument_list|)
 expr_stmt|;
 block|}
-comment|// fallback to default implementation if factory did not create the processor
+comment|// fallback to default implementation if factory did not create the
+comment|// processor
 if|if
 condition|(
 name|processor
@@ -4032,7 +4058,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Strategy to execute any custom logic before the {@link Processor} is created.      */
+comment|/**      * Strategy to execute any custom logic before the {@link Processor} is      * created.      */
 DECL|method|preCreateProcessor ()
 specifier|protected
 name|void

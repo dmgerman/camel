@@ -775,7 +775,8 @@ expr_stmt|;
 block|}
 try|try
 block|{
-comment|// wait for test completion, timeout after 30 sec to let other unit test run to not wait forever
+comment|// wait for test completion, timeout after 30 sec to let other unit
+comment|// test run to not wait forever
 name|assertTrue
 argument_list|(
 name|latch

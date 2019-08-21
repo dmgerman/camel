@@ -182,9 +182,12 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 comment|// aggregate all exchanges correlated by the id header.
-comment|// Aggregate them using the BodyInAggregatingStrategy strategy
-comment|// do eager checking which means the completion predicate will use the incoming exchange
-comment|// which allows us to trigger completion when a certain exchange arrived which is the
+comment|// Aggregate them using the BodyInAggregatingStrategy
+comment|// strategy
+comment|// do eager checking which means the completion predicate
+comment|// will use the incoming exchange
+comment|// which allows us to trigger completion when a certain
+comment|// exchange arrived which is the
 comment|// END message
 operator|.
 name|aggregate

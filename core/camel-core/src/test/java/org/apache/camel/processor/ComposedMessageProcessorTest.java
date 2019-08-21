@@ -508,7 +508,8 @@ name|configure
 parameter_list|()
 block|{
 comment|// START SNIPPET: e2
-comment|// split up the order so individual OrderItems can be validated by the appropriate bean
+comment|// split up the order so individual OrderItems can be validated
+comment|// by the appropriate bean
 name|from
 argument_list|(
 literal|"direct:start"
@@ -554,7 +555,8 @@ argument_list|(
 literal|"seda:aggregate"
 argument_list|)
 expr_stmt|;
-comment|// collect and re-assemble the validated OrderItems into an order again
+comment|// collect and re-assemble the validated OrderItems into an
+comment|// order again
 name|from
 argument_list|(
 literal|"seda:aggregate"
@@ -775,7 +777,7 @@ block|}
 block|}
 block|}
 comment|// END SNIPPET: e6
-comment|/**      * Aggregation strategy that re-assembles the validated OrderItems       * into an order, which is just a List.      */
+comment|/**      * Aggregation strategy that re-assembles the validated OrderItems into an      * order, which is just a List.      */
 comment|// START SNIPPET: e7
 DECL|class|MyOrderAggregationStrategy
 specifier|public

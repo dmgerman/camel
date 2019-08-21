@@ -154,7 +154,8 @@ literal|"Bye World"
 argument_list|)
 expr_stmt|;
 comment|// we send an in only but we use Always to wait for it to complete
-comment|// and since the route changes the payload we can get the response anyway
+comment|// and since the route changes the payload we can get the response
+comment|// anyway
 name|Exchange
 name|out
 init|=

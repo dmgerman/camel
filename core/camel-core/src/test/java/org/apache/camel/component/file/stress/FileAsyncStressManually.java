@@ -138,7 +138,8 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// test by starting the unit test FileAsyncStressFileDropper in another JVM
+comment|// test by starting the unit test FileAsyncStressFileDropper in another
+comment|// JVM
 name|MockEndpoint
 name|mock
 init|=

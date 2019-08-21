@@ -194,7 +194,7 @@ return|return
 name|pattern
 return|;
 block|}
-comment|/**      * Sets the new exchange pattern of the Exchange to be used from this point forward      */
+comment|/**      * Sets the new exchange pattern of the Exchange to be used from this point      * forward      */
 DECL|method|setPattern (ExchangePattern pattern)
 specifier|public
 name|void

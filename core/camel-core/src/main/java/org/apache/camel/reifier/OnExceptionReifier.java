@@ -230,10 +230,13 @@ throws|throws
 name|Exception
 block|{
 comment|// assign whether this was a route scoped onException or not
-comment|// we need to know this later when setting the parent, as only route scoped should have parent
-comment|// Note: this logic can possible be removed when the Camel routing engine decides at runtime
+comment|// we need to know this later when setting the parent, as only route
+comment|// scoped should have parent
+comment|// Note: this logic can possible be removed when the Camel routing
+comment|// engine decides at runtime
 comment|// to apply onException in a more dynamic fashion than current code base
-comment|// and therefore is in a better position to decide among context/route scoped OnException at runtime
+comment|// and therefore is in a better position to decide among context/route
+comment|// scoped OnException at runtime
 if|if
 condition|(
 name|definition
@@ -328,7 +331,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// wrap in our special safe fallback error handler if OnException have child output
+comment|// wrap in our special safe fallback error handler if OnException
+comment|// have child output
 name|Processor
 name|errorHandler
 init|=

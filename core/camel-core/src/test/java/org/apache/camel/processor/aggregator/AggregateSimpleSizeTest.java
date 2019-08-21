@@ -169,8 +169,10 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 comment|// aggregate all exchanges correlated by the id header.
-comment|// Aggregate them using the BodyInAggregatingStrategy strategy which
-comment|// and after 3 messages has been aggregated then complete the aggregation
+comment|// Aggregate them using the BodyInAggregatingStrategy
+comment|// strategy which
+comment|// and after 3 messages has been aggregated then complete
+comment|// the aggregation
 comment|// and send it to mock:aggregated
 operator|.
 name|aggregate

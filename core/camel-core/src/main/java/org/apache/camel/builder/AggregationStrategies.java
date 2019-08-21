@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Toolbox class to create commonly used Aggregation Strategies in a fluent manner.  * For more information about the supported {@link AggregationStrategy}, see links to the Javadocs of the relevant class below.  *   * @since 2.12  */
+comment|/**  * Toolbox class to create commonly used Aggregation Strategies in a fluent  * manner. For more information about the supported {@link AggregationStrategy},  * see links to the Javadocs of the relevant class below.  *   * @since 2.12  */
 end_comment
 
 begin_class
@@ -139,8 +139,8 @@ DECL|method|AggregationStrategies ()
 specifier|private
 name|AggregationStrategies
 parameter_list|()
-block|{ }
-comment|/**      * Creates a {@link FlexibleAggregationStrategy} pivoting around a particular type, e.g. it casts all<tt>pick expression</tt>       * results to the desired type.      *       * @param type The type the {@link FlexibleAggregationStrategy} deals with.      */
+block|{     }
+comment|/**      * Creates a {@link FlexibleAggregationStrategy} pivoting around a      * particular type, e.g. it casts all<tt>pick expression</tt> results to      * the desired type.      *       * @param type The type the {@link FlexibleAggregationStrategy} deals with.      */
 DECL|method|flexible (Class<T> type)
 specifier|public
 specifier|static
@@ -169,7 +169,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link FlexibleAggregationStrategy} with no particular type, i.e. performing no casts or type conversion of       *<tt>pick expression</tt> results.      */
+comment|/**      * Creates a {@link FlexibleAggregationStrategy} with no particular type,      * i.e. performing no casts or type conversion of<tt>pick expression</tt>      * results.      */
 DECL|method|flexible ()
 specifier|public
 specifier|static
@@ -215,7 +215,7 @@ name|UseOriginalAggregationStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Use the original exchange.      *      * @param propagateException whether to propgate exception if errors was thrown during processing splitted messages.      *      * @see org.apache.camel.processor.aggregate.UseOriginalAggregationStrategy      */
+comment|/**      * Use the original exchange.      *      * @param propagateException whether to propgate exception if errors was      *            thrown during processing splitted messages.      * @see org.apache.camel.processor.aggregate.UseOriginalAggregationStrategy      */
 DECL|method|useOriginal (boolean propagateException)
 specifier|public
 specifier|static
@@ -234,7 +234,7 @@ name|propagateException
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link GroupedExchangeAggregationStrategy} aggregation strategy.      */
+comment|/**      * Creates a {@link GroupedExchangeAggregationStrategy} aggregation      * strategy.      */
 DECL|method|groupedExchange ()
 specifier|public
 specifier|static
@@ -262,7 +262,7 @@ name|GroupedBodyAggregationStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the      * aggregation strategy.      */
 DECL|method|bean (Object bean)
 specifier|public
 specifier|static
@@ -281,7 +281,7 @@ name|bean
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the      * aggregation strategy.      */
 DECL|method|bean (Object bean, String methodName)
 specifier|public
 specifier|static
@@ -305,7 +305,7 @@ name|methodName
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the      * aggregation strategy.      */
 DECL|method|beanAllowNull (Object bean, String methodName)
 specifier|public
 specifier|static
@@ -348,7 +348,7 @@ return|return
 name|adapter
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the      * aggregation strategy.      */
 DECL|method|bean (Class<?> type)
 specifier|public
 specifier|static
@@ -370,7 +370,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the      * aggregation strategy.      */
 DECL|method|bean (Class<?> type, String methodName)
 specifier|public
 specifier|static
@@ -397,7 +397,7 @@ name|methodName
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the      * aggregation strategy.      */
 DECL|method|beanAllowNull (Class<?> type, String methodName)
 specifier|public
 specifier|static
@@ -443,7 +443,7 @@ return|return
 name|adapter
 return|;
 block|}
-comment|/**      * Creates a {@link StringAggregationStrategy}.      * @since 3.0.0      */
+comment|/**      * Creates a {@link StringAggregationStrategy}.      *       * @since 3.0.0      */
 DECL|method|string ()
 specifier|public
 specifier|static
@@ -457,7 +457,7 @@ name|StringAggregationStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a {@link StringAggregationStrategy} with delimiter.      * @param delimiter The delimiter to join with.      * @since 3.0.0      */
+comment|/**      * Creates a {@link StringAggregationStrategy} with delimiter.      *       * @param delimiter The delimiter to join with.      * @since 3.0.0      */
 DECL|method|string (String delimiter)
 specifier|public
 specifier|static

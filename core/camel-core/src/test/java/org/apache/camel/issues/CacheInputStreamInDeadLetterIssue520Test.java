@@ -261,8 +261,10 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// having dead letter channel as the errorHandler in place makes exchanges to appear as completed from
-comment|// the client point of view so that we don't count with any thrown exception here (the client side)
+comment|// having dead letter channel as the errorHandler in place makes
+comment|// exchanges to appear as completed from
+comment|// the client point of view so that we don't count with any thrown
+comment|// exception here (the client side)
 name|template
 operator|.
 name|sendBody
@@ -396,7 +398,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|//Need to set the streamCaching for the deadLetterChannel
+comment|// Need to set the streamCaching for the deadLetterChannel
 name|from
 argument_list|(
 literal|"direct:errorHandler"

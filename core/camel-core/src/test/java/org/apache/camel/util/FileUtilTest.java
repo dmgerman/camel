@@ -1309,7 +1309,8 @@ literal|"\\foo\\bar\\baz"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Test that multiple back-slashes at the beginning are preserved, this is necessary for network UNC paths.
+comment|// Test that multiple back-slashes at the beginning are preserved,
+comment|// this is necessary for network UNC paths.
 name|assertEquals
 argument_list|(
 literal|"\\\\foo\\bar\\baz"
@@ -1545,7 +1546,8 @@ literal|"/foo/bar/baz"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Do not preserve multiple slashes at the beginning if not on Windows.
+comment|// Do not preserve multiple slashes at the beginning if not on
+comment|// Windows.
 name|assertEquals
 argument_list|(
 literal|"/foo/bar/baz"

@@ -246,7 +246,7 @@ return|return
 name|servers
 return|;
 block|}
-comment|/**      * Sets the server list.      * Each entry can be a list of servers separated by comma in the format:      *      *   [service@]host:port,[service@]host2:port,[service@]host3:port      *      * @param servers a list of servers.      * @return this instance      */
+comment|/**      * Sets the server list. Each entry can be a list of servers separated by      * comma in the format:      * [service@]host:port,[service@]host2:port,[service@]host3:port      *      * @param servers a list of servers.      * @return this instance      */
 DECL|method|setServers (List<String> servers)
 specifier|public
 name|void
@@ -269,7 +269,7 @@ block|}
 comment|// *************************************************************************
 comment|// Fluent API
 comment|// *************************************************************************
-comment|/**      * Sets the server list.      * Each entry can be a list of servers separated by comma in the format:      *      *   [service@]host:port,[service@]host2:port,[service@]host3:port      *      * @param servers a list of servers.      * @return this instance      */
+comment|/**      * Sets the server list. Each entry can be a list of servers separated by      * comma in the format:      * [service@]host:port,[service@]host2:port,[service@]host3:port      *      * @param servers a list of servers.      * @return this instance      */
 DECL|method|servers (List<String> servers)
 specifier|public
 name|StaticServiceCallServiceDiscoveryConfiguration
@@ -291,7 +291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the server list.      *      * @param servers a list of servers separated by comma in the format: [service@]host:port,[service@]host2:port,[service@]host3:port      * @return this instance      */
+comment|/**      * Sets the server list.      *      * @param servers a list of servers separated by comma in the format:      *            [service@]host:port,[service@]host2:port,[service@]host3:port      * @return this instance      */
 DECL|method|servers (String servers)
 specifier|public
 name|StaticServiceCallServiceDiscoveryConfiguration

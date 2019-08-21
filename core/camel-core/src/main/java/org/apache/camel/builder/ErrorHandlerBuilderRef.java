@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a proxy to an error handler builder which is resolved by named reference  */
+comment|/**  * Represents a proxy to an error handler builder which is resolved by named  * reference  */
 end_comment
 
 begin_class

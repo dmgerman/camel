@@ -387,7 +387,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A TransformerTest demonstrates contract based declarative transformation via Java DSL.  */
+comment|/**  * A TransformerTest demonstrates contract based declarative transformation via  * Java DSL.  */
 end_comment
 
 begin_class
@@ -1988,25 +1988,25 @@ specifier|public
 specifier|static
 class|class
 name|AOrder
-block|{ }
+block|{     }
 DECL|class|AOrderResponse
 specifier|public
 specifier|static
 class|class
 name|AOrderResponse
-block|{ }
+block|{     }
 DECL|class|XOrder
 specifier|public
 specifier|static
 class|class
 name|XOrder
-block|{ }
+block|{     }
 DECL|class|XOrderResponse
 specifier|public
 specifier|static
 class|class
 name|XOrderResponse
-block|{ }
+block|{     }
 block|}
 end_class
 

@@ -323,7 +323,8 @@ operator|.
 name|getBytes
 argument_list|()
 decl_stmt|;
-comment|// should use byte[] -> String type converter and call the setBean(String) setter method
+comment|// should use byte[] -> String type converter and call the
+comment|// setBean(String) setter method
 name|IntrospectionSupport
 operator|.
 name|setProperty
@@ -598,7 +599,7 @@ class|class
 name|MyOtherBuilderBean
 extends|extends
 name|MyBuilderBean
-block|{         }
+block|{     }
 DECL|class|MyOtherOtherBuilderBean
 specifier|public
 class|class

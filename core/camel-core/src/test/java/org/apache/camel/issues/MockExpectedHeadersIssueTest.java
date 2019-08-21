@@ -94,7 +94,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// this one does NOT add by only SET so what happens is that header1 value1 is the only tested
+comment|// this one does NOT add by only SET so what happens is that header1
+comment|// value1 is the only tested
 name|resultEndpoint
 operator|.
 name|expectedHeaderReceived

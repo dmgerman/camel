@@ -263,7 +263,8 @@ parameter_list|)
 throws|throws
 name|VetoCamelContextStartException
 block|{
-comment|// we just want camel context to not startup, but do not rethrow exception
+comment|// we just want camel context to not startup, but do not rethrow
+comment|// exception
 throw|throw
 operator|new
 name|VetoCamelContextStartException

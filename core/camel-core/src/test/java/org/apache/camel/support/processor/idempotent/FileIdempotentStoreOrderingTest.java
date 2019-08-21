@@ -238,7 +238,7 @@ argument_list|(
 literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
-comment|//given
+comment|// given
 name|File
 name|fileStore
 init|=
@@ -281,13 +281,13 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//when (will rebalance)
+comment|// when (will rebalance)
 name|fileIdempotentRepository
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|//then
+comment|// then
 name|Stream
 argument_list|<
 name|String
@@ -325,7 +325,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|//expected order
+comment|// expected order
 name|Assert
 operator|.
 name|assertThat
@@ -378,7 +378,7 @@ argument_list|(
 literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
-comment|//given
+comment|// given
 name|File
 name|fileStore
 init|=
@@ -421,13 +421,13 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//when (will rebalance)
+comment|// when (will rebalance)
 name|fileIdempotentRepository
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|//then
+comment|// then
 name|Stream
 argument_list|<
 name|String
@@ -465,7 +465,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|//expected order
+comment|// expected order
 name|Assert
 operator|.
 name|assertThat
@@ -518,7 +518,7 @@ argument_list|(
 literal|"target/data/mystore"
 argument_list|)
 expr_stmt|;
-comment|//given
+comment|// given
 name|File
 name|fileStore
 init|=
@@ -591,7 +591,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|//then
+comment|// then
 name|Stream
 argument_list|<
 name|String

@@ -286,7 +286,8 @@ argument_list|(
 literal|"mock:bar"
 argument_list|)
 expr_stmt|;
-comment|// the foo route fails to startup but it should be stopped when camel stops
+comment|// the foo route fails to startup but it should be stopped when
+comment|// camel stops
 name|from
 argument_list|(
 literal|"my:foo"

@@ -162,7 +162,9 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
-comment|// ensure backwards compatibility
+comment|// ensure
+comment|// backwards
+comment|// compatibility
 name|assertNotNull
 argument_list|(
 name|cause

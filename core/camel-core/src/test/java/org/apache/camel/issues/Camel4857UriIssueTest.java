@@ -146,7 +146,7 @@ name|Camel4857UriIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
-comment|/**      * An URI of Camel Beanstalk component consists of a hostname, port and a list      * of tube names. Tube names are separated by "+" character (which is more or less      * usually used on the Web to make lists), but every tube name may contain URI special      * characters like ? or +      */
+comment|/**      * An URI of Camel Beanstalk component consists of a hostname, port and a      * list of tube names. Tube names are separated by "+" character (which is      * more or less usually used on the Web to make lists), but every tube name      * may contain URI special characters like ? or +      */
 DECL|class|MyEndpoint
 class|class
 name|MyEndpoint
@@ -299,7 +299,8 @@ name|boolean
 name|useRawUri
 parameter_list|()
 block|{
-comment|// we want the raw uri, so our component can understand the endpoint configuration as it was typed
+comment|// we want the raw uri, so our component can understand the endpoint
+comment|// configuration as it was typed
 return|return
 literal|true
 return|;
@@ -383,7 +384,8 @@ name|void
 name|testPath
 parameter_list|()
 block|{
-comment|// Here a tube name is "tube+" and written in URI as "tube%2B", but it gets
+comment|// Here a tube name is "tube+" and written in URI as "tube%2B", but it
+comment|// gets
 comment|// normalized, so that an endpoint sees "tube1+tube+"
 name|MyEndpoint
 name|endpoint

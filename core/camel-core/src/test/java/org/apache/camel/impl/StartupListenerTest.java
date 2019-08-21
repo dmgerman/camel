@@ -170,7 +170,8 @@ condition|(
 name|alreadyStarted
 condition|)
 block|{
-comment|// the routes should already been started as we add the listener afterwards
+comment|// the routes should already been started as we add the listener
+comment|// afterwards
 name|assertTrue
 argument_list|(
 name|context
@@ -190,7 +191,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// the routes should not have been started as they start afterwards
+comment|// the routes should not have been started as they start
+comment|// afterwards
 name|assertTrue
 argument_list|(
 name|context

@@ -434,7 +434,7 @@ name|lazyLoad
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the implementation of the CsvMarshallerFactory interface which is able to customize marshalling/unmarshalling       * behavior by extending CsvMarshaller or creating it from scratch.      *      * @param marshallerFactoryRef the<code>CsvMarshallerFactory</code> reference.      */
+comment|/**      * Sets the implementation of the CsvMarshallerFactory interface which is      * able to customize marshalling/unmarshalling behavior by extending      * CsvMarshaller or creating it from scratch.      *      * @param marshallerFactoryRef the<code>CsvMarshallerFactory</code>      *            reference.      */
 DECL|method|setMarshallerFactoryRef (String marshallerFactoryRef)
 specifier|public
 name|void
@@ -451,7 +451,7 @@ operator|=
 name|marshallerFactoryRef
 expr_stmt|;
 block|}
-comment|/**      * Returns the<code>CsvMarshallerFactory</code> reference.      *      * @return the<code>CsvMarshallerFactory</code> or<code>null</code> if none has been specified.      */
+comment|/**      * Returns the<code>CsvMarshallerFactory</code> reference.      *      * @return the<code>CsvMarshallerFactory</code> or<code>null</code> if      *         none has been specified.      */
 DECL|method|getMarshallerFactoryRef ()
 specifier|public
 name|String
@@ -472,7 +472,7 @@ return|return
 name|formatRef
 return|;
 block|}
-comment|/**      * The reference format to use, it will be updated with the other format options, the default value is CSVFormat.DEFAULT      */
+comment|/**      * The reference format to use, it will be updated with the other format      * options, the default value is CSVFormat.DEFAULT      */
 DECL|method|setFormatRef (String formatRef)
 specifier|public
 name|void
@@ -937,7 +937,7 @@ return|return
 name|recordSeparator
 return|;
 block|}
-comment|/**      * Sets the record separator (aka new line) which by default is new line characters (CRLF)      */
+comment|/**      * Sets the record separator (aka new line) which by default is new line      * characters (CRLF)      */
 DECL|method|setRecordSeparator (String recordSeparator)
 specifier|public
 name|void
@@ -1018,7 +1018,7 @@ return|return
 name|lazyLoad
 return|;
 block|}
-comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines on the fly or if all the lines must be read at one.      */
+comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines      * on the fly or if all the lines must be read at one.      */
 DECL|method|setLazyLoad (Boolean lazyLoad)
 specifier|public
 name|void
@@ -1045,7 +1045,7 @@ return|return
 name|useMaps
 return|;
 block|}
-comment|/**      * Whether the unmarshalling should produce maps (HashMap)for the lines values instead of lists. It requires to have header (either defined or collected).      */
+comment|/**      * Whether the unmarshalling should produce maps (HashMap)for the lines      * values instead of lists. It requires to have header (either defined or      * collected).      */
 DECL|method|setUseMaps (Boolean useMaps)
 specifier|public
 name|void
@@ -1072,7 +1072,7 @@ return|return
 name|useOrderedMaps
 return|;
 block|}
-comment|/**      * Whether the unmarshalling should produce ordered maps (LinkedHashMap) for the lines values instead of lists. It requires to have header (either defined or collected).      */
+comment|/**      * Whether the unmarshalling should produce ordered maps (LinkedHashMap) for      * the lines values instead of lists. It requires to have header (either      * defined or collected).      */
 DECL|method|setUseOrderedMaps (Boolean useOrderedMaps)
 specifier|public
 name|void
@@ -1099,7 +1099,7 @@ return|return
 name|recordConverterRef
 return|;
 block|}
-comment|/**      * Refers to a custom<tt>CsvRecordConverter</tt> to lookup from the registry to use.      */
+comment|/**      * Refers to a custom<tt>CsvRecordConverter</tt> to lookup from the      * registry to use.      */
 DECL|method|setRecordConverterRef (String recordConverterRef)
 specifier|public
 name|void

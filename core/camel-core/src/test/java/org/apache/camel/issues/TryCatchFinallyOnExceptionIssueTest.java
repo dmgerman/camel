@@ -70,7 +70,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// doTry .. doCatch .. doFinally uses its own error handling so we wont get one here
+comment|// doTry .. doCatch .. doFinally uses its own error handling so we wont
+comment|// get one here
 name|getMockEndpoint
 argument_list|(
 literal|"mock:error"

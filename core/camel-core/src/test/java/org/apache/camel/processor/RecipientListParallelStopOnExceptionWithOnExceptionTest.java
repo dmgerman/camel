@@ -90,7 +90,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// we run parallel so the tasks could haven been processed so we get 0 or more messages
+comment|// we run parallel so the tasks could haven been processed so we get 0
+comment|// or more messages
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"

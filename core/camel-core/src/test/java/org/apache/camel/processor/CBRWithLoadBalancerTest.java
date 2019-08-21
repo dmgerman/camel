@@ -271,7 +271,8 @@ argument_list|(
 literal|"Camel"
 argument_list|)
 argument_list|)
-comment|// we need to use endChoice to tell Java DSL to return scope back to the choice DSL
+comment|// we need to use endChoice to tell Java DSL to return scope
+comment|// back to the choice DSL
 operator|.
 name|loadBalance
 argument_list|()

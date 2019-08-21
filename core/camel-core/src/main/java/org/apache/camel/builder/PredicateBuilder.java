@@ -39,7 +39,8 @@ name|builder
 operator|.
 name|PredicateBuilder
 block|{
-comment|// this class is included in camel-core to be backwards compatible by extending from camel-support
+comment|// this class is included in camel-core to be backwards compatible by
+comment|// extending from camel-support
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|PredicateBuilder ()
 specifier|private

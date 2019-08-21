@@ -349,7 +349,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// define a global on completion that is invoked when the exchage is complete
+comment|// define a global on completion that is invoked when the
+comment|// exchage is complete
 name|onCompletion
 argument_list|()
 operator|.
@@ -363,7 +364,8 @@ argument_list|(
 literal|"mock:sync"
 argument_list|)
 expr_stmt|;
-comment|// we can define multiple on completion as we like as this is unit test we add a few more
+comment|// we can define multiple on completion as we like as this is
+comment|// unit test we add a few more
 name|onCompletion
 argument_list|()
 operator|.

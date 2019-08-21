@@ -477,7 +477,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *  Set the time unit for the timeout.      */
+comment|/**      * Set the time unit for the timeout.      */
 DECL|method|units (TimeUnit units)
 specifier|public
 name|CachingServiceCallServiceDiscoveryConfiguration
@@ -496,7 +496,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *  Set the service-call configuration to use      */
+comment|/**      * Set the service-call configuration to use      */
 DECL|method|serviceDiscoveryConfiguration (ServiceCallServiceDiscoveryConfiguration serviceDiscoveryConfiguration)
 specifier|public
 name|CachingServiceCallServiceDiscoveryConfiguration

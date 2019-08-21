@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Barcode data format is used for creating barccode images (such as QR-Code)  */
+comment|/**  * The Barcode data format is used for creating barccode images (such as  * QR-Code)  */
 end_comment
 
 begin_class

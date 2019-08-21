@@ -244,7 +244,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// only trigger when incoming from any seda endpoint as we use the * wildcard
+comment|// only trigger when incoming from any seda endpoint as we use
+comment|// the * wildcard
 name|interceptFrom
 argument_list|(
 literal|"seda*"

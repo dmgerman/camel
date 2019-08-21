@@ -226,7 +226,8 @@ return|;
 block|}
 else|else
 block|{
-comment|// do not invoke toString on the processor as we do not know what it would do
+comment|// do not invoke toString on the processor as we do not know what it
+comment|// would do
 name|String
 name|id
 init|=
@@ -287,7 +288,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// do not invoke toString on the processor as we do not know what it would do
+comment|// do not invoke toString on the processor as we do not know what it
+comment|// would do
 name|String
 name|id
 init|=

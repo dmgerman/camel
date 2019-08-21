@@ -117,7 +117,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// we only expect two messages as they have reached the completed predicate
+comment|// we only expect two messages as they have reached the completed
+comment|// predicate
 comment|// that we want 3 messages that has the same header id
 name|result
 operator|.
@@ -294,12 +295,14 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// our route is aggregating from the direct queue and sending the response to the mock
+comment|// our route is aggregating from the direct queue and sending
+comment|// the response to the mock
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// we use the collection based aggregator we already have configured
+comment|// we use the collection based aggregator we already have
+comment|// configured
 operator|.
 name|aggregate
 argument_list|(

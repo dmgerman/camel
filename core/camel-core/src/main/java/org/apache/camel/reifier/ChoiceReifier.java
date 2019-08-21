@@ -334,10 +334,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// if using the Java DSL then the expression may have been set using the
-comment|// ExpressionClause which is a fancy builder to define expressions and predicates
-comment|// using fluent builders in the DSL. However we need afterwards a callback to
-comment|// reset the expression to the expression type the ExpressionClause did build for us
+comment|// if using the Java DSL then the expression may have been
+comment|// set using the
+comment|// ExpressionClause which is a fancy builder to define
+comment|// expressions and predicates
+comment|// using fluent builders in the DSL. However we need
+comment|// afterwards a callback to
+comment|// reset the expression to the expression type the
+comment|// ExpressionClause did build for us
 name|ExpressionFactory
 name|model
 init|=
@@ -373,7 +377,8 @@ name|getExpression
 argument_list|()
 expr_stmt|;
 block|}
-comment|// also resolve properties and constant fields on embedded expressions in the when clauses
+comment|// also resolve properties and constant fields on embedded
+comment|// expressions in the when clauses
 if|if
 condition|(
 name|exp

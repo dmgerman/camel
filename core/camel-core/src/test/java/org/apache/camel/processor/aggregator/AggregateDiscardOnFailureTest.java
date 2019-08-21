@@ -618,7 +618,8 @@ name|completionTimeout
 argument_list|(
 literal|2000
 argument_list|)
-comment|// and if an exception happens in aggregate then discard the message
+comment|// and if an exception happens in aggregate then discard the
+comment|// message
 operator|.
 name|discardOnAggregationFailure
 argument_list|()

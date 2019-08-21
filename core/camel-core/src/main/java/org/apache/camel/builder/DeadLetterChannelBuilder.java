@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder of a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  */
+comment|/**  * A builder of a  *<a href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  */
 end_comment
 
 begin_class
@@ -379,7 +379,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// wrap in our special safe fallback error handler if sending to dead letter channel fails
+comment|// wrap in our special safe fallback error handler if sending to
+comment|// dead letter channel fails
 name|Processor
 name|child
 init|=
@@ -393,7 +394,8 @@ operator|.
 name|InOnly
 argument_list|)
 decl_stmt|;
-comment|// force MEP to be InOnly so when sending to DLQ we would not expect a reply if the MEP was InOut
+comment|// force MEP to be InOnly so when sending to DLQ we would not expect
+comment|// a reply if the MEP was InOut
 name|failureProcessor
 operator|=
 operator|new

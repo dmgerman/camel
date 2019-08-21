@@ -480,9 +480,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// use DelegateAsyncProcessor to ensure the interceptor works well with the asynchronous routing
+comment|// use DelegateAsyncProcessor to ensure the interceptor works well
+comment|// with the asynchronous routing
 comment|// engine in Camel.
-comment|// The target is the processor to continue routing to, which we must provide
+comment|// The target is the processor to continue routing to, which we must
+comment|// provide
 comment|// in the constructor of the DelegateAsyncProcessor
 return|return
 operator|new

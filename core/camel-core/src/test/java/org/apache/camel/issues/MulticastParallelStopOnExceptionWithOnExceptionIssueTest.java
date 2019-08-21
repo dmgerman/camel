@@ -137,7 +137,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// we run in parallel so the task could have been submitted so we either get 0 or 1 messages at mock:end2
+comment|// we run in parallel so the task could have been submitted so we either
+comment|// get 0 or 1 messages at mock:end2
 name|getMockEndpoint
 argument_list|(
 literal|"mock:end2"
@@ -244,7 +245,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// we run in parallel so the task could have been submitted so we either get 0 or 1 messages at mock:end1
+comment|// we run in parallel so the task could have been submitted so we either
+comment|// get 0 or 1 messages at mock:end1
 name|getMockEndpoint
 argument_list|(
 literal|"mock:end1"

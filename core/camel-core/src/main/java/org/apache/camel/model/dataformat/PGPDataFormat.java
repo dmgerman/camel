@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * PGP data format is used for encrypting and decrypting of messages using Java Cryptographic Extension and PGP.  */
+comment|/**  * PGP data format is used for encrypting and decrypting of messages using Java  * Cryptographic Extension and PGP.  */
 end_comment
 
 begin_class
@@ -269,7 +269,7 @@ return|return
 name|signatureKeyUserid
 return|;
 block|}
-comment|/**      * User ID of the key in the PGP keyring used for signing (during encryption) or signature verification (during decryption).      * During the signature verification process the specified User ID restricts the public keys from the public      * keyring which can be used for the verification. If no User ID is specified for the signature verficiation      * then any public key in the public keyring can be used for the verification. Can also be only a part of a user ID.      * For example, if the user ID is "Test User<test@camel.com>" then you can use the      * part "Test User" or "<test@camel.com>" to address the User ID.      */
+comment|/**      * User ID of the key in the PGP keyring used for signing (during      * encryption) or signature verification (during decryption). During the      * signature verification process the specified User ID restricts the public      * keys from the public keyring which can be used for the verification. If      * no User ID is specified for the signature verficiation then any public      * key in the public keyring can be used for the verification. Can also be      * only a part of a user ID. For example, if the user ID is "Test User      *<test@camel.com>" then you can use the part "Test User" or      * "<test@camel.com>" to address the User ID.      */
 DECL|method|setSignatureKeyUserid (String signatureKeyUserid)
 specifier|public
 name|void
@@ -296,7 +296,7 @@ return|return
 name|signaturePassword
 return|;
 block|}
-comment|/**      * Password used when opening the private key used for signing (during encryption).      */
+comment|/**      * Password used when opening the private key used for signing (during      * encryption).      */
 DECL|method|setSignaturePassword (String signaturePassword)
 specifier|public
 name|void
@@ -323,7 +323,7 @@ return|return
 name|signatureKeyFileName
 return|;
 block|}
-comment|/**      * Filename of the keyring to use for signing (during encryption) or for signature verification (during decryption);      * must be accessible as a classpath resource (but you can specify a location in the file system by using the "file:" prefix).      */
+comment|/**      * Filename of the keyring to use for signing (during encryption) or for      * signature verification (during decryption); must be accessible as a      * classpath resource (but you can specify a location in the file system by      * using the "file:" prefix).      */
 DECL|method|setSignatureKeyFileName (String signatureKeyFileName)
 specifier|public
 name|void
@@ -350,7 +350,7 @@ return|return
 name|signatureKeyRing
 return|;
 block|}
-comment|/**      * Keyring used for signing/verifying as byte array.      * You can not set the signatureKeyFileName and signatureKeyRing at the same time.      */
+comment|/**      * Keyring used for signing/verifying as byte array. You can not set the      * signatureKeyFileName and signatureKeyRing at the same time.      */
 DECL|method|setSignatureKeyRing (String signatureKeyRing)
 specifier|public
 name|void
@@ -377,7 +377,7 @@ return|return
 name|hashAlgorithm
 return|;
 block|}
-comment|/**      * Signature hash algorithm; possible values are defined in org.bouncycastle.bcpg.HashAlgorithmTags;      * for example 2 (= SHA1), 8 (= SHA256), 9 (= SHA384), 10 (= SHA512), 11 (=SHA224). Only relevant for signing.      */
+comment|/**      * Signature hash algorithm; possible values are defined in      * org.bouncycastle.bcpg.HashAlgorithmTags; for example 2 (= SHA1), 8 (=      * SHA256), 9 (= SHA384), 10 (= SHA512), 11 (=SHA224). Only relevant for      * signing.      */
 DECL|method|setHashAlgorithm (Integer hashAlgorithm)
 specifier|public
 name|void
@@ -404,7 +404,7 @@ return|return
 name|armored
 return|;
 block|}
-comment|/**      * This option will cause PGP to base64 encode the encrypted text, making it available for copy/paste, etc.      */
+comment|/**      * This option will cause PGP to base64 encode the encrypted text, making it      * available for copy/paste, etc.      */
 DECL|method|setArmored (Boolean armored)
 specifier|public
 name|void
@@ -458,7 +458,7 @@ return|return
 name|keyFileName
 return|;
 block|}
-comment|/**      * Filename of the keyring; must be accessible as a classpath resource (but you can specify a location in the file system by using the "file:" prefix).      */
+comment|/**      * Filename of the keyring; must be accessible as a classpath resource (but      * you can specify a location in the file system by using the "file:"      * prefix).      */
 DECL|method|setKeyFileName (String keyFileName)
 specifier|public
 name|void
@@ -485,7 +485,7 @@ return|return
 name|keyUserid
 return|;
 block|}
-comment|/**      * The user ID of the key in the PGP keyring used during encryption.      * Can also be only a part of a user ID.      * For example, if the user ID is "Test User<test@camel.com>"      * then you can use the part "Test User" or "<test@camel.com>" to address the user ID.      */
+comment|/**      * The user ID of the key in the PGP keyring used during encryption. Can      * also be only a part of a user ID. For example, if the user ID is "Test      * User<test@camel.com>" then you can use the part "Test User" or      * "<test@camel.com>" to address the user ID.      */
 DECL|method|setKeyUserid (String keyUserid)
 specifier|public
 name|void
@@ -522,7 +522,7 @@ return|return
 name|algorithm
 return|;
 block|}
-comment|/**      * Symmetric key encryption algorithm; possible values are defined in org.bouncycastle.bcpg.SymmetricKeyAlgorithmTags;      * for example 2 (= TRIPLE DES), 3 (= CAST5), 4 (= BLOWFISH), 6 (= DES), 7 (= AES_128). Only relevant for encrypting.      */
+comment|/**      * Symmetric key encryption algorithm; possible values are defined in      * org.bouncycastle.bcpg.SymmetricKeyAlgorithmTags; for example 2 (= TRIPLE      * DES), 3 (= CAST5), 4 (= BLOWFISH), 6 (= DES), 7 (= AES_128). Only      * relevant for encrypting.      */
 DECL|method|setAlgorithm (Integer algorithm)
 specifier|public
 name|void
@@ -549,7 +549,7 @@ return|return
 name|compressionAlgorithm
 return|;
 block|}
-comment|/**      * Compression algorithm; possible values are defined in org.bouncycastle.bcpg.CompressionAlgorithmTags;      * for example 0 (= UNCOMPRESSED), 1 (= ZIP), 2 (= ZLIB), 3 (= BZIP2). Only relevant for encrypting.      */
+comment|/**      * Compression algorithm; possible values are defined in      * org.bouncycastle.bcpg.CompressionAlgorithmTags; for example 0 (=      * UNCOMPRESSED), 1 (= ZIP), 2 (= ZLIB), 3 (= BZIP2). Only relevant for      * encrypting.      */
 DECL|method|setCompressionAlgorithm (Integer compressionAlgorithm)
 specifier|public
 name|void
@@ -620,7 +620,7 @@ return|return
 name|signatureVerificationOption
 return|;
 block|}
-comment|/**      * Controls the behavior for verifying the signature during unmarshaling. There are 4 values possible:      * "optional": The PGP message may or may not contain signatures; if it does contain signatures, then a signature verification is executed.      * "required": The PGP message must contain at least one signature; if this is not the case an exception (PGPException) is thrown. A signature verification is executed.      * "ignore": Contained signatures in the PGP message are ignored; no signature verification is executed.      * "no_signature_allowed": The PGP message must not contain a signature; otherwise an exception (PGPException) is thrown.      */
+comment|/**      * Controls the behavior for verifying the signature during unmarshaling.      * There are 4 values possible: "optional": The PGP message may or may not      * contain signatures; if it does contain signatures, then a signature      * verification is executed. "required": The PGP message must contain at      * least one signature; if this is not the case an exception (PGPException)      * is thrown. A signature verification is executed. "ignore": Contained      * signatures in the PGP message are ignored; no signature verification is      * executed. "no_signature_allowed": The PGP message must not contain a      * signature; otherwise an exception (PGPException) is thrown.      */
 DECL|method|setSignatureVerificationOption (String signatureVerificationOption)
 specifier|public
 name|void

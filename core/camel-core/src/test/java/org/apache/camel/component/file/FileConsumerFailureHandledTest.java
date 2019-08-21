@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for consuming files but the exchange fails and is handled  * by the failure handler (usually the DeadLetterChannel)  */
+comment|/**  * Unit test for consuming files but the exchange fails and is handled by the  * failure handler (usually the DeadLetterChannel)  */
 end_comment
 
 begin_class

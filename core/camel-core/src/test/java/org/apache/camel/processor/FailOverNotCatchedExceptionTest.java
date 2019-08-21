@@ -220,8 +220,10 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 comment|// here we will load balance if IOException was thrown
-comment|// any other kind of exception will result in the Exchange as failed
-comment|// to failover over any kind of exception we can just omit the exception
+comment|// any other kind of exception will result in the Exchange
+comment|// as failed
+comment|// to failover over any kind of exception we can just omit
+comment|// the exception
 comment|// in the failOver DSL
 operator|.
 name|loadBalance
@@ -363,7 +365,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// to test that if a processor throw an exception that the failover loadbalancer
+comment|// to test that if a processor throw an exception that the failover
+comment|// loadbalancer
 comment|// do not catch then the exception is propagated back
 try|try
 block|{

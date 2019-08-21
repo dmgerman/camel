@@ -141,7 +141,7 @@ name|finallyEndpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Tests that external DTD call is not executed  for StreamSource. */
+comment|/** Tests that external DTD call is not executed for StreamSource. */
 annotation|@
 name|Test
 DECL|method|testInvalidMessageWithExternalDTDStreamSource ()

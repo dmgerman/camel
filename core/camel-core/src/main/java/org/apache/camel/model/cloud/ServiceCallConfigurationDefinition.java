@@ -679,7 +679,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * The uri of the endpoint to send to.      * The uri can be dynamic computed using the {@link org.apache.camel.language.simple.SimpleLanguage} expression.      */
+comment|/**      * The uri of the endpoint to send to. The uri can be dynamic computed using      * the {@link org.apache.camel.language.simple.SimpleLanguage} expression.      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -1104,7 +1104,7 @@ block|}
 comment|// *****************************
 comment|// Fluent API
 comment|// *****************************
-comment|/**      * Sets the default Camel component to use for calling the remote service.      *<p/>      * By default the http component is used. You can configure this to use<tt>netty-http</tt>,<tt>jetty</tt>,      *<tt>restlet</tt> or some other components of choice. If the service is not HTTP protocol you can use other      * components such as<tt>mqtt</tt>,<tt>jms</tt>,<tt>amqp</tt> etc.      *<p/>      * If the service call has been configured using an uri, then the component from the uri is used instead      * of this default component.      */
+comment|/**      * Sets the default Camel component to use for calling the remote service.      *<p/>      * By default the http component is used. You can configure this to use      *<tt>netty-http</tt>,<tt>jetty</tt>,<tt>restlet</tt> or some other      * components of choice. If the service is not HTTP protocol you can use      * other components such as<tt>mqtt</tt>,<tt>jms</tt>,<tt>amqp</tt> etc.      *<p/>      * If the service call has been configured using an uri, then the component      * from the uri is used instead of this default component.      */
 DECL|method|component (String component)
 specifier|public
 name|ServiceCallConfigurationDefinition
@@ -1351,7 +1351,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a custom {@link Expression} to use through an expression builder clause.      *      * @return a expression builder clause to set the body      */
+comment|/**      * Sets a custom {@link Expression} to use through an expression builder      * clause.      *      * @return a expression builder clause to set the body      */
 DECL|method|expression ()
 specifier|public
 name|ExpressionClause

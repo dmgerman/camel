@@ -307,13 +307,14 @@ name|wireTap
 argument_list|(
 literal|"direct:wireTap"
 argument_list|)
-comment|//wait for the streamcache to be created in the wireTap route
+comment|// wait for the streamcache to be created in the wireTap
+comment|// route
 operator|.
 name|delay
 argument_list|(
 literal|1000
 argument_list|)
-comment|//spool file is deleted when this route ends
+comment|// spool file is deleted when this route ends
 operator|.
 name|to
 argument_list|(
@@ -324,7 +325,7 @@ name|from
 argument_list|(
 literal|"direct:wireTap"
 argument_list|)
-comment|//create streamcache
+comment|// create streamcache
 operator|.
 name|setBody
 argument_list|(
@@ -346,7 +347,7 @@ name|delay
 argument_list|(
 literal|3000
 argument_list|)
-comment|//spool file is deleted by the split route
+comment|// spool file is deleted by the split route
 operator|.
 name|to
 argument_list|(

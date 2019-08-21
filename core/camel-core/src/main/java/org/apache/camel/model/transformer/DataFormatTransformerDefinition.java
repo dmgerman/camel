@@ -755,7 +755,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.impl.transformer.DataFormatTransformer} which leverages  * {@link org.apache.camel.spi.DataFormat} to perform  * transformation. One of the DataFormat 'ref' or DataFormat 'type' needs to be specified.  *  * {@see TransformerDefinition}  * {@see DataFormatTransformer}  */
+comment|/**  * Represents a {@link org.apache.camel.impl.transformer.DataFormatTransformer}  * which leverages {@link org.apache.camel.spi.DataFormat} to perform  * transformation. One of the DataFormat 'ref' or DataFormat 'type' needs to be  * specified. {@see TransformerDefinition} {@see DataFormatTransformer}  */
 end_comment
 
 begin_class

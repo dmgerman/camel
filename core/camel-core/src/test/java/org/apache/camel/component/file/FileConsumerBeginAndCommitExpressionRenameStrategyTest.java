@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the FileRenameStrategy using preMoveExpression and expression options  */
+comment|/**  * Unit test for the FileRenameStrategy using preMoveExpression and expression  * options  */
 end_comment
 
 begin_class

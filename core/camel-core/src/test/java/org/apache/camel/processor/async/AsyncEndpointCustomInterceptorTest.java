@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Using a custom interceptor which is not a {@link org.apache.camel.AsyncProcessor} which Camel  * detects and uses a bridge to adapt to so the asynchronous engine can still run. Albeit not  * the most optimal solution but it runs. Camel will log a WARN so user can see the issue  * and change his interceptor to comply.  */
+comment|/**  * Using a custom interceptor which is not a  * {@link org.apache.camel.AsyncProcessor} which Camel detects and uses a bridge  * to adapt to so the asynchronous engine can still run. Albeit not the most  * optimal solution but it runs. Camel will log a WARN so user can see the issue  * and change his interceptor to comply.  */
 end_comment
 
 begin_class

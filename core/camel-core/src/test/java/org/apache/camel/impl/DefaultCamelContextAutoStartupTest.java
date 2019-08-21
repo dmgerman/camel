@@ -216,7 +216,8 @@ name|isStarted
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// and now its started we can test that it works by sending in a message to the route
+comment|// and now its started we can test that it works by sending in a message
+comment|// to the route
 name|MockEndpoint
 name|mock
 init|=
@@ -400,7 +401,8 @@ name|isStarted
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// and now its started we can test that it works by sending in a message to the route
+comment|// and now its started we can test that it works by sending in a message
+comment|// to the route
 name|MockEndpoint
 name|mock
 init|=
@@ -679,7 +681,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// this is special, when you have auto startup=false on CamelContext, then NO routes is started
+comment|// this is special, when you have auto startup=false on CamelContext,
+comment|// then NO routes is started
 name|assertEquals
 argument_list|(
 literal|true

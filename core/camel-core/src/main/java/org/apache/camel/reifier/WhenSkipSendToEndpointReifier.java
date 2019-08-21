@@ -158,7 +158,8 @@ name|routeContext
 parameter_list|)
 block|{
 comment|// we need to keep track whether the when matches or not, so delegate
-comment|// the predicate and add the matches result as a property on the exchange
+comment|// the predicate and add the matches result as a property on the
+comment|// exchange
 specifier|final
 name|Predicate
 name|delegate

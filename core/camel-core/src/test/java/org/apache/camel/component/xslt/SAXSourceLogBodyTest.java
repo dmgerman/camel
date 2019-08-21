@@ -330,7 +330,8 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-comment|// The ${body} will toString the body and print it, so we need to enable stream caching
+comment|// The ${body} will toString the body and print it, so we
+comment|// need to enable stream caching
 operator|.
 name|log
 argument_list|(

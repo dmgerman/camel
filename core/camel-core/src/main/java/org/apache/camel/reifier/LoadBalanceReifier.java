@@ -173,7 +173,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// the load balancer is stateful so we should only create it once in case its used from a context scoped error handler
+comment|// the load balancer is stateful so we should only create it once in
+comment|// case its used from a context scoped error handler
 name|LoadBalancer
 name|loadBalancer
 init|=
@@ -286,7 +287,8 @@ argument_list|()
 control|)
 block|{
 comment|// output must not be another load balancer
-comment|// check for instanceof as the code below as there is compilation errors on earlier versions of JDK6
+comment|// check for instanceof as the code below as there is
+comment|// compilation errors on earlier versions of JDK6
 comment|// on Windows boxes or with IBM JDKs etc.
 if|if
 condition|(
@@ -366,8 +368,10 @@ operator|instanceof
 name|FailoverLoadBalancerDefinition
 condition|)
 block|{
-comment|// special for failover load balancer where you can configure it to not inherit error handler for its children
-comment|// but the load balancer itself should inherit so Camels error handler can react afterwards
+comment|// special for failover load balancer where you can configure it to
+comment|// not inherit error handler for its children
+comment|// but the load balancer itself should inherit so Camels error
+comment|// handler can react afterwards
 name|inherit
 operator|=
 literal|true

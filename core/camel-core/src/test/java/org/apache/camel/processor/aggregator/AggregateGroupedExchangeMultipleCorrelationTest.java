@@ -477,12 +477,15 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// our route is aggregating from the direct queue and sending the response to the mock
+comment|// our route is aggregating from the direct queue and sending
+comment|// the response to the mock
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// aggregate all using the foo header and group the exchanges so we get one single exchange containing all the others
+comment|// aggregate all using the foo header and group the
+comment|// exchanges so we get one single exchange containing all
+comment|// the others
 operator|.
 name|aggregate
 argument_list|(

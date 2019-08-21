@@ -846,7 +846,8 @@ name|getAttempt
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// since its async the ordering of the rest can be different depending per OS and timing
+comment|// since its async the ordering of the rest can be different depending
+comment|// per OS and timing
 block|}
 block|}
 end_class

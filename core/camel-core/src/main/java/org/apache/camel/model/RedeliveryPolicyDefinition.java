@@ -314,8 +314,8 @@ literal|"]"
 return|;
 block|}
 comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * Allow synchronous delayed redelivery. The route, in particular the consumer's component,      * must support the Asynchronous Routing Engine (e.g. seda).      *      * @return the builder      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * Allow synchronous delayed redelivery. The route, in particular the      * consumer's component, must support the Asynchronous Routing Engine (e.g.      * seda).      *      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -331,7 +331,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param allowRedeliveryWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      * @return the builder      */
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route      * that uses error handling.      *      * @param allowRedeliveryWhileStopping<tt>true</tt> to allow redelivery,      *<tt>false</tt> to reject redeliveries      * @return the builder      */
 DECL|method|allowRedeliveryWhileStopping (boolean allowRedeliveryWhileStopping)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -353,7 +353,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param allowRedeliveryWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      * @return the builder      */
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route      * that uses error handling.      *      * @param allowRedeliveryWhileStopping<tt>true</tt> to allow redelivery,      *<tt>false</tt> to reject redeliveries      * @return the builder      */
 DECL|method|allowRedeliveryWhileStopping (String allowRedeliveryWhileStopping)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -372,7 +372,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier  the back off multiplier      * @return the builder      */
+comment|/**      * Sets the back off multiplier      *      * @param backOffMultiplier the back off multiplier      * @return the builder      */
 DECL|method|backOffMultiplier (double backOffMultiplier)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -394,7 +394,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the back off multiplier (supports property placeholders)      *      * @param backOffMultiplier  the back off multiplier      * @return the builder      */
+comment|/**      * Sets the back off multiplier (supports property placeholders)      *      * @param backOffMultiplier the back off multiplier      * @return the builder      */
 DECL|method|backOffMultiplier (String backOffMultiplier)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -413,7 +413,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the collision avoidance percentage      *      * @param collisionAvoidancePercent  the percentage      * @return the builder      */
+comment|/**      * Sets the collision avoidance percentage      *      * @param collisionAvoidancePercent the percentage      * @return the builder      */
 DECL|method|collisionAvoidancePercent (double collisionAvoidancePercent)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -439,7 +439,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the collision avoidance factor      *      * @param collisionAvoidanceFactor  the factor      * @return the builder      */
+comment|/**      * Sets the collision avoidance factor      *      * @param collisionAvoidanceFactor the factor      * @return the builder      */
 DECL|method|collisionAvoidanceFactor (double collisionAvoidanceFactor)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -461,7 +461,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the collision avoidance factor (supports property placeholders)      *      * @param collisionAvoidanceFactor  the factor      * @return the builder      */
+comment|/**      * Sets the collision avoidance factor (supports property placeholders)      *      * @param collisionAvoidanceFactor the factor      * @return the builder      */
 DECL|method|collisionAvoidanceFactor (String collisionAvoidanceFactor)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -480,7 +480,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the initial redelivery delay      *      * @param delay  delay in millis      * @return the builder      */
+comment|/**      * Sets the initial redelivery delay      *      * @param delay delay in millis      * @return the builder      */
 DECL|method|redeliveryDelay (long delay)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -502,7 +502,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the initial redelivery delay (supports property placeholders)      *      * @param delay  delay in millis      * @return the builder      */
+comment|/**      * Sets the initial redelivery delay (supports property placeholders)      *      * @param delay delay in millis      * @return the builder      */
 DECL|method|redeliveryDelay (String delay)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -521,7 +521,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel  the logging level      * @return the builder      */
+comment|/**      * Sets the logging level to use when retries has exhausted      *      * @param retriesExhaustedLogLevel the logging level      * @return the builder      */
 DECL|method|retriesExhaustedLogLevel (LoggingLevel retriesExhaustedLogLevel)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -540,7 +540,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the logging level to use for logging retry attempts      *      * @param retryAttemptedLogLevel  the logging level      * @return the builder      */
+comment|/**      * Sets the logging level to use for logging retry attempts      *      * @param retryAttemptedLogLevel the logging level      * @return the builder      */
 DECL|method|retryAttemptedLogLevel (LoggingLevel retryAttemptedLogLevel)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -559,7 +559,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the interval to use for logging retry attempts      *      * @param retryAttemptedLogInterval  the retry logging interval      * @return the builder      */
+comment|/**      * Sets the interval to use for logging retry attempts      *      * @param retryAttemptedLogInterval the retry logging interval      * @return the builder      */
 DECL|method|retryAttemptedLogInterval (String retryAttemptedLogInterval)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -578,7 +578,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether stack traces should be logged.      * Can be used to include or reduce verbose.      *      * @param logStackTrace  whether stack traces should be logged or not      * @return the builder      */
+comment|/**      * Sets whether stack traces should be logged. Can be used to include or      * reduce verbose.      *      * @param logStackTrace whether stack traces should be logged or not      * @return the builder      */
 DECL|method|logStackTrace (boolean logStackTrace)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -600,7 +600,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether stack traces should be logged (supports property placeholders)      * Can be used to include or reduce verbose.      *      * @param logStackTrace  whether stack traces should be logged or not      * @return the builder      */
+comment|/**      * Sets whether stack traces should be logged (supports property      * placeholders) Can be used to include or reduce verbose.      *      * @param logStackTrace whether stack traces should be logged or not      * @return the builder      */
 DECL|method|logStackTrace (String logStackTrace)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -619,7 +619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether stack traces should be logged when an retry attempt failed.      * Can be used to include or reduce verbose.      *      * @param logRetryStackTrace  whether stack traces should be logged or not      * @return the builder      */
+comment|/**      * Sets whether stack traces should be logged when an retry attempt failed.      * Can be used to include or reduce verbose.      *      * @param logRetryStackTrace whether stack traces should be logged or not      * @return the builder      */
 DECL|method|logRetryStackTrace (boolean logRetryStackTrace)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -641,7 +641,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether stack traces should be logged when an retry attempt failed (supports property placeholders).      * Can be used to include or reduce verbose.      *      * @param logRetryStackTrace  whether stack traces should be logged or not      * @return the builder      */
+comment|/**      * Sets whether stack traces should be logged when an retry attempt failed      * (supports property placeholders). Can be used to include or reduce      * verbose.      *      * @param logRetryStackTrace whether stack traces should be logged or not      * @return the builder      */
 DECL|method|logRetryStackTrace (String logRetryStackTrace)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -660,7 +660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether retry attempts should be logged or not.      * Can be used to include or reduce verbose.      *      * @param logRetryAttempted  whether retry attempts should be logged or not      * @return the builder      */
+comment|/**      * Sets whether retry attempts should be logged or not. Can be used to      * include or reduce verbose.      *      * @param logRetryAttempted whether retry attempts should be logged or not      * @return the builder      */
 DECL|method|logRetryAttempted (boolean logRetryAttempted)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -682,7 +682,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether retry attempts should be logged or not (supports property placeholders).      * Can be used to include or reduce verbose.      *      * @param logRetryAttempted  whether retry attempts should be logged or not      * @return the builder      */
+comment|/**      * Sets whether retry attempts should be logged or not (supports property      * placeholders). Can be used to include or reduce verbose.      *      * @param logRetryAttempted whether retry attempts should be logged or not      * @return the builder      */
 DECL|method|logRetryAttempted (String logRetryAttempted)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -701,7 +701,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether handled exceptions should be logged or not.      * Can be used to include or reduce verbose.      *      * @param logHandled  whether handled exceptions should be logged or not      * @return the builder      */
+comment|/**      * Sets whether handled exceptions should be logged or not. Can be used to      * include or reduce verbose.      *      * @param logHandled whether handled exceptions should be logged or not      * @return the builder      */
 DECL|method|logHandled (boolean logHandled)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -723,7 +723,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether handled exceptions should be logged or not (supports property placeholders).      * Can be used to include or reduce verbose.      *      * @param logHandled  whether handled exceptions should be logged or not      * @return the builder      */
+comment|/**      * Sets whether handled exceptions should be logged or not (supports      * property placeholders). Can be used to include or reduce verbose.      *      * @param logHandled whether handled exceptions should be logged or not      * @return the builder      */
 DECL|method|logHandled (String logHandled)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -742,7 +742,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether new exceptions should be logged or not.      * Can be used to include or reduce verbose.      *<p/>      * A new exception is an exception that was thrown while handling a previous exception.      *      * @param logNewException  whether new exceptions should be logged or not      * @return the builder      */
+comment|/**      * Sets whether new exceptions should be logged or not. Can be used to      * include or reduce verbose.      *<p/>      * A new exception is an exception that was thrown while handling a previous      * exception.      *      * @param logNewException whether new exceptions should be logged or not      * @return the builder      */
 DECL|method|logNewException (boolean logNewException)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -764,7 +764,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether new exceptions should be logged or not (supports property placeholders).      * Can be used to include or reduce verbose.      *<p/>      * A new exception is an exception that was thrown while handling a previous exception.      *      * @param logNewException  whether new exceptions should be logged or not      * @return the builder      */
+comment|/**      * Sets whether new exceptions should be logged or not (supports property      * placeholders). Can be used to include or reduce verbose.      *<p/>      * A new exception is an exception that was thrown while handling a previous      * exception.      *      * @param logNewException whether new exceptions should be logged or not      * @return the builder      */
 DECL|method|logNewException (String logNewException)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -783,7 +783,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether continued exceptions should be logged or not.      * Can be used to include or reduce verbose.      *      * @param logContinued  whether continued exceptions should be logged or not      * @return the builder      */
+comment|/**      * Sets whether continued exceptions should be logged or not. Can be used to      * include or reduce verbose.      *      * @param logContinued whether continued exceptions should be logged or not      * @return the builder      */
 DECL|method|logContinued (boolean logContinued)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -805,7 +805,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether continued exceptions should be logged or not (supports property placeholders).      * Can be used to include or reduce verbose.      *      * @param logContinued  whether continued exceptions should be logged or not      * @return the builder      */
+comment|/**      * Sets whether continued exceptions should be logged or not (supports      * property placeholders). Can be used to include or reduce verbose.      *      * @param logContinued whether continued exceptions should be logged or not      * @return the builder      */
 DECL|method|logContinued (String logContinued)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -824,7 +824,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether exhausted exceptions should be logged or not.      * Can be used to include or reduce verbose.      *      * @param logExhausted  whether exhausted exceptions should be logged or not      * @return the builder      */
+comment|/**      * Sets whether exhausted exceptions should be logged or not. Can be used to      * include or reduce verbose.      *      * @param logExhausted whether exhausted exceptions should be logged or not      * @return the builder      */
 DECL|method|logExhausted (boolean logExhausted)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -846,7 +846,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets whether exhausted exceptions should be logged or not (supports property placeholders).      * Can be used to include or reduce verbose.      *      * @param logExhausted  whether exhausted exceptions should be logged or not      * @return the builder      */
+comment|/**      * Sets whether exhausted exceptions should be logged or not (supports      * property placeholders). Can be used to include or reduce verbose.      *      * @param logExhausted whether exhausted exceptions should be logged or not      * @return the builder      */
 DECL|method|logExhausted (String logExhausted)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -865,7 +865,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether exhausted exceptions should be logged including message history or not (supports property placeholders).      * Can be used to include or reduce verbose.      *      * @param logExhaustedMessageHistory  whether exhausted exceptions should be logged with message history      * @return the builder      */
+comment|/**      * Sets whether exhausted exceptions should be logged including message      * history or not (supports property placeholders). Can be used to include      * or reduce verbose.      *      * @param logExhaustedMessageHistory whether exhausted exceptions should be      *            logged with message history      * @return the builder      */
 DECL|method|logExhaustedMessageHistory (boolean logExhaustedMessageHistory)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -889,7 +889,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether exhausted exceptions should be logged including message history or not (supports property placeholders).      * Can be used to include or reduce verbose.      *      * @param logExhaustedMessageHistory  whether exhausted exceptions should be logged with message history      * @return the builder      */
+comment|/**      * Sets whether exhausted exceptions should be logged including message      * history or not (supports property placeholders). Can be used to include      * or reduce verbose.      *      * @param logExhaustedMessageHistory whether exhausted exceptions should be      *            logged with message history      * @return the builder      */
 DECL|method|logExhaustedMessageHistory (String logExhaustedMessageHistory)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -908,7 +908,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether exhausted message body should be logged including message history or not (supports property placeholders).      * Can be used to include or reduce verbose. Requires<tt>logExhaustedMessageHistory</tt> to be enabled.      *      * @param logExhaustedMessageBody  whether exhausted message body should be logged with message history      * @return the builder      */
+comment|/**      * Sets whether exhausted message body should be logged including message      * history or not (supports property placeholders). Can be used to include      * or reduce verbose. Requires<tt>logExhaustedMessageHistory</tt> to be      * enabled.      *      * @param logExhaustedMessageBody whether exhausted message body should be      *            logged with message history      * @return the builder      */
 DECL|method|logExhaustedMessageBody (boolean logExhaustedMessageBody)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -932,7 +932,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether exhausted message body should be logged including message history or not (supports property placeholders).      * Can be used to include or reduce verbose. Requires<tt>logExhaustedMessageHistory</tt> to be enabled.      *      * @param logExhaustedMessageBody  whether exhausted message body should be logged with message history      * @return the builder      */
+comment|/**      * Sets whether exhausted message body should be logged including message      * history or not (supports property placeholders). Can be used to include      * or reduce verbose. Requires<tt>logExhaustedMessageHistory</tt> to be      * enabled.      *      * @param logExhaustedMessageBody whether exhausted message body should be      *            logged with message history      * @return the builder      */
 DECL|method|logExhaustedMessageBody (String logExhaustedMessageBody)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -951,7 +951,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>x = redeliver at most x times</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
+comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>x = redeliver at most x times</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -973,7 +973,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the maximum redeliveries (supports property placeholders)      *<ul>      *<li>x = redeliver at most x times</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
+comment|/**      * Sets the maximum redeliveries (supports property placeholders)      *<ul>      *<li>x = redeliver at most x times</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries the value      * @return the builder      */
 DECL|method|maximumRedeliveries (String maximumRedeliveries)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -1024,7 +1024,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum delay between redelivery      *      * @param maximumRedeliveryDelay  the delay in millis      * @return the builder      */
+comment|/**      * Sets the maximum delay between redelivery      *      * @param maximumRedeliveryDelay the delay in millis      * @return the builder      */
 DECL|method|maximumRedeliveryDelay (long maximumRedeliveryDelay)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -1046,7 +1046,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the maximum delay between redelivery (supports property placeholders)      *      * @param maximumRedeliveryDelay  the delay in millis      * @return the builder      */
+comment|/**      * Sets the maximum delay between redelivery (supports property      * placeholders)      *      * @param maximumRedeliveryDelay the delay in millis      * @return the builder      */
 DECL|method|maximumRedeliveryDelay (String maximumRedeliveryDelay)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -1084,7 +1084,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the reference of the instance of {@link org.apache.camel.spi.ExchangeFormatter} to generate the log message from exchange.      *      * @param exchangeFormatterRef name of the instance of {@link org.apache.camel.spi.ExchangeFormatter}      * @return the builder      */
+comment|/**      * Sets the reference of the instance of      * {@link org.apache.camel.spi.ExchangeFormatter} to generate the log      * message from exchange.      *      * @param exchangeFormatterRef name of the instance of      *            {@link org.apache.camel.spi.ExchangeFormatter}      * @return the builder      */
 DECL|method|exchangeFormatterRef (String exchangeFormatterRef)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -1104,7 +1104,7 @@ name|this
 return|;
 block|}
 comment|// Properties
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|getMaximumRedeliveries ()
 specifier|public
 name|String

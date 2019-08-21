@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Grok data format is used for unmarshalling unstructured data to objects using Logstash based Grok patterns.  */
+comment|/**  * The Grok data format is used for unmarshalling unstructured data to objects  * using Logstash based Grok patterns.  */
 end_comment
 
 begin_class
@@ -253,7 +253,7 @@ return|return
 name|flattened
 return|;
 block|}
-comment|/**      * Turns on flattened mode. In flattened mode the exception is thrown when there are multiple pattern matches with same key.      */
+comment|/**      * Turns on flattened mode. In flattened mode the exception is thrown when      * there are multiple pattern matches with same key.      */
 DECL|method|setFlattened (boolean flattened)
 specifier|public
 name|void
@@ -280,7 +280,7 @@ return|return
 name|allowMultipleMatchesPerLine
 return|;
 block|}
-comment|/**      * If false, every line of input is matched for pattern only once.      * Otherwise the line can be scanned multiple times when non-terminal pattern is used.      */
+comment|/**      * If false, every line of input is matched for pattern only once. Otherwise      * the line can be scanned multiple times when non-terminal pattern is used.      */
 DECL|method|setAllowMultipleMatchesPerLine (boolean allowMultipleMatchesPerLine)
 specifier|public
 name|void
@@ -307,7 +307,7 @@ return|return
 name|namedOnly
 return|;
 block|}
-comment|/**      * Whether to capture named expressions only or not (i.e. %{IP:ip} but not ${IP})      */
+comment|/**      * Whether to capture named expressions only or not (i.e. %{IP:ip} but not      * ${IP})      */
 DECL|method|setNamedOnly (boolean namedOnly)
 specifier|public
 name|void

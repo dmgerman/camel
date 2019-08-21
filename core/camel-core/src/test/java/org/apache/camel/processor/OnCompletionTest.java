@@ -320,7 +320,8 @@ argument_list|)
 operator|.
 name|onCompletion
 argument_list|()
-comment|// this route is only invoked when the original route is complete as a kind
+comment|// this route is only invoked when the original route is
+comment|// complete as a kind
 comment|// of completion callback
 operator|.
 name|to

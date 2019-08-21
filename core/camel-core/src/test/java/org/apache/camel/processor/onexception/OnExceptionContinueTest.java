@@ -185,7 +185,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// tell Camel to handle and continue when this exception is thrown
+comment|// tell Camel to handle and continue when this exception is
+comment|// thrown
 name|onException
 argument_list|(
 name|IllegalArgumentException

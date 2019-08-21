@@ -518,7 +518,7 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-comment|/**      * Dumps the definition as XML      *      * @param context    the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param definition the definition, such as a {@link org.apache.camel.NamedNode}      * @return the output in XML (is formatted)      * @throws JAXBException is throw if error marshalling to XML      */
+comment|/**      * Dumps the definition as XML      *      * @param context the CamelContext, if<tt>null</tt> then      *            {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in      *            use      * @param definition the definition, such as a      *            {@link org.apache.camel.NamedNode}      * @return the output in XML (is formatted)      * @throws JAXBException is throw if error marshalling to XML      */
 DECL|method|dumpModelAsXml (CamelContext context, NamedNode definition)
 specifier|public
 specifier|static
@@ -556,7 +556,8 @@ name|LinkedHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// gather all namespaces from the routes or route which is stored on the expression nodes
+comment|// gather all namespaces from the routes or route which is stored on the
+comment|// expression nodes
 if|if
 condition|(
 name|definition
@@ -773,7 +774,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// We invoke the type converter directly because we need to pass some custom XML output options
+comment|// We invoke the type converter directly because we need to pass some
+comment|// custom XML output options
 name|Properties
 name|outputProperties
 init|=
@@ -844,7 +846,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Dumps the definition as XML      *      * @param context    the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param definition the definition, such as a {@link org.apache.camel.NamedNode}      * @param resolvePlaceholders whether to resolve property placeholders in the dumped XML      * @param resolveDelegateEndpoints whether to resolve delegate endpoints in the dumped XML (limited to endpoints used in uri attributes in the model)      * @return the output in XML (is formatted)      * @throws Exception is throw if error marshalling to XML      */
+comment|/**      * Dumps the definition as XML      *      * @param context the CamelContext, if<tt>null</tt> then      *            {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in      *            use      * @param definition the definition, such as a      *            {@link org.apache.camel.NamedNode}      * @param resolvePlaceholders whether to resolve property placeholders in      *            the dumped XML      * @param resolveDelegateEndpoints whether to resolve delegate endpoints in      *            the dumped XML (limited to endpoints used in uri attributes in      *            the model)      * @return the output in XML (is formatted)      * @throws Exception is throw if error marshalling to XML      */
 DECL|method|dumpModelAsXml (CamelContext context, NamedNode definition, boolean resolvePlaceholders, boolean resolveDelegateEndpoints)
 specifier|public
 specifier|static
@@ -878,7 +880,8 @@ argument_list|,
 name|definition
 argument_list|)
 decl_stmt|;
-comment|// if resolving placeholders we parse the xml, and resolve the property placeholders during parsing
+comment|// if resolving placeholders we parse the xml, and resolve the property
+comment|// placeholders during parsing
 if|if
 condition|(
 name|resolvePlaceholders
@@ -958,7 +961,8 @@ condition|)
 block|{
 try|try
 block|{
-comment|// must resolve placeholder as the endpoint may use property placeholders
+comment|// must resolve placeholder as the endpoint may use
+comment|// property placeholders
 name|String
 name|uri
 init|=
@@ -1065,7 +1069,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// okay the previous must be the attribute key with uri, so it refers to an endpoint
+comment|// okay the previous must be the attribute key with uri, so
+comment|// it refers to an endpoint
 name|prev
 operator|=
 name|text
@@ -1077,7 +1082,8 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|// okay there were some property placeholder or delegate endpoints replaced so re-create the model
+comment|// okay there were some property placeholder or delegate endpoints
+comment|// replaced so re-create the model
 if|if
 condition|(
 name|changed
@@ -1135,7 +1141,7 @@ return|return
 name|xml
 return|;
 block|}
-comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param xml     the xml      * @param type    the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
+comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then      *            {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in      *            use      * @param xml the xml      * @param type the definition type to return, will throw a      *            {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling      *             from xml to model      */
 DECL|method|createModelFromXml (CamelContext context, String xml, Class<T> type)
 specifier|public
 specifier|static
@@ -1175,7 +1181,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param stream  the xml stream      * @param type    the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
+comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then      *            {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in      *            use      * @param stream the xml stream      * @param type the definition type to return, will throw a      *            {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling      *             from xml to model      */
 DECL|method|createModelFromXml (CamelContext context, InputStream stream, Class<T> type)
 specifier|public
 specifier|static
@@ -1215,7 +1221,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param inputStream the xml stream      * @throws Exception is thrown if an error is encountered unmarshalling from xml to model      */
+comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then      *            {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in      *            use      * @param inputStream the xml stream      * @throws Exception is thrown if an error is encountered unmarshalling from      *             xml to model      */
 DECL|method|loadRoutesDefinition (CamelContext context, InputStream inputStream)
 specifier|public
 specifier|static
@@ -1260,7 +1266,7 @@ name|dom
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param node the xml node      * @throws Exception is thrown if an error is encountered unmarshalling from xml to model      */
+comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then      *            {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in      *            use      * @param node the xml node      * @throws Exception is thrown if an error is encountered unmarshalling from      *             xml to model      */
 DECL|method|loadRoutesDefinition (CamelContext context, Node node)
 specifier|public
 specifier|static
@@ -2024,7 +2030,7 @@ return|return
 name|na
 return|;
 block|}
-comment|/**      * Extract all XML namespaces from the expressions in the route      *      * @param route       the route      * @param namespaces  the map of namespaces to add discovered XML namespaces into      */
+comment|/**      * Extract all XML namespaces from the expressions in the route      *      * @param route the route      * @param namespaces the map of namespaces to add discovered XML namespaces      *            into      */
 DECL|method|extractNamespaces (RouteDefinition route, Map<String, String> namespaces)
 specifier|private
 specifier|static
@@ -2124,7 +2130,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Extract all XML namespaces from the root element in a DOM Document      *      * @param document    the DOM document      * @param namespaces  the map of namespaces to add new found XML namespaces      */
+comment|/**      * Extract all XML namespaces from the root element in a DOM Document      *      * @param document the DOM document      * @param namespaces the map of namespaces to add new found XML namespaces      */
 DECL|method|extractNamespaces (Document document, Map<String, String> namespaces)
 specifier|private
 specifier|static

@@ -237,7 +237,8 @@ name|MyAsyncComponent
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// tell Camel to handle and continue when this exception is thrown
+comment|// tell Camel to handle and continue when this exception is
+comment|// thrown
 name|onException
 argument_list|(
 name|IllegalArgumentException

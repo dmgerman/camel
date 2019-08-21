@@ -112,7 +112,8 @@ name|from
 argument_list|(
 literal|"direct:a"
 argument_list|)
-comment|// myCustomDataFormat refers to the data format from the Registry
+comment|// myCustomDataFormat refers to the data format from the
+comment|// Registry
 operator|.
 name|marshal
 argument_list|()

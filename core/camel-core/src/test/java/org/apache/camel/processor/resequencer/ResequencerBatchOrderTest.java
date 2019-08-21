@@ -282,7 +282,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// because the order can change a bit depending when the resequencer trigger cut-off
+comment|// because the order can change a bit depending when the resequencer
+comment|// trigger cut-off
 comment|// then the order can be a bit different
 name|String
 name|a

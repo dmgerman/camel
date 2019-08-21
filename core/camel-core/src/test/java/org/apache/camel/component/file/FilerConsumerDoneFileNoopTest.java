@@ -141,7 +141,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// wait a bit and it should not pickup the written file as there are no done file
+comment|// wait a bit and it should not pickup the written file as there are no
+comment|// done file
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"

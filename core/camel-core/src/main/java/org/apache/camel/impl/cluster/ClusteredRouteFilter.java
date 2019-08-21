@@ -52,7 +52,7 @@ specifier|public
 interface|interface
 name|ClusteredRouteFilter
 block|{
-comment|/**      * Test if the route should be clustered or not.      *      * @param camelContext  the camel context      * @param routeId the route id      * @param route the route definition      * @return true if the route should be included      */
+comment|/**      * Test if the route should be clustered or not.      *      * @param camelContext the camel context      * @param routeId the route id      * @param route the route definition      * @return true if the route should be included      */
 DECL|method|test (CamelContext camelContext, String routeId, RouteDefinition route)
 name|boolean
 name|test

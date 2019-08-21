@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RouteBuilder} which has extended capabilities when using  * the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.  *<p/>  *<b>Important:</b> It is recommended to only advice a given route once (you can of course advice multiple routes).  * If you do it multiple times, then it may not work as expected, especially when any kind of error handling is involved.  */
+comment|/**  * A {@link RouteBuilder} which has extended capabilities when using the  *<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.  *<p/>  *<b>Important:</b> It is recommended to only advice a given route once (you  * can of course advice multiple routes). If you do it multiple times, then it  * may not work as expected, especially when any kind of error handling is  * involved.  */
 end_comment
 
 begin_class
@@ -241,7 +241,7 @@ name|logRouteAsXml
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Advices this route with the route builder using a lambda expression.      * It can be used as following:      *<pre>      * AdviceWithRouteBuilder.adviceWith(context, "myRoute", a ->      *     a.weaveAddLast().to("mock:result");      *</pre>      *<p/>      *<b>Important:</b> It is recommended to only advice a given route once (you can of course advice multiple routes).      * If you do it multiple times, then it may not work as expected, especially when any kind of error handling is involved.      * The Camel team plan for Camel 3.0 to support this as internal refactorings in the routing engine is needed to support this properly.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param camelContext the camel context      * @param routeId      either the route id as a string value, or<tt>null</tt> to chose the 1st route, or you can specify a number for the n'th route.      * @param builder      the advice with route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      */
+comment|/**      * Advices this route with the route builder using a lambda expression. It      * can be used as following:      *       *<pre>      * AdviceWithRouteBuilder.adviceWith(context, "myRoute", a ->      *     a.weaveAddLast().to("mock:result");      *</pre>      *<p/>      *<b>Important:</b> It is recommended to only advice a given route once      * (you can of course advice multiple routes). If you do it multiple times,      * then it may not work as expected, especially when any kind of error      * handling is involved. The Camel team plan for Camel 3.0 to support this      * as internal refactorings in the routing engine is needed to support this      * properly.      *<p/>      * The advice process will add the interceptors, on exceptions, on      * completions etc. configured from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes      * to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start      * this new advised route.      *      * @param camelContext the camel context      * @param routeId either the route id as a string value, or<tt>null</tt> to      *            chose the 1st route, or you can specify a number for the n'th      *            route.      * @param builder the advice with route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      */
 DECL|method|adviceWith (CamelContext camelContext, Object routeId, ThrowingConsumer<AdviceWithRouteBuilder, Exception> builder)
 specifier|public
 specifier|static
@@ -476,7 +476,7 @@ return|return
 name|originalRoute
 return|;
 block|}
-comment|/**      * Whether to log the adviced routes before/after as XML.      * This is usable to know how the route was adviced and changed.      * However marshalling the route model to XML costs CPU resources      * and you can then turn this off by not logging.      *      * This is default enabled.      */
+comment|/**      * Whether to log the adviced routes before/after as XML. This is usable to      * know how the route was adviced and changed. However marshalling the route      * model to XML costs CPU resources and you can then turn this off by not      * logging. This is default enabled.      */
 DECL|method|isLogRouteAsXml ()
 specifier|public
 name|boolean
@@ -487,7 +487,7 @@ return|return
 name|logRouteAsXml
 return|;
 block|}
-comment|/**      * Sets whether to log the adviced routes before/after as XML.      * This is usable to know how the route was adviced and changed.      * However marshalling the route model to XML costs CPU resources      * and you can then turn this off by not logging.      *      * This is default enabled.      */
+comment|/**      * Sets whether to log the adviced routes before/after as XML. This is      * usable to know how the route was adviced and changed. However marshalling      * the route model to XML costs CPU resources and you can then turn this off      * by not logging. This is default enabled.      */
 DECL|method|setLogRouteAsXml (boolean logRouteAsXml)
 specifier|public
 name|void
@@ -504,7 +504,7 @@ operator|=
 name|logRouteAsXml
 expr_stmt|;
 block|}
-comment|/**      * Gets a list of additional tasks to execute after the {@link #configure()} method has been executed      * during the advice process.      *      * @return a list of additional {@link AdviceWithTask} tasks to be executed during the advice process.      */
+comment|/**      * Gets a list of additional tasks to execute after the {@link #configure()}      * method has been executed during the advice process.      *      * @return a list of additional {@link AdviceWithTask} tasks to be executed      *         during the advice process.      */
 DECL|method|getAdviceWithTasks ()
 specifier|public
 name|List
@@ -547,7 +547,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String,      *      String)      */
 DECL|method|mockEndpoints (String... pattern)
 specifier|public
 name|void
@@ -589,7 +589,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Mock all endpoints matching the given pattern, and<b>skips</b> sending to the original endpoint (detour messages).      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Mock all endpoints matching the given pattern, and<b>skips</b> sending      * to the original endpoint (detour messages).      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String,      *      String)      */
 DECL|method|mockEndpointsAndSkip (String... pattern)
 specifier|public
 name|void
@@ -707,7 +707,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Weaves by matching id of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link PatternHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see PatternHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching id of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link PatternHelper#matchPattern(String, String)} matching      * algorithm.      *      * @param pattern the pattern      * @return the builder      * @see PatternHelper#matchPattern(String, String)      */
 DECL|method|weaveById (String pattern)
 specifier|public
 parameter_list|<
@@ -756,7 +756,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by matching the to string representation of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link PatternHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see PatternHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching the to string representation of the nodes in the route      * (incl onException etc).      *<p/>      * Uses the {@link PatternHelper#matchPattern(String, String)} matching      * algorithm.      *      * @param pattern the pattern      * @return the builder      * @see PatternHelper#matchPattern(String, String)      */
 DECL|method|weaveByToString (String pattern)
 specifier|public
 parameter_list|<
@@ -805,7 +805,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by matching sending to endpoints with the given uri of the nodes in the route (incl onException etc).      *<p/>      * Uses the {@link PatternHelper#matchPattern(String, String)} matching algorithm.      *      * @param pattern the pattern      * @return the builder      * @see PatternHelper#matchPattern(String, String)      */
+comment|/**      * Weaves by matching sending to endpoints with the given uri of the nodes      * in the route (incl onException etc).      *<p/>      * Uses the {@link PatternHelper#matchPattern(String, String)} matching      * algorithm.      *      * @param pattern the pattern      * @return the builder      * @see PatternHelper#matchPattern(String, String)      */
 DECL|method|weaveByToUri (String pattern)
 specifier|public
 parameter_list|<
@@ -906,7 +906,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Weaves by adding the nodes to the start of the route (excl onException etc).      *      * @return the builder      */
+comment|/**      * Weaves by adding the nodes to the start of the route (excl onException      * etc).      *      * @return the builder      */
 DECL|method|weaveAddFirst ()
 specifier|public
 parameter_list|<
@@ -960,7 +960,7 @@ name|before
 argument_list|()
 return|;
 block|}
-comment|/**      * Weaves by adding the nodes to the end of the route (excl onException etc).      *      * @return the builder      */
+comment|/**      * Weaves by adding the nodes to the end of the route (excl onException      * etc).      *      * @return the builder      */
 DECL|method|weaveAddLast ()
 specifier|public
 parameter_list|<

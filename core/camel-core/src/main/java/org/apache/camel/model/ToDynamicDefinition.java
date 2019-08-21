@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Sends the message to a dynamic endpoint  *<p/>  * You can specify multiple languages in the uri separated by the plus sign, such as<tt>mock:+language:xpath:/order/@uri</tt>  * where<tt>mock:</tt> would be a prefix to a xpath expression.  *<p/>  * For more dynamic behavior use<a href="http://camel.apache.org/recipient-list.html">Recipient List</a> or  *<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router</a> EIP instead.  */
+comment|/**  * Sends the message to a dynamic endpoint  *<p/>  * You can specify multiple languages in the uri separated by the plus sign,  * such as<tt>mock:+language:xpath:/order/@uri</tt> where<tt>mock:</tt> would  * be a prefix to a xpath expression.  *<p/>  * For more dynamic behavior use  *<a href="http://camel.apache.org/recipient-list.html">Recipient List</a> or  *<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router</a> EIP  * instead.  */
 end_comment
 
 begin_class
@@ -300,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum size used by the {@link org.apache.camel.spi.ConsumerCache} which is used to cache and reuse producers.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+comment|/**      * Sets the maximum size used by the      * {@link org.apache.camel.spi.ConsumerCache} which is used to cache and      * reuse producers.      *      * @param cacheSize the cache size, use<tt>0</tt> for default cache size,      *            or<tt>-1</tt> to turn cache off.      * @return the builder      */
 DECL|method|cacheSize (int cacheSize)
 specifier|public
 name|ToDynamicDefinition
@@ -319,7 +319,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
+comment|/**      * Ignore the invalidate endpoint exception when try to create a producer      * with that endpoint      *      * @return the builder      */
 DECL|method|ignoreInvalidEndpoint ()
 specifier|public
 name|ToDynamicDefinition
@@ -335,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether to allow components to optimise toD if they are {@link org.apache.camel.spi.SendDynamicAware}.      *      * @return the builder      */
+comment|/**      * Whether to allow components to optimise toD if they are      * {@link org.apache.camel.spi.SendDynamicAware}.      *      * @return the builder      */
 DECL|method|allowOptimisedComponents (boolean allowOptimisedComponents)
 specifier|public
 name|ToDynamicDefinition
@@ -366,7 +366,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * The uri of the endpoint to send to. The uri can be dynamic computed using the {@link org.apache.camel.language.simple.SimpleLanguage} expression.      */
+comment|/**      * The uri of the endpoint to send to. The uri can be dynamic computed using      * the {@link org.apache.camel.language.simple.SimpleLanguage} expression.      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void

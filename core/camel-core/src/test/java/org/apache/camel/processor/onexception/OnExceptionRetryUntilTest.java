@@ -206,7 +206,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// as its based on a unit test we do not have any delays between and do not log the stack trace
+comment|// as its based on a unit test we do not have any delays between
+comment|// and do not log the stack trace
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -231,9 +232,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
-comment|// we want to use a predicate for retries so we can determine in our bean
-comment|// when retry should stop, notice it will overrule the global error handler
-comment|// where we defined at most 1 redelivery attempt. Here we will continue until
+comment|// we want to use a predicate for retries so we can determine in
+comment|// our bean
+comment|// when retry should stop, notice it will overrule the global
+comment|// error handler
+comment|// where we defined at most 1 redelivery attempt. Here we will
+comment|// continue until
 comment|// the predicate returns false
 name|onException
 argument_list|(
@@ -333,7 +337,8 @@ specifier|public
 class|class
 name|MyRetryBean
 block|{
-comment|// using bean binding we can bind the information from the exchange to the types we have in our method signature
+comment|// using bean binding we can bind the information from the exchange to
+comment|// the types we have in our method signature
 DECL|method|retry (@eaderExchange.REDELIVERY_COUNTER) Integer counter, @Body String body, @ExchangeException Exception causedBy)
 specifier|public
 name|boolean
@@ -378,7 +383,8 @@ operator|instanceof
 name|MyFunctionalException
 argument_list|)
 expr_stmt|;
-comment|// we can of course do what ever we want to determine the result but this is a unit test so we end after 3 attempts
+comment|// we can of course do what ever we want to determine the result but
+comment|// this is a unit test so we end after 3 attempts
 return|return
 name|counter
 operator|<

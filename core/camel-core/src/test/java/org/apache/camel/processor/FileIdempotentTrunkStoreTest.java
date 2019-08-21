@@ -431,7 +431,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|//expected order
+comment|// expected order
 name|Assert
 operator|.
 name|assertThat
@@ -538,7 +538,8 @@ name|delete
 argument_list|()
 expr_stmt|;
 block|}
-comment|// 5 elements in cache, and 50 bytes as max size limit for when trunking should start
+comment|// 5 elements in cache, and 50 bytes as max size limit for when trunking
+comment|// should start
 name|repo
 operator|=
 name|FileIdempotentRepository

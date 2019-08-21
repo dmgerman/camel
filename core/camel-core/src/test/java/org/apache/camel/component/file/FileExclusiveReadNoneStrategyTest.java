@@ -284,7 +284,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// send a message to seda:start to trigger the creating of the slowfile to poll
+comment|// send a message to seda:start to trigger the creating of the slowfile
+comment|// to poll
 name|template
 operator|.
 name|sendBody

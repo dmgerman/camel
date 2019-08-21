@@ -607,7 +607,8 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-comment|// If we handle CamelException it is what we should have as an exception caught
+comment|// If we handle CamelException it is what we should have as an
+comment|// exception caught
 name|CamelException
 name|cause
 init|=

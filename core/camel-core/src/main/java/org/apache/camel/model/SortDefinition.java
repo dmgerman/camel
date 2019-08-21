@@ -386,7 +386,7 @@ operator|=
 name|comparatorRef
 expr_stmt|;
 block|}
-comment|/**      * Sets the comparator to use for sorting      *      * @param comparator  the comparator to use for sorting      * @return the builder      */
+comment|/**      * Sets the comparator to use for sorting      *      * @param comparator the comparator to use for sorting      * @return the builder      */
 DECL|method|comparator (Comparator<T> comparator)
 specifier|public
 name|SortDefinition

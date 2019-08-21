@@ -325,7 +325,8 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-comment|// usually error handler should be defined first (before onException),
+comment|// usually error handler should be defined first (before
+comment|// onException),
 comment|// but its not enforced
 name|errorHandler
 argument_list|(

@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Routes the message to a sequence of processors which is grouped together as one logical name  */
+comment|/**  * Routes the message to a sequence of processors which is grouped together as  * one logical name  */
 end_comment
 
 begin_class

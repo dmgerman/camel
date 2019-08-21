@@ -205,7 +205,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// interceptors should be invoked in the default order they are added
+comment|// interceptors should be invoked in the default order they are
+comment|// added
 name|context
 operator|.
 name|adapt

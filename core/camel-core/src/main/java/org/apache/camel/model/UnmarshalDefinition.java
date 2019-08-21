@@ -98,7 +98,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|Any23DataFormat
+name|ASN1DataFormat
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|ASN1DataFormat
+name|Any23DataFormat
 import|;
 end_import
 
@@ -757,7 +757,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Converts the message data received from the wire into a format that Apache Camel processors can consume  */
+comment|/**  * Converts the message data received from the wire into a format that Apache  * Camel processors can consume  */
 end_comment
 
 begin_class

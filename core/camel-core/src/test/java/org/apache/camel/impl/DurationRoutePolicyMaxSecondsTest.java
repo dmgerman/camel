@@ -142,7 +142,8 @@ name|isStopped
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the policy should stop the route after 2 seconds which is approx 20-30 messages
+comment|// the policy should stop the route after 2 seconds which is approx
+comment|// 20-30 messages
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"

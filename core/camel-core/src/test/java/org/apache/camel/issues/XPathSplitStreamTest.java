@@ -329,7 +329,8 @@ name|from
 argument_list|(
 literal|"file://target/data/file/xpathsplit?initialDelay=0&delay=10"
 argument_list|)
-comment|// set documentType to org.xml.sax.InputSource then Camel will use SAX to split the file
+comment|// set documentType to org.xml.sax.InputSource then Camel
+comment|// will use SAX to split the file
 operator|.
 name|split
 argument_list|(

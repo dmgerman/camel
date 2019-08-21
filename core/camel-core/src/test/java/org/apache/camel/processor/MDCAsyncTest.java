@@ -392,7 +392,8 @@ DECL|method|MyAsyncProcessor ()
 name|MyAsyncProcessor
 parameter_list|()
 block|{
-comment|// submit a Runnable that does nothing just to initialise the threads
+comment|// submit a Runnable that does nothing just to initialise the
+comment|// threads
 name|EXECUTOR
 operator|.
 name|submit
@@ -510,7 +511,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Stores values from the first invocation to compare them with the second invocation later.      */
+comment|/**      * Stores values from the first invocation to compare them with the second      * invocation later.      */
 DECL|class|MdcCheckerProcessor
 specifier|private
 specifier|static

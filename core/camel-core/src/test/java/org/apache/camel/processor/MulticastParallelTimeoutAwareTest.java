@@ -345,10 +345,14 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-comment|// we can't assert on the expected values here as the contract of this method doesn't
-comment|// allow to throw any Throwable (including AssertionError) so that we assert
-comment|// about the expected values directly inside the test method itself. other than that
-comment|// asserting inside a thread other than the main thread dosen't make much sense as
+comment|// we can't assert on the expected values here as the contract of
+comment|// this method doesn't
+comment|// allow to throw any Throwable (including AssertionError) so that
+comment|// we assert
+comment|// about the expected values directly inside the test method itself.
+comment|// other than that
+comment|// asserting inside a thread other than the main thread dosen't make
+comment|// much sense as
 comment|// junit would not realize the failed assertion!
 name|receivedExchange
 operator|=

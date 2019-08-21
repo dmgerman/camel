@@ -163,7 +163,8 @@ literal|"mock:error"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// NOT handle runtime exception, and let the regular error handler deal with it afterwards
+comment|// NOT handle runtime exception, and let the regular error
+comment|// handler deal with it afterwards
 comment|// as its a DLC it will handle it then
 name|onException
 argument_list|(

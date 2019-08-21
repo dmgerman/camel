@@ -277,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A ValidatorRouteTest demonstrates contract based declarative validation via Java DSL.  */
+comment|/**  * A ValidatorRouteTest demonstrates contract based declarative validation via  * Java DSL.  */
 end_comment
 
 begin_class

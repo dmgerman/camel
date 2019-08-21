@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_comment
-comment|/**  * The JAXB POJOs for the  *<a href="http://camel.apache.org/transformer.html">Transformers</a> used to transform message contents  * according to declared data types inside<a href="http://camel.apache.org/components.html">components</a>  */
+comment|/**  * The JAXB POJOs for the  *<a href="http://camel.apache.org/transformer.html">Transformers</a> used to  * transform message contents according to declared data types inside  *<a href="http://camel.apache.org/components.html">components</a>  */
 end_comment
 
 begin_annotation

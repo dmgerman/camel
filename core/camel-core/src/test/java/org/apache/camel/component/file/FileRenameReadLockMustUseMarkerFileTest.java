@@ -315,7 +315,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// got a file, so we should have a .camelLock file as well
+comment|// got a file, so we should have a .camelLock file as
+comment|// well
 name|String
 name|name
 init|=

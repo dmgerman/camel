@@ -271,7 +271,7 @@ name|class
 argument_list|,
 name|TEST_PREFIX
 argument_list|)
-block|{ }
+block|{     }
 decl_stmt|;
 annotation|@
 name|Test

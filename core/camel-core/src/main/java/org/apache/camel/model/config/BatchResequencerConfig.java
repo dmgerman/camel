@@ -184,7 +184,7 @@ literal|1000L
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link BatchResequencerConfig} instance using the given      * values for<code>batchSize</code> and<code>batchTimeout</code>.      *      * @param batchSize    size of the batch to be re-ordered.      * @param batchTimeout timeout for collecting elements to be re-ordered.      */
+comment|/**      * Creates a new {@link BatchResequencerConfig} instance using the given      * values for<code>batchSize</code> and<code>batchTimeout</code>.      *      * @param batchSize size of the batch to be re-ordered.      * @param batchTimeout timeout for collecting elements to be re-ordered.      */
 DECL|method|BatchResequencerConfig (int batchSize, long batchTimeout)
 specifier|public
 name|BatchResequencerConfig
@@ -260,7 +260,7 @@ return|return
 name|batchTimeout
 return|;
 block|}
-comment|/**      * Sets the timeout for collecting elements to be re-ordered. The default timeout is 1000 msec.      */
+comment|/**      * Sets the timeout for collecting elements to be re-ordered. The default      * timeout is 1000 msec.      */
 DECL|method|setBatchTimeout (long batchTimeout)
 specifier|public
 name|void

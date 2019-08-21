@@ -201,7 +201,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// this method is invoked when the Exchange completed with no failure
+comment|// this method is invoked when the Exchange completed with no
+comment|// failure
 block|}
 annotation|@
 name|Override
@@ -459,7 +460,8 @@ operator|.
 name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
-comment|// onCompletion is async so we gotta wait a bit for the file to be deleted
+comment|// onCompletion is async so we gotta wait a bit for the file to be
+comment|// deleted
 name|assertTrue
 argument_list|(
 literal|"Should countdown the latch"
@@ -534,7 +536,8 @@ name|from
 argument_list|(
 literal|"direct:confirm"
 argument_list|)
-comment|// use a route scoped onCompletion to be executed when the Exchange failed
+comment|// use a route scoped onCompletion to be executed when the
+comment|// Exchange failed
 operator|.
 name|onCompletion
 argument_list|()

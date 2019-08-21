@@ -196,7 +196,8 @@ name|hasOut
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// when we use stopOnException the exchange should not be affected during the splitter
+comment|// when we use stopOnException the exchange should not be affected
+comment|// during the splitter
 comment|// eg the foo property should have the before value
 name|assertEquals
 argument_list|(

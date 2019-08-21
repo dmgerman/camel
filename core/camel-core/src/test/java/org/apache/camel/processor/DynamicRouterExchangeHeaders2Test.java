@@ -480,7 +480,7 @@ block|}
 return|;
 block|}
 comment|// START SNIPPET: e2
-comment|/**      * Use this method to compute dynamic where we should route next.      *      * @param body the message body      * @param headers the message headers where we can store state between invocations      * @param previous the previous slip      * @return endpoints to go, or<tt>null</tt> to indicate the end      */
+comment|/**      * Use this method to compute dynamic where we should route next.      *      * @param body the message body      * @param headers the message headers where we can store state between      *            invocations      * @param previous the previous slip      * @return endpoints to go, or<tt>null</tt> to indicate the end      */
 DECL|method|slip (String body, @Headers Map<String, Object> headers, @Header(Exchange.SLIP_ENDPOINT) String previous)
 specifier|public
 name|String

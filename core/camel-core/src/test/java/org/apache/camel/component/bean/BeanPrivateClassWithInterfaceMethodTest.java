@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests Bean binding for private& package-private classes where the target method is accessible through an interface.  */
+comment|/**  * Tests Bean binding for private& package-private classes where the target  * method is accessible through an interface.  */
 end_comment
 
 begin_class

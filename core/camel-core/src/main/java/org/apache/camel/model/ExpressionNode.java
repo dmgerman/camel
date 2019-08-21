@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base {@link ExpressionNode} which does<b>not</b> support any outputs.  *<p/>  * This node is to be extended by definitions which need to support an expression but the definition should not  * contain any outputs, such as {@link org.apache.camel.model.TransformDefinition}.  */
+comment|/**  * A base {@link ExpressionNode} which does<b>not</b> support any outputs.  *<p/>  * This node is to be extended by definitions which need to support an  * expression but the definition should not contain any outputs, such as  * {@link org.apache.camel.model.TransformDefinition}.  */
 end_comment
 
 begin_class
@@ -302,7 +302,8 @@ name|ExpressionDefinition
 name|expression
 parameter_list|)
 block|{
-comment|// favour using the helper to set the expression as it can unwrap some unwanted builders when using Java DSL
+comment|// favour using the helper to set the expression as it can unwrap some
+comment|// unwanted builders when using Java DSL
 name|this
 operator|.
 name|expression
@@ -427,10 +428,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// if using the Java DSL then the expression may have been set using the
-comment|// ExpressionClause which is a fancy builder to define expressions and predicates
-comment|// using fluent builders in the DSL. However we need afterwards a callback to
-comment|// reset the expression to the expression type the ExpressionClause did build for us
+comment|// if using the Java DSL then the expression may have been set
+comment|// using the
+comment|// ExpressionClause which is a fancy builder to define
+comment|// expressions and predicates
+comment|// using fluent builders in the DSL. However we need afterwards
+comment|// a callback to
+comment|// reset the expression to the expression type the
+comment|// ExpressionClause did build for us
 name|ExpressionFactory
 name|model
 init|=
@@ -473,7 +478,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// use toString from predicate or expression so we have some information to show in the route model
+comment|// use toString from predicate or expression so we have some
+comment|// information to show in the route model
 if|if
 condition|(
 name|getExpression

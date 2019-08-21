@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Zip Deflate Compression data format is a message compression and de-compression format (not zip files).  */
+comment|/**  * Zip Deflate Compression data format is a message compression and  * de-compression format (not zip files).  */
 end_comment
 
 begin_class
@@ -178,7 +178,7 @@ return|return
 name|compressionLevel
 return|;
 block|}
-comment|/**      * To specify a specific compression between 0-9.      * -1 is default compression, 0 is no compression, and 9 is best compression.      */
+comment|/**      * To specify a specific compression between 0-9. -1 is default compression,      * 0 is no compression, and 9 is best compression.      */
 DECL|method|setCompressionLevel (Integer compressionLevel)
 specifier|public
 name|void

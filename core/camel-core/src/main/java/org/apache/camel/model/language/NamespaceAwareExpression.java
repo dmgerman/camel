@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for any expression which may be namespace or XML content aware  * such as {@link XPathExpression} or {@link XQueryExpression}  */
+comment|/**  * A useful base class for any expression which may be namespace or XML content  * aware such as {@link XPathExpression} or {@link XQueryExpression}  */
 end_comment
 
 begin_class
@@ -190,7 +190,7 @@ return|return
 name|namespaces
 return|;
 block|}
-comment|/**      * Injects the XML Namespaces of prefix -> uri mappings      *      * @param namespaces the XML namespaces with the key of prefixes and the value the URIs      */
+comment|/**      * Injects the XML Namespaces of prefix -> uri mappings      *      * @param namespaces the XML namespaces with the key of prefixes and the      *            value the URIs      */
 annotation|@
 name|Override
 DECL|method|setNamespaces (Map<String, String> namespaces)

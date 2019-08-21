@@ -281,7 +281,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
+comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|when (@sPredicate Predicate predicate)
 specifier|public
 name|InterceptSendToEndpointDefinition
@@ -311,7 +311,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Skip sending the {@link org.apache.camel.Exchange} to the original intended endpoint      *      * @return the builder      */
+comment|/**      * Skip sending the {@link org.apache.camel.Exchange} to the original      * intended endpoint      *      * @return the builder      */
 DECL|method|skipSendToOriginalEndpoint ()
 specifier|public
 name|InterceptSendToEndpointDefinition
@@ -329,7 +329,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * After sending to the endpoint then send the message to this url which allows to process its result.      *      * @return the builder      */
+comment|/**      * After sending to the endpoint then send the message to this url which      * allows to process its result.      *      * @return the builder      */
 DECL|method|afterUrl (String url)
 specifier|public
 name|InterceptSendToEndpointDefinition
@@ -348,14 +348,15 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * This method is<b>only</b> for handling some post configuration      * that is needed since this is an interceptor, and we have to do      * a bit of magic logic to fixup to handle predicates      * with or without proceed/stop set as well.      */
+comment|/**      * This method is<b>only</b> for handling some post configuration that is      * needed since this is an interceptor, and we have to do a bit of magic      * logic to fixup to handle predicates with or without proceed/stop set as      * well.      */
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void
 name|afterPropertiesSet
 parameter_list|()
 block|{
-comment|// okay the intercept endpoint works a bit differently than the regular interceptors
+comment|// okay the intercept endpoint works a bit differently than the regular
+comment|// interceptors
 comment|// so we must fix the route definition yet again
 if|if
 condition|(
@@ -371,7 +372,8 @@ block|{
 comment|// no outputs
 return|return;
 block|}
-comment|// if there is a when definition at first, then its a predicate for this interceptor
+comment|// if there is a when definition at first, then its a predicate for this
+comment|// interceptor
 name|ProcessorDefinition
 argument_list|<
 name|?
@@ -517,7 +519,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remove the moved from the original output, by just keeping the first one
+comment|// remove the moved from the original output, by just keeping the
+comment|// first one
 name|clearOutput
 argument_list|()
 expr_stmt|;
@@ -540,7 +543,7 @@ return|return
 name|skipSendToOriginalEndpoint
 return|;
 block|}
-comment|/**      * If set to true then the message is not sent to the original endpoint.      * By default (false) the message is both intercepted and then sent to the original endpoint.      */
+comment|/**      * If set to true then the message is not sent to the original endpoint. By      * default (false) the message is both intercepted and then sent to the      * original endpoint.      */
 DECL|method|setSkipSendToOriginalEndpoint (Boolean skipSendToOriginalEndpoint)
 specifier|public
 name|void
@@ -594,7 +597,7 @@ return|return
 name|afterUri
 return|;
 block|}
-comment|/**      * After sending to the endpoint then send the message to this uri which allows to process its result.      */
+comment|/**      * After sending to the endpoint then send the message to this uri which      * allows to process its result.      */
 DECL|method|setAfterUri (String afterProcessor)
 specifier|public
 name|void

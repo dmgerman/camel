@@ -1230,7 +1230,7 @@ block|}
 end_function
 
 begin_empty_stmt
-unit|)         )
+unit|))
 empty_stmt|;
 end_empty_stmt
 
@@ -1299,7 +1299,7 @@ argument_list|;
 end_expr_stmt
 
 begin_empty_stmt
-unit|})         )
+unit|}))
 empty_stmt|;
 end_empty_stmt
 

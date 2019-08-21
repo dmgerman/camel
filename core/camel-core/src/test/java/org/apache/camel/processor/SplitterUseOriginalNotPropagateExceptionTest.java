@@ -245,7 +245,8 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should only be 1 error as we do not propagate errors to the parent
+comment|// there should only be 1 error as we do not propagate errors to the
+comment|// parent
 name|assertEquals
 argument_list|(
 literal|1

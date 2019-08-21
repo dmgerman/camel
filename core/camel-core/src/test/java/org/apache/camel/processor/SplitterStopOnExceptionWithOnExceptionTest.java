@@ -160,7 +160,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// we do stop so we stop splitting when the exception occurs and thus we wont receive any message
+comment|// we do stop so we stop splitting when the exception occurs and thus we
+comment|// wont receive any message
 name|getMockEndpoint
 argument_list|(
 literal|"mock:split"
@@ -226,7 +227,8 @@ argument_list|(
 literal|"mock:split"
 argument_list|)
 decl_stmt|;
-comment|// we do stop so we stop splitting when the exception occurs and thus we only receive 1 message
+comment|// we do stop so we stop splitting when the exception occurs and thus we
+comment|// only receive 1 message
 name|mock
 operator|.
 name|expectedBodiesReceived
@@ -289,7 +291,8 @@ argument_list|(
 literal|"mock:split"
 argument_list|)
 decl_stmt|;
-comment|// we do stop so we stop splitting when the exception occurs and thus we only receive 2 message
+comment|// we do stop so we stop splitting when the exception occurs and thus we
+comment|// only receive 2 message
 name|mock
 operator|.
 name|expectedBodiesReceived

@@ -325,7 +325,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// we are on block only scope as "two" was success in the block, and then "two" failed afterwards does not matter
+comment|// we are on block only scope as "two" was success in the block, and
+comment|// then "two" failed afterwards does not matter
 comment|// the idempotent consumer will not receive "two" again
 name|a
 operator|.
@@ -534,7 +535,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// we are on completion scope so the "two" will rollback and therefore the idempotent consumer receives those again
+comment|// we are on completion scope so the "two" will rollback and therefore
+comment|// the idempotent consumer receives those again
 name|a
 operator|.
 name|expectedBodiesReceived

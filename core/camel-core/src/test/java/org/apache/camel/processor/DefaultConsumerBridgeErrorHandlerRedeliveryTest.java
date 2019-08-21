@@ -142,7 +142,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// should not attempt redelivery as we must be exhausted when bridging the error handler
+comment|// should not attempt redelivery as we must be exhausted when bridging
+comment|// the error handler
 name|assertEquals
 argument_list|(
 literal|0
@@ -289,7 +290,8 @@ argument_list|(
 literal|"mock:dead"
 argument_list|)
 expr_stmt|;
-comment|// configure the consumer to bridge with the Camel error handler,
+comment|// configure the consumer to bridge with the Camel error
+comment|// handler,
 comment|// so the above error handler will trigger if exceptions also
 comment|// occurs inside the consumer
 name|from

@@ -359,7 +359,7 @@ return|return
 name|contentTypeHeader
 return|;
 block|}
-comment|/**      * Whether the data format should set the<tt>Content-Type</tt> header with the type from the data format if the      * data format is capable of doing so.      *<p/>      * For example<tt>application/xml</tt> for data formats marshalling to XML, or<tt>application/json</tt>      * for data formats marshalling to JSon etc.      */
+comment|/**      * Whether the data format should set the<tt>Content-Type</tt> header with      * the type from the data format if the data format is capable of doing so.      *<p/>      * For example<tt>application/xml</tt> for data formats marshalling to XML,      * or<tt>application/json</tt> for data formats marshalling to JSon etc.      */
 DECL|method|setContentTypeHeader (Boolean contentTypeHeader)
 specifier|public
 name|void

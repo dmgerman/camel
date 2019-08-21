@@ -321,7 +321,7 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Name of exchange property to set a new value.      *<p/>      * The<tt>simple</tt> language can be used to define a dynamic evaluated exchange property name to be used.      * Otherwise a constant name will be used.      */
+comment|/**      * Name of exchange property to set a new value.      *<p/>      * The<tt>simple</tt> language can be used to define a dynamic evaluated      * exchange property name to be used. Otherwise a constant name will be      * used.      */
 DECL|method|setName (String name)
 specifier|public
 name|void

@@ -265,7 +265,8 @@ argument_list|(
 literal|30000
 argument_list|)
 expr_stmt|;
-comment|// we need to wait a bit for our slow CI server to make sure the entire file is written on disc
+comment|// we need to wait a bit for our slow CI server to make sure the entire
+comment|// file is written on disc
 name|Thread
 operator|.
 name|sleep

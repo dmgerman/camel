@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An old unit test from CAMEL-715 which reproduced a problem which we don't have anymore  * in Camel threads EIP and the routing engine.  */
+comment|/**  * An old unit test from CAMEL-715 which reproduced a problem which we don't  * have anymore in Camel threads EIP and the routing engine.  */
 end_comment
 
 begin_class

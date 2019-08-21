@@ -268,7 +268,7 @@ specifier|private
 name|RestContextRefDefinitionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Lookup the rests from the {@link org.apache.camel.model.RestContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the rests as it performs a deep clone of the rests      * as a {@link org.apache.camel.model.RestContextRefDefinition} can be re-used with multiple {@link org.apache.camel.model.ModelCamelContext} and each      * context should have their own instances of the routes. This is to ensure no side-effects and sharing      * of instances between the contexts. For example such as property placeholders may be context specific      * so the routes should not use placeholders from another {@link org.apache.camel.CamelContext}.      *      * @param camelContext the CamelContext      * @param ref          the id of the {@link org.apache.camel.model.RestContextRefDefinition} to lookup and get the routes.      * @return the rests.      */
+comment|/**      * Lookup the rests from the      * {@link org.apache.camel.model.RestContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the rests as it performs a      * deep clone of the rests as a      * {@link org.apache.camel.model.RestContextRefDefinition} can be re-used      * with multiple {@link org.apache.camel.model.ModelCamelContext} and each      * context should have their own instances of the routes. This is to ensure      * no side-effects and sharing of instances between the contexts. For      * example such as property placeholders may be context specific so the      * routes should not use placeholders from another      * {@link org.apache.camel.CamelContext}.      *      * @param camelContext the CamelContext      * @param ref the id of the      *            {@link org.apache.camel.model.RestContextRefDefinition} to      *            lookup and get the routes.      * @return the rests.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -345,8 +345,10 @@ name|ref
 argument_list|)
 throw|;
 block|}
-comment|// must clone the rest definitions as they can be reused with multiple CamelContexts
-comment|// and they would need their own instances of the definitions to not have side effects among
+comment|// must clone the rest definitions as they can be reused with multiple
+comment|// CamelContexts
+comment|// and they would need their own instances of the definitions to not
+comment|// have side effects among
 comment|// the CamelContext - for example property placeholder resolutions etc.
 name|List
 argument_list|<
@@ -652,7 +654,8 @@ operator|.
 name|getToOrRoute
 argument_list|()
 decl_stmt|;
-comment|// need to clone the namespaces also as they are not JAXB marshalled (as they are transient)
+comment|// need to clone the namespaces also as they are not JAXB
+comment|// marshalled (as they are transient)
 name|Iterator
 argument_list|<
 name|ExpressionNode

@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an {@link Simple} language builder.  *<p/>  * This builder is available in the Java DSL from the {@link RouteBuilder} which means that using  * simple language for {@link Expression}s or {@link Predicate}s is very easy with the help of this builder.  */
+comment|/**  * Creates an {@link Simple} language builder.  *<p/>  * This builder is available in the Java DSL from the {@link RouteBuilder} which  * means that using simple language for {@link Expression}s or  * {@link Predicate}s is very easy with the help of this builder.  */
 end_comment
 
 begin_class
@@ -247,7 +247,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|simpleF (String formatText, Object...values)
+DECL|method|simpleF (String formatText, Object... values)
 specifier|public
 specifier|static
 name|SimpleBuilder
@@ -275,7 +275,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|simpleF (String formatText, Class<?> resultType, Object...values)
+DECL|method|simpleF (String formatText, Class<?> resultType, Object... values)
 specifier|public
 specifier|static
 name|SimpleBuilder
@@ -495,7 +495,8 @@ argument_list|(
 name|text
 argument_list|)
 decl_stmt|;
-comment|// and optional it be refer to an external script on the file/classpath
+comment|// and optional it be refer to an external script on the
+comment|// file/classpath
 name|resolve
 operator|=
 name|ScriptHelper
@@ -577,7 +578,8 @@ argument_list|(
 name|text
 argument_list|)
 decl_stmt|;
-comment|// and optional it be refer to an external script on the file/classpath
+comment|// and optional it be refer to an external script on the
+comment|// file/classpath
 name|resolve
 operator|=
 name|ScriptHelper

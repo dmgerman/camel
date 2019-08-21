@@ -460,7 +460,7 @@ return|return
 name|arrayType
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter array type.      * Required if data type is "array". Describes the type of items in the array.      */
+comment|/**      * Sets the Swagger Parameter array type. Required if data type is "array".      * Describes the type of items in the array.      */
 DECL|method|setArrayType (String arrayType)
 specifier|public
 name|void
@@ -681,7 +681,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The data type of the header such as<tt>string</tt>,<tt>integer</tt>,<tt>boolean</tt>      */
+comment|/**      * The data type of the header such as<tt>string</tt>,<tt>integer</tt>,      *<tt>boolean</tt>      */
 DECL|method|dataType (String type)
 specifier|public
 name|RestOperationResponseHeaderDefinition
@@ -700,7 +700,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The data format of the parameter such as<tt>binary</tt>,<tt>date</tt>,<tt>date-time</tt>,<tt>password</tt>.      * The format is usually derived from the dataType alone. However you can set this option for more fine grained control      * of the format in use.      */
+comment|/**      * The data format of the parameter such as<tt>binary</tt>,<tt>date</tt>,      *<tt>date-time</tt>,<tt>password</tt>. The format is usually derived from      * the dataType alone. However you can set this option for more fine grained      * control of the format in use.      */
 DECL|method|dataFormat (String type)
 specifier|public
 name|RestOperationResponseHeaderDefinition

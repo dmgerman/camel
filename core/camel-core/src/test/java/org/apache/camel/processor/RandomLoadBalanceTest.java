@@ -192,7 +192,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// it should be safe to assume that they should at least each get> 5 messages
+comment|// it should be safe to assume that they should at least each get> 5
+comment|// messages
 name|x
 operator|.
 name|expectedMinimumMessageCount

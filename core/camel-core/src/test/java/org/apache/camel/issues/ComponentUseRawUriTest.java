@@ -373,7 +373,8 @@ name|boolean
 name|useRawUri
 parameter_list|()
 block|{
-comment|// we want the raw uri, so our component can understand the endpoint configuration as it was typed
+comment|// we want the raw uri, so our component can understand the endpoint
+comment|// configuration as it was typed
 return|return
 literal|true
 return|;

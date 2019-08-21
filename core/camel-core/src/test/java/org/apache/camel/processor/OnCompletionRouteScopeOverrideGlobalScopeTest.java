@@ -308,7 +308,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// define a global on completion that is invoked when the exchage is complete
+comment|// define a global on completion that is invoked when the
+comment|// exchage is complete
 name|onCompletion
 argument_list|()
 operator|.
@@ -327,8 +328,10 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// route scoped onCompletion should override any global onCompletion, and thus its *only*
-comment|// the one below that is triggered, any global will *not* be triggered.
+comment|// route scoped onCompletion should override any global
+comment|// onCompletion, and thus its *only*
+comment|// the one below that is triggered, any global will *not* be
+comment|// triggered.
 operator|.
 name|onCompletion
 argument_list|()

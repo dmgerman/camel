@@ -394,14 +394,16 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// stop the consumer as it does not need to poll for files anymore
+comment|// stop the consumer as it does not need to poll for
+comment|// files anymore
 name|con
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
 block|}
-comment|// if we found the data file then process it by sending it to the direct:data endpoint
+comment|// if we found the data file then process it by sending
+comment|// it to the direct:data endpoint
 if|if
 condition|(
 name|data

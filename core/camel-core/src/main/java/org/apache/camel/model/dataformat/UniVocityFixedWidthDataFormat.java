@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The uniVocity Fixed Length data format is used for working with fixed length flat payloads.  */
+comment|/**  * The uniVocity Fixed Length data format is used for working with fixed length  * flat payloads.  */
 end_comment
 
 begin_class

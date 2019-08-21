@@ -373,7 +373,7 @@ argument_list|()
 return|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 annotation|@
 name|Override
 DECL|method|getRoutes ()
@@ -623,7 +623,7 @@ name|errorHandlerFactory
 expr_stmt|;
 block|}
 comment|// Fluent API
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|/**      * Creates a new route      *      * @return the builder      */
 DECL|method|route ()
 specifier|public
@@ -644,7 +644,7 @@ name|route
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
+comment|/**      * Creates a new route from the given URI input      *      * @param uri the from uri      * @return the builder      */
 DECL|method|from (@sEndpointUri String uri)
 specifier|public
 name|RouteDefinition
@@ -676,7 +676,7 @@ name|route
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new route from the given endpoint      *      * @param endpoint  the from endpoint      * @return the builder      */
+comment|/**      * Creates a new route from the given endpoint      *      * @param endpoint the from endpoint      * @return the builder      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
 name|RouteDefinition
@@ -789,7 +789,7 @@ return|return
 name|route
 return|;
 block|}
-comment|/**      * Creates and adds an interceptor that is triggered on every step in the route      * processing.      *      * @return the interceptor builder to configure      */
+comment|/**      * Creates and adds an interceptor that is triggered on every step in the      * route processing.      *      * @return the interceptor builder to configure      */
 DECL|method|intercept ()
 specifier|public
 name|InterceptDefinition
@@ -817,7 +817,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates and adds an interceptor that is triggered when an exchange      * is received as input to any routes (eg from all the<tt>from</tt>)      *      * @return the interceptor builder to configure      */
+comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * received as input to any routes (eg from all the<tt>from</tt>)      *      * @return the interceptor builder to configure      */
 DECL|method|interceptFrom ()
 specifier|public
 name|InterceptFromDefinition
@@ -843,7 +843,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates and adds an interceptor that is triggered when an exchange is received      * as input to the route defined with the given endpoint (eg from the<tt>from</tt>)      *      * @param uri uri of the endpoint      * @return the interceptor builder to configure      */
+comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * received as input to the route defined with the given endpoint (eg from      * the<tt>from</tt>)      *      * @param uri uri of the endpoint      * @return the interceptor builder to configure      */
 DECL|method|interceptFrom (@sEndpointUri final String uri)
 specifier|public
 name|InterceptFromDefinition
@@ -877,7 +877,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * send to the given endpoint      *      * @param uri uri of the endpoint      * @return  the builder      */
+comment|/**      * Creates and adds an interceptor that is triggered when an exchange is      * send to the given endpoint      *      * @param uri uri of the endpoint      * @return the builder      */
 DECL|method|interceptSendToEndpoint (@sEndpointUri final String uri)
 specifier|public
 name|InterceptSendToEndpointDefinition
@@ -911,7 +911,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Adds an on exception      *       * @param exception  the exception      * @return the builder      */
+comment|/**      * Adds an on exception      *       * @param exception the exception      * @return the builder      */
 DECL|method|onException (Class<? extends Throwable> exception)
 specifier|public
 name|OnExceptionDefinition
@@ -981,7 +981,7 @@ name|answer
 return|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|createRoute ()
 specifier|protected
 name|RouteDefinition

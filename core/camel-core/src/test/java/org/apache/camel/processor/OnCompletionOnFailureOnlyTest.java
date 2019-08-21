@@ -144,7 +144,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// here we qualify onCompletion to only invoke when the exchange failed (exception or FAULT body)
+comment|// here we qualify onCompletion to only invoke when the
+comment|// exchange failed (exception or FAULT body)
 operator|.
 name|onCompletion
 argument_list|()

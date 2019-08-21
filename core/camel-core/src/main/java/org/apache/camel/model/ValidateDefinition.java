@@ -245,7 +245,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Expression to use for validation as a predicate. The expression should return either<tt>true</tt> or<tt>false</tt>.      * If returning<tt>false</tt> the message is invalid and an exception is thrown.      */
+comment|/**      * Expression to use for validation as a predicate. The expression should      * return either<tt>true</tt> or<tt>false</tt>. If returning      *<tt>false</tt> the message is invalid and an exception is thrown.      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)

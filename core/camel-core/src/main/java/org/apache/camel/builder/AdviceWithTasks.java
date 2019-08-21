@@ -275,7 +275,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link AdviceWithTask} tasks which are used by the {@link AdviceWithRouteBuilder}.  */
+comment|/**  * {@link AdviceWithTask} tasks which are used by the  * {@link AdviceWithRouteBuilder}.  */
 end_comment
 
 begin_class
@@ -490,7 +490,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Will match by the sending to endpoint uri representation of the processor.      */
+comment|/**      * Will match by the sending to endpoint uri representation of the      * processor.      */
 DECL|class|MatchByToUri
 specifier|private
 specifier|static
@@ -1089,7 +1089,8 @@ name|match
 operator|=
 literal|true
 expr_stmt|;
-comment|// flattern as replace uses a pipeline as temporary holder
+comment|// flattern as replace uses a pipeline as
+comment|// temporary holder
 name|ProcessorDefinition
 argument_list|<
 name|?
@@ -1122,7 +1123,8 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
-comment|// must set parent on the node we added in the route
+comment|// must set parent on the node we added in the
+comment|// route
 name|ProcessorDefinition
 name|parent
 init|=
@@ -2060,7 +2062,8 @@ name|match
 operator|=
 literal|true
 expr_stmt|;
-comment|// flattern as before uses a pipeline as temporary holder
+comment|// flattern as before uses a pipeline as
+comment|// temporary holder
 name|ProcessorDefinition
 argument_list|<
 name|?
@@ -2091,7 +2094,8 @@ argument_list|,
 name|flattern
 argument_list|)
 expr_stmt|;
-comment|// must set parent on the node we added in the route
+comment|// must set parent on the node we added in the
+comment|// route
 name|ProcessorDefinition
 name|parent
 init|=
@@ -2590,7 +2594,8 @@ name|match
 operator|=
 literal|true
 expr_stmt|;
-comment|// flattern as after uses a pipeline as temporary holder
+comment|// flattern as after uses a pipeline as
+comment|// temporary holder
 name|ProcessorDefinition
 argument_list|<
 name|?
@@ -2623,7 +2628,8 @@ argument_list|,
 name|flattern
 argument_list|)
 expr_stmt|;
-comment|// must set parent on the node we added in the route
+comment|// must set parent on the node we added in the
+comment|// route
 name|ProcessorDefinition
 name|parent
 init|=
@@ -2695,7 +2701,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Gets the outputs to use with advice with from the given child/parent      *<p/>      * This implementation deals with that outputs can be abstract and retrieves the<i>correct</i> parent output.      *      * @param node the node      * @return<tt>null</tt> if not outputs to be used      */
+comment|/**      * Gets the outputs to use with advice with from the given child/parent      *<p/>      * This implementation deals with that outputs can be abstract and retrieves      * the<i>correct</i> parent output.      *      * @param node the node      * @return<tt>null</tt> if not outputs to be used      */
 DECL|method|getOutputs (ProcessorDefinition<?> node, RouteDefinition route)
 specifier|private
 specifier|static
@@ -2729,7 +2735,8 @@ return|return
 literal|null
 return|;
 block|}
-comment|// for intercept/onException/onCompletion then we want to work on the route outputs as they are top-level
+comment|// for intercept/onException/onCompletion then we want to work on the
+comment|// route outputs as they are top-level
 if|if
 condition|(
 name|node
@@ -3016,7 +3023,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Create iterator which walks the route, and only returns nodes which matches the given set of criteria.      *      * @param route        the route      * @param matchBy      match by which must match      * @param selectFirst  optional to select only the first      * @param selectLast   optional to select only the last      * @param selectFrom   optional to select index/range      * @param selectTo     optional to select index/range      * @param maxDeep      maximum levels deep (is unbounded by default)      *      * @return the iterator      */
+comment|/**      * Create iterator which walks the route, and only returns nodes which      * matches the given set of criteria.      *      * @param route the route      * @param matchBy match by which must match      * @param selectFirst optional to select only the first      * @param selectLast optional to select only the last      * @param selectFrom optional to select index/range      * @param selectTo optional to select index/range      * @param maxDeep maximum levels deep (is unbounded by default)      * @return the iterator      */
 DECL|method|createMatchByIterator (final RouteDefinition route, final MatchBy matchBy, final boolean selectFirst, final boolean selectLast, final int selectFrom, final int selectTo, int maxDeep)
 specifier|private
 specifier|static
@@ -3087,8 +3094,10 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// if we are in first|last mode then we should
-comment|// skip abstract nodes in the beginning as they are cross cutting functionality such as onException, onCompletion etc
-comment|// and the user want to select first or last outputs in the route (not cross cutting functionality)
+comment|// skip abstract nodes in the beginning as they are cross cutting
+comment|// functionality such as onException, onCompletion etc
+comment|// and the user want to select first or last outputs in the route (not
+comment|// cross cutting functionality)
 name|boolean
 name|skip
 init|=

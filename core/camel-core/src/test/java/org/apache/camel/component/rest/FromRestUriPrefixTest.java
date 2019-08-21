@@ -279,7 +279,8 @@ name|getUri
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the rest becomes routes and the input is a seda endpoint created by the DummyRestConsumerFactory
+comment|// the rest becomes routes and the input is a seda endpoint created by
+comment|// the DummyRestConsumerFactory
 name|getMockEndpoint
 argument_list|(
 literal|"mock:update"
@@ -381,7 +382,8 @@ argument_list|(
 literal|"localhost"
 argument_list|)
 expr_stmt|;
-comment|// we have logic to cleanup those paths so there is only one / between the paths
+comment|// we have logic to cleanup those paths so there is only one /
+comment|// between the paths
 name|rest
 argument_list|(
 literal|"/say/"

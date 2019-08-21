@@ -179,7 +179,8 @@ argument_list|(
 name|cause
 argument_list|)
 expr_stmt|;
-comment|// not sure if XSLT errors may be i18n and not english always so just check for the spelling mistake of select -> slect
+comment|// not sure if XSLT errors may be i18n and not english always so
+comment|// just check for the spelling mistake of select -> slect
 name|assertTrue
 argument_list|(
 name|cause

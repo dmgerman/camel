@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for testing possibility to modify exchange before redelivering specific  * per on exception  */
+comment|/**  * Unit test for testing possibility to modify exchange before redelivering  * specific per on exception  */
 end_comment
 
 begin_class
@@ -269,7 +269,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// when we redeliver caused by an IOException we want to do some special
+comment|// when we redeliver caused by an IOException we want to do some
+comment|// special
 comment|// code before the redeliver attempt
 name|onException
 argument_list|(
@@ -369,7 +370,8 @@ return|;
 block|}
 comment|// START SNIPPET: e3
 comment|// This is our processor that is executed before every redelivery attempt
-comment|// here we can do what we want in the java code, such as altering the message
+comment|// here we can do what we want in the java code, such as altering the
+comment|// message
 DECL|class|MyRedeliverProcessor
 specifier|public
 specifier|static
@@ -442,8 +444,10 @@ block|}
 block|}
 comment|// END SNIPPET: e3
 comment|// START SNIPPET: e4
-comment|// This is our processor that is executed before IOException redeliver attempt
-comment|// here we can do what we want in the java code, such as altering the message
+comment|// This is our processor that is executed before IOException redeliver
+comment|// attempt
+comment|// here we can do what we want in the java code, such as altering the
+comment|// message
 DECL|class|MyIORedeliverProcessor
 specifier|public
 specifier|static

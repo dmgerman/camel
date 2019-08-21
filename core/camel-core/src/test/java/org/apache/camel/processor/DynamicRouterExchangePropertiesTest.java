@@ -384,7 +384,7 @@ block|}
 return|;
 block|}
 comment|// START SNIPPET: e2
-comment|/**      * Use this method to compute dynamic where we should route next.      *      * @param body the message body      * @param properties the exchange properties where we can store state between invocations      * @return endpoints to go, or<tt>null</tt> to indicate the end      */
+comment|/**      * Use this method to compute dynamic where we should route next.      *      * @param body the message body      * @param properties the exchange properties where we can store state      *            between invocations      * @return endpoints to go, or<tt>null</tt> to indicate the end      */
 DECL|method|slip (String body, @ExchangeProperties Map<String, Object> properties)
 specifier|public
 name|String
@@ -411,7 +411,8 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// get the state from the exchange properties and keep track how many times
+comment|// get the state from the exchange properties and keep track how many
+comment|// times
 comment|// we have been invoked
 name|int
 name|invoked

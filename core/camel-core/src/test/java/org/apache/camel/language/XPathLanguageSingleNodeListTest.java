@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests new converters added to XmlConverters to make Camel intelligent when needing to convert   * a NodeList of length 1 into a Document or a Node.  *  */
+comment|/**  * Tests new converters added to XmlConverters to make Camel intelligent when  * needing to convert a NodeList of length 1 into a Document or a Node.  */
 end_comment
 
 begin_class
@@ -118,7 +118,7 @@ name|XML_INPUT_MULTIPLE
 init|=
 literal|"<root><name>Raul</name><name>Raul</name><surname>Kripalani</surname></root>"
 decl_stmt|;
-comment|/**      * A single node XPath selection that internally returns a DTMNodeList of length 1 can now be automatically      * converted to a Document/Node.      * @throws Exception      */
+comment|/**      * A single node XPath selection that internally returns a DTMNodeList of      * length 1 can now be automatically converted to a Document/Node.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testSingleNodeList ()
@@ -186,7 +186,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Regression test to ensure that a NodeList of length> 1 is not processed by the new converters.      * @throws Exception      */
+comment|/**      * Regression test to ensure that a NodeList of length> 1 is not processed      * by the new converters.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testMultipleNodeList ()

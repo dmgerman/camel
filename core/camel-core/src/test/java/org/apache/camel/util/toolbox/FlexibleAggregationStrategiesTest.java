@@ -277,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit tests for the {@link FlexibleAggregationStrategy}.  * @since 2.12  */
+comment|/**  * Unit tests for the {@link FlexibleAggregationStrategy}.  *   * @since 2.12  */
 end_comment
 
 begin_class

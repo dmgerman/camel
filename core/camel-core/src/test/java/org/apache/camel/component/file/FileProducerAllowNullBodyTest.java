@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit tests to ensure that   * When the allowNullBody option is set to true it will create an empty file and not throw an exception  * When the allowNullBody option is set to false it will throw an exception of "Cannot write null body to file."  */
+comment|/**  * Unit tests to ensure that When the allowNullBody option is set to true it  * will create an empty file and not throw an exception When the allowNullBody  * option is set to false it will throw an exception of "Cannot write null body  * to file."  */
 end_comment
 
 begin_class

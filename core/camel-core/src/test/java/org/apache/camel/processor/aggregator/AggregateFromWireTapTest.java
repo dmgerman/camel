@@ -259,9 +259,12 @@ name|from
 argument_list|(
 literal|"direct:tap"
 argument_list|)
-comment|// just use a constant correlation expression as we want to agg everything
-comment|// in the same group. set batch size to two which means to fire when we
-comment|// have aggregated 2 messages, if not the timeout of 5 sec will kick in
+comment|// just use a constant correlation expression as we want to
+comment|// agg everything
+comment|// in the same group. set batch size to two which means to
+comment|// fire when we
+comment|// have aggregated 2 messages, if not the timeout of 5 sec
+comment|// will kick in
 operator|.
 name|aggregate
 argument_list|(

@@ -464,7 +464,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The response code such as a HTTP status code. Can use<tt>general</tt>, or other words      * to indicate general error responses that do not map to a specific HTTP status code      */
+comment|/**      * The response code such as a HTTP status code. Can use<tt>general</tt>,      * or other words to indicate general error responses that do not map to a      * specific HTTP status code      */
 DECL|method|code (String code)
 specifier|public
 name|RestOperationResponseMsgDefinition

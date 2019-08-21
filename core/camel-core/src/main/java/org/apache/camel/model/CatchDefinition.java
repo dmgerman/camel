@@ -465,8 +465,8 @@ name|exceptionClasses
 expr_stmt|;
 block|}
 comment|// Fluent API
-comment|//-------------------------------------------------------------------------
-comment|/**      * The exceptions to catch.      *      * @param exceptionClasses  a list of the exception classes      * @return the builder      * @deprecated use {@link #exception(Class[])}      */
+comment|// -------------------------------------------------------------------------
+comment|/**      * The exceptions to catch.      *      * @param exceptionClasses a list of the exception classes      * @return the builder      * @deprecated use {@link #exception(Class[])}      */
 annotation|@
 name|Deprecated
 DECL|method|exceptionClasses (List<Class<? extends Throwable>> exceptionClasses)
@@ -495,7 +495,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The exception(s) to catch.      *      * @param exceptions  one or more exceptions      * @return the builder      */
+comment|/**      * The exception(s) to catch.      *      * @param exceptions one or more exceptions      * @return the builder      */
 DECL|method|exception (Class<? extends Throwable>.... exceptions)
 specifier|public
 name|CatchDefinition
@@ -550,7 +550,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets an additional predicate that should be true before the onCatch is triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should be intercepted      * by this exception type or not.      *      * @param predicate  predicate that determines true or false      * @return the builder      */
+comment|/**      * Sets an additional predicate that should be true before the onCatch is      * triggered.      *<p/>      * To be used for fine grained controlling whether a thrown exception should      * be intercepted by this exception type or not.      *      * @param predicate predicate that determines true or false      * @return the builder      */
 DECL|method|onWhen (@sPredicate Predicate predicate)
 specifier|public
 name|CatchDefinition
@@ -575,7 +575,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the exception class that the CatchType want to catch      *      * @param exception  the exception of class      * @return the builder      * @deprecated use {@link #exception(Class[])}      */
+comment|/**      * Sets the exception class that the CatchType want to catch      *      * @param exception the exception of class      * @return the builder      * @deprecated use {@link #exception(Class[])}      */
 annotation|@
 name|Deprecated
 DECL|method|exceptionClasses (Class<? extends Throwable> exception)

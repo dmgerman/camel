@@ -211,7 +211,7 @@ argument_list|(
 literal|1
 argument_list|)
 comment|// 1 queued task
-comment|//(Test fails whatever the chosen policy below)
+comment|// (Test fails whatever the chosen policy below)
 operator|.
 name|rejectedPolicy
 argument_list|(
@@ -433,7 +433,7 @@ argument_list|(
 literal|1
 argument_list|)
 comment|// 1 queued task
-comment|//(Test fails whatever the chosen policy below)
+comment|// (Test fails whatever the chosen policy below)
 operator|.
 name|rejectedPolicy
 argument_list|(
@@ -543,7 +543,9 @@ argument_list|,
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-comment|// will be rejected and queued on redelivery later
+comment|// will be rejected and
+comment|// queued on redelivery
+comment|// later
 name|latch
 operator|.
 name|countDown

@@ -217,7 +217,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// interceptors should be invoked according to how they are ordered
+comment|// interceptors should be invoked according to how they are
+comment|// ordered
 name|context
 operator|.
 name|adapt

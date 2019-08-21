@@ -114,7 +114,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// test that we cache at most 1000 endpoints in camel context to avoid it eating to much memory
+comment|// test that we cache at most 1000 endpoints in camel context to avoid
+comment|// it eating to much memory
 for|for
 control|(
 name|int

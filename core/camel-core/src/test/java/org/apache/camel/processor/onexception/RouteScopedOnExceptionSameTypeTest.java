@@ -1311,7 +1311,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// this time we pick global scoped as its an exact match, so foo should get the message
+comment|// this time we pick global scoped as its an exact match, so foo should
+comment|// get the message
 name|getMockEndpoint
 argument_list|(
 literal|"mock:damn"
@@ -1432,7 +1433,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// this time we pick global scoped as its the best match, so foo should get the message
+comment|// this time we pick global scoped as its the best match, so foo should
+comment|// get the message
 name|getMockEndpoint
 argument_list|(
 literal|"mock:damn"

@@ -1117,7 +1117,8 @@ argument_list|(
 name|toProcessor
 argument_list|)
 expr_stmt|;
-comment|// continuation of the second when clause
+comment|// continuation of the second when
+comment|// clause
 block|}
 block|}
 argument_list|,
@@ -1477,7 +1478,10 @@ argument_list|(
 name|toProcessor
 argument_list|)
 expr_stmt|;
-comment|// continuation of the otherwise clause
+comment|// continuation
+comment|// of the
+comment|// otherwise
+comment|// clause
 block|}
 block|}
 argument_list|,
@@ -1941,7 +1945,8 @@ argument_list|(
 name|orderProcessor3
 argument_list|)
 expr_stmt|;
-comment|// continuation of the finallyBlock clause
+comment|// continuation of the
+comment|// finallyBlock clause
 block|}
 block|}
 return|;

@@ -255,7 +255,7 @@ argument_list|()
 return|;
 block|}
 comment|// Properties
-comment|//-----------------------------------------------------------------------
+comment|// -----------------------------------------------------------------------
 annotation|@
 name|Override
 DECL|method|getRests ()
@@ -320,7 +320,7 @@ name|camelContext
 expr_stmt|;
 block|}
 comment|// Fluent API
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|/**      * Creates a rest DSL      */
 DECL|method|rest ()
 specifier|public
@@ -394,7 +394,7 @@ name|rest
 return|;
 block|}
 comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|createRest ()
 specifier|protected
 name|RestDefinition

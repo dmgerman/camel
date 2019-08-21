@@ -203,7 +203,8 @@ name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
 comment|// START SNIPPET: e1
-comment|// add our own type converter manually that converts from String -> MyOrder using MyOrderTypeConverter
+comment|// add our own type converter manually that converts from String ->
+comment|// MyOrder using MyOrderTypeConverter
 name|context
 operator|.
 name|getTypeConverterRegistry
@@ -495,7 +496,8 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-comment|// add our own type converter manually that converts from String -> MyOrder using MyOrderTypeConverter
+comment|// add our own type converter manually that converts from String ->
+comment|// MyOrder using MyOrderTypeConverter
 name|context
 operator|.
 name|getTypeConverterRegistry

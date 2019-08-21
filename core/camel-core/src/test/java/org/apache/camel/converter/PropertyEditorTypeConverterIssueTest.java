@@ -70,9 +70,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// test that converters a custom object (MyBean) to a String which causes
+comment|// test that converters a custom object (MyBean) to a String which
+comment|// causes
 comment|// PropertyEditorTypeConverter to be used. And this test times how fast
-comment|// this is. As we want to optimize PropertyEditorTypeConverter to be faster
+comment|// this is. As we want to optimize PropertyEditorTypeConverter to be
+comment|// faster
 name|MyBean
 name|bean
 init|=

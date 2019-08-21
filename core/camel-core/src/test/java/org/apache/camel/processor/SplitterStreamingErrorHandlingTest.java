@@ -219,9 +219,11 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we do not stop on exception and thus the splitted message which failed
+comment|// we do not stop on exception and thus the splitted message which
+comment|// failed
 comment|// would be silently ignored so we can continue routing
-comment|// you can always use a custom aggregation strategy to deal with errors your-self
+comment|// you can always use a custom aggregation strategy to deal with errors
+comment|// your-self
 try|try
 block|{
 name|template

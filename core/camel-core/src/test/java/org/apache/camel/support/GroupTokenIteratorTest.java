@@ -456,7 +456,8 @@ operator|.
 name|UTF_8
 condition|)
 block|{
-comment|// can't think of test case where having default charset set to UTF-8 is affected
+comment|// can't think of test case where having default charset set to
+comment|// UTF-8 is affected
 return|return;
 block|}
 name|byte

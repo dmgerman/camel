@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The LZF data format is a message compression and de-compression format (uses the LZF deflate algorithm).  */
+comment|/**  * The LZF data format is a message compression and de-compression format (uses  * the LZF deflate algorithm).  */
 end_comment
 
 begin_class

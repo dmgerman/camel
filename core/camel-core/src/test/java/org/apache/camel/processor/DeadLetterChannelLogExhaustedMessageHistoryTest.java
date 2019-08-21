@@ -134,7 +134,8 @@ name|maximumRedeliveries
 argument_list|(
 literal|3
 argument_list|)
-comment|// need to turn on logging handled and exhausted to see this with DLC
+comment|// need to turn on logging handled and exhausted to see this
+comment|// with DLC
 operator|.
 name|logHandled
 argument_list|(

@@ -135,7 +135,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test if returned array size is only to limit of ByteBuffer.      *       * If byteBuffer capacity is bigger that limit, we MUST return data only to the limit.      */
+comment|/**      * Test if returned array size is only to limit of ByteBuffer. If byteBuffer      * capacity is bigger that limit, we MUST return data only to the limit.      */
 annotation|@
 name|Test
 DECL|method|testToByteArrayBigBuffer ()
@@ -243,7 +243,7 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * ToString need to deal the array size issue as ToByteArray does       */
+comment|/**      * ToString need to deal the array size issue as ToByteArray does      */
 annotation|@
 name|Test
 DECL|method|testByteBufferToStringConversion ()

@@ -349,7 +349,8 @@ argument_list|(
 literal|"<hellos/>"
 argument_list|)
 expr_stmt|;
-comment|// need to wrap in MyInputStream as ByteArrayInputStream is optimized to just reuse in memory buffer
+comment|// need to wrap in MyInputStream as ByteArrayInputStream is optimized to
+comment|// just reuse in memory buffer
 comment|// and not needed to spool to disk
 name|template
 operator|.

@@ -135,8 +135,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// we gotta cheat and use proxy builder as ContextTestSupport doesnt do
-comment|// all the IoC wiring we need when using @Produce on an interface
+comment|// we gotta cheat and use proxy builder as ContextTestSupport
+comment|// doesnt do
+comment|// all the IoC wiring we need when using @Produce on an
+comment|// interface
 name|echo
 operator|=
 operator|new

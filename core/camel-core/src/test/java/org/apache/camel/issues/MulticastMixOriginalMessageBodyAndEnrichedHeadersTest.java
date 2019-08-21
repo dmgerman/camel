@@ -117,7 +117,8 @@ name|handled
 argument_list|(
 literal|true
 argument_list|)
-comment|// we want to preserve the real original message body and then include other headers that have been
+comment|// we want to preserve the real original message body and
+comment|// then include other headers that have been
 comment|// set later during routing
 operator|.
 name|transform

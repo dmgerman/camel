@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JAXB data format uses the JAXB2 XML marshalling standard to unmarshal an XML payload into Java objects or to marshal Java objects into an XML payload.  */
+comment|/**  * JAXB data format uses the JAXB2 XML marshalling standard to unmarshal an XML  * payload into Java objects or to marshal Java objects into an XML payload.  */
 end_comment
 
 begin_class
@@ -358,7 +358,7 @@ return|return
 name|schema
 return|;
 block|}
-comment|/**      * To validate against an existing schema.      * Your can use the prefix classpath:, file:* or *http: to specify how the resource should by resolved.      * You can separate multiple schema files by using the ',' character.      */
+comment|/**      * To validate against an existing schema. Your can use the prefix      * classpath:, file:* or *http: to specify how the resource should by      * resolved. You can separate multiple schema files by using the ','      * character.      */
 DECL|method|setSchema (String schema)
 specifier|public
 name|void
@@ -385,7 +385,7 @@ return|return
 name|schemaSeverityLevel
 return|;
 block|}
-comment|/**      * Sets the schema severity level to use when validating against a schema.      * This level determines the minimum severity error that triggers JAXB to stop continue parsing.      * The default value of 0 (warning) means that any error (warning, error or fatal error) will trigger      * JAXB to stop. There are the following three levels: 0=warning, 1=error, 2=fatal error.      */
+comment|/**      * Sets the schema severity level to use when validating against a schema.      * This level determines the minimum severity error that triggers JAXB to      * stop continue parsing. The default value of 0 (warning) means that any      * error (warning, error or fatal error) will trigger JAXB to stop. There      * are the following three levels: 0=warning, 1=error, 2=fatal error.      */
 DECL|method|setSchemaSeverityLevel (Integer schemaSeverityLevel)
 specifier|public
 name|void
@@ -439,7 +439,7 @@ return|return
 name|objectFactory
 return|;
 block|}
-comment|/**      * Whether to allow using ObjectFactory classes to create the POJO classes during marshalling.      * This only applies to POJO classes that has not been annotated with JAXB and providing jaxb.index descriptor files.      */
+comment|/**      * Whether to allow using ObjectFactory classes to create the POJO classes      * during marshalling. This only applies to POJO classes that has not been      * annotated with JAXB and providing jaxb.index descriptor files.      */
 DECL|method|setObjectFactory (Boolean objectFactory)
 specifier|public
 name|void
@@ -466,7 +466,7 @@ return|return
 name|ignoreJAXBElement
 return|;
 block|}
-comment|/**      * Whether to ignore JAXBElement elements - only needed to be set to false in very special use-cases.      */
+comment|/**      * Whether to ignore JAXBElement elements - only needed to be set to false      * in very special use-cases.      */
 DECL|method|setIgnoreJAXBElement (Boolean ignoreJAXBElement)
 specifier|public
 name|void
@@ -493,7 +493,7 @@ return|return
 name|mustBeJAXBElement
 return|;
 block|}
-comment|/**      * Whether marhsalling must be java objects with JAXB annotations. And if not then it fails.      * This option can be set to false to relax that, such as when the data is already in XML format.      */
+comment|/**      * Whether marhsalling must be java objects with JAXB annotations. And if      * not then it fails. This option can be set to false to relax that, such as      * when the data is already in XML format.      */
 DECL|method|setMustBeJAXBElement (Boolean mustBeJAXBElement)
 specifier|public
 name|void
@@ -510,7 +510,7 @@ operator|=
 name|mustBeJAXBElement
 expr_stmt|;
 block|}
-comment|/**      * To turn on marshalling XML fragment trees.      * By default JAXB looks for @XmlRootElement annotation on given class to operate on whole XML tree.      * This is useful but not always - sometimes generated code does not have @XmlRootElement annotation,      * sometimes you need unmarshall only part of tree.      * In that case you can use partial unmarshalling. To enable this behaviours you need set property partClass.      * Camel will pass this class to JAXB's unmarshaler.      */
+comment|/**      * To turn on marshalling XML fragment trees. By default JAXB looks      * for @XmlRootElement annotation on given class to operate on whole XML      * tree. This is useful but not always - sometimes generated code does not      * have @XmlRootElement annotation, sometimes you need unmarshall only part      * of tree. In that case you can use partial unmarshalling. To enable this      * behaviours you need set property partClass. Camel will pass this class to      * JAXB's unmarshaler.      */
 DECL|method|setFragment (Boolean fragment)
 specifier|public
 name|void
@@ -655,7 +655,7 @@ return|return
 name|namespacePrefixRef
 return|;
 block|}
-comment|/**      * When marshalling using JAXB or SOAP then the JAXB implementation will automatic assign namespace prefixes,      * such as ns2, ns3, ns4 etc. To control this mapping, Camel allows you to refer to a map which contains the desired mapping.      */
+comment|/**      * When marshalling using JAXB or SOAP then the JAXB implementation will      * automatic assign namespace prefixes, such as ns2, ns3, ns4 etc. To      * control this mapping, Camel allows you to refer to a map which contains      * the desired mapping.      */
 DECL|method|setNamespacePrefixRef (String namespacePrefixRef)
 specifier|public
 name|void
@@ -763,7 +763,7 @@ return|return
 name|jaxbProviderProperties
 return|;
 block|}
-comment|/**      * Refers to a custom java.util.Map to lookup in the registry containing custom JAXB provider properties      * to be used with the JAXB marshaller.      */
+comment|/**      * Refers to a custom java.util.Map to lookup in the registry containing      * custom JAXB provider properties to be used with the JAXB marshaller.      */
 DECL|method|setJaxbProviderProperties (String jaxbProviderProperties)
 specifier|public
 name|void

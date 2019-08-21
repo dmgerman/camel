@@ -394,7 +394,8 @@ condition|(
 name|withSleepTime
 condition|)
 block|{
-comment|// simulate some processing in order to get easier concurrency effects
+comment|// simulate some processing in order to get easier concurrency
+comment|// effects
 name|Thread
 operator|.
 name|sleep
@@ -763,7 +764,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Tests the FileInputStreamCache.      *       * The sent input stream is transformed to FileInputStreamCache before the      * multi-cast processor is called.      *       * @throws Exception      */
+comment|/**      * Tests the FileInputStreamCache. The sent input stream is transformed to      * FileInputStreamCache before the multi-cast processor is called.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testFileInputStreamCache ()
@@ -831,7 +832,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Tests the FileInputStreamCache.      *       * The sent input stream is transformed to InputStreamCache before the      * multi-cast processor is called.      *       * @throws Exception      */
+comment|/**      * Tests the FileInputStreamCache. The sent input stream is transformed to      * InputStreamCache before the multi-cast processor is called.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testInputStreamCache ()
@@ -887,7 +888,8 @@ argument_list|(
 literal|"org/apache/camel/processor/oneCharacter.txt"
 argument_list|)
 decl_stmt|;
-comment|// The body is only one character. Therefore InputStreamCache is used for stream caching
+comment|// The body is only one character. Therefore InputStreamCache is used
+comment|// for stream caching
 name|template
 operator|.
 name|sendBody
@@ -901,7 +903,7 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Tests the ReaderCache.      *       * The sent InputStreamReader is transformed to a ReaderCache before the      * multi-cast processor is called.      *       * @throws Exception      */
+comment|/**      * Tests the ReaderCache. The sent InputStreamReader is transformed to a      * ReaderCache before the multi-cast processor is called.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testReaderCache ()

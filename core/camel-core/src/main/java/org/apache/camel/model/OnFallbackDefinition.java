@@ -314,7 +314,7 @@ return|return
 name|fallbackViaNetwork
 return|;
 block|}
-comment|/**      * Whether the fallback goes over the network.      *<p/>      * If the fallback will go over the network it is another possible point of failure and so it also needs to be      * wrapped by a HystrixCommand. It is important to execute the fallback command on a separate thread-pool,      * otherwise if the main command were to become latent and fill the thread-pool      * this would prevent the fallback from running if the two commands share the same pool.      */
+comment|/**      * Whether the fallback goes over the network.      *<p/>      * If the fallback will go over the network it is another possible point of      * failure and so it also needs to be wrapped by a HystrixCommand. It is      * important to execute the fallback command on a separate thread-pool,      * otherwise if the main command were to become latent and fill the      * thread-pool this would prevent the fallback from running if the two      * commands share the same pool.      */
 DECL|method|setFallbackViaNetwork (Boolean fallbackViaNetwork)
 specifier|public
 name|void

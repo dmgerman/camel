@@ -329,7 +329,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// this one is allowing multiple consumers on the same endpoint so no problem starting
+comment|// this one is allowing multiple consumers on the same endpoint so no
+comment|// problem starting
 name|context
 operator|.
 name|start

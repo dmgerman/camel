@@ -224,7 +224,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|// this should be sufficient as core pool size is the only thing I changed from the default
+comment|// this should be sufficient as core pool size is the only thing I
+comment|// changed from the default
 name|assertTrue
 argument_list|(
 name|threadPoolExecutor

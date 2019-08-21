@@ -444,7 +444,7 @@ return|return
 name|namespace
 return|;
 block|}
-comment|/**      * Sets the namespace to use. Will by default use namespace from the ENV variable KUBERNETES_MASTER.      */
+comment|/**      * Sets the namespace to use. Will by default use namespace from the ENV      * variable KUBERNETES_MASTER.      */
 DECL|method|setNamespace (String namespace)
 specifier|public
 name|void
@@ -498,7 +498,7 @@ return|return
 name|lookup
 return|;
 block|}
-comment|/**      * How to perform service lookup. Possible values: client, dns, environment.      *<p/>      * When using client, then the client queries the kubernetes master to obtain a list      * of active pods that provides the service, and then random (or round robin) select a pod.      *<p/>      * When using dns the service name is resolved as<tt>name.namespace.svc.dnsDomain</tt>.      *<p/>      * When using dnssrv the service name is resolved with SRV query for<tt>_<port_name>._<port_proto>.<serviceName>.<namespace>.svc.<zone>.</tt>.      *<p/>      * When using environment then environment variables are used to lookup the service.      *<p/>      * By default environment is used.      */
+comment|/**      * How to perform service lookup. Possible values: client, dns, environment.      *<p/>      * When using client, then the client queries the kubernetes master to      * obtain a list of active pods that provides the service, and then random      * (or round robin) select a pod.      *<p/>      * When using dns the service name is resolved as      *<tt>name.namespace.svc.dnsDomain</tt>.      *<p/>      * When using dnssrv the service name is resolved with SRV query for      *<tt>_<port_name>._<port_proto>.<serviceName>.<namespace>.svc.<zone>.</tt>.      *<p/>      * When using environment then environment variables are used to lookup the      * service.      *<p/>      * By default environment is used.      */
 DECL|method|setLookup (String lookup)
 specifier|public
 name|void
@@ -660,7 +660,7 @@ return|return
 name|oauthToken
 return|;
 block|}
-comment|/**      * Sets the OAUTH token for authentication (instead of username/password) when using client lookup      */
+comment|/**      * Sets the OAUTH token for authentication (instead of username/password)      * when using client lookup      */
 DECL|method|setOauthToken (String oauthToken)
 specifier|public
 name|void
@@ -714,7 +714,7 @@ return|return
 name|caCertFile
 return|;
 block|}
-comment|/**      * Sets the Certificate Authority data that are loaded from the file when using client lookup      */
+comment|/**      * Sets the Certificate Authority data that are loaded from the file when      * using client lookup      */
 DECL|method|setCaCertFile (String caCertFile)
 specifier|public
 name|void
@@ -768,7 +768,7 @@ return|return
 name|clientCertFile
 return|;
 block|}
-comment|/**      * Sets the Client Certificate data that are loaded from the file when using client lookup      */
+comment|/**      * Sets the Client Certificate data that are loaded from the file when using      * client lookup      */
 DECL|method|setClientCertFile (String clientCertFile)
 specifier|public
 name|void
@@ -849,7 +849,7 @@ return|return
 name|clientKeyFile
 return|;
 block|}
-comment|/**      * Sets the Client Keystore data that are loaded from the file when using client lookup      */
+comment|/**      * Sets the Client Keystore data that are loaded from the file when using      * client lookup      */
 DECL|method|setClientKeyFile (String clientKeyFile)
 specifier|public
 name|void
@@ -942,7 +942,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the namespace to use. Will by default use namespace from the ENV variable KUBERNETES_MASTER.      */
+comment|/**      * Sets the namespace to use. Will by default use namespace from the ENV      * variable KUBERNETES_MASTER.      */
 DECL|method|namespace (String namespace)
 specifier|public
 name|KubernetesServiceCallServiceDiscoveryConfiguration
@@ -1094,7 +1094,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the OAUTH token for authentication (instead of username/password) when using client lookup      */
+comment|/**      * Sets the OAUTH token for authentication (instead of username/password)      * when using client lookup      */
 DECL|method|oauthToken (String oauthToken)
 specifier|public
 name|KubernetesServiceCallServiceDiscoveryConfiguration
@@ -1132,7 +1132,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the Certificate Authority data that are loaded from the file when using client lookup      */
+comment|/**      * Sets the Certificate Authority data that are loaded from the file when      * using client lookup      */
 DECL|method|caCertFile (String caCertFile)
 specifier|public
 name|KubernetesServiceCallServiceDiscoveryConfiguration
@@ -1170,7 +1170,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the Client Certificate data that are loaded from the file when using client lookup      */
+comment|/**      * Sets the Client Certificate data that are loaded from the file when using      * client lookup      */
 DECL|method|clientCertFile (String clientCertFile)
 specifier|public
 name|KubernetesServiceCallServiceDiscoveryConfiguration
@@ -1227,7 +1227,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the Client Keystore data that are loaded from the file when using client lookup      */
+comment|/**      * Sets the Client Keystore data that are loaded from the file when using      * client lookup      */
 DECL|method|clientKeyFile (String clientKeyFile)
 specifier|public
 name|KubernetesServiceCallServiceDiscoveryConfiguration

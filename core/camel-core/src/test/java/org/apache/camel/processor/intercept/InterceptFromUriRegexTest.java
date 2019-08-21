@@ -261,7 +261,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// only trigger when incoming from either seda:bar or seda:foo as we use regex
+comment|// only trigger when incoming from either seda:bar or seda:foo
+comment|// as we use regex
 name|interceptFrom
 argument_list|(
 literal|"seda:(bar|foo)"

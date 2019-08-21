@@ -170,7 +170,8 @@ argument_list|,
 literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
-comment|// we use blocked redelivery delay so the messages arrive in the same order
+comment|// we use blocked redelivery delay so the messages arrive in the same
+comment|// order
 name|MockEndpoint
 name|result
 init|=

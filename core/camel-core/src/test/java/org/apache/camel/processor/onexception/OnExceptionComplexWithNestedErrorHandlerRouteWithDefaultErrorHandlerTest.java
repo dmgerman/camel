@@ -183,7 +183,8 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 comment|// route specific on exception for MyFunctionalException
-comment|// we MUST use .end() to indicate that this sub block is ended
+comment|// we MUST use .end() to indicate that this sub block is
+comment|// ended
 operator|.
 name|onException
 argument_list|(
@@ -214,9 +215,12 @@ name|from
 argument_list|(
 literal|"direct:start2"
 argument_list|)
-comment|// route specific on exception for MyFunctionalException that is different than the previous route
-comment|// here we marked it as handled and send it to a different destination mock:handled
-comment|// we MUST use .end() to indicate that this sub block is ended
+comment|// route specific on exception for MyFunctionalException
+comment|// that is different than the previous route
+comment|// here we marked it as handled and send it to a different
+comment|// destination mock:handled
+comment|// we MUST use .end() to indicate that this sub block is
+comment|// ended
 operator|.
 name|onException
 argument_list|(
@@ -253,8 +257,10 @@ name|from
 argument_list|(
 literal|"direct:start3"
 argument_list|)
-comment|// route specific error handler that is different than the global error handler
-comment|// here we do not redeliver and send errors to mock:error3 instead of the global endpoint
+comment|// route specific error handler that is different than the
+comment|// global error handler
+comment|// here we do not redeliver and send errors to mock:error3
+comment|// instead of the global endpoint
 operator|.
 name|errorHandler
 argument_list|(
@@ -268,7 +274,8 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-comment|// route specific on exception to mark MyFunctionalException as being handled
+comment|// route specific on exception to mark MyFunctionalException
+comment|// as being handled
 operator|.
 name|onException
 argument_list|(

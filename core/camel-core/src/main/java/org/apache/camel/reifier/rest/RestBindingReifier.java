@@ -512,7 +512,8 @@ operator|=
 literal|"json-jackson"
 expr_stmt|;
 block|}
-comment|// this will create a new instance as the name was not already pre-created
+comment|// this will create a new instance as the name was not already
+comment|// pre-created
 name|json
 operator|=
 name|context
@@ -860,7 +861,8 @@ operator|=
 literal|"jaxb"
 expr_stmt|;
 block|}
-comment|// this will create a new instance as the name was not already pre-created
+comment|// this will create a new instance as the name was not already
+comment|// pre-created
 name|jaxb
 operator|=
 name|context
@@ -1269,7 +1271,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// must use a copy as otherwise the options gets removed during introspection setProperties
+comment|// must use a copy as otherwise the options gets removed during
+comment|// introspection setProperties
 name|Map
 argument_list|<
 name|String

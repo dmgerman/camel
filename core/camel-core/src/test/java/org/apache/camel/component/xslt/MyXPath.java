@@ -185,7 +185,7 @@ index|[]
 name|namespaces
 argument_list|()
 expr|default
-block|{     @
+block|{@
 name|NamespacePrefix
 argument_list|(
 name|prefix
@@ -196,7 +196,7 @@ name|uri
 operator|=
 literal|"http://example.org/ns1"
 argument_list|)
-block|,     @
+block|, @
 name|NamespacePrefix
 argument_list|(
 name|prefix

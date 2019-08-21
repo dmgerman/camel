@@ -251,7 +251,8 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-comment|// header overrule endpoint configuration, so we should invoke the hi method
+comment|// header overrule endpoint configuration, so we should invoke the hi
+comment|// method
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -318,7 +319,8 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-comment|// header overrule endpoint configuration, so we should invoke the hi method
+comment|// header overrule endpoint configuration, so we should invoke the hi
+comment|// method
 name|template
 operator|.
 name|sendBodyAndHeader

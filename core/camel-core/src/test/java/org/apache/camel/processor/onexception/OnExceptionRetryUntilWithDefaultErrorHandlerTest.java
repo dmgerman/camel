@@ -206,7 +206,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// as its based on a unit test we do not have any delays between and do not log the stack trace
+comment|// as its based on a unit test we do not have any delays between
+comment|// and do not log the stack trace
 name|errorHandler
 argument_list|(
 name|defaultErrorHandler
@@ -327,7 +328,8 @@ specifier|public
 class|class
 name|MyRetryBean
 block|{
-comment|// using bean binding we can bind the information from the exchange to the types we have in our method signature
+comment|// using bean binding we can bind the information from the exchange to
+comment|// the types we have in our method signature
 DECL|method|retry (@eaderExchange.REDELIVERY_COUNTER) Integer counter, @Body String body, @ExchangeException Exception causedBy)
 specifier|public
 name|boolean
@@ -372,7 +374,8 @@ operator|instanceof
 name|MyFunctionalException
 argument_list|)
 expr_stmt|;
-comment|// we can of course do what ever we want to determine the result but this is a unit test so we end after 3 attempts
+comment|// we can of course do what ever we want to determine the result but
+comment|// this is a unit test so we end after 3 attempts
 return|return
 name|counter
 operator|<

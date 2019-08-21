@@ -366,8 +366,10 @@ argument_list|(
 literal|"file://target/data/deferred"
 argument_list|)
 expr_stmt|;
-comment|// use file component to transfer files from route 1 -> route 2 as it
-comment|// will normally suspend, but by deferring this we can let route 1
+comment|// use file component to transfer files from route 1 -> route 2
+comment|// as it
+comment|// will normally suspend, but by deferring this we can let route
+comment|// 1
 comment|// complete while shutting down
 name|MyDeferFileEndpoint
 name|defer
@@ -401,7 +403,8 @@ name|from
 argument_list|(
 name|defer
 argument_list|)
-comment|// defer shutting down this route as the 1st route depends upon it
+comment|// defer shutting down this route as the 1st route depends
+comment|// upon it
 operator|.
 name|startupOrder
 argument_list|(

@@ -338,7 +338,8 @@ return|;
 block|}
 comment|// START SNIPPET: e2
 comment|// This is our processor that is executed before every redelivery attempt
-comment|// here we can do what we want in the java code, such as altering the message
+comment|// here we can do what we want in the java code, such as altering the
+comment|// message
 DECL|class|MyRedeliverProcessor
 specifier|public
 class|class

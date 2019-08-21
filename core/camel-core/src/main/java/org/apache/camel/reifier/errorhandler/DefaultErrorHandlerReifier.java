@@ -299,7 +299,8 @@ name|isShutdown
 argument_list|()
 condition|)
 block|{
-comment|// camel context will shutdown the executor when it shutdown so no need to shut it down when stopping
+comment|// camel context will shutdown the executor when it shutdown so no
+comment|// need to shut it down when stopping
 if|if
 condition|(
 name|executorServiceRef
@@ -384,8 +385,10 @@ block|}
 block|}
 else|else
 block|{
-comment|// no explicit configured thread pool, so leave it up to the error handler to decide if it need
-comment|// a default thread pool from CamelContext#getErrorHandlerExecutorService
+comment|// no explicit configured thread pool, so leave it up to the
+comment|// error handler to decide if it need
+comment|// a default thread pool from
+comment|// CamelContext#getErrorHandlerExecutorService
 name|executorService
 operator|=
 literal|null

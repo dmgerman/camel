@@ -724,9 +724,11 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
-comment|// the eval processor must be wrapped in error handler, so in case there was an
+comment|// the eval processor must be wrapped in error handler, so in case there
+comment|// was an
 comment|// error during evaluation, the error handler can deal with it
-comment|// the recipient list is not in error handler, as its has its own special error handling
+comment|// the recipient list is not in error handler, as its has its own
+comment|// special error handling
 comment|// when sending to the recipients individually
 name|Processor
 name|evalProcessor

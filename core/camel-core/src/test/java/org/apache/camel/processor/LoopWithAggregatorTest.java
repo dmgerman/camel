@@ -172,8 +172,10 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// instruct loop to use copy mode, which mean it will use a copy of the input exchange
-comment|// for each loop iteration, instead of keep using the same exchange all over
+comment|// instruct loop to use copy mode, which mean it will use a
+comment|// copy of the input exchange
+comment|// for each loop iteration, instead of keep using the same
+comment|// exchange all over
 operator|.
 name|loop
 argument_list|(

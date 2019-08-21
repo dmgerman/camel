@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The FHIR JSon data format is used to marshall/unmarshall to/from FHIR objects to/from JSON.  */
+comment|/**  * The FHIR JSon data format is used to marshall/unmarshall to/from FHIR objects  * to/from JSON.  */
 end_comment
 
 begin_class

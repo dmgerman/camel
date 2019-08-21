@@ -268,7 +268,7 @@ operator|=
 name|retryDelay
 expr_stmt|;
 block|}
-comment|/**      * Sets the upper value of retry in millis between retries, when using exponential or random backoff      */
+comment|/**      * Sets the upper value of retry in millis between retries, when using      * exponential or random backoff      */
 DECL|method|maximumRetryDelay (long maximumRetryDelay)
 specifier|public
 name|OptimisticLockRetryPolicyDefinition

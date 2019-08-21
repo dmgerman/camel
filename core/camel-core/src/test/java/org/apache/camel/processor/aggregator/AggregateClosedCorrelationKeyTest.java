@@ -457,7 +457,8 @@ name|closed
 init|=
 literal|0
 decl_stmt|;
-comment|// should NOT be closed because only 2 and 3 is remembered as they are the two last used
+comment|// should NOT be closed because only 2 and 3 is remembered as they are
+comment|// the two last used
 try|try
 block|{
 name|template

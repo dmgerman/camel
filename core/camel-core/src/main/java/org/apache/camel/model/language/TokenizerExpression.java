@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use Camel message body or header with a tokenizer in Camel expressions or predicates.  *  * @see TokenizeLanguage  */
+comment|/**  * To use Camel message body or header with a tokenizer in Camel expressions or  * predicates.  *  * @see TokenizeLanguage  */
 end_comment
 
 begin_class
@@ -312,7 +312,7 @@ return|return
 name|token
 return|;
 block|}
-comment|/**      * The (start) token to use as tokenizer, for example you can use the new line token.      * You can use simple language as the token to support dynamic tokens.      */
+comment|/**      * The (start) token to use as tokenizer, for example you can use the new      * line token. You can use simple language as the token to support dynamic      * tokens.      */
 DECL|method|setToken (String token)
 specifier|public
 name|void
@@ -339,7 +339,7 @@ return|return
 name|endToken
 return|;
 block|}
-comment|/**      * The end token to use as tokenizer if using start/end token pairs.      * You can use simple language as the token to support dynamic tokens.      */
+comment|/**      * The end token to use as tokenizer if using start/end token pairs. You can      * use simple language as the token to support dynamic tokens.      */
 DECL|method|setEndToken (String endToken)
 specifier|public
 name|void
@@ -420,7 +420,7 @@ return|return
 name|inheritNamespaceTagName
 return|;
 block|}
-comment|/**      * To inherit namespaces from a root/parent tag name when using XML      * You can use simple language as the tag name to support dynamic names.      */
+comment|/**      * To inherit namespaces from a root/parent tag name when using XML You can      * use simple language as the tag name to support dynamic names.      */
 DECL|method|setInheritNamespaceTagName (String inheritNamespaceTagName)
 specifier|public
 name|void
@@ -447,7 +447,7 @@ return|return
 name|xml
 return|;
 block|}
-comment|/**      * Whether the input is XML messages.      * This option must be set to true if working with XML payloads.      */
+comment|/**      * Whether the input is XML messages. This option must be set to true if      * working with XML payloads.      */
 DECL|method|setXml (Boolean xml)
 specifier|public
 name|void
@@ -501,7 +501,7 @@ return|return
 name|group
 return|;
 block|}
-comment|/**      * To group N parts together, for example to split big files into chunks of 1000 lines.      * You can use simple language as the group to support dynamic group sizes.      */
+comment|/**      * To group N parts together, for example to split big files into chunks of      * 1000 lines. You can use simple language as the group to support dynamic      * group sizes.      */
 DECL|method|setGroup (String group)
 specifier|public
 name|void
@@ -528,7 +528,7 @@ return|return
 name|groupDelimiter
 return|;
 block|}
-comment|/**      * Sets the delimiter to use when grouping. If this has not been set then token will be used as the delimiter.      */
+comment|/**      * Sets the delimiter to use when grouping. If this has not been set then      * token will be used as the delimiter.      */
 DECL|method|setGroupDelimiter (String groupDelimiter)
 specifier|public
 name|void
@@ -583,7 +583,8 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-comment|// special for new line tokens, if defined from XML then its 2 characters, so we replace that back to a single char
+comment|// special for new line tokens, if defined from XML then its 2
+comment|// characters, so we replace that back to a single char
 if|if
 condition|(
 name|token

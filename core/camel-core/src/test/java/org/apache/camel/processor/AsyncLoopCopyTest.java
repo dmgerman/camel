@@ -253,7 +253,8 @@ name|to
 argument_list|(
 literal|"mock:before"
 argument_list|)
-comment|// Should receive Hello Camel
+comment|// Should receive Hello
+comment|// Camel
 operator|.
 name|to
 argument_list|(
@@ -305,13 +306,18 @@ name|to
 argument_list|(
 literal|"mock:loopIterationStart"
 argument_list|)
-comment|// Should receive 2x Hello Camel
+comment|// Should
+comment|// receive
+comment|// 2x
+comment|// Hello
+comment|// Camel
 operator|.
 name|to
 argument_list|(
 literal|"async:bye:camel"
 argument_list|)
-comment|// Will transform the body to Bye Camel
+comment|// Will transform the body to Bye
+comment|// Camel
 operator|.
 name|to
 argument_list|(
@@ -362,7 +368,9 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// Should receive 1x Hello Camel (original message)
+comment|// Should receive 1x
+comment|// Hello Camel
+comment|// (original message)
 block|}
 block|}
 return|;

@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify unit of work with seda. That the UnitOfWork is able to route using seda  * but keeping the same UoW.  */
+comment|/**  * Unit test to verify unit of work with seda. That the UnitOfWork is able to  * route using seda but keeping the same UoW.  */
 end_comment
 
 begin_class

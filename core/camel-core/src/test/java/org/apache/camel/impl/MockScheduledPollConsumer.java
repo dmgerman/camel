@@ -112,7 +112,8 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|// dummy constructor here - we just want to test the run() method, which calls poll()
+comment|// dummy constructor here - we just want to test the run() method, which
+comment|// calls poll()
 DECL|method|MockScheduledPollConsumer (Endpoint endpoint, Exception exceptionToThrowOnPoll)
 specifier|public
 name|MockScheduledPollConsumer

@@ -462,8 +462,10 @@ parameter_list|()
 block|{
 comment|// START SNIPPET: e1
 comment|// We define 3 predicates based on some user roles
-comment|// we have static imported and/or from org.apache.camel.builder.PredicateBuilder
-comment|// First we have a regular user that is just identified having a username header
+comment|// we have static imported and/or from
+comment|// org.apache.camel.builder.PredicateBuilder
+comment|// First we have a regular user that is just identified having a
+comment|// username header
 name|Predicate
 name|user
 init|=
@@ -494,7 +496,8 @@ literal|"true"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// And God must be an admin and (either have type god or a special message containing Camel Rider)
+comment|// And God must be an admin and (either have type god or a
+comment|// special message containing Camel Rider)
 name|Predicate
 name|god
 init|=
@@ -524,10 +527,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// As you can see with the predicates above we can stack them to build compound predicates
-comment|// In our route below we can create a nice content based router based on the predicates we
+comment|// As you can see with the predicates above we can stack them to
+comment|// build compound predicates
+comment|// In our route below we can create a nice content based router
+comment|// based on the predicates we
 comment|// have defined. Then the route is easy to read and understand.
-comment|// We encourage you to define complex predicates outside the fluent router builder as
+comment|// We encourage you to define complex predicates outside the
+comment|// fluent router builder as
 comment|// it will just get a bit complex for humans to read
 name|from
 argument_list|(

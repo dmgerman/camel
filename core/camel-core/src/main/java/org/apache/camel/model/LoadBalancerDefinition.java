@@ -249,7 +249,7 @@ operator|=
 name|loadBalancerTypeName
 expr_stmt|;
 block|}
-comment|/**      * Maximum number of outputs, as some load balancers only support 1 processor      */
+comment|/**      * Maximum number of outputs, as some load balancers only support 1      * processor      */
 DECL|method|getMaximumNumberOfOutputs ()
 specifier|public
 name|int

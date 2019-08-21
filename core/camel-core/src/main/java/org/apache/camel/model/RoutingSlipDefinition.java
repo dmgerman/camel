@@ -391,7 +391,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Expression to define the routing slip, which defines which endpoints to route the message in a pipeline style.      * Notice the expression is evaluated once, if you want a more dynamic style, then the dynamic router eip is a better choice.      */
+comment|/**      * Expression to define the routing slip, which defines which endpoints to      * route the message in a pipeline style. Notice the expression is evaluated      * once, if you want a more dynamic style, then the dynamic router eip is a      * better choice.      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)
@@ -516,7 +516,7 @@ name|end
 argument_list|()
 return|;
 block|}
-comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
+comment|/**      * Ignore the invalidate endpoint exception when try to create a producer      * with that endpoint      *      * @return the builder      */
 DECL|method|ignoreInvalidEndpoints ()
 specifier|public
 name|RoutingSlipDefinition
@@ -557,7 +557,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum size used by the {@link org.apache.camel.spi.ProducerCache} which is used      * to cache and reuse producers when using this routing slip, when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+comment|/**      * Sets the maximum size used by the      * {@link org.apache.camel.spi.ProducerCache} which is used to cache and      * reuse producers when using this routing slip, when uris are reused.      *      * @param cacheSize the cache size, use<tt>0</tt> for default cache size,      *            or<tt>-1</tt> to turn cache off.      * @return the builder      */
 DECL|method|cacheSize (int cacheSize)
 specifier|public
 name|RoutingSlipDefinition

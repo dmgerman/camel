@@ -156,7 +156,8 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-comment|// wait a bit and it should not pickup the written file as there are no done file
+comment|// wait a bit and it should not pickup the written file as there are no
+comment|// done file
 name|Thread
 operator|.
 name|sleep
@@ -256,7 +257,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// using $simple{ to avoid clash with spring property placeholder
+comment|// using $simple{ to avoid clash with spring property
+comment|// placeholder
 name|from
 argument_list|(
 literal|"file:target/data/done?doneFileName=done-$simple{file:name}&initialDelay=0&delay=10"

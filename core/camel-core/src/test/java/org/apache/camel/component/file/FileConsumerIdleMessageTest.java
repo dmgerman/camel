@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test to verify that the polling consumer delivers an empty Exchange when the  * sendEmptyMessageWhenIdle property is set and a polling event yields no results.  */
+comment|/**  * Test to verify that the polling consumer delivers an empty Exchange when the  * sendEmptyMessageWhenIdle property is set and a polling event yields no  * results.  */
 end_comment
 
 begin_class

@@ -348,7 +348,8 @@ name|log
 argument_list|(
 literal|"IOException occurred due: ${exception.message}"
 argument_list|)
-comment|// as we handle the exception we can send it to direct:file-error,
+comment|// as we handle the exception we can send it to
+comment|// direct:file-error,
 comment|// where we could send out alerts or whatever we want
 operator|.
 name|to
@@ -366,7 +367,8 @@ name|log
 argument_list|(
 literal|"File error route triggered to deal with exception ${exception?.class}"
 argument_list|)
-comment|// as this is based on unit test just transform a message and send it to a mock
+comment|// as this is based on unit test just transform a message
+comment|// and send it to a mock
 operator|.
 name|transform
 argument_list|()
@@ -381,8 +383,10 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 expr_stmt|;
-comment|// this is the file route that pickup files, notice how we use our custom exception handler on the consumer
-comment|// the exclusiveReadLockStrategy is only configured because this is from an unit test, so we use that to simulate exceptions
+comment|// this is the file route that pickup files, notice how we use
+comment|// our custom exception handler on the consumer
+comment|// the exclusiveReadLockStrategy is only configured because this
+comment|// is from an unit test, so we use that to simulate exceptions
 name|from
 argument_list|(
 literal|"file:target/data/nospace?exclusiveReadLockStrategy=#myReadLockStrategy&consumer.exceptionHandler=#myExceptionHandler&initialDelay=0&delay=10"
@@ -506,7 +510,8 @@ name|Throwable
 name|exception
 parameter_list|)
 block|{
-comment|// send the message to the special direct:file-error endpoint, which will trigger exception handling
+comment|// send the message to the special direct:file-error endpoint, which
+comment|// will trigger exception handling
 comment|//
 name|template
 operator|.
@@ -530,7 +535,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// set an exception on the message from the start so the error handling is triggered
+comment|// set an exception on the message from the start so the
+comment|// error handling is triggered
 name|exchange
 operator|.
 name|setException
@@ -642,7 +648,8 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// force an exception on acquire attempt for the bye.txt file, on the first attempt
+comment|// force an exception on acquire attempt for the bye.txt
+comment|// file, on the first attempt
 throw|throw
 operator|new
 name|IOException

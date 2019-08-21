@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use Camel message body or header with a XML tokenizer in Camel expressions or predicates.  *  * @see org.apache.camel.language.xtokenizer.XMLTokenizeLanguage  */
+comment|/**  * To use Camel message body or header with a XML tokenizer in Camel expressions  * or predicates.  *  * @see org.apache.camel.language.xtokenizer.XMLTokenizeLanguage  */
 end_comment
 
 begin_class
@@ -254,7 +254,7 @@ return|return
 name|mode
 return|;
 block|}
-comment|/**      * The extraction mode. The available extraction modes are:      *<ul>      *<li>i - injecting the contextual namespace bindings into the extracted token (default)</li>      *<li>w - wrapping the extracted token in its ancestor context</li>      *<li>u - unwrapping the extracted token to its child content</li>      *<li>t - extracting the text content of the specified element</li>      *</ul>      */
+comment|/**      * The extraction mode. The available extraction modes are:      *<ul>      *<li>i - injecting the contextual namespace bindings into the extracted      * token (default)</li>      *<li>w - wrapping the extracted token in its ancestor context</li>      *<li>u - unwrapping the extracted token to its child content</li>      *<li>t - extracting the text content of the specified element</li>      *</ul>      */
 DECL|method|setMode (String mode)
 specifier|public
 name|void

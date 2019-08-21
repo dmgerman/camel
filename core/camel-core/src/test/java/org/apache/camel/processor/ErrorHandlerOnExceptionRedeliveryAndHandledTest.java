@@ -165,7 +165,8 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-comment|// we tried to handle that exception but then another exception occurred
+comment|// we tried to handle that exception but then another exception
+comment|// occurred
 comment|// so this exchange failed with an exception
 name|fail
 argument_list|(
@@ -330,7 +331,8 @@ operator|+=
 name|s
 expr_stmt|;
 block|}
-comment|// we throw an exception here, but the default error handler should not kick in
+comment|// we throw an exception here, but the default error
+comment|// handler should not kick in
 throw|throw
 operator|new
 name|ConnectException

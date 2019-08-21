@@ -252,7 +252,8 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// allow duplicates which means messages with same id is retained
+comment|// allow duplicates which means messages with same id is
+comment|// retained
 operator|.
 name|resequence
 argument_list|(

@@ -595,7 +595,8 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
-comment|// one of the above tests created a /target folder in the root we want to get rid of when testing
+comment|// one of the above tests created a /target folder in the root we want
+comment|// to get rid of when testing
 name|deleteDirectory
 argument_list|(
 literal|"/target"

@@ -149,7 +149,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we send in a Date object which cannot be converted to XML so it should fail
+comment|// we send in a Date object which cannot be converted to XML so it
+comment|// should fail
 try|try
 block|{
 name|template

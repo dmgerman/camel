@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build a {@link org.apache.camel.spi.Validator} and register into {@link org.apache.camel.CamelContext}.  * It requires a 'type' to be specified by type() method.  * And then you can choose a type of validator by withUri(), withPredicate(), withJava() or withBean() method.  */
+comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is used to  * build a {@link org.apache.camel.spi.Validator} and register into  * {@link org.apache.camel.CamelContext}. It requires a 'type' to be specified  * by type() method. And then you can choose a type of validator by withUri(),  * withPredicate(), withJava() or withBean() method.  */
 end_comment
 
 begin_class
@@ -228,7 +228,7 @@ specifier|private
 name|String
 name|beanRef
 decl_stmt|;
-comment|/**      * Set the data type name.      * If you specify 'xml:XYZ', the validator will be picked up if source type is      * 'xml:XYZ'. If you specify just 'xml', the validator matches with all of      * 'xml' source type like 'xml:ABC' or 'xml:DEF'.      *      * @param type 'from' data type name      */
+comment|/**      * Set the data type name. If you specify 'xml:XYZ', the validator will be      * picked up if source type is 'xml:XYZ'. If you specify just 'xml', the      * validator matches with all of 'xml' source type like 'xml:ABC' or      * 'xml:DEF'.      *      * @param type 'from' data type name      */
 DECL|method|type (String type)
 specifier|public
 name|ValidatorBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the URI to be used for the endpoint {@link Validator}.      * @see EndpointValidatorDefinition, ProcessorValidator      *       * @param uri endpoint URI      */
+comment|/**      * Set the URI to be used for the endpoint {@link Validator}.      *       * @see EndpointValidatorDefinition, ProcessorValidator      * @param uri endpoint URI      */
 DECL|method|withUri (String uri)
 specifier|public
 name|ValidatorBuilder
@@ -301,7 +301,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the {@link Expression} to be used for the predicate {@link Validator}.      * @see PredicateValidatorDefinition, ProcessorValidator      *       * @param expression validation expression      */
+comment|/**      * Set the {@link Expression} to be used for the predicate      * {@link Validator}.      *       * @see PredicateValidatorDefinition, ProcessorValidator      * @param expression validation expression      */
 DECL|method|withExpression (@sPredicate Expression expression)
 specifier|public
 name|ValidatorBuilder
@@ -330,7 +330,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the {@link Predicate} to be used for the predicate {@link Validator}.      * @see PredicateValidatorDefinition, ProcessorValidator      *       * @param predicate validation predicate      */
+comment|/**      * Set the {@link Predicate} to be used for the predicate {@link Validator}.      *       * @see PredicateValidatorDefinition, ProcessorValidator      * @param predicate validation predicate      */
 DECL|method|withExpression (@sPredicate Predicate predicate)
 specifier|public
 name|ValidatorBuilder
@@ -359,7 +359,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the Java {@code Class} represents a custom {@code Validator} implementation class.      * @see CustomValidatorDefinition      *       * @param clazz {@code Class} object represents custom validator implementation      */
+comment|/**      * Set the Java {@code Class} represents a custom {@code Validator}      * implementation class.      *       * @see CustomValidatorDefinition      * @param clazz {@code Class} object represents custom validator      *            implementation      */
 DECL|method|withJava (Class<? extends Validator> clazz)
 specifier|public
 name|ValidatorBuilder
@@ -387,7 +387,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the Java Bean name to be used for custom {@code Validator}.      * @see CustomValidatorDefinition      *       * @param ref bean name for the custom {@code Validator}      */
+comment|/**      * Set the Java Bean name to be used for custom {@code Validator}.      *       * @see CustomValidatorDefinition      * @param ref bean name for the custom {@code Validator}      */
 DECL|method|withBean (String ref)
 specifier|public
 name|ValidatorBuilder
@@ -441,7 +441,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Configures a new Validator according to the configurations built on this builder      * and register it into the given {@code CamelContext}.      *       * @param camelContext the given CamelContext      */
+comment|/**      * Configures a new Validator according to the configurations built on this      * builder and register it into the given {@code CamelContext}.      *       * @param camelContext the given CamelContext      */
 DECL|method|configure (CamelContext camelContext)
 specifier|public
 name|void

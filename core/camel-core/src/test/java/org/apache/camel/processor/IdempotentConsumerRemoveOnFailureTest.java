@@ -270,7 +270,8 @@ argument_list|(
 literal|200
 argument_list|)
 argument_list|)
-comment|// in case of a failure we still want the message to be regarded as a duplicate, so we set the option to false
+comment|// in case of a failure we still want the message to be
+comment|// regarded as a duplicate, so we set the option to false
 operator|.
 name|removeOnFailure
 argument_list|(

@@ -380,7 +380,8 @@ name|outType
 decl_stmt|;
 comment|// used by XML DSL to either select a<to>,<toD>, or<route>
 comment|// so we need to use the common type OptionalIdentifiedDefinition
-comment|// must select one of them, and hence why they are all set to required = true, but the XSD is set to only allow one of the element
+comment|// must select one of them, and hence why they are all set to required =
+comment|// true, but the XSD is set to only allow one of the element
 annotation|@
 name|XmlElements
 argument_list|(
@@ -703,7 +704,7 @@ return|return
 name|consumes
 return|;
 block|}
-comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json.      * This option will override what may be configured on a parent level      */
+comment|/**      * To define the content type what the REST service consumes (accept as      * input), such as application/xml or application/json. This option will      * override what may be configured on a parent level      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -730,7 +731,7 @@ return|return
 name|produces
 return|;
 block|}
-comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      * This option will override what may be configured on a parent level      */
+comment|/**      * To define the content type what the REST service produces (uses for      * output), such as application/xml or application/json This option will      * override what may be configured on a parent level      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -757,7 +758,7 @@ return|return
 name|bindingMode
 return|;
 block|}
-comment|/**      * Sets the binding mode to use.      * This option will override what may be configured on a parent level      *<p/>      * The default value is auto      */
+comment|/**      * Sets the binding mode to use. This option will override what may be      * configured on a parent level      *<p/>      * The default value is auto      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -784,7 +785,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
-comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      * This option will override what may be configured on a parent level      */
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code      * header. This allows to build custom error messages that do not bind to      * json / xml etc, as success messages otherwise will do. This option will      * override what may be configured on a parent level      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -811,7 +812,7 @@ return|return
 name|clientRequestValidation
 return|;
 block|}
-comment|/**      * Whether to enable validation of the client request to check whether the Content-Type and Accept headers from      * the client is supported by the Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error, then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
+comment|/**      * Whether to enable validation of the client request to check whether the      * Content-Type and Accept headers from the client is supported by the      * Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error,      * then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
 DECL|method|setClientRequestValidation (Boolean clientRequestValidation)
 specifier|public
 name|void
@@ -838,7 +839,7 @@ return|return
 name|enableCORS
 return|;
 block|}
-comment|/**      * Whether to enable CORS headers in the HTTP response.      * This option will override what may be configured on a parent level      *<p/>      * The default value is false.      */
+comment|/**      * Whether to enable CORS headers in the HTTP response. This option will      * override what may be configured on a parent level      *<p/>      * The default value is false.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void
@@ -865,7 +866,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      * This option will override what may be configured on a parent level.      *<p/>      * The canonical name of the class of the input data. Append a [] to the end of the canonical name      * if you want the input to be an array type.      */
+comment|/**      * Sets the class name to use for binding from input to POJO for the      * incoming data This option will override what may be configured on a      * parent level.      *<p/>      * The canonical name of the class of the input data. Append a [] to the end      * of the canonical name if you want the input to be an array type.      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -892,7 +893,7 @@ return|return
 name|outType
 return|;
 block|}
-comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      * This option will override what may be configured on a parent level      *<p/>      * The canonical name of the class of the input data. Append a [] to the end of the canonical name      * if you want the input to be an array type.      */
+comment|/**      * Sets the class name to use for binding from POJO to output for the      * outgoing data This option will override what may be configured on a      * parent level      *<p/>      * The canonical name of the class of the input data. Append a [] to the end      * of the canonical name if you want the input to be an array type.      */
 DECL|method|setOutType (String outType)
 specifier|public
 name|void
@@ -1421,7 +1422,8 @@ name|String
 name|asVerb
 parameter_list|()
 block|{
-comment|// we do not want the jaxb model to repeat itself, by outputting<get method="get">
+comment|// we do not want the jaxb model to repeat itself, by outputting<get
+comment|// method="get">
 comment|// so we infer the verb from the instance type
 if|if
 condition|(

@@ -265,7 +265,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests if the default camel context is able to resolve components and data formats using both their real names and/or fallback names.  * Fallback names have been introduced to avoid name clash in some registries (eg. Spring application context) between components and other camel features.  */
+comment|/**  * Tests if the default camel context is able to resolve components and data  * formats using both their real names and/or fallback names. Fallback names  * have been introduced to avoid name clash in some registries (eg. Spring  * application context) between components and other camel features.  */
 end_comment
 
 begin_class

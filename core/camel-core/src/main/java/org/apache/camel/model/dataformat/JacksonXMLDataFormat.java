@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JacksonXML data format is used for unmarshal a XML payload to POJO or to marshal POJO back to XML payload.  */
+comment|/**  * JacksonXML data format is used for unmarshal a XML payload to POJO or to  * marshal POJO back to XML payload.  */
 end_comment
 
 begin_class
@@ -721,7 +721,7 @@ return|return
 name|allowUnmarshallType
 return|;
 block|}
-comment|/**      * If enabled then Jackson is allowed to attempt to use the CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
+comment|/**      * If enabled then Jackson is allowed to attempt to use the      * CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
 DECL|method|setAllowUnmarshallType (Boolean allowUnmarshallType)
 specifier|public
 name|void

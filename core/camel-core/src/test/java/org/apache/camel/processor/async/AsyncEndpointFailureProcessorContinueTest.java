@@ -212,7 +212,8 @@ name|MyAsyncComponent
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the onException can be asynchronous as well so we have to test for that
+comment|// the onException can be asynchronous as well so we have to
+comment|// test for that
 name|onException
 argument_list|(
 name|IllegalArgumentException

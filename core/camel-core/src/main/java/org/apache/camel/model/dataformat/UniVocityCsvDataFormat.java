@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The uniVocity CSV data format is used for working with CSV (Comma Separated Values) flat payloads.  */
+comment|/**  * The uniVocity CSV data format is used for working with CSV (Comma Separated  * Values) flat payloads.  */
 end_comment
 
 begin_class

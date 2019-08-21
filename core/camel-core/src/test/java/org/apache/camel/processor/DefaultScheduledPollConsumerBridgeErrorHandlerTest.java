@@ -309,7 +309,8 @@ literal|"mock:dead"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// configure the consumer to bridge with the Camel error handler,
+comment|// configure the consumer to bridge with the Camel error
+comment|// handler,
 comment|// so the above error handler will trigger if exceptions also
 comment|// occurs inside the consumer
 name|from

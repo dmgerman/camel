@@ -257,7 +257,8 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// nested functions can only be syntax evaluated when evaluating an exchange at runtime
+comment|// nested functions can only be syntax evaluated when evaluating an
+comment|// exchange at runtime
 name|parser
 operator|.
 name|parseExpression

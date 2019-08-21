@@ -289,7 +289,8 @@ operator|.
 name|choice
 argument_list|()
 comment|// $type is a variable for the header with key type
-comment|// here we use the properties function to lookup foo from the properties files
+comment|// here we use the properties function to lookup foo from
+comment|// the properties files
 comment|// which at runtime will be evaluted to 'Camel'
 operator|.
 name|when
@@ -304,7 +305,8 @@ name|to
 argument_list|(
 literal|"mock:camel"
 argument_list|)
-comment|// here we use the simple language to evaluate the expression
+comment|// here we use the simple language to evaluate the
+comment|// expression
 comment|// which at runtime will be evaluated to 'Donkey Kong'
 operator|.
 name|when

@@ -432,7 +432,7 @@ return|return
 name|compensation
 return|;
 block|}
-comment|/**      * The compensation endpoint URI that must be called to compensate all changes done in the route.      * The route corresponding to the compensation URI must perform compensation and complete without error.      *      * If errors occur during compensation, the saga service may call again the compensation URI to retry.      */
+comment|/**      * The compensation endpoint URI that must be called to compensate all      * changes done in the route. The route corresponding to the compensation      * URI must perform compensation and complete without error. If errors occur      * during compensation, the saga service may call again the compensation URI      * to retry.      */
 DECL|method|setCompensation (SagaActionUriDefinition compensation)
 specifier|public
 name|void
@@ -459,7 +459,7 @@ return|return
 name|completion
 return|;
 block|}
-comment|/**      * The completion endpoint URI that will be called when the Saga is completed successfully.      * The route corresponding to the completion URI must perform completion tasks and terminate without error.      *      * If errors occur during completion, the saga service may call again the completion URI to retry.      */
+comment|/**      * The completion endpoint URI that will be called when the Saga is      * completed successfully. The route corresponding to the completion URI      * must perform completion tasks and terminate without error. If errors      * occur during completion, the saga service may call again the completion      * URI to retry.      */
 DECL|method|setCompletion (SagaActionUriDefinition completion)
 specifier|public
 name|void
@@ -486,7 +486,7 @@ return|return
 name|propagation
 return|;
 block|}
-comment|/**      * Set the Saga propagation mode (REQUIRED, REQUIRES_NEW, MANDATORY, SUPPORTS, NOT_SUPPORTED, NEVER).      */
+comment|/**      * Set the Saga propagation mode (REQUIRED, REQUIRES_NEW, MANDATORY,      * SUPPORTS, NOT_SUPPORTED, NEVER).      */
 DECL|method|setPropagation (SagaPropagation propagation)
 specifier|public
 name|void
@@ -513,7 +513,7 @@ return|return
 name|completionMode
 return|;
 block|}
-comment|/**      * Determine how the saga should be considered complete. When set to AUTO, the saga is completed when the exchange that      * initiates the saga is processed successfully, or compensated when it completes exceptionally.      *      * When set to MANUAL, the user must complete or compensate the saga using the "saga:complete" or "saga:compensate" endpoints.      */
+comment|/**      * Determine how the saga should be considered complete. When set to AUTO,      * the saga is completed when the exchange that initiates the saga is      * processed successfully, or compensated when it completes exceptionally.      * When set to MANUAL, the user must complete or compensate the saga using      * the "saga:complete" or "saga:compensate" endpoints.      */
 DECL|method|setCompletionMode (SagaCompletionMode completionMode)
 specifier|public
 name|void
@@ -569,7 +569,7 @@ return|return
 name|options
 return|;
 block|}
-comment|/**      * Allows to save properties of the current exchange in order to re-use them in a compensation/completion callback route.      * Options are usually helpful e.g. to store and retrieve identifiers of objects that should be deleted in compensating actions.      *      * Option values will be transformed into input headers of the compensation/completion exchange.      */
+comment|/**      * Allows to save properties of the current exchange in order to re-use them      * in a compensation/completion callback route. Options are usually helpful      * e.g. to store and retrieve identifiers of objects that should be deleted      * in compensating actions. Option values will be transformed into input      * headers of the compensation/completion exchange.      */
 DECL|method|setOptions (List<SagaOptionDefinition> options)
 specifier|public
 name|void
@@ -599,7 +599,7 @@ return|return
 name|timeoutInMilliseconds
 return|;
 block|}
-comment|/**      * Set the maximum amount of time for the Saga. After the timeout is expired, the saga will be compensated      * automatically (unless a different decision has been taken in the meantime).      */
+comment|/**      * Set the maximum amount of time for the Saga. After the timeout is      * expired, the saga will be compensated automatically (unless a different      * decision has been taken in the meantime).      */
 DECL|method|setTimeoutInMilliseconds (Long timeoutInMilliseconds)
 specifier|public
 name|void

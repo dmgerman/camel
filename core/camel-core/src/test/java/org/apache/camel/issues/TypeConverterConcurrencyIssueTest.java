@@ -299,7 +299,8 @@ name|NoTypeConversionAvailableException
 name|e
 parameter_list|)
 block|{
-comment|// ignore, as the latch will not be decremented anymore so that the assert below
+comment|// ignore, as the latch will not be decremented anymore
+comment|// so that the assert below
 comment|// will fail after the one minute timeout anyway
 block|}
 block|}

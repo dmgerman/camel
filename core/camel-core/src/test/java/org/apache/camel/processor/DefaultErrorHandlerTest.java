@@ -228,7 +228,8 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-comment|// there should be a default error handler in front of each processor in this pipeline
+comment|// there should be a default error handler in front of each processor in
+comment|// this pipeline
 for|for
 control|(
 name|Processor

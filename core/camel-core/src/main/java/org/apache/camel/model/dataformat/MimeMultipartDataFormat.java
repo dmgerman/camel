@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The MIME Multipart data format can marshal a Camel message with attachments into a Camel message  * having a MIME-Multipart message as message body (and no attachments), and vise-versa when unmarshalling.  */
+comment|/**  * The MIME Multipart data format can marshal a Camel message with attachments  * into a Camel message having a MIME-Multipart message as message body (and no  * attachments), and vise-versa when unmarshalling.  */
 end_comment
 
 begin_class
@@ -289,7 +289,7 @@ return|return
 name|binaryContent
 return|;
 block|}
-comment|/**      * A regex that defines which Camel headers are also included as MIME headers      * into the MIME multipart. This will only work if headersInline is set to true.      *<p>      * Default is to include no headers      */
+comment|/**      * A regex that defines which Camel headers are also included as MIME      * headers into the MIME multipart. This will only work if headersInline is      * set to true.      *<p>      * Default is to include no headers      */
 DECL|method|setIncludeHeaders (String includeHeaders)
 specifier|public
 name|void

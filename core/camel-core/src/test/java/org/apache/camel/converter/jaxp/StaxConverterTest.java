@@ -253,7 +253,15 @@ name|TEST_XML
 init|=
 literal|"<test>Test Message with umlaut \u00E4\u00F6\u00FC</test>"
 decl_stmt|;
-comment|// umlauts have different encoding in UTF-8 and ISO-8859-1 (Latin1)
+comment|// umlauts
+comment|// have
+comment|// different
+comment|// encoding
+comment|// in
+comment|// UTF-8
+comment|// and
+comment|// ISO-8859-1
+comment|// (Latin1)
 DECL|field|TEST_XML_WITH_XML_HEADER_ISO_8859_1
 specifier|private
 specifier|static
@@ -312,7 +320,8 @@ argument_list|(
 literal|7000
 argument_list|)
 decl_stmt|;
-comment|// using quote character to make the plain characters comparison work with the generated xml
+comment|// using quote character to make the plain characters comparison work
+comment|// with the generated xml
 name|sb
 operator|.
 name|append

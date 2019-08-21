@@ -650,7 +650,8 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
-comment|// need to turn off error handler when linked with direct, in case you want the same as inlined
+comment|// need to turn off error handler when linked with direct, in
+comment|// case you want the same as inlined
 name|from
 argument_list|(
 literal|"direct:error"
@@ -894,7 +895,8 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
-comment|// need to turn off error handler when linked with direct, in case you want the same as inlined
+comment|// need to turn off error handler when linked with direct, in
+comment|// case you want the same as inlined
 name|from
 argument_list|(
 literal|"direct:error"

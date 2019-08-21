@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class to simulate a change of the XSD document. During the first call of  * the resource a XSD is returned which does not fit to the XML document. In  * the second call a XSD fitting to the XML document is returned.  * Used in org.apache.camel.component.validator.ValidatorEndpointClearCachedSchemaTest  */
+comment|/**  * Class to simulate a change of the XSD document. During the first call of the  * resource a XSD is returned which does not fit to the XML document. In the  * second call a XSD fitting to the XML document is returned. Used in  * org.apache.camel.component.validator.ValidatorEndpointClearCachedSchemaTest  */
 end_comment
 
 begin_class

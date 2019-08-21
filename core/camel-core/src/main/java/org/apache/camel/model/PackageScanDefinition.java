@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Scans for Java {@link org.apache.camel.builder.RouteBuilder} classes in java packages  */
+comment|/**  * Scans for Java {@link org.apache.camel.builder.RouteBuilder} classes in java  * packages  */
 end_comment
 
 begin_class

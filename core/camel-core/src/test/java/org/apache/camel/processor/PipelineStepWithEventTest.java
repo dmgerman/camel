@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test showing how you can use pipeline to group together statistics and implement your own event listener.  */
+comment|/**  * Test showing how you can use pipeline to group together statistics and  * implement your own event listener.  */
 end_comment
 
 begin_class
@@ -532,7 +532,14 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
-comment|// a bit ugly by need to end delay
+comment|// a
+comment|// bit
+comment|// ugly
+comment|// by
+comment|// need
+comment|// to
+comment|// end
+comment|// delay
 operator|.
 name|to
 argument_list|(
@@ -565,7 +572,14 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
-comment|// a bit ugly by need to end delay
+comment|// a
+comment|// bit
+comment|// ugly
+comment|// by
+comment|// need
+comment|// to
+comment|// end
+comment|// delay
 operator|.
 name|to
 argument_list|(

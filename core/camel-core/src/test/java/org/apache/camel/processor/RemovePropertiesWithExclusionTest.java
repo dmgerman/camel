@@ -316,7 +316,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// properties should be removed but the last still have to be in the exchange
+comment|// properties should be removed but the last still have to be in the
+comment|// exchange
 name|assertNull
 argument_list|(
 name|endExchange

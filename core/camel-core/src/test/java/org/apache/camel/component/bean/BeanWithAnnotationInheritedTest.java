@@ -685,7 +685,7 @@ specifier|private
 interface|interface
 name|I1
 block|{
-DECL|method|m1 (@eaderR)String h1, @Header(R)String h2)
+DECL|method|m1 (@eaderR) String h1, @Header(R) String h2)
 name|String
 name|m1
 parameter_list|(
@@ -706,7 +706,7 @@ name|String
 name|h2
 parameter_list|)
 function_decl|;
-DECL|method|m2 (@eaderR)String h1, String h2)
+DECL|method|m2 (@eaderR) String h1, String h2)
 name|String
 name|m2
 parameter_list|(
@@ -728,7 +728,7 @@ specifier|private
 interface|interface
 name|I2
 block|{
-DECL|method|m2 (String h1, @Header(R)String h2)
+DECL|method|m2 (String h1, @Header(R) String h2)
 name|String
 name|m2
 parameter_list|(
@@ -744,7 +744,7 @@ name|String
 name|h2
 parameter_list|)
 function_decl|;
-DECL|method|m3 (@eaderR)String h1, String h2)
+DECL|method|m3 (@eaderR) String h1, String h2)
 name|String
 name|m3
 parameter_list|(
@@ -760,7 +760,7 @@ name|String
 name|h2
 parameter_list|)
 function_decl|;
-DECL|method|m4 (@eaderR)String h1, String h2)
+DECL|method|m4 (@eaderR) String h1, String h2)
 name|String
 name|m4
 parameter_list|(
@@ -788,7 +788,7 @@ name|I2
 block|{
 annotation|@
 name|Override
-DECL|method|m3 (String h1, @Header(R)String h2)
+DECL|method|m3 (String h1, @Header(R) String h2)
 specifier|public
 name|String
 name|m3
@@ -864,7 +864,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|m4 (String h1, @Header(R)String h2)
+DECL|method|m4 (String h1, @Header(R) String h2)
 specifier|public
 name|String
 name|m4

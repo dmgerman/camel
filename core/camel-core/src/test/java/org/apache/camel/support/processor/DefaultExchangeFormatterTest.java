@@ -244,7 +244,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-comment|/*      * The formatted exchange without limitation is       * Exchange[ExchangePattern: InOnly, BodyType: String, Body: This is the message body]      * The "Exchange[", the "...", and the "]" do not count here, but the       * leading ", " that is removed later does count...      */
+comment|/*      * The formatted exchange without limitation is Exchange[ExchangePattern:      * InOnly, BodyType: String, Body: This is the message body] The      * "Exchange[", the "...", and the "]" do not count here, but the leading      * ", " that is removed later does count...      */
 DECL|method|testFormatWithMaxCharsParameter ()
 specifier|public
 name|void

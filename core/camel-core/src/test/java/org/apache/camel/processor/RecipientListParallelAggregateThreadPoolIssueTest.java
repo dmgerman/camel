@@ -209,7 +209,8 @@ name|num2
 operator|-
 name|num1
 decl_stmt|;
-comment|// should be at least 10 + 1 other threads (10 in parallel pool + 1 in aggregate pool)
+comment|// should be at least 10 + 1 other threads (10 in parallel pool + 1 in
+comment|// aggregate pool)
 comment|// we run unit test per jmv fork, so there may be a hanging thread
 name|assertTrue
 argument_list|(

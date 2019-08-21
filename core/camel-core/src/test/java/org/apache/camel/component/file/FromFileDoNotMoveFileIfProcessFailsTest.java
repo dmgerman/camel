@@ -185,7 +185,8 @@ argument_list|(
 literal|"mock:error"
 argument_list|)
 decl_stmt|;
-comment|// it could potentially retry the file on the 2nd poll and then fail again
+comment|// it could potentially retry the file on the 2nd poll and then fail
+comment|// again
 comment|// so it should be minimum message count
 name|mock
 operator|.

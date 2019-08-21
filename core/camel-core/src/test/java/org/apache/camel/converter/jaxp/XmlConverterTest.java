@@ -1119,7 +1119,8 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
-comment|// because of https://bugs.openjdk.java.net/show_bug.cgi?id=100228, we have to set the XML version explicitly
+comment|// because of https://bugs.openjdk.java.net/show_bug.cgi?id=100228, we
+comment|// have to set the XML version explicitly
 name|StAXSource
 name|source
 init|=

@@ -188,7 +188,8 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
-comment|// bind something else as properties, but this should not cause Camel to fail start
+comment|// bind something else as properties, but this should not cause Camel to
+comment|// fail start
 name|jndi
 operator|.
 name|bind

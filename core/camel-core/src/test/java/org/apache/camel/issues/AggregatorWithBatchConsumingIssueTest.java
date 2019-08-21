@@ -276,7 +276,7 @@ argument_list|,
 literal|"group1"
 argument_list|)
 expr_stmt|;
-comment|//simulate Batch as in JpaConsumer
+comment|// simulate Batch as in JpaConsumer
 name|exchange
 operator|.
 name|setProperty

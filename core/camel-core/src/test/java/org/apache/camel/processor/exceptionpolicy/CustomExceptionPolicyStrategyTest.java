@@ -237,7 +237,8 @@ name|Throwable
 name|exception
 parameter_list|)
 block|{
-comment|// This is just an example that always forces the exception type configured
+comment|// This is just an example that always forces the exception type
+comment|// configured
 comment|// with MyPolicyException to win.
 return|return
 operator|new
@@ -343,7 +344,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// configure the error handler to use my policy instead of the default from Camel
+comment|// configure the error handler to use my policy instead of the
+comment|// default from Camel
 name|errorHandler
 argument_list|(
 name|deadLetterChannel

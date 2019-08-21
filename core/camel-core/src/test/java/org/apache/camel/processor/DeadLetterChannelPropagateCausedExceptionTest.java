@@ -115,7 +115,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// goes directly to mock:dead but we want the caused exception propagated
+comment|// goes directly to mock:dead but we want the caused exception
+comment|// propagated
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -272,7 +273,8 @@ literal|"direct:dead"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// use a route as DLC to test the cause exception is still propagated
+comment|// use a route as DLC to test the cause exception is still
+comment|// propagated
 name|from
 argument_list|(
 literal|"direct:dead"
@@ -428,7 +430,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// goes directly to mock:dead but we want the caused exception propagated
+comment|// goes directly to mock:dead but we want the caused exception
+comment|// propagated
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -591,7 +594,8 @@ name|useOriginalMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// use a route as DLC to test the cause exception is still propagated
+comment|// use a route as DLC to test the cause exception is still
+comment|// propagated
 name|from
 argument_list|(
 literal|"direct:dead"

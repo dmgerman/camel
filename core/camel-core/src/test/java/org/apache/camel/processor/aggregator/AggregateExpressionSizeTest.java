@@ -214,8 +214,10 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 comment|// aggregate all exchanges correlated by the id header.
-comment|// Aggregate them using the BodyInAggregatingStrategy strategy which
-comment|// and the header mySize determines the number of aggregated messages should trigger the completion
+comment|// Aggregate them using the BodyInAggregatingStrategy
+comment|// strategy which
+comment|// and the header mySize determines the number of aggregated
+comment|// messages should trigger the completion
 comment|// and send it to mock:aggregated
 operator|.
 name|aggregate

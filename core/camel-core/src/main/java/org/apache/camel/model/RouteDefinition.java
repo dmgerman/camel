@@ -527,7 +527,8 @@ name|ErrorHandlerFactory
 name|errorHandlerFactory
 decl_stmt|;
 comment|// keep state whether the error handler is context scoped or not
-comment|// (will by default be context scoped of no explicit error handler configured)
+comment|// (will by default be context scoped of no explicit error handler
+comment|// configured)
 DECL|field|contextScopedErrorHandler
 specifier|private
 name|boolean
@@ -625,7 +626,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * Check if the route has been prepared      *      * @return wether the route has been prepared or not      * @see RouteDefinitionHelper#prepareRoute(ModelCamelContext, RouteDefinition)      */
+comment|/**      * Check if the route has been prepared      *      * @return wether the route has been prepared or not      * @see RouteDefinitionHelper#prepareRoute(ModelCamelContext,      *      RouteDefinition)      */
 DECL|method|isPrepared ()
 specifier|public
 name|boolean
@@ -639,7 +640,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * Marks the route definition as prepared.      *<p/>      * This is needed if routes have been created by components such as      *<tt>camel-spring</tt> or<tt>camel-blueprint</tt>.      * Usually they share logic in the<tt>camel-core-xml</tt> module which prepares the routes.      */
+comment|/**      * Marks the route definition as prepared.      *<p/>      * This is needed if routes have been created by components such as      *<tt>camel-spring</tt> or<tt>camel-blueprint</tt>. Usually they share      * logic in the<tt>camel-core-xml</tt> module which prepares the routes.      */
 DECL|method|markPrepared ()
 specifier|public
 name|void
@@ -1005,7 +1006,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable stream caching for this route.      *      * @param streamCache whether to use stream caching (true or false), the value can be a property placeholder      * @return the builder      */
+comment|/**      * Enable stream caching for this route.      *      * @param streamCache whether to use stream caching (true or false), the      *            value can be a property placeholder      * @return the builder      */
 DECL|method|streamCaching (String streamCache)
 specifier|public
 name|RouteDefinition
@@ -1056,7 +1057,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable tracing for this route.      *      * @param tracing whether to use tracing (true or false), the value can be a property placeholder      * @return the builder      */
+comment|/**      * Enable tracing for this route.      *      * @param tracing whether to use tracing (true or false), the value can be a      *            property placeholder      * @return the builder      */
 DECL|method|tracing (String tracing)
 specifier|public
 name|RouteDefinition
@@ -1091,7 +1092,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enable message history for this route.      *      * @param messageHistory whether to use message history (true or false), the value can be a property placeholder      * @return the builder      */
+comment|/**      * Enable message history for this route.      *      * @param messageHistory whether to use message history (true or false), the      *            value can be a property placeholder      * @return the builder      */
 DECL|method|messageHistory (String messageHistory)
 specifier|public
 name|RouteDefinition
@@ -1126,7 +1127,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether security mask for logging is enabled on this route.      *      * @param logMask whether to enable security mask for Logging (true or false), the value can be a property placeholder      * @return the builder      */
+comment|/**      * Sets whether security mask for logging is enabled on this route.      *      * @param logMask whether to enable security mask for Logging (true or      *            false), the value can be a property placeholder      * @return the builder      */
 DECL|method|logMask (String logMask)
 specifier|public
 name|RouteDefinition
@@ -1198,7 +1199,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder.      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given      *<a href="http://camel.apache.org/error-handler.html">error handler</a>      * builder.      *      * @param errorHandlerBuilder the error handler to be used by default for      *            all child routes      * @return the current builder with the error handler configured      */
 DECL|method|errorHandler (ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|RouteDefinition
@@ -1238,7 +1239,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the auto startup property on this route.      *      * @param autoStartup whether to auto startup (true or false), the value can be a property placeholder      * @return the builder      */
+comment|/**      * Sets the auto startup property on this route.      *      * @param autoStartup whether to auto startup (true or false), the value can      *            be a property placeholder      * @return the builder      */
 DECL|method|autoStartup (String autoStartup)
 specifier|public
 name|RouteDefinition
@@ -1281,7 +1282,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures the startup order for this route      *<p/>      * Camel will reorder routes and star them ordered by 0..N where 0 is the lowest number and N the highest number.      * Camel will stop routes in reverse order when its stopping.      *      * @param order the order represented as a number      * @return the builder      */
+comment|/**      * Configures the startup order for this route      *<p/>      * Camel will reorder routes and star them ordered by 0..N where 0 is the      * lowest number and N the highest number. Camel will stop routes in reverse      * order when its stopping.      *      * @param order the order represented as a number      * @return the builder      */
 annotation|@
 name|Override
 DECL|method|startupOrder (int order)
@@ -1367,7 +1368,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Configures a route policy for this route      *      * @param routePolicyRef reference to a {@link RoutePolicy} to lookup and use.      *                       You can specify multiple references by separating using comma.      * @return the builder      */
+comment|/**      * Configures a route policy for this route      *      * @param routePolicyRef reference to a {@link RoutePolicy} to lookup and      *            use. You can specify multiple references by separating using      *            comma.      * @return the builder      */
 DECL|method|routePolicyRef (String routePolicyRef)
 specifier|public
 name|RouteDefinition
@@ -1405,7 +1406,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Configures a shutdown running task option.      *      * @param shutdownRunningTask the option to use when shutting down and how to act upon running tasks.      * @return the builder      */
+comment|/**      * Configures a shutdown running task option.      *      * @param shutdownRunningTask the option to use when shutting down and how      *            to act upon running tasks.      * @return the builder      */
 DECL|method|shutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|RouteDefinition
@@ -1424,7 +1425,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the input message. If the actual message type is different      * at runtime, camel look for a required {@link org.apache.camel.spi.Transformer} and apply if exists.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      *      * @param urn input type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the input message. If the actual      * message type is different at runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists. The type      * name consists of two parts, 'scheme' and 'name' connected with ':'. For      * Java type 'name' is a fully qualified class name. For example      * {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      * @param urn input type URN      * @return the builder      */
 DECL|method|inputType (String urn)
 specifier|public
 name|RouteDefinition
@@ -1458,7 +1459,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the input message with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists, and then applies      * {@link org.apache.camel.spi.Validator} as well.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      *      * @param urn input type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the input message with content      * validation enabled. If the actual message type is different at runtime,      * camel look for a required {@link org.apache.camel.spi.Transformer} and      * apply if exists, and then applies {@link org.apache.camel.spi.Validator}      * as well. The type name consists of two parts, 'scheme' and 'name'      * connected with ':'. For Java type 'name' is a fully qualified class name.      * For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      * @param urn input type URN      * @return the builder      */
 DECL|method|inputTypeWithValidate (String urn)
 specifier|public
 name|RouteDefinition
@@ -1492,7 +1493,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the input message by Java class.      * If the actual message type is different at runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists.      *      * @see org.apache.camel.spi.Transformer      *      * @param clazz Class object of the input type      * @return the builder      */
+comment|/**      * Declare the expected data type of the input message by Java class. If the      * actual message type is different at runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists.      *      * @see org.apache.camel.spi.Transformer      * @param clazz Class object of the input type      * @return the builder      */
 DECL|method|inputType (Class clazz)
 specifier|public
 name|RouteDefinition
@@ -1526,7 +1527,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the input message by Java class with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists, and then applies      * {@link org.apache.camel.spi.Validator} as well.      *      * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      *      * @param clazz Class object of the input type      * @return the builder      */
+comment|/**      * Declare the expected data type of the input message by Java class with      * content validation enabled. If the actual message type is different at      * runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists, and then      * applies {@link org.apache.camel.spi.Validator} as well.      *      * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      * @param clazz Class object of the input type      * @return the builder      */
 DECL|method|inputTypeWithValidate (Class clazz)
 specifier|public
 name|RouteDefinition
@@ -1560,7 +1561,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the output message. If the actual message type is different      * at runtime, camel look for a required {@link org.apache.camel.spi.Transformer} and apply if exists.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      *      * @param urn output type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the output message. If the actual      * message type is different at runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists. The type      * name consists of two parts, 'scheme' and 'name' connected with ':'. For      * Java type 'name' is a fully qualified class name. For example      * {@code java:java.lang.String}, {@code json:ABCOrder}.      *      * @see org.apache.camel.spi.Transformer      * @param urn output type URN      * @return the builder      */
 DECL|method|outputType (String urn)
 specifier|public
 name|RouteDefinition
@@ -1594,7 +1595,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the output message with content validation enabled.      * If the actual message type is different at runtime, Camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists, and then applies      * {@link org.apache.camel.spi.Validator} as well.      * The type name consists of two parts, 'scheme' and 'name' connected with ':'. For Java type 'name'      * is a fully qualified class name. For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      *      * @param urn output type URN      * @return the builder      */
+comment|/**      * Declare the expected data type of the output message with content      * validation enabled. If the actual message type is different at runtime,      * Camel look for a required {@link org.apache.camel.spi.Transformer} and      * apply if exists, and then applies {@link org.apache.camel.spi.Validator}      * as well. The type name consists of two parts, 'scheme' and 'name'      * connected with ':'. For Java type 'name' is a fully qualified class name.      * For example {@code java:java.lang.String}, {@code json:ABCOrder}.      *       * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      * @param urn output type URN      * @return the builder      */
 DECL|method|outputTypeWithValidate (String urn)
 specifier|public
 name|RouteDefinition
@@ -1628,7 +1629,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the output message by Java class.      * If the actual message type is different at runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists.      *      * @see org.apache.camel.spi.Transformer      *      * @param clazz Class object of the output type      * @return the builder      */
+comment|/**      * Declare the expected data type of the output message by Java class. If      * the actual message type is different at runtime, camel look for a      * required {@link org.apache.camel.spi.Transformer} and apply if exists.      *      * @see org.apache.camel.spi.Transformer      * @param clazz Class object of the output type      * @return the builder      */
 DECL|method|outputType (Class clazz)
 specifier|public
 name|RouteDefinition
@@ -1662,7 +1663,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Declare the expected data type of the ouput message by Java class with content validation enabled.      * If the actual message type is different at runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists, and then applies      * {@link org.apache.camel.spi.Validator} as well.      *       * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      * @param clazz Class object of the output type      * @return the builder      */
+comment|/**      * Declare the expected data type of the ouput message by Java class with      * content validation enabled. If the actual message type is different at      * runtime, camel look for a required      * {@link org.apache.camel.spi.Transformer} and apply if exists, and then      * applies {@link org.apache.camel.spi.Validator} as well.      *       * @see org.apache.camel.spi.Transformer      * @see org.apache.camel.spi.Validator      * @param clazz Class object of the output type      * @return the builder      */
 DECL|method|outputTypeWithValidate (Class clazz)
 specifier|public
 name|RouteDefinition
@@ -1812,7 +1813,7 @@ return|return
 name|outputs
 return|;
 block|}
-comment|/**      * Outputs are processors that determines how messages are processed by this route.      */
+comment|/**      * Outputs are processors that determines how messages are processed by this      * route.      */
 annotation|@
 name|XmlElementRef
 DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
@@ -1862,7 +1863,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * The group that this route belongs to; could be the name of the RouteBuilder class      * or be explicitly configured in the XML.      *<p/>      * May be null.      */
+comment|/**      * The group that this route belongs to; could be the name of the      * RouteBuilder class or be explicitly configured in the XML.      *<p/>      * May be null.      */
 DECL|method|getGroup ()
 specifier|public
 name|String
@@ -1873,7 +1874,7 @@ return|return
 name|group
 return|;
 block|}
-comment|/**      * The group that this route belongs to; could be the name of the RouteBuilder class      * or be explicitly configured in the XML.      *<p/>      * May be null.      */
+comment|/**      * The group that this route belongs to; could be the name of the      * RouteBuilder class or be explicitly configured in the XML.      *<p/>      * May be null.      */
 annotation|@
 name|XmlAttribute
 DECL|method|setGroup (String group)
@@ -2135,7 +2136,8 @@ operator|=
 name|errorHandlerRef
 expr_stmt|;
 comment|// we use an specific error handler ref (from Spring DSL) then wrap that
-comment|// with a error handler build ref so Camel knows its not just the default one
+comment|// with a error handler build ref so Camel knows its not just the
+comment|// default one
 name|setErrorHandlerFactory
 argument_list|(
 operator|new
@@ -2183,7 +2185,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Reference to custom {@link org.apache.camel.spi.RoutePolicy} to use by the route.      * Multiple policies can be configured by separating values using comma.      */
+comment|/**      * Reference to custom {@link org.apache.camel.spi.RoutePolicy} to use by      * the route. Multiple policies can be configured by separating values using      * comma.      */
 annotation|@
 name|XmlAttribute
 DECL|method|setRoutePolicyRef (String routePolicyRef)
@@ -2202,7 +2204,7 @@ operator|=
 name|routePolicyRef
 expr_stmt|;
 block|}
-comment|/**      * Reference to custom {@link org.apache.camel.spi.RoutePolicy} to use by the route.      * Multiple policies can be configured by separating values using comma.      */
+comment|/**      * Reference to custom {@link org.apache.camel.spi.RoutePolicy} to use by      * the route. Multiple policies can be configured by separating values using      * comma.      */
 DECL|method|getRoutePolicyRef ()
 specifier|public
 name|String

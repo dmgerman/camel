@@ -675,7 +675,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//passes when contains { only
+comment|// passes when contains { only
 name|exchange
 operator|.
 name|getIn
@@ -728,7 +728,7 @@ argument_list|,
 name|replaced
 argument_list|)
 expr_stmt|;
-comment|//passes when contains { }
+comment|// passes when contains { }
 name|exchange
 operator|.
 name|getIn
@@ -762,7 +762,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//passes when contains { } and another ${body} function
+comment|// passes when contains { } and another ${body} function
 name|exchange
 operator|.
 name|getIn
@@ -794,7 +794,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//passes when } is escaped with \}
+comment|// passes when } is escaped with \}
 name|assertEquals
 argument_list|(
 literal|"http://some/rest/api/{}/activate"

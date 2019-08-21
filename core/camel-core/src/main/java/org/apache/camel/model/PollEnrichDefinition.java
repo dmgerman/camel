@@ -328,7 +328,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Timeout in millis when polling from the external service.      *<p/>      * The timeout has influence about the poll enrich behavior. It basically operations in three different modes:      *<ul>      *<li>negative value - Waits until a message is available and then returns it. Warning that this method could block indefinitely if no messages are available.</li>      *<li>0 - Attempts to receive a message exchange immediately without waiting and returning<tt>null</tt> if a message exchange is not available yet.</li>      *<li>positive value - Attempts to receive a message exchange, waiting up to the given timeout to expire if a message is not yet available. Returns<tt>null</tt> if timed out</li>      *</ul>      * The default value is -1 and therefore the method could block indefinitely, and therefore its recommended to use a timeout value      */
+comment|/**      * Timeout in millis when polling from the external service.      *<p/>      * The timeout has influence about the poll enrich behavior. It basically      * operations in three different modes:      *<ul>      *<li>negative value - Waits until a message is available and then returns      * it. Warning that this method could block indefinitely if no messages are      * available.</li>      *<li>0 - Attempts to receive a message exchange immediately without      * waiting and returning<tt>null</tt> if a message exchange is not      * available yet.</li>      *<li>positive value - Attempts to receive a message exchange, waiting up      * to the given timeout to expire if a message is not yet available. Returns      *<tt>null</tt> if timed out</li>      *</ul>      * The default value is -1 and therefore the method could block      * indefinitely, and therefore its recommended to use a timeout value      */
 DECL|method|timeout (long timeout)
 specifier|public
 name|PollEnrichDefinition
@@ -347,7 +347,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
+comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the      * external service, into a single outgoing message. By default Camel will      * use the reply from the external service as outgoing message.      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|PollEnrichDefinition
@@ -366,7 +366,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
+comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the      * external service, into a single outgoing message. By default Camel will      * use the reply from the external service as outgoing message.      */
 DECL|method|aggregationStrategy (Supplier<AggregationStrategy> aggregationStrategy)
 specifier|public
 name|PollEnrichDefinition
@@ -391,7 +391,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Refers to an AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
+comment|/**      * Refers to an AggregationStrategy to be used to merge the reply from the      * external service, into a single outgoing message. By default Camel will      * use the reply from the external service as outgoing message.      */
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|PollEnrichDefinition
@@ -410,7 +410,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
+comment|/**      * This option can be used to explicit declare the method name to use, when      * using POJOs as the AggregationStrategy.      */
 DECL|method|aggregationStrategyMethodName (String aggregationStrategyMethodName)
 specifier|public
 name|PollEnrichDefinition
@@ -429,7 +429,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich),      * when using POJOs as the AggregationStrategy.      */
+comment|/**      * If this option is false then the aggregate method is not used if there      * was no data to enrich. If this option is true then null values is used as      * the oldExchange (when no data to enrich), when using POJOs as the      * AggregationStrategy.      */
 DECL|method|aggregationStrategyMethodAllowNull (boolean aggregationStrategyMethodAllowNull)
 specifier|public
 name|PollEnrichDefinition
@@ -448,7 +448,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used if there was an exception thrown while trying      * to retrieve the data to enrich from the resource. Setting this option to true allows end users to control what      * to do if there was an exception in the aggregate method. For example to suppress the exception      * or set a custom message body etc.      */
+comment|/**      * If this option is false then the aggregate method is not used if there      * was an exception thrown while trying to retrieve the data to enrich from      * the resource. Setting this option to true allows end users to control      * what to do if there was an exception in the aggregate method. For example      * to suppress the exception or set a custom message body etc.      */
 DECL|method|aggregateOnException (boolean aggregateOnException)
 specifier|public
 name|PollEnrichDefinition
@@ -467,7 +467,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum size used by the {@link org.apache.camel.spi.ConsumerCache} which is used      * to cache and reuse consumers when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+comment|/**      * Sets the maximum size used by the      * {@link org.apache.camel.spi.ConsumerCache} which is used to cache and      * reuse consumers when uris are reused.      *      * @param cacheSize the cache size, use<tt>0</tt> for default cache size,      *            or<tt>-1</tt> to turn cache off.      * @return the builder      */
 DECL|method|cacheSize (int cacheSize)
 specifier|public
 name|PollEnrichDefinition
@@ -486,7 +486,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
+comment|/**      * Ignore the invalidate endpoint exception when try to create a producer      * with that endpoint      *      * @return the builder      */
 DECL|method|ignoreInvalidEndpoint ()
 specifier|public
 name|PollEnrichDefinition
@@ -504,7 +504,7 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-comment|/**      * Expression that computes the endpoint uri to use as the resource endpoint to enrich from      */
+comment|/**      * Expression that computes the endpoint uri to use as the resource endpoint      * to enrich from      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)

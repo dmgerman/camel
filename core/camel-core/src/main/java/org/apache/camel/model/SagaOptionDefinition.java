@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows to declare options on sagas  *  */
+comment|/**  * Allows to declare options on sagas  */
 end_comment
 
 begin_class
@@ -209,7 +209,7 @@ name|getExpression
 argument_list|()
 return|;
 block|}
-comment|/**      * Name of the option. It identifies the name of the header where the value of the expression will be stored when the      * compensation or completion routes will be called.      */
+comment|/**      * Name of the option. It identifies the name of the header where the value      * of the expression will be stored when the compensation or completion      * routes will be called.      */
 DECL|method|setOptionName (String optionName)
 specifier|public
 name|void

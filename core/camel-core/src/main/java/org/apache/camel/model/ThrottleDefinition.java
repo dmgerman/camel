@@ -449,7 +449,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the time period during which the maximum request count is valid for      *      * @param timePeriodMillis  period in millis      * @return the builder      */
+comment|/**      * Sets the time period during which the maximum request count is valid for      *      * @param timePeriodMillis period in millis      * @return the builder      */
 DECL|method|timePeriodMillis (long timePeriodMillis)
 specifier|public
 name|ThrottleDefinition
@@ -468,7 +468,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the time period during which the maximum request count per period      *      * @param maximumRequestsPerPeriod  the maximum request count number per time period      * @return the builder      */
+comment|/**      * Sets the time period during which the maximum request count per period      *      * @param maximumRequestsPerPeriod the maximum request count number per time      *            period      * @return the builder      */
 DECL|method|maximumRequestsPerPeriod (long maximumRequestsPerPeriod)
 specifier|public
 name|ThrottleDefinition
@@ -497,7 +497,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether or not the caller should run the task when it was rejected by the thread pool.      *<p/>      * Is by default<tt>true</tt>      *      * @param callerRunsWhenRejected whether or not the caller should run      * @return the builder      */
+comment|/**      * Whether or not the caller should run the task when it was rejected by the      * thread pool.      *<p/>      * Is by default<tt>true</tt>      *      * @param callerRunsWhenRejected whether or not the caller should run      * @return the builder      */
 DECL|method|callerRunsWhenRejected (boolean callerRunsWhenRejected)
 specifier|public
 name|ThrottleDefinition
@@ -516,7 +516,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block while delaying.      *      * @return the builder      */
+comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block      * while delaying.      *      * @return the builder      */
 DECL|method|asyncDelayed ()
 specifier|public
 name|ThrottleDefinition
@@ -532,7 +532,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether or not throttler throws the ThrottlerRejectedExecutionException when the exchange exceeds the request limit      *<p/>      * Is by default<tt>false</tt>      *      * @param rejectExecution throw the RejectExecutionException if the exchange exceeds the request limit       * @return the builder      */
+comment|/**      * Whether or not throttler throws the ThrottlerRejectedExecutionException      * when the exchange exceeds the request limit      *<p/>      * Is by default<tt>false</tt>      *      * @param rejectExecution throw the RejectExecutionException if the exchange      *            exceeds the request limit      * @return the builder      */
 DECL|method|rejectExecution (boolean rejectExecution)
 specifier|public
 name|ThrottleDefinition
@@ -551,7 +551,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a custom thread pool (ScheduledExecutorService) by the throttler.      *      * @param executorService  the custom thread pool (must be scheduled)      * @return the builder      */
+comment|/**      * To use a custom thread pool (ScheduledExecutorService) by the throttler.      *      * @param executorService the custom thread pool (must be scheduled)      * @return the builder      */
 annotation|@
 name|Override
 DECL|method|executorService (ExecutorService executorService)
@@ -572,7 +572,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a custom thread pool (ScheduledExecutorService) by the throttler.      *      * @param executorServiceRef the reference id of the thread pool (must be scheduled)      * @return the builder      */
+comment|/**      * To use a custom thread pool (ScheduledExecutorService) by the throttler.      *      * @param executorServiceRef the reference id of the thread pool (must be      *            scheduled)      * @return the builder      */
 annotation|@
 name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
@@ -595,7 +595,7 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-comment|/**      * Expression to configure the maximum number of messages to throttle per request      */
+comment|/**      * Expression to configure the maximum number of messages to throttle per      * request      */
 annotation|@
 name|Override
 DECL|method|setExpression (ExpressionDefinition expression)
@@ -780,7 +780,7 @@ operator|=
 name|rejectExecution
 expr_stmt|;
 block|}
-comment|/**      * The expression used to calculate the correlation key to use for throttle grouping.      * The Exchange which has the same correlation key is throttled together.      */
+comment|/**      * The expression used to calculate the correlation key to use for throttle      * grouping. The Exchange which has the same correlation key is throttled      * together.      */
 DECL|method|setCorrelationExpression (ExpressionSubElementDefinition correlationExpression)
 specifier|public
 name|void

@@ -376,7 +376,8 @@ name|to
 argument_list|)
 expr_stmt|;
 block|}
-comment|// fallback to default implementation if factory did not create the processor
+comment|// fallback to default implementation if factory did not create the
+comment|// processor
 if|if
 condition|(
 name|afterProcessor
@@ -475,7 +476,8 @@ name|matchURI
 argument_list|)
 condition|)
 block|{
-comment|// only proxy if the uri is matched decorate endpoint with our proxy
+comment|// only proxy if the uri is matched decorate endpoint with
+comment|// our proxy
 comment|// should be false by default
 name|boolean
 name|skip
@@ -532,8 +534,10 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// remove the original intercepted route from the outputs as we do not intercept as the regular interceptor
-comment|// instead we use the proxy endpoints producer do the triggering. That is we trigger when someone sends
+comment|// remove the original intercepted route from the outputs as we do not
+comment|// intercept as the regular interceptor
+comment|// instead we use the proxy endpoints producer do the triggering. That
+comment|// is we trigger when someone sends
 comment|// an exchange to the endpoint, see InterceptSendToEndpoint for details.
 name|RouteDefinition
 name|route
@@ -577,7 +581,7 @@ name|before
 argument_list|)
 return|;
 block|}
-comment|/**      * Does the uri match the pattern.      *      * @param camelContext the CamelContext      * @param uri the uri      * @param pattern the pattern, which can be an endpoint uri as well      * @return<tt>true</tt> if matched and we should intercept,<tt>false</tt> if not matched, and not intercept.      */
+comment|/**      * Does the uri match the pattern.      *      * @param camelContext the CamelContext      * @param uri the uri      * @param pattern the pattern, which can be an endpoint uri as well      * @return<tt>true</tt> if matched and we should intercept,<tt>false</tt>      *         if not matched, and not intercept.      */
 DECL|method|matchPattern (CamelContext camelContext, String uri, String pattern)
 specifier|protected
 name|boolean
@@ -616,7 +620,8 @@ condition|)
 block|{
 try|try
 block|{
-comment|// the pattern could be an uri, so we need to normalize it before matching again
+comment|// the pattern could be an uri, so we need to normalize it
+comment|// before matching again
 name|pattern
 operator|=
 name|URISupport

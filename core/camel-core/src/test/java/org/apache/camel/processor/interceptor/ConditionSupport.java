@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A support class for {@link org.apache.camel.spi.Condition} implementations to use as base class.  */
+comment|/**  * A support class for {@link org.apache.camel.spi.Condition} implementations to  * use as base class.  */
 end_comment
 
 begin_class

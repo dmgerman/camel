@@ -113,7 +113,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// the problem is that they want to set A as ID on the "direct:start" endpoint
+comment|// the problem is that they want to set A as ID on the "direct:start"
+comment|// endpoint
 name|String
 name|id
 init|=

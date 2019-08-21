@@ -181,7 +181,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// In Camel 1.4 proceed is default so we must use stop to not route it to the result mock
+comment|// In Camel 1.4 proceed is default so we must use stop to not
+comment|// route it to the result mock
 name|interceptFrom
 argument_list|()
 operator|.

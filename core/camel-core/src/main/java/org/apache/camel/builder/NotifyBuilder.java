@@ -421,7 +421,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to build an expression based on {@link org.apache.camel.spi.EventNotifier} notifications  * about {@link Exchange} being routed.  *<p/>  * This builder can be used for testing purposes where you want to know when a test is supposed to be done.  * The idea is that you can build an expression that explains when the test is done. For example when Camel  * have finished routing 5 messages. You can then in your test await for this condition to occur.  */
+comment|/**  * A builder to build an expression based on  * {@link org.apache.camel.spi.EventNotifier} notifications about  * {@link Exchange} being routed.  *<p/>  * This builder can be used for testing purposes where you want to know when a  * test is supposed to be done. The idea is that you can build an expression  * that explains when the test is done. For example when Camel have finished  * routing 5 messages. You can then in your test await for this condition to  * occur.  */
 end_comment
 
 begin_class
@@ -486,7 +486,8 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// the current state while building an event predicate where we use a stack and the operation
+comment|// the current state while building an event predicate where we use a stack
+comment|// and the operation
 DECL|field|stack
 specifier|private
 specifier|final
@@ -589,7 +590,7 @@ name|eventNotifier
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Optionally a<tt>from</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which is originated from the particular endpoint(s).      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Optionally a<tt>from</tt> endpoint which means that this expression      * should only be based on {@link Exchange} which is originated from the      * particular endpoint(s).      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper      *            javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String,      *      String)      */
 DECL|method|from (final String endpointUri)
 specifier|public
 name|NotifyBuilder
@@ -699,7 +700,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Optionally a<tt>from</tt> route which means that this expression should only be based      * on {@link Exchange} which is originated from the particular route(s).      *      * @param routeId id of route or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Optionally a<tt>from</tt> route which means that this expression should      * only be based on {@link Exchange} which is originated from the particular      * route(s).      *      * @param routeId id of route or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String,      *      String)      */
 DECL|method|fromRoute (final String routeId)
 specifier|public
 name|NotifyBuilder
@@ -812,7 +813,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Optionally a<tt>from</tt> current route which means that this expression should only be based      * on {@link Exchange} which is the current route(s).      *      * @param routeId id of route or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Optionally a<tt>from</tt> current route which means that this expression      * should only be based on {@link Exchange} which is the current route(s).      *      * @param routeId id of route or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String,      *      String)      */
 DECL|method|fromCurrentRoute (final String routeId)
 specifier|public
 name|NotifyBuilder
@@ -985,10 +986,14 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// always accept direct endpoints as they are a special case as it will create the UoW beforehand
-comment|// and just continue to route that on the consumer side, which causes the EventNotifier not to
-comment|// emit events when the consumer received the exchange, as its already done. For example by
-comment|// ProducerTemplate which creates the UoW before producing messages.
+comment|// always accept direct endpoints as they are a special case as
+comment|// it will create the UoW beforehand
+comment|// and just continue to route that on the consumer side, which
+comment|// causes the EventNotifier not to
+comment|// emit events when the consumer received the exchange, as its
+comment|// already done. For example by
+comment|// ProducerTemplate which creates the UoW before producing
+comment|// messages.
 if|if
 condition|(
 name|exchange
@@ -1047,7 +1052,8 @@ name|String
 name|toString
 parameter_list|()
 block|{
-comment|// we dont want any to string output as this is an internal predicate to match only from routes
+comment|// we dont want any to string output as this is an internal
+comment|// predicate to match only from routes
 return|return
 literal|""
 return|;
@@ -1059,7 +1065,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Optionally a filter to only allow matching {@link Exchange} to be used for matching.      *      * @param predicate the predicate to use for the filter      * @return the builder      */
+comment|/**      * Optionally a filter to only allow matching {@link Exchange} to be used      * for matching.      *      * @param predicate the predicate to use for the filter      * @return the builder      */
 DECL|method|filter (final Predicate predicate)
 specifier|public
 name|NotifyBuilder
@@ -1142,7 +1148,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Optionally a filter to only allow matching {@link Exchange} to be used for matching.      *      * @return the builder      */
+comment|/**      * Optionally a filter to only allow matching {@link Exchange} to be used      * for matching.      *      * @return the builder      */
 DECL|method|filter ()
 specifier|public
 name|ExpressionClauseSupport
@@ -1255,7 +1261,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Optionally a<tt>sent to</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which has been sent to the given endpoint uri.      *<p/>      * Notice the {@link Exchange} may have been sent to other endpoints as well. This condition will match      * if the {@link Exchange} has been sent at least once to the given endpoint.      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
+comment|/**      * Optionally a<tt>sent to</tt> endpoint which means that this expression      * should only be based on {@link Exchange} which has been sent to the given      * endpoint uri.      *<p/>      * Notice the {@link Exchange} may have been sent to other endpoints as      * well. This condition will match if the {@link Exchange} has been sent at      * least once to the given endpoint.      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper      *            javadoc)      * @return the builder      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String,      *      String)      */
 DECL|method|wereSentTo (final String endpointUri)
 specifier|public
 name|NotifyBuilder
@@ -1435,7 +1441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been received.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *      * @param number at least number of messages      * @return the builder      */
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been      * received.      *<p/>      * The number matching is<i>at least</i> based which means that if more      * messages received it will match also.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenReceived (final int number)
 specifier|public
 name|NotifyBuilder
@@ -1532,7 +1538,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} is done being processed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number at least number of messages      * @return the builder      */
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} is done being      * processed.      *<p/>      * The number matching is<i>at least</i> based which means that if more      * messages received it will match also.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can      * also include failed messages, where as completed is only successful      * processed messages.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenDone (final int number)
 specifier|public
 name|NotifyBuilder
@@ -1649,7 +1655,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when tne<tt>n'th</tt> (by index) {@link Exchange} is done being processed.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param index the message by index to be done      * @return the builder      */
+comment|/**      * Sets a condition when tne<tt>n'th</tt> (by index) {@link Exchange} is      * done being processed.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can      * also include failed messages, where as completed is only successful      * processed messages.      *      * @param index the message by index to be done      * @return the builder      */
 DECL|method|whenDoneByIndex (final int index)
 specifier|public
 name|NotifyBuilder
@@ -1855,7 +1861,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been completed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number at least number of messages      * @return the builder      */
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been      * completed.      *<p/>      * The number matching is<i>at least</i> based which means that if more      * messages received it will match also.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can      * also include failed messages, where as completed is only successful      * processed messages.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenCompleted (final int number)
 specifier|public
 name|NotifyBuilder
@@ -1952,7 +1958,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has failed.      *<p/>      * The number matching is<i>at least</i> based which means that if more messages received      * it will match also.      *      * @param number at least number of messages      * @return the builder      */
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has failed.      *<p/>      * The number matching is<i>at least</i> based which means that if more      * messages received it will match also.      *      * @param number at least number of messages      * @return the builder      */
 DECL|method|whenFailed (final int number)
 specifier|public
 name|NotifyBuilder
@@ -2049,7 +2055,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} is done being processed.      *<p/>      * messages, where as completed is only successful processed messages.      *      * @param number exactly number of messages      * @return the builder      */
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} is done being      * processed.      *<p/>      * messages, where as completed is only successful processed messages.      *      * @param number exactly number of messages      * @return the builder      */
 DECL|method|whenExactlyDone (final int number)
 specifier|public
 name|NotifyBuilder
@@ -2165,7 +2171,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been completed.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can also include failed      * messages, where as completed is only successful processed messages.      *      * @param number exactly number of messages      * @return the builder      */
+comment|/**      * Sets a condition when<tt>number</tt> of {@link Exchange} has been      * completed.      *<p/>      * The difference between<i>done</i> and<i>completed</i> is that done can      * also include failed messages, where as completed is only successful      * processed messages.      *      * @param number exactly number of messages      * @return the builder      */
 DECL|method|whenExactlyCompleted (final int number)
 specifier|public
 name|NotifyBuilder
@@ -2359,7 +2365,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition that<b>any received</b> {@link Exchange} should match the {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
+comment|/**      * Sets a condition that<b>any received</b> {@link Exchange} should match      * the {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|whenAnyReceivedMatches (final Predicate predicate)
 specifier|public
 name|NotifyBuilder
@@ -2379,7 +2385,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition that<b>any done</b> {@link Exchange} should match the {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
+comment|/**      * Sets a condition that<b>any done</b> {@link Exchange} should match the      * {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|whenAnyDoneMatches (final Predicate predicate)
 specifier|public
 name|NotifyBuilder
@@ -2611,7 +2617,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition that<b>all received</b> {@link Exchange} should match the {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
+comment|/**      * Sets a condition that<b>all received</b> {@link Exchange} should match      * the {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|whenAllReceivedMatches (final Predicate predicate)
 specifier|public
 name|NotifyBuilder
@@ -2631,7 +2637,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition that<b>all done</b> {@link Exchange} should match the {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
+comment|/**      * Sets a condition that<b>all done</b> {@link Exchange} should match the      * {@link Predicate}      *      * @param predicate the predicate      * @return the builder      */
 DECL|method|whenAllDoneMatches (final Predicate predicate)
 specifier|public
 name|NotifyBuilder
@@ -2862,7 +2868,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition that the bodies is expected to be<b>received</b> in the order as well.      *<p/>      * This condition will discard any additional messages. If you need a more strict condition      * then use {@link #whenExactBodiesReceived(Object...)}      *      * @param bodies the expected bodies      * @return the builder      * @see #whenExactBodiesReceived(Object...)      */
+comment|/**      * Sets a condition that the bodies is expected to be<b>received</b> in the      * order as well.      *<p/>      * This condition will discard any additional messages. If you need a more      * strict condition then use {@link #whenExactBodiesReceived(Object...)}      *      * @param bodies the expected bodies      * @return the builder      * @see #whenExactBodiesReceived(Object...)      */
 DECL|method|whenBodiesReceived (Object... bodies)
 specifier|public
 name|NotifyBuilder
@@ -2907,7 +2913,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition that the bodies is expected to be<b>done</b> in the order as well.      *<p/>      * This condition will discard any additional messages. If you need a more strict condition      * then use {@link #whenExactBodiesDone(Object...)}      *      * @param bodies the expected bodies      * @return the builder      * @see #whenExactBodiesDone(Object...)      */
+comment|/**      * Sets a condition that the bodies is expected to be<b>done</b> in the      * order as well.      *<p/>      * This condition will discard any additional messages. If you need a more      * strict condition then use {@link #whenExactBodiesDone(Object...)}      *      * @param bodies the expected bodies      * @return the builder      * @see #whenExactBodiesDone(Object...)      */
 DECL|method|whenBodiesDone (Object... bodies)
 specifier|public
 name|NotifyBuilder
@@ -2952,7 +2958,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition that the bodies is expected to be<b>received</b> in the order as well.      *<p/>      * This condition is strict which means that it only expect that exact number of bodies      *      * @param bodies the expected bodies      * @return the builder      * @see #whenBodiesReceived(Object...)      */
+comment|/**      * Sets a condition that the bodies is expected to be<b>received</b> in the      * order as well.      *<p/>      * This condition is strict which means that it only expect that exact      * number of bodies      *      * @param bodies the expected bodies      * @return the builder      * @see #whenBodiesReceived(Object...)      */
 DECL|method|whenExactBodiesReceived (Object... bodies)
 specifier|public
 name|NotifyBuilder
@@ -2997,7 +3003,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition that the bodies is expected to be<b>done</b> in the order as well.      *<p/>      * This condition is strict which means that it only expect that exact number of bodies      *      * @param bodies the expected bodies      * @return the builder      * @see #whenExactBodiesDone(Object...)      */
+comment|/**      * Sets a condition that the bodies is expected to be<b>done</b> in the      * order as well.      *<p/>      * This condition is strict which means that it only expect that exact      * number of bodies      *      * @param bodies the expected bodies      * @return the builder      * @see #whenExactBodiesDone(Object...)      */
 DECL|method|whenExactBodiesDone (Object... bodies)
 specifier|public
 name|NotifyBuilder
@@ -3338,7 +3344,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is satisfied based on {@link Exchange}      * being sent to it when they are<b>done</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
+comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is      * satisfied based on {@link Exchange} being sent to it when they are      *<b>done</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for      * setting fine grained expectations and then use that together with this      * builder. The mock provided does<b>NOT</b> have to already exist in the      * route. You can just create a new pseudo mock and this builder will send      * the done {@link Exchange} to it. So its like adding the mock to the end      * of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
 DECL|method|whenDoneSatisfied (final NotifyBuilderMatcher matcher)
 specifier|public
 name|NotifyBuilder
@@ -3358,7 +3364,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is satisfied based on {@link Exchange}      * being sent to it when they are<b>received</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
+comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is      * satisfied based on {@link Exchange} being sent to it when they are      *<b>received</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for      * setting fine grained expectations and then use that together with this      * builder. The mock provided does<b>NOT</b> have to already exist in the      * route. You can just create a new pseudo mock and this builder will send      * the done {@link Exchange} to it. So its like adding the mock to the end      * of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
 DECL|method|whenReceivedSatisfied (final NotifyBuilderMatcher matcher)
 specifier|public
 name|NotifyBuilder
@@ -3546,7 +3552,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is<b>not</b> satisfied based on {@link Exchange}      * being sent to it when they are<b>received</b>.      *<p/>      * The idea is that you can use  mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
+comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is      *<b>not</b> satisfied based on {@link Exchange} being sent to it when they      * are<b>received</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for      * setting fine grained expectations and then use that together with this      * builder. The mock provided does<b>NOT</b> have to already exist in the      * route. You can just create a new pseudo mock and this builder will send      * the done {@link Exchange} to it. So its like adding the mock to the end      * of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
 DECL|method|whenReceivedNotSatisfied (final NotifyBuilderMatcher matcher)
 specifier|public
 name|NotifyBuilder
@@ -3566,7 +3572,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is<b>not</b> satisfied based on {@link Exchange}      * being sent to it when they are<b>done</b>.      *<p/>      * The idea is that you can use  mock endpoints (or other matchers) for setting fine grained expectations      * and then use that together with this builder. The mock provided does<b>NOT</b>      * have to already exist in the route. You can just create a new pseudo mock      * and this builder will send the done {@link Exchange} to it. So its like      * adding the mock to the end of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
+comment|/**      * Sets a condition when the provided matcher (such as mock endpoint) is      *<b>not</b> satisfied based on {@link Exchange} being sent to it when they      * are<b>done</b>.      *<p/>      * The idea is that you can use mock endpoints (or other matchers) for      * setting fine grained expectations and then use that together with this      * builder. The mock provided does<b>NOT</b> have to already exist in the      * route. You can just create a new pseudo mock and this builder will send      * the done {@link Exchange} to it. So its like adding the mock to the end      * of your route(s).      *      * @param matcher the matcher such as mock endpoint      * @return the builder      */
 DECL|method|whenDoneNotSatisfied (final NotifyBuilderMatcher matcher)
 specifier|public
 name|NotifyBuilder
@@ -3755,7 +3761,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Prepares to append an additional expression using the<i>and</i> operator.      *      * @return the builder      */
+comment|/**      * Prepares to append an additional expression using the<i>and</i>      * operator.      *      * @return the builder      */
 DECL|method|and ()
 specifier|public
 name|NotifyBuilder
@@ -3791,7 +3797,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Prepares to append an additional expression using the<i>not</i> operator.      *      * @return the builder      */
+comment|/**      * Prepares to append an additional expression using the<i>not</i>      * operator.      *      * @return the builder      */
 DECL|method|not ()
 specifier|public
 name|NotifyBuilder
@@ -3809,7 +3815,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies the wait time in millis to use in the {@link #matchesWaitTime()} method.      */
+comment|/**      * Specifies the wait time in millis to use in the      * {@link #matchesWaitTime()} method.      */
 DECL|method|waitTime (long waitTime)
 specifier|public
 name|NotifyBuilder
@@ -3914,7 +3920,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**      * Does all the expression match?      *<p/>      * This operation will return immediately which means it can be used for testing at this very moment.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise      */
+comment|/**      * Does all the expression match?      *<p/>      * This operation will return immediately which means it can be used for      * testing at this very moment.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise      */
 DECL|method|matches ()
 specifier|public
 name|boolean
@@ -3939,7 +3945,7 @@ return|return
 name|matches
 return|;
 block|}
-comment|/**      * Does all the expression match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a timeout occur      * which means<tt>false</tt> will be returned.      *      * @param timeout  the timeout value      * @param timeUnit the time unit      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to timeout      */
+comment|/**      * Does all the expression match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a      * timeout occur which means<tt>false</tt> will be returned.      *      * @param timeout the timeout value      * @param timeUnit the time unit      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to      *         timeout      */
 DECL|method|matches (long timeout, TimeUnit timeUnit)
 specifier|public
 name|boolean
@@ -3998,7 +4004,7 @@ name|matches
 argument_list|()
 return|;
 block|}
-comment|/**      * Does all the expressions match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a timeout occur      * which means<tt>false</tt> will be returned.      *<p/>      * The timeout value is by default 10 seconds.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to timeout      * @deprecated use {@link #matchesWaitTime()} instead      */
+comment|/**      * Does all the expressions match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a      * timeout occur which means<tt>false</tt> will be returned.      *<p/>      * The timeout value is by default 10 seconds.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to      *         timeout      * @deprecated use {@link #matchesWaitTime()} instead      */
 annotation|@
 name|Deprecated
 DECL|method|matchesMockWaitTime ()
@@ -4012,7 +4018,7 @@ name|matchesWaitTime
 argument_list|()
 return|;
 block|}
-comment|/**      * Does all the expressions match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a timeout occur      * which means<tt>false</tt> will be returned.      *<p/>      * The timeout value is by default 10 seconds.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to timeout      */
+comment|/**      * Does all the expressions match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a      * timeout occur which means<tt>false</tt> will be returned.      *<p/>      * The timeout value is by default 10 seconds.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to      *         timeout      */
 DECL|method|matchesWaitTime ()
 specifier|public
 name|boolean
@@ -4162,7 +4168,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// if the first new operation is an or then this operation must be an or as well
+comment|// if the first new operation is an or then this operation must be
+comment|// an or as well
 comment|// otherwise it should be and based
 name|operation
 operator|=
@@ -4278,7 +4285,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**      * Notifier which hooks into Camel to listen for {@link Exchange} relevant events for this builder      */
+comment|/**      * Notifier which hooks into Camel to listen for {@link Exchange} relevant      * events for this builder      */
 DECL|class|ExchangeNotifier
 specifier|private
 specifier|final
@@ -4744,7 +4751,7 @@ name|boolean
 name|isAbstract
 parameter_list|()
 function_decl|;
-comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to stop immediately          */
+comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to          *         stop immediately          */
 DECL|method|onExchangeCreated (Exchange exchange)
 name|boolean
 name|onExchangeCreated
@@ -4753,7 +4760,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to stop immediately          */
+comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to          *         stop immediately          */
 DECL|method|onExchangeCompleted (Exchange exchange)
 name|boolean
 name|onExchangeCompleted
@@ -4762,7 +4769,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to stop immediately          */
+comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to          *         stop immediately          */
 DECL|method|onExchangeFailed (Exchange exchange)
 name|boolean
 name|onExchangeFailed
@@ -4771,7 +4778,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @param endpoint the endpoint sent to          * @param timeTaken time taken in millis to send the to endpoint          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to stop immediately          */
+comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @param endpoint the endpoint sent to          * @param timeTaken time taken in millis to send the to endpoint          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to          *         stop immediately          */
 DECL|method|onExchangeSent (Exchange exchange, Endpoint endpoint, long timeTaken)
 name|boolean
 name|onExchangeSent
@@ -4888,7 +4895,8 @@ name|long
 name|timeTaken
 parameter_list|)
 block|{
-comment|// no need to invoke onExchange as this is a special case when the Exchange
+comment|// no need to invoke onExchange as this is a special case when the
+comment|// Exchange
 comment|// was sent to a specific endpoint
 return|return
 literal|true

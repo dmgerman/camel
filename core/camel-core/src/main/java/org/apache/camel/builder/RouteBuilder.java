@@ -407,7 +407,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is  * used to build {@link Route} instances in a {@link CamelContext} for smart routing.  */
+comment|/**  * A<a href="http://camel.apache.org/dsl.html">Java DSL</a> which is used to  * build {@link Route} instances in a {@link CamelContext} for smart routing.  */
 end_comment
 
 begin_class
@@ -524,7 +524,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add routes to a context using a lambda expression.      * It can be used as following:      *<pre>      * RouteBuilder.addRoutes(context, rb ->      *     rb.from("direct:inbound").bean(ProduceTemplateBean.class)));      *</pre>      *      * @param context the camel context to add routes      * @param rbc a lambda expression receiving the {@code RouteBuilder} to use to create routes      * @throws Exception if an error occurs      */
+comment|/**      * Add routes to a context using a lambda expression. It can be used as      * following:      *       *<pre>      * RouteBuilder.addRoutes(context, rb ->      *     rb.from("direct:inbound").bean(ProduceTemplateBean.class)));      *</pre>      *      * @param context the camel context to add routes      * @param rbc a lambda expression receiving the {@code RouteBuilder} to use      *            to create routes      * @throws Exception if an error occurs      */
 DECL|method|addRoutes (CamelContext context, ThrowingConsumer<RouteBuilder, Exception> rbc)
 specifier|public
 specifier|static
@@ -592,7 +592,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      *<b>Called on initialization to build the routes using the fluent builder syntax.</b>      *<p/>      * This is a central method for RouteBuilder implementations to implement      * the routes using the Java fluent builder syntax.      *      * @throws Exception can be thrown during configuration      */
+comment|/**      *<b>Called on initialization to build the routes using the fluent builder      * syntax.</b>      *<p/>      * This is a central method for RouteBuilder implementations to implement      * the routes using the Java fluent builder syntax.      *      * @throws Exception can be thrown during configuration      */
 DECL|method|configure ()
 specifier|public
 specifier|abstract
@@ -602,7 +602,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Binds the bean to the repository (if possible).      *      * @param id   the id of the bean      * @param bean the bean      */
+comment|/**      * Binds the bean to the repository (if possible).      *      * @param id the id of the bean      * @param bean the bean      */
 DECL|method|bindToRegistry (String id, Object bean)
 specifier|public
 name|void
@@ -629,7 +629,7 @@ name|bean
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Binds the bean to the repository (if possible).      *      * @param id   the id of the bean      * @param type the type of the bean to associate the binding      * @param bean the bean      */
+comment|/**      * Binds the bean to the repository (if possible).      *      * @param id the id of the bean      * @param type the type of the bean to associate the binding      * @param bean the bean      */
 DECL|method|bindToRegistry (String id, Class<?> type, Object bean)
 specifier|public
 name|void
@@ -791,7 +791,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a new REST service      *      * @param path  the base path      * @return the builder      */
+comment|/**      * Creates a new REST service      *      * @param path the base path      * @return the builder      */
 DECL|method|rest (String path)
 specifier|public
 name|RestDefinition
@@ -880,7 +880,7 @@ return|return
 name|vb
 return|;
 block|}
-comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
+comment|/**      * Creates a new route from the given URI input      *      * @param uri the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public
 name|RouteDefinition
@@ -919,7 +919,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a new route from the given URI input      *      * @param uri  the String formatted from uri      * @param args arguments for the string formatting of the uri      * @return the builder      */
+comment|/**      * Creates a new route from the given URI input      *      * @param uri the String formatted from uri      * @param args arguments for the string formatting of the uri      * @return the builder      */
 DECL|method|fromF (String uri, Object... args)
 specifier|public
 name|RouteDefinition
@@ -969,7 +969,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a new route from the given endpoint      *      * @param endpoint  the from endpoint      * @return the builder      */
+comment|/**      * Creates a new route from the given endpoint      *      * @param endpoint the from endpoint      * @return the builder      */
 DECL|method|from (Endpoint endpoint)
 specifier|public
 name|RouteDefinition
@@ -1046,7 +1046,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder      *      * @param errorHandlerBuilder  the error handler to be used by default for all child routes      */
+comment|/**      * Installs the given      *<a href="http://camel.apache.org/error-handler.html">error handler</a>      * builder      *      * @param errorHandlerBuilder the error handler to be used by default for      *            all child routes      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
 name|void
@@ -1092,7 +1092,7 @@ name|errorHandlerBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Injects a property placeholder value with the given key converted to the given type.      *      * @param key  the property key      * @param type the type to convert the value as      * @return the value, or<tt>null</tt> if value is empty      * @throws Exception is thrown if property with key not found or error converting to the given type.      */
+comment|/**      * Injects a property placeholder value with the given key converted to the      * given type.      *      * @param key the property key      * @param type the type to convert the value as      * @return the value, or<tt>null</tt> if value is empty      * @throws Exception is thrown if property with key not found or error      *             converting to the given type.      */
 DECL|method|propertyInject (String key, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1233,7 +1233,7 @@ name|intercept
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor that intercepts incoming messages on any inputs in this route      *      * @return the builder      */
+comment|/**      * Adds a route for an interceptor that intercepts incoming messages on any      * inputs in this route      *      * @return the builder      */
 DECL|method|interceptFrom ()
 specifier|public
 name|InterceptFromDefinition
@@ -1278,7 +1278,7 @@ name|interceptFrom
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds a route for an interceptor that intercepts incoming messages on the given endpoint.      *      * @param uri  endpoint uri      * @return the builder      */
+comment|/**      * Adds a route for an interceptor that intercepts incoming messages on the      * given endpoint.      *      * @param uri endpoint uri      * @return the builder      */
 DECL|method|interceptFrom (String uri)
 specifier|public
 name|InterceptFromDefinition
@@ -1328,7 +1328,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Applies a route for an interceptor if an exchange is send to the given endpoint      *      * @param uri  endpoint uri      * @return the builder      */
+comment|/**      * Applies a route for an interceptor if an exchange is send to the given      * endpoint      *      * @param uri endpoint uri      * @return the builder      */
 DECL|method|interceptSendToEndpoint (String uri)
 specifier|public
 name|InterceptSendToEndpointDefinition
@@ -1378,7 +1378,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception      * clause</a> for catching certain exceptions and handling them.      *      * @param exception exception to catch      * @return the builder      */
 DECL|method|onException (Class<? extends Throwable> exception)
 specifier|public
 name|OnExceptionDefinition
@@ -1434,7 +1434,7 @@ name|exception
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception      * clause</a> for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the builder      */
 DECL|method|onException (Class<? extends Throwable>.... exceptions)
 specifier|public
 name|OnExceptionDefinition
@@ -1502,7 +1502,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/oncompletion.html">On completion</a>      * callback for doing custom routing when the {@link org.apache.camel.Exchange} is complete.      *      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/oncompletion.html">On completion</a>      * callback for doing custom routing when the      * {@link org.apache.camel.Exchange} is complete.      *      * @return the builder      */
 DECL|method|onCompletion ()
 specifier|public
 name|OnCompletionDefinition
@@ -1572,7 +1572,8 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-comment|// but populate rests before routes, as we want to turn rests into routes
+comment|// but populate rests before routes, as we want to turn rests into
+comment|// routes
 name|populateRests
 argument_list|()
 expr_stmt|;
@@ -1931,7 +1932,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// cannot add rests as routes yet as we need to initialize this specially
+comment|// cannot add rests as routes yet as we need to initialize this
+comment|// specially
 name|camelContext
 operator|.
 name|getExtension
@@ -1974,9 +1976,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// avoid adding rest-api multiple times, in case multiple RouteBuilder classes is added
+comment|// avoid adding rest-api multiple times, in case multiple
+comment|// RouteBuilder classes is added
 comment|// to the CamelContext, as we only want to setup rest-api once
-comment|// so we check all existing routes if they have rest-api route already added
+comment|// so we check all existing routes if they have rest-api route
+comment|// already added
 name|boolean
 name|hasRestApi
 init|=
@@ -2075,7 +2079,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// add rest as routes and have them prepared as well via routeCollection.route method
+comment|// add rest as routes and have them prepared as well via
+comment|// routeCollection.route method
 name|getRestCollection
 argument_list|()
 operator|.

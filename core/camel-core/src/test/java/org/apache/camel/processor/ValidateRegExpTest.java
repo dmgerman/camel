@@ -264,7 +264,8 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// as the Expression could be different between the DSL and simple language, here we just check part of the message
+comment|// as the Expression could be different between the DSL and simple
+comment|// language, here we just check part of the message
 name|assertTrue
 argument_list|(
 literal|"Get a wrong exception message"

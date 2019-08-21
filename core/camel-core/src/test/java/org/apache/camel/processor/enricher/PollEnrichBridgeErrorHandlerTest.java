@@ -345,7 +345,8 @@ name|from
 argument_list|(
 literal|"seda:start"
 argument_list|)
-comment|// bridge the error handler when doing a polling so we can let Camel's error handler decide what to do
+comment|// bridge the error handler when doing a polling so we can
+comment|// let Camel's error handler decide what to do
 operator|.
 name|pollEnrich
 argument_list|(

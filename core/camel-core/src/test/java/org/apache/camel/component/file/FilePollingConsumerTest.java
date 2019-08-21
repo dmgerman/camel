@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test that using polling consumer with file will not keep scheduled file consumer keep running  * in the background. It should suspend/resume the consumer on demand instead.  */
+comment|/**  * To test that using polling consumer with file will not keep scheduled file  * consumer keep running in the background. It should suspend/resume the  * consumer on demand instead.  */
 end_comment
 
 begin_class
@@ -194,7 +194,8 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// sleep a bit to ensure polling consumer would be suspended after we have used it
+comment|// sleep a bit to ensure polling consumer would be suspended after we
+comment|// have used it
 name|Thread
 operator|.
 name|sleep
@@ -218,7 +219,8 @@ argument_list|,
 literal|"bye.txt"
 argument_list|)
 expr_stmt|;
-comment|// sleep a bit to ensure polling consumer would not have picked up that file
+comment|// sleep a bit to ensure polling consumer would not have picked up that
+comment|// file
 name|Thread
 operator|.
 name|sleep

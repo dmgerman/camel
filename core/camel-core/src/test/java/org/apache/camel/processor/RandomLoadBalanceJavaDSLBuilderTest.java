@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A crude unit test to navigate the route and build a Java DSL from the route definition  */
+comment|/**  * A crude unit test to navigate the route and build a Java DSL from the route  * definition  */
 end_comment
 
 begin_class
@@ -198,7 +198,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// this one navigate using the runtime route using the Navigate<Processor>
+comment|// this one navigate using the runtime route using the
+comment|// Navigate<Processor>
 name|StringBuilder
 name|sb
 init|=

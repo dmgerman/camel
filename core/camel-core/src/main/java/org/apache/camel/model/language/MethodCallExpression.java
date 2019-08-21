@@ -748,7 +748,8 @@ argument_list|,
 name|lan
 argument_list|)
 expr_stmt|;
-comment|// .. and create expression with null value as we use the configured properties instead
+comment|// .. and create expression with null value as we use the configured
+comment|// properties instead
 name|Expression
 name|exp
 init|=

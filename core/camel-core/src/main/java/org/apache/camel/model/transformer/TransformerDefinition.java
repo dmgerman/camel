@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Represents a {@link org.apache.camel.spi.Transformer} which declaratively transforms message content  * according to the input type declared by {@link InputTypeDefinition} and/or output type  * declared by {@link OutputTypeDefinition}.</p>  *<p>If you specify from='java:com.example.ABC' and to='xml:XYZ', the transformer  * will be picked up when current message type is 'java:com.example.ABC' and expected  * message type is 'xml:XYZ'.  * If you specify from='java' to='xml', then it will be picked up for all of java  * to xml transformation.  * Also it's possible to specify scheme='xml' so that the transformer will be picked up  * for all of java to xml and xml to java transformation.</p>  *   * {@see org.apache.camel.spi.Transformer}  * {@see InputTypeDefinition}  * {@see OutputTypeDefinition}  */
+comment|/**  *<p>  * Represents a {@link org.apache.camel.spi.Transformer} which declaratively  * transforms message content according to the input type declared by  * {@link InputTypeDefinition} and/or output type declared by  * {@link OutputTypeDefinition}.  *</p>  *<p>  * If you specify from='java:com.example.ABC' and to='xml:XYZ', the transformer  * will be picked up when current message type is 'java:com.example.ABC' and  * expected message type is 'xml:XYZ'. If you specify from='java' to='xml', then  * it will be picked up for all of java to xml transformation. Also it's  * possible to specify scheme='xml' so that the transformer will be picked up  * for all of java to xml and xml to java transformation.  *</p>  * {@see org.apache.camel.spi.Transformer} {@see InputTypeDefinition}  * {@see OutputTypeDefinition}  */
 end_comment
 
 begin_class
@@ -193,7 +193,7 @@ return|return
 name|scheme
 return|;
 block|}
-comment|/**      * Set a scheme name supported by the transformer.      * If you specify 'csv', the transformer will be picked up for all of 'csv' from/to      * Java transformation. Note that the scheme matching is performed only when      * no exactly matched transformer exists.      *      * @param scheme scheme name      */
+comment|/**      * Set a scheme name supported by the transformer. If you specify 'csv', the      * transformer will be picked up for all of 'csv' from/to Java      * transformation. Note that the scheme matching is performed only when no      * exactly matched transformer exists.      *      * @param scheme scheme name      */
 DECL|method|setScheme (String scheme)
 specifier|public
 name|void
@@ -220,7 +220,7 @@ return|return
 name|fromType
 return|;
 block|}
-comment|/**      * Set the 'from' data type name.      * If you specify 'xml:XYZ', the transformer will be picked up if source type is      * 'xml:XYZ'. If you specify just 'xml', the transformer matches with all of      * 'xml' source type like 'xml:ABC' or 'xml:DEF'.      *       * @param from 'from' data type name      */
+comment|/**      * Set the 'from' data type name. If you specify 'xml:XYZ', the transformer      * will be picked up if source type is 'xml:XYZ'. If you specify just 'xml',      * the transformer matches with all of 'xml' source type like 'xml:ABC' or      * 'xml:DEF'.      *       * @param from 'from' data type name      */
 DECL|method|setFromType (String from)
 specifier|public
 name|void
@@ -274,7 +274,7 @@ return|return
 name|toType
 return|;
 block|}
-comment|/**      * Set the 'to' data type name.      * If you specify 'json:XYZ', the transformer will be picked up if destination type is      * 'json:XYZ'. If you specify just 'json', the transformer matches with all of      * 'json' destination type like 'json:ABC' or 'json:DEF'.      *      * @param to 'to' data type name      */
+comment|/**      * Set the 'to' data type name. If you specify 'json:XYZ', the transformer      * will be picked up if destination type is 'json:XYZ'. If you specify just      * 'json', the transformer matches with all of 'json' destination type like      * 'json:ABC' or 'json:DEF'.      *      * @param to 'to' data type name      */
 DECL|method|setToType (String to)
 specifier|public
 name|void

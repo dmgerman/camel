@@ -120,7 +120,7 @@ specifier|private
 name|CamelSimpleExpressionPerfTestRunner
 parameter_list|()
 block|{
-comment|//Utils class
+comment|// Utils class
 block|}
 DECL|method|main (String[] args)
 specifier|public

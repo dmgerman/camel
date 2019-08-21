@@ -136,8 +136,10 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// by default loop will keep using the same exchange so on the 2nd and 3rd iteration its
-comment|// the same exchange that was previous used that are being looped all over
+comment|// by default loop will keep using the same exchange so on
+comment|// the 2nd and 3rd iteration its
+comment|// the same exchange that was previous used that are being
+comment|// looped all over
 operator|.
 name|loop
 argument_list|(

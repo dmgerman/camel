@@ -428,7 +428,8 @@ range|:
 name|parts
 control|)
 block|{
-comment|// the part may have optional language to use, so you can mix languages
+comment|// the part may have optional language to use, so you can mix
+comment|// languages
 name|String
 name|value
 init|=
@@ -609,7 +610,7 @@ return|;
 block|}
 comment|// Utilities
 comment|// -------------------------------------------------------------------------
-comment|/**      * We need to split the string safely for each + sign, but avoid splitting within RAW(...).      */
+comment|/**      * We need to split the string safely for each + sign, but avoid splitting      * within RAW(...).      */
 DECL|method|safeSplitRaw (String s)
 specifier|private
 specifier|static

@@ -250,7 +250,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// force no messages to be polled which should affect the scheduler to think its idle
+comment|// force no messages to be polled which should affect
+comment|// the scheduler to think its idle
 name|exchange
 operator|.
 name|setProperty

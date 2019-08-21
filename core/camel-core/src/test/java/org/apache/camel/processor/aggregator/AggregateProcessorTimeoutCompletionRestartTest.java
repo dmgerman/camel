@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test CAMEL-4037 that a restart of aggregator can re-initialize the timeout map  */
+comment|/**  * To test CAMEL-4037 that a restart of aggregator can re-initialize the timeout  * map  */
 end_comment
 
 begin_class
@@ -431,7 +431,8 @@ name|e2
 argument_list|)
 expr_stmt|;
 comment|// shutdown before the 1/4 sec timeout occurs
-comment|// however we use stop instead of shutdown as shutdown will clear the in memory aggregation repository,
+comment|// however we use stop instead of shutdown as shutdown will clear the in
+comment|// memory aggregation repository,
 name|ap
 operator|.
 name|stop
@@ -454,7 +455,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// the aggregator should restore the timeout condition and trigger timeout
+comment|// the aggregator should restore the timeout condition and trigger
+comment|// timeout
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -682,7 +684,8 @@ name|e2
 argument_list|)
 expr_stmt|;
 comment|// shutdown before the 1/4 sec timeout occurs
-comment|// however we use stop instead of shutdown as shutdown will clear the in memory aggregation repository,
+comment|// however we use stop instead of shutdown as shutdown will clear the in
+comment|// memory aggregation repository,
 name|ap
 operator|.
 name|stop
@@ -705,7 +708,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// the aggregator should restore the timeout condition and trigger timeout
+comment|// the aggregator should restore the timeout condition and trigger
+comment|// timeout
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -1035,7 +1039,8 @@ name|e4
 argument_list|)
 expr_stmt|;
 comment|// shutdown before the 1/4 sec timeout occurs
-comment|// however we use stop instead of shutdown as shutdown will clear the in memory aggregation repository,
+comment|// however we use stop instead of shutdown as shutdown will clear the in
+comment|// memory aggregation repository,
 name|ap
 operator|.
 name|stop
@@ -1058,7 +1063,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// the aggregator should restore the timeout condition and trigger timeout
+comment|// the aggregator should restore the timeout condition and trigger
+comment|// timeout
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

@@ -1123,7 +1123,8 @@ name|Company
 argument_list|>
 name|works
 decl_stmt|;
-comment|// should auto-create this via the setter
+comment|// should auto-create this via the
+comment|// setter
 DECL|field|goldCustomer
 specifier|private
 name|boolean

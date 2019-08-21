@@ -288,7 +288,8 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// no traces of redelivery as the dead letter channel will handle the exception when moving the DLQ
+comment|// no traces of redelivery as the dead letter channel will handle the
+comment|// exception when moving the DLQ
 name|deadEndpoint
 operator|.
 name|message
@@ -453,7 +454,8 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-comment|// no traces of redelivery as the dead letter channel will handle the exception when moving the DLQ
+comment|// no traces of redelivery as the dead letter channel will handle the
+comment|// exception when moving the DLQ
 name|deadEndpoint
 operator|.
 name|message

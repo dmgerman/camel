@@ -157,7 +157,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// the rest becomes routes and the input is a seda endpoint created by the DummyRestConsumerFactory
+comment|// the rest becomes routes and the input is a seda endpoint created by
+comment|// the DummyRestConsumerFactory
 name|getMockEndpoint
 argument_list|(
 literal|"mock:update"
@@ -309,7 +310,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// the rest becomes routes and the input is a seda endpoint created by the DummyRestConsumerFactory
+comment|// the rest becomes routes and the input is a seda endpoint created by
+comment|// the DummyRestConsumerFactory
 name|getMockEndpoint
 argument_list|(
 literal|"mock:update"

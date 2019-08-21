@@ -328,7 +328,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//context.setTracing(true);
+comment|// context.setTracing(true);
 name|intercept
 argument_list|()
 operator|.
@@ -337,7 +337,8 @@ argument_list|(
 literal|"mock:intercept"
 argument_list|)
 expr_stmt|;
-comment|// define a global on completion that is invoked when the exchange is complete
+comment|// define a global on completion that is invoked when the
+comment|// exchange is complete
 name|onCompletion
 argument_list|()
 operator|.

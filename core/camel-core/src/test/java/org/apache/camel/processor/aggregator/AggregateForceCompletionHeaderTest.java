@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test CAMEL-4118 support for completing all aggregation groups with a signal message  */
+comment|/**  * To test CAMEL-4118 support for completing all aggregation groups with a  * signal message  */
 end_comment
 
 begin_class
@@ -239,7 +239,8 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-comment|//now send the signal message to trigger completion of all groups, message should NOT be aggregated
+comment|// now send the signal message to trigger completion of all groups,
+comment|// message should NOT be aggregated
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -390,7 +391,8 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-comment|//now send a message to trigger completion of all groups, message should be aggregated
+comment|// now send a message to trigger completion of all groups, message
+comment|// should be aggregated
 name|Map
 argument_list|<
 name|String

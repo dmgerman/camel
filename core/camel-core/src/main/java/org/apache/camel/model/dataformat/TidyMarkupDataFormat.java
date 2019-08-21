@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TidyMarkup data format is used for parsing HTML and return it as pretty well-formed HTML.  */
+comment|/**  * TidyMarkup data format is used for parsing HTML and return it as pretty  * well-formed HTML.  */
 end_comment
 
 begin_class
@@ -278,7 +278,7 @@ name|dataObjectType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * What data type to unmarshal as, can either be org.w3c.dom.Node or java.lang.String.      *<p/>      * Is by default org.w3c.dom.Node      */
+comment|/**      * What data type to unmarshal as, can either be org.w3c.dom.Node or      * java.lang.String.      *<p/>      * Is by default org.w3c.dom.Node      */
 DECL|method|setDataObjectType (Class<?> dataObjectType)
 specifier|public
 name|void
@@ -321,7 +321,7 @@ return|return
 name|dataObjectTypeName
 return|;
 block|}
-comment|/**      * What data type to unmarshal as, can either be org.w3c.dom.Node or java.lang.String.      *<p/>      * Is by default org.w3c.dom.Node      */
+comment|/**      * What data type to unmarshal as, can either be org.w3c.dom.Node or      * java.lang.String.      *<p/>      * Is by default org.w3c.dom.Node      */
 DECL|method|setDataObjectTypeName (String dataObjectTypeName)
 specifier|public
 name|void

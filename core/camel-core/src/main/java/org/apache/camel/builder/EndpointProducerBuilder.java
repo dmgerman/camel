@@ -74,7 +74,7 @@ specifier|public
 interface|interface
 name|EndpointProducerBuilder
 block|{
-comment|/**      * Builds and resolves this endpoint DSL as an endpoint.      *      * @param context  the camel context      * @return a built {@link Endpoint}      * @throws NoSuchEndpointException is thrown if the endpoint      */
+comment|/**      * Builds and resolves this endpoint DSL as an endpoint.      *      * @param context the camel context      * @return a built {@link Endpoint}      * @throws NoSuchEndpointException is thrown if the endpoint      */
 DECL|method|resolve (CamelContext context)
 name|Endpoint
 name|resolve
@@ -85,13 +85,13 @@ parameter_list|)
 throws|throws
 name|NoSuchEndpointException
 function_decl|;
-comment|/**      * Builds the url of this endpoint.      * This API is only intended for Camel internally.      */
+comment|/**      * Builds the url of this endpoint. This API is only intended for Camel      * internally.      */
 DECL|method|getUri ()
 name|String
 name|getUri
 parameter_list|()
 function_decl|;
-comment|/**      * Adds an option to this endpoint.      * This API is only intended for Camel internally.      */
+comment|/**      * Adds an option to this endpoint. This API is only intended for Camel      * internally.      */
 DECL|method|setProperty (String name, Object value)
 name|void
 name|setProperty
@@ -103,7 +103,7 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Builds an expression of this endpoint url.      * This API is only intended for Camel internally.      */
+comment|/**      * Builds an expression of this endpoint url. This API is only intended for      * Camel internally.      */
 DECL|method|expr ()
 name|Expression
 name|expr

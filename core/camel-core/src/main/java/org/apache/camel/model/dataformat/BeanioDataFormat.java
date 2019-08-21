@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The BeanIO data format is used for working with flat payloads (such as CSV, delimited, or fixed length formats).  */
+comment|/**  * The BeanIO data format is used for working with flat payloads (such as CSV,  * delimited, or fixed length formats).  */
 end_comment
 
 begin_class
@@ -244,7 +244,7 @@ return|return
 name|mapping
 return|;
 block|}
-comment|/**      * The BeanIO mapping file.      * Is by default loaded from the classpath. You can prefix with file:, http:, or classpath: to denote from where to load the mapping file.      */
+comment|/**      * The BeanIO mapping file. Is by default loaded from the classpath. You can      * prefix with file:, http:, or classpath: to denote from where to load the      * mapping file.      */
 DECL|method|setMapping (String mapping)
 specifier|public
 name|void
@@ -406,7 +406,7 @@ return|return
 name|beanReaderErrorHandlerType
 return|;
 block|}
-comment|/**      * To use a custom org.apache.camel.dataformat.beanio.BeanIOErrorHandler as error handler      * while parsing. Configure the fully qualified class name of the error handler.      * Notice the options ignoreUnidentifiedRecords, ignoreUnexpectedRecords, and ignoreInvalidRecords      * may not be in use when you use a custom error handler.      */
+comment|/**      * To use a custom org.apache.camel.dataformat.beanio.BeanIOErrorHandler as      * error handler while parsing. Configure the fully qualified class name of      * the error handler. Notice the options ignoreUnidentifiedRecords,      * ignoreUnexpectedRecords, and ignoreInvalidRecords may not be in use when      * you use a custom error handler.      */
 DECL|method|setBeanReaderErrorHandlerType (String beanReaderErrorHandlerType)
 specifier|public
 name|void
@@ -433,7 +433,7 @@ return|return
 name|unmarshalSingleObject
 return|;
 block|}
-comment|/**      * This options controls whether to unmarshal as a list of objects or as a single object only. The former is the default mode, and the latter      * is only intended in special use-cases where beanio maps the Camel message to a single POJO bean.      */
+comment|/**      * This options controls whether to unmarshal as a list of objects or as a      * single object only. The former is the default mode, and the latter is      * only intended in special use-cases where beanio maps the Camel message to      * a single POJO bean.      */
 DECL|method|setUnmarshalSingleObject (Boolean unmarshalSingleObject)
 specifier|public
 name|void

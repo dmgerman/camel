@@ -34,7 +34,7 @@ specifier|private
 name|MyEcho
 parameter_list|()
 block|{
-comment|//Helper class
+comment|// Helper class
 block|}
 DECL|method|echoString (String str)
 specifier|public

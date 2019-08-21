@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Routes the same message to multiple paths either sequentially or in parallel.  */
+comment|/**  * Routes the same message to multiple paths either sequentially or in parallel.  */
 end_comment
 
 begin_class
@@ -377,7 +377,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast using a fluent builder.      */
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the      * multicasts, into a single outgoing message from the Multicast using a      * fluent builder.      */
 DECL|method|aggregationStrategy ()
 specifier|public
 name|AggregationStrategyClause
@@ -409,7 +409,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy.      * If an exception is thrown from the aggregate method in the AggregationStrategy, then by default, that exception      * is not handled by the error handler. The error handler can be enabled to react if enabling the shareUnitOfWork option.      */
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the      * multicasts, into a single outgoing message from the Multicast. By default      * Camel will use the last reply as the outgoing message. You can also use a      * POJO as the AggregationStrategy. If an exception is thrown from the      * aggregate method in the AggregationStrategy, then by default, that      * exception is not handled by the error handler. The error handler can be      * enabled to react if enabling the shareUnitOfWork option.      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|MulticastDefinition
@@ -428,7 +428,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy.      * If an exception is thrown from the aggregate method in the AggregationStrategy, then by default, that exception      * is not handled by the error handler. The error handler can be enabled to react if enabling the shareUnitOfWork option.      */
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the      * multicasts, into a single outgoing message from the Multicast. By default      * Camel will use the last reply as the outgoing message. You can also use a      * POJO as the AggregationStrategy. If an exception is thrown from the      * aggregate method in the AggregationStrategy, then by default, that      * exception is not handled by the error handler. The error handler can be      * enabled to react if enabling the shareUnitOfWork option.      */
 DECL|method|aggregationStrategy (Supplier<AggregationStrategy> aggregationStrategy)
 specifier|public
 name|MulticastDefinition
@@ -453,7 +453,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      * If an exception is thrown from the aggregate method in the AggregationStrategy, then by default, that exception      * is not handled by the error handler. The error handler can be enabled to react if enabling the shareUnitOfWork option.      */
+comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the      * replies from the multicasts, into a single outgoing message from the      * Multicast. By default Camel will use the last reply as the outgoing      * message. You can also use a POJO as the AggregationStrategy If an      * exception is thrown from the aggregate method in the AggregationStrategy,      * then by default, that exception is not handled by the error handler. The      * error handler can be enabled to react if enabling the shareUnitOfWork      * option.      */
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|MulticastDefinition
@@ -472,7 +472,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      *      * @param  methodName the method name to call      * @return the builder      */
+comment|/**      * This option can be used to explicit declare the method name to use, when      * using POJOs as the AggregationStrategy.      *      * @param methodName the method name to call      * @return the builder      */
 DECL|method|aggregationStrategyMethodName (String methodName)
 specifier|public
 name|MulticastDefinition
@@ -491,7 +491,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich), when using POJOs as the AggregationStrategy      *      * @return the builder      */
+comment|/**      * If this option is false then the aggregate method is not used if there      * was no data to enrich. If this option is true then null values is used as      * the oldExchange (when no data to enrich), when using POJOs as the      * AggregationStrategy      *      * @return the builder      */
 DECL|method|aggregationStrategyMethodAllowNull ()
 specifier|public
 name|MulticastDefinition
@@ -507,7 +507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If enabled then sending messages to the multicasts occurs concurrently.      * Note the caller thread will still wait until all messages has been fully processed, before it continues.      * Its only the sending and processing the replies from the multicasts which happens concurrently.      *      * @return the builder      */
+comment|/**      * If enabled then sending messages to the multicasts occurs concurrently.      * Note the caller thread will still wait until all messages has been fully      * processed, before it continues. Its only the sending and processing the      * replies from the multicasts which happens concurrently.      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|MulticastDefinition
@@ -523,7 +523,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If enabled then sending messages to the multicasts occurs concurrently.      * Note the caller thread will still wait until all messages has been fully processed, before it continues.      * Its only the sending and processing the replies from the multicasts which happens concurrently.      *      * @return the builder      */
+comment|/**      * If enabled then sending messages to the multicasts occurs concurrently.      * Note the caller thread will still wait until all messages has been fully      * processed, before it continues. Its only the sending and processing the      * replies from the multicasts which happens concurrently.      *      * @return the builder      */
 DECL|method|parallelProcessing (boolean parallelProcessing)
 specifier|public
 name|MulticastDefinition
@@ -542,7 +542,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If enabled then the aggregate method on AggregationStrategy can be called concurrently.      * Notice that this would require the implementation of AggregationStrategy to be implemented as thread-safe.      * By default this is false meaning that Camel synchronizes the call to the aggregate method.      * Though in some use-cases this can be used to archive higher performance when the AggregationStrategy is implemented as thread-safe.      *      * @return the builder      */
+comment|/**      * If enabled then the aggregate method on AggregationStrategy can be called      * concurrently. Notice that this would require the implementation of      * AggregationStrategy to be implemented as thread-safe. By default this is      * false meaning that Camel synchronizes the call to the aggregate method.      * Though in some use-cases this can be used to archive higher performance      * when the AggregationStrategy is implemented as thread-safe.      *      * @return the builder      */
 DECL|method|parallelAggregate ()
 specifier|public
 name|MulticastDefinition
@@ -558,7 +558,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If enabled, unwind exceptions occurring at aggregation time to the error handler when parallelProcessing is used.      * Currently, aggregation time exceptions do not stop the route processing when parallelProcessing is used.      * Enabling this option allows to work around this behavior.      *      * The default value is<code>false</code> for the sake of backward compatibility.      *      * @return the builder      */
+comment|/**      * If enabled, unwind exceptions occurring at aggregation time to the error      * handler when parallelProcessing is used. Currently, aggregation time      * exceptions do not stop the route processing when parallelProcessing is      * used. Enabling this option allows to work around this behavior. The      * default value is<code>false</code> for the sake of backward      * compatibility.      *      * @return the builder      */
 DECL|method|stopOnAggregateException ()
 specifier|public
 name|MulticastDefinition
@@ -574,7 +574,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If enabled then Camel will process replies out-of-order, eg in the order they come back.      * If disabled, Camel will process replies in the same order as defined by the multicast.      *      * @return the builder      */
+comment|/**      * If enabled then Camel will process replies out-of-order, eg in the order      * they come back. If disabled, Camel will process replies in the same order      * as defined by the multicast.      *      * @return the builder      */
 DECL|method|streaming ()
 specifier|public
 name|MulticastDefinition
@@ -590,7 +590,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Will now stop further processing if an exception or failure occurred during processing of an      * {@link org.apache.camel.Exchange} and the caused exception will be thrown.      *<p/>      * Will also stop if processing the exchange failed (has a fault message) or an exception      * was thrown and handled by the error handler (such as using onException). In all situations      * the multicast will stop further processing. This is the same behavior as in pipeline, which      * is used by the routing engine.      *<p/>      * The default behavior is to<b>not</b> stop but continue processing till the end      *      * @return the builder      */
+comment|/**      * Will now stop further processing if an exception or failure occurred      * during processing of an {@link org.apache.camel.Exchange} and the caused      * exception will be thrown.      *<p/>      * Will also stop if processing the exchange failed (has a fault message) or      * an exception was thrown and handled by the error handler (such as using      * onException). In all situations the multicast will stop further      * processing. This is the same behavior as in pipeline, which is used by      * the routing engine.      *<p/>      * The default behavior is to<b>not</b> stop but continue processing till      * the end      *      * @return the builder      */
 DECL|method|stopOnException ()
 specifier|public
 name|MulticastDefinition
@@ -606,7 +606,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
+comment|/**      * To use a custom Thread Pool to be used for parallel processing. Notice if      * you set this option, then parallel processing is automatic implied, and      * you do not have to enable that option as well.      */
 annotation|@
 name|Override
 DECL|method|executorService (ExecutorService executorService)
@@ -627,7 +627,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Refers to a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
+comment|/**      * Refers to a custom Thread Pool to be used for parallel processing. Notice      * if you set this option, then parallel processing is automatic implied,      * and you do not have to enable that option as well.      */
 annotation|@
 name|Override
 DECL|method|executorServiceRef (String executorServiceRef)
@@ -648,7 +648,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the {@link Processor} to use when preparing the {@link org.apache.camel.Exchange} to be send using a fluent builder.      */
+comment|/**      * Set the {@link Processor} to use when preparing the      * {@link org.apache.camel.Exchange} to be send using a fluent builder.      */
 DECL|method|onPrepare ()
 specifier|public
 name|ProcessClause
@@ -680,7 +680,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
+comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
 DECL|method|onPrepare (Processor onPrepare)
 specifier|public
 name|MulticastDefinition
@@ -699,7 +699,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
+comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepare the processor      * @return the builder      */
 DECL|method|onPrepare (Supplier<Processor> onPrepare)
 specifier|public
 name|MulticastDefinition
@@ -724,7 +724,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Uses the {@link Processor} when preparing the {@link org.apache.camel.Exchange} to be send.      * This can be used to deep-clone messages that should be send, or any custom logic needed before      * the exchange is send.      *      * @param onPrepareRef reference to the processor to lookup in the {@link org.apache.camel.spi.Registry}      * @return the builder      */
+comment|/**      * Uses the {@link Processor} when preparing the      * {@link org.apache.camel.Exchange} to be send. This can be used to      * deep-clone messages that should be send, or any custom logic needed      * before the exchange is send.      *      * @param onPrepareRef reference to the processor to lookup in the      *            {@link org.apache.camel.spi.Registry}      * @return the builder      */
 DECL|method|onPrepareRef (String onPrepareRef)
 specifier|public
 name|MulticastDefinition
@@ -743,7 +743,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a total timeout specified in millis, when using parallel processing.      * If the Multicast hasn't been able to send and process all replies within the given timeframe,      * then the timeout triggers and the Multicast breaks out and continues.      * Notice if you provide a TimeoutAwareAggregationStrategy then the timeout method is invoked before breaking out.      * If the timeout is reached with running tasks still remaining, certain tasks for which it is difficult for Camel      * to shut down in a graceful manner may continue to run. So use this option with a bit of care.      *      * @param timeout timeout in millis      * @return the builder      */
+comment|/**      * Sets a total timeout specified in millis, when using parallel processing.      * If the Multicast hasn't been able to send and process all replies within      * the given timeframe, then the timeout triggers and the Multicast breaks      * out and continues. Notice if you provide a      * TimeoutAwareAggregationStrategy then the timeout method is invoked before      * breaking out. If the timeout is reached with running tasks still      * remaining, certain tasks for which it is difficult for Camel to shut down      * in a graceful manner may continue to run. So use this option with a bit      * of care.      *      * @param timeout timeout in millis      * @return the builder      */
 DECL|method|timeout (long timeout)
 specifier|public
 name|MulticastDefinition
@@ -762,7 +762,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      * Multicast will by default not share unit of work between the parent exchange and each multicasted exchange.      * This means each sub exchange has its own individual unit of work.      *      * @return the builder.      */
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and      * each of the sub messages. Multicast will by default not share unit of      * work between the parent exchange and each multicasted exchange. This      * means each sub exchange has its own individual unit of work.      *      * @return the builder.      */
 DECL|method|shareUnitOfWork ()
 specifier|public
 name|MulticastDefinition
@@ -925,7 +925,7 @@ return|return
 name|strategyRef
 return|;
 block|}
-comment|/**      * Refers to an AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
+comment|/**      * Refers to an AggregationStrategy to be used to assemble the replies from      * the multicasts, into a single outgoing message from the Multicast. By      * default Camel will use the last reply as the outgoing message. You can      * also use a POJO as the AggregationStrategy      */
 DECL|method|setStrategyRef (String strategyRef)
 specifier|public
 name|void
@@ -952,7 +952,7 @@ return|return
 name|strategyMethodName
 return|;
 block|}
-comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
+comment|/**      * This option can be used to explicit declare the method name to use, when      * using POJOs as the AggregationStrategy.      */
 DECL|method|setStrategyMethodName (String strategyMethodName)
 specifier|public
 name|void
@@ -979,7 +979,7 @@ return|return
 name|strategyMethodAllowNull
 return|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich), when using POJOs as the AggregationStrategy      */
+comment|/**      * If this option is false then the aggregate method is not used if there      * was no data to enrich. If this option is true then null values is used as      * the oldExchange (when no data to enrich), when using POJOs as the      * AggregationStrategy      */
 DECL|method|setStrategyMethodAllowNull (Boolean strategyMethodAllowNull)
 specifier|public
 name|void
@@ -1008,7 +1008,7 @@ return|return
 name|executorServiceRef
 return|;
 block|}
-comment|/**      * Refers to a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
+comment|/**      * Refers to a custom Thread Pool to be used for parallel processing. Notice      * if you set this option, then parallel processing is automatic implied,      * and you do not have to enable that option as well.      */
 annotation|@
 name|Override
 DECL|method|setExecutorServiceRef (String executorServiceRef)

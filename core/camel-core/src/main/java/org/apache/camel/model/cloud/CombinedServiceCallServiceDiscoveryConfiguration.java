@@ -327,7 +327,7 @@ return|return
 name|serviceDiscoveryConfigurations
 return|;
 block|}
-comment|/**      * List of ServiceDiscovery configuration to use      * @param serviceDiscoveryConfigurations      */
+comment|/**      * List of ServiceDiscovery configuration to use      *       * @param serviceDiscoveryConfigurations      */
 DECL|method|setServiceDiscoveryConfigurations (List<ServiceCallServiceDiscoveryConfiguration> serviceDiscoveryConfigurations)
 specifier|public
 name|void
@@ -347,7 +347,7 @@ operator|=
 name|serviceDiscoveryConfigurations
 expr_stmt|;
 block|}
-comment|/**      *  Add a ServiceDiscovery configuration      */
+comment|/**      * Add a ServiceDiscovery configuration      */
 DECL|method|addServiceDiscoveryConfigurations (ServiceCallServiceDiscoveryConfiguration serviceDiscoveryConfiguration)
 specifier|public
 name|void
@@ -383,7 +383,7 @@ block|}
 comment|// *************************************************************************
 comment|// Fluent API
 comment|// *************************************************************************
-comment|/**      *  List of ServiceDiscovery configuration to use      */
+comment|/**      * List of ServiceDiscovery configuration to use      */
 DECL|method|serviceDiscoveryConfigurations (List<ServiceCallServiceDiscoveryConfiguration> serviceDiscoveryConfigurations)
 specifier|public
 name|CombinedServiceCallServiceDiscoveryConfiguration
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      *  Add a ServiceDiscovery configuration      */
+comment|/**      * Add a ServiceDiscovery configuration      */
 DECL|method|serviceDiscoveryConfiguration (ServiceCallServiceDiscoveryConfiguration serviceDiscoveryConfiguration)
 specifier|public
 name|CombinedServiceCallServiceDiscoveryConfiguration

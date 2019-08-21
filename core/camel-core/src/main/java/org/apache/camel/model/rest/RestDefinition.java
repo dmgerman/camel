@@ -585,7 +585,7 @@ return|return
 name|tag
 return|;
 block|}
-comment|/**      * To configure a special tag for the operations within this rest definition.      */
+comment|/**      * To configure a special tag for the operations within this rest      * definition.      */
 DECL|method|setTag (String tag)
 specifier|public
 name|void
@@ -612,7 +612,7 @@ return|return
 name|consumes
 return|;
 block|}
-comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json.      * This option will override what may be configured on a parent level      */
+comment|/**      * To define the content type what the REST service consumes (accept as      * input), such as application/xml or application/json. This option will      * override what may be configured on a parent level      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -639,7 +639,7 @@ return|return
 name|produces
 return|;
 block|}
-comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      * This option will override what may be configured on a parent level      */
+comment|/**      * To define the content type what the REST service produces (uses for      * output), such as application/xml or application/json This option will      * override what may be configured on a parent level      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -666,7 +666,7 @@ return|return
 name|bindingMode
 return|;
 block|}
-comment|/**      * Sets the binding mode to use.      * This option will override what may be configured on a parent level      *<p/>      * The default value is auto      */
+comment|/**      * Sets the binding mode to use. This option will override what may be      * configured on a parent level      *<p/>      * The default value is auto      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -753,7 +753,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
-comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      * This option will override what may be configured on a parent level      */
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code      * header. This allows to build custom error messages that do not bind to      * json / xml etc, as success messages otherwise will do. This option will      * override what may be configured on a parent level      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -780,7 +780,7 @@ return|return
 name|clientRequestValidation
 return|;
 block|}
-comment|/**      * Whether to enable validation of the client request to check whether the Content-Type and Accept headers from      * the client is supported by the Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error, then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
+comment|/**      * Whether to enable validation of the client request to check whether the      * Content-Type and Accept headers from the client is supported by the      * Rest-DSL configuration of its consumes/produces settings.      *<p/>      * This can be turned on, to enable this check. In case of validation error,      * then HTTP Status codes 415 or 406 is returned.      *<p/>      * The default value is false.      */
 DECL|method|setClientRequestValidation (Boolean clientRequestValidation)
 specifier|public
 name|void
@@ -807,7 +807,7 @@ return|return
 name|enableCORS
 return|;
 block|}
-comment|/**      * Whether to enable CORS headers in the HTTP response.      * This option will override what may be configured on a parent level      *<p/>      * The default value is false.      */
+comment|/**      * Whether to enable CORS headers in the HTTP response. This option will      * override what may be configured on a parent level      *<p/>      * The default value is false.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void
@@ -852,7 +852,7 @@ name|apiDocs
 expr_stmt|;
 block|}
 comment|// Fluent API
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 comment|/**      * To set the base path of this REST service      */
 DECL|method|path (String path)
 specifier|public
@@ -2359,7 +2359,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Routes directly to the given static endpoint.      *<p/>      * If you need additional routing capabilities, then use {@link #route()} instead.      *      * @param uri the uri of the endpoint      * @return this builder      */
+comment|/**      * Routes directly to the given static endpoint.      *<p/>      * If you need additional routing capabilities, then use {@link #route()}      * instead.      *      * @param uri the uri of the endpoint      * @return this builder      */
 DECL|method|to (String uri)
 specifier|public
 name|RestDefinition
@@ -2424,7 +2424,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Routes directly to the given dynamic endpoint.      *<p/>      * If you need additional routing capabilities, then use {@link #route()} instead.      *      * @param uri the uri of the endpoint      * @return this builder      */
+comment|/**      * Routes directly to the given dynamic endpoint.      *<p/>      * If you need additional routing capabilities, then use {@link #route()}      * instead.      *      * @param uri the uri of the endpoint      * @return this builder      */
 DECL|method|toD (String uri)
 specifier|public
 name|RestDefinition
@@ -2583,7 +2583,7 @@ argument_list|)
 return|;
 block|}
 comment|// Implementation
-comment|//-------------------------------------------------------------------------
+comment|// -------------------------------------------------------------------------
 DECL|method|addVerb (String verb, String uri)
 specifier|private
 name|RestDefinition
@@ -2748,7 +2748,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Transforms this REST definition into a list of {@link org.apache.camel.model.RouteDefinition} which      * Camel routing engine can add and run. This allows us to define REST services using this      * REST DSL and turn those into regular Camel routes.      *      * @param camelContext The Camel context      */
+comment|/**      * Transforms this REST definition into a list of      * {@link org.apache.camel.model.RouteDefinition} which Camel routing engine      * can add and run. This allows us to define REST services using this REST      * DSL and turn those into regular Camel routes.      *      * @param camelContext The Camel context      */
 DECL|method|asRouteDefinition (CamelContext camelContext)
 specifier|public
 name|List
@@ -2797,7 +2797,8 @@ argument_list|()
 condition|)
 block|{
 comment|// make sure to initialize a rest configuration when its empty
-comment|// lookup a global which may have been setup via camel-spring-boot etc
+comment|// lookup a global which may have been setup via camel-spring-boot
+comment|// etc
 name|RestConfiguration
 name|conf
 init|=
@@ -2974,7 +2975,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Transforms the rest api configuration into a {@link org.apache.camel.model.RouteDefinition} which      * Camel routing engine uses to service the rest api docs.      */
+comment|/**      * Transforms the rest api configuration into a      * {@link org.apache.camel.model.RouteDefinition} which Camel routing engine      * uses to service the rest api docs.      */
 DECL|method|asRouteApiDefinition (CamelContext camelContext, RestConfiguration configuration)
 specifier|public
 specifier|static
@@ -3199,7 +3200,8 @@ operator|+
 name|query
 expr_stmt|;
 block|}
-comment|// we use the same uri as the producer (so we have a little route for the rest api)
+comment|// we use the same uri as the producer (so we have a little route for
+comment|// the rest api)
 name|String
 name|to
 init|=
@@ -3940,8 +3942,10 @@ name|producerComponent
 argument_list|)
 expr_stmt|;
 block|}
-comment|// include optional description, which we favor from 1) to/route description 2) verb description 3) rest description
-comment|// this allows end users to define general descriptions and override then per to/route or verb
+comment|// include optional description, which we favor from 1) to/route
+comment|// description 2) verb description 3) rest description
+comment|// this allows end users to define general descriptions and override
+comment|// then per to/route or verb
 name|String
 name|description
 init|=
@@ -4222,7 +4226,7 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-comment|//  merge if exists
+comment|// merge if exists
 name|boolean
 name|found
 init|=

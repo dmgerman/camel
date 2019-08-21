@@ -143,7 +143,8 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-comment|// we expect 1 or 2 messages since we group all we get in using the same correlation key
+comment|// we expect 1 or 2 messages since we group all we get in using the same
+comment|// correlation key
 name|result
 operator|.
 name|expectedMinimumMessageCount
@@ -414,7 +415,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// our route is aggregating from the direct queue and sending the response to the mock
+comment|// our route is aggregating from the direct queue and sending
+comment|// the response to the mock
 name|from
 argument_list|(
 literal|"direct:start"
@@ -424,7 +426,9 @@ name|log
 argument_list|(
 literal|"Aggregator received ${body}"
 argument_list|)
-comment|// aggregated all use same expression and group the exchanges so we get one single exchange containing all the others
+comment|// aggregated all use same expression and group the
+comment|// exchanges so we get one single exchange containing all
+comment|// the others
 operator|.
 name|aggregate
 argument_list|(

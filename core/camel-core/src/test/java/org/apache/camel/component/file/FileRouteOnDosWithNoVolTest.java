@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Verify the standard file url paths on windows that are interpreted as the window's   * url paths without the volume name will work on windows system.  */
+comment|/**  * Verify the standard file url paths on windows that are interpreted as the  * window's url paths without the volume name will work on windows system.  */
 end_comment
 
 begin_class

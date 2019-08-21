@@ -270,7 +270,7 @@ specifier|static
 class|class
 name|MyBean
 block|{
-DECL|method|matches (@eaderR)String location)
+DECL|method|matches (@eaderR) String location)
 specifier|public
 name|boolean
 name|matches

@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Enables definitions to support concurrency using {@link java.util.concurrent.ExecutorService}  */
+comment|/**  * Enables definitions to support concurrency using  * {@link java.util.concurrent.ExecutorService}  */
 end_comment
 
 begin_interface
@@ -104,7 +104,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Setting the executor service for executing      *      * @param executorServiceRef reference for a {@link java.util.concurrent.ExecutorService}      *                           to lookup in the {@link org.apache.camel.spi.Registry}      * @return the builder      */
+comment|/**      * Setting the executor service for executing      *      * @param executorServiceRef reference for a      *            {@link java.util.concurrent.ExecutorService} to lookup in the      *            {@link org.apache.camel.spi.Registry}      * @return the builder      */
 DECL|method|executorServiceRef (String executorServiceRef)
 name|Type
 name|executorServiceRef

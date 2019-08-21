@@ -113,9 +113,12 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
-comment|// we intercept by endpoint, that means that whenever an exchange is about to be sent to
-comment|// this endpoint, its intercepted and routed with this detour route beforehand
-comment|// afterwards its send to the original intended destination. So this is kinda AOP before.
+comment|// we intercept by endpoint, that means that whenever an
+comment|// exchange is about to be sent to
+comment|// this endpoint, its intercepted and routed with this detour
+comment|// route beforehand
+comment|// afterwards its send to the original intended destination. So
+comment|// this is kinda AOP before.
 comment|// That means mock:foo will receive the message (Bye World).
 name|interceptSendToEndpoint
 argument_list|(
@@ -246,7 +249,8 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e2
-comment|// we can also attach a predicate to the endpoint interceptor. So in this example the exchange is
+comment|// we can also attach a predicate to the endpoint interceptor.
+comment|// So in this example the exchange is
 comment|// only intercepted if the body is Hello World
 name|interceptSendToEndpoint
 argument_list|(
@@ -411,11 +415,15 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e3
-comment|// since we use the skipSendToOriginalEndpoint() we instruct Camel to skip
-comment|// sending the exchange to the original intended destination after the intercept
+comment|// since we use the skipSendToOriginalEndpoint() we instruct
+comment|// Camel to skip
+comment|// sending the exchange to the original intended destination
+comment|// after the intercept
 comment|// route is complete.
-comment|// That means that mock:foo will NOT receive the message, but the message
-comment|// is skipped and continued in the original route, so mock:result will receive
+comment|// That means that mock:foo will NOT receive the message, but
+comment|// the message
+comment|// is skipped and continued in the original route, so
+comment|// mock:result will receive
 comment|// the message.
 name|interceptSendToEndpoint
 argument_list|(

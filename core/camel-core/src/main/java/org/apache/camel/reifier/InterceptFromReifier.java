@@ -162,8 +162,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// insert a set header definition so we can set the intercepted endpoint uri as a header
-comment|// this allows us to use the same header for both the interceptFrom and interceptSendToEndpoint
+comment|// insert a set header definition so we can set the intercepted endpoint
+comment|// uri as a header
+comment|// this allows us to use the same header for both the interceptFrom and
+comment|// interceptSendToEndpoint
 name|SetHeaderDefinition
 name|headerDefinition
 init|=

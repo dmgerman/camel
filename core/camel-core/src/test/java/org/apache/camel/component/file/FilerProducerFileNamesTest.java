@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the how FileProducer behaves a bit strangely when generating filenames  */
+comment|/**  * Unit test for the how FileProducer behaves a bit strangely when generating  * filenames  */
 end_comment
 
 begin_class

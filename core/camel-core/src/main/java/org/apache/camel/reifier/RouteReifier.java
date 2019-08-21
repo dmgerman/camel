@@ -455,7 +455,7 @@ name|definition
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Advices this route with the route builder.      *<p/>      *<b>Important:</b> It is recommended to only advice a given route once (you can of course advice multiple routes).      * If you do it multiple times, then it may not work as expected, especially when any kind of error handling is involved.      * The Camel team plan for Camel 3.0 to support this as internal refactorings in the routing engine is needed to support this properly.      *<p/>      * You can use a regular {@link RouteBuilder} but the specialized {@link AdviceWithRouteBuilder}      * has additional features when using the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.      * We therefore suggest you to use the {@link AdviceWithRouteBuilder}.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param definition   the model definition      * @param camelContext the camel context      * @param builder      the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      * @see AdviceWithRouteBuilder      */
+comment|/**      * Advices this route with the route builder.      *<p/>      *<b>Important:</b> It is recommended to only advice a given route once      * (you can of course advice multiple routes). If you do it multiple times,      * then it may not work as expected, especially when any kind of error      * handling is involved. The Camel team plan for Camel 3.0 to support this      * as internal refactorings in the routing engine is needed to support this      * properly.      *<p/>      * You can use a regular {@link RouteBuilder} but the specialized      * {@link AdviceWithRouteBuilder} has additional features when using the      *<a href="http://camel.apache.org/advicewith.html">advice with</a>      * feature. We therefore suggest you to use the      * {@link AdviceWithRouteBuilder}.      *<p/>      * The advice process will add the interceptors, on exceptions, on      * completions etc. configured from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes      * to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start      * this new advised route.      *      * @param definition the model definition      * @param camelContext the camel context      * @param builder the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      * @see AdviceWithRouteBuilder      */
 DECL|method|adviceWith (RouteDefinition definition, CamelContext camelContext, RouteBuilder builder)
 specifier|public
 specifier|static
@@ -549,7 +549,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// wrap in exception which provide more details about which route was failing
+comment|// wrap in exception which provide more details about which route
+comment|// was failing
 throw|throw
 operator|new
 name|FailedToCreateRouteException
@@ -603,7 +604,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Advices this route with the route builder.      *<p/>      *<b>Important:</b> It is recommended to only advice a given route once (you can of course advice multiple routes).      * If you do it multiple times, then it may not work as expected, especially when any kind of error handling is involved.      * The Camel team plan for Camel 3.0 to support this as internal refactorings in the routing engine is needed to support this properly.      *<p/>      * You can use a regular {@link RouteBuilder} but the specialized {@link org.apache.camel.builder.AdviceWithRouteBuilder}      * has additional features when using the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.      * We therefore suggest you to use the {@link org.apache.camel.builder.AdviceWithRouteBuilder}.      *<p/>      * The advice process will add the interceptors, on exceptions, on completions etc. configured      * from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start this new advised route.      *      * @param camelContext the camel context      * @param builder      the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      * @see AdviceWithRouteBuilder      */
+comment|/**      * Advices this route with the route builder.      *<p/>      *<b>Important:</b> It is recommended to only advice a given route once      * (you can of course advice multiple routes). If you do it multiple times,      * then it may not work as expected, especially when any kind of error      * handling is involved. The Camel team plan for Camel 3.0 to support this      * as internal refactorings in the routing engine is needed to support this      * properly.      *<p/>      * You can use a regular {@link RouteBuilder} but the specialized      * {@link org.apache.camel.builder.AdviceWithRouteBuilder} has additional      * features when using the      *<a href="http://camel.apache.org/advicewith.html">advice with</a>      * feature. We therefore suggest you to use the      * {@link org.apache.camel.builder.AdviceWithRouteBuilder}.      *<p/>      * The advice process will add the interceptors, on exceptions, on      * completions etc. configured from the route builder to this route.      *<p/>      * This is mostly used for testing purpose to add interceptors and the likes      * to an existing route.      *<p/>      * Will stop and remove the old route from camel context and add and start      * this new advised route.      *      * @param camelContext the camel context      * @param builder the route builder      * @return a new route which is this route merged with the route builder      * @throws Exception can be thrown from the route builder      * @see AdviceWithRouteBuilder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -650,7 +651,8 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// inject this route into the advice route builder so it can access this route
+comment|// inject this route into the advice route builder so it can access this
+comment|// route
 comment|// and offer features to manipulate the route directly
 name|boolean
 name|logRoutesAsXml
@@ -733,9 +735,12 @@ literal|" Remove all routes from the route builder."
 argument_list|)
 throw|;
 block|}
-comment|// we can not advice with error handlers (if you added a new error handler in the route builder)
-comment|// we must check the error handler on builder is not the same as on camel context, as that would be the default
-comment|// context scoped error handler, in case no error handlers was configured
+comment|// we can not advice with error handlers (if you added a new error
+comment|// handler in the route builder)
+comment|// we must check the error handler on builder is not the same as on
+comment|// camel context, as that would be the default
+comment|// context scoped error handler, in case no error handlers was
+comment|// configured
 if|if
 condition|(
 name|builder
@@ -858,7 +863,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// now merge which also ensures that interceptors and the likes get mixed in correctly as well
+comment|// now merge which also ensures that interceptors and the likes get
+comment|// mixed in correctly as well
 name|RouteDefinition
 name|merged
 init|=
@@ -889,7 +895,8 @@ argument_list|,
 name|merged
 argument_list|)
 expr_stmt|;
-comment|// log the merged route at info level to make it easier to end users to spot any mistakes they may have made
+comment|// log the merged route at info level to make it easier to end users to
+comment|// spot any mistakes they may have made
 if|if
 condition|(
 name|log
@@ -1054,7 +1061,8 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// tracing is added in the DefaultChannel so we can enable it on the fly
+comment|// tracing is added in the DefaultChannel so we can enable
+comment|// it on the fly
 block|}
 block|}
 block|}
@@ -2081,7 +2089,8 @@ name|contract
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// make sure to enable data type as its in use when using input/output types on routes
+comment|// make sure to enable data type as its in use when using
+comment|// input/output types on routes
 name|camelContext
 operator|.
 name|setUseDataType

@@ -236,7 +236,7 @@ specifier|private
 name|RouteContextRefDefinitionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Lookup the routes from the {@link RouteContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the routes as it performs a deep clone of the routes      * as a {@link RouteContextRefDefinition} can be re-used with multiple {@link ModelCamelContext} and each      * context should have their own instances of the routes. This is to ensure no side-effects and sharing      * of instances between the contexts. For example such as property placeholders may be context specific      * so the routes should not use placeholders from another {@link ModelCamelContext}.      *      * @param camelContext the CamelContext      * @param ref          the id of the {@link RouteContextRefDefinition} to lookup and get the routes.      * @return the routes.      */
+comment|/**      * Lookup the routes from the {@link RouteContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the routes as it performs a      * deep clone of the routes as a {@link RouteContextRefDefinition} can be      * re-used with multiple {@link ModelCamelContext} and each context should      * have their own instances of the routes. This is to ensure no side-effects      * and sharing of instances between the contexts. For example such as      * property placeholders may be context specific so the routes should not      * use placeholders from another {@link ModelCamelContext}.      *      * @param camelContext the CamelContext      * @param ref the id of the {@link RouteContextRefDefinition} to lookup and      *            get the routes.      * @return the routes.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -313,8 +313,10 @@ name|ref
 argument_list|)
 throw|;
 block|}
-comment|// must clone the route definitions as they can be reused with multiple CamelContexts
-comment|// and they would need their own instances of the definitions to not have side effects among
+comment|// must clone the route definitions as they can be reused with multiple
+comment|// CamelContexts
+comment|// and they would need their own instances of the definitions to not
+comment|// have side effects among
 comment|// the CamelContext - for example property placeholder resolutions etc.
 name|List
 argument_list|<
@@ -523,7 +525,8 @@ name|RouteDefinition
 operator|)
 name|clone
 decl_stmt|;
-comment|// need to clone the namespaces also as they are not JAXB marshalled (as they are transient)
+comment|// need to clone the namespaces also as they are not JAXB marshalled
+comment|// (as they are transient)
 name|Iterator
 argument_list|<
 name|ExpressionNode

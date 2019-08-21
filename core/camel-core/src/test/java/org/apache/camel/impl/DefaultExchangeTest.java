@@ -891,8 +891,10 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Current TypeConverter support to turn the null value to false of boolean,
-comment|// as assertEquals needs the Object as the parameter, we have to use Boolean.FALSE value in this case
+comment|// Current TypeConverter support to turn the null value to false of
+comment|// boolean,
+comment|// as assertEquals needs the Object as the parameter, we have to use
+comment|// Boolean.FALSE value in this case
 name|assertEquals
 argument_list|(
 name|Boolean

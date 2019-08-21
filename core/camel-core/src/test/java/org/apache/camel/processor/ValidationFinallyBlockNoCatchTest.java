@@ -184,7 +184,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// allEndpoint should only receive 1 when the message is being moved to the dead letter queue
+comment|// allEndpoint should only receive 1 when the message is being moved to
+comment|// the dead letter queue
 name|allEndpoint
 operator|.
 name|expectedMessageCount

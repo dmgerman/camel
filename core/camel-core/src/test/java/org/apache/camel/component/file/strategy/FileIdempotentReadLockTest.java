@@ -339,7 +339,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// the files are kept on commit
-comment|// if you want to remove them then the idempotent repo need some way to evict idle keys
+comment|// if you want to remove them then the idempotent repo need some way to
+comment|// evict idle keys
 name|assertEquals
 argument_list|(
 literal|2

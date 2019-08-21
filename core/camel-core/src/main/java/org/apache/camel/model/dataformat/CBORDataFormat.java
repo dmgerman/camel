@@ -275,7 +275,7 @@ return|return
 name|objectMapper
 return|;
 block|}
-comment|/**      * Lookup and use the existing CBOR ObjectMapper with the given id when using      * Jackson.      */
+comment|/**      * Lookup and use the existing CBOR ObjectMapper with the given id when      * using Jackson.      */
 DECL|method|setObjectMapper (String objectMapper)
 specifier|public
 name|void
@@ -302,7 +302,7 @@ return|return
 name|useDefaultObjectMapper
 return|;
 block|}
-comment|/**      * Whether to lookup and use default Jackson CBOR ObjectMapper from the registry.      */
+comment|/**      * Whether to lookup and use default Jackson CBOR ObjectMapper from the      * registry.      */
 DECL|method|setUseDefaultObjectMapper (Boolean useDefaultObjectMapper)
 specifier|public
 name|void

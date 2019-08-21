@@ -564,7 +564,7 @@ operator|>=
 literal|9
 condition|)
 block|{
-comment|//checkout http://openjdk.java.net/jeps/229
+comment|// checkout http://openjdk.java.net/jeps/229
 return|return;
 block|}
 name|ksp

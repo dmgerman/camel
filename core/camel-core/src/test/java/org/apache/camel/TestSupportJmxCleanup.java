@@ -176,7 +176,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// useful helper to invoke in TestSupport to figure out what test leave junk behind
+comment|// useful helper to invoke in TestSupport to figure out what test leave junk
+comment|// behind
 DECL|method|traceMBeans (String domain)
 specifier|public
 specifier|static

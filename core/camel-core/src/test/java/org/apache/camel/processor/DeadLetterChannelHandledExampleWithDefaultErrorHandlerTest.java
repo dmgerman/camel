@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that handled policy is working as expected for wiki documentation.  */
+comment|/**  * Unit test to verify that handled policy is working as expected for wiki  * documentation.  */
 end_comment
 
 begin_class
@@ -65,21 +65,25 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// we do special error handling for when OrderFailedException is thrown
+comment|// we do special error handling for when OrderFailedException is
+comment|// thrown
 name|onException
 argument_list|(
 name|OrderFailedException
 operator|.
 name|class
 argument_list|)
-comment|// we mark the exchange as handled so the caller doesn't receive the
-comment|// OrderFailedException but whatever we want to return instead
+comment|// we mark the exchange as handled so the caller doesn't
+comment|// receive the
+comment|// OrderFailedException but whatever we want to return
+comment|// instead
 operator|.
 name|handled
 argument_list|(
 literal|true
 argument_list|)
-comment|// this bean handles the error handling where we can customize the error
+comment|// this bean handles the error handling where we can
+comment|// customize the error
 comment|// response using java code
 operator|.
 name|bean

@@ -277,7 +277,8 @@ argument_list|,
 literal|"one"
 argument_list|)
 expr_stmt|;
-comment|// 4 is already pre added in custom repo so it will be regarded as duplicate
+comment|// 4 is already pre added in custom repo so it will be regarded as
+comment|// duplicate
 name|sendMessage
 argument_list|(
 literal|"4"
