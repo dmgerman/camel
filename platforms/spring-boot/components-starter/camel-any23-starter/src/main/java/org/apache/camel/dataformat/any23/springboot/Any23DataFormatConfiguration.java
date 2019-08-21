@@ -112,7 +112,7 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Configurations for Apache Any23 as key-value pairs in order to customize      * the extraction process. The list of supported parameters can be found      * here. If not provided, a default configuration is used.      */
+comment|/**      * Configurations for Apache Any23 as key-value pairs in order to customize      * the extraction process. The list of supported parameters can be found a      * href=      * https://github.com/apache/any23/blob/master/api/src/main/resources/default-configuration.propertieshere. If not provided, a default configuration is used.      */
 DECL|field|configurations
 specifier|private
 name|Map
