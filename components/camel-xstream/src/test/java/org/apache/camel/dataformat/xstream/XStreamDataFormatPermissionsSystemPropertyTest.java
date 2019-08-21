@@ -36,7 +36,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterAll
 import|;
 end_import
 
@@ -46,7 +50,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeAll
 import|;
 end_import
 
@@ -55,8 +63,28 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertNotNull
 import|;
 end_import
 
@@ -69,7 +97,7 @@ extends|extends
 name|XStreamDataFormatPermissionsTest
 block|{
 annotation|@
-name|BeforeClass
+name|BeforeAll
 DECL|method|setup ()
 specifier|public
 specifier|static
@@ -88,7 +116,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AfterClass
+name|AfterAll
 DECL|method|cleanup ()
 specifier|public
 specifier|static
