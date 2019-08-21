@@ -158,7 +158,7 @@ parameter_list|()
 throws|throws
 name|TripleHandlerException
 block|{
-comment|//noop
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -212,7 +212,7 @@ parameter_list|)
 throws|throws
 name|TripleHandlerException
 block|{
-comment|//noop
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -237,7 +237,7 @@ name|boolean
 name|f
 parameter_list|)
 block|{
-comment|//noop
+comment|// noop
 block|}
 DECL|method|getModel ()
 specifier|public

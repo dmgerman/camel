@@ -151,18 +151,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -208,11 +196,11 @@ name|Any23DataFormatSpringTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
-DECL|field|BASEURI
+DECL|field|baseURI
 specifier|private
 specifier|final
 name|String
-name|BASEURI
+name|baseURI
 init|=
 literal|"http://mock.foo/bar"
 decl_stmt|;
@@ -305,7 +293,7 @@ name|parse
 argument_list|(
 name|toInputStream
 argument_list|,
-name|BASEURI
+name|baseURI
 argument_list|,
 name|RDFFormat
 operator|.

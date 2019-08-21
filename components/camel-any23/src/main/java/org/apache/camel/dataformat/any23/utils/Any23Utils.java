@@ -181,9 +181,15 @@ end_import
 begin_class
 DECL|class|Any23Utils
 specifier|public
+specifier|final
 class|class
 name|Any23Utils
 block|{
+DECL|method|Any23Utils ()
+specifier|private
+name|Any23Utils
+parameter_list|()
+block|{     }
 DECL|method|obtainHandler (Any23OutputFormat format, OutputStream outputStream)
 specifier|public
 specifier|static

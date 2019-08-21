@@ -156,11 +156,11 @@ name|Any23DataFormatModelTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|BASEURI
+DECL|field|baseURI
 specifier|private
 specifier|final
 name|String
-name|BASEURI
+name|baseURI
 init|=
 literal|"http://mock.foo/bar"
 decl_stmt|;
@@ -288,7 +288,7 @@ argument_list|()
 operator|.
 name|any23
 argument_list|(
-name|BASEURI
+name|baseURI
 argument_list|,
 name|Any23Type
 operator|.

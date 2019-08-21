@@ -363,7 +363,7 @@ name|DataFormat
 implements|,
 name|DataFormatName
 block|{
-comment|/*      * Our Logger    */
+comment|/*      * Our Logger      */
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -417,7 +417,7 @@ DECL|method|Any23DataFormat ()
 specifier|public
 name|Any23DataFormat
 parameter_list|()
-block|{   }
+block|{     }
 DECL|method|Any23DataFormat (String baseURI)
 specifier|public
 name|Any23DataFormat
@@ -557,7 +557,7 @@ return|return
 literal|"any23"
 return|;
 block|}
-comment|/**    * Marshal data. Generate RDF.    */
+comment|/**      * Marshal data. Generate RDF.      */
 DECL|method|marshal (Exchange exchange, Object object, OutputStream outputStream)
 specifier|public
 name|void
@@ -640,7 +640,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Unmarshal the data    */
+comment|/**      * Unmarshal the data      */
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object
@@ -862,7 +862,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//Default output format
+comment|// Default output format
 name|outputFormat
 operator|=
 name|Any23OutputFormat
