@@ -601,8 +601,11 @@ block|,
 comment|/* Java EE -> */
 literal|"camel-cdi"
 block|,
-comment|/* Microprofile -> */
+comment|/* MicroProfile -> */
 literal|"camel-microprofile-config"
+block|,
+comment|/* MicroProfile -> */
+literal|"camel-microprofile-metrics"
 block|,
 comment|/* deprecated (and not working perfectly) -> */
 literal|"camel-swagger"
