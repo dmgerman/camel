@@ -168,6 +168,7 @@ name|SourceHandlerFactory
 block|{
 DECL|field|jsonFactory
 specifier|private
+specifier|final
 name|JsonFactory
 name|jsonFactory
 decl_stmt|;
@@ -178,7 +179,7 @@ name|isFailOnNullBody
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Creates a new instance      * @param jsonFactory the jsonFactory to use to read the json document      */
+comment|/**      * Creates a new instance      *      * @param jsonFactory the jsonFactory to use to read the json document      */
 DECL|method|JsonSourceHandlerFactoryImpl (JsonFactory jsonFactory)
 specifier|public
 name|JsonSourceHandlerFactoryImpl
@@ -205,7 +206,7 @@ return|return
 name|isFailOnNullBody
 return|;
 block|}
-comment|/**      * Set if we should fail when the body is null      * @param failOnNullBody      */
+comment|/**      * Set if we should fail when the body is null      */
 DECL|method|setFailOnNullBody (boolean failOnNullBody)
 specifier|public
 name|void

@@ -148,7 +148,7 @@ specifier|final
 name|Result
 name|result
 decl_stmt|;
-comment|/**      * Creates a new json to file result handler instance      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
+comment|/**      * Creates a new json to file result handler instance      *      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
 DECL|method|JsonFileResultHandler (JsonFactory jsonFactory, File file)
 specifier|public
 name|JsonFileResultHandler

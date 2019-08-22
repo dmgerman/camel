@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@JsonStringResultHandler} factory  */
+comment|/**  * A {@link JsonStringResultHandler} factory  */
 end_comment
 
 begin_class
@@ -94,7 +94,7 @@ specifier|final
 name|JsonFactory
 name|jsonFactory
 decl_stmt|;
-comment|/**      * Creates a new json to string result handler factory      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
+comment|/**      * Creates a new json to string result handler factory      *      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
 DECL|method|JsonStringResultHandlerFactory (JsonFactory jsonFactory)
 specifier|public
 name|JsonStringResultHandlerFactory

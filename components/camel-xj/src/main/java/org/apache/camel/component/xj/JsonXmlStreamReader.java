@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UncheckedIOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayDeque
@@ -204,6 +214,33 @@ name|JsonXmlStreamReader
 implements|implements
 name|XMLStreamReader
 block|{
+DECL|field|ERROR_MSG_NOT_IN_START_ELEMENT
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ERROR_MSG_NOT_IN_START_ELEMENT
+init|=
+literal|"Current event is not start element"
+decl_stmt|;
+DECL|field|ERROR_MSG_NOT_IN_START_END_ELEMENT
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ERROR_MSG_NOT_IN_START_END_ELEMENT
+init|=
+literal|"Current event is not start element"
+decl_stmt|;
+DECL|field|ERROR_MSG_NOT_IN_CHARACTERS
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ERROR_MSG_NOT_IN_CHARACTERS
+init|=
+literal|"Current event is not character"
+decl_stmt|;
 DECL|field|LOCATION
 specifier|private
 specifier|static
@@ -283,6 +320,7 @@ name|jsonParser
 decl_stmt|;
 DECL|field|tokenStack
 specifier|private
+specifier|final
 name|Deque
 argument_list|<
 name|StackElement
@@ -298,9 +336,8 @@ DECL|field|eof
 specifier|private
 name|boolean
 name|eof
-init|=
-literal|false
 decl_stmt|;
+comment|/**      * Creates a new JsonXmlStreamReader instance      * @param jsonParser the {@link JsonParser} to use to read the json document.      */
 DECL|method|JsonXmlStreamReader (JsonParser jsonParser)
 specifier|public
 name|JsonXmlStreamReader
@@ -431,6 +468,14 @@ operator|.
 name|FIELD_NAME
 argument_list|)
 expr_stmt|;
+assert|assert
+name|tokenStack
+operator|.
+name|peek
+argument_list|()
+operator|!=
+literal|null
+assert|;
 name|tokenStack
 operator|.
 name|peek
@@ -457,6 +502,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+default|default:
+break|break;
 block|}
 block|}
 if|if
@@ -566,6 +613,24 @@ case|:
 case|case
 name|START_ARRAY
 case|:
+case|case
+name|VALUE_STRING
+case|:
+case|case
+name|VALUE_NUMBER_INT
+case|:
+case|case
+name|VALUE_NUMBER_FLOAT
+case|:
+case|case
+name|VALUE_NULL
+case|:
+case|case
+name|VALUE_TRUE
+case|:
+case|case
+name|VALUE_FALSE
+case|:
 name|stackElement
 operator|.
 name|xmlEvent
@@ -655,37 +720,6 @@ name|XMLEvent
 operator|.
 name|END_ELEMENT
 return|;
-case|case
-name|VALUE_STRING
-case|:
-case|case
-name|VALUE_NUMBER_INT
-case|:
-case|case
-name|VALUE_NUMBER_FLOAT
-case|:
-case|case
-name|VALUE_NULL
-case|:
-case|case
-name|VALUE_TRUE
-case|:
-case|case
-name|VALUE_FALSE
-case|:
-name|stackElement
-operator|.
-name|xmlEvent
-operator|=
-name|XMLEvent
-operator|.
-name|START_ELEMENT
-expr_stmt|;
-return|return
-name|XMLEvent
-operator|.
-name|START_ELEMENT
-return|;
 default|default:
 throw|throw
 operator|new
@@ -769,7 +803,7 @@ name|START_ARRAY
 operator|)
 condition|)
 block|{
-comment|// anonym array
+comment|// anonymous array
 return|return;
 block|}
 if|if
@@ -850,8 +884,6 @@ parameter_list|,
 name|String
 name|localName
 parameter_list|)
-throws|throws
-name|XMLStreamException
 block|{
 throw|throw
 operator|new
@@ -870,8 +902,6 @@ specifier|public
 name|String
 name|getElementText
 parameter_list|()
-throws|throws
-name|XMLStreamException
 block|{
 throw|throw
 operator|new
@@ -930,8 +960,6 @@ specifier|public
 name|boolean
 name|hasNext
 parameter_list|()
-throws|throws
-name|XMLStreamException
 block|{
 return|return
 operator|!
@@ -1173,7 +1201,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1223,7 +1253,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1275,7 +1307,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1330,7 +1364,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1385,7 +1421,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1440,7 +1478,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1487,7 +1527,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1592,7 +1634,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_END_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1649,7 +1693,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_START_END_ELEMENT
+argument_list|)
 throw|;
 block|}
 return|return
@@ -1773,7 +1819,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+name|ERROR_MSG_NOT_IN_CHARACTERS
+argument_list|)
 throw|;
 block|}
 try|try
@@ -1799,7 +1847,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|UncheckedIOException
 argument_list|(
 name|e
 argument_list|)
@@ -1826,8 +1874,6 @@ parameter_list|,
 name|int
 name|length
 parameter_list|)
-throws|throws
-name|XMLStreamException
 block|{
 specifier|final
 name|char
@@ -1890,6 +1936,11 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+assert|assert
+name|stackElement
+operator|!=
+literal|null
+assert|;
 name|setXmlText
 argument_list|(
 name|stackElement
@@ -1913,7 +1964,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|UncheckedIOException
 argument_list|(
 name|e
 argument_list|)
@@ -2382,6 +2433,7 @@ name|copied
 argument_list|)
 return|;
 block|}
+comment|/**      * Class that represents an element on the stack.      */
 DECL|class|StackElement
 specifier|private
 specifier|static
@@ -2390,13 +2442,24 @@ name|StackElement
 block|{
 DECL|field|jsonToken
 specifier|private
+specifier|final
 name|JsonToken
 name|jsonToken
 decl_stmt|;
 DECL|field|name
 specifier|private
+specifier|final
 name|String
 name|name
+decl_stmt|;
+DECL|field|attributes
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|QName
+argument_list|>
+name|attributes
 decl_stmt|;
 DECL|field|xmlEvent
 specifier|private
@@ -2408,14 +2471,6 @@ specifier|private
 name|char
 index|[]
 name|value
-decl_stmt|;
-DECL|field|attributes
-specifier|private
-name|List
-argument_list|<
-name|QName
-argument_list|>
-name|attributes
 decl_stmt|;
 DECL|method|StackElement (JsonToken jsonToken, String name)
 name|StackElement
@@ -2485,7 +2540,6 @@ name|nameAttribute
 argument_list|)
 expr_stmt|;
 block|}
-comment|// todo configurable if type hints should be emitted?
 specifier|final
 name|QName
 name|typeAttribute
@@ -2600,7 +2654,12 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown attribute"
+literal|"Unknown attribute "
+operator|+
+name|attribute
+operator|.
+name|getLocalPart
+argument_list|()
 argument_list|)
 throw|;
 block|}

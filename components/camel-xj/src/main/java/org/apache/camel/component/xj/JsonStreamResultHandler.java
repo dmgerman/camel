@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Result handler impl. to write a json document into a {@ByteArrayOutputStream}  */
+comment|/**  * Result handler impl. to write a json document into a {@link ByteArrayOutputStream}  */
 end_comment
 
 begin_class
@@ -148,7 +148,7 @@ specifier|final
 name|Result
 name|result
 decl_stmt|;
-comment|/**      * Creates a new json to stream result handler instance      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
+comment|/**      * Creates a new json to stream result handler instance      *      * @param jsonFactory the {@link JsonFactory} to use to write the json.      */
 DECL|method|JsonStreamResultHandler (JsonFactory jsonFactory)
 specifier|public
 name|JsonStreamResultHandler

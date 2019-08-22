@@ -212,6 +212,7 @@ name|XsltEndpoint
 block|{
 DECL|field|jsonFactory
 specifier|private
+specifier|final
 name|JsonFactory
 name|jsonFactory
 init|=
@@ -311,7 +312,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// todo using a stylesheet for "identity" transform is slow. But with transformerFactory we can't get an identity transformer...
+comment|// Using a stylesheet for "identity" transform is slow. but with a {@link TransformerFactory}
+comment|// we can't get an identity transformer. But for now we leave it that way.
 name|setResourceUri
 argument_list|(
 literal|"org/apache/camel/component/xj/identity.xsl"

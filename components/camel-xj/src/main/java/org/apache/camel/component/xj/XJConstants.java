@@ -65,6 +65,7 @@ end_import
 begin_class
 DECL|class|XJConstants
 specifier|public
+specifier|final
 class|class
 name|XJConstants
 block|{
@@ -139,6 +140,15 @@ name|String
 name|UNSUPPORTED_OPERATION_EXCEPTION_MESSAGE
 init|=
 literal|"unsupported / not yet implemented"
+decl_stmt|;
+comment|/**      * Field name when xml contains mixed-content      */
+DECL|field|JSON_WRITER_MIXED_CONTENT_TEXT_KEY
+specifier|static
+specifier|final
+name|String
+name|JSON_WRITER_MIXED_CONTENT_TEXT_KEY
+init|=
+literal|"#text"
 decl_stmt|;
 static|static
 block|{
