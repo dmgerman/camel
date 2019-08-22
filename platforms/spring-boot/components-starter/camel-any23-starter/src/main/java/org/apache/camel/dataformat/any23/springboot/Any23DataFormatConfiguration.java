@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -112,17 +102,6 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * Configurations for Apache Any23 as key-value pairs in order to customize      * the extraction process. The list of supported parameters can be found a      * href=      * https://github.com/apache/any23/blob/master/api/src/main/resources/default-configuration.propertieshere. If not provided, a default configuration is used.      */
-DECL|field|configurations
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|configurations
-decl_stmt|;
 comment|/**      * List of Any23 extractors to be used in the unmarshal operation. A list of      * the available extractors can be found here here. If not provided, all the      * available extractors are used.      */
 DECL|field|extractors
 specifier|private
@@ -146,42 +125,6 @@ name|contentTypeHeader
 init|=
 literal|false
 decl_stmt|;
-DECL|method|getConfigurations ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|getConfigurations
-parameter_list|()
-block|{
-return|return
-name|configurations
-return|;
-block|}
-DECL|method|setConfigurations (Map<String, String> configurations)
-specifier|public
-name|void
-name|setConfigurations
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|configurations
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configurations
-operator|=
-name|configurations
-expr_stmt|;
-block|}
 DECL|method|getExtractors ()
 specifier|public
 name|List
