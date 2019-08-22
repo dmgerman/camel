@@ -203,7 +203,8 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// the message was not send to the direct:foo route and thus not sent to the seda endpoint
+comment|// the message was not send to the direct:foo route and thus not sent to
+comment|// the seda endpoint
 name|SedaEndpoint
 name|seda
 init|=
