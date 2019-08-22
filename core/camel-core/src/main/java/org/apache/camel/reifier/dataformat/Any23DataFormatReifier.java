@@ -165,7 +165,7 @@ if|if
 condition|(
 name|definition
 operator|.
-name|getConfigurations
+name|getConfiguration
 argument_list|()
 operator|!=
 literal|null
@@ -181,7 +181,7 @@ literal|"configurations"
 argument_list|,
 name|definition
 operator|.
-name|getConfigurations
+name|getConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;

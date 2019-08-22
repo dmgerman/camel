@@ -110,15 +110,15 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|xml
+name|apache
 operator|.
-name|bind
+name|camel
 operator|.
-name|annotation
+name|model
 operator|.
-name|XmlTransient
+name|ConfigurationOptions
 import|;
 end_import
 
@@ -205,17 +205,14 @@ specifier|private
 name|Any23Type
 name|outputFormat
 decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|configurations
+DECL|field|configuration
 specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|configurations
+name|ConfigurationOptions
+name|configuration
+init|=
+operator|new
+name|ConfigurationOptions
+argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -320,9 +317,14 @@ name|outputFormat
 expr_stmt|;
 name|this
 operator|.
-name|configurations
+name|configuration
 operator|=
+name|ConfigurationOptions
+operator|.
+name|from
+argument_list|(
 name|configurations
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|Any23DataFormat (String baseuri, Any23Type outputFormat, Map<String, String> configurations, List<String> extractors)
@@ -367,9 +369,14 @@ name|outputFormat
 expr_stmt|;
 name|this
 operator|.
-name|configurations
+name|configuration
 operator|=
+name|ConfigurationOptions
+operator|.
+name|from
+argument_list|(
 name|configurations
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -405,7 +412,7 @@ operator|=
 name|outputFormat
 expr_stmt|;
 block|}
-DECL|method|getConfigurations ()
+DECL|method|getConfiguration ()
 specifier|public
 name|Map
 argument_list|<
@@ -413,18 +420,21 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|getConfigurations
+name|getConfiguration
 parameter_list|()
 block|{
 return|return
-name|configurations
+name|configuration
+operator|.
+name|asMap
+argument_list|()
 return|;
 block|}
 comment|/**      * Configurations for Apache Any23 as key-value pairs in order to customize      * the extraction process. The list of supported parameters can be found      *<a href=      * "https://github.com/apache/any23/blob/master/api/src/main/resources/default-configuration.properties">here</a>.      * If not provided, a default configuration is used.      */
-DECL|method|setConfigurations (Map<String, String> configurations)
+DECL|method|setConfiguration (Map<String, String> configurations)
 specifier|public
 name|void
-name|setConfigurations
+name|setConfiguration
 parameter_list|(
 name|Map
 argument_list|<
@@ -437,9 +447,14 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|configurations
+name|configuration
 operator|=
+name|ConfigurationOptions
+operator|.
+name|from
+argument_list|(
 name|configurations
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getExtractors ()
