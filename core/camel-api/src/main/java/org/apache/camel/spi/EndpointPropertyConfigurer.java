@@ -28,6 +28,10 @@ name|CamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Property configurer for Camel {@link org.apache.camel.Endpoint}  * which allows fast configurations without using Java reflection.  */
+end_comment
+
 begin_interface
 DECL|interface|EndpointPropertyConfigurer
 specifier|public
@@ -39,6 +43,7 @@ argument_list|<
 name|Object
 argument_list|>
 block|{
+comment|/**      * Configures the endpoint.      *      * @param endpoint      the endpoint      * @param camelContext  the camel context      */
 DECL|method|configure (Object endpoint, CamelContext camelContext)
 name|void
 name|configure

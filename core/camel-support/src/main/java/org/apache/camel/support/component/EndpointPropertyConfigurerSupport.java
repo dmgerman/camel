@@ -44,6 +44,10 @@ name|EndpointPropertyConfigurer
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base class used by the camel-apt compiler plugin when it generates source code for all  * the endpoint configurations.  */
+end_comment
+
 begin_class
 DECL|class|EndpointPropertyConfigurerSupport
 specifier|public
@@ -53,6 +57,7 @@ name|EndpointPropertyConfigurerSupport
 implements|implements
 name|EndpointPropertyConfigurer
 block|{
+comment|/**      * Converts the property to the expected type      *      * @param camelContext   the camel context      * @param type           the expected type      * @param value          the value      * @return  the value converted to the expected type      */
 DECL|method|property (CamelContext camelContext, Class<T> type, Object value)
 specifier|public
 specifier|static
