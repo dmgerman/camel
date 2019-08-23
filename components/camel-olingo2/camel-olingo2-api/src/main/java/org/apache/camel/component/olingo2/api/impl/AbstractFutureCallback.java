@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** * Helper implementation of {@link org.apache.http.concurrent.FutureCallback}  * for {@link org.apache.camel.component.olingo2.api.impl.Olingo2AppImpl} */
+comment|/**  * Helper implementation of {@link org.apache.http.concurrent.FutureCallback}  * for {@link org.apache.camel.component.olingo2.api.impl.Olingo2AppImpl}  */
 end_comment
 
 begin_class

@@ -174,7 +174,7 @@ specifier|private
 name|int
 name|port
 decl_stmt|;
-comment|/**      *       * @param port      * @param resourcePath      */
+comment|/**      * @param port      * @param resourcePath      */
 DECL|method|Olingo2SampleServer (int port, String resourcePath)
 specifier|public
 name|Olingo2SampleServer
@@ -365,7 +365,8 @@ name|IOException
 block|{
 try|try
 block|{
-comment|// need to use reflection to avoid a build error even when the sample source is not available
+comment|// need to use reflection to avoid a build error even when the
+comment|// sample source is not available
 name|Class
 argument_list|<
 name|?

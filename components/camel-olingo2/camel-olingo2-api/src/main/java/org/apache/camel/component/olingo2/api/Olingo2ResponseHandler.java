@@ -43,7 +43,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Handle response data on successful completion of Olingo2 request.      * @param response response data from Olingo2, may be NULL for Olingo2 operations with no response data.      * @param responseHeaders the response HTTP headers received from the endpoint.      */
+comment|/**      * Handle response data on successful completion of Olingo2 request.      *       * @param response response data from Olingo2, may be NULL for Olingo2      *            operations with no response data.      * @param responseHeaders the response HTTP headers received from the      *            endpoint.      */
 DECL|method|onResponse (T response, Map<String, String> responseHeaders)
 name|void
 name|onResponse
@@ -60,7 +60,7 @@ argument_list|>
 name|responseHeaders
 parameter_list|)
 function_decl|;
-comment|/**      * Handle exception raised from Olingo2 request.      * @param ex exception from Olingo2 request.      *           May be an instance of {@link org.apache.olingo.odata2.api.exception.ODataException} or      *           some other exception, such as {@link java.io.IOException}      */
+comment|/**      * Handle exception raised from Olingo2 request.      *       * @param ex exception from Olingo2 request. May be an instance of      *            {@link org.apache.olingo.odata2.api.exception.ODataException}      *            or some other exception, such as {@link java.io.IOException}      */
 DECL|method|onException (Exception ex)
 name|void
 name|onException
@@ -69,7 +69,7 @@ name|Exception
 name|ex
 parameter_list|)
 function_decl|;
-comment|/**      * Handle Olingo2 request cancellation.      * May be caused by the underlying HTTP connection being shutdown asynchronously.      */
+comment|/**      * Handle Olingo2 request cancellation. May be caused by the underlying HTTP      * connection being shutdown asynchronously.      */
 DECL|method|onCanceled ()
 name|void
 name|onCanceled

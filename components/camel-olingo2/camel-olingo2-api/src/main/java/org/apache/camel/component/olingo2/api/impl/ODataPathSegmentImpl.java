@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Copied from Olingo2 library, since URI parsing wasn't made a part of it's public API.  */
+comment|/**  * Copied from Olingo2 library, since URI parsing wasn't made a part of it's  * public API.  */
 end_comment
 
 begin_class

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2016 Red Hat, Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,42 +17,6 @@ operator|.
 name|olingo2
 package|;
 end_package
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
 
 begin_import
 import|import
@@ -83,6 +47,62 @@ operator|.
 name|rs
 operator|.
 name|HttpMethod
+import|;
+end_import
+
+begin_import
+import|import
+name|okhttp3
+operator|.
+name|HttpUrl
+import|;
+end_import
+
+begin_import
+import|import
+name|okhttp3
+operator|.
+name|mockwebserver
+operator|.
+name|Dispatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|okhttp3
+operator|.
+name|mockwebserver
+operator|.
+name|MockResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|okhttp3
+operator|.
+name|mockwebserver
+operator|.
+name|MockWebServer
+import|;
+end_import
+
+begin_import
+import|import
+name|okhttp3
+operator|.
+name|mockwebserver
+operator|.
+name|RecordedRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|okio
+operator|.
+name|Buffer
 import|;
 end_import
 
@@ -367,63 +387,43 @@ import|;
 end_import
 
 begin_import
-import|import
-name|okhttp3
+import|import static
+name|org
 operator|.
-name|HttpUrl
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
 import|;
 end_import
 
 begin_import
-import|import
-name|okhttp3
+import|import static
+name|org
 operator|.
-name|mockwebserver
+name|junit
 operator|.
-name|Dispatcher
+name|Assert
+operator|.
+name|assertNotNull
 import|;
 end_import
 
 begin_import
-import|import
-name|okhttp3
+import|import static
+name|org
 operator|.
-name|mockwebserver
+name|junit
 operator|.
-name|MockResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|okhttp3
+name|Assert
 operator|.
-name|mockwebserver
-operator|.
-name|MockWebServer
-import|;
-end_import
-
-begin_import
-import|import
-name|okhttp3
-operator|.
-name|mockwebserver
-operator|.
-name|RecordedRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|okio
-operator|.
-name|Buffer
+name|fail
 import|;
 end_import
 
 begin_comment
-comment|/**  * Tests support for concurrency properties which generate and require  * reading eTags before patch, update and delete operations.  *  * Since the embedded olingo2 odata service does not contain any  * concurrency properties, it is necessary to mock up a new server.  *  * Uses a cutdown version of the reference odata service and adds in  * extra concurrency properties.  *  * Service's dispatcher only tests the correct calls are made and whether  * the eTags are correctly added as headers to the requisite requests.  *  */
+comment|/**  * Tests support for concurrency properties which generate and require reading  * eTags before patch, update and delete operations. Since the embedded olingo2  * odata service does not contain any concurrency properties, it is necessary to  * mock up a new server. Uses a cutdown version of the reference odata service  * and adds in extra concurrency properties. Service's dispatcher only tests the  * correct calls are made and whether the eTags are correctly added as headers  * to the requisite requests.  */
 end_comment
 
 begin_class
@@ -871,9 +871,11 @@ name|DELETE
 case|:
 comment|//
 comment|// Objective of the test:
-comment|//   The Read has to have been called by Olingo2AppImpl.argumentWithETag
-comment|//    which should then populate the IF-MATCH header with the eTag value.
-comment|//    Verify the eTag value is present.
+comment|// The Read has to have been called by
+comment|// Olingo2AppImpl.argumentWithETag
+comment|// which should then populate the IF-MATCH header with the
+comment|// eTag value.
+comment|// Verify the eTag value is present.
 comment|//
 name|assertNotNull
 argument_list|(
@@ -903,6 +905,8 @@ name|getStatusCode
 argument_list|()
 argument_list|)
 return|;
+default|default:
+break|break;
 block|}
 name|mockResponse
 operator|.

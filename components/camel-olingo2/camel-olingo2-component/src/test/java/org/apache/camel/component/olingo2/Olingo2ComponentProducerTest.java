@@ -415,7 +415,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for {@link org.apache.camel.component.olingo2.api.Olingo2App} APIs.  *<p>  * The integration test runs against Apache Olingo 2.0 sample server which is  * dynamically installed and started during the test.  *</p>  */
+comment|/**  * Test class for {@link org.apache.camel.component.olingo2.api.Olingo2App}  * APIs.  *<p>  * The integration test runs against Apache Olingo 2.0 sample server which is  * dynamically installed and started during the test.  *</p>  */
 end_comment
 
 begin_class
@@ -1885,7 +1885,7 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read entity set of the People object and with no filter already seen, all      * items should be present in each message     *      * @throws Exception      */
+comment|/**      * Read entity set of the People object and with no filter already seen, all      * items should be present in each message      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testProducerReadNoFilterAlreadySeen ()

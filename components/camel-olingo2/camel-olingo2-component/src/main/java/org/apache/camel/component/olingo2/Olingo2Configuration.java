@@ -423,7 +423,7 @@ return|return
 name|serviceUri
 return|;
 block|}
-comment|/**      * Target OData service base URI, e.g. http://services.odata.org/OData/OData.svc      */
+comment|/**      * Target OData service base URI, e.g.      * http://services.odata.org/OData/OData.svc      */
 DECL|method|setServiceUri (String serviceUri)
 specifier|public
 name|void
@@ -450,7 +450,7 @@ return|return
 name|contentType
 return|;
 block|}
-comment|/**      * Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8      */
+comment|/**      * Content-Type header value can be used to specify JSON or XML message      * format, defaults to application/json;charset=utf-8      */
 DECL|method|setContentType (String contentType)
 specifier|public
 name|void
@@ -482,7 +482,7 @@ return|return
 name|httpHeaders
 return|;
 block|}
-comment|/**      * Custom HTTP headers to inject into every request, this could include OAuth tokens, etc.      */
+comment|/**      * Custom HTTP headers to inject into every request, this could include      * OAuth tokens, etc.      */
 DECL|method|setHttpHeaders (Map<String, String> httpHeaders)
 specifier|public
 name|void
@@ -514,7 +514,7 @@ return|return
 name|connectTimeout
 return|;
 block|}
-comment|/**      * HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds)      */
+comment|/**      * HTTP connection creation timeout in milliseconds, defaults to 30,000 (30      * seconds)      */
 DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void
@@ -622,7 +622,7 @@ return|return
 name|httpAsyncClientBuilder
 return|;
 block|}
-comment|/**      * Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext.      * Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely      */
+comment|/**      * Custom HTTP async client builder for more complex HTTP client      * configuration, overrides connectionTimeout, socketTimeout, proxy and      * sslContext. Note that a socketTimeout MUST be specified in the builder,      * otherwise OData requests could block indefinitely      */
 DECL|method|setHttpAsyncClientBuilder (HttpAsyncClientBuilder httpAsyncClientBuilder)
 specifier|public
 name|void
@@ -649,7 +649,7 @@ return|return
 name|httpClientBuilder
 return|;
 block|}
-comment|/**      * Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext.      * Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely      */
+comment|/**      * Custom HTTP client builder for more complex HTTP client configuration,      * overrides connectionTimeout, socketTimeout, proxy and sslContext. Note      * that a socketTimeout MUST be specified in the builder, otherwise OData      * requests could block indefinitely      */
 DECL|method|setHttpClientBuilder (HttpClientBuilder httpClientBuilder)
 specifier|public
 name|void
@@ -677,7 +677,7 @@ return|return
 name|filterAlreadySeen
 return|;
 block|}
-comment|/**      * Set this to true to filter out results that have already been communicated by this component.      * @param filterAlreadySeen      */
+comment|/**      * Set this to true to filter out results that have already been      * communicated by this component.      *       * @param filterAlreadySeen      */
 DECL|method|setFilterAlreadySeen (boolean filterAlreadySeen)
 specifier|public
 name|void

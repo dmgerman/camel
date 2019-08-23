@@ -839,7 +839,8 @@ name|propertyNames
 parameter_list|)
 block|{
 comment|// add edm, and responseHandler property names
-comment|// edm is computed on first call to getApiProxy(), and responseHandler is provided by consumer and producer
+comment|// edm is computed on first call to getApiProxy(), and responseHandler
+comment|// is provided by consumer and producer
 if|if
 condition|(
 operator|!
@@ -1099,7 +1100,7 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-comment|/**              * Avoid swallowing consumer scheduler properties, which              * get processed in configureProperties()              */
+comment|/**              * Avoid swallowing consumer scheduler properties, which get              * processed in configureProperties()              */
 if|if
 condition|(
 name|paramName

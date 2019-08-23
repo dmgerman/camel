@@ -378,7 +378,8 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-comment|// producer returns a single response, even for methods with List return types
+comment|// producer returns a single response, even for methods with
+comment|// List return types
 name|exchange
 operator|.
 name|getOut
@@ -609,7 +610,8 @@ name|properties
 parameter_list|)
 block|{
 comment|//
-comment|// If we have a filterAlreadySeen property then initialise the filter index
+comment|// If we have a filterAlreadySeen property then initialise the filter
+comment|// index
 comment|//
 name|Object
 name|value
@@ -633,7 +635,8 @@ block|{
 return|return;
 block|}
 comment|//
-comment|// Initialise the index if not already and if filterAlreadySeen has been set
+comment|// Initialise the index if not already and if filterAlreadySeen has been
+comment|// set
 comment|//
 if|if
 condition|(

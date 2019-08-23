@@ -2791,7 +2791,7 @@ name|responseHandler
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * On occasion, some resources are protected with Optimistic Concurrency via the use of eTags.      * This will first conduct a read on the given entity resource, find its eTag then perform the given      * delegate request function, augmenting the request with the eTag, if appropriate.      *      * Since read operations may be asynchronous, it is necessary to chain together the methods via      * the use of a {@link Consumer} function. Only when the response from the read returns will      * this delegate function be executed.      *      * @param edm the Edm object to be interrogated      * @param resourcePath the resource path of the entity to be operated on      * @param endpointHttpHeaders the headers provided from the endpoint which may be required for the read operation      * @param httpRequest the request to be updated, if appropriate, with the eTag and provided to the delegate request function      * @param delegateRequestFn the function to be invoked in response to the read operation      * @param delegateResponseHandler the response handler to respond if any errors occur during the read operation      */
+comment|/**      * On occasion, some resources are protected with Optimistic Concurrency via      * the use of eTags. This will first conduct a read on the given entity      * resource, find its eTag then perform the given delegate request function,      * augmenting the request with the eTag, if appropriate. Since read      * operations may be asynchronous, it is necessary to chain together the      * methods via the use of a {@link Consumer} function. Only when the      * response from the read returns will this delegate function be executed.      *      * @param edm the Edm object to be interrogated      * @param resourcePath the resource path of the entity to be operated on      * @param endpointHttpHeaders the headers provided from the endpoint which      *            may be required for the read operation      * @param httpRequest the request to be updated, if appropriate, with the      *            eTag and provided to the delegate request function      * @param delegateRequestFn the function to be invoked in response to the      *            read operation      * @param delegateResponseHandler the response handler to respond if any      *            errors occur during the read operation      */
 DECL|method|augmentWithETag (final Edm edm, final String resourcePath, final Map<String, String> endpointHttpHeaders, final HttpRequestBase httpRequest, final Consumer<HttpRequestBase> delegateRequestFn, final Olingo2ResponseHandler<T> delegateResponseHandler)
 specifier|private
 parameter_list|<
@@ -2843,7 +2843,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Can be the case if calling a delete then need to do a metadata call first
+comment|// Can be the case if calling a delete then need to do a metadata
+comment|// call first
 specifier|final
 name|Olingo2ResponseHandler
 argument_list|<
@@ -2930,7 +2931,8 @@ block|}
 decl_stmt|;
 comment|//
 comment|// Reads the metadata to establish an Edm object
-comment|// then the response handler invokes this method again with the new edm object
+comment|// then the response handler invokes this method again with the new
+comment|// edm object
 comment|//
 name|read
 argument_list|(
@@ -2949,7 +2951,8 @@ block|}
 else|else
 block|{
 comment|//
-comment|// The handler that responds to the read operation and supplies an ETag if necessary
+comment|// The handler that responds to the read operation and supplies an
+comment|// ETag if necessary
 comment|// and invokes the delegate request function
 comment|//
 name|Olingo2ResponseHandler
@@ -3030,7 +3033,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Invoke the delegate request function providing the modified request
+comment|// Invoke the delegate request function providing the
+comment|// modified request
 name|delegateRequestFn
 operator|.
 name|accept
@@ -3761,7 +3765,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// get (http) entity which is for default Olingo2 implementation an InputStream
+comment|// get (http) entity which is for default Olingo2 implementation an
+comment|// InputStream
 if|if
 condition|(
 name|response
@@ -3789,7 +3794,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/*                 // avoid sending it without a header field set                 if (!httpEntityRequest.containsHeader(HttpHeaders.CONTENT_TYPE)) {                     httpEntityRequest.addHeader(HttpHeaders.CONTENT_TYPE, getContentType());                 } */
+comment|/*                  * // avoid sending it without a header field set if                  * (!httpEntityRequest.containsHeader(HttpHeaders.CONTENT_TYPE))                  * { httpEntityRequest.addHeader(HttpHeaders.CONTENT_TYPE,                  * getContentType()); }                  */
 block|}
 comment|// execute HTTP request
 specifier|final
@@ -3865,7 +3870,8 @@ name|BatchException
 throws|,
 name|ODataApplicationException
 block|{
-comment|// if a entity is created (via POST request) the response body contains the new created entity
+comment|// if a entity is created (via POST request) the response
+comment|// body contains the new created entity
 name|HttpStatusCodes
 name|statusCode
 init|=
@@ -4148,7 +4154,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// report any parsing errors as error response
+comment|// report any parsing errors as error
+comment|// response
 name|responses
 operator|.
 name|add
@@ -4232,7 +4239,8 @@ case|case
 name|URI5
 case|:
 comment|// simple property
-comment|// get the response content as Object for $value or Map<String, Object> otherwise
+comment|// get the response content as Object for $value or
+comment|// Map<String, Object> otherwise
 specifier|final
 name|List
 argument_list|<
@@ -4476,7 +4484,8 @@ case|case
 name|URI7B
 case|:
 comment|// $links with * cardinality property
-comment|// get the response content as java.util.List<String>
+comment|// get the response content as
+comment|// java.util.List<String>
 specifier|final
 name|EdmEntitySet
 name|targetLinksEntitySet
@@ -5499,7 +5508,8 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-comment|// serialize data into ODataResponse object, if set in request and this is not a DELETE request
+comment|// serialize data into ODataResponse object, if set in request and this
+comment|// is not a DELETE request
 specifier|final
 name|Map
 argument_list|<
@@ -5586,7 +5596,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// get (http) entity which is for default Olingo2 implementation an InputStream
+comment|// get (http) entity which is for default Olingo2 implementation an
+comment|// InputStream
 name|body
 operator|=
 name|response

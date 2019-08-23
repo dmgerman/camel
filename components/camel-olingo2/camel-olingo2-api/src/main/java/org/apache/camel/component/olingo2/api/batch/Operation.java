@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/** * OData operation used by {@link org.apache.camel.component.olingo2.api.batch.Olingo2BatchChangeRequest}. */
+comment|/**  * OData operation used by  * {@link org.apache.camel.component.olingo2.api.batch.Olingo2BatchChangeRequest}.  */
 end_comment
 
 begin_enum
