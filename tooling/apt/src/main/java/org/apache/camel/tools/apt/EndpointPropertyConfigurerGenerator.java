@@ -417,7 +417,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|generatePropertyConfigurer (ProcessingEnvironment processingEnv, TypeElement parent, String pn, String cn, String fqn, String en, String fqen, Set<EndpointOption> options)
+DECL|method|generatePropertyConfigurer (ProcessingEnvironment processingEnv, TypeElement parent, String pn, String cn, String fqn, String en, Set<EndpointOption> options)
 specifier|public
 specifier|static
 name|void
@@ -440,9 +440,6 @@ name|fqn
 parameter_list|,
 name|String
 name|en
-parameter_list|,
-name|String
-name|fqen
 parameter_list|,
 name|Set
 argument_list|<
@@ -553,17 +550,6 @@ operator|.
 name|write
 argument_list|(
 literal|"import org.apache.camel.CamelContext;\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"import "
-operator|+
-name|fqen
-operator|+
-literal|";\n"
 argument_list|)
 expr_stmt|;
 name|w

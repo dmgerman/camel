@@ -1757,8 +1757,6 @@ name|fqn
 argument_list|,
 name|en
 argument_list|,
-name|fqen
-argument_list|,
 name|endpointOptions
 argument_list|)
 expr_stmt|;
