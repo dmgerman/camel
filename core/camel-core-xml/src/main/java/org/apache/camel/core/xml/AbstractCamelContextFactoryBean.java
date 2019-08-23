@@ -1678,6 +1678,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|mergedOptions
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|getContext
 argument_list|()
 operator|.
@@ -1686,9 +1695,7 @@ argument_list|(
 name|mergedOptions
 argument_list|)
 expr_stmt|;
-name|setupCustomServices
-argument_list|()
-expr_stmt|;
+block|}
 comment|// set the custom registry if defined
 name|initCustomRegistry
 argument_list|(
@@ -1700,8 +1707,12 @@ comment|// setup property placeholder so we got it as early as possible
 name|initPropertyPlaceholder
 argument_list|()
 expr_stmt|;
-comment|// setup JMX agent at first
+comment|// then setup JMX
 name|initJMXAgent
+argument_list|()
+expr_stmt|;
+comment|// setup all misc services
+name|setupCustomServices
 argument_list|()
 expr_stmt|;
 name|BacklogTracer

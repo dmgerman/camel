@@ -1473,6 +1473,38 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+comment|// used for handing over pre-services between a provisional lifecycycle strategy
+comment|// and then later the actual strategy to be used when using XML
+DECL|method|getPreServices ()
+name|List
+argument_list|<
+name|PreRegisterService
+argument_list|>
+name|getPreServices
+parameter_list|()
+block|{
+return|return
+name|preServices
+return|;
+block|}
+comment|// used for handing over pre-services between a provisional lifecycycle strategy
+comment|// and then later the actual strategy to be used when using XML
+DECL|method|addPreService (PreRegisterService preService)
+name|void
+name|addPreService
+parameter_list|(
+name|PreRegisterService
+name|preService
+parameter_list|)
+block|{
+name|preServices
+operator|.
+name|add
+argument_list|(
+name|preService
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getCamelContext ()
@@ -5345,7 +5377,7 @@ expr_stmt|;
 block|}
 comment|/**      * Class which holds any pre registration details.      *      * @see JmxManagementLifecycleStrategy#enlistPreRegisteredServices()      */
 DECL|class|PreRegisterService
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 class|class
