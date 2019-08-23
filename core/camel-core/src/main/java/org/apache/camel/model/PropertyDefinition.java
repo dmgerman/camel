@@ -144,6 +144,30 @@ specifier|public
 name|PropertyDefinition
 parameter_list|()
 block|{     }
+DECL|method|PropertyDefinition (String key, String value)
+specifier|public
+name|PropertyDefinition
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|key
+operator|=
+name|key
+expr_stmt|;
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
+block|}
 comment|/**      * Property key      */
 DECL|method|setKey (String key)
 specifier|public

@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -110,15 +120,17 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|xml
 operator|.
-name|camel
+name|bind
 operator|.
-name|model
+name|annotation
 operator|.
-name|ConfigurationOptions
+name|adapters
+operator|.
+name|XmlJavaTypeAdapter
 import|;
 end_import
 
@@ -133,6 +145,20 @@ operator|.
 name|model
 operator|.
 name|DataFormatDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|PropertyDescriptionsAdapter
 import|;
 end_import
 
@@ -205,13 +231,30 @@ specifier|private
 name|Any23Type
 name|outputFormat
 decl_stmt|;
+annotation|@
+name|XmlJavaTypeAdapter
+argument_list|(
+name|PropertyDescriptionsAdapter
+operator|.
+name|class
+argument_list|)
 DECL|field|configuration
 specifier|private
-name|ConfigurationOptions
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|configuration
 init|=
 operator|new
-name|ConfigurationOptions
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -319,12 +362,7 @@ name|this
 operator|.
 name|configuration
 operator|=
-name|ConfigurationOptions
-operator|.
-name|from
-argument_list|(
 name|configurations
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|Any23DataFormat (String baseuri, Any23Type outputFormat, Map<String, String> configurations, List<String> extractors)
@@ -371,12 +409,7 @@ name|this
 operator|.
 name|configuration
 operator|=
-name|ConfigurationOptions
-operator|.
-name|from
-argument_list|(
 name|configurations
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -425,9 +458,6 @@ parameter_list|()
 block|{
 return|return
 name|configuration
-operator|.
-name|asMap
-argument_list|()
 return|;
 block|}
 comment|/**      * Configurations for Apache Any23 as key-value pairs in order to customize      * the extraction process. The list of supported parameters can be found      *<a href=      * "https://github.com/apache/any23/blob/master/api/src/main/resources/default-configuration.properties">here</a>.      * If not provided, a default configuration is used.      */
@@ -449,12 +479,7 @@ name|this
 operator|.
 name|configuration
 operator|=
-name|ConfigurationOptions
-operator|.
-name|from
-argument_list|(
 name|configurations
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getExtractors ()
