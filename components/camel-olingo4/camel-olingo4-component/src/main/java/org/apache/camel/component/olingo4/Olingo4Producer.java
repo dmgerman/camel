@@ -603,7 +603,8 @@ name|properties
 parameter_list|)
 block|{
 comment|//
-comment|// If we have a filterAlreadySeen property then initialise the filter index
+comment|// If we have a filterAlreadySeen property then initialise the filter
+comment|// index
 comment|//
 name|Object
 name|value
@@ -627,7 +628,8 @@ block|{
 return|return;
 block|}
 comment|//
-comment|// Initialise the index if not already and if filterAlreadySeen has been set
+comment|// Initialise the index if not already and if filterAlreadySeen has been
+comment|// set
 comment|//
 if|if
 condition|(

@@ -1125,7 +1125,7 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-comment|/**              * Avoid swallowing consumer scheduler properties, which              * get processed in configureProperties()              */
+comment|/**              * Avoid swallowing consumer scheduler properties, which get              * processed in configureProperties()              */
 if|if
 condition|(
 name|paramName

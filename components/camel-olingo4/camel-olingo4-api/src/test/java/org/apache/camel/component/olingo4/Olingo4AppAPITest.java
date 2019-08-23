@@ -1007,7 +1007,13 @@ name|TEST_AIRLINE_TO_UPDATE
 init|=
 literal|"Airlines('AA')"
 decl_stmt|;
-comment|// Careful using this as it get updated!
+comment|// Careful
+comment|// using
+comment|// this
+comment|// as
+comment|// it
+comment|// get
+comment|// updated!
 DECL|field|TEST_AIRLINE_TO_DELETE
 specifier|private
 specifier|static
@@ -1017,7 +1023,13 @@ name|TEST_AIRLINE_TO_DELETE
 init|=
 literal|"Airlines('MU')"
 decl_stmt|;
-comment|// Careful using this as it gets deleted!
+comment|// Careful
+comment|// using
+comment|// this
+comment|// as
+comment|// it
+comment|// gets
+comment|// deleted!
 DECL|field|TRIPS
 specifier|private
 specifier|static
@@ -2511,7 +2523,7 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The Airline resource is implemented with Optimistic Concurrency.      * This requires an eTag to be first fetched via a read before performing      * patch, update, delete or merge operations.      *      * The test should complete successfully and not throw an error of the form      * 'The request need to have If-Match or If-None-Match header'      *      * @throws Exception      */
+comment|/**      * The Airline resource is implemented with Optimistic Concurrency. This      * requires an eTag to be first fetched via a read before performing patch,      * update, delete or merge operations. The test should complete successfully      * and not throw an error of the form 'The request need to have If-Match or      * If-None-Match header'      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testDeleteOptimisticConcurrency ()
@@ -2677,7 +2689,7 @@ name|TEST_AIRLINE_TO_DELETE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The Airline resource is implemented with Optimistic Concurrency.      * This requires an eTag to be first fetched via a read before performing      * patch, update, delete or merge operations.      *      * The test should complete successfully and not throw an error of the form      * 'The request need to have If-Match or If-None-Match header'      *      * @throws Exception      */
+comment|/**      * The Airline resource is implemented with Optimistic Concurrency. This      * requires an eTag to be first fetched via a read before performing patch,      * update, delete or merge operations. The test should complete successfully      * and not throw an error of the form 'The request need to have If-Match or      * If-None-Match header'      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testPatchOptimisticConcurrency ()
@@ -2903,7 +2915,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The Airline resource is implemented with Optimistic Concurrency.      * This requires an eTag to be first fetched via a read before performing      * patch, update, delete or merge operations.      *      * The test should complete successfully and not throw an error of the form      * 'The request need to have If-Match or If-None-Match header'      *      * @throws Exception      */
+comment|/**      * The Airline resource is implemented with Optimistic Concurrency. This      * requires an eTag to be first fetched via a read before performing patch,      * update, delete or merge operations. The test should complete successfully      * and not throw an error of the form 'The request need to have If-Match or      * If-None-Match header'      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testUpdateOptimisticConcurrency ()
@@ -4212,7 +4224,8 @@ name|statusCode
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Unfortunately there is no action that returns a client entity. So we fake one
+comment|// Unfortunately there is no action that returns a client entity. So we fake
+comment|// one
 annotation|@
 name|Test
 DECL|method|testBoundActionRequestWithClientEntityResponse ()

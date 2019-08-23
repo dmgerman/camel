@@ -419,7 +419,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Read entity set of the People object      * and filter already seen items on subsequent exchanges      * Use a delay since the mock endpoint does not always get      * the correct number of exchanges before being satisfied.      *      * Note:      * - consumer.splitResults is set to false since this ensures the first returned message      *   contains all the results. This is preferred for the purposes of this test. The default      *   will mean the first n messages contain the results (where n is the result total) then      *   subsequent messages will be empty      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * consumer.splitResults is set to false since this ensures the first      * returned message contains all the results. This is preferred for the      * purposes of this test. The default will mean the first n messages contain      * the results (where n is the result total) then subsequent messages will      * be empty      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeen ()
@@ -582,7 +582,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Read entity set of the People object      * and filter already seen items on subsequent exchanges      * Use a delay since the mock endpoint does not always get      * the correct number of exchanges before being satisfied.      *      * Note:      * - consumer.splitResults is set to false since this ensures the first returned message      *   contains all the results.      * - consumer.sendEmptyMessageWhenIdle is set to false so only 1 message should      *   even be returned.      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * consumer.splitResults is set to false since this ensures the first      * returned message contains all the results. -      * consumer.sendEmptyMessageWhenIdle is set to false so only 1 message      * should even be returned.      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeenNoEmptyMsgs ()
@@ -740,7 +740,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * WithPredicate in address      * FilterAlreadySeen: true      * SplitResults: true      * consumer.sendEmptyMessageWhenIdle: true      *      * @throws Exception      */
+comment|/**      * WithPredicate in address FilterAlreadySeen: true SplitResults: true      * consumer.sendEmptyMessageWhenIdle: true      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeenWithPredicate1 ()
@@ -919,7 +919,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * WithPredicate in address      * FilterAlreadySeen: true      * SplitResults: true      * consumer.sendEmptyMessageWhenIdle: false      *      * @throws Exception      */
+comment|/**      * WithPredicate in address FilterAlreadySeen: true SplitResults: true      * consumer.sendEmptyMessageWhenIdle: false      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeenWithPredicate2 ()
@@ -1093,7 +1093,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read entity set of the People object and split the results      * into individual messages      */
+comment|/**      * Read entity set of the People object and split the results into      * individual messages      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadSplitResults ()
@@ -1292,7 +1292,7 @@ default|default:
 block|}
 block|}
 block|}
-comment|/**      * Read value of the People object and split the results      * into individual messages      */
+comment|/**      * Read value of the People object and split the results into individual      * messages      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadClientValuesSplitResults ()
@@ -1408,7 +1408,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read value of the People object's AddressInfo collection value      *& split the results into individual messages for each address      */
+comment|/**      * Read value of the People object's AddressInfo collection value& split      * the results into individual messages for each address      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadClientCollectionValuesSplitResults ()
@@ -1540,7 +1540,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read value of the People object's AddressInfo collection value      *& split the results into individual messages for each address      */
+comment|/**      * Read value of the People object's AddressInfo collection value& split      * the results into individual messages for each address      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadClientCollectionValuesNoSplitResults ()

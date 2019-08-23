@@ -23,7 +23,7 @@ package|;
 end_package
 
 begin_comment
-comment|/** * OData operation used by {@link org.apache.camel.component.olingo4.api.batch.Olingo4BatchChangeRequest}. */
+comment|/**  * OData operation used by  * {@link org.apache.camel.component.olingo4.api.batch.Olingo4BatchChangeRequest}.  */
 end_comment
 
 begin_enum
@@ -33,30 +33,30 @@ enum|enum
 name|Operation
 block|{
 DECL|enumConstant|CREATE
+DECL|enumConstant|UPDATE
+DECL|enumConstant|PATCH
+DECL|enumConstant|MERGE
+DECL|enumConstant|DELETE
 name|CREATE
 argument_list|(
 literal|"POST"
 argument_list|)
 block|,
-DECL|enumConstant|UPDATE
 name|UPDATE
 argument_list|(
 literal|"PUT"
 argument_list|)
 block|,
-DECL|enumConstant|PATCH
 name|PATCH
 argument_list|(
 literal|"PATCH"
 argument_list|)
 block|,
-DECL|enumConstant|MERGE
 name|MERGE
 argument_list|(
 literal|"MERGE"
 argument_list|)
 block|,
-DECL|enumConstant|DELETE
 name|DELETE
 argument_list|(
 literal|"DELETE"

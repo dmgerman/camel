@@ -3134,7 +3134,7 @@ return|return
 name|resourceContentType
 return|;
 block|}
-comment|/**      * On occasion, some resources are protected with Optimistic Concurrency via the use of eTags.      * This will first conduct a read on the given entity resource, find its eTag then perform the given      * delegate request function, augmenting the request with the eTag, if appropriate.      *      * Since read operations may be asynchronous, it is necessary to chain together the methods via      * the use of a {@link Consumer} function. Only when the response from the read returns will      * this delegate function be executed.      *      * @param edm the Edm object to be interrogated      * @param resourcePath the resource path of the entity to be operated on      * @param endpointHttpHeaders the headers provided from the endpoint which may be required for the read operation      * @param httpRequest the request to be updated, if appropriate, with the eTag and provided to the delegate request function      * @param delegateRequestFn the function to be invoked in response to the read operation      * @param delegateResponseHandler the response handler to respond if any errors occur during the read operation      */
+comment|/**      * On occasion, some resources are protected with Optimistic Concurrency via      * the use of eTags. This will first conduct a read on the given entity      * resource, find its eTag then perform the given delegate request function,      * augmenting the request with the eTag, if appropriate. Since read      * operations may be asynchronous, it is necessary to chain together the      * methods via the use of a {@link Consumer} function. Only when the      * response from the read returns will this delegate function be executed.      *      * @param edm the Edm object to be interrogated      * @param resourcePath the resource path of the entity to be operated on      * @param endpointHttpHeaders the headers provided from the endpoint which      *            may be required for the read operation      * @param httpRequest the request to be updated, if appropriate, with the      *            eTag and provided to the delegate request function      * @param delegateRequestFn the function to be invoked in response to the      *            read operation      * @param delegateResponseHandler the response handler to respond if any      *            errors occur during the read operation      */
 DECL|method|augmentWithETag (final Edm edm, final String resourcePath, final Map<String, String> endpointHttpHeaders, final HttpRequestBase httpRequest, final Consumer<HttpRequestBase> delegateRequestFn, final Olingo4ResponseHandler<T> delegateResponseHandler)
 specifier|private
 parameter_list|<
@@ -3186,7 +3186,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Can be the case if calling a delete then need to do a metadata call first
+comment|// Can be the case if calling a delete then need to do a metadata
+comment|// call first
 specifier|final
 name|Olingo4ResponseHandler
 argument_list|<
@@ -3273,7 +3274,8 @@ block|}
 decl_stmt|;
 comment|//
 comment|// Reads the metadata to establish an Edm object
-comment|// then the response handler invokes this method again with the new edm object
+comment|// then the response handler invokes this method again with the new
+comment|// edm object
 comment|//
 name|read
 argument_list|(
@@ -3294,7 +3296,8 @@ block|}
 else|else
 block|{
 comment|//
-comment|// The handler that responds to the read operation and supplies an ETag if necessary
+comment|// The handler that responds to the read operation and supplies an
+comment|// ETag if necessary
 comment|// and invokes the delegate request function
 comment|//
 name|Olingo4ResponseHandler
@@ -3368,7 +3371,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Invoke the delegate request function providing the modified request
+comment|// Invoke the delegate request function providing the
+comment|// modified request
 name|delegateRequestFn
 operator|.
 name|accept
