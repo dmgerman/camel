@@ -868,7 +868,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Reads the response body from the given http servlet request.      *      * @param request  http servlet request      * @param exchange the exchange      * @return the request body, can be<tt>null</tt> if no body      * @throws IOException is thrown if error reading response body      */
+comment|/**      * Reads the request body from the given http servlet request.      *      * @param request  http servlet request      * @param exchange the exchange      * @return the request body, can be<tt>null</tt> if no body      * @throws IOException is thrown if error reading request body      */
 DECL|method|readRequestBodyFromServletRequest (HttpServletRequest request, Exchange exchange)
 specifier|public
 specifier|static
@@ -896,6 +896,7 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
+comment|// TODO should readRequestBodyFromInputStream() be invoked instead?
 return|return
 name|readResponseBodyFromInputStream
 argument_list|(
@@ -905,7 +906,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads the response body from the given input stream.      *      * @param is       the input stream      * @param exchange the exchange      * @return the response body, can be<tt>null</tt> if no body      * @throws IOException is thrown if error reading response body      */
+comment|/**      * Reads the request body from the given input stream.      *      * @param is       the input stream      * @param exchange the exchange      * @return the request body, can be<tt>null</tt> if no body      * @throws IOException is thrown if error reading request body      */
 DECL|method|readRequestBodyFromInputStream (InputStream is, Exchange exchange)
 specifier|public
 specifier|static
