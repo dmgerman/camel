@@ -255,9 +255,7 @@ argument_list|()
 operator|.
 name|setKeyType
 argument_list|(
-name|String
-operator|.
-name|class
+literal|"java.lang.String"
 argument_list|)
 expr_stmt|;
 name|component
@@ -267,9 +265,7 @@ argument_list|()
 operator|.
 name|setValueType
 argument_list|(
-name|String
-operator|.
-name|class
+literal|"java.lang.String"
 argument_list|)
 expr_stmt|;
 name|component

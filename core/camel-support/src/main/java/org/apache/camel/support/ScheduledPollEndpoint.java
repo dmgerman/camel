@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|LoggingLevel
 import|;
 end_import
@@ -150,6 +162,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|PropertiesHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class for {@link org.apache.camel.Endpoint} which creates a {@link ScheduledPollConsumer}  */
 end_comment
@@ -180,6 +206,12 @@ name|String
 name|QUARTZ_SCHEDULER
 init|=
 literal|"org.apache.camel.pollconsumer.quartz.QuartzScheduledPollConsumerScheduler"
+decl_stmt|;
+DECL|field|consumerScheduler
+specifier|private
+specifier|transient
+name|ScheduledPollConsumerScheduler
+name|consumerScheduler
 decl_stmt|;
 comment|// if adding more options then align with org.apache.camel.support.ScheduledPollConsumer
 annotation|@
@@ -437,17 +469,11 @@ literal|"To use a cron scheduler from either camel-spring or camel-quartz compon
 argument_list|)
 DECL|field|scheduler
 specifier|private
-name|ScheduledPollConsumerScheduler
-name|scheduler
-decl_stmt|;
-DECL|field|schedulerName
-specifier|private
 name|String
-name|schedulerName
+name|scheduler
 init|=
 literal|"none"
 decl_stmt|;
-comment|// used when configuring scheduler using a string value
 annotation|@
 name|UriParam
 argument_list|(
@@ -649,7 +675,7 @@ name|Object
 argument_list|>
 name|schedulerProperties
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -677,34 +703,29 @@ name|schedulerProperties
 argument_list|)
 expr_stmt|;
 block|}
+comment|// options take precedence
+name|String
+name|schedulerName
+init|=
+operator|(
+name|String
+operator|)
+name|options
+operator|.
+name|getOrDefault
+argument_list|(
+literal|"scheduler"
+argument_list|,
+name|scheduler
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|scheduler
-operator|==
-literal|null
-operator|&&
 name|schedulerName
 operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-literal|"none"
-operator|.
-name|equals
-argument_list|(
-name|schedulerName
-argument_list|)
-condition|)
-block|{
-comment|// no cron scheduler in use
-name|scheduler
-operator|=
-literal|null
-expr_stmt|;
-block|}
-elseif|else
 if|if
 condition|(
 literal|"spring"
@@ -741,8 +762,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|setScheduler
-argument_list|(
+name|consumerScheduler
+operator|=
 name|getCamelContext
 argument_list|()
 operator|.
@@ -752,7 +773,6 @@ operator|.
 name|newInstance
 argument_list|(
 name|clazz
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -814,8 +834,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|setScheduler
-argument_list|(
+name|consumerScheduler
+operator|=
 name|getCamelContext
 argument_list|()
 operator|.
@@ -825,7 +845,6 @@ operator|.
 name|newInstance
 argument_list|(
 name|clazz
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -850,11 +869,41 @@ argument_list|)
 throw|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+literal|"none"
+operator|.
+name|equals
+argument_list|(
+name|schedulerName
+argument_list|)
+condition|)
 block|{
 comment|// must refer to a custom scheduler by the given name
-name|setScheduler
+if|if
+condition|(
+name|EndpointHelper
+operator|.
+name|isReferenceParameter
 argument_list|(
+name|schedulerName
+argument_list|)
+condition|)
+block|{
+name|schedulerName
+operator|=
+name|schedulerName
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+name|consumerScheduler
+operator|=
 name|CamelContextHelper
 operator|.
 name|mandatoryLookup
@@ -867,7 +916,6 @@ argument_list|,
 name|ScheduledPollConsumerScheduler
 operator|.
 name|class
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1202,14 +1250,14 @@ literal|"scheduler"
 argument_list|)
 condition|)
 block|{
+comment|// the scheduler implementation
 name|options
 operator|.
 name|put
 argument_list|(
 literal|"scheduler"
 argument_list|,
-name|getScheduler
-argument_list|()
+name|consumerScheduler
 argument_list|)
 expr_stmt|;
 block|}
@@ -1604,34 +1652,7 @@ operator|=
 name|greedy
 expr_stmt|;
 block|}
-DECL|method|getScheduler ()
-specifier|public
-name|ScheduledPollConsumerScheduler
-name|getScheduler
-parameter_list|()
-block|{
-return|return
-name|scheduler
-return|;
-block|}
-comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. The default implementation uses the ScheduledExecutorService and      * there is a Quartz, and Spring based which supports CRON expressions.      *      * Notice: If using a custom scheduler then the options for initialDelay, useFixedDelay, timeUnit,      * and scheduledExecutorService may not be in use. Use the text quartz to refer to use the Quartz scheduler;      * and use the text spring to use the Spring based; and use the text #myScheduler to refer to a custom scheduler      * by its id in the Registry. See Quartz page for an example.      */
-DECL|method|setScheduler (ScheduledPollConsumerScheduler scheduler)
-specifier|public
-name|void
-name|setScheduler
-parameter_list|(
-name|ScheduledPollConsumerScheduler
-name|scheduler
-parameter_list|)
-block|{
-name|this
-operator|.
-name|scheduler
-operator|=
-name|scheduler
-expr_stmt|;
-block|}
-comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. This option is used for referring to one of the built-in schedulers      * either<tt>spring</tt>, or<tt>quartz</tt>. Using<tt>none</tt> refers to no scheduler to be used.      */
+comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. This option is used for referring to one of the built-in schedulers      * either<tt>spring</tt>, or<tt>quartz</tt>. Using<tt>none</tt> refers to no scheduler to be used.      *      * Notice: If using a custom scheduler then the options for initialDelay, useFixedDelay, timeUnit,      * and scheduledExecutorService may not be in use. Use the text quartz to refer to use the Quartz scheduler;      * and use the text spring to use the Spring based; and use the text #myScheduler to refer to a custom scheduler      * by its id in the Registry. See Quartz page for an example.      */
 DECL|method|setScheduler (String schedulerName)
 specifier|public
 name|void
@@ -1643,10 +1664,20 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|schedulerName
+name|scheduler
 operator|=
 name|schedulerName
 expr_stmt|;
+block|}
+DECL|method|getScheduler ()
+specifier|public
+name|String
+name|getScheduler
+parameter_list|()
+block|{
+return|return
+name|scheduler
+return|;
 block|}
 DECL|method|getSchedulerProperties ()
 specifier|public

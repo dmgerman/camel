@@ -439,6 +439,22 @@ return|return
 name|currency
 return|;
 block|}
+DECL|method|setCurrency (Currency currency)
+specifier|public
+name|void
+name|setCurrency
+parameter_list|(
+name|Currency
+name|currency
+parameter_list|)
+block|{
+name|this
+operator|.
+name|currency
+operator|=
+name|currency
+expr_stmt|;
+block|}
 DECL|method|setCurrency (String curr)
 specifier|public
 name|void
@@ -469,6 +485,22 @@ block|{
 return|return
 name|currencyPair
 return|;
+block|}
+DECL|method|setCurrencyPair (CurrencyPair currencyPair)
+specifier|public
+name|void
+name|setCurrencyPair
+parameter_list|(
+name|CurrencyPair
+name|currencyPair
+parameter_list|)
+block|{
+name|this
+operator|.
+name|currencyPair
+operator|=
+name|currencyPair
+expr_stmt|;
 block|}
 DECL|method|setCurrencyPair (String pair)
 specifier|public

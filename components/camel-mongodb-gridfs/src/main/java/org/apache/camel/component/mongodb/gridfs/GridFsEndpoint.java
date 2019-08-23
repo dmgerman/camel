@@ -339,13 +339,6 @@ name|writeConcern
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|writeConcernRef
-specifier|private
-name|WriteConcern
-name|writeConcernRef
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|readPreference
 specifier|private
 name|ReadPreference
@@ -669,38 +662,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|writeConcern
-operator|!=
-literal|null
-operator|&&
-name|writeConcernRef
-operator|!=
-literal|null
-condition|)
-block|{
-name|String
-name|msg
-init|=
-literal|"Cannot set both writeConcern and writeConcernRef at the same time. Respective values: "
-operator|+
-name|writeConcern
-operator|+
-literal|", "
-operator|+
-name|writeConcernRef
-operator|+
-literal|". Aborting initialization."
-decl_stmt|;
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|msg
-argument_list|)
-throw|;
-block|}
 name|mongoConnection
 operator|=
 name|CamelContextHelper
@@ -795,22 +756,6 @@ name|writeConcern
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|writeConcernRef
-operator|!=
-literal|null
-condition|)
-block|{
-name|mongoConnection
-operator|.
-name|setWriteConcern
-argument_list|(
-name|writeConcernRef
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Set the ReadPreference
 if|if
 condition|(
@@ -866,7 +811,7 @@ return|return
 name|mongoConnection
 return|;
 block|}
-comment|/**      * Sets the Mongo instance that represents the backing connection      *       * @param mongoConnection the connection to the database      */
+comment|/**      * Sets the Mongo instance that represents the backing connection      *      * @param mongoConnection the connection to the database      */
 DECL|method|setMongoConnection (Mongo mongoConnection)
 specifier|public
 name|void
@@ -903,7 +848,7 @@ return|return
 name|database
 return|;
 block|}
-comment|/**      * Sets the name of the MongoDB database to target      *       * @param database name of the MongoDB database      */
+comment|/**      * Sets the name of the MongoDB database to target      *      * @param database name of the MongoDB database      */
 DECL|method|setDatabase (String database)
 specifier|public
 name|void
@@ -920,7 +865,7 @@ operator|=
 name|database
 expr_stmt|;
 block|}
-comment|/**      * Sets the name of the GridFS bucket within the database.   Default is "fs".      *       * @param database name of the MongoDB database      */
+comment|/**      * Sets the name of the GridFS bucket within the database. Default is fs.      */
 DECL|method|getBucket ()
 specifier|public
 name|String
@@ -957,7 +902,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * Additional query parameters (in JSON) that are used to configure the query used for finding      * files in the GridFsConsumer      * @param query      */
+comment|/**      * Additional query parameters (in JSON) that are used to configure the query used for finding      * files in the GridFsConsumer      *      * @param query      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
@@ -984,7 +929,7 @@ return|return
 name|delay
 return|;
 block|}
-comment|/**      * Sets the delay between polls within the Consumer.  Default is 500ms      * @param delay      */
+comment|/**      * Sets the delay between polls within the Consumer.  Default is 500ms      *      * @param delay      */
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -1011,7 +956,7 @@ return|return
 name|initialDelay
 return|;
 block|}
-comment|/**      * Sets the initialDelay before the consumer will start polling.  Default is 1000ms      * @param initialDelay      */
+comment|/**      * Sets the initialDelay before the consumer will start polling.  Default is 1000ms      *      * @param initialDelay      */
 DECL|method|setInitialDelay (long initialDelay)
 specifier|public
 name|void
@@ -1028,7 +973,7 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
-comment|/**      * Sets the QueryStrategy that is used for polling for new files.  Default is Timestamp      * @see QueryStrategy      * @param s      */
+comment|/**      * Sets the QueryStrategy that is used for polling for new files.  Default is Timestamp      */
 DECL|method|setQueryStrategy (String s)
 specifier|public
 name|void
@@ -1048,6 +993,23 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the QueryStrategy that is used for polling for new files.  Default is Timestamp      */
+DECL|method|setQueryStrategy (QueryStrategy queryStrategy)
+specifier|public
+name|void
+name|setQueryStrategy
+parameter_list|(
+name|QueryStrategy
+name|queryStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queryStrategy
+operator|=
+name|queryStrategy
+expr_stmt|;
+block|}
 DECL|method|getQueryStrategy ()
 specifier|public
 name|QueryStrategy
@@ -1058,7 +1020,7 @@ return|return
 name|queryStrategy
 return|;
 block|}
-comment|/**      * If the QueryType uses a persistent timestamp, this sets the name of the collection within      * the DB to store the timestamp.      * @param s      */
+comment|/**      * If the QueryType uses a persistent timestamp, this sets the name of the collection within      * the DB to store the timestamp.      */
 DECL|method|setPersistentTSCollection (String s)
 specifier|public
 name|void
@@ -1083,7 +1045,7 @@ return|return
 name|persistentTSCollection
 return|;
 block|}
-comment|/**      * If the QueryType uses a persistent timestamp, this is the ID of the object in the collection      * to store the timestamp.         * @param s      */
+comment|/**      * If the QueryType uses a persistent timestamp, this is the ID of the object in the collection      * to store the timestamp.      */
 DECL|method|setPersistentTSObject (String id)
 specifier|public
 name|void
@@ -1108,7 +1070,7 @@ return|return
 name|persistentTSObject
 return|;
 block|}
-comment|/**      * If the QueryType uses a FileAttribute, this sets the name of the attribute that is used. Default is "camel-processed".      * @param f      */
+comment|/**      * If the QueryType uses a FileAttribute, this sets the name of the attribute that is used. Default is "camel-processed".      */
 DECL|method|setFileAttributeName (String f)
 specifier|public
 name|void
@@ -1133,7 +1095,7 @@ return|return
 name|fileAttributeName
 return|;
 block|}
-comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB using the standard ones.      * Resolved from the fields of the WriteConcern class by calling the {@link WriteConcern#valueOf(String)} method.      *       * @param writeConcern the standard name of the WriteConcern      * @see<a href="http://api.mongodb.org/java/current/com/mongodb/WriteConcern.html#valueOf(java.lang.String)">possible options</a>      */
+comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB using the standard ones.      * Resolved from the fields of the WriteConcern class by calling the {@link WriteConcern#valueOf(String)} method.      *      * @param writeConcern the standard name of the WriteConcern      * @see<a href="http://api.mongodb.org/java/current/com/mongodb/WriteConcern.html#valueOf(java.lang.String)">possible options</a>      */
 DECL|method|setWriteConcern (String writeConcern)
 specifier|public
 name|void
@@ -1155,6 +1117,23 @@ name|writeConcern
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB using the standard ones.      * Resolved from the fields of the WriteConcern class by calling the {@link WriteConcern#valueOf(String)} method.      *      * @param writeConcern the standard name of the WriteConcern      * @see<a href="http://api.mongodb.org/java/current/com/mongodb/WriteConcern.html#valueOf(java.lang.String)">possible options</a>      */
+DECL|method|setWriteConcern (WriteConcern writeConcern)
+specifier|public
+name|void
+name|setWriteConcern
+parameter_list|(
+name|WriteConcern
+name|writeConcern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writeConcern
+operator|=
+name|writeConcern
+expr_stmt|;
+block|}
 DECL|method|getWriteConcern ()
 specifier|public
 name|WriteConcern
@@ -1165,80 +1144,7 @@ return|return
 name|writeConcern
 return|;
 block|}
-comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB, passing in the bean ref to a custom WriteConcern which exists in the Registry.      * You can also use standard WriteConcerns by passing in their key. See the {@link #setWriteConcern(String) setWriteConcern} method.      *       * @param writeConcernRef the name of the bean in the registry that represents the WriteConcern to use      */
-DECL|method|setWriteConcernRef (String writeConcernRef)
-specifier|public
-name|void
-name|setWriteConcernRef
-parameter_list|(
-name|String
-name|writeConcernRef
-parameter_list|)
-block|{
-name|WriteConcern
-name|wc
-init|=
-name|this
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookupByNameAndType
-argument_list|(
-name|writeConcernRef
-argument_list|,
-name|WriteConcern
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|wc
-operator|==
-literal|null
-condition|)
-block|{
-name|String
-name|msg
-init|=
-literal|"Camel MongoDB component could not find the WriteConcern in the Registry. Verify that the "
-operator|+
-literal|"provided bean name ("
-operator|+
-name|writeConcernRef
-operator|+
-literal|")  is correct. Aborting initialization."
-decl_stmt|;
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|msg
-argument_list|)
-throw|;
-block|}
-name|this
-operator|.
-name|writeConcernRef
-operator|=
-name|wc
-expr_stmt|;
-block|}
-DECL|method|getWriteConcernRef ()
-specifier|public
-name|WriteConcern
-name|getWriteConcernRef
-parameter_list|()
-block|{
-return|return
-name|writeConcernRef
-return|;
-block|}
-comment|/**       * Sets a MongoDB {@link ReadPreference} on the Mongo connection. Read preferences set directly on the connection will be      * overridden by this setting.      *<p/>      * The {@link com.mongodb.ReadPreference#valueOf(String)} utility method is used to resolve the passed {@code readPreference}      * value. Some examples for the possible values are {@code nearest}, {@code primary} or {@code secondary} etc.      *       * @param readPreference the name of the read preference to set      */
+comment|/**      * Sets a MongoDB {@link ReadPreference} on the Mongo connection. Read preferences set directly on the connection will be      * overridden by this setting.      *<p/>      * The {@link com.mongodb.ReadPreference#valueOf(String)} utility method is used to resolve the passed {@code readPreference}      * value. Some examples for the possible values are {@code nearest}, {@code primary} or {@code secondary} etc.      *      * @param readPreference the name of the read preference to set      */
 DECL|method|setReadPreference (String readPreference)
 specifier|public
 name|void
@@ -1258,6 +1164,23 @@ name|valueOf
 argument_list|(
 name|readPreference
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets a MongoDB {@link ReadPreference} on the Mongo connection. Read preferences set directly on the connection will be      * overridden by this setting.      *<p/>      * The {@link com.mongodb.ReadPreference#valueOf(String)} utility method is used to resolve the passed {@code readPreference}      * value. Some examples for the possible values are {@code nearest}, {@code primary} or {@code secondary} etc.      *      * @param readPreference the name of the read preference to set      */
+DECL|method|setReadPreference (ReadPreference readPreference)
+specifier|public
+name|void
+name|setReadPreference
+parameter_list|(
+name|ReadPreference
+name|readPreference
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readPreference
+operator|=
+name|readPreference
 expr_stmt|;
 block|}
 DECL|method|getReadPreference ()

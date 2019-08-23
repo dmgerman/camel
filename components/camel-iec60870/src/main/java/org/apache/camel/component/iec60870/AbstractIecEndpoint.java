@@ -329,6 +329,62 @@ name|address
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getConnectionOptions ()
+specifier|public
+name|ClientOptions
+name|getConnectionOptions
+parameter_list|()
+block|{
+return|return
+name|connectionOptions
+return|;
+block|}
+DECL|method|getProtocolOptions ()
+specifier|public
+name|ProtocolOptions
+name|getProtocolOptions
+parameter_list|()
+block|{
+return|return
+name|protocolOptions
+return|;
+block|}
+DECL|method|getDataModuleOptions ()
+specifier|public
+name|DataModuleOptions
+name|getDataModuleOptions
+parameter_list|()
+block|{
+return|return
+name|dataModuleOptions
+return|;
+block|}
+DECL|method|getConnectionId ()
+specifier|public
+name|String
+name|getConnectionId
+parameter_list|()
+block|{
+return|return
+name|connectionId
+return|;
+block|}
+DECL|method|setConnectionId (String connectionId)
+specifier|public
+name|void
+name|setConnectionId
+parameter_list|(
+name|String
+name|connectionId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionId
+operator|=
+name|connectionId
+expr_stmt|;
+block|}
 DECL|method|getAddress ()
 specifier|public
 name|ObjectAddress

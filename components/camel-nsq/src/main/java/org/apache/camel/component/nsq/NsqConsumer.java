@@ -275,7 +275,7 @@ operator|=
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNsqConfiguration
+name|getConfiguration
 argument_list|()
 expr_stmt|;
 block|}

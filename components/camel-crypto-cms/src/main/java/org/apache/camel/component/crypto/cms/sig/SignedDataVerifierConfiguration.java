@@ -125,26 +125,16 @@ extends|extends
 name|CryptoCmsUnMarshallerConfiguration
 block|{
 comment|/**      * Indicates whether the value in the Signed Data header (given by      * {@link CryptoCmsConstants#CAMEL_CRYPTO_CMS_SIGNED_DATA} is base64      * encoded.      */
-DECL|method|isSignedDataHeaderBase64 (Exchange exchange)
-name|Boolean
+DECL|method|isSignedDataHeaderBase64 ()
+name|boolean
 name|isSignedDataHeaderBase64
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|CryptoCmsException
+parameter_list|()
 function_decl|;
 comment|/**      * If<code>true</code> then the signatures of all signers are checked. If      *<code>false</code> then the verifier searches for a signer which matches      * with one of the specified certificates and verifies only the signature of      * the first found signer.      */
-DECL|method|isVerifySignaturesOfAllSigners (Exchange exchange)
-name|Boolean
+DECL|method|isVerifySignaturesOfAllSigners ()
+name|boolean
 name|isVerifySignaturesOfAllSigners
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|CryptoCmsException
+parameter_list|()
 function_decl|;
 comment|/**      * Returns the collection of certificates whose public keys are used to      * verify the signatures contained in the Signed Data object if the      * certificates match the signer information given in the Signed Data      * object.      */
 DECL|method|getCertificates (Exchange exchange)

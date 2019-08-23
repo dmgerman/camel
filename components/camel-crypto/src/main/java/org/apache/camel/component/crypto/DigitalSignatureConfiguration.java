@@ -22,9 +22,49 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|GeneralSecurityException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|KeyStore
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|KeyStoreException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|NoSuchAlgorithmException
 import|;
 end_import
 
@@ -65,6 +105,16 @@ operator|.
 name|security
 operator|.
 name|Signature
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|UnrecoverableKeyException
 import|;
 end_import
 
@@ -342,18 +392,13 @@ name|label
 operator|=
 literal|"security"
 argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|,
 name|secret
 operator|=
 literal|true
 argument_list|)
 DECL|field|password
 specifier|private
-name|char
-index|[]
+name|String
 name|password
 decl_stmt|;
 annotation|@
@@ -616,8 +661,6 @@ specifier|public
 name|PrivateKey
 name|getPrivateKey
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|getPrivateKey
@@ -625,6 +668,9 @@ argument_list|(
 name|alias
 argument_list|,
 name|password
+operator|.
+name|toCharArray
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -646,6 +692,9 @@ argument_list|(
 name|alias
 argument_list|,
 name|password
+operator|.
+name|toCharArray
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -662,8 +711,6 @@ name|char
 index|[]
 name|password
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|PrivateKey
 name|pk
@@ -681,6 +728,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|pk
 operator|=
 operator|(
@@ -695,6 +744,21 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -728,6 +792,16 @@ name|privateKey
 operator|=
 name|privateKey
 expr_stmt|;
+block|}
+DECL|method|getPrivateKeyName ()
+specifier|public
+name|String
+name|getPrivateKeyName
+parameter_list|()
+block|{
+return|return
+name|privateKeyName
+return|;
 block|}
 comment|/**      * Sets the reference name for a PrivateKey that can be found in the registry.      */
 DECL|method|setPrivateKeyName (String privateKeyName)
@@ -812,6 +886,16 @@ name|publicKey
 operator|=
 name|publicKey
 expr_stmt|;
+block|}
+DECL|method|getPublicKeyName ()
+specifier|public
+name|String
+name|getPublicKeyName
+parameter_list|()
+block|{
+return|return
+name|publicKeyName
+return|;
 block|}
 comment|/**      * Sets the reference name for a publicKey that can be found in the registry.      */
 DECL|method|setPublicKeyName (String publicKeyName)
@@ -951,8 +1035,6 @@ specifier|public
 name|Certificate
 name|getCertificate
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 name|certificate
@@ -974,6 +1056,16 @@ name|certificate
 operator|=
 name|certificate
 expr_stmt|;
+block|}
+DECL|method|getCertificateName ()
+specifier|public
+name|String
+name|getCertificateName
+parameter_list|()
+block|{
+return|return
+name|certificateName
+return|;
 block|}
 comment|/**      * Sets the reference name for a PrivateKey that can be found in the registry.      */
 DECL|method|setCertificateName (String certificateName)
@@ -1070,6 +1162,16 @@ operator|=
 name|keystore
 expr_stmt|;
 block|}
+DECL|method|getKeystoreName ()
+specifier|public
+name|String
+name|getKeystoreName
+parameter_list|()
+block|{
+return|return
+name|keystoreName
+return|;
+block|}
 comment|/**      * Sets the reference name for a Keystore that can be found in the registry.      */
 DECL|method|setKeystoreName (String keystoreName)
 specifier|public
@@ -1140,8 +1242,7 @@ block|}
 comment|/**      * Gets the password used to access an aliased {@link PrivateKey} in the KeyStore.      */
 DECL|method|getPassword ()
 specifier|public
-name|char
-index|[]
+name|String
 name|getPassword
 parameter_list|()
 block|{
@@ -1150,13 +1251,12 @@ name|password
 return|;
 block|}
 comment|/**      * Sets the password used to access an aliased {@link PrivateKey} in the KeyStore.      */
-DECL|method|setPassword (char[] password)
+DECL|method|setPassword (String password)
 specifier|public
 name|void
 name|setPassword
 parameter_list|(
-name|char
-index|[]
+name|String
 name|password
 parameter_list|)
 block|{
@@ -1186,8 +1286,6 @@ parameter_list|(
 name|KeyStoreParameters
 name|keyStoreParameters
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|this
 operator|.
@@ -1202,6 +1300,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|this
 operator|.
 name|keystore
@@ -1211,6 +1311,21 @@ operator|.
 name|createKeyStore
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 comment|/**      * Get the SecureRandom used to initialize the Signature service      */
@@ -1222,6 +1337,16 @@ parameter_list|()
 block|{
 return|return
 name|secureRandom
+return|;
+block|}
+DECL|method|getSecureRandomName ()
+specifier|public
+name|String
+name|getSecureRandomName
+parameter_list|()
+block|{
+return|return
+name|secureRandomName
 return|;
 block|}
 comment|/**      * Sets the reference name for a SecureRandom that can be found in the registry.      */

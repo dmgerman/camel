@@ -608,13 +608,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
-DECL|method|causeSourceAddress ( boolean causeSourceAddress)
+comment|/**          * Whether to include the source address.          *           * The option is a:<code>byte</code> type.          *           * Group: data          */
+DECL|method|causeSourceAddress ( byte causeSourceAddress)
 specifier|default
 name|ClientEndpointConsumerBuilder
 name|causeSourceAddress
 parameter_list|(
-name|boolean
+name|byte
 name|causeSourceAddress
 parameter_list|)
 block|{
@@ -629,7 +629,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
+comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( String causeSourceAddress)
 specifier|default
 name|ClientEndpointConsumerBuilder
@@ -1471,13 +1471,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
-DECL|method|causeSourceAddress ( boolean causeSourceAddress)
+comment|/**          * Whether to include the source address.          *           * The option is a:<code>byte</code> type.          *           * Group: data          */
+DECL|method|causeSourceAddress ( byte causeSourceAddress)
 specifier|default
 name|ClientEndpointProducerBuilder
 name|causeSourceAddress
 parameter_list|(
-name|boolean
+name|byte
 name|causeSourceAddress
 parameter_list|)
 block|{
@@ -1492,7 +1492,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
+comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( String causeSourceAddress)
 specifier|default
 name|ClientEndpointProducerBuilder
@@ -2210,13 +2210,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          *           * The option is a:<code>boolean</code> type.          *           * Group: data          */
-DECL|method|causeSourceAddress ( boolean causeSourceAddress)
+comment|/**          * Whether to include the source address.          *           * The option is a:<code>byte</code> type.          *           * Group: data          */
+DECL|method|causeSourceAddress (byte causeSourceAddress)
 specifier|default
 name|ClientEndpointBuilder
 name|causeSourceAddress
 parameter_list|(
-name|boolean
+name|byte
 name|causeSourceAddress
 parameter_list|)
 block|{
@@ -2231,7 +2231,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: data          */
+comment|/**          * Whether to include the source address.          *           * The option will be converted to a<code>byte</code> type.          *           * Group: data          */
 DECL|method|causeSourceAddress ( String causeSourceAddress)
 specifier|default
 name|ClientEndpointBuilder

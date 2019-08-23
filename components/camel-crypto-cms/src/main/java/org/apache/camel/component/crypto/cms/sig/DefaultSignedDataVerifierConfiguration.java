@@ -222,19 +222,11 @@ argument_list|(
 name|label
 operator|=
 literal|"verify"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|signedDataHeaderBase64
 specifier|private
-name|Boolean
+name|boolean
 name|signedDataHeaderBase64
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -249,20 +241,18 @@ literal|"true"
 argument_list|)
 DECL|field|verifySignaturesOfAllSigners
 specifier|private
-name|Boolean
+name|boolean
 name|verifySignaturesOfAllSigners
 init|=
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 decl_stmt|;
 comment|/**      * Indicates whether the value in the header CamelCryptoCmsSignedData is      * base64 encoded. Default value is<code>false</code>.      *<p>      * Only relevant for detached signatures. In the detached signature case,      * the header contains the Signed Data object.      */
-DECL|method|setSignedDataHeaderBase64 (Boolean signedDataHeaderBase64)
+DECL|method|setSignedDataHeaderBase64 (boolean signedDataHeaderBase64)
 specifier|public
 name|void
 name|setSignedDataHeaderBase64
 parameter_list|(
-name|Boolean
+name|boolean
 name|signedDataHeaderBase64
 parameter_list|)
 block|{
@@ -275,28 +265,23 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isSignedDataHeaderBase64 (Exchange exchange)
+DECL|method|isSignedDataHeaderBase64 ()
 specifier|public
-name|Boolean
+name|boolean
 name|isSignedDataHeaderBase64
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|CryptoCmsException
+parameter_list|()
 block|{
 return|return
 name|signedDataHeaderBase64
 return|;
 block|}
 comment|/**      * If<code>true</code> then the signatures of all signers contained in the      * Signed Data object are verified. If<code>false</code> then only one      * signature whose signer info matches with one of the specified      * certificates is verified. Default value is<code>true</code>.      */
-DECL|method|setVerifySignaturesOfAllSigners (Boolean verifySignaturesOfAllSigners)
+DECL|method|setVerifySignaturesOfAllSigners (boolean verifySignaturesOfAllSigners)
 specifier|public
 name|void
 name|setVerifySignaturesOfAllSigners
 parameter_list|(
-name|Boolean
+name|boolean
 name|verifySignaturesOfAllSigners
 parameter_list|)
 block|{
@@ -309,16 +294,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isVerifySignaturesOfAllSigners (Exchange exchange)
+DECL|method|isVerifySignaturesOfAllSigners ()
 specifier|public
-name|Boolean
+name|boolean
 name|isVerifySignaturesOfAllSigners
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|CryptoCmsException
+parameter_list|()
 block|{
 return|return
 name|verifySignaturesOfAllSigners

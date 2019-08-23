@@ -150,6 +150,7 @@ end_import
 
 begin_class
 DECL|class|AtomixSetConsumer
+specifier|public
 specifier|final
 class|class
 name|AtomixSetConsumer

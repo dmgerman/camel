@@ -205,22 +205,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|field|awaitExistence
-specifier|private
-name|boolean
-name|awaitExistence
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
 name|label
 operator|=
 literal|"consumer"
@@ -592,38 +576,6 @@ operator|.
 name|repeat
 operator|=
 name|repeat
-expr_stmt|;
-block|}
-comment|/**      * @deprecated The usage of this option has no effect at all.      */
-annotation|@
-name|Deprecated
-DECL|method|shouldAwaitExistence ()
-specifier|public
-name|boolean
-name|shouldAwaitExistence
-parameter_list|()
-block|{
-return|return
-name|awaitExistence
-return|;
-block|}
-comment|/**      * Not in use      * @deprecated The usage of this option has no effect at all.      */
-annotation|@
-name|Deprecated
-DECL|method|setAwaitExistence (boolean awaitExistence)
-specifier|public
-name|void
-name|setAwaitExistence
-parameter_list|(
-name|boolean
-name|awaitExistence
-parameter_list|)
-block|{
-name|this
-operator|.
-name|awaitExistence
-operator|=
-name|awaitExistence
 expr_stmt|;
 block|}
 DECL|method|getBackoff ()

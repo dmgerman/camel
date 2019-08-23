@@ -1562,7 +1562,7 @@ literal|2
 argument_list|,
 name|endpoint
 operator|.
-name|getAddresses
+name|parseAddresses
 argument_list|()
 operator|.
 name|length
@@ -1582,7 +1582,7 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
-name|getAddresses
+name|parseAddresses
 argument_list|()
 index|[
 literal|0
@@ -1603,7 +1603,7 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
-name|getAddresses
+name|parseAddresses
 argument_list|()
 index|[
 literal|1

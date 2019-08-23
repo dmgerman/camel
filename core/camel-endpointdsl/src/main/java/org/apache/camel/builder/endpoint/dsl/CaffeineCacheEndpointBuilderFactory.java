@@ -368,31 +368,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
-DECL|method|keyType ( Class<Object> keyType)
-specifier|default
-name|AdvancedCaffeineCacheEndpointConsumerBuilder
-name|keyType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|keyType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"keyType"
-argument_list|,
-name|keyType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The cache key type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|keyType ( String keyType)
 specifier|default
 name|AdvancedCaffeineCacheEndpointConsumerBuilder
@@ -455,31 +431,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
-DECL|method|valueType ( Class<Object> valueType)
-specifier|default
-name|AdvancedCaffeineCacheEndpointConsumerBuilder
-name|valueType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|valueType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"valueType"
-argument_list|,
-name|valueType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The cache value type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|valueType ( String valueType)
 specifier|default
 name|AdvancedCaffeineCacheEndpointConsumerBuilder
@@ -1153,31 +1105,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
-DECL|method|keyType ( Class<Object> keyType)
-specifier|default
-name|AdvancedCaffeineCacheEndpointProducerBuilder
-name|keyType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|keyType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"keyType"
-argument_list|,
-name|keyType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The cache key type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|keyType ( String keyType)
 specifier|default
 name|AdvancedCaffeineCacheEndpointProducerBuilder
@@ -1240,31 +1168,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
-DECL|method|valueType ( Class<Object> valueType)
-specifier|default
-name|AdvancedCaffeineCacheEndpointProducerBuilder
-name|valueType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|valueType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"valueType"
-argument_list|,
-name|valueType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The cache value type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|valueType ( String valueType)
 specifier|default
 name|AdvancedCaffeineCacheEndpointProducerBuilder
@@ -1417,31 +1321,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
-DECL|method|keyType ( Class<Object> keyType)
-specifier|default
-name|AdvancedCaffeineCacheEndpointBuilder
-name|keyType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|keyType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"keyType"
-argument_list|,
-name|keyType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The cache key type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * The cache key type, default java.lang.Object.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|keyType (String keyType)
 specifier|default
 name|AdvancedCaffeineCacheEndpointBuilder
@@ -1504,31 +1384,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.Class&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
-DECL|method|valueType ( Class<Object> valueType)
-specifier|default
-name|AdvancedCaffeineCacheEndpointBuilder
-name|valueType
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|valueType
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"valueType"
-argument_list|,
-name|valueType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The cache value type, default java.lang.Object.          *           * The option will be converted to a          *<code>java.lang.Class&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
+comment|/**          * The cache value type, default java.lang.Object.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: advanced          */
 DECL|method|valueType (String valueType)
 specifier|default
 name|AdvancedCaffeineCacheEndpointBuilder

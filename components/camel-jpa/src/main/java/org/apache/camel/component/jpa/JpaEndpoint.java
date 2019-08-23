@@ -956,7 +956,7 @@ name|producer
 operator|.
 name|setUseExecuteUpdate
 argument_list|(
-name|isUseExecuteUpdate
+name|getUseExecuteUpdate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2048,10 +2048,10 @@ operator|=
 name|preDeleteHandler
 expr_stmt|;
 block|}
-DECL|method|isUseExecuteUpdate ()
+DECL|method|getUseExecuteUpdate ()
 specifier|public
 name|Boolean
-name|isUseExecuteUpdate
+name|getUseExecuteUpdate
 parameter_list|()
 block|{
 return|return

@@ -576,44 +576,6 @@ name|backoff
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated The usage of this property has no effect at all.      */
-annotation|@
-name|Deprecated
-DECL|method|getAwaitExistence ()
-specifier|public
-name|boolean
-name|getAwaitExistence
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|shouldAwaitExistence
-argument_list|()
-return|;
-block|}
-comment|/**      * @deprecated The usage of this property has no effect at all.      */
-annotation|@
-name|Deprecated
-DECL|method|setAwaitExistence (boolean awaitExistence)
-specifier|public
-name|void
-name|setAwaitExistence
-parameter_list|(
-name|boolean
-name|awaitExistence
-parameter_list|)
-block|{
-name|getConfiguration
-argument_list|()
-operator|.
-name|setAwaitExistence
-argument_list|(
-name|awaitExistence
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|ManagedOperation
 DECL|method|addServer (String server)

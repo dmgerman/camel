@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An interface to represent an object which wishes to be injected with  * a {@link CamelContext} such as when working with Spring or Guice  */
+comment|/**  * An interface to represent an object which wishes to be injected with the {@link CamelContext}  */
 end_comment
 
 begin_interface

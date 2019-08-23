@@ -527,10 +527,10 @@ name|connection
 expr_stmt|;
 block|}
 comment|/**      * Whether or not using reconnection feature      */
-DECL|method|getReconnect ()
+DECL|method|isReconnect ()
 specifier|public
 name|boolean
-name|getReconnect
+name|isReconnect
 parameter_list|()
 block|{
 return|return
@@ -554,10 +554,10 @@ name|reconnect
 expr_stmt|;
 block|}
 comment|/**      * Whether or not running in pedantic mode (this affects performace)      */
-DECL|method|getPedantic ()
+DECL|method|isPedantic ()
 specifier|public
 name|boolean
-name|getPedantic
+name|isPedantic
 parameter_list|()
 block|{
 return|return
@@ -581,10 +581,10 @@ name|pedantic
 expr_stmt|;
 block|}
 comment|/**      * Whether or not running in verbose mode      */
-DECL|method|getVerbose ()
+DECL|method|isVerbose ()
 specifier|public
 name|boolean
-name|getVerbose
+name|isVerbose
 parameter_list|()
 block|{
 return|return
@@ -797,10 +797,10 @@ name|replySubject
 expr_stmt|;
 block|}
 comment|/**      * Whether or not randomizing the order of servers for the connection      * attempts      */
-DECL|method|getNoRandomizeServers ()
+DECL|method|isNoRandomizeServers ()
 specifier|public
 name|boolean
-name|getNoRandomizeServers
+name|isNoRandomizeServers
 parameter_list|()
 block|{
 return|return
@@ -824,10 +824,10 @@ name|noRandomizeServers
 expr_stmt|;
 block|}
 comment|/**      * Turn off echo. If supported by the gnatsd version you are connecting to      * this flag will prevent the server from echoing messages back to the      * connection if it has subscriptions on the subject being published to.      */
-DECL|method|getNoEcho ()
+DECL|method|isNoEcho ()
 specifier|public
 name|boolean
-name|getNoEcho
+name|isNoEcho
 parameter_list|()
 block|{
 return|return
@@ -1068,7 +1068,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|getVerbose
+name|isVerbose
 argument_list|()
 condition|)
 block|{
@@ -1080,7 +1080,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|getPedantic
+name|isPedantic
 argument_list|()
 condition|)
 block|{
@@ -1105,7 +1105,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|getReconnect
+name|isReconnect
 argument_list|()
 condition|)
 block|{
@@ -1188,7 +1188,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|getNoRandomizeServers
+name|isNoRandomizeServers
 argument_list|()
 condition|)
 block|{
@@ -1200,7 +1200,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|getNoEcho
+name|isNoEcho
 argument_list|()
 condition|)
 block|{

@@ -235,12 +235,12 @@ name|LuceneIndexer
 argument_list|(
 name|config
 operator|.
-name|getSourceDirectory
+name|getSrcDir
 argument_list|()
 argument_list|,
 name|config
 operator|.
-name|getIndexDirectory
+name|getIndexDir
 argument_list|()
 argument_list|,
 name|config

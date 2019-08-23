@@ -235,9 +235,7 @@ condition|(
 name|config
 operator|.
 name|isFromBase64
-argument_list|(
-name|exchange
-argument_list|)
+argument_list|()
 condition|)
 block|{
 name|stream

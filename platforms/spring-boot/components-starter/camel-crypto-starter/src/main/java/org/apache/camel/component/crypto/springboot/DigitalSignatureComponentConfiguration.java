@@ -340,8 +340,7 @@ decl_stmt|;
 comment|/**          * Sets the password used to access an aliased {@link PrivateKey} in the          * KeyStore.          */
 DECL|field|password
 specifier|private
-name|char
-index|[]
+name|String
 name|password
 decl_stmt|;
 comment|/**          * Sets the KeyStore that can contain keys and Certficates for use in          * signing and verifying exchanges based on the given          * KeyStoreParameters. A {@link KeyStore} is typically used with an          * alias, either one supplied in the Route definition or dynamically via          * the message header "CamelSignatureKeyStoreAlias". If no alias is          * supplied and there is only a single entry in the Keystore, then this          * single entry will be used.          */
@@ -684,8 +683,7 @@ expr_stmt|;
 block|}
 DECL|method|getPassword ()
 specifier|public
-name|char
-index|[]
+name|String
 name|getPassword
 parameter_list|()
 block|{
@@ -693,13 +691,12 @@ return|return
 name|password
 return|;
 block|}
-DECL|method|setPassword (char[] password)
+DECL|method|setPassword (String password)
 specifier|public
 name|void
 name|setPassword
 parameter_list|(
-name|char
-index|[]
+name|String
 name|password
 parameter_list|)
 block|{

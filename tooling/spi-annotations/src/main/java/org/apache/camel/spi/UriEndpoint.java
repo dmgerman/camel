@@ -213,6 +213,15 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Generates source code for fast configuring of the endpoint properties which      * uses direct method invocation of getter/setters.      * Setting this to false will fallback to use reflection based introspection as Camel does in Camel 2.x.      */
+DECL|method|generateConfigurer ()
+DECL|field|true
+name|boolean
+name|generateConfigurer
+parameter_list|()
+default|default
+literal|true
+function_decl|;
 block|}
 end_annotation_defn
 

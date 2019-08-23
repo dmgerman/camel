@@ -544,11 +544,6 @@ name|snmpContextEngineId
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|)
 DECL|field|oids
 specifier|private
 name|OIDList

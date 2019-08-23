@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|annotation
@@ -237,6 +247,12 @@ specifier|private
 name|Integer
 name|id
 decl_stmt|;
+comment|/**          * The criteria to use with complex searches.          */
+DECL|field|criteria
+specifier|private
+name|Map
+name|criteria
+decl_stmt|;
 comment|/**          * Whether to bypass trash and force deletion.          */
 DECL|field|force
 specifier|private
@@ -379,6 +395,32 @@ operator|.
 name|id
 operator|=
 name|id
+expr_stmt|;
+block|}
+DECL|method|getCriteria ()
+specifier|public
+name|Map
+name|getCriteria
+parameter_list|()
+block|{
+return|return
+name|criteria
+return|;
+block|}
+DECL|method|setCriteria (Map criteria)
+specifier|public
+name|void
+name|setCriteria
+parameter_list|(
+name|Map
+name|criteria
+parameter_list|)
+block|{
+name|this
+operator|.
+name|criteria
+operator|=
+name|criteria
 expr_stmt|;
 block|}
 DECL|method|getForce ()

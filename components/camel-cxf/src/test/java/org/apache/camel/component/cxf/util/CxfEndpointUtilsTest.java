@@ -322,7 +322,7 @@ name|service
 init|=
 name|endpoint
 operator|.
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 decl_stmt|;
 name|assertEquals

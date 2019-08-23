@@ -350,7 +350,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setServiceName
+name|setServiceNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -363,7 +363,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setPortName
+name|setPortNameAsQName
 argument_list|(
 operator|new
 name|QName

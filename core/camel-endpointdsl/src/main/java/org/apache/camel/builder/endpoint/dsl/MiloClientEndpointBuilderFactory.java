@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Set
@@ -261,28 +251,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The method definition (see Method ID).          *           * The option is a:          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
-DECL|method|method (Object method)
-specifier|default
-name|MiloClientEndpointConsumerBuilder
-name|method
-parameter_list|(
-name|Object
-name|method
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"method"
-argument_list|,
-name|method
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The method definition (see Method ID).          *           * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
+comment|/**          * The method definition (see Method ID).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|method (String method)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
@@ -303,28 +272,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The node definition (see Node ID).          *           * The option is a:          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
-DECL|method|node (Object node)
-specifier|default
-name|MiloClientEndpointConsumerBuilder
-name|node
-parameter_list|(
-name|Object
-name|node
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"node"
-argument_list|,
-name|node
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The node definition (see Node ID).          *           * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
+comment|/**          * The node definition (see Node ID).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|node (String node)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
@@ -642,28 +590,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The URL where the key should be loaded from.          *           * The option is a:<code>java.net.URL</code> type.          *           * Group: client          */
-DECL|method|keyStoreUrl (URL keyStoreUrl)
-specifier|default
-name|MiloClientEndpointConsumerBuilder
-name|keyStoreUrl
-parameter_list|(
-name|URL
-name|keyStoreUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"keyStoreUrl"
-argument_list|,
-name|keyStoreUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URL where the key should be loaded from.          *           * The option will be converted to a<code>java.net.URL</code> type.          *           * Group: client          */
+comment|/**          * The URL where the key should be loaded from.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: client          */
 DECL|method|keyStoreUrl (String keyStoreUrl)
 specifier|default
 name|MiloClientEndpointConsumerBuilder
@@ -1253,28 +1180,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The method definition (see Method ID).          *           * The option is a:          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
-DECL|method|method (Object method)
-specifier|default
-name|MiloClientEndpointProducerBuilder
-name|method
-parameter_list|(
-name|Object
-name|method
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"method"
-argument_list|,
-name|method
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The method definition (see Method ID).          *           * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
+comment|/**          * The method definition (see Method ID).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|method (String method)
 specifier|default
 name|MiloClientEndpointProducerBuilder
@@ -1295,28 +1201,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The node definition (see Node ID).          *           * The option is a:          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
-DECL|method|node (Object node)
-specifier|default
-name|MiloClientEndpointProducerBuilder
-name|node
-parameter_list|(
-name|Object
-name|node
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"node"
-argument_list|,
-name|node
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The node definition (see Node ID).          *           * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
+comment|/**          * The node definition (see Node ID).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|node (String node)
 specifier|default
 name|MiloClientEndpointProducerBuilder
@@ -1634,28 +1519,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The URL where the key should be loaded from.          *           * The option is a:<code>java.net.URL</code> type.          *           * Group: client          */
-DECL|method|keyStoreUrl (URL keyStoreUrl)
-specifier|default
-name|MiloClientEndpointProducerBuilder
-name|keyStoreUrl
-parameter_list|(
-name|URL
-name|keyStoreUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"keyStoreUrl"
-argument_list|,
-name|keyStoreUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URL where the key should be loaded from.          *           * The option will be converted to a<code>java.net.URL</code> type.          *           * Group: client          */
+comment|/**          * The URL where the key should be loaded from.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: client          */
 DECL|method|keyStoreUrl (String keyStoreUrl)
 specifier|default
 name|MiloClientEndpointProducerBuilder
@@ -2163,28 +2027,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The method definition (see Method ID).          *           * The option is a:          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
-DECL|method|method (Object method)
-specifier|default
-name|MiloClientEndpointBuilder
-name|method
-parameter_list|(
-name|Object
-name|method
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"method"
-argument_list|,
-name|method
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The method definition (see Method ID).          *           * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
+comment|/**          * The method definition (see Method ID).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|method (String method)
 specifier|default
 name|MiloClientEndpointBuilder
@@ -2205,28 +2048,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The node definition (see Node ID).          *           * The option is a:          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
-DECL|method|node (Object node)
-specifier|default
-name|MiloClientEndpointBuilder
-name|node
-parameter_list|(
-name|Object
-name|node
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"node"
-argument_list|,
-name|node
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The node definition (see Node ID).          *           * The option will be converted to a          *<code>org.eclipse.milo.opcua.stack.core.types.builtin.ExpandedNodeId</code> type.          *           * Group: common          */
+comment|/**          * The node definition (see Node ID).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|node (String node)
 specifier|default
 name|MiloClientEndpointBuilder
@@ -2502,28 +2324,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The URL where the key should be loaded from.          *           * The option is a:<code>java.net.URL</code> type.          *           * Group: client          */
-DECL|method|keyStoreUrl (URL keyStoreUrl)
-specifier|default
-name|MiloClientEndpointBuilder
-name|keyStoreUrl
-parameter_list|(
-name|URL
-name|keyStoreUrl
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"keyStoreUrl"
-argument_list|,
-name|keyStoreUrl
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The URL where the key should be loaded from.          *           * The option will be converted to a<code>java.net.URL</code> type.          *           * Group: client          */
+comment|/**          * The URL where the key should be loaded from.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: client          */
 DECL|method|keyStoreUrl (String keyStoreUrl)
 specifier|default
 name|MiloClientEndpointBuilder

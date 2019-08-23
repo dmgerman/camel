@@ -1825,7 +1825,7 @@ return|return
 name|collectionIndex
 return|;
 block|}
-comment|/**      * Sets the operation this endpoint will execute against MongoDB. For      * possible values, see {@link MongoDbOperation}.      *      * @param operation name of the operation as per catalogued values      * @throws CamelMongoDbException      */
+comment|/**      * Sets the operation this endpoint will execute against MongoDB.      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -1865,6 +1865,23 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * Sets the operation this endpoint will execute against MongoDB.      */
+DECL|method|setOperation (MongoDbOperation operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|MongoDbOperation
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
+expr_stmt|;
 block|}
 DECL|method|getOperation ()
 specifier|public

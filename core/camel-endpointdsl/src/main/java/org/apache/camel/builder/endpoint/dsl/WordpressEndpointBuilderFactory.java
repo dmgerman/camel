@@ -214,13 +214,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
-DECL|method|force (Boolean force)
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|force (boolean force)
 specifier|default
 name|WordpressEndpointConsumerBuilder
 name|force
 parameter_list|(
-name|Boolean
+name|boolean
 name|force
 parameter_list|)
 block|{
@@ -235,7 +235,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|force (String force)
 specifier|default
 name|WordpressEndpointConsumerBuilder
@@ -725,13 +725,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
-DECL|method|force (Boolean force)
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|force (boolean force)
 specifier|default
 name|WordpressEndpointProducerBuilder
 name|force
 parameter_list|(
-name|Boolean
+name|boolean
 name|force
 parameter_list|)
 block|{
@@ -746,7 +746,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|force (String force)
 specifier|default
 name|WordpressEndpointProducerBuilder
@@ -1154,13 +1154,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: common          */
-DECL|method|force (Boolean force)
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|force (boolean force)
 specifier|default
 name|WordpressEndpointBuilder
 name|force
 parameter_list|(
-name|Boolean
+name|boolean
 name|force
 parameter_list|)
 block|{
@@ -1175,7 +1175,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: common          */
+comment|/**          * Whether to bypass trash and force deletion.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|force (String force)
 specifier|default
 name|WordpressEndpointBuilder

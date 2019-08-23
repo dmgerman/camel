@@ -435,29 +435,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the password used to access an aliased PrivateKey in the          * KeyStore.          *           * The option is a:<code>char[]</code> type.          *           * Group: security          */
-DECL|method|password (Character[] password)
-specifier|default
-name|DigitalSignatureEndpointBuilder
-name|password
-parameter_list|(
-name|Character
-index|[]
-name|password
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"password"
-argument_list|,
-name|password
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the password used to access an aliased PrivateKey in the          * KeyStore.          *           * The option will be converted to a<code>char[]</code> type.          *           * Group: security          */
+comment|/**          * Sets the password used to access an aliased PrivateKey in the          * KeyStore.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|password (String password)
 specifier|default
 name|DigitalSignatureEndpointBuilder

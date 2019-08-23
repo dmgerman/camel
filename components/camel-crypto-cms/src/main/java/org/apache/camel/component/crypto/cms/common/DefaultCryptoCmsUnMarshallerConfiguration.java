@@ -30,18 +30,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|UriParam
@@ -80,19 +68,11 @@ argument_list|(
 name|label
 operator|=
 literal|"decrypt_verify"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|fromBase64
 specifier|private
-name|Boolean
+name|boolean
 name|fromBase64
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 DECL|method|DefaultCryptoCmsUnMarshallerConfiguration ()
 specifier|public
@@ -105,26 +85,23 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isFromBase64 (Exchange exchange)
+DECL|method|isFromBase64 ()
 specifier|public
-name|Boolean
+name|boolean
 name|isFromBase64
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 name|fromBase64
 return|;
 block|}
 comment|/**      * If<tt>true</tt> then the CMS message is base 64 encoded and must be      * decoded during the processing. Default value is<code>false</code>.      */
-DECL|method|setFromBase64 (Boolean base64)
+DECL|method|setFromBase64 (boolean base64)
 specifier|public
 name|void
 name|setFromBase64
 parameter_list|(
-name|Boolean
+name|boolean
 name|base64
 parameter_list|)
 block|{

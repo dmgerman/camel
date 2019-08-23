@@ -1755,6 +1755,24 @@ argument_list|(
 literal|"host"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|DefaultEndpoint
+condition|)
+block|{
+comment|// let the rest endpoint configure itself
+name|DefaultEndpoint
+name|de
+init|=
+operator|(
+name|DefaultEndpoint
+operator|)
+name|endpoint
+decl_stmt|;
+name|de
+operator|.
 name|setProperties
 argument_list|(
 name|endpoint
@@ -1762,11 +1780,7 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
-comment|// ensure rest configuration is available
-comment|//        final String componentName = determineComponentName();
-comment|//        if (componentName != null) {
-comment|//            RestConfiguration config = camelContext.getRestConfiguration(componentName, true);
-comment|//        }
+block|}
 comment|// if there is a host then we should use this hardcoded host instead of any Header that may have an existing
 comment|// Host header from some other HTTP input, and if so then lets remove it
 return|return

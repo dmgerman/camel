@@ -153,7 +153,7 @@ name|UriParam
 argument_list|(
 name|javaType
 operator|=
-literal|"ProtocolOptions"
+literal|"org.eclipse.neoscada.protocol.iec60870.ProtocolOptions"
 argument_list|)
 DECL|field|protocolOptions
 specifier|private

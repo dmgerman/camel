@@ -571,7 +571,7 @@ return|return
 operator|(
 name|configuration
 operator|.
-name|getUsingSSL
+name|isUsingSSL
 argument_list|()
 condition|?
 literal|"smpps://"

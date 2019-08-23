@@ -626,7 +626,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getRawPayload
+name|isRawPayload
 argument_list|()
 expr_stmt|;
 comment|// get sObjectClass to convert to

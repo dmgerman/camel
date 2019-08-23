@@ -198,6 +198,7 @@ end_import
 
 begin_class
 DECL|class|AtomixQueueProducer
+specifier|public
 specifier|final
 class|class
 name|AtomixQueueProducer

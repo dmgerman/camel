@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf
+DECL|package|org.apache.camel.component.cxf.jaxrs
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|cxf
+operator|.
+name|jaxrs
 package|;
 end_package
 
@@ -74,20 +76,6 @@ name|cxf
 operator|.
 name|endpoint
 operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|endpoint
-operator|.
 name|Server
 import|;
 end_import
@@ -100,9 +88,41 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|frontend
+name|jaxrs
 operator|.
-name|AbstractWSDLBasedEndpointFactory
+name|AbstractJAXRSFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|jaxrs
+operator|.
+name|client
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|jaxrs
+operator|.
+name|client
+operator|.
+name|WebClient
 import|;
 end_import
 
@@ -123,19 +143,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|SslCxfEndpointConfigurer
+DECL|class|SslCxfRsConfigurer
 specifier|public
 specifier|final
 class|class
-name|SslCxfEndpointConfigurer
+name|SslCxfRsConfigurer
 extends|extends
 name|AbstractSslEndpointConfigurer
 implements|implements
-name|CxfEndpointConfigurer
+name|CxfRsConfigurer
 block|{
-DECL|method|SslCxfEndpointConfigurer (SSLContextParameters sslContextParameters, CamelContext camelContext)
+DECL|method|SslCxfRsConfigurer (SSLContextParameters sslContextParameters, CamelContext camelContext)
 specifier|private
-name|SslCxfEndpointConfigurer
+name|SslCxfRsConfigurer
 parameter_list|(
 name|SSLContextParameters
 name|sslContextParameters
@@ -155,7 +175,7 @@ block|}
 DECL|method|create (SSLContextParameters sslContextParameters, CamelContext camelContext)
 specifier|public
 specifier|static
-name|CxfEndpointConfigurer
+name|CxfRsConfigurer
 name|create
 parameter_list|(
 name|SSLContextParameters
@@ -174,9 +194,9 @@ condition|)
 block|{
 return|return
 operator|new
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfRsConfigurer
 operator|.
-name|NullCxfEndpointConfigurer
+name|NullCxfRsConfigurer
 argument_list|()
 return|;
 block|}
@@ -184,7 +204,7 @@ else|else
 block|{
 return|return
 operator|new
-name|SslCxfEndpointConfigurer
+name|SslCxfRsConfigurer
 argument_list|(
 name|sslContextParameters
 argument_list|,
@@ -195,12 +215,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|configure (AbstractWSDLBasedEndpointFactory factoryBean)
+DECL|method|configure (AbstractJAXRSFactoryBean factoryBean)
 specifier|public
 name|void
 name|configure
 parameter_list|(
-name|AbstractWSDLBasedEndpointFactory
+name|AbstractJAXRSFactoryBean
 name|factoryBean
 parameter_list|)
 block|{     }
@@ -221,7 +241,12 @@ init|=
 operator|(
 name|HTTPConduit
 operator|)
+name|WebClient
+operator|.
+name|getConfig
+argument_list|(
 name|client
+argument_list|)
 operator|.
 name|getConduit
 argument_list|()

@@ -292,30 +292,14 @@ decl_stmt|;
 comment|/**          * The cache key type, default "java.lang.Object"          */
 DECL|field|keyType
 specifier|private
-name|Class
+name|String
 name|keyType
-init|=
-name|java
-operator|.
-name|lang
-operator|.
-name|Object
-operator|.
-name|class
 decl_stmt|;
 comment|/**          * The cache value type, default "java.lang.Object"          */
 DECL|field|valueType
 specifier|private
-name|Class
+name|String
 name|valueType
-init|=
-name|java
-operator|.
-name|lang
-operator|.
-name|Object
-operator|.
-name|class
 decl_stmt|;
 comment|/**          * To configure an already instantiated cache to be used          */
 DECL|field|cache
@@ -471,7 +455,7 @@ expr_stmt|;
 block|}
 DECL|method|getKeyType ()
 specifier|public
-name|Class
+name|String
 name|getKeyType
 parameter_list|()
 block|{
@@ -479,12 +463,12 @@ return|return
 name|keyType
 return|;
 block|}
-DECL|method|setKeyType (Class keyType)
+DECL|method|setKeyType (String keyType)
 specifier|public
 name|void
 name|setKeyType
 parameter_list|(
-name|Class
+name|String
 name|keyType
 parameter_list|)
 block|{
@@ -497,7 +481,7 @@ expr_stmt|;
 block|}
 DECL|method|getValueType ()
 specifier|public
-name|Class
+name|String
 name|getValueType
 parameter_list|()
 block|{
@@ -505,12 +489,12 @@ return|return
 name|valueType
 return|;
 block|}
-DECL|method|setValueType (Class valueType)
+DECL|method|setValueType (String valueType)
 specifier|public
 name|void
 name|setValueType
 parameter_list|(
-name|Class
+name|String
 name|valueType
 parameter_list|)
 block|{

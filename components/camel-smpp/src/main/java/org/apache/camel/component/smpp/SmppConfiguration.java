@@ -1646,10 +1646,10 @@ operator|=
 name|numberingPlanIndicator
 expr_stmt|;
 block|}
-DECL|method|getUsingSSL ()
+DECL|method|isUsingSSL ()
 specifier|public
 name|boolean
-name|getUsingSSL
+name|isUsingSSL
 parameter_list|()
 block|{
 return|return

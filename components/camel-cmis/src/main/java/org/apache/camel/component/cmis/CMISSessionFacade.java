@@ -1591,6 +1591,16 @@ name|createOperationContext
 argument_list|()
 return|;
 block|}
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|username
+return|;
+block|}
 comment|/**      * Username for the cmis repository      */
 DECL|method|setUsername (String username)
 specifier|public
@@ -1607,6 +1617,16 @@ name|username
 operator|=
 name|username
 expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
 block|}
 comment|/**      * Password for the cmis repository      */
 DECL|method|setPassword (String password)
@@ -1625,6 +1645,16 @@ operator|=
 name|password
 expr_stmt|;
 block|}
+DECL|method|getRepositoryId ()
+specifier|public
+name|String
+name|getRepositoryId
+parameter_list|()
+block|{
+return|return
+name|repositoryId
+return|;
+block|}
 comment|/**      * The Id of the repository to use. If not specified the first available repository is used      */
 DECL|method|setRepositoryId (String repositoryId)
 specifier|public
@@ -1641,6 +1671,16 @@ name|repositoryId
 operator|=
 name|repositoryId
 expr_stmt|;
+block|}
+DECL|method|isReadContent ()
+specifier|public
+name|boolean
+name|isReadContent
+parameter_list|()
+block|{
+return|return
+name|readContent
+return|;
 block|}
 comment|/**      * If set to true, the content of document node will be retrieved in addition to the properties      */
 DECL|method|setReadContent (boolean readContent)
@@ -1659,6 +1699,16 @@ operator|=
 name|readContent
 expr_stmt|;
 block|}
+DECL|method|getReadCount ()
+specifier|public
+name|int
+name|getReadCount
+parameter_list|()
+block|{
+return|return
+name|readCount
+return|;
+block|}
 comment|/**      * Max number of nodes to read      */
 DECL|method|setReadCount (int readCount)
 specifier|public
@@ -1676,6 +1726,16 @@ operator|=
 name|readCount
 expr_stmt|;
 block|}
+DECL|method|getQuery ()
+specifier|public
+name|String
+name|getQuery
+parameter_list|()
+block|{
+return|return
+name|query
+return|;
+block|}
 comment|/**      * The cmis query to execute against the repository.      * If not specified, the consumer will retrieve every node from the content repository by iterating the content tree recursively      */
 DECL|method|setQuery (String query)
 specifier|public
@@ -1692,6 +1752,16 @@ name|query
 operator|=
 name|query
 expr_stmt|;
+block|}
+DECL|method|getPageSize ()
+specifier|public
+name|int
+name|getPageSize
+parameter_list|()
+block|{
+return|return
+name|pageSize
+return|;
 block|}
 comment|/**      * Number of nodes to retrieve per page      */
 DECL|method|setPageSize (int pageSize)

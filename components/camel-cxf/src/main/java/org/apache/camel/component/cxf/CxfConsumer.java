@@ -512,7 +512,7 @@ if|if
 condition|(
 name|cxfEndpoint
 operator|.
-name|getCxfEndpointConfigurer
+name|getCxfConfigurer
 argument_list|()
 operator|!=
 literal|null
@@ -520,7 +520,7 @@ condition|)
 block|{
 name|cxfEndpoint
 operator|.
-name|getCxfEndpointConfigurer
+name|getCxfConfigurer
 argument_list|()
 operator|.
 name|configureServer
@@ -1691,7 +1691,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getMergeProtocolHeaders
+name|isMergeProtocolHeaders
 argument_list|()
 condition|)
 block|{

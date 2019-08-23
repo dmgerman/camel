@@ -86,7 +86,7 @@ argument_list|()
 operator|+
 literal|"/tmp2/camel?password=admin&consumer.initialDelay=2000&disableSecureDataChannelDefaults=true"
 operator|+
-literal|"&securityProtocol=SSLv3&isImplicit=false&ftpClient.trustStore.file=./src/test/resources/server.jks&ftpClient.trustStore.type=JKS"
+literal|"&securityProtocol=SSLv3&implicit=false&ftpClient.trustStore.file=./src/test/resources/server.jks&ftpClient.trustStore.type=JKS"
 operator|+
 literal|"&ftpClient.trustStore.algorithm=SunX509&ftpClient.trustStore.password=password&delete=true"
 return|;

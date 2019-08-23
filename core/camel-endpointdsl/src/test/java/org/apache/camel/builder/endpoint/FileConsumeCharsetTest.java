@@ -242,10 +242,7 @@ argument_list|)
 operator|.
 name|fileName
 argument_list|(
-name|constant
-argument_list|(
 literal|"report.txt"
-argument_list|)
 argument_list|)
 operator|.
 name|delete

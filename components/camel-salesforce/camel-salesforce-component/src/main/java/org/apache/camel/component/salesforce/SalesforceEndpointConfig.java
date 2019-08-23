@@ -1025,10 +1025,10 @@ operator|=
 name|format
 expr_stmt|;
 block|}
-DECL|method|getRawPayload ()
+DECL|method|isRawPayload ()
 specifier|public
 name|boolean
-name|getRawPayload
+name|isRawPayload
 parameter_list|()
 block|{
 return|return

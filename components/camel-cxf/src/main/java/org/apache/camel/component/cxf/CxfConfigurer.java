@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.jaxrs
+DECL|package|org.apache.camel.component.cxf
 package|package
 name|org
 operator|.
@@ -15,10 +15,22 @@ operator|.
 name|component
 operator|.
 name|cxf
-operator|.
-name|jaxrs
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|endpoint
+operator|.
+name|Client
+import|;
+end_import
 
 begin_import
 import|import
@@ -42,44 +54,28 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|jaxrs
+name|frontend
 operator|.
-name|AbstractJAXRSFactoryBean
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|jaxrs
-operator|.
-name|client
-operator|.
-name|Client
+name|AbstractWSDLBasedEndpointFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  * A pluggable strategy for configuring the cxfRsEndpoint by using java code  */
+comment|/**  * A pluggable strategy for configuring the CXF by using java code  */
 end_comment
 
 begin_interface
-DECL|interface|CxfRsEndpointConfigurer
+DECL|interface|CxfConfigurer
 specifier|public
 interface|interface
-name|CxfRsEndpointConfigurer
+name|CxfConfigurer
 block|{
-comment|/**      * Configure the CXF-RS Server/Client factory bean      * @param factoryBean      */
-DECL|method|configure (AbstractJAXRSFactoryBean factoryBean)
+comment|/**      * Configure the CXF Server/Client factory bean      *      * @param factoryBean the factory bean      */
+DECL|method|configure (AbstractWSDLBasedEndpointFactory factoryBean)
 name|void
 name|configure
 parameter_list|(
-name|AbstractJAXRSFactoryBean
+name|AbstractWSDLBasedEndpointFactory
 name|factoryBean
 parameter_list|)
 function_decl|;

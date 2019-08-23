@@ -235,6 +235,11 @@ name|ChatScriptEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|bot
+specifier|private
+name|ChatScriptBot
+name|bot
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -297,10 +302,6 @@ argument_list|(
 name|description
 operator|=
 literal|"Username who initializes the CS conversation. To be set when chat is initialized from camel route"
-argument_list|,
-name|label
-operator|=
-literal|"username"
 argument_list|)
 DECL|field|chatUserName
 specifier|private
@@ -314,23 +315,14 @@ name|description
 operator|=
 literal|"Issues :reset command to start a new conversation everytime"
 argument_list|,
-name|label
-operator|=
-literal|"reset"
-argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
 argument_list|)
-DECL|field|resetchat
+DECL|field|resetChat
 specifier|private
 name|boolean
-name|resetchat
-decl_stmt|;
-DECL|field|bot
-specifier|private
-name|ChatScriptBot
-name|bot
+name|resetChat
 decl_stmt|;
 DECL|method|ChatScriptEndpoint ()
 specifier|public
@@ -500,13 +492,13 @@ name|isResetChat
 parameter_list|()
 block|{
 return|return
-name|resetchat
+name|resetChat
 return|;
 block|}
-DECL|method|setResetchat (boolean resetChat)
+DECL|method|setResetChat (boolean resetChat)
 specifier|public
 name|void
-name|setResetchat
+name|setResetChat
 parameter_list|(
 name|boolean
 name|resetChat
@@ -514,7 +506,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|resetchat
+name|resetChat
 operator|=
 name|resetChat
 expr_stmt|;

@@ -217,6 +217,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|ThriftConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProducer ()

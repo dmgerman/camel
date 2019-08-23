@@ -592,7 +592,7 @@ name|clientKey
 expr_stmt|;
 block|}
 DECL|method|getApiKey ()
-specifier|private
+specifier|public
 name|String
 name|getApiKey
 parameter_list|()
@@ -617,6 +617,16 @@ name|apiKey
 operator|=
 name|apiKey
 expr_stmt|;
+block|}
+DECL|method|getProxyHost ()
+specifier|public
+name|String
+name|getProxyHost
+parameter_list|()
+block|{
+return|return
+name|proxyHost
+return|;
 block|}
 comment|/**      * The proxy host name      */
 DECL|method|setProxyHost (String proxyHost)

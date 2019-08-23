@@ -136,52 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Not in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-annotation|@
-name|Deprecated
-DECL|method|awaitExistence ( boolean awaitExistence)
-specifier|default
-name|ZooKeeperEndpointConsumerBuilder
-name|awaitExistence
-parameter_list|(
-name|boolean
-name|awaitExistence
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"awaitExistence"
-argument_list|,
-name|awaitExistence
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Not in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-annotation|@
-name|Deprecated
-DECL|method|awaitExistence ( String awaitExistence)
-specifier|default
-name|ZooKeeperEndpointConsumerBuilder
-name|awaitExistence
-parameter_list|(
-name|String
-name|awaitExistence
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"awaitExistence"
-argument_list|,
-name|awaitExistence
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the children of the node should be listed.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|listChildren ( boolean listChildren)
 specifier|default
@@ -646,52 +600,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Not in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-annotation|@
-name|Deprecated
-DECL|method|awaitExistence ( boolean awaitExistence)
-specifier|default
-name|ZooKeeperEndpointProducerBuilder
-name|awaitExistence
-parameter_list|(
-name|boolean
-name|awaitExistence
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"awaitExistence"
-argument_list|,
-name|awaitExistence
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Not in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-annotation|@
-name|Deprecated
-DECL|method|awaitExistence ( String awaitExistence)
-specifier|default
-name|ZooKeeperEndpointProducerBuilder
-name|awaitExistence
-parameter_list|(
-name|String
-name|awaitExistence
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"awaitExistence"
-argument_list|,
-name|awaitExistence
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the children of the node should be listed.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
 DECL|method|listChildren ( boolean listChildren)
 specifier|default
@@ -1008,52 +916,6 @@ return|return
 operator|(
 name|AdvancedZooKeeperEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Not in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-annotation|@
-name|Deprecated
-DECL|method|awaitExistence (boolean awaitExistence)
-specifier|default
-name|ZooKeeperEndpointBuilder
-name|awaitExistence
-parameter_list|(
-name|boolean
-name|awaitExistence
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"awaitExistence"
-argument_list|,
-name|awaitExistence
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Not in use.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-annotation|@
-name|Deprecated
-DECL|method|awaitExistence (String awaitExistence)
-specifier|default
-name|ZooKeeperEndpointBuilder
-name|awaitExistence
-parameter_list|(
-name|String
-name|awaitExistence
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"awaitExistence"
-argument_list|,
-name|awaitExistence
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

@@ -241,48 +241,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|reliable (boolean reliable)
-specifier|default
-name|HazelcastSedaEndpointConsumerBuilder
-name|reliable
-parameter_list|(
-name|boolean
-name|reliable
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reliable"
-argument_list|,
-name|reliable
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|reliable (String reliable)
-specifier|default
-name|HazelcastSedaEndpointConsumerBuilder
-name|reliable
-parameter_list|(
-name|String
-name|reliable
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reliable"
-argument_list|,
-name|reliable
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -319,132 +277,6 @@ argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
 name|bridgeErrorHandler
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define the polling timeout of the Queue consumer in Poll mode.          *           * The option is a:<code>long</code> type.          *           * Group: consumer          */
-DECL|method|pollingTimeout ( long pollingTimeout)
-specifier|default
-name|HazelcastSedaEndpointConsumerBuilder
-name|pollingTimeout
-parameter_list|(
-name|long
-name|pollingTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"pollingTimeout"
-argument_list|,
-name|pollingTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define the polling timeout of the Queue consumer in Poll mode.          *           * The option will be converted to a<code>long</code> type.          *           * Group: consumer          */
-DECL|method|pollingTimeout ( String pollingTimeout)
-specifier|default
-name|HazelcastSedaEndpointConsumerBuilder
-name|pollingTimeout
-parameter_list|(
-name|String
-name|pollingTimeout
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"pollingTimeout"
-argument_list|,
-name|pollingTimeout
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define the Pool size for Queue Consumer Executor.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
-DECL|method|poolSize (int poolSize)
-specifier|default
-name|HazelcastSedaEndpointConsumerBuilder
-name|poolSize
-parameter_list|(
-name|int
-name|poolSize
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"poolSize"
-argument_list|,
-name|poolSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define the Pool size for Queue Consumer Executor.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
-DECL|method|poolSize (String poolSize)
-specifier|default
-name|HazelcastSedaEndpointConsumerBuilder
-name|poolSize
-parameter_list|(
-name|String
-name|poolSize
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"poolSize"
-argument_list|,
-name|poolSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define the Queue Consumer mode: Listen or Poll.          *           * The option is a:          *<code>org.apache.camel.component.hazelcast.queue.HazelcastQueueConsumerMode</code> type.          *           * Group: consumer          */
-DECL|method|queueConsumerMode ( HazelcastQueueConsumerMode queueConsumerMode)
-specifier|default
-name|HazelcastSedaEndpointConsumerBuilder
-name|queueConsumerMode
-parameter_list|(
-name|HazelcastQueueConsumerMode
-name|queueConsumerMode
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"queueConsumerMode"
-argument_list|,
-name|queueConsumerMode
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define the Queue Consumer mode: Listen or Poll.          *           * The option will be converted to a          *<code>org.apache.camel.component.hazelcast.queue.HazelcastQueueConsumerMode</code> type.          *           * Group: consumer          */
-DECL|method|queueConsumerMode ( String queueConsumerMode)
-specifier|default
-name|HazelcastSedaEndpointConsumerBuilder
-name|queueConsumerMode
-parameter_list|(
-name|String
-name|queueConsumerMode
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"queueConsumerMode"
-argument_list|,
-name|queueConsumerMode
 argument_list|)
 expr_stmt|;
 return|return
@@ -978,48 +810,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|reliable (boolean reliable)
-specifier|default
-name|HazelcastSedaEndpointProducerBuilder
-name|reliable
-parameter_list|(
-name|boolean
-name|reliable
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reliable"
-argument_list|,
-name|reliable
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|reliable (String reliable)
-specifier|default
-name|HazelcastSedaEndpointProducerBuilder
-name|reliable
-parameter_list|(
-name|String
-name|reliable
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reliable"
-argument_list|,
-name|reliable
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
@@ -1507,48 +1297,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|reliable (boolean reliable)
-specifier|default
-name|HazelcastSedaEndpointBuilder
-name|reliable
-parameter_list|(
-name|boolean
-name|reliable
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reliable"
-argument_list|,
-name|reliable
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if the endpoint will use a reliable Topic struct or not.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|reliable (String reliable)
-specifier|default
-name|HazelcastSedaEndpointBuilder
-name|reliable
-parameter_list|(
-name|String
-name|reliable
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"reliable"
-argument_list|,
-name|reliable
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use concurrent consumers polling from the SEDA queue.          *           * The option is a:<code>int</code> type.          *           * Group: seda          */
 DECL|method|concurrentConsumers ( int concurrentConsumers)
 specifier|default
@@ -1980,17 +1728,6 @@ name|readOnceTail
 block|,
 DECL|enumConstant|capacity
 name|capacity
-block|;     }
-comment|/**      * Proxy enum for      *<code>org.apache.camel.component.hazelcast.queue.HazelcastQueueConsumerMode</code> enum.      */
-DECL|enum|HazelcastQueueConsumerMode
-enum|enum
-name|HazelcastQueueConsumerMode
-block|{
-DECL|enumConstant|listen
-name|listen
-block|,
-DECL|enumConstant|poll
-name|poll
 block|;     }
 comment|/**      * Hazelcast SEDA (camel-hazelcast)      * The hazelcast-seda component is used to access Hazelcast BlockingQueue.      *       * Category: cache,datagrid      * Available as of version: 2.7      * Maven coordinates: org.apache.camel:camel-hazelcast      *       * Syntax:<code>hazelcast-seda:cacheName</code>      *       * Path parameter: cacheName (required)      * The name of the cache      */
 DECL|method|hazelcastSeda (String path)

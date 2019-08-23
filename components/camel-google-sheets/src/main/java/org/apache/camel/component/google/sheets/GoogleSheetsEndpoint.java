@@ -286,15 +286,10 @@ argument_list|>
 block|{
 annotation|@
 name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"configuration"
-argument_list|)
-DECL|field|endpointConfiguration
+DECL|field|configuration
 specifier|private
 name|GoogleSheetsConfiguration
-name|endpointConfiguration
+name|configuration
 decl_stmt|;
 DECL|field|apiProxy
 specifier|private
@@ -346,7 +341,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|endpointConfiguration
+name|configuration
 operator|=
 name|endpointConfiguration
 expr_stmt|;
@@ -521,7 +516,7 @@ operator|)
 operator|.
 name|getClient
 argument_list|(
-name|endpointConfiguration
+name|configuration
 argument_list|)
 return|;
 block|}

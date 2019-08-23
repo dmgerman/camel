@@ -724,10 +724,10 @@ operator|=
 name|jobFromHeader
 expr_stmt|;
 block|}
-DECL|method|getJobFromHeader ()
+DECL|method|isJobFromHeader ()
 specifier|public
 name|boolean
-name|getJobFromHeader
+name|isJobFromHeader
 parameter_list|()
 block|{
 return|return

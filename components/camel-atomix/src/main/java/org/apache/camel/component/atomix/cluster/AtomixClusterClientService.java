@@ -56,20 +56,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|atomix
-operator|.
-name|catalyst
-operator|.
-name|transport
-operator|.
-name|Transport
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -333,39 +319,29 @@ expr_stmt|;
 block|}
 DECL|method|getTransport ()
 specifier|public
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
+name|String
 name|getTransport
 parameter_list|()
 block|{
 return|return
 name|configuration
 operator|.
-name|getTransport
+name|getTransportClassName
 argument_list|()
 return|;
 block|}
-DECL|method|setTransport (Class<? extends Transport> transport)
+DECL|method|setTransportClassName (String transport)
 specifier|public
 name|void
-name|setTransport
+name|setTransportClassName
 parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
+name|String
 name|transport
 parameter_list|)
 block|{
 name|configuration
 operator|.
-name|setTransport
+name|setTransportClassName
 argument_list|(
 name|transport
 argument_list|)
@@ -378,6 +354,9 @@ name|getAtomix
 parameter_list|()
 block|{
 return|return
+operator|(
+name|AtomixClient
+operator|)
 name|configuration
 operator|.
 name|getAtomix

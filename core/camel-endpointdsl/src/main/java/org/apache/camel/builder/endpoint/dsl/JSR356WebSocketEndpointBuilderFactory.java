@@ -136,27 +136,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * the servlet context to use (represented by its path).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|context (String context)
-specifier|default
-name|JSR356WebSocketEndpointConsumerBuilder
-name|context
-parameter_list|(
-name|String
-name|context
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"context"
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Used when the endpoint is in client mode to populate a pool of          * sessions.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|sessionCount ( int sessionCount)
 specifier|default
@@ -453,27 +432,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * the servlet context to use (represented by its path).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|context (String context)
-specifier|default
-name|JSR356WebSocketEndpointProducerBuilder
-name|context
-parameter_list|(
-name|String
-name|context
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"context"
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Used when the endpoint is in client mode to populate a pool of          * sessions.          *           * The option is a:<code>int</code> type.          *           * Group: common          */
 DECL|method|sessionCount ( int sessionCount)
 specifier|default
@@ -685,27 +643,6 @@ return|return
 operator|(
 name|AdvancedJSR356WebSocketEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * the servlet context to use (represented by its path).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|context (String context)
-specifier|default
-name|JSR356WebSocketEndpointBuilder
-name|context
-parameter_list|(
-name|String
-name|context
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"context"
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}

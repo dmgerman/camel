@@ -273,16 +273,16 @@ name|String
 name|authority
 decl_stmt|;
 comment|/**          * An optional directory containing files to be used to be analyzed and          * added to the index at producer startup.          */
-DECL|field|sourceDirectory
+DECL|field|srcDir
 specifier|private
 name|File
-name|sourceDirectory
+name|srcDir
 decl_stmt|;
 comment|/**          * A file system directory in which index files are created upon          * analysis of the document by the specified analyzer          */
-DECL|field|indexDirectory
+DECL|field|indexDir
 specifier|private
 name|File
-name|indexDirectory
+name|indexDir
 decl_stmt|;
 comment|/**          * An Analyzer builds TokenStreams, which analyze text. It thus          * represents a policy for extracting index terms from text. The value          * for analyzer can be any class that extends the abstract class          * org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of          * analyzers out of the box          */
 DECL|field|analyzer
@@ -406,56 +406,56 @@ operator|=
 name|authority
 expr_stmt|;
 block|}
-DECL|method|getSourceDirectory ()
+DECL|method|getSrcDir ()
 specifier|public
 name|File
-name|getSourceDirectory
+name|getSrcDir
 parameter_list|()
 block|{
 return|return
-name|sourceDirectory
+name|srcDir
 return|;
 block|}
-DECL|method|setSourceDirectory (File sourceDirectory)
+DECL|method|setSrcDir (File srcDir)
 specifier|public
 name|void
-name|setSourceDirectory
+name|setSrcDir
 parameter_list|(
 name|File
-name|sourceDirectory
+name|srcDir
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sourceDirectory
+name|srcDir
 operator|=
-name|sourceDirectory
+name|srcDir
 expr_stmt|;
 block|}
-DECL|method|getIndexDirectory ()
+DECL|method|getIndexDir ()
 specifier|public
 name|File
-name|getIndexDirectory
+name|getIndexDir
 parameter_list|()
 block|{
 return|return
-name|indexDirectory
+name|indexDir
 return|;
 block|}
-DECL|method|setIndexDirectory (File indexDirectory)
+DECL|method|setIndexDir (File indexDir)
 specifier|public
 name|void
-name|setIndexDirectory
+name|setIndexDir
 parameter_list|(
 name|File
-name|indexDirectory
+name|indexDir
 parameter_list|)
 block|{
 name|this
 operator|.
-name|indexDirectory
+name|indexDir
 operator|=
-name|indexDirectory
+name|indexDir
 expr_stmt|;
 block|}
 DECL|method|getAnalyzer ()

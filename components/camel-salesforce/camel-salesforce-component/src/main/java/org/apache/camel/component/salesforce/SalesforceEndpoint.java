@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The salesforce component is used for integrating Camel with the massive  * Salesforce API.  */
+comment|/**  * The salesforce component is used for integrating Camel with the massive Salesforce API.  */
 end_comment
 
 begin_class
@@ -263,11 +263,11 @@ name|topicName
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|config
+DECL|field|configuration
 specifier|private
 specifier|final
 name|SalesforceEndpointConfig
-name|config
+name|configuration
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -285,7 +285,7 @@ specifier|private
 name|Long
 name|replayId
 decl_stmt|;
-DECL|method|SalesforceEndpoint (String uri, SalesforceComponent salesforceComponent, SalesforceEndpointConfig config, OperationName operationName, String topicName)
+DECL|method|SalesforceEndpoint (String uri, SalesforceComponent salesforceComponent, SalesforceEndpointConfig configuration, OperationName operationName, String topicName)
 specifier|public
 name|SalesforceEndpoint
 parameter_list|(
@@ -296,7 +296,7 @@ name|SalesforceComponent
 name|salesforceComponent
 parameter_list|,
 name|SalesforceEndpointConfig
-name|config
+name|configuration
 parameter_list|,
 name|OperationName
 name|operationName
@@ -314,9 +314,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|config
+name|configuration
 operator|=
-name|config
+name|configuration
 expr_stmt|;
 name|this
 operator|.
@@ -341,8 +341,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// producer requires an operation, topicName must be the invalid
-comment|// operation name
+comment|// producer requires an operation, topicName must be the invalid operation name
 if|if
 condition|(
 name|operationName
@@ -408,8 +407,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// consumer requires a topicName, operation name must be the invalid
-comment|// topic name
+comment|// consumer requires a topicName, operation name must be the invalid topic name
 if|if
 condition|(
 name|topicName
@@ -507,7 +505,7 @@ name|getConfiguration
 parameter_list|()
 block|{
 return|return
-name|config
+name|configuration
 return|;
 block|}
 DECL|method|getOperationName ()
@@ -577,8 +575,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// check if this endpoint has its own http client that needs to be
-comment|// started
+comment|// check if this endpoint has its own http client that needs to be started
 specifier|final
 name|HttpClient
 name|httpClient
@@ -660,8 +657,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// check if this endpoint has its own http client that needs to be
-comment|// stopped
+comment|// check if this endpoint has its own http client that needs to be stopped
 specifier|final
 name|HttpClient
 name|httpClient

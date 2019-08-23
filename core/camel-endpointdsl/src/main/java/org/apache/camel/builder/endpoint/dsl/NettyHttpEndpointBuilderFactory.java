@@ -570,52 +570,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a single decoder. This options is deprecated use encoders          * instead.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (Object decoder)
-specifier|default
-name|NettyHttpEndpointConsumerBuilder
-name|decoder
-parameter_list|(
-name|Object
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single decoder. This options is deprecated use encoders          * instead.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (String decoder)
-specifier|default
-name|NettyHttpEndpointConsumerBuilder
-name|decoder
-parameter_list|(
-name|String
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          *           * The option is a:          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          *           * Group: codec          */
 DECL|method|decoders (List<Object> decoders)
 specifier|default
@@ -655,52 +609,6 @@ argument_list|(
 literal|"decoders"
 argument_list|,
 name|decoders
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single encoder. This options is deprecated use encoders          * instead.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (Object encoder)
-specifier|default
-name|NettyHttpEndpointConsumerBuilder
-name|encoder
-parameter_list|(
-name|Object
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single encoder. This options is deprecated use encoders          * instead.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (String encoder)
-specifier|default
-name|NettyHttpEndpointConsumerBuilder
-name|encoder
-parameter_list|(
-name|String
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
 argument_list|)
 expr_stmt|;
 return|return
@@ -2821,48 +2729,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyHttpEndpointConsumerBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|Object
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyHttpEndpointConsumerBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|String
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -3389,52 +3255,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a single decoder. This options is deprecated use encoders          * instead.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (Object decoder)
-specifier|default
-name|NettyHttpEndpointProducerBuilder
-name|decoder
-parameter_list|(
-name|Object
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single decoder. This options is deprecated use encoders          * instead.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (String decoder)
-specifier|default
-name|NettyHttpEndpointProducerBuilder
-name|decoder
-parameter_list|(
-name|String
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          *           * The option is a:          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          *           * Group: codec          */
 DECL|method|decoders (List<Object> decoders)
 specifier|default
@@ -3474,52 +3294,6 @@ argument_list|(
 literal|"decoders"
 argument_list|,
 name|decoders
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single encoder. This options is deprecated use encoders          * instead.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (Object encoder)
-specifier|default
-name|NettyHttpEndpointProducerBuilder
-name|encoder
-parameter_list|(
-name|Object
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single encoder. This options is deprecated use encoders          * instead.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (String encoder)
-specifier|default
-name|NettyHttpEndpointProducerBuilder
-name|encoder
-parameter_list|(
-name|String
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
 argument_list|)
 expr_stmt|;
 return|return
@@ -5047,48 +4821,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyHttpEndpointProducerBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|Object
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyHttpEndpointProducerBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|String
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -5449,52 +5181,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a single decoder. This options is deprecated use encoders          * instead.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (Object decoder)
-specifier|default
-name|NettyHttpEndpointBuilder
-name|decoder
-parameter_list|(
-name|Object
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single decoder. This options is deprecated use encoders          * instead.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (String decoder)
-specifier|default
-name|NettyHttpEndpointBuilder
-name|decoder
-parameter_list|(
-name|String
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * A list of decoders to be used. You can use a String which have values          * separated by comma, and have the values be looked up in the Registry.          * Just remember to prefix the value with # so Camel knows it should          * lookup.          *           * The option is a:          *<code>java.util.List&lt;io.netty.channel.ChannelHandler&gt;</code>          * type.          *           * Group: codec          */
 DECL|method|decoders (List<Object> decoders)
 specifier|default
@@ -5534,52 +5220,6 @@ argument_list|(
 literal|"decoders"
 argument_list|,
 name|decoders
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single encoder. This options is deprecated use encoders          * instead.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (Object encoder)
-specifier|default
-name|NettyHttpEndpointBuilder
-name|encoder
-parameter_list|(
-name|Object
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a single encoder. This options is deprecated use encoders          * instead.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (String encoder)
-specifier|default
-name|NettyHttpEndpointBuilder
-name|encoder
-parameter_list|(
-name|String
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
 argument_list|)
 expr_stmt|;
 return|return
@@ -6704,48 +6344,6 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyHttpEndpointBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|Object
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyHttpEndpointBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|String
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
 argument_list|)
 expr_stmt|;
 return|return

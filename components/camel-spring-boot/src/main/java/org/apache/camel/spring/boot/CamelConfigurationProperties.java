@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ManagementStatisticsLevel
 import|;
 end_import
@@ -423,6 +435,18 @@ DECL|field|threadNamePattern
 specifier|private
 name|String
 name|threadNamePattern
+decl_stmt|;
+comment|/**      * Sets whether bean introspection uses extended statistics.      * The default is false.      */
+DECL|field|beanIntrospectionExtendedStatistics
+specifier|private
+name|boolean
+name|beanIntrospectionExtendedStatistics
+decl_stmt|;
+comment|/**      * Sets the logging level used by bean introspection, logging activity of its usage.      * The default is TRACE.      */
+DECL|field|beanIntrospectionLoggingLevel
+specifier|private
+name|LoggingLevel
+name|beanIntrospectionLoggingLevel
 decl_stmt|;
 comment|// Getters& setters
 comment|// -----------------

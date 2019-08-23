@@ -341,6 +341,32 @@ operator|=
 name|user
 expr_stmt|;
 block|}
+DECL|method|getUser ()
+specifier|public
+name|String
+name|getUser
+parameter_list|()
+block|{
+return|return
+name|user
+return|;
+block|}
+DECL|method|setUser (String user)
+specifier|public
+name|void
+name|setUser
+parameter_list|(
+name|String
+name|user
+parameter_list|)
+block|{
+name|this
+operator|.
+name|user
+operator|=
+name|user
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProducer ()

@@ -553,7 +553,7 @@ block|{
 comment|// Test the filter list options
 name|from
 argument_list|(
-literal|"jetty://http://localhost:{{port}}/testFilters?filtersRef=myFilters&filterInit.keyWord=KEY"
+literal|"jetty://http://localhost:{{port}}/testFilters?filters=myFilters&filterInit.keyWord=KEY"
 argument_list|)
 operator|.
 name|process

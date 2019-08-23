@@ -495,7 +495,7 @@ literal|"client"
 argument_list|)
 DECL|field|keyStoreUrl
 specifier|private
-name|URL
+name|String
 name|keyStoreUrl
 decl_stmt|;
 annotation|@
@@ -1163,38 +1163,25 @@ name|maxResponseMessageSize
 return|;
 block|}
 comment|/**      * The URL where the key should be loaded from      */
-DECL|method|setKeyStoreUrl (final String keyStoreUrl)
+DECL|method|setKeyStoreUrl (String keyStoreUrl)
 specifier|public
 name|void
 name|setKeyStoreUrl
 parameter_list|(
-specifier|final
 name|String
 name|keyStoreUrl
 parameter_list|)
-throws|throws
-name|MalformedURLException
 block|{
 name|this
 operator|.
 name|keyStoreUrl
 operator|=
 name|keyStoreUrl
-operator|!=
-literal|null
-condition|?
-operator|new
-name|URL
-argument_list|(
-name|keyStoreUrl
-argument_list|)
-else|:
-literal|null
 expr_stmt|;
 block|}
 DECL|method|getKeyStoreUrl ()
 specifier|public
-name|URL
+name|String
 name|getKeyStoreUrl
 parameter_list|()
 block|{

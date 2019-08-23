@@ -2273,6 +2273,16 @@ name|expectedCount
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getAssertPeriod ()
+specifier|public
+name|long
+name|getAssertPeriod
+parameter_list|()
+block|{
+return|return
+name|assertPeriod
+return|;
+block|}
 comment|/**      * Sets a grace period after which the mock endpoint will re-assert      * to ensure the preliminary assertion is still valid.      *<p/>      * This is used for example to assert that<b>exactly</b> a number of messages       * arrives. For example if {@link #expectedMessageCount(int)} was set to 5, then      * the assertion is satisfied when 5 or more message arrives. To ensure that      * exactly 5 messages arrives, then you would need to wait a little period      * to ensure no further message arrives. This is what you can use this      * method for.      *<p/>      * By default this period is disabled.      *      * @param period grace period in millis      */
 DECL|method|setAssertPeriod (long period)
 specifier|public
@@ -5665,6 +5675,16 @@ operator|=
 name|resultWaitTime
 expr_stmt|;
 block|}
+DECL|method|getResultMinimumWaitTime ()
+specifier|public
+name|long
+name|getResultMinimumWaitTime
+parameter_list|()
+block|{
+return|return
+name|resultMinimumWaitTime
+return|;
+block|}
 comment|/**      * Sets the minimum expected amount of time (in millis) the {@link #assertIsSatisfied()} will      * wait on a latch until it is satisfied      */
 DECL|method|setResultMinimumWaitTime (long resultMinimumWaitTime)
 specifier|public
@@ -5805,6 +5825,16 @@ operator|=
 name|reporter
 expr_stmt|;
 block|}
+DECL|method|getRetainFirst ()
+specifier|public
+name|int
+name|getRetainFirst
+parameter_list|()
+block|{
+return|return
+name|retainFirst
+return|;
+block|}
 comment|/**      * Specifies to only retain the first n'th number of received {@link Exchange}s.      *<p/>      * This is used when testing with big data, to reduce memory consumption by not storing      * copies of every {@link Exchange} this mock endpoint receives.      *<p/>      *<b>Important:</b> When using this limitation, then the {@link #getReceivedCounter()}      * will still return the actual number of received {@link Exchange}s. For example      * if we have received 5000 {@link Exchange}s, and have configured to only retain the first      * 10 {@link Exchange}s, then the {@link #getReceivedCounter()} will still return<tt>5000</tt>      * but there is only the first 10 {@link Exchange}s in the {@link #getExchanges()} and      * {@link #getReceivedExchanges()} methods.      *<p/>      * When using this method, then some of the other expectation methods is not supported,      * for example the {@link #expectedBodiesReceived(Object...)} sets a expectation on the first      * number of bodies received.      *<p/>      * You can configure both {@link #setRetainFirst(int)} and {@link #setRetainLast(int)} methods,      * to limit both the first and last received.      *       * @param retainFirst  to limit and only keep the first n'th received {@link Exchange}s, use      *<tt>0</tt> to not retain any messages, or<tt>-1</tt> to retain all.      * @see #setRetainLast(int)      */
 DECL|method|setRetainFirst (int retainFirst)
 specifier|public
@@ -5821,6 +5851,16 @@ name|retainFirst
 operator|=
 name|retainFirst
 expr_stmt|;
+block|}
+DECL|method|getRetainLast ()
+specifier|public
+name|int
+name|getRetainLast
+parameter_list|()
+block|{
+return|return
+name|retainLast
+return|;
 block|}
 comment|/**      * Specifies to only retain the last n'th number of received {@link Exchange}s.      *<p/>      * This is used when testing with big data, to reduce memory consumption by not storing      * copies of every {@link Exchange} this mock endpoint receives.      *<p/>      *<b>Important:</b> When using this limitation, then the {@link #getReceivedCounter()}      * will still return the actual number of received {@link Exchange}s. For example      * if we have received 5000 {@link Exchange}s, and have configured to only retain the last      * 20 {@link Exchange}s, then the {@link #getReceivedCounter()} will still return<tt>5000</tt>      * but there is only the last 20 {@link Exchange}s in the {@link #getExchanges()} and      * {@link #getReceivedExchanges()} methods.      *<p/>      * When using this method, then some of the other expectation methods is not supported,      * for example the {@link #expectedBodiesReceived(Object...)} sets a expectation on the first      * number of bodies received.      *<p/>      * You can configure both {@link #setRetainFirst(int)} and {@link #setRetainLast(int)} methods,      * to limit both the first and last received.      *      * @param retainLast  to limit and only keep the last n'th received {@link Exchange}s, use      *<tt>0</tt> to not retain any messages, or<tt>-1</tt> to retain all.      * @see #setRetainFirst(int)      */
 DECL|method|setRetainLast (int retainLast)
@@ -5839,10 +5879,10 @@ operator|=
 name|retainLast
 expr_stmt|;
 block|}
-DECL|method|isReportGroup ()
+DECL|method|getReportGroup ()
 specifier|public
 name|int
-name|isReportGroup
+name|getReportGroup
 parameter_list|()
 block|{
 return|return

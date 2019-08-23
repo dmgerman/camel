@@ -133,6 +133,7 @@ operator|=
 literal|"clustering"
 argument_list|)
 DECL|class|AtomixQueueEndpoint
+specifier|public
 specifier|final
 class|class
 name|AtomixQueueEndpoint

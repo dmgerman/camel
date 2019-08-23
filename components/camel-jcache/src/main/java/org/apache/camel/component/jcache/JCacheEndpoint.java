@@ -181,11 +181,11 @@ name|cacheName
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|cacheConfiguration
+DECL|field|configuration
 specifier|private
 specifier|final
 name|JCacheConfiguration
-name|cacheConfiguration
+name|configuration
 decl_stmt|;
 DECL|field|cacheManager
 specifier|private
@@ -230,10 +230,20 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|cacheConfiguration
+name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|JCacheConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
 block|}
 annotation|@
 name|Override
@@ -251,7 +261,7 @@ name|JCacheProducer
 argument_list|(
 name|this
 argument_list|,
-name|cacheConfiguration
+name|configuration
 argument_list|)
 return|;
 block|}
@@ -294,7 +304,7 @@ name|JCacheHelper
 operator|.
 name|createManager
 argument_list|(
-name|cacheConfiguration
+name|configuration
 argument_list|)
 expr_stmt|;
 block|}

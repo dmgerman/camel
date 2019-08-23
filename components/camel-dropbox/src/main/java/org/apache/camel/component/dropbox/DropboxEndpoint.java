@@ -422,6 +422,16 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|DropboxConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
 comment|/**      * Create one of the camel producer available based on the configuration      * @return the camel producer      * @throws Exception      */
 annotation|@
 name|Override

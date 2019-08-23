@@ -65,47 +65,47 @@ import|;
 end_import
 
 begin_class
-DECL|class|ChainedCxfRsEndpointConfigurer
+DECL|class|ChainedCxfRsConfigurer
 specifier|public
 specifier|final
 class|class
-name|ChainedCxfRsEndpointConfigurer
+name|ChainedCxfRsConfigurer
 implements|implements
-name|CxfRsEndpointConfigurer
+name|CxfRsConfigurer
 block|{
 DECL|field|parent
 specifier|private
-name|CxfRsEndpointConfigurer
+name|CxfRsConfigurer
 name|parent
 decl_stmt|;
 DECL|field|child
 specifier|private
-name|CxfRsEndpointConfigurer
+name|CxfRsConfigurer
 name|child
 decl_stmt|;
-DECL|method|ChainedCxfRsEndpointConfigurer ()
+DECL|method|ChainedCxfRsConfigurer ()
 specifier|private
-name|ChainedCxfRsEndpointConfigurer
+name|ChainedCxfRsConfigurer
 parameter_list|()
 block|{     }
-DECL|method|create (CxfRsEndpointConfigurer parent, CxfRsEndpointConfigurer child)
+DECL|method|create (CxfRsConfigurer parent, CxfRsConfigurer child)
 specifier|public
 specifier|static
-name|ChainedCxfRsEndpointConfigurer
+name|ChainedCxfRsConfigurer
 name|create
 parameter_list|(
-name|CxfRsEndpointConfigurer
+name|CxfRsConfigurer
 name|parent
 parameter_list|,
-name|CxfRsEndpointConfigurer
+name|CxfRsConfigurer
 name|child
 parameter_list|)
 block|{
-name|ChainedCxfRsEndpointConfigurer
+name|ChainedCxfRsConfigurer
 name|result
 init|=
 operator|new
-name|ChainedCxfRsEndpointConfigurer
+name|ChainedCxfRsConfigurer
 argument_list|()
 decl_stmt|;
 name|result
@@ -124,20 +124,20 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|addChild (CxfRsEndpointConfigurer cxfEndpointConfigurer)
+DECL|method|addChild (CxfRsConfigurer cxfEndpointConfigurer)
 specifier|public
-name|ChainedCxfRsEndpointConfigurer
+name|ChainedCxfRsConfigurer
 name|addChild
 parameter_list|(
-name|CxfRsEndpointConfigurer
+name|CxfRsConfigurer
 name|cxfEndpointConfigurer
 parameter_list|)
 block|{
-name|ChainedCxfRsEndpointConfigurer
+name|ChainedCxfRsConfigurer
 name|result
 init|=
 operator|new
-name|ChainedCxfRsEndpointConfigurer
+name|ChainedCxfRsConfigurer
 argument_list|()
 decl_stmt|;
 name|result
@@ -234,13 +234,13 @@ name|server
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|NullCxfRsEndpointConfigurer
+DECL|class|NullCxfRsConfigurer
 specifier|public
 specifier|static
 class|class
-name|NullCxfRsEndpointConfigurer
+name|NullCxfRsConfigurer
 implements|implements
-name|CxfRsEndpointConfigurer
+name|CxfRsConfigurer
 block|{
 annotation|@
 name|Override

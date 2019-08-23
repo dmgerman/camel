@@ -644,12 +644,12 @@ operator|new
 name|SimpleRegistry
 argument_list|()
 decl_stmt|;
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 name|configurer
 init|=
 name|mock
 argument_list|(
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 operator|.
 name|class
 argument_list|)
@@ -703,7 +703,7 @@ name|createEndpoint
 argument_list|(
 name|routerEndpointURI
 operator|+
-literal|"&cxfEndpointConfigurer=#myConfigurer"
+literal|"&cxfConfigurer=#myConfigurer"
 argument_list|)
 decl_stmt|;
 name|Consumer

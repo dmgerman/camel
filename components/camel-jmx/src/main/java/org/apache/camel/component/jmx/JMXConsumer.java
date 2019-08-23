@@ -515,7 +515,7 @@ condition|(
 operator|!
 name|mJmxEndpoint
 operator|.
-name|getTestConnectionOnStartup
+name|isTestConnectionOnStartup
 argument_list|()
 condition|)
 block|{
@@ -906,7 +906,7 @@ if|if
 condition|(
 name|mJmxEndpoint
 operator|.
-name|getReconnectOnConnectionFailure
+name|isReconnectOnConnectionFailure
 argument_list|()
 condition|)
 block|{

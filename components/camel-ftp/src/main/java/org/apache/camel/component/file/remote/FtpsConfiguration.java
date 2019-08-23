@@ -98,10 +98,10 @@ name|label
 operator|=
 literal|"security"
 argument_list|)
-DECL|field|isImplicit
+DECL|field|implicit
 specifier|private
 name|boolean
-name|isImplicit
+name|implicit
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -200,24 +200,24 @@ name|isImplicit
 parameter_list|()
 block|{
 return|return
-name|isImplicit
+name|implicit
 return|;
 block|}
-comment|/**      * Set the security mode(Implicit/Explicit).      * true - Implicit Mode / False - Explicit Mode      */
-DECL|method|setIsImplicit (boolean isImplicit)
+comment|/**      * Set the security mode (Implicit/Explicit).      * true - Implicit Mode / False - Explicit Mode      */
+DECL|method|setImplicit (boolean implicit)
 specifier|public
 name|void
-name|setIsImplicit
+name|setImplicit
 parameter_list|(
 name|boolean
-name|isImplicit
+name|implicit
 parameter_list|)
 block|{
 name|this
 operator|.
-name|isImplicit
+name|implicit
 operator|=
-name|isImplicit
+name|implicit
 expr_stmt|;
 block|}
 DECL|method|isDisableSecureDataChannelDefaults ()

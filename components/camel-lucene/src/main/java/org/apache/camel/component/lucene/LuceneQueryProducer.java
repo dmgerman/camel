@@ -158,7 +158,7 @@ name|indexDirectory
 operator|=
 name|config
 operator|.
-name|getIndexDirectory
+name|getIndexDir
 argument_list|()
 expr_stmt|;
 name|analyzer

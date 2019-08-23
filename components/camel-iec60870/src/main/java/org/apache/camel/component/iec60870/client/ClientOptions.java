@@ -129,7 +129,7 @@ name|UriParam
 argument_list|(
 name|javaType
 operator|=
-literal|"DataModuleOptions"
+literal|"org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions"
 argument_list|)
 DECL|field|dataModuleOptions
 specifier|private
@@ -155,6 +155,8 @@ DECL|field|ignoreBackgroundScan
 specifier|private
 name|boolean
 name|ignoreBackgroundScan
+init|=
+literal|true
 decl_stmt|;
 comment|// dummy for doc generation
 comment|/**      * Whether to include the source address      */
@@ -164,14 +166,10 @@ argument_list|(
 name|label
 operator|=
 literal|"data"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
 argument_list|)
 DECL|field|causeSourceAddress
 specifier|private
-name|boolean
+name|byte
 name|causeSourceAddress
 decl_stmt|;
 DECL|method|ClientOptions ()
@@ -313,16 +311,32 @@ argument_list|)
 return|;
 block|}
 comment|// wrapper methods - DataModuleOptions
-DECL|method|setCauseSourceAddress (final Byte causeSourceAddress)
+DECL|method|getCauseSourceAddress ()
+specifier|public
+name|byte
+name|getCauseSourceAddress
+parameter_list|()
+block|{
+return|return
+name|causeSourceAddress
+return|;
+block|}
+DECL|method|setCauseSourceAddress (final byte causeSourceAddress)
 specifier|public
 name|void
 name|setCauseSourceAddress
 parameter_list|(
 specifier|final
-name|Byte
+name|byte
 name|causeSourceAddress
 parameter_list|)
 block|{
+name|this
+operator|.
+name|causeSourceAddress
+operator|=
+name|causeSourceAddress
+expr_stmt|;
 name|this
 operator|.
 name|dataModuleOptions
@@ -332,21 +346,6 @@ argument_list|(
 name|causeSourceAddress
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getCauseSourceAddress ()
-specifier|public
-name|Byte
-name|getCauseSourceAddress
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|dataModuleOptions
-operator|.
-name|getCauseSourceAddress
-argument_list|()
-return|;
 block|}
 DECL|method|setIgnoreBackgroundScan (final boolean ignoreBackgroundScan)
 specifier|public

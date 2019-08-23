@@ -361,10 +361,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|getNsqConfiguration ()
+DECL|method|getConfiguration ()
 specifier|public
 name|NsqConfiguration
-name|getNsqConfiguration
+name|getConfiguration
 parameter_list|()
 block|{
 return|return
@@ -390,7 +390,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|getNsqConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSslContextParameters
@@ -398,7 +398,7 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|getNsqConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|isSecure
@@ -411,7 +411,7 @@ init|=
 operator|new
 name|JdkSslContext
 argument_list|(
-name|getNsqConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSslContextParameters

@@ -187,10 +187,10 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|sshConfiguration
+DECL|field|configuration
 specifier|private
 name|SshConfiguration
-name|sshConfiguration
+name|configuration
 decl_stmt|;
 DECL|method|SshEndpoint ()
 specifier|public
@@ -239,7 +239,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|sshConfiguration
+name|configuration
 operator|=
 name|configuration
 expr_stmt|;
@@ -315,7 +315,7 @@ name|getConfiguration
 parameter_list|()
 block|{
 return|return
-name|sshConfiguration
+name|configuration
 return|;
 block|}
 DECL|method|setConfiguration (SshConfiguration configuration)
@@ -329,7 +329,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|sshConfiguration
+name|configuration
 operator|=
 name|configuration
 expr_stmt|;

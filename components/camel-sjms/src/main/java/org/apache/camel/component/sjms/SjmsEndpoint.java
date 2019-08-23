@@ -2035,6 +2035,22 @@ name|answer
 return|;
 block|}
 comment|/**      * Initializes the connectionResource for the endpoint, which takes precedence over the component's connectionResource, if any      */
+DECL|method|setConnectionResource (ConnectionResource connectionResource)
+specifier|public
+name|void
+name|setConnectionResource
+parameter_list|(
+name|ConnectionResource
+name|connectionResource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionResource
+operator|=
+name|connectionResource
+expr_stmt|;
+block|}
 DECL|method|setConnectionResource (String connectionResource)
 specifier|public
 name|void
@@ -2776,6 +2792,22 @@ name|jmsKeyFormatStrategy
 expr_stmt|;
 block|}
 comment|/**      * Initializes the connectionFactory for the endpoint, which takes precedence over the component's connectionFactory, if any      */
+DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
+specifier|public
+name|void
+name|setConnectionFactory
+parameter_list|(
+name|ConnectionFactory
+name|connectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionFactory
+operator|=
+name|connectionFactory
+expr_stmt|;
+block|}
 DECL|method|setConnectionFactory (String connectionFactory)
 specifier|public
 name|void

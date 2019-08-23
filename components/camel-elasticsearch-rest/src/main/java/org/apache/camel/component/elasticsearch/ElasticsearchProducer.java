@@ -764,7 +764,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|getDisconnect
+name|isDisconnect
 argument_list|()
 operator|&&
 name|client
@@ -1358,7 +1358,7 @@ name|PARAM_SCROLL
 argument_list|,
 name|configuration
 operator|.
-name|getUseScroll
+name|isUseScroll
 argument_list|()
 argument_list|,
 name|Boolean
@@ -1591,7 +1591,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|getDisconnect
+name|isDisconnect
 argument_list|()
 condition|)
 block|{
@@ -1660,7 +1660,7 @@ condition|(
 operator|!
 name|configuration
 operator|.
-name|getDisconnect
+name|isDisconnect
 argument_list|()
 condition|)
 block|{

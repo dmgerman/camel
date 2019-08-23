@@ -366,6 +366,16 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|Jt400Configuration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProducer ()

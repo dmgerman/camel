@@ -344,10 +344,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,sort"
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
 argument_list|)
 DECL|field|sortTerm
 specifier|private

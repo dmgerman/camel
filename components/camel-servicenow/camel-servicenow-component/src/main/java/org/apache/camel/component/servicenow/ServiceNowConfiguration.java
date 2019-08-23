@@ -748,10 +748,6 @@ name|multiValue
 operator|=
 literal|true
 argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|,
 name|description
 operator|=
 literal|"Defines both request and response models"
@@ -781,10 +777,6 @@ argument_list|,
 name|multiValue
 operator|=
 literal|true
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
 argument_list|)
 DECL|field|requestModels
 specifier|private
@@ -809,10 +801,6 @@ argument_list|,
 name|multiValue
 operator|=
 literal|true
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
 argument_list|)
 DECL|field|responseModels
 specifier|private
@@ -2413,6 +2401,24 @@ name|models
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getModels ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getModels
+parameter_list|()
+block|{
+return|return
+name|models
+return|;
+block|}
 DECL|method|addModel (String name, Class<?> type)
 specifier|public
 name|void
@@ -2499,6 +2505,24 @@ argument_list|(
 name|models
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getResponseModels ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getResponseModels
+parameter_list|()
+block|{
+return|return
+name|responseModels
+return|;
 block|}
 DECL|method|addRequestModel (String name, Class<?> type)
 specifier|public

@@ -136,12 +136,6 @@ specifier|final
 name|int
 name|sessionCount
 decl_stmt|;
-DECL|field|context
-specifier|private
-specifier|final
-name|String
-name|context
-decl_stmt|;
 DECL|field|manager
 specifier|private
 name|ClientSessions
@@ -246,7 +240,7 @@ expr_stmt|;
 block|}
 decl_stmt|;
 empty_stmt|;
-DECL|method|JSR356Consumer (final JSR356Endpoint jsr356Endpoint, final Processor processor, final int sessionCount, final String context)
+DECL|method|JSR356Consumer (final JSR356Endpoint jsr356Endpoint, final Processor processor, final int sessionCount)
 name|JSR356Consumer
 parameter_list|(
 specifier|final
@@ -260,10 +254,6 @@ parameter_list|,
 specifier|final
 name|int
 name|sessionCount
-parameter_list|,
-specifier|final
-name|String
-name|context
 parameter_list|)
 block|{
 name|super
@@ -278,12 +268,6 @@ operator|.
 name|sessionCount
 operator|=
 name|sessionCount
-expr_stmt|;
-name|this
-operator|.
-name|context
-operator|=
-name|context
 expr_stmt|;
 block|}
 annotation|@
@@ -407,7 +391,7 @@ name|JSR356WebSocketComponent
 operator|.
 name|getContext
 argument_list|(
-name|context
+literal|null
 argument_list|)
 decl_stmt|;
 specifier|final

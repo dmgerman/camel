@@ -180,6 +180,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -272,9 +296,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|IntrospectionSupport
+name|BeanIntrospection
 import|;
 end_import
 
@@ -521,11 +545,14 @@ name|operations
 decl_stmt|;
 block|}
 comment|/**      * Gets the {@link ModelMBeanInfo} for the given managed bean      *      * @param defaultManagedBean  the default managed bean      * @param customManagedBean   an optional custom managed bean      * @param objectName   the object name      * @return the model info, or<tt>null</tt> if not possible to create, for example due the managed bean is a proxy class      * @throws JMException is thrown if error creating the model info      */
-DECL|method|getMBeanInfo (Object defaultManagedBean, Object customManagedBean, String objectName)
+DECL|method|getMBeanInfo (CamelContext camelContext, Object defaultManagedBean, Object customManagedBean, String objectName)
 specifier|public
 name|ModelMBeanInfo
 name|getMBeanInfo
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Object
 name|defaultManagedBean
 parameter_list|,
@@ -640,6 +667,8 @@ condition|)
 block|{
 name|extractAttributesAndOperations
 argument_list|(
+name|camelContext
+argument_list|,
 name|defaultManagedBean
 operator|.
 name|getClass
@@ -688,6 +717,8 @@ condition|)
 block|{
 name|extractAttributesAndOperations
 argument_list|(
+name|camelContext
+argument_list|,
 name|customManagedBean
 operator|.
 name|getClass
@@ -845,11 +876,14 @@ return|return
 name|info
 return|;
 block|}
-DECL|method|extractAttributesAndOperations (Class<?> managedClass, Map<String, ManagedAttributeInfo> attributes, Set<ManagedOperationInfo> operations)
+DECL|method|extractAttributesAndOperations (CamelContext camelContext, Class<?> managedClass, Map<String, ManagedAttributeInfo> attributes, Set<ManagedOperationInfo> operations)
 specifier|private
 name|void
 name|extractAttributesAndOperations
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -890,6 +924,8 @@ condition|)
 block|{
 name|doExtractAttributesAndOperations
 argument_list|(
+name|camelContext
+argument_list|,
 name|managedClass
 argument_list|,
 name|attributes
@@ -966,11 +1002,14 @@ name|operations
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doExtractAttributesAndOperations (Class<?> managedClass, Map<String, ManagedAttributeInfo> attributes, Set<ManagedOperationInfo> operations)
+DECL|method|doExtractAttributesAndOperations (CamelContext camelContext, Class<?> managedClass, Map<String, ManagedAttributeInfo> attributes, Set<ManagedOperationInfo> operations)
 specifier|private
 name|void
 name|doExtractAttributesAndOperations
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -995,6 +1034,8 @@ block|{
 comment|// extract the class
 name|doDoExtractAttributesAndOperations
 argument_list|(
+name|camelContext
+argument_list|,
 name|managedClass
 argument_list|,
 name|attributes
@@ -1050,6 +1091,8 @@ argument_list|)
 expr_stmt|;
 name|doExtractAttributesAndOperations
 argument_list|(
+name|camelContext
+argument_list|,
 name|clazz
 argument_list|,
 name|attributes
@@ -1112,6 +1155,8 @@ argument_list|)
 expr_stmt|;
 name|doExtractAttributesAndOperations
 argument_list|(
+name|camelContext
+argument_list|,
 name|clazz
 argument_list|,
 name|attributes
@@ -1122,11 +1167,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|doDoExtractAttributesAndOperations (Class<?> managedClass, Map<String, ManagedAttributeInfo> attributes, Set<ManagedOperationInfo> operations)
+DECL|method|doDoExtractAttributesAndOperations (CamelContext camelContext, Class<?> managedClass, Map<String, ManagedAttributeInfo> attributes, Set<ManagedOperationInfo> operations)
 specifier|private
 name|void
 name|doDoExtractAttributesAndOperations
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -1158,12 +1206,22 @@ name|managedClass
 argument_list|)
 expr_stmt|;
 comment|// introspect the class, and leverage the cache to have better performance
-name|IntrospectionSupport
+name|BeanIntrospection
 operator|.
 name|ClassInfo
 name|cache
 init|=
-name|IntrospectionSupport
+name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getBeanIntrospection
+argument_list|()
 operator|.
 name|cacheClass
 argument_list|(
@@ -1172,7 +1230,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|IntrospectionSupport
+name|BeanIntrospection
 operator|.
 name|MethodInfo
 name|cacheInfo

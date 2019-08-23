@@ -273,7 +273,7 @@ operator|=
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getConnection
@@ -284,7 +284,7 @@ condition|?
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getConnection
@@ -308,7 +308,7 @@ argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 argument_list|)
 argument_list|)
@@ -329,7 +329,7 @@ condition|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|isFlushConnection
@@ -354,7 +354,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getFlushTimeout
@@ -372,7 +372,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getTopic
@@ -464,7 +464,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getConnection
@@ -618,7 +618,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getTopic
@@ -627,7 +627,7 @@ argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getQueueName
@@ -643,7 +643,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getMaxMessages
@@ -658,7 +658,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getTopic
@@ -671,7 +671,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getMaxMessages
@@ -706,7 +706,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getTopic
@@ -722,7 +722,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getMaxMessages
@@ -737,7 +737,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getTopic
@@ -750,7 +750,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getMaxMessages

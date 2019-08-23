@@ -493,8 +493,8 @@ parameter_list|(
 name|String
 name|zkHost
 parameter_list|)
-throws|throws
-name|UnsupportedEncodingException
+block|{
+try|try
 block|{
 name|String
 name|decoded
@@ -514,6 +514,21 @@ name|zkHost
 operator|=
 name|decoded
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|getZkHost ()
 specifier|public

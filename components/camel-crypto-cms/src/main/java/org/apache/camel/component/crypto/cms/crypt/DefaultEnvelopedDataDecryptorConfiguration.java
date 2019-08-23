@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The defualt implementation fetches the private key and certificate from a  * keystore.  */
+comment|/**  * The defualt implementation fetches the private key and certificate from a keystore.  */
 end_comment
 
 begin_class
@@ -312,17 +312,12 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-DECL|method|getPassword (Exchange exchange)
-specifier|protected
+DECL|method|getPassword ()
+specifier|public
 name|char
 index|[]
 name|getPassword
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|CryptoCmsException
+parameter_list|()
 block|{
 if|if
 condition|(
@@ -357,7 +352,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CryptoCmsException
+name|RuntimeException
 argument_list|(
 literal|"Password for private keys not configured"
 argument_list|)
@@ -377,7 +372,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|CryptoCmsException
+name|RuntimeException
 argument_list|(
 literal|"Password for private keys not configured"
 argument_list|)
@@ -483,9 +478,7 @@ argument_list|(
 name|alias
 argument_list|,
 name|getPassword
-argument_list|(
-name|exchange
-argument_list|)
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -495,9 +488,7 @@ operator|instanceof
 name|PrivateKey
 condition|)
 block|{
-comment|// we currently only
-comment|// support
-comment|// assymmetric keys
+comment|// we currently only support assymmetric keys
 name|Certificate
 name|cert
 init|=

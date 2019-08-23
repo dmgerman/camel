@@ -555,12 +555,12 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|PropertyBindingException
-name|pbe
+name|IllegalArgumentException
+name|iae
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|PropertyBindingException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
@@ -575,11 +575,11 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"chmod"
+literal|"chmod option [abc] is not valid"
 argument_list|,
-name|pbe
+name|iae
 operator|.
-name|getPropertyName
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;

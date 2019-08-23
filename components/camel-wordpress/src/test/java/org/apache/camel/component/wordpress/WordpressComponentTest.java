@@ -226,7 +226,7 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria
@@ -244,7 +244,7 @@ name|assertNotNull
 argument_list|(
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria
@@ -255,7 +255,7 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria
@@ -274,7 +274,7 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria
@@ -293,7 +293,7 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria
@@ -316,7 +316,7 @@ name|PostSearchCriteria
 operator|)
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria
@@ -342,7 +342,7 @@ name|PostSearchCriteria
 operator|)
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria
@@ -364,7 +364,7 @@ name|PostSearchCriteria
 operator|)
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria
@@ -397,7 +397,7 @@ name|PostSearchCriteria
 operator|)
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSearchCriteria

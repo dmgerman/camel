@@ -1072,22 +1072,18 @@ block|{
 comment|// we cannot use Camel type converters as they may not be ready this early
 try|try
 block|{
-name|Integer
+name|int
 name|size
 init|=
 name|Integer
 operator|.
-name|valueOf
+name|parseInt
 argument_list|(
 name|s
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|size
-operator|==
-literal|null
-operator|||
 name|size
 operator|<=
 literal|0

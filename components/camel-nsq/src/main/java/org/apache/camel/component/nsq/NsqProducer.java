@@ -150,7 +150,7 @@ name|configuration
 operator|=
 name|endpoint
 operator|.
-name|getNsqConfiguration
+name|getConfiguration
 argument_list|()
 expr_stmt|;
 block|}
@@ -273,7 +273,7 @@ init|=
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNsqConfiguration
+name|getConfiguration
 argument_list|()
 decl_stmt|;
 name|producer

@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the compression type for the producer. Supported compression          * types are: NONE: No compression LZ4: Compress with LZ4 algorithm.          * Faster but lower compression than ZLib ZLI: Standard ZLib compression          * Default is NONE.          *           * The option is a:          *<code>org.apache.pulsar.client.api.CompressionType</code> type.          *           * Group: producer          */
+comment|/**          * Set the compression type for the producer.          *           * The option is a:          *<code>org.apache.pulsar.client.api.CompressionType</code> type.          *           * Group: producer          */
 DECL|method|compressionType ( CompressionType compressionType)
 specifier|default
 name|PulsarEndpointProducerBuilder
@@ -894,7 +894,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the compression type for the producer. Supported compression          * types are: NONE: No compression LZ4: Compress with LZ4 algorithm.          * Faster but lower compression than ZLib ZLI: Standard ZLib compression          * Default is NONE.          *           * The option will be converted to a          *<code>org.apache.pulsar.client.api.CompressionType</code> type.          *           * Group: producer          */
+comment|/**          * Set the compression type for the producer.          *           * The option will be converted to a          *<code>org.apache.pulsar.client.api.CompressionType</code> type.          *           * Group: producer          */
 DECL|method|compressionType ( String compressionType)
 specifier|default
 name|PulsarEndpointProducerBuilder

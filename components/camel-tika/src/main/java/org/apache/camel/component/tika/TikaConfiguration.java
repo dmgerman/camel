@@ -22,33 +22,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|nio
 operator|.
 name|charset
 operator|.
 name|Charset
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXException
 import|;
 end_import
 
@@ -119,20 +97,6 @@ operator|.
 name|config
 operator|.
 name|TikaConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|tika
-operator|.
-name|exception
-operator|.
-name|TikaException
 import|;
 end_import
 
@@ -238,7 +202,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      *       * Tika Operation.  parse or detect      *       */
+comment|/**      * Tika Operation - parse or detect      */
 DECL|method|setOperation (TikaOperation operation)
 specifier|public
 name|void
@@ -286,7 +250,7 @@ return|return
 name|tikaParseOutputFormat
 return|;
 block|}
-comment|/**      *       * Tika Output Format. Supported output formats.       *<ul>      *<li>xml: Returns Parsed Content as XML.</li>      *<li>html: Returns Parsed Content as HTML.</li>      *<li>text: Returns Parsed Content as Text.</li>      *<li>textMain: Uses the<a href="http://code.google.com/p/boilerpipe/">boilerpipe</a> library to automatically extract the main content from a web page.</li>      *</ul>      *       */
+comment|/**      * Tika Output Format. Supported output formats.      *<ul>      *<li>xml: Returns Parsed Content as XML.</li>      *<li>html: Returns Parsed Content as HTML.</li>      *<li>text: Returns Parsed Content as Text.</li>      *<li>textMain: Uses the<a href="http://code.google.com/p/boilerpipe/">boilerpipe</a> library to automatically extract the main content from a web page.</li>      *</ul>      */
 DECL|method|setTikaParseOutputFormat (TikaParseOutputFormat tikaParseOutputFormat)
 specifier|public
 name|void
@@ -313,7 +277,7 @@ return|return
 name|tikaParseOutputEncoding
 return|;
 block|}
-comment|/**      * Tika Parse Output Encoding - Used to specify the character encoding of the parsed output.        * Defaults to Charset.defaultCharset() .      *       */
+comment|/**      * Tika Parse Output Encoding - Used to specify the character encoding of the parsed output.        * Defaults to Charset.defaultCharset().      */
 DECL|method|setTikaParseOutputEncoding (String tikaParseOutputEncoding)
 specifier|public
 name|void
@@ -340,7 +304,7 @@ return|return
 name|tikaConfig
 return|;
 block|}
-comment|/**      *       * Tika Config      *       */
+comment|/**      * To use a custom Tika config.      */
 DECL|method|setTikaConfig (TikaConfig tikaConfig)
 specifier|public
 name|void
@@ -367,7 +331,7 @@ return|return
 name|tikaConfigUri
 return|;
 block|}
-comment|/**      *       * Tika Config Uri: The URI of  tika-config.xml      *       */
+comment|/**      * Tika Config Uri: The URI of tika-config.xml file to use.      */
 DECL|method|setTikaConfigUri (String tikaConfigUri)
 specifier|public
 name|void
@@ -376,12 +340,6 @@ parameter_list|(
 name|String
 name|tikaConfigUri
 parameter_list|)
-throws|throws
-name|TikaException
-throws|,
-name|IOException
-throws|,
-name|SAXException
 block|{
 name|this
 operator|.
@@ -389,6 +347,8 @@ name|tikaConfigUri
 operator|=
 name|tikaConfigUri
 expr_stmt|;
+try|try
+block|{
 name|this
 operator|.
 name|tikaConfig
@@ -399,6 +359,21 @@ argument_list|(
 name|tikaConfigUri
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

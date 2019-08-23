@@ -724,52 +724,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (Object decoder)
-specifier|default
-name|NettyEndpointConsumerBuilder
-name|decoder
-parameter_list|(
-name|Object
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (String decoder)
-specifier|default
-name|NettyEndpointConsumerBuilder
-name|decoder
-parameter_list|(
-name|String
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The max line length to use for the textline codec.          *           * The option is a:<code>int</code> type.          *           * Group: codec          */
 DECL|method|decoderMaxLineLength ( int decoderMaxLineLength)
 specifier|default
@@ -893,52 +847,6 @@ argument_list|(
 literal|"delimiter"
 argument_list|,
 name|delimiter
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (Object encoder)
-specifier|default
-name|NettyEndpointConsumerBuilder
-name|encoder
-parameter_list|(
-name|Object
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (String encoder)
-specifier|default
-name|NettyEndpointConsumerBuilder
-name|encoder
-parameter_list|(
-name|String
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
 argument_list|)
 expr_stmt|;
 return|return
@@ -2104,48 +2012,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyEndpointConsumerBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|Object
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyEndpointConsumerBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|String
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use a explicit ChannelGroup.          *           * The option is a:<code>io.netty.channel.group.ChannelGroup</code>          * type.          *           * Group: advanced          */
 DECL|method|channelGroup ( Object channelGroup)
 specifier|default
@@ -3097,52 +2963,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (Object decoder)
-specifier|default
-name|NettyEndpointProducerBuilder
-name|decoder
-parameter_list|(
-name|Object
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (String decoder)
-specifier|default
-name|NettyEndpointProducerBuilder
-name|decoder
-parameter_list|(
-name|String
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The max line length to use for the textline codec.          *           * The option is a:<code>int</code> type.          *           * Group: codec          */
 DECL|method|decoderMaxLineLength ( int decoderMaxLineLength)
 specifier|default
@@ -3266,52 +3086,6 @@ argument_list|(
 literal|"delimiter"
 argument_list|,
 name|delimiter
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (Object encoder)
-specifier|default
-name|NettyEndpointProducerBuilder
-name|encoder
-parameter_list|(
-name|Object
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (String encoder)
-specifier|default
-name|NettyEndpointProducerBuilder
-name|encoder
-parameter_list|(
-name|String
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
 argument_list|)
 expr_stmt|;
 return|return
@@ -4330,48 +4104,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyEndpointProducerBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|Object
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyEndpointProducerBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|String
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use a explicit ChannelGroup.          *           * The option is a:<code>io.netty.channel.group.ChannelGroup</code>          * type.          *           * Group: advanced          */
 DECL|method|channelGroup ( Object channelGroup)
 specifier|default
@@ -5199,52 +4931,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (Object decoder)
-specifier|default
-name|NettyEndpointBuilder
-name|decoder
-parameter_list|(
-name|Object
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|decoder (String decoder)
-specifier|default
-name|NettyEndpointBuilder
-name|decoder
-parameter_list|(
-name|String
-name|decoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"decoder"
-argument_list|,
-name|decoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The max line length to use for the textline codec.          *           * The option is a:<code>int</code> type.          *           * Group: codec          */
 DECL|method|decoderMaxLineLength ( int decoderMaxLineLength)
 specifier|default
@@ -5368,52 +5054,6 @@ argument_list|(
 literal|"delimiter"
 argument_list|,
 name|delimiter
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads.          *           * The option is a:<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (Object encoder)
-specifier|default
-name|NettyEndpointBuilder
-name|encoder
-parameter_list|(
-name|Object
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads.          *           * The option will be converted to a          *<code>io.netty.channel.ChannelHandler</code> type.          *           * Group: codec          */
-annotation|@
-name|Deprecated
-DECL|method|encoder (String encoder)
-specifier|default
-name|NettyEndpointBuilder
-name|encoder
-parameter_list|(
-name|String
-name|encoder
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"encoder"
-argument_list|,
-name|encoder
 argument_list|)
 expr_stmt|;
 return|return
@@ -6008,48 +5648,6 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( Object bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyEndpointBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|Object
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom configured NettyServerBootstrapConfiguration for          * configuring this endpoint.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|bootstrapConfiguration ( String bootstrapConfiguration)
-specifier|default
-name|AdvancedNettyEndpointBuilder
-name|bootstrapConfiguration
-parameter_list|(
-name|String
-name|bootstrapConfiguration
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"bootstrapConfiguration"
-argument_list|,
-name|bootstrapConfiguration
 argument_list|)
 expr_stmt|;
 return|return

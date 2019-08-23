@@ -22,38 +22,6 @@ name|common
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|crypto
-operator|.
-name|cms
-operator|.
-name|exception
-operator|.
-name|CryptoCmsException
-import|;
-end_import
-
 begin_interface
 DECL|interface|CryptoCmsUnMarshallerConfiguration
 specifier|public
@@ -61,15 +29,10 @@ interface|interface
 name|CryptoCmsUnMarshallerConfiguration
 block|{
 comment|/** Indicates whether the message in-body is base 64 encocded. */
-DECL|method|isFromBase64 (Exchange exchange)
-name|Boolean
+DECL|method|isFromBase64 ()
+name|boolean
 name|isFromBase64
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|CryptoCmsException
+parameter_list|()
 function_decl|;
 block|}
 end_interface

@@ -257,13 +257,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true then the CMS message is base 64 encoded and must be decoded          * during the processing. Default value is false.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: decrypt_verify          */
-DECL|method|fromBase64 (Boolean fromBase64)
+comment|/**          * If true then the CMS message is base 64 encoded and must be decoded          * during the processing. Default value is false.          *           * The option is a:<code>boolean</code> type.          *           * Group: decrypt_verify          */
+DECL|method|fromBase64 (boolean fromBase64)
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|fromBase64
 parameter_list|(
-name|Boolean
+name|boolean
 name|fromBase64
 parameter_list|)
 block|{
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true then the CMS message is base 64 encoded and must be decoded          * during the processing. Default value is false.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: decrypt_verify          */
+comment|/**          * If true then the CMS message is base 64 encoded and must be decoded          * during the processing. Default value is false.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: decrypt_verify          */
 DECL|method|fromBase64 (String fromBase64)
 specifier|default
 name|CryptoCmsEndpointBuilder
@@ -620,13 +620,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates whether the value in the header CamelCryptoCmsSignedData is          * base64 encoded. Default value is false. Only relevant for detached          * signatures. In the detached signature case, the header contains the          * Signed Data object.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: verify          */
-DECL|method|signedDataHeaderBase64 ( Boolean signedDataHeaderBase64)
+comment|/**          * Indicates whether the value in the header CamelCryptoCmsSignedData is          * base64 encoded. Default value is false. Only relevant for detached          * signatures. In the detached signature case, the header contains the          * Signed Data object.          *           * The option is a:<code>boolean</code> type.          *           * Group: verify          */
+DECL|method|signedDataHeaderBase64 ( boolean signedDataHeaderBase64)
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|signedDataHeaderBase64
 parameter_list|(
-name|Boolean
+name|boolean
 name|signedDataHeaderBase64
 parameter_list|)
 block|{
@@ -641,7 +641,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Indicates whether the value in the header CamelCryptoCmsSignedData is          * base64 encoded. Default value is false. Only relevant for detached          * signatures. In the detached signature case, the header contains the          * Signed Data object.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: verify          */
+comment|/**          * Indicates whether the value in the header CamelCryptoCmsSignedData is          * base64 encoded. Default value is false. Only relevant for detached          * signatures. In the detached signature case, the header contains the          * Signed Data object.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: verify          */
 DECL|method|signedDataHeaderBase64 ( String signedDataHeaderBase64)
 specifier|default
 name|CryptoCmsEndpointBuilder
@@ -662,13 +662,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true then the signatures of all signers contained in the Signed          * Data object are verified. If false then only one signature whose          * signer info matches with one of the specified certificates is          * verified. Default value is true.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: verify          */
-DECL|method|verifySignaturesOfAllSigners ( Boolean verifySignaturesOfAllSigners)
+comment|/**          * If true then the signatures of all signers contained in the Signed          * Data object are verified. If false then only one signature whose          * signer info matches with one of the specified certificates is          * verified. Default value is true.          *           * The option is a:<code>boolean</code> type.          *           * Group: verify          */
+DECL|method|verifySignaturesOfAllSigners ( boolean verifySignaturesOfAllSigners)
 specifier|default
 name|CryptoCmsEndpointBuilder
 name|verifySignaturesOfAllSigners
 parameter_list|(
-name|Boolean
+name|boolean
 name|verifySignaturesOfAllSigners
 parameter_list|)
 block|{
@@ -683,7 +683,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If true then the signatures of all signers contained in the Signed          * Data object are verified. If false then only one signature whose          * signer info matches with one of the specified certificates is          * verified. Default value is true.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: verify          */
+comment|/**          * If true then the signatures of all signers contained in the Signed          * Data object are verified. If false then only one signature whose          * signer info matches with one of the specified certificates is          * verified. Default value is true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: verify          */
 DECL|method|verifySignaturesOfAllSigners ( String verifySignaturesOfAllSigners)
 specifier|default
 name|CryptoCmsEndpointBuilder

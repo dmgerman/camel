@@ -241,28 +241,6 @@ specifier|private
 name|HazelcastOperation
 name|defaultOperation
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|hazelcastSedaConfiguration
-specifier|private
-name|HazelcastSedaConfiguration
-name|hazelcastSedaConfiguration
-decl_stmt|;
-comment|// to include component schema docs
-annotation|@
-name|UriParam
-DECL|field|hazelcastTopicConfiguration
-specifier|private
-name|HazelcastTopicConfiguration
-name|hazelcastTopicConfiguration
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|hazelcastQueueConfiguration
-specifier|private
-name|HazelcastQueueConfiguration
-name|hazelcastQueueConfiguration
-decl_stmt|;
 DECL|method|HazelcastDefaultEndpoint (HazelcastInstance hazelcastInstance, String endpointUri, Component component)
 specifier|public
 name|HazelcastDefaultEndpoint

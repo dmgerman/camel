@@ -203,7 +203,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"sjms:queue:test?connectionFactory=activemq"
+literal|"sjms:queue:test?connectionFactory=#activemq"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -252,7 +252,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"sjms:queue:test?connectionResource=connresource"
+literal|"sjms:queue:test?connectionResource=#connresource"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

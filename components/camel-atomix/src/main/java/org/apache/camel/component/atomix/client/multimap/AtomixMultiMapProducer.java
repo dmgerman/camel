@@ -248,6 +248,7 @@ end_import
 
 begin_class
 DECL|class|AtomixMultiMapProducer
+specifier|public
 specifier|final
 class|class
 name|AtomixMultiMapProducer

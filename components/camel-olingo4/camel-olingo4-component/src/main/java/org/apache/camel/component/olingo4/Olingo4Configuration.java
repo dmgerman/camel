@@ -667,10 +667,10 @@ name|httpClientBuilder
 expr_stmt|;
 block|}
 comment|/**      * Filter flag for filtering out already seen results      */
-DECL|method|getFilterAlreadySeen ()
+DECL|method|isFilterAlreadySeen ()
 specifier|public
 name|boolean
-name|getFilterAlreadySeen
+name|isFilterAlreadySeen
 parameter_list|()
 block|{
 return|return

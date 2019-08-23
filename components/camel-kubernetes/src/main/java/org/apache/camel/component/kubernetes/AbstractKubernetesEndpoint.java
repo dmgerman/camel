@@ -126,6 +126,16 @@ operator|=
 name|config
 expr_stmt|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|KubernetesConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|isSingleton ()

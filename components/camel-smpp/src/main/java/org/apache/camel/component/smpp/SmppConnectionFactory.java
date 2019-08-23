@@ -301,7 +301,7 @@ name|socketFactory
 operator|=
 name|config
 operator|.
-name|getUsingSSL
+name|isUsingSSL
 argument_list|()
 operator|&&
 name|config
@@ -407,7 +407,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getUsingSSL
+name|isUsingSSL
 argument_list|()
 operator|&&
 name|config

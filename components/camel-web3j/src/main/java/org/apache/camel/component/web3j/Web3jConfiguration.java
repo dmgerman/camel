@@ -1321,6 +1321,40 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
+DECL|method|setFromBlock (DefaultBlockParameter fromBlock)
+specifier|public
+name|void
+name|setFromBlock
+parameter_list|(
+name|DefaultBlockParameter
+name|fromBlock
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fromBlock
+operator|=
+name|fromBlock
+expr_stmt|;
+block|}
+comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
+DECL|method|setToBlock (DefaultBlockParameter toBlock)
+specifier|public
+name|void
+name|setToBlock
+parameter_list|(
+name|DefaultBlockParameter
+name|toBlock
+parameter_list|)
+block|{
+name|this
+operator|.
+name|toBlock
+operator|=
+name|toBlock
+expr_stmt|;
+block|}
+comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
 DECL|method|setToBlock (String block)
 specifier|public
 name|void
@@ -1436,6 +1470,23 @@ block|{
 return|return
 name|atBlock
 return|;
+block|}
+comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
+DECL|method|setAtBlock (DefaultBlockParameter atBlock)
+specifier|public
+name|void
+name|setAtBlock
+parameter_list|(
+name|DefaultBlockParameter
+name|atBlock
+parameter_list|)
+block|{
+name|this
+operator|.
+name|atBlock
+operator|=
+name|atBlock
+expr_stmt|;
 block|}
 comment|/**      * The block number, or the string "latest" for the last mined block or "pending", "earliest" for not yet mined transactions.      */
 DECL|method|setAtBlock (String block)

@@ -554,16 +554,6 @@ operator|=
 name|endpointConfiguration
 expr_stmt|;
 block|}
-DECL|method|getAs2Configuration ()
-specifier|public
-name|AS2Configuration
-name|getAs2Configuration
-parameter_list|()
-block|{
-return|return
-name|configuration
-return|;
-block|}
 DECL|method|getAS2ClientConnection ()
 specifier|public
 name|AS2ClientConnection

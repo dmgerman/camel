@@ -283,7 +283,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation ( MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -304,7 +304,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointConsumerBuilder
@@ -1083,7 +1083,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation ( MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1104,7 +1104,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointProducerBuilder
@@ -1780,7 +1780,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB.          *           * The option is a:          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (MongoDbOperation operation)
 specifier|default
 name|MongoDbEndpointBuilder
@@ -1801,7 +1801,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the operation this endpoint will execute against MongoDB. For          * possible values, see MongoDbOperation.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
+comment|/**          * Sets the operation this endpoint will execute against MongoDB.          *           * The option will be converted to a          *<code>org.apache.camel.component.mongodb.MongoDbOperation</code>          * type.          *           * Group: common          */
 DECL|method|operation (String operation)
 specifier|default
 name|MongoDbEndpointBuilder

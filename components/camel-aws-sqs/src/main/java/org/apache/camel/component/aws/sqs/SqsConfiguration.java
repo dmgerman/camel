@@ -1393,6 +1393,22 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|setMessageGroupIdStrategy (MessageGroupIdStrategy messageGroupIdStrategy)
+specifier|public
+name|void
+name|setMessageGroupIdStrategy
+parameter_list|(
+name|MessageGroupIdStrategy
+name|messageGroupIdStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageGroupIdStrategy
+operator|=
+name|messageGroupIdStrategy
+expr_stmt|;
+block|}
 DECL|method|getMessageGroupIdStrategy ()
 specifier|public
 name|MessageGroupIdStrategy
@@ -1470,6 +1486,22 @@ name|strategy
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|setMessageDeduplicationIdStrategy (MessageDeduplicationIdStrategy messageDeduplicationIdStrategy)
+specifier|public
+name|void
+name|setMessageDeduplicationIdStrategy
+parameter_list|(
+name|MessageDeduplicationIdStrategy
+name|messageDeduplicationIdStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageDeduplicationIdStrategy
+operator|=
+name|messageDeduplicationIdStrategy
+expr_stmt|;
 block|}
 DECL|method|getOperation ()
 specifier|public

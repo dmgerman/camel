@@ -286,27 +286,6 @@ specifier|private
 name|NettyConfiguration
 name|configuration
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|,
-name|javaType
-operator|=
-literal|"org.apache.camel.component.netty.NettyServerBootstrapConfiguration"
-argument_list|,
-name|description
-operator|=
-literal|"To use a custom configured NettyServerBootstrapConfiguration for configuring this endpoint."
-argument_list|)
-DECL|field|bootstrapConfiguration
-specifier|private
-name|Object
-name|bootstrapConfiguration
-decl_stmt|;
-comment|// to include in component docs as NettyServerBootstrapConfiguration is a @UriParams class
 DECL|method|NettyEndpoint (String endpointUri, NettyComponent component, NettyConfiguration configuration)
 specifier|public
 name|NettyEndpoint

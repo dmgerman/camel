@@ -252,6 +252,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|BeanIntrospection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|PropertiesComponent
 import|;
 end_import
@@ -337,10 +351,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for introspections of beans.  *<p/>  *<b>Important:</b> Its recommended to call the {@link #stop()} method when  * {@link org.apache.camel.CamelContext} is being stopped. This allows to clear the introspection cache.  *<p/>  * This implementation will skip methods from<tt>java.lang.Object</tt> and<tt>java.lang.reflect.Proxy</tt>.  *<p/>  * This implementation will use a cache when the {@link #getProperties(Object, java.util.Map, String)}  * method is being used. Also the {@link #cacheClass(Class)} method gives access to the introspect cache.  */
+comment|/**  * Helper for introspections of beans.  *<p/>  *<b>Important:</b> Its recommended to call the {@link #stop()} method when  * {@link org.apache.camel.CamelContext} is being stopped. This allows to clear the introspection cache.  *<p/>  * This implementation will skip methods from<tt>java.lang.Object</tt> and<tt>java.lang.reflect.Proxy</tt>.  *<p/>  * This implementation will use a cache when the {@link #getProperties(Object, java.util.Map, String)}  * method is being used. Also the {@link #cacheClass(Class)} method gives access to the introspect cache.  *  * @deprecated use {@link org.apache.camel.spi.BeanIntrospection}  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|IntrospectionSupport
 specifier|public
 specifier|final
@@ -397,6 +413,8 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|,
+name|BeanIntrospection
+operator|.
 name|ClassInfo
 argument_list|>
 name|CACHE
@@ -638,63 +656,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Structure of an introspected class.      */
-DECL|class|ClassInfo
-specifier|public
-specifier|static
-specifier|final
-class|class
-name|ClassInfo
-block|{
-DECL|field|clazz
-specifier|public
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|clazz
-decl_stmt|;
-DECL|field|methods
-specifier|public
-name|MethodInfo
-index|[]
-name|methods
-decl_stmt|;
-block|}
-comment|/**      * Structure of an introspected method.      */
-DECL|class|MethodInfo
-specifier|public
-specifier|static
-specifier|final
-class|class
-name|MethodInfo
-block|{
-DECL|field|method
-specifier|public
-name|Method
-name|method
-decl_stmt|;
-DECL|field|isGetter
-specifier|public
-name|Boolean
-name|isGetter
-decl_stmt|;
-DECL|field|isSetter
-specifier|public
-name|Boolean
-name|isSetter
-decl_stmt|;
-DECL|field|getterOrSetterShorthandName
-specifier|public
-name|String
-name|getterOrSetterShorthandName
-decl_stmt|;
-DECL|field|hasGetterAndSetter
-specifier|public
-name|Boolean
-name|hasGetterAndSetter
-decl_stmt|;
 block|}
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|IntrospectionSupport ()
@@ -1400,6 +1361,8 @@ operator|=
 literal|""
 expr_stmt|;
 block|}
+name|BeanIntrospection
+operator|.
 name|ClassInfo
 name|cache
 init|=
@@ -1413,6 +1376,8 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
+name|BeanIntrospection
+operator|.
 name|MethodInfo
 name|info
 range|:
@@ -1523,10 +1488,12 @@ return|return
 name|rc
 return|;
 block|}
-comment|/**      * Introspects the given class.      *      * @param clazz the class      * @return the introspection result as a {@link ClassInfo} structure.      */
+comment|/**      * Introspects the given class.      *      * @param clazz the class      * @return the introspection result as a {@link BeanIntrospection.ClassInfo} structure.      */
 DECL|method|cacheClass (Class<?> clazz)
 specifier|public
 specifier|static
+name|BeanIntrospection
+operator|.
 name|ClassInfo
 name|cacheClass
 parameter_list|(
@@ -1537,6 +1504,8 @@ argument_list|>
 name|clazz
 parameter_list|)
 block|{
+name|BeanIntrospection
+operator|.
 name|ClassInfo
 name|cache
 init|=
@@ -1578,6 +1547,8 @@ block|}
 DECL|method|doIntrospectClass (Class<?> clazz)
 specifier|private
 specifier|static
+name|BeanIntrospection
+operator|.
 name|ClassInfo
 name|doIntrospectClass
 parameter_list|(
@@ -1588,10 +1559,14 @@ argument_list|>
 name|clazz
 parameter_list|)
 block|{
+name|BeanIntrospection
+operator|.
 name|ClassInfo
 name|answer
 init|=
 operator|new
+name|BeanIntrospection
+operator|.
 name|ClassInfo
 argument_list|()
 decl_stmt|;
@@ -1605,6 +1580,8 @@ comment|// loop each method on the class and gather details about the method
 comment|// especially about getter/setters
 name|List
 argument_list|<
+name|BeanIntrospection
+operator|.
 name|MethodInfo
 argument_list|>
 name|found
@@ -1627,6 +1604,8 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
+name|BeanIntrospection
+operator|.
 name|MethodInfo
 argument_list|>
 name|getters
@@ -1644,6 +1623,8 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
+name|BeanIntrospection
+operator|.
 name|MethodInfo
 argument_list|>
 name|setters
@@ -1677,10 +1658,14 @@ condition|)
 block|{
 continue|continue;
 block|}
+name|BeanIntrospection
+operator|.
 name|MethodInfo
 name|cache
 init|=
 operator|new
+name|BeanIntrospection
+operator|.
 name|MethodInfo
 argument_list|()
 decl_stmt|;
@@ -1800,6 +1785,8 @@ comment|// for all getter/setter, find out if there is a corresponding getter/se
 comment|// so we have a read/write bean property.
 for|for
 control|(
+name|BeanIntrospection
+operator|.
 name|MethodInfo
 name|info
 range|:
@@ -1865,6 +1852,8 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
+name|BeanIntrospection
+operator|.
 name|MethodInfo
 index|[
 name|found
@@ -1878,6 +1867,9 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * @deprecated use {@link org.apache.camel.util.PropertiesHelper}      */
+annotation|@
+name|Deprecated
 DECL|method|hasProperties (Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
@@ -2800,6 +2792,9 @@ literal|false
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated use {@link org.apache.camel.util.PropertiesHelper}      */
+annotation|@
+name|Deprecated
 DECL|method|extractProperties (Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
@@ -2834,6 +2829,9 @@ literal|true
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated use {@link org.apache.camel.util.PropertiesHelper}      */
+annotation|@
+name|Deprecated
 DECL|method|extractProperties (Map<String, Object> properties, String optionPrefix, boolean remove)
 specifier|public
 specifier|static
@@ -2998,6 +2996,7 @@ return|return
 name|rc
 return|;
 block|}
+comment|/**      * @deprecated use {@link org.apache.camel.util.PropertiesHelper}      */
 annotation|@
 name|Deprecated
 DECL|method|extractStringProperties (Map<String, Object> properties)
@@ -4156,6 +4155,7 @@ comment|// We need to convert it
 comment|// special for boolean values with string values as we only want to accept "true" or "false"
 if|if
 condition|(
+operator|(
 name|parameterType
 operator|==
 name|Boolean
@@ -4167,6 +4167,7 @@ operator|==
 name|boolean
 operator|.
 name|class
+operator|)
 operator|&&
 name|ref
 operator|instanceof

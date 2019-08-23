@@ -158,8 +158,6 @@ parameter_list|(
 name|KeyStoreParameters
 name|keyStoreParameters
 parameter_list|)
-throws|throws
-name|CryptoCmsException
 block|{
 name|this
 operator|.
@@ -196,7 +194,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|CryptoCmsException
+name|RuntimeException
 argument_list|(
 literal|"Problem during generating the keystore"
 argument_list|,
@@ -224,34 +222,17 @@ name|keyStore
 expr_stmt|;
 block|}
 DECL|method|getKeyStore ()
-specifier|protected
+specifier|public
 name|KeyStore
 name|getKeyStore
 parameter_list|()
-throws|throws
-name|CryptoCmsException
 block|{
-if|if
-condition|(
-name|keyStore
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|CryptoCmsException
-argument_list|(
-literal|"Keystore not configured"
-argument_list|)
-throw|;
-block|}
 return|return
 name|keyStore
 return|;
 block|}
 DECL|method|getKeyStoreParameters ()
-specifier|protected
+specifier|public
 name|KeyStoreParameters
 name|getKeyStoreParameters
 parameter_list|()

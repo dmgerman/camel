@@ -457,7 +457,7 @@ literal|false
 argument_list|,
 name|configuration
 operator|.
-name|getUsingSSL
+name|isUsingSSL
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -777,7 +777,7 @@ literal|true
 argument_list|,
 name|configuration
 operator|.
-name|getUsingSSL
+name|isUsingSSL
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1300,12 +1300,12 @@ name|assertEquals
 argument_list|(
 name|config
 operator|.
-name|getUsingSSL
+name|isUsingSSL
 argument_list|()
 argument_list|,
 name|configuration
 operator|.
-name|getUsingSSL
+name|isUsingSSL
 argument_list|()
 argument_list|)
 expr_stmt|;

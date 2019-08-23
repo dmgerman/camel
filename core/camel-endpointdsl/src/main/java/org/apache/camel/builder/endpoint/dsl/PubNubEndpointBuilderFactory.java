@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If cipher is passed, all communicatons to/from PubNub will be          * encrypted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+comment|/**          * If cipher is passed, all communications to/from PubNub will be          * encrypted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|cipherKey (String cipherKey)
 specifier|default
 name|PubNubEndpointConsumerBuilder
@@ -747,7 +747,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If cipher is passed, all communicatons to/from PubNub will be          * encrypted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+comment|/**          * If cipher is passed, all communications to/from PubNub will be          * encrypted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|cipherKey (String cipherKey)
 specifier|default
 name|PubNubEndpointProducerBuilder
@@ -1087,7 +1087,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If cipher is passed, all communicatons to/from PubNub will be          * encrypted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+comment|/**          * If cipher is passed, all communications to/from PubNub will be          * encrypted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|cipherKey (String cipherKey)
 specifier|default
 name|PubNubEndpointBuilder

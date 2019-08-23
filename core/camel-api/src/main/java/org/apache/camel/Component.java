@@ -70,6 +70,20 @@ name|ComponentExtension
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|PropertyConfigurer
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/component.html">component</a> is  * a factory of {@link Endpoint} objects.  */
 end_comment
@@ -120,6 +134,20 @@ name|boolean
 name|useRawUri
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the endpoint {@link PropertyConfigurer}.      *      * @param  endpoint  the endpoint      * @return the configurer, or<tt>null</tt> if the endpoint does not support using property configurer.      */
+DECL|method|getEndpointPropertyConfigurer (Object endpoint)
+specifier|default
+name|PropertyConfigurer
+name|getEndpointPropertyConfigurer
+parameter_list|(
+name|Object
+name|endpoint
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Gets a list of supported extensions.      *      * @return the list of extensions.      */
 DECL|method|getSupportedExtensions ()
 specifier|default

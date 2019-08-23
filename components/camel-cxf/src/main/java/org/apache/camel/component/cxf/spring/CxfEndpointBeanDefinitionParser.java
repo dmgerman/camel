@@ -363,8 +363,6 @@ argument_list|(
 name|bean
 argument_list|,
 name|name
-operator|+
-literal|"String"
 argument_list|,
 name|val
 argument_list|)
@@ -387,6 +385,8 @@ operator|.
 name|addPropertyValue
 argument_list|(
 name|name
+operator|+
+literal|"AsQName"
 argument_list|,
 name|q
 argument_list|)

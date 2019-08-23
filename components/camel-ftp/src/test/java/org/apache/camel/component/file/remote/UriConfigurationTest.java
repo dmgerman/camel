@@ -419,7 +419,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"ftps://hostname:990?isImplicit=true"
+literal|"ftps://hostname:990?implicit=true"
 argument_list|,
 name|FtpsEndpoint
 operator|.
@@ -711,7 +711,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"ftps://user@hostname:1021/some/file?password=secret&binary=true&securityProtocol=SSL&isImplicit=true"
+literal|"ftps://user@hostname:1021/some/file?password=secret&binary=true&securityProtocol=SSL&implicit=true"
 argument_list|,
 name|FtpsEndpoint
 operator|.

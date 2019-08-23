@@ -931,7 +931,7 @@ name|FILTER_ALREADY_SEEN
 argument_list|,
 name|configuration
 operator|.
-name|getFilterAlreadySeen
+name|isFilterAlreadySeen
 argument_list|()
 argument_list|)
 expr_stmt|;

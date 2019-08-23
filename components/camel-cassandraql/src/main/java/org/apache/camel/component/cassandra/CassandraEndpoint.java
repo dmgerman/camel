@@ -396,11 +396,6 @@ name|loadBalancingPolicy
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|)
 DECL|field|resultSetConversionStrategy
 specifier|private
 name|ResultSetConversionStrategy

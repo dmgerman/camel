@@ -2971,7 +2971,7 @@ name|ConsumerConfig
 operator|.
 name|ENABLE_AUTO_COMMIT_CONFIG
 argument_list|,
-name|isAutoCommitEnable
+name|getAutoCommitEnable
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4173,7 +4173,7 @@ expr_stmt|;
 block|}
 DECL|method|isAutoCommitEnable ()
 specifier|public
-name|Boolean
+name|boolean
 name|isAutoCommitEnable
 parameter_list|()
 block|{
@@ -4185,6 +4185,16 @@ condition|?
 name|autoCommitEnable
 else|:
 literal|false
+return|;
+block|}
+DECL|method|getAutoCommitEnable ()
+specifier|public
+name|Boolean
+name|getAutoCommitEnable
+parameter_list|()
+block|{
+return|return
+name|autoCommitEnable
 return|;
 block|}
 comment|/**      * If true, periodically commit to ZooKeeper the offset of messages already      * fetched by the consumer. This committed offset will be used when the      * process fails as the position from which the new consumer will begin.      */

@@ -314,8 +314,7 @@ literal|"common"
 argument_list|)
 DECL|field|addresses
 specifier|private
-name|Address
-index|[]
+name|String
 name|addresses
 decl_stmt|;
 annotation|@
@@ -1959,45 +1958,6 @@ name|String
 name|addresses
 parameter_list|)
 block|{
-name|Address
-index|[]
-name|addressArray
-init|=
-name|Address
-operator|.
-name|parseAddresses
-argument_list|(
-name|addresses
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|addressArray
-operator|.
-name|length
-operator|>
-literal|0
-condition|)
-block|{
-name|this
-operator|.
-name|addresses
-operator|=
-name|addressArray
-expr_stmt|;
-block|}
-block|}
-comment|/**      * If this option is set, camel-rabbitmq will try to create connection based      * on the setting of option addresses. The addresses value is a string which      * looks like "server1:12345, server2:12345"      */
-DECL|method|setAddresses (Address[] addresses)
-specifier|public
-name|void
-name|setAddresses
-parameter_list|(
-name|Address
-index|[]
-name|addresses
-parameter_list|)
-block|{
 name|this
 operator|.
 name|addresses
@@ -2007,8 +1967,7 @@ expr_stmt|;
 block|}
 DECL|method|getAddresses ()
 specifier|public
-name|Address
-index|[]
+name|String
 name|getAddresses
 parameter_list|()
 block|{

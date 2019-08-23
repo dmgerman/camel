@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ManagementStatisticsLevel
 import|;
 end_import
@@ -303,6 +315,16 @@ DECL|field|routeFilterExcludePattern
 specifier|private
 name|String
 name|routeFilterExcludePattern
+decl_stmt|;
+DECL|field|beanIntrospectionExtendedStatistics
+specifier|private
+name|boolean
+name|beanIntrospectionExtendedStatistics
+decl_stmt|;
+DECL|field|beanIntrospectionLoggingLevel
+specifier|private
+name|LoggingLevel
+name|beanIntrospectionLoggingLevel
 decl_stmt|;
 comment|// getter and setters
 comment|// --------------------------------------------------------------
@@ -1494,6 +1516,60 @@ operator|=
 name|exclude
 expr_stmt|;
 block|}
+DECL|method|isBeanIntrospectionExtendedStatistics ()
+specifier|public
+name|boolean
+name|isBeanIntrospectionExtendedStatistics
+parameter_list|()
+block|{
+return|return
+name|beanIntrospectionExtendedStatistics
+return|;
+block|}
+comment|/**      * Sets whether bean introspection uses extended statistics.      * The default is false.      */
+DECL|method|setBeanIntrospectionExtendedStatistics (boolean beanIntrospectionExtendedStatistics)
+specifier|public
+name|void
+name|setBeanIntrospectionExtendedStatistics
+parameter_list|(
+name|boolean
+name|beanIntrospectionExtendedStatistics
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanIntrospectionExtendedStatistics
+operator|=
+name|beanIntrospectionExtendedStatistics
+expr_stmt|;
+block|}
+DECL|method|getBeanIntrospectionLoggingLevel ()
+specifier|public
+name|LoggingLevel
+name|getBeanIntrospectionLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|beanIntrospectionLoggingLevel
+return|;
+block|}
+comment|/**      * Sets the logging level used by bean introspection, logging activity of its usage.      * The default is TRACE.      */
+DECL|method|setBeanIntrospectionLoggingLevel (LoggingLevel beanIntrospectionLoggingLevel)
+specifier|public
+name|void
+name|setBeanIntrospectionLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|beanIntrospectionLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanIntrospectionLoggingLevel
+operator|=
+name|beanIntrospectionLoggingLevel
+expr_stmt|;
+block|}
 comment|// fluent builders
 comment|// --------------------------------------------------------------
 comment|/**      * Sets the name of the CamelContext.      */
@@ -2454,6 +2530,52 @@ operator|.
 name|routeFilterExcludePattern
 operator|=
 name|routeFilterExcludePattern
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Sets whether bean introspection uses extended statistics.      * The default is false.      */
+DECL|method|withBeanIntrospectionExtendedStatistics (boolean beanIntrospectionExtendedStatistics)
+specifier|public
+name|T
+name|withBeanIntrospectionExtendedStatistics
+parameter_list|(
+name|boolean
+name|beanIntrospectionExtendedStatistics
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanIntrospectionExtendedStatistics
+operator|=
+name|beanIntrospectionExtendedStatistics
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Sets the logging level used by bean introspection, logging activity of its usage.      * The default is TRACE.      */
+DECL|method|withBeanIntrospectionLoggingLevel (LoggingLevel beanIntrospectionLoggingLevel)
+specifier|public
+name|T
+name|withBeanIntrospectionLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|beanIntrospectionLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanIntrospectionLoggingLevel
+operator|=
+name|beanIntrospectionLoggingLevel
 expr_stmt|;
 return|return
 operator|(

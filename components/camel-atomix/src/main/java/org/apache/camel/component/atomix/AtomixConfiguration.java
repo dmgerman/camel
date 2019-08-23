@@ -126,20 +126,6 @@ name|catalyst
 operator|.
 name|transport
 operator|.
-name|Transport
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|atomix
-operator|.
-name|catalyst
-operator|.
-name|transport
-operator|.
 name|netty
 operator|.
 name|NettyTransport
@@ -201,14 +187,9 @@ name|Cloneable
 block|{
 annotation|@
 name|UriParam
-argument_list|(
-name|javaType
-operator|=
-literal|"io.atomix.Atomix"
-argument_list|)
 DECL|field|atomix
 specifier|private
-name|T
+name|Atomix
 name|atomix
 decl_stmt|;
 annotation|@
@@ -234,27 +215,21 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|javaType
-operator|=
-literal|"io.atomix.catalyst.transport.Transport"
-argument_list|,
 name|defaultValue
 operator|=
 literal|"io.atomix.catalyst.transport.netty.NettyTransport"
 argument_list|)
-DECL|field|transport
+DECL|field|transportClassName
 specifier|private
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|transport
+name|String
+name|transportClassName
 init|=
 name|NettyTransport
 operator|.
 name|class
+operator|.
+name|getName
+argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -367,7 +342,7 @@ comment|// Properties
 comment|// *****************************************
 DECL|method|getAtomix ()
 specifier|public
-name|T
+name|Atomix
 name|getAtomix
 parameter_list|()
 block|{
@@ -376,12 +351,12 @@ name|atomix
 return|;
 block|}
 comment|/**      * The Atomix instance to use      */
-DECL|method|setAtomix (T client)
+DECL|method|setAtomix (Atomix client)
 specifier|public
 name|void
 name|setAtomix
 parameter_list|(
-name|T
+name|Atomix
 name|client
 parameter_list|)
 block|{
@@ -483,41 +458,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getTransport ()
+DECL|method|getTransportClassName ()
 specifier|public
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|getTransport
+name|String
+name|getTransportClassName
 parameter_list|()
 block|{
 return|return
-name|transport
+name|transportClassName
 return|;
 block|}
-comment|/**      * Sets the Atomix transport.      */
-DECL|method|setTransport (Class<? extends Transport> transport)
+comment|/**      * The class name (fqn) of the Atomix transport      */
+DECL|method|setTransportClassName (String transportClassName)
 specifier|public
 name|void
-name|setTransport
+name|setTransportClassName
 parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
-name|transport
+name|String
+name|transportClassName
 parameter_list|)
 block|{
 name|this
 operator|.
-name|transport
+name|transportClassName
 operator|=
-name|transport
+name|transportClassName
 expr_stmt|;
 block|}
 DECL|method|getConfigurationUri ()

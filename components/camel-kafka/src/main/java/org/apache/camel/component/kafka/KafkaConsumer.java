@@ -3034,7 +3034,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|isAutoCommitEnable
+name|getAutoCommitEnable
 argument_list|()
 operator|!=
 literal|null
@@ -3044,7 +3044,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|isAutoCommitEnable
+name|getAutoCommitEnable
 argument_list|()
 return|;
 block|}

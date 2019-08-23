@@ -590,16 +590,12 @@ name|List
 name|encoders
 decl_stmt|;
 comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of outbound payloads.          */
-annotation|@
-name|Deprecated
 DECL|field|encoder
 specifier|private
 name|ChannelHandler
 name|encoder
 decl_stmt|;
 comment|/**          * A custom ChannelHandler class that can be used to perform special          * marshalling of inbound payloads.          */
-annotation|@
-name|Deprecated
 DECL|field|decoder
 specifier|private
 name|ChannelHandler
@@ -1286,10 +1282,6 @@ operator|=
 name|encoders
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-annotation|@
-name|DeprecatedConfigurationProperty
 DECL|method|getEncoder ()
 specifier|public
 name|ChannelHandler
@@ -1300,8 +1292,6 @@ return|return
 name|encoder
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|setEncoder (ChannelHandler encoder)
 specifier|public
 name|void
@@ -1318,10 +1308,6 @@ operator|=
 name|encoder
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
-annotation|@
-name|DeprecatedConfigurationProperty
 DECL|method|getDecoder ()
 specifier|public
 name|ChannelHandler
@@ -1332,8 +1318,6 @@ return|return
 name|decoder
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|setDecoder (ChannelHandler decoder)
 specifier|public
 name|void

@@ -920,42 +920,42 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.CxfEndpointConfigurer</code>          * type.          *           * Group: advanced          */
-DECL|method|cxfEndpointConfigurer ( Object cxfEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.CxfConfigurer</code> type.          *           * Group: advanced          */
+DECL|method|cxfConfigurer ( Object cxfConfigurer)
 specifier|default
 name|AdvancedCxfEndpointConsumerBuilder
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|(
 name|Object
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfEndpointConfigurer"
+literal|"cxfConfigurer"
 argument_list|,
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.CxfEndpointConfigurer</code>          * type.          *           * Group: advanced          */
-DECL|method|cxfEndpointConfigurer ( String cxfEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.CxfConfigurer</code> type.          *           * Group: advanced          */
+DECL|method|cxfConfigurer ( String cxfConfigurer)
 specifier|default
 name|AdvancedCxfEndpointConsumerBuilder
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|(
 name|String
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfEndpointConfigurer"
+literal|"cxfConfigurer"
 argument_list|,
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 argument_list|)
 expr_stmt|;
 return|return
@@ -2169,42 +2169,42 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.CxfEndpointConfigurer</code>          * type.          *           * Group: advanced          */
-DECL|method|cxfEndpointConfigurer ( Object cxfEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.CxfConfigurer</code> type.          *           * Group: advanced          */
+DECL|method|cxfConfigurer ( Object cxfConfigurer)
 specifier|default
 name|AdvancedCxfEndpointProducerBuilder
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|(
 name|Object
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfEndpointConfigurer"
+literal|"cxfConfigurer"
 argument_list|,
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.CxfEndpointConfigurer</code>          * type.          *           * Group: advanced          */
-DECL|method|cxfEndpointConfigurer ( String cxfEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.CxfConfigurer</code> type.          *           * Group: advanced          */
+DECL|method|cxfConfigurer ( String cxfConfigurer)
 specifier|default
 name|AdvancedCxfEndpointProducerBuilder
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|(
 name|String
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfEndpointConfigurer"
+literal|"cxfConfigurer"
 argument_list|,
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 argument_list|)
 expr_stmt|;
 return|return
@@ -3170,42 +3170,42 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.CxfEndpointConfigurer</code>          * type.          *           * Group: advanced          */
-DECL|method|cxfEndpointConfigurer ( Object cxfEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.CxfConfigurer</code> type.          *           * Group: advanced          */
+DECL|method|cxfConfigurer (Object cxfConfigurer)
 specifier|default
 name|AdvancedCxfEndpointBuilder
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|(
 name|Object
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfEndpointConfigurer"
+literal|"cxfConfigurer"
 argument_list|,
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.CxfEndpointConfigurer</code>          * type.          *           * Group: advanced          */
-DECL|method|cxfEndpointConfigurer ( String cxfEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.CxfEndpointConfigurer which supports          * to configure the CXF endpoint in programmatic way. User can configure          * the CXF server and client by implementing configure{ServerClient}          * method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.CxfConfigurer</code> type.          *           * Group: advanced          */
+DECL|method|cxfConfigurer (String cxfConfigurer)
 specifier|default
 name|AdvancedCxfEndpointBuilder
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|(
 name|String
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfEndpointConfigurer"
+literal|"cxfConfigurer"
 argument_list|,
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 argument_list|)
 expr_stmt|;
 return|return

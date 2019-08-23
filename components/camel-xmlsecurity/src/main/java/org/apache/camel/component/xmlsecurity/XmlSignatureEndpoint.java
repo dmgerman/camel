@@ -302,6 +302,26 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getSignerConfiguration ()
+specifier|public
+name|XmlSignerConfiguration
+name|getSignerConfiguration
+parameter_list|()
+block|{
+return|return
+name|signerConfiguration
+return|;
+block|}
+DECL|method|getVerifierConfiguration ()
+specifier|public
+name|XmlVerifierConfiguration
+name|getVerifierConfiguration
+parameter_list|()
+block|{
+return|return
+name|verifierConfiguration
+return|;
+block|}
 DECL|method|getCommand ()
 specifier|public
 name|XmlCommand

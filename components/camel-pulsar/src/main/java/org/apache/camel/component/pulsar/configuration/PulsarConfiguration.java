@@ -44,6 +44,22 @@ name|component
 operator|.
 name|pulsar
 operator|.
+name|PulsarMessageReceipt
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pulsar
+operator|.
 name|utils
 operator|.
 name|consumers
@@ -497,7 +513,7 @@ literal|"producer"
 argument_list|,
 name|description
 operator|=
-literal|"Compression type to use, defaults to NONE from [NONE, LZ4, ZLIB]"
+literal|"Compression type to use"
 argument_list|,
 name|defaultValue
 operator|=
@@ -998,7 +1014,7 @@ return|return
 name|initialSequenceId
 return|;
 block|}
-comment|/**      *      * Set the compression type for the producer.      * Supported compression types are:      *<ul>      *<li>NONE: No compression</li>      *<li>LZ4: Compress with LZ4 algorithm. Faster but lower compression than ZLib</li>      *<li>ZLI: Standard ZLib compression</li>      *</ul>      * Default is NONE      */
+comment|/**      * Set the compression type for the producer.      */
 DECL|method|setCompressionType (String compressionType)
 specifier|public
 name|void
@@ -1021,6 +1037,23 @@ operator|.
 name|toUpperCase
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the compression type for the producer.      */
+DECL|method|setCompressionType (CompressionType compressionType)
+specifier|public
+name|void
+name|setCompressionType
+parameter_list|(
+name|CompressionType
+name|compressionType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compressionType
+operator|=
+name|compressionType
 expr_stmt|;
 block|}
 DECL|method|getCompressionType ()

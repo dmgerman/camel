@@ -326,10 +326,6 @@ name|label
 operator|=
 literal|"consumer,advanced"
 argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|,
 name|description
 operator|=
 literal|"Specifies a comma-delimited set of Handler instances to lookup in your Registry."
@@ -354,14 +350,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,advanced"
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|,
-name|name
-operator|=
-literal|"filtersRef"
 argument_list|,
 name|description
 operator|=
@@ -406,9 +394,6 @@ name|String
 argument_list|>
 name|filterInitParameters
 decl_stmt|;
-comment|//    @UriParam(label = "consumer,advanced",
-comment|//            description = "Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server."
-comment|//            + " This allows you to get all responses regardless of the HTTP status code.")
 annotation|@
 name|UriParam
 argument_list|(

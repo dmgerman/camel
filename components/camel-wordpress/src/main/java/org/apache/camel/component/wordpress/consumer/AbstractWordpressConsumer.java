@@ -176,7 +176,7 @@ name|configuration
 operator|=
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 expr_stmt|;
 name|this
@@ -214,7 +214,7 @@ name|configuration
 operator|=
 name|endpoint
 operator|.
-name|getConfig
+name|getConfiguration
 argument_list|()
 expr_stmt|;
 name|this

@@ -441,7 +441,7 @@ literal|"consumer"
 argument_list|)
 DECL|field|streaming
 specifier|private
-name|Boolean
+name|boolean
 name|streaming
 decl_stmt|;
 DECL|method|getName ()
@@ -991,12 +991,6 @@ parameter_list|()
 block|{
 return|return
 name|streaming
-operator|!=
-literal|null
-condition|?
-name|streaming
-else|:
-literal|false
 return|;
 block|}
 comment|/**      * Sets streaming mode.      *<p>      * Streaming mode sends exchanges as they are received, rather than in a batch.      */

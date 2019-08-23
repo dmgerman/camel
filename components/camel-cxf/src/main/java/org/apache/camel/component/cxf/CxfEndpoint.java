@@ -662,20 +662,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|EndpointHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|PropertyBindingSupport
 import|;
 end_import
@@ -1591,20 +1577,17 @@ argument_list|(
 name|label
 operator|=
 literal|"service"
-argument_list|,
-name|name
-operator|=
-literal|"portName"
 argument_list|)
-DECL|field|portNameString
-specifier|private
-name|String
-name|portNameString
-decl_stmt|;
 DECL|field|portName
 specifier|private
-name|QName
+name|String
 name|portName
+decl_stmt|;
+DECL|field|portNameQName
+specifier|private
+specifier|transient
+name|QName
+name|portNameQName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1612,20 +1595,17 @@ argument_list|(
 name|label
 operator|=
 literal|"service"
-argument_list|,
-name|name
-operator|=
-literal|"serviceName"
 argument_list|)
-DECL|field|serviceNameString
-specifier|private
-name|String
-name|serviceNameString
-decl_stmt|;
 DECL|field|serviceName
 specifier|private
-name|QName
+name|String
 name|serviceName
+decl_stmt|;
+DECL|field|serviceNameQName
+specifier|private
+specifier|transient
+name|QName
+name|serviceNameQName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1853,10 +1833,10 @@ name|label
 operator|=
 literal|"advanced"
 argument_list|)
-DECL|field|cxfEndpointConfigurer
+DECL|field|cxfConfigurer
 specifier|private
-name|CxfEndpointConfigurer
-name|cxfEndpointConfigurer
+name|CxfConfigurer
+name|cxfConfigurer
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -2321,10 +2301,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// service  name qname
+comment|// service name qname
 if|if
 condition|(
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 operator|!=
 literal|null
@@ -2334,7 +2314,7 @@ name|sfb
 operator|.
 name|setServiceName
 argument_list|(
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2342,7 +2322,7 @@ block|}
 comment|// port qname
 if|if
 condition|(
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 operator|!=
 literal|null
@@ -2352,7 +2332,7 @@ name|sfb
 operator|.
 name|setEndpointName
 argument_list|(
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2782,7 +2762,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|getNullSafeCxfEndpointConfigurer
+name|getNullSafeCxfConfigurer
 argument_list|()
 operator|.
 name|configure
@@ -3410,7 +3390,7 @@ block|}
 comment|// service name qname
 if|if
 condition|(
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 operator|!=
 literal|null
@@ -3420,7 +3400,7 @@ name|factoryBean
 operator|.
 name|setServiceName
 argument_list|(
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3428,7 +3408,7 @@ block|}
 comment|// port name qname
 if|if
 condition|(
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 operator|!=
 literal|null
@@ -3438,7 +3418,7 @@ name|factoryBean
 operator|.
 name|setEndpointName
 argument_list|(
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3861,7 +3841,7 @@ name|getBus
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|getNullSafeCxfEndpointConfigurer
+name|getNullSafeCxfConfigurer
 argument_list|()
 operator|.
 name|configure
@@ -4709,68 +4689,48 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The service name this service is implementing, it maps to the wsdl:service@name.      */
-DECL|method|setServiceNameString (String service)
-specifier|public
-name|void
-name|setServiceNameString
-parameter_list|(
-name|String
-name|service
-parameter_list|)
-block|{
-name|serviceNameString
-operator|=
-name|service
-expr_stmt|;
-block|}
-comment|/**      * The service name this service is implementing, it maps to the wsdl:service@name.      */
-DECL|method|setServiceName (QName service)
+DECL|method|setServiceName (String service)
 specifier|public
 name|void
 name|setServiceName
 parameter_list|(
-name|QName
-name|service
-parameter_list|)
-block|{
-name|serviceName
-operator|=
-name|service
-expr_stmt|;
-block|}
-comment|/**      * The service name this service is implementing, it maps to the wsdl:service@name.      */
-DECL|method|setService (String service)
-specifier|public
-name|void
-name|setService
-parameter_list|(
 name|String
 name|service
 parameter_list|)
 block|{
-name|serviceNameString
+name|serviceName
 operator|=
 name|service
 expr_stmt|;
 block|}
 DECL|method|getServiceName ()
 specifier|public
-name|QName
+name|String
 name|getServiceName
+parameter_list|()
+block|{
+return|return
+name|serviceName
+return|;
+block|}
+DECL|method|getServiceNameAsQName ()
+specifier|public
+name|QName
+name|getServiceNameAsQName
 parameter_list|()
 block|{
 if|if
 condition|(
-name|serviceName
+name|serviceNameQName
 operator|==
 literal|null
 operator|&&
-name|serviceNameString
+name|serviceName
 operator|!=
 literal|null
 condition|)
 block|{
-name|serviceName
+name|serviceNameQName
 operator|=
 name|QName
 operator|.
@@ -4778,7 +4738,7 @@ name|valueOf
 argument_list|(
 name|resolvePropertyPlaceholders
 argument_list|(
-name|serviceNameString
+name|serviceName
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4788,7 +4748,7 @@ comment|//parse the wsdl to see if only one service in it, if so set the only se
 comment|//from wsdl to avoid ambiguity
 if|if
 condition|(
-name|serviceName
+name|serviceNameQName
 operator|==
 literal|null
 operator|&&
@@ -4834,7 +4794,7 @@ operator|==
 literal|1
 condition|)
 block|{
-name|serviceName
+name|serviceNameQName
 operator|=
 operator|(
 name|QName
@@ -4871,27 +4831,43 @@ throw|;
 block|}
 block|}
 return|return
-name|serviceName
+name|serviceNameQName
 return|;
 block|}
-DECL|method|getPortName ()
+DECL|method|setServiceNameAsQName (QName qName)
+specifier|public
+name|void
+name|setServiceNameAsQName
+parameter_list|(
+name|QName
+name|qName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceNameQName
+operator|=
+name|qName
+expr_stmt|;
+block|}
+DECL|method|getPortNameAsQName ()
 specifier|public
 name|QName
-name|getPortName
+name|getPortNameAsQName
 parameter_list|()
 block|{
 if|if
 condition|(
-name|portName
+name|portNameQName
 operator|==
 literal|null
 operator|&&
-name|portNameString
+name|portName
 operator|!=
 literal|null
 condition|)
 block|{
-name|portName
+name|portNameQName
 operator|=
 name|QName
 operator|.
@@ -4899,89 +4875,84 @@ name|valueOf
 argument_list|(
 name|resolvePropertyPlaceholders
 argument_list|(
-name|portNameString
+name|portName
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|portName
+name|portNameQName
 return|;
 block|}
-comment|/**      * The endpoint name this service is implementing, it maps to the wsdl:port@name. In the format of ns:PORT_NAME where ns is a namespace prefix valid at this scope.      */
-DECL|method|setPortName (QName port)
+DECL|method|setPortNameAsQName (QName qName)
 specifier|public
 name|void
-name|setPortName
+name|setPortNameAsQName
 parameter_list|(
 name|QName
-name|port
-parameter_list|)
-block|{
-name|portName
-operator|=
-name|port
-expr_stmt|;
-block|}
-comment|/**      * The endpoint name this service is implementing, it maps to the wsdl:port@name. In the format of ns:PORT_NAME where ns is a namespace prefix valid at this scope.      */
-DECL|method|setPortNameString (String portNameString)
-specifier|public
-name|void
-name|setPortNameString
-parameter_list|(
-name|String
-name|portNameString
+name|qName
 parameter_list|)
 block|{
 name|this
 operator|.
-name|portNameString
+name|portNameQName
 operator|=
-name|portNameString
+name|qName
 expr_stmt|;
 block|}
-DECL|method|setPortName (String portName)
+DECL|method|getPortName ()
+specifier|public
+name|String
+name|getPortName
+parameter_list|()
+block|{
+return|return
+name|portName
+return|;
+block|}
+comment|/**      * The endpoint name this service is implementing, it maps to the wsdl:port@name. In the format of ns:PORT_NAME where ns is a namespace prefix valid at this scope.      */
+DECL|method|setPortName (String port)
 specifier|public
 name|void
 name|setPortName
 parameter_list|(
 name|String
-name|portName
-parameter_list|)
-block|{
-name|portNameString
-operator|=
-name|portName
-expr_stmt|;
-block|}
-comment|/**      * The port name this service is implementing, it maps to the wsdl:port@name.      */
-DECL|method|setEndpointNameString (String port)
-specifier|public
-name|void
-name|setEndpointNameString
-parameter_list|(
-name|String
 name|port
 parameter_list|)
 block|{
-name|portNameString
+name|portName
 operator|=
 name|port
 expr_stmt|;
 block|}
-comment|/**      * The port name this service is implementing, it maps to the wsdl:port@name.      */
-DECL|method|setEndpointName (QName port)
+DECL|method|setEndpointName (String name)
 specifier|public
 name|void
 name|setEndpointName
 parameter_list|(
-name|QName
-name|port
+name|String
+name|name
 parameter_list|)
 block|{
+comment|// this is on purpose as camel-cxf in xml-dsl uses endpoint-name as port-name
 name|portName
 operator|=
-name|port
+name|name
+expr_stmt|;
+block|}
+DECL|method|setEndpointNameAsQName (QName qName)
+specifier|public
+name|void
+name|setEndpointNameAsQName
+parameter_list|(
+name|QName
+name|qName
+parameter_list|)
+block|{
+comment|// this is on purpose as camel-cxf in xml-dsl uses endpoint-name as port-name
+name|portNameQName
+operator|=
+name|qName
 expr_stmt|;
 block|}
 DECL|method|getDefaultOperationName ()
@@ -5842,21 +5813,21 @@ operator|=
 name|username
 expr_stmt|;
 block|}
-DECL|method|getChainedCxfEndpointConfigurer ()
+DECL|method|getChainedCxfConfigurer ()
 specifier|public
-name|CxfEndpointConfigurer
-name|getChainedCxfEndpointConfigurer
+name|CxfConfigurer
+name|getChainedCxfConfigurer
 parameter_list|()
 block|{
 return|return
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 operator|.
 name|create
 argument_list|(
-name|getNullSafeCxfEndpointConfigurer
+name|getNullSafeCxfConfigurer
 argument_list|()
 argument_list|,
-name|SslCxfEndpointConfigurer
+name|SslCxfConfigurer
 operator|.
 name|create
 argument_list|(
@@ -5869,7 +5840,7 @@ argument_list|)
 operator|.
 name|addChild
 argument_list|(
-name|HostnameVerifierCxfEndpointConfigurer
+name|HostnameVerifierCxfConfigurer
 operator|.
 name|create
 argument_list|(
@@ -5878,31 +5849,31 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|getNullSafeCxfEndpointConfigurer ()
+DECL|method|getNullSafeCxfConfigurer ()
 specifier|private
-name|CxfEndpointConfigurer
-name|getNullSafeCxfEndpointConfigurer
+name|CxfConfigurer
+name|getNullSafeCxfConfigurer
 parameter_list|()
 block|{
 if|if
 condition|(
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 operator|==
 literal|null
 condition|)
 block|{
 return|return
 operator|new
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 operator|.
-name|NullCxfEndpointConfigurer
+name|NullCxfConfigurer
 argument_list|()
 return|;
 block|}
 else|else
 block|{
 return|return
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 return|;
 block|}
 block|}
@@ -6974,10 +6945,10 @@ operator|=
 name|skipFaultLogging
 expr_stmt|;
 block|}
-DECL|method|getMergeProtocolHeaders ()
+DECL|method|isMergeProtocolHeaders ()
 specifier|public
-name|Boolean
-name|getMergeProtocolHeaders
+name|boolean
+name|isMergeProtocolHeaders
 parameter_list|()
 block|{
 return|return
@@ -7086,29 +7057,29 @@ operator|=
 name|serviceFactoryBean
 expr_stmt|;
 block|}
-DECL|method|getCxfEndpointConfigurer ()
+DECL|method|getCxfConfigurer ()
 specifier|public
-name|CxfEndpointConfigurer
-name|getCxfEndpointConfigurer
+name|CxfConfigurer
+name|getCxfConfigurer
 parameter_list|()
 block|{
 return|return
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 return|;
 block|}
 comment|/**      * This option could apply the implementation of org.apache.camel.component.cxf.CxfEndpointConfigurer which supports to configure the CXF endpoint      * in  programmatic way. User can configure the CXF server and client by implementing configure{Server|Client} method of CxfEndpointConfigurer.      */
-DECL|method|setCxfEndpointConfigurer (CxfEndpointConfigurer configurer)
+DECL|method|setCxfConfigurer (CxfConfigurer configurer)
 specifier|public
 name|void
-name|setCxfEndpointConfigurer
+name|setCxfConfigurer
 parameter_list|(
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 name|configurer
 parameter_list|)
 block|{
 name|this
 operator|.
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 operator|=
 name|configurer
 expr_stmt|;

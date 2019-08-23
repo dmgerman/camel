@@ -452,7 +452,7 @@ expr_stmt|;
 block|}
 name|endpoint
 operator|.
-name|getChainedCxfEndpointConfigurer
+name|getChainedCxfConfigurer
 argument_list|()
 operator|.
 name|configureClient
@@ -1083,7 +1083,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getMergeProtocolHeaders
+name|isMergeProtocolHeaders
 argument_list|()
 condition|)
 block|{

@@ -132,6 +132,24 @@ argument_list|>
 name|clazz
 parameter_list|)
 function_decl|;
+comment|/**      * Finds the optional factory class using the key to lookup.      *      * @param key is the key to add to the path to find a text file containing the factory name      * @param propertyPrefix prefix on key      * @return the factory class if found, or<tt>null</tt> if no class existed      */
+DECL|method|findOptionalClass (String key, String propertyPrefix)
+name|Optional
+argument_list|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|findOptionalClass
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|propertyPrefix
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

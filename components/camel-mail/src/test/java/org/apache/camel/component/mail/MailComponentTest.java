@@ -2568,16 +2568,14 @@ name|getScheduler
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
-literal|"Wrong scheduler class"
+literal|"quartz"
 argument_list|,
 name|endpoint
 operator|.
 name|getScheduler
 argument_list|()
-operator|instanceof
-name|QuartzScheduledPollConsumerScheduler
 argument_list|)
 expr_stmt|;
 block|}

@@ -447,7 +447,6 @@ literal|"1"
 argument_list|)
 DECL|field|concurrentConsumers
 specifier|private
-specifier|final
 name|int
 name|concurrentConsumers
 decl_stmt|;
@@ -460,7 +459,6 @@ literal|"consumer"
 argument_list|)
 DECL|field|multipleConsumers
 specifier|private
-specifier|final
 name|boolean
 name|multipleConsumers
 decl_stmt|;
@@ -562,7 +560,7 @@ specifier|private
 name|DisruptorProducerType
 name|producerType
 decl_stmt|;
-DECL|method|DisruptorEndpoint (final String endpointUri, final Component component, final DisruptorReference disruptorReference, final int concurrentConsumers, final boolean multipleConsumers, boolean blockWhenFull)
+DECL|method|DisruptorEndpoint (final String endpointUri, final Component component, final DisruptorReference disruptorReference)
 specifier|public
 name|DisruptorEndpoint
 parameter_list|(
@@ -577,20 +575,7 @@ parameter_list|,
 specifier|final
 name|DisruptorReference
 name|disruptorReference
-parameter_list|,
-specifier|final
-name|int
-name|concurrentConsumers
-parameter_list|,
-specifier|final
-name|boolean
-name|multipleConsumers
-parameter_list|,
-name|boolean
-name|blockWhenFull
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|super
 argument_list|(
@@ -613,24 +598,6 @@ name|disruptorReference
 operator|.
 name|getName
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|concurrentConsumers
-operator|=
-name|concurrentConsumers
-expr_stmt|;
-name|this
-operator|.
-name|multipleConsumers
-operator|=
-name|multipleConsumers
-expr_stmt|;
-name|this
-operator|.
-name|blockWhenFull
-operator|=
-name|blockWhenFull
 expr_stmt|;
 block|}
 annotation|@
@@ -716,7 +683,6 @@ name|getPendingExchangeCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Number of concurrent threads processing exchanges.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -733,6 +699,23 @@ block|{
 return|return
 name|concurrentConsumers
 return|;
+block|}
+comment|/**      * Number of concurrent threads processing exchanges.      */
+DECL|method|setConcurrentConsumers (int concurrentConsumers)
+specifier|public
+name|void
+name|setConcurrentConsumers
+parameter_list|(
+name|int
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|concurrentConsumers
+operator|=
+name|concurrentConsumers
+expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
@@ -858,7 +841,6 @@ name|isMultipleConsumers
 argument_list|()
 return|;
 block|}
-comment|/**      * Specifies whether multiple consumers are allowed.      * If enabled, you can use Disruptor for Publish-Subscribe messaging.      * That is, you can send a message to the queue and have each consumer receive a copy of the message.      * When enabled, this option should be specified on every consumer endpoint.      */
 DECL|method|isMultipleConsumers ()
 specifier|public
 name|boolean
@@ -868,6 +850,23 @@ block|{
 return|return
 name|multipleConsumers
 return|;
+block|}
+comment|/**      * Specifies whether multiple consumers are allowed.      * If enabled, you can use Disruptor for Publish-Subscribe messaging.      * That is, you can send a message to the queue and have each consumer receive a copy of the message.      * When enabled, this option should be specified on every consumer endpoint.      */
+DECL|method|setMultipleConsumers (boolean multipleConsumers)
+specifier|public
+name|void
+name|setMultipleConsumers
+parameter_list|(
+name|boolean
+name|multipleConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|multipleConsumers
+operator|=
+name|multipleConsumers
+expr_stmt|;
 block|}
 comment|/**      * Returns the current active consumers on this endpoint      */
 DECL|method|getConsumers ()

@@ -742,7 +742,7 @@ name|port
 argument_list|,
 name|config
 operator|.
-name|getEnableSSL
+name|isEnableSSL
 argument_list|()
 condition|?
 literal|"HTTPS"

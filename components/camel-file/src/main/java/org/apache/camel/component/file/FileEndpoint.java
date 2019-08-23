@@ -1970,8 +1970,6 @@ parameter_list|(
 name|String
 name|chmod
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -2326,8 +2324,6 @@ parameter_list|(
 name|String
 name|chmodDirectory
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

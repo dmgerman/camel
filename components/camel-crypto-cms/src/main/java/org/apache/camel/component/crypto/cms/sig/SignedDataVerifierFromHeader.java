@@ -381,9 +381,7 @@ condition|(
 name|conf
 operator|.
 name|isSignedDataHeaderBase64
-argument_list|(
-name|exchange
-argument_list|)
+argument_list|()
 condition|)
 block|{
 name|signature
@@ -437,9 +435,7 @@ condition|(
 name|conf
 operator|.
 name|isFromBase64
-argument_list|(
-name|exchange
-argument_list|)
+argument_list|()
 condition|)
 block|{
 name|stream

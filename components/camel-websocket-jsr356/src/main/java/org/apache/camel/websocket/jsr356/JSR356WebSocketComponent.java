@@ -146,20 +146,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|annotations
 operator|.
 name|Component
@@ -226,13 +212,6 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Metadata
-argument_list|(
-name|label
-operator|=
-literal|"sessionCount"
-argument_list|)
 DECL|field|sessionCount
 specifier|protected
 name|int
@@ -301,9 +280,7 @@ operator|.
 name|getBasicRemote
 argument_list|()
 decl_stmt|;
-comment|// todo:
-comment|// handle
-comment|// async?
+comment|// todo: handle async?
 synchronized|synchronized
 init|(
 name|session

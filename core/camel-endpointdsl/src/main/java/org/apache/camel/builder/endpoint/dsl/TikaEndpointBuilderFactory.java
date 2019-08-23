@@ -110,7 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Tika Config.          *           * The option is a:<code>org.apache.tika.config.TikaConfig</code> type.          *           * Group: producer          */
+comment|/**          * To use a custom Tika config.          *           * The option is a:<code>org.apache.tika.config.TikaConfig</code> type.          *           * Group: producer          */
 DECL|method|tikaConfig (Object tikaConfig)
 specifier|default
 name|TikaEndpointBuilder
@@ -131,7 +131,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Config.          *           * The option will be converted to a          *<code>org.apache.tika.config.TikaConfig</code> type.          *           * Group: producer          */
+comment|/**          * To use a custom Tika config.          *           * The option will be converted to a          *<code>org.apache.tika.config.TikaConfig</code> type.          *           * Group: producer          */
 DECL|method|tikaConfig (String tikaConfig)
 specifier|default
 name|TikaEndpointBuilder
@@ -152,7 +152,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Config Uri: The URI of tika-config.xml.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+comment|/**          * Tika Config Uri: The URI of tika-config.xml file to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|tikaConfigUri (String tikaConfigUri)
 specifier|default
 name|TikaEndpointBuilder
@@ -173,7 +173,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Tika Parse Output Encoding - Used to specify the character encoding          * of the parsed output. Defaults to Charset.defaultCharset() .          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+comment|/**          * Tika Parse Output Encoding - Used to specify the character encoding          * of the parsed output. Defaults to Charset.defaultCharset().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|tikaParseOutputEncoding ( String tikaParseOutputEncoding)
 specifier|default
 name|TikaEndpointBuilder
@@ -360,7 +360,7 @@ block|,
 DECL|enumConstant|textMain
 name|textMain
 block|;     }
-comment|/**      * Tika (camel-tika)      * This component integrates with Apache Tika to extract content and      * metadata from thousands of file types.      *       * Category: document,transformation      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-tika      *       * Syntax:<code>tika:operation</code>      *       * Path parameter: operation (required)      * Tika Operation. parse or detect      * The value can be one of: parse, detect      */
+comment|/**      * Tika (camel-tika)      * This component integrates with Apache Tika to extract content and      * metadata from thousands of file types.      *       * Category: document,transformation      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-tika      *       * Syntax:<code>tika:operation</code>      *       * Path parameter: operation (required)      * Tika Operation - parse or detect      * The value can be one of: parse, detect      */
 DECL|method|tika (String path)
 specifier|default
 name|TikaEndpointBuilder

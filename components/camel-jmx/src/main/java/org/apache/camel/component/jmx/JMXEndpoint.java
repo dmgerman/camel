@@ -1626,10 +1626,10 @@ operator|=
 name|aStringToCompare
 expr_stmt|;
 block|}
-DECL|method|getTestConnectionOnStartup ()
+DECL|method|isTestConnectionOnStartup ()
 specifier|public
 name|boolean
-name|getTestConnectionOnStartup
+name|isTestConnectionOnStartup
 parameter_list|()
 block|{
 return|return
@@ -1654,10 +1654,10 @@ operator|=
 name|testConnectionOnStartup
 expr_stmt|;
 block|}
-DECL|method|getReconnectOnConnectionFailure ()
+DECL|method|isReconnectOnConnectionFailure ()
 specifier|public
 name|boolean
-name|getReconnectOnConnectionFailure
+name|isReconnectOnConnectionFailure
 parameter_list|()
 block|{
 return|return

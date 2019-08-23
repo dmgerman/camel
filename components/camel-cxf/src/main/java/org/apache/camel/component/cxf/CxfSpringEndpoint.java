@@ -828,7 +828,7 @@ block|{
 name|QName
 name|qn
 init|=
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 decl_stmt|;
 if|if
@@ -838,7 +838,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|setServiceName
+name|setServiceNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -852,7 +852,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|setServiceName
+name|setServiceNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -877,7 +877,7 @@ block|{
 name|QName
 name|qn
 init|=
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 decl_stmt|;
 if|if
@@ -910,7 +910,7 @@ block|{
 name|QName
 name|qn
 init|=
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 decl_stmt|;
 if|if
@@ -920,7 +920,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|setServiceName
+name|setServiceNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -934,7 +934,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|setServiceName
+name|setServiceNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -959,7 +959,7 @@ block|{
 name|QName
 name|qn
 init|=
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 decl_stmt|;
 if|if
@@ -989,7 +989,7 @@ block|{
 name|QName
 name|qn
 init|=
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 decl_stmt|;
 if|if
@@ -1022,7 +1022,7 @@ block|{
 name|QName
 name|qn
 init|=
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 decl_stmt|;
 if|if
@@ -1032,7 +1032,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|setPortName
+name|setPortNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -1046,7 +1046,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|setPortName
+name|setPortNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -1074,7 +1074,7 @@ block|{
 name|QName
 name|qn
 init|=
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 decl_stmt|;
 if|if
@@ -1084,7 +1084,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|setPortName
+name|setPortNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -1098,7 +1098,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|setPortName
+name|setPortNameAsQName
 argument_list|(
 operator|new
 name|QName
@@ -1123,7 +1123,7 @@ block|{
 name|QName
 name|qn
 init|=
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 decl_stmt|;
 if|if

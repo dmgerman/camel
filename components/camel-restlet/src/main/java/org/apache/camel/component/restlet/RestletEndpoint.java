@@ -485,15 +485,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
 argument_list|)
 DECL|field|restletMethods
 specifier|private
-name|Method
-index|[]
+name|String
 name|restletMethods
 decl_stmt|;
 annotation|@
@@ -1136,14 +1131,13 @@ operator|.
 name|InOut
 return|;
 block|}
-comment|/**      * Specify one or more methods separated by commas (e.g. restletMethods=post,put) to be serviced by a restlet consumer endpoint.      * If both restletMethod and restletMethods options are specified, the restletMethod setting is ignored.      * The possible methods are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE      */
-DECL|method|setRestletMethods (Method[] restletMethods)
+comment|/**      * Specify one or more methods separated by commas (e.g. restletMethods=post,put) to be serviced by a restlet consumer endpoint.      * If both restletMethod and restletMethods options are specified, the restletMethod setting is ignored.      * The possible methods are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE.      * Multiple methods can be separated by comma.      */
+DECL|method|setRestletMethods (String restletMethods)
 specifier|public
 name|void
 name|setRestletMethods
 parameter_list|(
-name|Method
-index|[]
+name|String
 name|restletMethods
 parameter_list|)
 block|{
@@ -1156,8 +1150,7 @@ expr_stmt|;
 block|}
 DECL|method|getRestletMethods ()
 specifier|public
-name|Method
-index|[]
+name|String
 name|getRestletMethods
 parameter_list|()
 block|{

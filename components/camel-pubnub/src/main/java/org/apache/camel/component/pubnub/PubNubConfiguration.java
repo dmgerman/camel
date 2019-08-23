@@ -349,7 +349,7 @@ operator|=
 name|authKey
 expr_stmt|;
 block|}
-comment|/**      * If cipher is passed, all communicatons to/from PubNub will be encrypted.      */
+comment|/**      * If cipher is passed, all communications to/from PubNub will be encrypted.      */
 DECL|method|getCipherKey ()
 specifier|public
 name|String
@@ -509,10 +509,10 @@ operator|=
 name|withPresence
 expr_stmt|;
 block|}
-DECL|method|withPresence ()
+DECL|method|isWithPresence ()
 specifier|public
 name|boolean
-name|withPresence
+name|isWithPresence
 parameter_list|()
 block|{
 return|return

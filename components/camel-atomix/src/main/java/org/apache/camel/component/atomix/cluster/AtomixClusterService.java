@@ -397,39 +397,29 @@ expr_stmt|;
 block|}
 DECL|method|getTransport ()
 specifier|public
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
+name|String
 name|getTransport
 parameter_list|()
 block|{
 return|return
 name|configuration
 operator|.
-name|getTransport
+name|getTransportClassName
 argument_list|()
 return|;
 block|}
-DECL|method|setTransport (Class<? extends Transport> transport)
+DECL|method|setTransportClassName (String transport)
 specifier|public
 name|void
-name|setTransport
+name|setTransportClassName
 parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Transport
-argument_list|>
+name|String
 name|transport
 parameter_list|)
 block|{
 name|configuration
 operator|.
-name|setTransport
+name|setTransportClassName
 argument_list|(
 name|transport
 argument_list|)
@@ -442,6 +432,9 @@ name|getAtomix
 parameter_list|()
 block|{
 return|return
+operator|(
+name|AtomixReplica
+operator|)
 name|configuration
 operator|.
 name|getAtomix
@@ -730,11 +723,6 @@ argument_list|(
 literal|"Bootstrap cluster on address {}"
 argument_list|,
 name|address
-argument_list|,
-name|configuration
-operator|.
-name|getNodes
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

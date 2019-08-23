@@ -321,6 +321,10 @@ argument_list|,
 name|label
 operator|=
 literal|"file,ipfs"
+argument_list|,
+name|generateConfigurer
+operator|=
+literal|false
 argument_list|)
 DECL|class|IPFSEndpoint
 specifier|public

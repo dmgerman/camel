@@ -133,6 +133,7 @@ operator|=
 literal|"clustering"
 argument_list|)
 DECL|class|AtomixMapEndpoint
+specifier|public
 class|class
 name|AtomixMapEndpoint
 extends|extends

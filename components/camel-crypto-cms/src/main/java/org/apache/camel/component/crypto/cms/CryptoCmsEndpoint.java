@@ -346,6 +346,46 @@ return|return
 name|name
 return|;
 block|}
+DECL|method|getSignConfig ()
+specifier|public
+name|SignedDataCreatorConfiguration
+name|getSignConfig
+parameter_list|()
+block|{
+return|return
+name|signConfig
+return|;
+block|}
+DECL|method|getVerifyConfig ()
+specifier|public
+name|DefaultSignedDataVerifierConfiguration
+name|getVerifyConfig
+parameter_list|()
+block|{
+return|return
+name|verifyConfig
+return|;
+block|}
+DECL|method|getEncryptConfig ()
+specifier|public
+name|EnvelopedDataEncryptorConfiguration
+name|getEncryptConfig
+parameter_list|()
+block|{
+return|return
+name|encryptConfig
+return|;
+block|}
+DECL|method|getDecryptConfig ()
+specifier|public
+name|DefaultEnvelopedDataDecryptorConfiguration
+name|getDecryptConfig
+parameter_list|()
+block|{
+return|return
+name|decryptConfig
+return|;
+block|}
 comment|/**      * Set the Crypto operation from that supplied after the crypto scheme in      * the endpoint uri e.g. crypto-cms:sign sets sign as the operation.      * Possible values: "sign", "verify", "encrypt", or "decrypt".      */
 DECL|method|setCryptoOperation (String operation)
 specifier|public

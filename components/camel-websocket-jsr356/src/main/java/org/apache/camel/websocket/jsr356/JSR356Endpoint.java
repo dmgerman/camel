@@ -169,18 +169,6 @@ name|sessionCount
 init|=
 literal|1
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"the servlet context to use (represented by its path)"
-argument_list|)
-DECL|field|context
-specifier|private
-name|String
-name|context
-decl_stmt|;
 DECL|field|component
 specifier|private
 specifier|final
@@ -257,8 +245,6 @@ argument_list|,
 name|processor
 argument_list|,
 name|sessionCount
-argument_list|,
-name|context
 argument_list|)
 return|;
 block|}

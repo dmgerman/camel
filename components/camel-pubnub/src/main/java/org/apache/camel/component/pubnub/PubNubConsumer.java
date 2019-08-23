@@ -302,7 +302,7 @@ if|if
 condition|(
 name|pubNubConfiguration
 operator|.
-name|withPresence
+name|isWithPresence
 argument_list|()
 condition|)
 block|{

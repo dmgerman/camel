@@ -116,6 +116,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|BeanIntrospection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|BeanProcessorFactory
 import|;
 end_import
@@ -695,6 +709,21 @@ name|setAsyncProcessorAwaitManager
 parameter_list|(
 name|AsyncProcessorAwaitManager
 name|manager
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link BeanIntrospection}      */
+DECL|method|getBeanIntrospection ()
+name|BeanIntrospection
+name|getBeanIntrospection
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link BeanIntrospection}.      */
+DECL|method|setBeanIntrospection (BeanIntrospection beanIntrospection)
+name|void
+name|setBeanIntrospection
+parameter_list|(
+name|BeanIntrospection
+name|beanIntrospection
 parameter_list|)
 function_decl|;
 block|}

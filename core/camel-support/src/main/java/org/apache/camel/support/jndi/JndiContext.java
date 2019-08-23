@@ -2364,6 +2364,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Deprecated
 DECL|method|createBean (Class<?> type, Map<String, Object> properties, String prefix)
 specifier|protected
 specifier|static

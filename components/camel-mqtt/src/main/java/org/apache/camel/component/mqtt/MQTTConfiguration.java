@@ -402,7 +402,7 @@ decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|willRetain
-name|QoS
+name|boolean
 name|willRetain
 decl_stmt|;
 annotation|@
@@ -1208,6 +1208,21 @@ argument_list|(
 name|willRetain
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isWillRetain ()
+specifier|public
+name|boolean
+name|isWillRetain
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|isWillRetain
+argument_list|()
+return|;
 block|}
 comment|/**      * If set the server will publish the client's Will message to the specified topics if the client has an unexpected disconnection.      */
 annotation|@

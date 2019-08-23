@@ -277,6 +277,16 @@ name|clone
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|MiloClientConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
 DECL|method|init ()
 specifier|protected
 name|void

@@ -20,6 +20,36 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|net
+operator|.
+name|ssl
+operator|.
+name|HostnameVerifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cxf
+operator|.
+name|common
+operator|.
+name|AbstractHostnameVerifierEndpointConfigurer
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -60,45 +90,135 @@ name|AbstractWSDLBasedEndpointFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  * A pluggable strategy for configuring the cxfEndpoint by using java code  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|transport
+operator|.
+name|http
+operator|.
+name|HTTPConduit
+import|;
+end_import
 
-begin_interface
-DECL|interface|CxfEndpointConfigurer
+begin_class
+DECL|class|HostnameVerifierCxfConfigurer
 specifier|public
-interface|interface
-name|CxfEndpointConfigurer
+specifier|final
+class|class
+name|HostnameVerifierCxfConfigurer
+extends|extends
+name|AbstractHostnameVerifierEndpointConfigurer
+implements|implements
+name|CxfConfigurer
 block|{
-comment|/**      * Configure the CXF Server/Client factory bean      * @param factoryBean      */
+DECL|method|HostnameVerifierCxfConfigurer (HostnameVerifier hostnameVerifier)
+specifier|private
+name|HostnameVerifierCxfConfigurer
+parameter_list|(
+name|HostnameVerifier
+name|hostnameVerifier
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|hostnameVerifier
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|create (HostnameVerifier hostnameVerifier)
+specifier|public
+specifier|static
+name|CxfConfigurer
+name|create
+parameter_list|(
+name|HostnameVerifier
+name|hostnameVerifier
+parameter_list|)
+block|{
+if|if
+condition|(
+name|hostnameVerifier
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|ChainedCxfConfigurer
+operator|.
+name|NullCxfConfigurer
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|HostnameVerifierCxfConfigurer
+argument_list|(
+name|hostnameVerifier
+argument_list|)
+return|;
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|configure (AbstractWSDLBasedEndpointFactory factoryBean)
+specifier|public
 name|void
 name|configure
 parameter_list|(
 name|AbstractWSDLBasedEndpointFactory
 name|factoryBean
 parameter_list|)
-function_decl|;
-comment|/**      * Configure the CXF Client such as setting some parameters on the client conduit       *      * @param client the CXF client      */
+block|{     }
+annotation|@
+name|Override
 DECL|method|configureClient (Client client)
+specifier|public
 name|void
 name|configureClient
 parameter_list|(
 name|Client
 name|client
 parameter_list|)
-function_decl|;
-comment|/**      * Configure the CXF Server such as setting some parameters on the server destination       *      * @param server the CXF server      */
+block|{
+name|HTTPConduit
+name|httpConduit
+init|=
+operator|(
+name|HTTPConduit
+operator|)
+name|client
+operator|.
+name|getConduit
+argument_list|()
+decl_stmt|;
+name|setupHttpConduit
+argument_list|(
+name|httpConduit
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|configureServer (Server server)
+specifier|public
 name|void
 name|configureServer
 parameter_list|(
 name|Server
 name|server
 parameter_list|)
-function_decl|;
+block|{     }
 block|}
-end_interface
+end_class
 
 end_unit
 

@@ -146,29 +146,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option is a:<code>com.rabbitmq.client.Address[]</code> type.          *           * Group: common          */
-DECL|method|addresses (Object[] addresses)
-specifier|default
-name|RabbitMQEndpointConsumerBuilder
-name|addresses
-parameter_list|(
-name|Object
-index|[]
-name|addresses
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"addresses"
-argument_list|,
-name|addresses
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option will be converted to a          *<code>com.rabbitmq.client.Address[]</code> type.          *           * Group: common          */
+comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|addresses (String addresses)
 specifier|default
 name|RabbitMQEndpointConsumerBuilder
@@ -2007,29 +1985,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option is a:<code>com.rabbitmq.client.Address[]</code> type.          *           * Group: common          */
-DECL|method|addresses (Object[] addresses)
-specifier|default
-name|RabbitMQEndpointProducerBuilder
-name|addresses
-parameter_list|(
-name|Object
-index|[]
-name|addresses
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"addresses"
-argument_list|,
-name|addresses
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option will be converted to a          *<code>com.rabbitmq.client.Address[]</code> type.          *           * Group: common          */
+comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|addresses (String addresses)
 specifier|default
 name|RabbitMQEndpointProducerBuilder
@@ -3828,29 +3784,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option is a:<code>com.rabbitmq.client.Address[]</code> type.          *           * Group: common          */
-DECL|method|addresses (Object[] addresses)
-specifier|default
-name|RabbitMQEndpointBuilder
-name|addresses
-parameter_list|(
-name|Object
-index|[]
-name|addresses
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"addresses"
-argument_list|,
-name|addresses
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option will be converted to a          *<code>com.rabbitmq.client.Address[]</code> type.          *           * Group: common          */
+comment|/**          * If this option is set, camel-rabbitmq will try to create connection          * based on the setting of option addresses. The addresses value is a          * string which looks like server1:12345, server2:12345.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|addresses (String addresses)
 specifier|default
 name|RabbitMQEndpointBuilder

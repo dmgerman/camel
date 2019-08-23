@@ -600,22 +600,22 @@ name|password
 expr_stmt|;
 block|}
 comment|/**      * Enable SSL      */
-DECL|method|getEnableSSL ()
+DECL|method|isEnableSSL ()
 specifier|public
-name|Boolean
-name|getEnableSSL
+name|boolean
+name|isEnableSSL
 parameter_list|()
 block|{
 return|return
 name|enableSSL
 return|;
 block|}
-DECL|method|setEnableSSL (Boolean enableSSL)
+DECL|method|setEnableSSL (boolean enableSSL)
 specifier|public
 name|void
 name|setEnableSSL
 parameter_list|(
-name|Boolean
+name|boolean
 name|enableSSL
 parameter_list|)
 block|{
@@ -654,22 +654,22 @@ name|maxRetryTimeout
 expr_stmt|;
 block|}
 comment|/**      * Disconnect after it finish calling the producer      */
-DECL|method|getDisconnect ()
+DECL|method|isDisconnect ()
 specifier|public
-name|Boolean
-name|getDisconnect
+name|boolean
+name|isDisconnect
 parameter_list|()
 block|{
 return|return
 name|disconnect
 return|;
 block|}
-DECL|method|setDisconnect (Boolean disconnect)
+DECL|method|setDisconnect (boolean disconnect)
 specifier|public
 name|void
 name|setDisconnect
 parameter_list|(
-name|Boolean
+name|boolean
 name|disconnect
 parameter_list|)
 block|{
@@ -762,10 +762,10 @@ name|sniffAfterFailureDelay
 expr_stmt|;
 block|}
 comment|/**      * Enable scroll usage      */
-DECL|method|getUseScroll ()
+DECL|method|isUseScroll ()
 specifier|public
 name|boolean
-name|getUseScroll
+name|isUseScroll
 parameter_list|()
 block|{
 return|return

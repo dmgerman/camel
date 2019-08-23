@@ -178,26 +178,11 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"java.lang.Object"
 argument_list|)
 DECL|field|keyType
 specifier|private
-name|Class
-argument_list|<
-name|?
-argument_list|>
+name|String
 name|keyType
-init|=
-name|Object
-operator|.
-name|class
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -205,26 +190,11 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"java.lang.Object"
 argument_list|)
 DECL|field|valueType
 specifier|private
-name|Class
-argument_list|<
-name|?
-argument_list|>
+name|String
 name|valueType
-init|=
-name|Object
-operator|.
-name|class
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -466,10 +436,7 @@ expr_stmt|;
 block|}
 DECL|method|getKeyType ()
 specifier|public
-name|Class
-argument_list|<
-name|?
-argument_list|>
+name|String
 name|getKeyType
 parameter_list|()
 block|{
@@ -478,15 +445,12 @@ name|keyType
 return|;
 block|}
 comment|/**      * The cache key type, default "java.lang.Object"      */
-DECL|method|setKeyType (Class<?> keyType)
+DECL|method|setKeyType (String keyType)
 specifier|public
 name|void
 name|setKeyType
 parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
+name|String
 name|keyType
 parameter_list|)
 block|{
@@ -499,10 +463,7 @@ expr_stmt|;
 block|}
 DECL|method|getValueType ()
 specifier|public
-name|Class
-argument_list|<
-name|?
-argument_list|>
+name|String
 name|getValueType
 parameter_list|()
 block|{
@@ -511,15 +472,12 @@ name|valueType
 return|;
 block|}
 comment|/**      * The cache value type, default "java.lang.Object"      */
-DECL|method|setValueType (Class<?> valueType)
+DECL|method|setValueType (String valueType)
 specifier|public
 name|void
 name|setValueType
 parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
+name|String
 name|valueType
 parameter_list|)
 block|{

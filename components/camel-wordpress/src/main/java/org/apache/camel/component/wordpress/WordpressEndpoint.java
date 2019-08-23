@@ -449,10 +449,10 @@ name|operationDetail
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|config
+DECL|field|configuration
 specifier|private
 name|WordpressComponentConfiguration
-name|config
+name|configuration
 decl_stmt|;
 DECL|method|WordpressEndpoint (String uri, WordpressComponent component, WordpressComponentConfiguration configuration)
 specifier|public
@@ -477,19 +477,19 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|config
+name|configuration
 operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|getConfig ()
+DECL|method|getConfiguration ()
 specifier|public
 name|WordpressComponentConfiguration
-name|getConfig
+name|getConfiguration
 parameter_list|()
 block|{
 return|return
-name|config
+name|configuration
 return|;
 block|}
 DECL|method|getOperation ()
@@ -695,12 +695,12 @@ try|try
 block|{
 if|if
 condition|(
-name|config
+name|configuration
 operator|==
 literal|null
 condition|)
 block|{
-name|config
+name|configuration
 operator|=
 operator|new
 name|WordpressComponentConfiguration
@@ -714,14 +714,14 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|config
+name|configuration
 argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|config
+name|configuration
 operator|.
 name|getSearchCriteria
 argument_list|()
@@ -841,7 +841,7 @@ argument_list|,
 name|criteriaOptions
 argument_list|)
 expr_stmt|;
-name|config
+name|configuration
 operator|.
 name|setSearchCriteria
 argument_list|(
@@ -870,7 +870,7 @@ argument_list|)
 throw|;
 block|}
 comment|// validate configuration
-name|config
+name|configuration
 operator|.
 name|validate
 argument_list|()
@@ -894,12 +894,12 @@ init|=
 operator|new
 name|WordpressAPIConfiguration
 argument_list|(
-name|config
+name|configuration
 operator|.
 name|getUrl
 argument_list|()
 argument_list|,
-name|config
+name|configuration
 operator|.
 name|getApiVersion
 argument_list|()
@@ -912,7 +912,7 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|config
+name|configuration
 operator|.
 name|getUser
 argument_list|()
@@ -926,12 +926,12 @@ argument_list|(
 operator|new
 name|WordpressBasicAuthentication
 argument_list|(
-name|config
+name|configuration
 operator|.
 name|getUser
 argument_list|()
 argument_list|,
-name|config
+name|configuration
 operator|.
 name|getPassword
 argument_list|()

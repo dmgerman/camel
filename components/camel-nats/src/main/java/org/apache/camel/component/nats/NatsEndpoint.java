@@ -334,10 +334,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|getNatsConfiguration ()
+DECL|method|getConfiguration ()
 specifier|public
 name|NatsConfiguration
-name|getNatsConfiguration
+name|getConfiguration
 parameter_list|()
 block|{
 return|return
@@ -361,7 +361,7 @@ block|{
 name|Builder
 name|builder
 init|=
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|createOptions
@@ -369,7 +369,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSslContextParameters
@@ -377,7 +377,7 @@ argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|isSecure
@@ -387,7 +387,7 @@ block|{
 name|SSLContext
 name|sslCtx
 init|=
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getSslContextParameters

@@ -61,47 +61,47 @@ import|;
 end_import
 
 begin_class
-DECL|class|ChainedCxfEndpointConfigurer
+DECL|class|ChainedCxfConfigurer
 specifier|public
 specifier|final
 class|class
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 implements|implements
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 block|{
 DECL|field|parent
 specifier|private
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 name|parent
 decl_stmt|;
 DECL|field|child
 specifier|private
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 name|child
 decl_stmt|;
-DECL|method|ChainedCxfEndpointConfigurer ()
+DECL|method|ChainedCxfConfigurer ()
 specifier|private
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 parameter_list|()
 block|{     }
-DECL|method|create (CxfEndpointConfigurer parent, CxfEndpointConfigurer child)
+DECL|method|create (CxfConfigurer parent, CxfConfigurer child)
 specifier|public
 specifier|static
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 name|create
 parameter_list|(
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 name|parent
 parameter_list|,
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 name|child
 parameter_list|)
 block|{
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 name|result
 init|=
 operator|new
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 argument_list|()
 decl_stmt|;
 name|result
@@ -120,20 +120,20 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|addChild (CxfEndpointConfigurer cxfEndpointConfigurer)
+DECL|method|addChild (CxfConfigurer cxfConfigurer)
 specifier|public
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 name|addChild
 parameter_list|(
-name|CxfEndpointConfigurer
-name|cxfEndpointConfigurer
+name|CxfConfigurer
+name|cxfConfigurer
 parameter_list|)
 block|{
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 name|result
 init|=
 operator|new
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfConfigurer
 argument_list|()
 decl_stmt|;
 name|result
@@ -146,7 +146,7 @@ name|result
 operator|.
 name|child
 operator|=
-name|cxfEndpointConfigurer
+name|cxfConfigurer
 expr_stmt|;
 return|return
 name|result
@@ -230,13 +230,13 @@ name|server
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|NullCxfEndpointConfigurer
+DECL|class|NullCxfConfigurer
 specifier|public
 specifier|static
 class|class
-name|NullCxfEndpointConfigurer
+name|NullCxfConfigurer
 implements|implements
-name|CxfEndpointConfigurer
+name|CxfConfigurer
 block|{
 annotation|@
 name|Override

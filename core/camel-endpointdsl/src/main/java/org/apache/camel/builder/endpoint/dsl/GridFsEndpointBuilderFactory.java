@@ -262,48 +262,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
-DECL|method|writeConcernRef ( Object writeConcernRef)
-specifier|default
-name|GridFsEndpointConsumerBuilder
-name|writeConcernRef
-parameter_list|(
-name|Object
-name|writeConcernRef
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"writeConcernRef"
-argument_list|,
-name|writeConcernRef
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
-DECL|method|writeConcernRef ( String writeConcernRef)
-specifier|default
-name|GridFsEndpointConsumerBuilder
-name|writeConcernRef
-parameter_list|(
-name|String
-name|writeConcernRef
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"writeConcernRef"
-argument_list|,
-name|writeConcernRef
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -894,48 +852,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
-DECL|method|writeConcernRef ( Object writeConcernRef)
-specifier|default
-name|GridFsEndpointProducerBuilder
-name|writeConcernRef
-parameter_list|(
-name|Object
-name|writeConcernRef
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"writeConcernRef"
-argument_list|,
-name|writeConcernRef
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
-DECL|method|writeConcernRef ( String writeConcernRef)
-specifier|default
-name|GridFsEndpointProducerBuilder
-name|writeConcernRef
-parameter_list|(
-name|String
-name|writeConcernRef
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"writeConcernRef"
-argument_list|,
-name|writeConcernRef
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
@@ -1249,48 +1165,6 @@ argument_list|(
 literal|"writeConcern"
 argument_list|,
 name|writeConcern
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option is a:<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
-DECL|method|writeConcernRef (Object writeConcernRef)
-specifier|default
-name|GridFsEndpointBuilder
-name|writeConcernRef
-parameter_list|(
-name|Object
-name|writeConcernRef
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"writeConcernRef"
-argument_list|,
-name|writeConcernRef
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Set the WriteConcern for write operations on MongoDB, passing in the          * bean ref to a custom WriteConcern which exists in the Registry. You          * can also use standard WriteConcerns by passing in their key. See the          * {link #setWriteConcern(String) setWriteConcern} method.          *           * The option will be converted to a          *<code>com.mongodb.WriteConcern</code> type.          *           * Group: common          */
-DECL|method|writeConcernRef (String writeConcernRef)
-specifier|default
-name|GridFsEndpointBuilder
-name|writeConcernRef
-parameter_list|(
-name|String
-name|writeConcernRef
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"writeConcernRef"
-argument_list|,
-name|writeConcernRef
 argument_list|)
 expr_stmt|;
 return|return

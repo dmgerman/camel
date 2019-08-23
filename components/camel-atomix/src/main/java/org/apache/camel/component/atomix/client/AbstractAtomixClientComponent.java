@@ -171,6 +171,9 @@ name|getAtomix
 parameter_list|()
 block|{
 return|return
+operator|(
+name|AtomixClient
+operator|)
 name|getComponentConfiguration
 argument_list|()
 operator|.

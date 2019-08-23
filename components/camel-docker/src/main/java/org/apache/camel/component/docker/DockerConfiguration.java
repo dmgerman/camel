@@ -686,10 +686,10 @@ operator|=
 name|maxPerRouteConnections
 expr_stmt|;
 block|}
-DECL|method|isLoggingFilterEnabled ()
+DECL|method|isLoggingFilter ()
 specifier|public
 name|boolean
-name|isLoggingFilterEnabled
+name|isLoggingFilter
 parameter_list|()
 block|{
 return|return
@@ -713,10 +713,10 @@ operator|=
 name|loggingFilterEnabled
 expr_stmt|;
 block|}
-DECL|method|isFollowRedirectFilterEnabled ()
+DECL|method|isFollowRedirectFilter ()
 specifier|public
 name|boolean
-name|isFollowRedirectFilterEnabled
+name|isFollowRedirectFilter
 parameter_list|()
 block|{
 return|return

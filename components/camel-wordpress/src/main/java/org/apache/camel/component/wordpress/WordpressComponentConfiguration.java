@@ -226,10 +226,6 @@ argument_list|(
 name|description
 operator|=
 literal|"The entity ID. Should be passed when the operation performed requires a specific entity, e.g. deleting a post"
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.Integer"
 argument_list|)
 DECL|field|id
 specifier|private
@@ -267,21 +263,11 @@ argument_list|(
 name|description
 operator|=
 literal|"Whether to bypass trash and force deletion."
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.Boolean"
 argument_list|)
 DECL|field|force
 specifier|private
-name|Boolean
+name|boolean
 name|force
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -435,9 +421,45 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+DECL|method|getCriteria ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getCriteria
+parameter_list|()
+block|{
+return|return
+name|criteria
+return|;
+block|}
+DECL|method|setCriteria (Map<String, Object> criteria)
+specifier|public
+name|void
+name|setCriteria
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|criteria
+parameter_list|)
+block|{
+name|this
+operator|.
+name|criteria
+operator|=
+name|criteria
+expr_stmt|;
+block|}
 DECL|method|isForce ()
 specifier|public
-name|Boolean
+name|boolean
 name|isForce
 parameter_list|()
 block|{
@@ -445,12 +467,12 @@ return|return
 name|force
 return|;
 block|}
-DECL|method|setForce (Boolean force)
+DECL|method|setForce (boolean force)
 specifier|public
 name|void
 name|setForce
 parameter_list|(
-name|Boolean
+name|boolean
 name|force
 parameter_list|)
 block|{

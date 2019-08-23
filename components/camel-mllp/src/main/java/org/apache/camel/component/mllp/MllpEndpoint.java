@@ -276,6 +276,10 @@ argument_list|,
 name|label
 operator|=
 literal|"mllp"
+argument_list|,
+name|generateConfigurer
+operator|=
+literal|false
 argument_list|)
 DECL|class|MllpEndpoint
 specifier|public

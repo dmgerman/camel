@@ -215,27 +215,17 @@ name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"srcDir"
-argument_list|)
-DECL|field|sourceDirectory
+DECL|field|srcDir
 specifier|private
 name|File
-name|sourceDirectory
+name|srcDir
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"indexDir"
-argument_list|)
-DECL|field|indexDirectory
+DECL|field|indexDir
 specifier|private
 name|File
-name|indexDirectory
+name|indexDir
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -404,7 +394,7 @@ name|op
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|sourceDirectory
+name|srcDir
 operator|=
 name|component
 operator|.
@@ -421,7 +411,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|indexDirectory
+name|indexDir
 operator|=
 name|component
 operator|.
@@ -731,58 +721,58 @@ operator|=
 name|authority
 expr_stmt|;
 block|}
-DECL|method|getSourceDirectory ()
+DECL|method|getSrcDir ()
 specifier|public
 name|File
-name|getSourceDirectory
+name|getSrcDir
 parameter_list|()
 block|{
 return|return
-name|sourceDirectory
+name|srcDir
 return|;
 block|}
 comment|/**      * An optional directory containing files to be used to be analyzed and added to the index at producer startup.      */
-DECL|method|setSourceDirectory (File sourceDirectory)
+DECL|method|setSrcDir (File srcDir)
 specifier|public
 name|void
-name|setSourceDirectory
+name|setSrcDir
 parameter_list|(
 name|File
-name|sourceDirectory
+name|srcDir
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sourceDirectory
+name|srcDir
 operator|=
-name|sourceDirectory
+name|srcDir
 expr_stmt|;
 block|}
-DECL|method|getIndexDirectory ()
+DECL|method|getIndexDir ()
 specifier|public
 name|File
-name|getIndexDirectory
+name|getIndexDir
 parameter_list|()
 block|{
 return|return
-name|indexDirectory
+name|indexDir
 return|;
 block|}
 comment|/**      * A file system directory in which index files are created upon analysis of the document by the specified analyzer      */
-DECL|method|setIndexDirectory (File indexDirectory)
+DECL|method|setIndexDir (File indexDir)
 specifier|public
 name|void
-name|setIndexDirectory
+name|setIndexDir
 parameter_list|(
 name|File
-name|indexDirectory
+name|indexDir
 parameter_list|)
 block|{
 name|this
 operator|.
-name|indexDirectory
+name|indexDir
 operator|=
-name|indexDirectory
+name|indexDir
 expr_stmt|;
 block|}
 DECL|method|getAnalyzer ()

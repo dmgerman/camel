@@ -38,6 +38,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Arrays
 import|;
 end_import
@@ -49,6 +59,16 @@ operator|.
 name|util
 operator|.
 name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -287,21 +307,16 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|,
-name|javaType
-operator|=
-literal|"Set<Integer> or String"
-argument_list|,
 name|defaultValue
 operator|=
-literal|"EventType.EVTS_ALL"
+literal|"EVTS_ALL"
 argument_list|)
 DECL|field|events
 specifier|private
-name|Set
-argument_list|<
-name|Integer
-argument_list|>
+name|String
 name|events
+init|=
+literal|"EVTS_ALL"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -344,32 +359,6 @@ argument_list|,
 name|igniteComponent
 argument_list|)
 expr_stmt|;
-comment|// Initialize subscribed event types with ALL.
-name|events
-operator|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-expr_stmt|;
-for|for
-control|(
-name|Integer
-name|eventType
-range|:
-name|EventType
-operator|.
-name|EVTS_ALL
-control|)
-block|{
-name|events
-operator|.
-name|add
-argument_list|(
-name|eventType
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -548,13 +537,10 @@ operator|=
 name|endpointId
 expr_stmt|;
 block|}
-comment|/**      * Gets the event types to subscribe to.      *       * @return      */
+comment|/**      * Gets the event types to subscribe to.      */
 DECL|method|getEvents ()
 specifier|public
-name|Set
-argument_list|<
-name|Integer
-argument_list|>
+name|String
 name|getEvents
 parameter_list|()
 block|{
@@ -562,27 +548,7 @@ return|return
 name|events
 return|;
 block|}
-comment|/**      * The event IDs to subscribe to as a Set<Integer> directly where      * the IDs are the different constants in org.apache.ignite.events.EventType.      *       * @param events      */
-DECL|method|setEvents (Set<Integer> events)
-specifier|public
-name|void
-name|setEvents
-parameter_list|(
-name|Set
-argument_list|<
-name|Integer
-argument_list|>
-name|events
-parameter_list|)
-block|{
-name|this
-operator|.
-name|events
-operator|=
-name|events
-expr_stmt|;
-block|}
-comment|/**      * The event types to subscribe to as a comma-separated string of event constants as defined in {@link EventType}.      *<p>      * For example: EVT_CACHE_ENTRY_CREATED,EVT_CACHE_OBJECT_REMOVED,EVT_IGFS_DIR_CREATED.      *       * @param events      */
+comment|/**      * The event types to subscribe to as a comma-separated string of event constants as defined in {@link EventType}.      * For example: EVT_CACHE_ENTRY_CREATED,EVT_CACHE_OBJECT_REMOVED,EVT_IGFS_DIR_CREATED.      */
 DECL|method|setEvents (String events)
 specifier|public
 name|void
@@ -596,11 +562,60 @@ name|this
 operator|.
 name|events
 operator|=
+name|events
+expr_stmt|;
+block|}
+DECL|method|getEventsAsIds ()
+specifier|public
+name|List
+argument_list|<
+name|Integer
+argument_list|>
+name|getEventsAsIds
+parameter_list|()
+block|{
+name|List
+argument_list|<
+name|Integer
+argument_list|>
+name|answer
+init|=
 operator|new
-name|HashSet
+name|ArrayList
 argument_list|<>
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|events
+operator|.
+name|equals
+argument_list|(
+literal|"EVTS_ALL"
+argument_list|)
+condition|)
+block|{
+for|for
+control|(
+name|Integer
+name|eventType
+range|:
+name|EventType
+operator|.
+name|EVTS_ALL
+control|)
+block|{
+name|answer
+operator|.
+name|add
+argument_list|(
+name|eventType
+argument_list|)
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 name|Set
 argument_list|<
 name|String
@@ -664,9 +679,7 @@ continue|continue;
 block|}
 try|try
 block|{
-name|this
-operator|.
-name|events
+name|answer
 operator|.
 name|add
 argument_list|(
@@ -697,7 +710,11 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Gets the cluster group expression.      *       * @return cluster group expression      */
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Gets the cluster group expression.      */
 DECL|method|getClusterGroupExpression ()
 specifier|public
 name|ClusterGroupExpression
@@ -708,7 +725,7 @@ return|return
 name|clusterGroupExpression
 return|;
 block|}
-comment|/**      * The cluster group expression.      *       * @param clusterGroupExpression cluster group expression      */
+comment|/**      * The cluster group expression.      */
 DECL|method|setClusterGroupExpression (ClusterGroupExpression clusterGroupExpression)
 specifier|public
 name|void

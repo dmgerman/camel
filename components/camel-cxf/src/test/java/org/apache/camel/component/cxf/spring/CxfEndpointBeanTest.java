@@ -389,7 +389,7 @@ name|endpointName
 argument_list|,
 name|myEndpoint
 operator|.
-name|getPortName
+name|getPortNameAsQName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -401,7 +401,7 @@ name|serviceName
 argument_list|,
 name|myEndpoint
 operator|.
-name|getServiceName
+name|getServiceNameAsQName
 argument_list|()
 argument_list|)
 expr_stmt|;

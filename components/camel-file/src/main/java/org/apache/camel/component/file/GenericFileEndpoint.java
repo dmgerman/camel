@@ -2869,6 +2869,16 @@ operator|!=
 literal|null
 return|;
 block|}
+DECL|method|getIdempotent ()
+specifier|public
+name|Boolean
+name|getIdempotent
+parameter_list|()
+block|{
+return|return
+name|idempotent
+return|;
+block|}
 comment|/**      * Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files.      * Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled      * as well to avoid consuming the same files over and over again.      */
 DECL|method|setIdempotent (Boolean idempotent)
 specifier|public
@@ -3586,6 +3596,16 @@ name|readLockRemoveOnCommit
 operator|=
 name|readLockRemoveOnCommit
 expr_stmt|;
+block|}
+DECL|method|getReadLockIdempotentReleaseDelay ()
+specifier|public
+name|int
+name|getReadLockIdempotentReleaseDelay
+parameter_list|()
+block|{
+return|return
+name|readLockIdempotentReleaseDelay
+return|;
 block|}
 comment|/**      * Whether to delay the release task for a period of millis.      *<p/>      * This can be used to delay the release tasks to expand the window when a file is regarded as read-locked,      * in an active/active cluster scenario with a shared idempotent repository, to ensure other nodes cannot potentially scan and acquire      * the same file, due to race-conditions. By expanding the time-window of the release tasks helps prevents these situations.      * Note delaying is only needed if you have configured readLockRemoveOnCommit to true.      */
 DECL|method|setReadLockIdempotentReleaseDelay (int readLockIdempotentReleaseDelay)

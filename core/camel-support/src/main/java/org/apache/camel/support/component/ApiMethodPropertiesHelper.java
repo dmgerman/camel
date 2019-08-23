@@ -88,6 +88,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -100,9 +112,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|IntrospectionSupport
+name|ExtendedCamelContext
 import|;
 end_import
 
@@ -411,10 +421,6 @@ specifier|final
 name|String
 name|propertyName
 init|=
-name|String
-operator|.
-name|valueOf
-argument_list|(
 name|Character
 operator|.
 name|toLowerCase
@@ -426,7 +432,6 @@ argument_list|(
 name|prefixLength
 operator|-
 literal|1
-argument_list|)
 argument_list|)
 argument_list|)
 operator|+
@@ -467,11 +472,14 @@ return|return
 name|properties
 return|;
 block|}
-DECL|method|getEndpointProperties (Object endpointConfiguration, Map<String, Object> properties)
+DECL|method|getEndpointProperties (CamelContext context, Object endpointConfiguration, Map<String, Object> properties)
 specifier|public
 name|void
 name|getEndpointProperties
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|Object
 name|endpointConfiguration
 parameter_list|,
@@ -494,7 +502,17 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|IntrospectionSupport
+name|context
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getBeanIntrospection
+argument_list|()
 operator|.
 name|getProperties
 argument_list|(
@@ -534,7 +552,7 @@ name|names
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getEndpointPropertyNames (Object endpointConfiguration)
+DECL|method|getEndpointPropertyNames (CamelContext context, Object endpointConfiguration)
 specifier|public
 name|Set
 argument_list|<
@@ -542,6 +560,9 @@ name|String
 argument_list|>
 name|getEndpointPropertyNames
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|Object
 name|endpointConfiguration
 parameter_list|)
@@ -561,6 +582,8 @@ argument_list|()
 decl_stmt|;
 name|getEndpointProperties
 argument_list|(
+name|context
+argument_list|,
 name|endpointConfiguration
 argument_list|,
 name|properties

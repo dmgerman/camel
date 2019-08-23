@@ -479,6 +479,10 @@ name|propertiesHelper
 operator|.
 name|getEndpointProperties
 argument_list|(
+operator|new
+name|DefaultCamelContext
+argument_list|()
+argument_list|,
 name|endpointConfiguration
 argument_list|,
 name|properties
@@ -540,6 +544,10 @@ name|propertiesHelper
 operator|.
 name|getEndpointPropertyNames
 argument_list|(
+operator|new
+name|DefaultCamelContext
+argument_list|()
+argument_list|,
 name|endpointConfiguration
 argument_list|)
 operator|.

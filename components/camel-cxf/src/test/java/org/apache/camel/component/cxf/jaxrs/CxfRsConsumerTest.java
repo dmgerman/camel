@@ -620,7 +620,7 @@ name|CXT
 operator|+
 literal|"/rest6?"
 operator|+
-literal|"performInvocation=true&serviceBeans=#serviceBean"
+literal|"performInvocation=true&serviceBeans=#myServiceBean"
 decl_stmt|;
 annotation|@
 name|Override
@@ -639,7 +639,7 @@ name|registry
 operator|.
 name|bind
 argument_list|(
-literal|"serviceBean"
+literal|"myServiceBean"
 argument_list|,
 operator|new
 name|CustomerService

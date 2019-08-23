@@ -1124,9 +1124,7 @@ condition|(
 name|conf
 operator|.
 name|isVerifySignaturesOfAllSigners
-argument_list|(
-name|exchange
-argument_list|)
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -1216,9 +1214,7 @@ operator|!
 name|conf
 operator|.
 name|isVerifySignaturesOfAllSigners
-argument_list|(
-name|exchange
-argument_list|)
+argument_list|()
 condition|)
 block|{
 return|return;

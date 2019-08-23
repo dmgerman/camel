@@ -1317,10 +1317,10 @@ operator|=
 name|ids
 expr_stmt|;
 block|}
-DECL|method|isIncludeRead ()
+DECL|method|getIncludeRead ()
 specifier|public
 name|Boolean
-name|isIncludeRead
+name|getIncludeRead
 parameter_list|()
 block|{
 return|return
@@ -2564,10 +2564,10 @@ operator|=
 name|tabId
 expr_stmt|;
 block|}
-DECL|method|isHidden ()
+DECL|method|getIsHidden ()
 specifier|public
 name|Boolean
-name|isHidden
+name|getIsHidden
 parameter_list|()
 block|{
 return|return

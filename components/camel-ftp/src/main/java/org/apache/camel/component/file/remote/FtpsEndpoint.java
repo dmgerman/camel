@@ -422,6 +422,32 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|FtpsConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+if|if
+condition|(
+name|configuration
+operator|==
+literal|null
+condition|)
+block|{
+name|configuration
+operator|=
+operator|new
+name|FtpsConfiguration
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|configuration
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getScheme ()
 specifier|public
 name|String
@@ -1322,6 +1348,21 @@ name|getConfiguration
 argument_list|()
 return|;
 block|}
+DECL|method|getFtpClientKeyStoreParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getFtpClientKeyStoreParameters
+parameter_list|()
+block|{
+return|return
+name|ftpClientKeyStoreParameters
+return|;
+block|}
 comment|/**      * Set the key store parameters      */
 DECL|method|setFtpClientKeyStoreParameters (Map<String, Object> param)
 specifier|public
@@ -1343,6 +1384,21 @@ name|ftpClientKeyStoreParameters
 operator|=
 name|param
 expr_stmt|;
+block|}
+DECL|method|getFtpClientTrustStoreParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getFtpClientTrustStoreParameters
+parameter_list|()
+block|{
+return|return
+name|ftpClientTrustStoreParameters
+return|;
 block|}
 comment|/**      * Set the trust store parameters      */
 DECL|method|setFtpClientTrustStoreParameters (Map<String, Object> param)

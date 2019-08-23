@@ -244,29 +244,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Specify one or more methods separated by commas (e.g.          * restletMethods=post,put) to be serviced by a restlet consumer          * endpoint. If both restletMethod and restletMethods options are          * specified, the restletMethod setting is ignored. The possible methods          * are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE.          *           * The option is a:<code>org.restlet.data.Method[]</code> type.          *           * Group: consumer          */
-DECL|method|restletMethods ( Object[] restletMethods)
-specifier|default
-name|RestletEndpointConsumerBuilder
-name|restletMethods
-parameter_list|(
-name|Object
-index|[]
-name|restletMethods
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"restletMethods"
-argument_list|,
-name|restletMethods
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Specify one or more methods separated by commas (e.g.          * restletMethods=post,put) to be serviced by a restlet consumer          * endpoint. If both restletMethod and restletMethods options are          * specified, the restletMethod setting is ignored. The possible methods          * are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE.          *           * The option will be converted to a          *<code>org.restlet.data.Method[]</code> type.          *           * Group: consumer          */
+comment|/**          * Specify one or more methods separated by commas (e.g.          * restletMethods=post,put) to be serviced by a restlet consumer          * endpoint. If both restletMethod and restletMethods options are          * specified, the restletMethod setting is ignored. The possible methods          * are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE.          * Multiple methods can be separated by comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|restletMethods ( String restletMethods)
 specifier|default
 name|RestletEndpointConsumerBuilder

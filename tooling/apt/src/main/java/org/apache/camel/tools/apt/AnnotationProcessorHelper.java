@@ -2004,6 +2004,19 @@ argument_list|,
 name|fileName
 argument_list|)
 decl_stmt|;
+name|log
+argument_list|(
+name|processingEnv
+argument_list|,
+literal|"Writing file: "
+operator|+
+name|packageName
+operator|+
+literal|"/"
+operator|+
+name|fileName
+argument_list|)
+expr_stmt|;
 try|try
 init|(
 name|Writer

@@ -495,8 +495,7 @@ expr_stmt|;
 block|}
 DECL|method|getPassword ()
 specifier|public
-name|char
-index|[]
+name|String
 name|getPassword
 parameter_list|()
 block|{
@@ -508,13 +507,12 @@ name|getPassword
 argument_list|()
 return|;
 block|}
-DECL|method|setKeyPassword (char[] keyPassword)
+DECL|method|setKeyPassword (String keyPassword)
 specifier|public
 name|void
 name|setKeyPassword
 parameter_list|(
-name|char
-index|[]
+name|String
 name|keyPassword
 parameter_list|)
 block|{

@@ -1417,6 +1417,21 @@ operator|=
 name|ftpClientConfig
 expr_stmt|;
 block|}
+DECL|method|getFtpClientParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getFtpClientParameters
+parameter_list|()
+block|{
+return|return
+name|ftpClientParameters
+return|;
+block|}
 comment|/**      * Used by FtpComponent to provide additional parameters for the FTPClient      */
 DECL|method|setFtpClientParameters (Map<String, Object> ftpClientParameters)
 name|void
@@ -1437,6 +1452,21 @@ name|ftpClientParameters
 operator|=
 name|ftpClientParameters
 expr_stmt|;
+block|}
+DECL|method|getFtpClientConfigParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getFtpClientConfigParameters
+parameter_list|()
+block|{
+return|return
+name|ftpClientConfigParameters
+return|;
 block|}
 comment|/**      * Used by FtpComponent to provide additional parameters for the FTPClientConfig      */
 DECL|method|setFtpClientConfigParameters (Map<String, Object> ftpClientConfigParameters)

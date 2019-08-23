@@ -154,6 +154,20 @@ name|UriEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_comment
 comment|/**  * The hazelcast-topic component is used to access<a href="http://www.hazelcast.com/">Hazelcast</a> distributed topic.  */
 end_comment
@@ -191,6 +205,8 @@ name|HazelcastDefaultEndpoint
 implements|implements
 name|MultipleConsumersSupport
 block|{
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 specifier|final
@@ -249,6 +265,16 @@ operator|.
 name|PUBLISH
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|HazelcastTopicConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
 block|}
 annotation|@
 name|Override

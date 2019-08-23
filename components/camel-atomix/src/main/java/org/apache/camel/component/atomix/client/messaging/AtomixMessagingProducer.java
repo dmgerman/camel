@@ -318,6 +318,7 @@ end_import
 
 begin_class
 DECL|class|AtomixMessagingProducer
+specifier|public
 specifier|final
 class|class
 name|AtomixMessagingProducer

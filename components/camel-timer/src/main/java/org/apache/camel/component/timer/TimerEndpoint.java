@@ -876,6 +876,33 @@ operator|=
 name|pattern
 expr_stmt|;
 block|}
+DECL|method|getTimer ()
+specifier|public
+name|Timer
+name|getTimer
+parameter_list|()
+block|{
+return|return
+name|timer
+return|;
+block|}
+comment|/**      * To use a custom {@link Timer}      */
+DECL|method|setTimer (Timer timer)
+specifier|public
+name|void
+name|setTimer
+parameter_list|(
+name|Timer
+name|timer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timer
+operator|=
+name|timer
+expr_stmt|;
+block|}
 DECL|method|getTimer (TimerConsumer consumer)
 specifier|public
 name|Timer
@@ -906,23 +933,6 @@ argument_list|(
 name|consumer
 argument_list|)
 return|;
-block|}
-comment|/**      * To use a custom {@link Timer}      */
-DECL|method|setTimer (Timer timer)
-specifier|public
-name|void
-name|setTimer
-parameter_list|(
-name|Timer
-name|timer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timer
-operator|=
-name|timer
-expr_stmt|;
 block|}
 DECL|method|removeTimer (TimerConsumer consumer)
 specifier|public

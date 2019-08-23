@@ -701,31 +701,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The service beans which you want to export as REST service. Multiple          * beans can be separated by comma.          *           * The option is a:<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          *           * Group: consumer (advanced)          */
-DECL|method|serviceBeans ( List<Object> serviceBeans)
-specifier|default
-name|AdvancedCxfRsEndpointConsumerBuilder
-name|serviceBeans
-parameter_list|(
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|serviceBeans
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"serviceBeans"
-argument_list|,
-name|serviceBeans
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The service beans which you want to export as REST service. Multiple          * beans can be separated by comma.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * The service beans (the bean ids to lookup in the registry) which you          * want to export as REST service. Multiple beans can be separated by          * comma.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|serviceBeans ( String serviceBeans)
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
@@ -914,42 +890,42 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          *           * Group: advanced          */
-DECL|method|cxfRsEndpointConfigurer ( Object cxfRsEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsConfigurer</code>          * type.          *           * Group: advanced          */
+DECL|method|cxfRsConfigurer ( Object cxfRsConfigurer)
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|(
 name|Object
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfRsEndpointConfigurer"
+literal|"cxfRsConfigurer"
 argument_list|,
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          *           * Group: advanced          */
-DECL|method|cxfRsEndpointConfigurer ( String cxfRsEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsConfigurer</code>          * type.          *           * Group: advanced          */
+DECL|method|cxfRsConfigurer ( String cxfRsConfigurer)
 specifier|default
 name|AdvancedCxfRsEndpointConsumerBuilder
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|(
 name|String
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfRsEndpointConfigurer"
+literal|"cxfRsConfigurer"
 argument_list|,
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 argument_list|)
 expr_stmt|;
 return|return
@@ -2044,42 +2020,42 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          *           * Group: advanced          */
-DECL|method|cxfRsEndpointConfigurer ( Object cxfRsEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsConfigurer</code>          * type.          *           * Group: advanced          */
+DECL|method|cxfRsConfigurer ( Object cxfRsConfigurer)
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|(
 name|Object
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfRsEndpointConfigurer"
+literal|"cxfRsConfigurer"
 argument_list|,
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          *           * Group: advanced          */
-DECL|method|cxfRsEndpointConfigurer ( String cxfRsEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsConfigurer</code>          * type.          *           * Group: advanced          */
+DECL|method|cxfRsConfigurer ( String cxfRsConfigurer)
 specifier|default
 name|AdvancedCxfRsEndpointProducerBuilder
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|(
 name|String
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfRsEndpointConfigurer"
+literal|"cxfRsConfigurer"
 argument_list|,
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 argument_list|)
 expr_stmt|;
 return|return
@@ -2842,42 +2818,42 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          *           * Group: advanced          */
-DECL|method|cxfRsEndpointConfigurer ( Object cxfRsEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option is a:          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsConfigurer</code>          * type.          *           * Group: advanced          */
+DECL|method|cxfRsConfigurer ( Object cxfRsConfigurer)
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|(
 name|Object
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfRsEndpointConfigurer"
+literal|"cxfRsConfigurer"
 argument_list|,
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer</code> type.          *           * Group: advanced          */
-DECL|method|cxfRsEndpointConfigurer ( String cxfRsEndpointConfigurer)
+comment|/**          * This option could apply the implementation of          * org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which          * supports to configure the CXF endpoint in programmatic way. User can          * configure the CXF server and client by implementing          * configure{Server/Client} method of CxfEndpointConfigurer.          *           * The option will be converted to a          *<code>org.apache.camel.component.cxf.jaxrs.CxfRsConfigurer</code>          * type.          *           * Group: advanced          */
+DECL|method|cxfRsConfigurer ( String cxfRsConfigurer)
 specifier|default
 name|AdvancedCxfRsEndpointBuilder
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|(
 name|String
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"cxfRsEndpointConfigurer"
+literal|"cxfRsConfigurer"
 argument_list|,
-name|cxfRsEndpointConfigurer
+name|cxfRsConfigurer
 argument_list|)
 expr_stmt|;
 return|return

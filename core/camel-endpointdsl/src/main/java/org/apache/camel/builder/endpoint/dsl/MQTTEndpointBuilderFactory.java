@@ -1273,13 +1273,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option is a:<code>org.fusesource.mqtt.client.QoS</code> type.          *           * Group: common          */
-DECL|method|willRetain (QoS willRetain)
+comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|willRetain (boolean willRetain)
 specifier|default
 name|MQTTEndpointConsumerBuilder
 name|willRetain
 parameter_list|(
-name|QoS
+name|boolean
 name|willRetain
 parameter_list|)
 block|{
@@ -1294,7 +1294,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          *           * Group: common          */
+comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|willRetain (String willRetain)
 specifier|default
 name|MQTTEndpointConsumerBuilder
@@ -2705,13 +2705,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option is a:<code>org.fusesource.mqtt.client.QoS</code> type.          *           * Group: common          */
-DECL|method|willRetain (QoS willRetain)
+comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|willRetain (boolean willRetain)
 specifier|default
 name|MQTTEndpointProducerBuilder
 name|willRetain
 parameter_list|(
-name|QoS
+name|boolean
 name|willRetain
 parameter_list|)
 block|{
@@ -2726,7 +2726,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          *           * Group: common          */
+comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|willRetain (String willRetain)
 specifier|default
 name|MQTTEndpointProducerBuilder
@@ -4097,13 +4097,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option is a:<code>org.fusesource.mqtt.client.QoS</code> type.          *           * Group: common          */
-DECL|method|willRetain (QoS willRetain)
+comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
+DECL|method|willRetain (boolean willRetain)
 specifier|default
 name|MQTTEndpointBuilder
 name|willRetain
 parameter_list|(
-name|QoS
+name|boolean
 name|willRetain
 parameter_list|)
 block|{
@@ -4118,7 +4118,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option will be converted to a          *<code>org.fusesource.mqtt.client.QoS</code> type.          *           * Group: common          */
+comment|/**          * Set to true if you want the Will to be published with the retain          * option.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
 DECL|method|willRetain (String willRetain)
 specifier|default
 name|MQTTEndpointBuilder

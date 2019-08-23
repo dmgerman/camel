@@ -379,45 +379,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          *           * The option is a:          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
-DECL|method|transport ( Class<Object> transport)
+comment|/**          * The class name (fqn) of the Atomix transport.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|transportClassName ( String transportClassName)
 specifier|default
 name|AtomixMapEndpointConsumerBuilder
-name|transport
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|transport
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"transport"
-argument_list|,
-name|transport
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the Atomix transport.          *           * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
-DECL|method|transport (String transport)
-specifier|default
-name|AtomixMapEndpointConsumerBuilder
-name|transport
+name|transportClassName
 parameter_list|(
 name|String
-name|transport
+name|transportClassName
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"transport"
+literal|"transportClassName"
 argument_list|,
-name|transport
+name|transportClassName
 argument_list|)
 expr_stmt|;
 return|return
@@ -1195,45 +1171,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          *           * The option is a:          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
-DECL|method|transport ( Class<Object> transport)
+comment|/**          * The class name (fqn) of the Atomix transport.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|transportClassName ( String transportClassName)
 specifier|default
 name|AtomixMapEndpointProducerBuilder
-name|transport
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|transport
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"transport"
-argument_list|,
-name|transport
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the Atomix transport.          *           * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
-DECL|method|transport (String transport)
-specifier|default
-name|AtomixMapEndpointProducerBuilder
-name|transport
+name|transportClassName
 parameter_list|(
 name|String
-name|transport
+name|transportClassName
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"transport"
+literal|"transportClassName"
 argument_list|,
-name|transport
+name|transportClassName
 argument_list|)
 expr_stmt|;
 return|return
@@ -1929,45 +1881,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the Atomix transport.          *           * The option is a:          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
-DECL|method|transport (Class<Object> transport)
+comment|/**          * The class name (fqn) of the Atomix transport.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|transportClassName ( String transportClassName)
 specifier|default
 name|AtomixMapEndpointBuilder
-name|transport
-parameter_list|(
-name|Class
-argument_list|<
-name|Object
-argument_list|>
-name|transport
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"transport"
-argument_list|,
-name|transport
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Sets the Atomix transport.          *           * The option will be converted to a          *<code>java.lang.Class&lt;io.atomix.catalyst.transport.Transport&gt;</code> type.          *           * Group: common          */
-DECL|method|transport (String transport)
-specifier|default
-name|AtomixMapEndpointBuilder
-name|transport
+name|transportClassName
 parameter_list|(
 name|String
-name|transport
+name|transportClassName
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
-literal|"transport"
+literal|"transportClassName"
 argument_list|,
-name|transport
+name|transportClassName
 argument_list|)
 expr_stmt|;
 return|return

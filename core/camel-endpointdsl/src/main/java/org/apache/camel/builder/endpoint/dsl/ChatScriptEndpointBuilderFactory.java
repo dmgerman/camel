@@ -110,49 +110,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Issues :reset command to start a new conversation everytime.          *           * The option is a:<code>boolean</code> type.          *           * Group: reset          */
-DECL|method|resetchat (boolean resetchat)
-specifier|default
-name|ChatScriptEndpointBuilder
-name|resetchat
-parameter_list|(
-name|boolean
-name|resetchat
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resetchat"
-argument_list|,
-name|resetchat
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Issues :reset command to start a new conversation everytime.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: reset          */
-DECL|method|resetchat (String resetchat)
-specifier|default
-name|ChatScriptEndpointBuilder
-name|resetchat
-parameter_list|(
-name|String
-name|resetchat
-parameter_list|)
-block|{
-name|setProperty
-argument_list|(
-literal|"resetchat"
-argument_list|,
-name|resetchat
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Username who initializes the CS conversation. To be set when chat is          * initialized from camel route.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: username          */
+comment|/**          * Username who initializes the CS conversation. To be set when chat is          * initialized from camel route.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|chatUserName (String chatUserName)
 specifier|default
 name|ChatScriptEndpointBuilder
@@ -167,6 +125,48 @@ argument_list|(
 literal|"chatUserName"
 argument_list|,
 name|chatUserName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Issues :reset command to start a new conversation everytime.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|resetChat (boolean resetChat)
+specifier|default
+name|ChatScriptEndpointBuilder
+name|resetChat
+parameter_list|(
+name|boolean
+name|resetChat
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"resetChat"
+argument_list|,
+name|resetChat
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Issues :reset command to start a new conversation everytime.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|resetChat (String resetChat)
+specifier|default
+name|ChatScriptEndpointBuilder
+name|resetChat
+parameter_list|(
+name|String
+name|resetChat
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"resetChat"
+argument_list|,
+name|resetChat
 argument_list|)
 expr_stmt|;
 return|return

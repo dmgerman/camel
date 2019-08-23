@@ -362,6 +362,8 @@ name|assembler
 operator|.
 name|getMBeanInfo
 argument_list|(
+name|camelContext
+argument_list|,
 name|obj
 argument_list|,
 name|custom
@@ -378,6 +380,8 @@ name|assembler
 operator|.
 name|getMBeanInfo
 argument_list|(
+name|camelContext
+argument_list|,
 name|obj
 argument_list|,
 literal|null
@@ -415,6 +419,8 @@ name|assembler
 operator|.
 name|getMBeanInfo
 argument_list|(
+name|camelContext
+argument_list|,
 name|obj
 argument_list|,
 literal|null

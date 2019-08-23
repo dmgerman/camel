@@ -1795,10 +1795,6 @@ name|enums
 operator|=
 literal|"default,passthrough"
 argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|,
 name|description
 operator|=
 literal|"Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification."
@@ -4733,6 +4729,16 @@ condition|?
 name|explicitQosEnabled
 else|:
 literal|false
+return|;
+block|}
+DECL|method|getExplicitQosEnabled ()
+specifier|public
+name|Boolean
+name|getExplicitQosEnabled
+parameter_list|()
+block|{
+return|return
+name|explicitQosEnabled
 return|;
 block|}
 comment|/**      * Set if the deliveryMode, priority or timeToLive qualities of service should be used when sending messages.      * This option is based on Spring's JmsTemplate. The deliveryMode, priority and timeToLive options are applied to the current endpoint.      * This contrasts with the preserveMessageQos option, which operates at message granularity,      * reading QoS properties exclusively from the Camel In message headers.      */

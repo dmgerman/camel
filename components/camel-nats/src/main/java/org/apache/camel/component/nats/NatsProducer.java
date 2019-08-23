@@ -158,7 +158,7 @@ init|=
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 decl_stmt|;
 name|String
@@ -280,7 +280,7 @@ operator|=
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getConnection
@@ -291,7 +291,7 @@ condition|?
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getConnection
@@ -330,7 +330,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getConnection
@@ -370,7 +370,7 @@ condition|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|isFlushConnection
@@ -395,7 +395,7 @@ argument_list|(
 name|getEndpoint
 argument_list|()
 operator|.
-name|getNatsConfiguration
+name|getConfiguration
 argument_list|()
 operator|.
 name|getFlushTimeout

@@ -228,6 +228,7 @@ end_import
 
 begin_class
 DECL|class|AtomixSetProducer
+specifier|public
 specifier|final
 class|class
 name|AtomixSetProducer

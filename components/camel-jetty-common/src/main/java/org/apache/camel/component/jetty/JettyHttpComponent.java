@@ -1480,7 +1480,7 @@ name|resolveAndRemoveReferenceListParameter
 argument_list|(
 name|parameters
 argument_list|,
-literal|"filtersRef"
+literal|"filters"
 argument_list|,
 name|Filter
 operator|.
