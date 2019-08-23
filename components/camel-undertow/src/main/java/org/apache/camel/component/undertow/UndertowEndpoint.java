@@ -845,10 +845,6 @@ name|label
 operator|=
 literal|"consumer,advanced"
 argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
-argument_list|,
 name|description
 operator|=
 literal|"Specifies a comma-delimited set of Undertow HttpHandler instances to lookup in your Registry."
@@ -861,10 +857,7 @@ literal|" The handlers is associated to the port number. If you need different h
 argument_list|)
 DECL|field|handlers
 specifier|private
-name|List
-argument_list|<
-name|CamelUndertowHttpHandler
-argument_list|>
+name|String
 name|handlers
 decl_stmt|;
 DECL|method|UndertowEndpoint (String uri, UndertowComponent component)
@@ -2200,10 +2193,7 @@ expr_stmt|;
 block|}
 DECL|method|getHandlers ()
 specifier|public
-name|List
-argument_list|<
-name|CamelUndertowHttpHandler
-argument_list|>
+name|String
 name|getHandlers
 parameter_list|()
 block|{
@@ -2212,15 +2202,12 @@ name|handlers
 return|;
 block|}
 comment|/**      * Specifies a comma-delimited set of io.undertow.server.HttpHandler instances in your Registry (such as your Spring ApplicationContext).      * These handlers are added to the Undertow handler chain (for example, to add security).      * Important: You can not use different handlers with different Undertow endpoints using the same port number.      * The handlers is associated to the port number. If you need different handlers, then use different port numbers.      */
-DECL|method|setHandlers (List<CamelUndertowHttpHandler> handlers)
+DECL|method|setHandlers (String handlers)
 specifier|public
 name|void
 name|setHandlers
 parameter_list|(
-name|List
-argument_list|<
-name|CamelUndertowHttpHandler
-argument_list|>
+name|String
 name|handlers
 parameter_list|)
 block|{
