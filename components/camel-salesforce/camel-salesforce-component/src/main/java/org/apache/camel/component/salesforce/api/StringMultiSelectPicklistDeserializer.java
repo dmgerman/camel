@@ -186,6 +186,19 @@ name|serialVersionUID
 init|=
 literal|7380774744798254325L
 decl_stmt|;
+DECL|method|StringMultiSelectPicklistDeserializer ()
+specifier|public
+name|StringMultiSelectPicklistDeserializer
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|Object
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|StringMultiSelectPicklistDeserializer (Class<?> vc)
 specifier|protected
 name|StringMultiSelectPicklistDeserializer
