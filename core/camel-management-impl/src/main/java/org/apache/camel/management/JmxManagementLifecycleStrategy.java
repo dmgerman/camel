@@ -5377,7 +5377,6 @@ expr_stmt|;
 block|}
 comment|/**      * Class which holds any pre registration details.      *      * @see JmxManagementLifecycleStrategy#enlistPreRegisteredServices()      */
 DECL|class|PreRegisterService
-specifier|public
 specifier|static
 specifier|final
 class|class
