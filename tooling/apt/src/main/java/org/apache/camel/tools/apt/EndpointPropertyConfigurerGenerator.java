@@ -175,25 +175,6 @@ specifier|final
 class|class
 name|EndpointPropertyConfigurerGenerator
 block|{
-comment|// at the moment we do not need getters (read) so lets turn them off
-DECL|field|GENERATE_READ
-specifier|private
-specifier|static
-specifier|final
-name|boolean
-name|GENERATE_READ
-init|=
-literal|false
-decl_stmt|;
-DECL|field|GENERATE_WRITE
-specifier|private
-specifier|static
-specifier|final
-name|boolean
-name|GENERATE_WRITE
-init|=
-literal|true
-decl_stmt|;
 DECL|method|EndpointPropertyConfigurerGenerator ()
 specifier|private
 name|EndpointPropertyConfigurerGenerator
@@ -528,20 +509,6 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"import java.util.function.Consumer;\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"import java.util.function.Supplier;\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
@@ -556,7 +523,21 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"import org.apache.camel.support.component.EndpointPropertyConfigurerSupport;\n"
+literal|"import org.apache.camel.spi.TriPropertyConfigurer;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import org.apache.camel.support.component.PropertyConfigurerSupport;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"import org.apache.camel.util.function.TriConsumer;\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -595,7 +576,7 @@ literal|"public class "
 operator|+
 name|cn
 operator|+
-literal|" extends EndpointPropertyConfigurerSupport {\n"
+literal|" extends PropertyConfigurerSupport implements TriPropertyConfigurer {\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -605,40 +586,17 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|GENERATE_READ
-condition|)
-block|{
 name|w
 operator|.
 name|write
 argument_list|(
-literal|"    private final Map<String, Supplier<Object>> readPlaceholders = new HashMap<>("
+literal|"    private final Map<String, TriConsumer<CamelContext, Object, Object>> writes = new HashMap<>("
 operator|+
 name|size
 operator|+
 literal|");\n"
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|GENERATE_WRITE
-condition|)
-block|{
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"    private final Map<String, Consumer<Object>> writePlaceholders = new HashMap<>("
-operator|+
-name|size
-operator|+
-literal|");\n"
-argument_list|)
-expr_stmt|;
-block|}
 name|w
 operator|.
 name|write
@@ -646,34 +604,15 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
-comment|// add constructor
 name|w
 operator|.
 name|write
 argument_list|(
-literal|"    public void configure(Object object, CamelContext camelContext) {\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"        "
+literal|"    public "
 operator|+
-name|en
+name|cn
 operator|+
-literal|" endpoint = ("
-operator|+
-name|en
-operator|+
-literal|") object;\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"\n"
+literal|"() {\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -713,22 +652,14 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|GENERATE_READ
-condition|)
-block|{
 name|String
-name|getterLambda
+name|setterLambda
 init|=
-name|getterLambda
+name|setterLambda
 argument_list|(
-name|getOrSet
+name|en
 argument_list|,
-name|option
-operator|.
-name|getName
-argument_list|()
+name|getOrSet
 argument_list|,
 name|option
 operator|.
@@ -745,117 +676,18 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"        readPlaceholders.put(\""
+literal|"        writes.put(\""
 operator|+
 name|option
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"\", "
-operator|+
-name|getterLambda
-operator|+
-literal|");\n"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|GENERATE_WRITE
-condition|)
-block|{
-name|String
-name|setterLambda
-init|=
-name|setterLambda
-argument_list|(
-name|getOrSet
-argument_list|,
-name|option
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|option
-operator|.
-name|getType
-argument_list|()
-argument_list|,
-name|option
-operator|.
-name|getConfigurationField
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"        writePlaceholders.put(\""
-operator|+
-name|option
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"\", "
+literal|"\", (camelContext, endpoint, value) -> "
 operator|+
 name|setterLambda
 operator|+
 literal|");\n"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"    }\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"    @Override\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"    public Map<String, Supplier<Object>> getReadPropertyPlaceholderOptions(CamelContext camelContext) {\n"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|GENERATE_READ
-condition|)
-block|{
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"        return readPlaceholders;\n"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"        return null;\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -884,32 +716,16 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    public Map<String, Consumer<Object>> getWritePropertyPlaceholderOptions(CamelContext camelContext) {\n"
+literal|"    public Map<String, TriConsumer<CamelContext, Object, Object>> getWriteOptions(CamelContext camelContext) {\n"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|GENERATE_WRITE
-condition|)
-block|{
 name|w
 operator|.
 name|write
 argument_list|(
-literal|"        return writePlaceholders;\n"
+literal|"        return writes;\n"
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"        return null;\n"
-argument_list|)
-expr_stmt|;
-block|}
 name|w
 operator|.
 name|write
@@ -993,103 +809,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getterLambda (String getOrSet, String name, String type, String configurationField)
-specifier|private
-specifier|static
-name|String
-name|getterLambda
-parameter_list|(
-name|String
-name|getOrSet
-parameter_list|,
-name|String
-name|name
-parameter_list|,
-name|String
-name|type
-parameter_list|,
-name|String
-name|configurationField
-parameter_list|)
-block|{
-name|String
-name|configuration
-init|=
-literal|""
-decl_stmt|;
-if|if
-condition|(
-name|configurationField
-operator|!=
-literal|null
-condition|)
-block|{
-name|configuration
-operator|=
-literal|"get"
-operator|+
-name|Character
-operator|.
-name|toUpperCase
-argument_list|(
-name|configurationField
-operator|.
-name|charAt
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-operator|+
-name|configurationField
-operator|.
-name|substring
-argument_list|(
-literal|1
-argument_list|)
-operator|+
-literal|"()."
-expr_stmt|;
-block|}
-name|String
-name|getPrefix
-init|=
-literal|"boolean"
-operator|.
-name|equals
-argument_list|(
-name|type
-argument_list|)
-condition|?
-literal|"is"
-else|:
-literal|"get"
-decl_stmt|;
-return|return
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"() -> endpoint.%s%s%s()"
-argument_list|,
-name|configuration
-argument_list|,
-name|getPrefix
-argument_list|,
-name|getOrSet
-argument_list|)
-return|;
-block|}
-DECL|method|setterLambda (String getOrSet, String name, String type, String configurationField)
+DECL|method|setterLambda (String en, String getOrSet, String type, String configurationField)
 specifier|private
 specifier|static
 name|String
 name|setterLambda
 parameter_list|(
 name|String
-name|getOrSet
+name|en
 parameter_list|,
 name|String
-name|name
+name|getOrSet
 parameter_list|,
 name|String
 name|type
@@ -1173,12 +903,15 @@ operator|+
 name|getOrSet
 expr_stmt|;
 block|}
+comment|// ((LogEndpoint) endpoint).setGroupSize(property(camelContext, java.lang.Integer.class, value))
 return|return
 name|String
 operator|.
 name|format
 argument_list|(
-literal|"o -> endpoint.%s(property(camelContext, %s.class, o))"
+literal|"((%s) endpoint).%s(property(camelContext, %s.class, value))"
+argument_list|,
+name|en
 argument_list|,
 name|getOrSet
 argument_list|,

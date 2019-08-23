@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -28,28 +38,51 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|TriConsumer
+import|;
+end_import
+
 begin_comment
-comment|/**  * Property configurer for Camel {@link org.apache.camel.Endpoint}  * which allows fast configurations without using Java reflection.  */
+comment|/**  * Property configurer for Camel {@link org.apache.camel.Endpoint} or {@link org.apache.camel.Component}  * which allows fast configurations without using Java reflection.  */
 end_comment
 
 begin_interface
-annotation|@
-name|Deprecated
-DECL|interface|EndpointPropertyConfigurer
+DECL|interface|TriPropertyConfigurer
 specifier|public
 interface|interface
-name|EndpointPropertyConfigurer
+name|TriPropertyConfigurer
 extends|extends
 name|PropertyConfigurer
 block|{
-comment|/**      * Configures the endpoint.      *      * @param endpoint      the endpoint      * @param camelContext  the camel context      */
-DECL|method|configure (Object endpoint, CamelContext camelContext)
-name|void
-name|configure
-parameter_list|(
+comment|/**      * To update properties using the tri-function.      *       * The key in the map is the property name.      * The 1st parameter in the tri-function is {@link CamelContext}      * The 2nd parameter in the tri-function is the target object      * The 3rd parameter in the tri-function is the value      */
+DECL|method|getWriteOptions (CamelContext camelContext)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|TriConsumer
+argument_list|<
+name|CamelContext
+argument_list|,
 name|Object
-name|endpoint
-parameter_list|,
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
+name|getWriteOptions
+parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|)

@@ -134,15 +134,12 @@ name|boolean
 name|useRawUri
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the endpoint {@link PropertyConfigurer}.      *      * @param  endpoint  the endpoint      * @return the configurer, or<tt>null</tt> if the endpoint does not support using property configurer.      */
-DECL|method|getEndpointPropertyConfigurer (Object endpoint)
+comment|/**      * Gets the endpoint {@link PropertyConfigurer}.      *      * @return the configurer, or<tt>null</tt> if the endpoint does not support using property configurer.      */
+DECL|method|getEndpointPropertyConfigurer ()
 specifier|default
 name|PropertyConfigurer
 name|getEndpointPropertyConfigurer
-parameter_list|(
-name|Object
-name|endpoint
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 literal|null

@@ -30,32 +30,16 @@ name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|EndpointPropertyConfigurer
-import|;
-end_import
-
 begin_comment
-comment|/**  * Base class used by the camel-apt compiler plugin when it generates source code for all  * the endpoint configurations.  */
+comment|/**  * Base class used by the camel-apt compiler plugin when it generates source code for fast  * property configurations via {@link org.apache.camel.spi.PropertyConfigurer}.  */
 end_comment
 
 begin_class
-DECL|class|EndpointPropertyConfigurerSupport
+DECL|class|PropertyConfigurerSupport
 specifier|public
 specifier|abstract
 class|class
-name|EndpointPropertyConfigurerSupport
-implements|implements
-name|EndpointPropertyConfigurer
+name|PropertyConfigurerSupport
 block|{
 comment|/**      * Converts the property to the expected type      *      * @param camelContext   the camel context      * @param type           the expected type      * @param value          the value      * @return  the value converted to the expected type      */
 DECL|method|property (CamelContext camelContext, Class<T> type, Object value)

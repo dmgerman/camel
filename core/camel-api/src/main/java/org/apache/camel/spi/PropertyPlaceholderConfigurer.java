@@ -16,8 +16,54 @@ name|spi
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
 begin_comment
-comment|/**  * A {@link PropertyConfigurer} which is used for property placeholders which are string based values only.  */
+comment|/**  * A configurer for properties on a given object.  *<p/>  * This is used in Camel to have fast property configuration of Camel EIP patterns, which  * are using property placeholders (eg {{foo}} style).  */
 end_comment
 
 begin_interface
@@ -27,10 +73,42 @@ interface|interface
 name|PropertyPlaceholderConfigurer
 extends|extends
 name|PropertyConfigurer
+block|{
+comment|/**      * Gets the options which supports property placeholders and can be resolved.      * This will be all the string based options.      *      * @return key/values of options      */
+DECL|method|getReadPropertyPlaceholderOptions (CamelContext camelContext)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Supplier
 argument_list|<
 name|String
 argument_list|>
-block|{  }
+argument_list|>
+name|getReadPropertyPlaceholderOptions
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+function_decl|;
+comment|/**      * To update an existing property using the function with the key/value and returning the changed value      * This will be all the string based options.      */
+DECL|method|getWritePropertyPlaceholderOptions (CamelContext camelContext)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Consumer
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|getWritePropertyPlaceholderOptions
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+function_decl|;
+block|}
 end_interface
 
 end_unit
