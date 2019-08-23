@@ -62,11 +62,6 @@ name|Any23StartupMessage
 implements|implements
 name|StartupListener
 block|{
-DECL|method|Any23StartupMessage ()
-specifier|public
-name|Any23StartupMessage
-parameter_list|()
-block|{   }
 annotation|@
 name|Override
 DECL|method|onCamelContextStarted (CamelContext context, boolean alreadyStarted)

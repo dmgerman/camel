@@ -249,16 +249,17 @@ decl_stmt|;
 name|Model
 name|model
 init|=
-operator|(
-name|Model
-operator|)
 name|exchange
 operator|.
 name|getIn
 argument_list|()
 operator|.
 name|getBody
-argument_list|()
+argument_list|(
+name|Model
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 comment|//Selecting the leaders of Ecuador
 name|IRI
@@ -380,13 +381,6 @@ argument_list|(
 literal|"Split ${body}"
 argument_list|)
 operator|.
-name|convertBodyTo
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-operator|.
 name|toD
 argument_list|(
 literal|"${body}"
@@ -412,7 +406,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:result"
+literal|"log:result"
 argument_list|)
 expr_stmt|;
 block|}
