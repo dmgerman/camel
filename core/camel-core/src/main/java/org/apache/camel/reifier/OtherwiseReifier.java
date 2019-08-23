@@ -82,6 +82,7 @@ name|OtherwiseDefinition
 argument_list|>
 block|{
 DECL|method|OtherwiseReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|OtherwiseReifier
 parameter_list|(
 name|ProcessorDefinition

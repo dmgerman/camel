@@ -110,6 +110,7 @@ name|RemovePropertiesDefinition
 argument_list|>
 block|{
 DECL|method|RemovePropertiesReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|RemovePropertiesReifier
 parameter_list|(
 name|ProcessorDefinition

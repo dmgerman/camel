@@ -120,6 +120,7 @@ name|BeanDefinition
 argument_list|>
 block|{
 DECL|method|BeanReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|BeanReifier
 parameter_list|(
 name|ProcessorDefinition

@@ -170,6 +170,7 @@ name|WeightedLoadBalancerDefinition
 argument_list|>
 block|{
 DECL|method|WeightedLoadBalancerReifier (LoadBalancerDefinition definition)
+specifier|public
 name|WeightedLoadBalancerReifier
 parameter_list|(
 name|LoadBalancerDefinition

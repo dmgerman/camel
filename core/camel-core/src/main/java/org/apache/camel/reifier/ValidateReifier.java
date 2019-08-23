@@ -100,6 +100,7 @@ name|ValidateDefinition
 argument_list|>
 block|{
 DECL|method|ValidateReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ValidateReifier
 parameter_list|(
 name|ProcessorDefinition

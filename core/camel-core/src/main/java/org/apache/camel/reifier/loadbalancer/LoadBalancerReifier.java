@@ -400,6 +400,7 @@ name|T
 name|definition
 decl_stmt|;
 DECL|method|LoadBalancerReifier (T definition)
+specifier|public
 name|LoadBalancerReifier
 parameter_list|(
 name|T

@@ -118,6 +118,7 @@ name|CustomLoadBalancerDefinition
 argument_list|>
 block|{
 DECL|method|CustomLoadBalancerReifier (LoadBalancerDefinition definition)
+specifier|public
 name|CustomLoadBalancerReifier
 parameter_list|(
 name|LoadBalancerDefinition

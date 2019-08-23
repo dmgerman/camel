@@ -106,6 +106,7 @@ name|RoundRobinLoadBalancerDefinition
 argument_list|>
 block|{
 DECL|method|RoundRobinLoadBalancerReifier (LoadBalancerDefinition definition)
+specifier|public
 name|RoundRobinLoadBalancerReifier
 parameter_list|(
 name|LoadBalancerDefinition

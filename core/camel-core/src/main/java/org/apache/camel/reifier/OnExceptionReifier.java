@@ -198,6 +198,7 @@ name|OnExceptionDefinition
 argument_list|>
 block|{
 DECL|method|OnExceptionReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|OnExceptionReifier
 parameter_list|(
 name|ProcessorDefinition

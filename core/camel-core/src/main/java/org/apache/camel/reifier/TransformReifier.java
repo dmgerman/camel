@@ -108,6 +108,7 @@ name|TransformDefinition
 argument_list|>
 block|{
 DECL|method|TransformReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|TransformReifier
 parameter_list|(
 name|ProcessorDefinition

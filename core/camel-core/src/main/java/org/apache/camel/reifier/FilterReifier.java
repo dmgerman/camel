@@ -96,6 +96,7 @@ name|FilterDefinition
 argument_list|>
 block|{
 DECL|method|FilterReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|FilterReifier
 parameter_list|(
 name|ProcessorDefinition

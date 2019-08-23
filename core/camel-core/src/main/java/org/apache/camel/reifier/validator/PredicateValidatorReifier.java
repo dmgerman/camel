@@ -134,6 +134,7 @@ name|PredicateValidatorDefinition
 argument_list|>
 block|{
 DECL|method|PredicateValidatorReifier (ValidatorDefinition definition)
+specifier|public
 name|PredicateValidatorReifier
 parameter_list|(
 name|ValidatorDefinition

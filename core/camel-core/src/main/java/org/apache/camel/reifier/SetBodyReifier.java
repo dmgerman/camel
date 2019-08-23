@@ -108,6 +108,7 @@ name|SetBodyDefinition
 argument_list|>
 block|{
 DECL|method|SetBodyReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|SetBodyReifier
 parameter_list|(
 name|ProcessorDefinition

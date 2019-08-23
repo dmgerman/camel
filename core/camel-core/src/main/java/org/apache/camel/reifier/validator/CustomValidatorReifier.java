@@ -88,6 +88,7 @@ name|CustomValidatorDefinition
 argument_list|>
 block|{
 DECL|method|CustomValidatorReifier (ValidatorDefinition definition)
+specifier|public
 name|CustomValidatorReifier
 parameter_list|(
 name|ValidatorDefinition

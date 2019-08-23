@@ -106,6 +106,7 @@ name|StickyLoadBalancerDefinition
 argument_list|>
 block|{
 DECL|method|StickyLoadBalancerReifier (LoadBalancerDefinition definition)
+specifier|public
 name|StickyLoadBalancerReifier
 parameter_list|(
 name|LoadBalancerDefinition

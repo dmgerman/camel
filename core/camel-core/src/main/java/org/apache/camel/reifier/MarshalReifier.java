@@ -128,6 +128,7 @@ name|MarshalDefinition
 argument_list|>
 block|{
 DECL|method|MarshalReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|MarshalReifier
 parameter_list|(
 name|ProcessorDefinition

@@ -174,6 +174,7 @@ name|U
 argument_list|>
 block|{
 DECL|method|SortReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|SortReifier
 parameter_list|(
 name|ProcessorDefinition

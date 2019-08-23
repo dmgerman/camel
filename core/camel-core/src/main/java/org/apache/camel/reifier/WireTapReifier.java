@@ -219,6 +219,7 @@ argument_list|>
 argument_list|>
 block|{
 DECL|method|WireTapReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|WireTapReifier
 parameter_list|(
 name|ProcessorDefinition

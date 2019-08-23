@@ -248,6 +248,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|method|TransactedReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|TransactedReifier
 parameter_list|(
 name|ProcessorDefinition

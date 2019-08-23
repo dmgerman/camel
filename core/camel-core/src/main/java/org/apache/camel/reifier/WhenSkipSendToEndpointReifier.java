@@ -108,6 +108,7 @@ name|WhenSkipSendToEndpointDefinition
 argument_list|>
 block|{
 DECL|method|WhenSkipSendToEndpointReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|WhenSkipSendToEndpointReifier
 parameter_list|(
 name|ProcessorDefinition

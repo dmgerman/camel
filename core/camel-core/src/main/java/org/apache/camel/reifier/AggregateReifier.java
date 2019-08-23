@@ -290,6 +290,7 @@ name|AggregateDefinition
 argument_list|>
 block|{
 DECL|method|AggregateReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|AggregateReifier
 parameter_list|(
 name|ProcessorDefinition

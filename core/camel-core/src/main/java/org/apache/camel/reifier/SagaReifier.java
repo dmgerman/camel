@@ -274,6 +274,7 @@ name|SagaDefinition
 argument_list|>
 block|{
 DECL|method|SagaReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|SagaReifier
 parameter_list|(
 name|ProcessorDefinition

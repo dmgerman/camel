@@ -96,6 +96,7 @@ name|StopDefinition
 argument_list|>
 block|{
 DECL|method|StopReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|StopReifier
 parameter_list|(
 name|ProcessorDefinition

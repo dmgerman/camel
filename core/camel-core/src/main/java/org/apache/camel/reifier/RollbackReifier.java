@@ -96,6 +96,7 @@ name|RollbackDefinition
 argument_list|>
 block|{
 DECL|method|RollbackReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|RollbackReifier
 parameter_list|(
 name|ProcessorDefinition

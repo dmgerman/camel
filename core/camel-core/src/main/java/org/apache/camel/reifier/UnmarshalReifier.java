@@ -128,6 +128,7 @@ name|UnmarshalDefinition
 argument_list|>
 block|{
 DECL|method|UnmarshalReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|UnmarshalReifier
 parameter_list|(
 name|ProcessorDefinition

@@ -271,6 +271,7 @@ argument_list|>
 argument_list|>
 block|{
 DECL|method|RecipientListReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|RecipientListReifier
 parameter_list|(
 name|ProcessorDefinition

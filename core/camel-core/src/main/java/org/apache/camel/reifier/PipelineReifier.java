@@ -82,6 +82,7 @@ name|PipelineDefinition
 argument_list|>
 block|{
 DECL|method|PipelineReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|PipelineReifier
 parameter_list|(
 name|ProcessorDefinition

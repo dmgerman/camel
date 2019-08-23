@@ -110,6 +110,7 @@ name|RemoveHeadersDefinition
 argument_list|>
 block|{
 DECL|method|RemoveHeadersReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|RemoveHeadersReifier
 parameter_list|(
 name|ProcessorDefinition

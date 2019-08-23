@@ -150,6 +150,7 @@ name|DelayDefinition
 argument_list|>
 block|{
 DECL|method|DelayReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|DelayReifier
 parameter_list|(
 name|ProcessorDefinition

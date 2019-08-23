@@ -142,6 +142,7 @@ name|LoadBalanceDefinition
 argument_list|>
 block|{
 DECL|method|LoadBalanceReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|LoadBalanceReifier
 parameter_list|(
 name|ProcessorDefinition

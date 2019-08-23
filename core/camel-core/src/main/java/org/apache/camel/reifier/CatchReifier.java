@@ -154,6 +154,7 @@ name|CatchDefinition
 argument_list|>
 block|{
 DECL|method|CatchReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|CatchReifier
 parameter_list|(
 name|ProcessorDefinition

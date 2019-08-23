@@ -136,6 +136,7 @@ name|SetPropertyDefinition
 argument_list|>
 block|{
 DECL|method|SetPropertyReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|SetPropertyReifier
 parameter_list|(
 name|ProcessorDefinition

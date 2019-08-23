@@ -153,6 +153,7 @@ name|T
 argument_list|>
 block|{
 DECL|method|InterceptReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|InterceptReifier
 parameter_list|(
 name|ProcessorDefinition

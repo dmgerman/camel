@@ -108,6 +108,7 @@ name|SamplingDefinition
 argument_list|>
 block|{
 DECL|method|SamplingReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|SamplingReifier
 parameter_list|(
 name|ProcessorDefinition

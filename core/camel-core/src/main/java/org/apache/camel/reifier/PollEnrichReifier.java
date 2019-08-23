@@ -148,6 +148,7 @@ name|PollEnrichDefinition
 argument_list|>
 block|{
 DECL|method|PollEnrichReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|PollEnrichReifier
 parameter_list|(
 name|ProcessorDefinition

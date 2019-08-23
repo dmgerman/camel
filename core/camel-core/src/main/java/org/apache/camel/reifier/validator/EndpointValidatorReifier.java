@@ -142,6 +142,7 @@ name|EndpointValidatorDefinition
 argument_list|>
 block|{
 DECL|method|EndpointValidatorReifier (ValidatorDefinition definition)
+specifier|public
 name|EndpointValidatorReifier
 parameter_list|(
 name|ValidatorDefinition

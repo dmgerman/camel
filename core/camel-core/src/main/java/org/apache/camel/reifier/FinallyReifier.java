@@ -110,6 +110,7 @@ name|FinallyDefinition
 argument_list|>
 block|{
 DECL|method|FinallyReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|FinallyReifier
 parameter_list|(
 name|ProcessorDefinition

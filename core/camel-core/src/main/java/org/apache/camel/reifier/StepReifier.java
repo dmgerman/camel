@@ -106,6 +106,7 @@ name|StepDefinition
 argument_list|>
 block|{
 DECL|method|StepReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|StepReifier
 parameter_list|(
 name|ProcessorDefinition

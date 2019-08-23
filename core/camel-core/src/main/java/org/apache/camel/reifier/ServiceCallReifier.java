@@ -84,6 +84,7 @@ name|ServiceCallDefinition
 argument_list|>
 block|{
 DECL|method|ServiceCallReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ServiceCallReifier
 parameter_list|(
 name|ProcessorDefinition

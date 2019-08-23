@@ -166,6 +166,7 @@ name|ClaimCheckDefinition
 argument_list|>
 block|{
 DECL|method|ClaimCheckReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ClaimCheckReifier
 parameter_list|(
 name|ProcessorDefinition

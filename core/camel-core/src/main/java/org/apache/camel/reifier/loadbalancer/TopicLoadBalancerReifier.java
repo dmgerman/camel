@@ -106,6 +106,7 @@ name|TopicLoadBalancerDefinition
 argument_list|>
 block|{
 DECL|method|TopicLoadBalancerReifier (LoadBalancerDefinition definition)
+specifier|public
 name|TopicLoadBalancerReifier
 parameter_list|(
 name|LoadBalancerDefinition

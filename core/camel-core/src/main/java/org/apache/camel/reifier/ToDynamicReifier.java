@@ -215,6 +215,7 @@ name|T
 argument_list|>
 block|{
 DECL|method|ToDynamicReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ToDynamicReifier
 parameter_list|(
 name|ProcessorDefinition

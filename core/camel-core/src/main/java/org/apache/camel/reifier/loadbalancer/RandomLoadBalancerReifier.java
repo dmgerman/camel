@@ -106,6 +106,7 @@ name|RandomLoadBalancerDefinition
 argument_list|>
 block|{
 DECL|method|RandomLoadBalancerReifier (LoadBalancerDefinition definition)
+specifier|public
 name|RandomLoadBalancerReifier
 parameter_list|(
 name|LoadBalancerDefinition

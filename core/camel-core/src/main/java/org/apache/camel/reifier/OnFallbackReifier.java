@@ -82,6 +82,7 @@ name|OnFallbackDefinition
 argument_list|>
 block|{
 DECL|method|OnFallbackReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|OnFallbackReifier
 parameter_list|(
 name|ProcessorDefinition

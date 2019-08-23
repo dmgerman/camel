@@ -204,6 +204,7 @@ name|SplitDefinition
 argument_list|>
 block|{
 DECL|method|SplitReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|SplitReifier
 parameter_list|(
 name|ProcessorDefinition

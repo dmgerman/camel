@@ -150,6 +150,7 @@ name|ThrottleDefinition
 argument_list|>
 block|{
 DECL|method|ThrottleReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ThrottleReifier
 parameter_list|(
 name|ProcessorDefinition

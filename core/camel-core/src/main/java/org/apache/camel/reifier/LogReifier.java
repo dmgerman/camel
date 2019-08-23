@@ -260,6 +260,7 @@ name|LogDefinition
 argument_list|>
 block|{
 DECL|method|LogReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|LogReifier
 parameter_list|(
 name|ProcessorDefinition

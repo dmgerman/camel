@@ -212,6 +212,7 @@ name|ChoiceDefinition
 argument_list|>
 block|{
 DECL|method|ChoiceReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ChoiceReifier
 parameter_list|(
 name|ProcessorDefinition

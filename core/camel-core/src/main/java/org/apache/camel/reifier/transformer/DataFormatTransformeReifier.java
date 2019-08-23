@@ -134,6 +134,7 @@ name|DataFormatTransformerDefinition
 argument_list|>
 block|{
 DECL|method|DataFormatTransformeReifier (TransformerDefinition definition)
+specifier|public
 name|DataFormatTransformeReifier
 parameter_list|(
 name|TransformerDefinition

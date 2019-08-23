@@ -228,6 +228,7 @@ name|ResequenceDefinition
 argument_list|>
 block|{
 DECL|method|ResequenceReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ResequenceReifier
 parameter_list|(
 name|ProcessorDefinition

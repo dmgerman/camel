@@ -144,6 +144,7 @@ name|TryDefinition
 argument_list|>
 block|{
 DECL|method|TryReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|TryReifier
 parameter_list|(
 name|ProcessorDefinition

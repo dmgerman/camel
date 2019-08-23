@@ -84,6 +84,7 @@ name|WhenDefinition
 argument_list|>
 block|{
 DECL|method|WhenReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|WhenReifier
 parameter_list|(
 name|ProcessorDefinition

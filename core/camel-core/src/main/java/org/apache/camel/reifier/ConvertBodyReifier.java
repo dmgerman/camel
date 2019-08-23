@@ -120,6 +120,7 @@ name|ConvertBodyDefinition
 argument_list|>
 block|{
 DECL|method|ConvertBodyReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ConvertBodyReifier
 parameter_list|(
 name|ProcessorDefinition

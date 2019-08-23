@@ -140,6 +140,7 @@ name|FailoverLoadBalancerDefinition
 argument_list|>
 block|{
 DECL|method|FailoverLoadBalancerReifier (LoadBalancerDefinition definition)
+specifier|public
 name|FailoverLoadBalancerReifier
 parameter_list|(
 name|LoadBalancerDefinition

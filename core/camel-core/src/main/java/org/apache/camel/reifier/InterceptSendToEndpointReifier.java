@@ -228,6 +228,7 @@ name|InterceptSendToEndpointDefinition
 argument_list|>
 block|{
 DECL|method|InterceptSendToEndpointReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|InterceptSendToEndpointReifier
 parameter_list|(
 name|ProcessorDefinition

@@ -180,6 +180,7 @@ name|ThreadsDefinition
 argument_list|>
 block|{
 DECL|method|ThreadsReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ThreadsReifier
 parameter_list|(
 name|ProcessorDefinition

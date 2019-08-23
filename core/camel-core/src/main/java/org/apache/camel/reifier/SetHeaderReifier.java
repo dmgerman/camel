@@ -136,6 +136,7 @@ name|SetHeaderDefinition
 argument_list|>
 block|{
 DECL|method|SetHeaderReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|SetHeaderReifier
 parameter_list|(
 name|ProcessorDefinition

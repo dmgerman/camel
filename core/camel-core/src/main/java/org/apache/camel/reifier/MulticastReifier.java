@@ -228,6 +228,7 @@ name|MulticastDefinition
 argument_list|>
 block|{
 DECL|method|MulticastReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|MulticastReifier
 parameter_list|(
 name|ProcessorDefinition

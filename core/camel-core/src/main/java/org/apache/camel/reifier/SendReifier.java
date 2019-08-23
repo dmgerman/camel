@@ -111,6 +111,7 @@ argument_list|>
 argument_list|>
 block|{
 DECL|method|SendReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|SendReifier
 parameter_list|(
 name|ProcessorDefinition

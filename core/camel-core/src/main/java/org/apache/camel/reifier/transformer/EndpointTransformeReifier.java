@@ -142,6 +142,7 @@ name|EndpointTransformerDefinition
 argument_list|>
 block|{
 DECL|method|EndpointTransformeReifier (TransformerDefinition definition)
+specifier|public
 name|EndpointTransformeReifier
 parameter_list|(
 name|TransformerDefinition

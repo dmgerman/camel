@@ -138,6 +138,7 @@ name|IdempotentConsumerDefinition
 argument_list|>
 block|{
 DECL|method|IdempotentConsumerReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|IdempotentConsumerReifier
 parameter_list|(
 name|ProcessorDefinition

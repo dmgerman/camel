@@ -88,6 +88,7 @@ name|CustomTransformerDefinition
 argument_list|>
 block|{
 DECL|method|CustomTransformeReifier (TransformerDefinition definition)
+specifier|public
 name|CustomTransformeReifier
 parameter_list|(
 name|TransformerDefinition

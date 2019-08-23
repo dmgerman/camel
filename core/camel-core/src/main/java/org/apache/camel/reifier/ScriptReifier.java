@@ -108,6 +108,7 @@ name|ScriptDefinition
 argument_list|>
 block|{
 DECL|method|ScriptReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ScriptReifier
 parameter_list|(
 name|ProcessorDefinition

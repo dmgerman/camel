@@ -108,6 +108,7 @@ name|ThrowExceptionDefinition
 argument_list|>
 block|{
 DECL|method|ThrowExceptionReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ThrowExceptionReifier
 parameter_list|(
 name|ProcessorDefinition

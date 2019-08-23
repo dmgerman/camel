@@ -162,6 +162,7 @@ name|OnCompletionDefinition
 argument_list|>
 block|{
 DECL|method|OnCompletionReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|OnCompletionReifier
 parameter_list|(
 name|ProcessorDefinition

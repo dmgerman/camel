@@ -152,6 +152,7 @@ name|ProcessDefinition
 argument_list|>
 block|{
 DECL|method|ProcessReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|ProcessReifier
 parameter_list|(
 name|ProcessorDefinition

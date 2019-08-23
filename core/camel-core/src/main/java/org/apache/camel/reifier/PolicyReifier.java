@@ -136,6 +136,7 @@ name|PolicyDefinition
 argument_list|>
 block|{
 DECL|method|PolicyReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|PolicyReifier
 parameter_list|(
 name|ProcessorDefinition

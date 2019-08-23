@@ -82,6 +82,7 @@ name|HystrixDefinition
 argument_list|>
 block|{
 DECL|method|HystrixReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|HystrixReifier
 parameter_list|(
 name|ProcessorDefinition

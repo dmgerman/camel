@@ -120,6 +120,7 @@ name|LoopDefinition
 argument_list|>
 block|{
 DECL|method|LoopReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|LoopReifier
 parameter_list|(
 name|ProcessorDefinition

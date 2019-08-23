@@ -148,6 +148,7 @@ name|EnrichDefinition
 argument_list|>
 block|{
 DECL|method|EnrichReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|EnrichReifier
 parameter_list|(
 name|ProcessorDefinition

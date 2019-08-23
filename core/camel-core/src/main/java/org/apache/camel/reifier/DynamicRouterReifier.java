@@ -151,6 +151,7 @@ argument_list|>
 argument_list|>
 block|{
 DECL|method|DynamicRouterReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|DynamicRouterReifier
 parameter_list|(
 name|ProcessorDefinition

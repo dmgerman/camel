@@ -167,6 +167,7 @@ argument_list|>
 argument_list|>
 block|{
 DECL|method|RoutingSlipReifier (ProcessorDefinition<?> definition)
+specifier|public
 name|RoutingSlipReifier
 parameter_list|(
 name|ProcessorDefinition
