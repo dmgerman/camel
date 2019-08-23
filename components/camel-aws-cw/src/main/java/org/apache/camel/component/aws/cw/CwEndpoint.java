@@ -342,17 +342,17 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStart ()
+DECL|method|doInit ()
 specifier|public
 name|void
-name|doStart
+name|doInit
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|super
 operator|.
-name|doStart
+name|doInit
 argument_list|()
 expr_stmt|;
 name|cloudWatchClient
