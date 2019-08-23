@@ -168,6 +168,8 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|name ()
 name|String
 name|name
@@ -177,6 +179,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|value ()
 name|String
 name|value
@@ -185,6 +189,58 @@ block|{
 return|return
 name|value
 return|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
+DECL|method|getValue ()
+specifier|public
+name|String
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
+return|;
+block|}
+DECL|method|setValue (String value)
+specifier|public
+name|void
+name|setValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
 block|}
 block|}
 end_class

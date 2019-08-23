@@ -262,6 +262,38 @@ return|return
 name|ret
 return|;
 block|}
+DECL|method|getGlobalOptions ()
+specifier|public
+name|List
+argument_list|<
+name|ConfigurationOption
+argument_list|>
+name|getGlobalOptions
+parameter_list|()
+block|{
+return|return
+name|globalOptions
+return|;
+block|}
+DECL|method|setGlobalOptions (List<ConfigurationOption> globalOptions)
+specifier|public
+name|void
+name|setGlobalOptions
+parameter_list|(
+name|List
+argument_list|<
+name|ConfigurationOption
+argument_list|>
+name|globalOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|globalOptions
+operator|=
+name|globalOptions
+expr_stmt|;
+block|}
 block|}
 end_class
 
