@@ -588,6 +588,13 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|skip
+operator|=
+literal|true
+argument_list|)
 DECL|field|locations
 specifier|private
 name|List
@@ -596,9 +603,9 @@ name|PropertiesLocation
 argument_list|>
 name|locations
 init|=
-name|Collections
-operator|.
-name|emptyList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -1418,7 +1425,7 @@ block|}
 block|}
 comment|/**      * A list of locations to load properties.      * This option will override any default locations and only use the locations from this option.      */
 DECL|method|setLocations (List<PropertiesLocation> locations)
-specifier|private
+specifier|public
 name|void
 name|setLocations
 parameter_list|(

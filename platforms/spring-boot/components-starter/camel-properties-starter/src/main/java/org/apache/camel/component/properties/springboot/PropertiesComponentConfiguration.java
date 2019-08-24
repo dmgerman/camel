@@ -22,37 +22,11 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
 operator|.
 name|Generated
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|properties
-operator|.
-name|PropertiesLocation
 import|;
 end_import
 
@@ -117,15 +91,6 @@ DECL|field|enabled
 specifier|private
 name|Boolean
 name|enabled
-decl_stmt|;
-comment|/**      * A list of locations to load properties. This option will override any      * default locations and only use the locations from this option.      */
-DECL|field|locations
-specifier|private
-name|List
-argument_list|<
-name|PropertiesLocation
-argument_list|>
-name|locations
 decl_stmt|;
 comment|/**      * A list of locations to load properties. You can use comma to separate      * multiple locations. This option will override any default locations and      * only use the locations from this option.      */
 DECL|field|location
@@ -205,38 +170,6 @@ name|basicPropertyBinding
 init|=
 literal|false
 decl_stmt|;
-DECL|method|getLocations ()
-specifier|public
-name|List
-argument_list|<
-name|PropertiesLocation
-argument_list|>
-name|getLocations
-parameter_list|()
-block|{
-return|return
-name|locations
-return|;
-block|}
-DECL|method|setLocations (List<PropertiesLocation> locations)
-specifier|public
-name|void
-name|setLocations
-parameter_list|(
-name|List
-argument_list|<
-name|PropertiesLocation
-argument_list|>
-name|locations
-parameter_list|)
-block|{
-name|this
-operator|.
-name|locations
-operator|=
-name|locations
-expr_stmt|;
-block|}
 DECL|method|getLocation ()
 specifier|public
 name|String

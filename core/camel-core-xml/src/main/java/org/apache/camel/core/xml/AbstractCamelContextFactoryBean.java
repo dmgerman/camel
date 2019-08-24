@@ -4776,13 +4776,11 @@ operator|new
 name|PropertiesComponent
 argument_list|()
 decl_stmt|;
-name|locations
-operator|.
-name|forEach
-argument_list|(
 name|pc
-operator|::
-name|addLocation
+operator|.
+name|setLocations
+argument_list|(
+name|locations
 argument_list|)
 expr_stmt|;
 name|pc

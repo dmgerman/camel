@@ -202,6 +202,15 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Whether to skip this option      */
+DECL|method|skip ()
+DECL|field|false
+name|boolean
+name|skip
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 
