@@ -603,6 +603,13 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Metadata
+DECL|field|location
+specifier|private
+name|String
+name|location
+decl_stmt|;
+annotation|@
+name|Metadata
 DECL|field|ignoreMissingLocation
 specifier|private
 name|boolean
@@ -1411,7 +1418,7 @@ block|}
 block|}
 comment|/**      * A list of locations to load properties.      * This option will override any default locations and only use the locations from this option.      */
 DECL|method|setLocations (List<PropertiesLocation> locations)
-specifier|public
+specifier|private
 name|void
 name|setLocations
 parameter_list|(
@@ -1584,6 +1591,25 @@ name|locations
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|addLocation (PropertiesLocation location)
+specifier|public
+name|void
+name|addLocation
+parameter_list|(
+name|PropertiesLocation
+name|location
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locations
+operator|.
+name|add
+argument_list|(
+name|location
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|addLocation (String location)
@@ -1684,6 +1710,12 @@ name|String
 name|location
 parameter_list|)
 block|{
+name|this
+operator|.
+name|location
+operator|=
+name|location
+expr_stmt|;
 if|if
 condition|(
 name|location
@@ -1702,6 +1734,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getLocation ()
+specifier|public
+name|String
+name|getLocation
+parameter_list|()
+block|{
+return|return
+name|location
+return|;
 block|}
 annotation|@
 name|ManagedAttribute

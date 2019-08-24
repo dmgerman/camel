@@ -1988,8 +1988,34 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+name|boolean
+name|valid
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
+name|nesting
+condition|)
+block|{
+comment|// property configurer does not support nested names so skip if the name has a dot
+name|valid
+operator|=
+name|key
+operator|.
+name|indexOf
+argument_list|(
+literal|'.'
+argument_list|)
+operator|==
+operator|-
+literal|1
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|valid
+operator|&&
 name|writeProperties
 operator|.
 name|containsKey
@@ -3240,6 +3266,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+comment|// TODO: Move configurer here so the value can have done all its magic
 name|boolean
 name|hit
 init|=

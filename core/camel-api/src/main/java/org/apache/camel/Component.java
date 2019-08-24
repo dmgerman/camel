@@ -134,6 +134,17 @@ name|boolean
 name|useRawUri
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the component {@link PropertyConfigurer}.      *      * @return the configurer, or<tt>null</tt> if the component does not support using property configurer.      */
+DECL|method|getComponentPropertyConfigurer ()
+specifier|default
+name|PropertyConfigurer
+name|getComponentPropertyConfigurer
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Gets the endpoint {@link PropertyConfigurer}.      *      * @return the configurer, or<tt>null</tt> if the endpoint does not support using property configurer.      */
 DECL|method|getEndpointPropertyConfigurer ()
 specifier|default
