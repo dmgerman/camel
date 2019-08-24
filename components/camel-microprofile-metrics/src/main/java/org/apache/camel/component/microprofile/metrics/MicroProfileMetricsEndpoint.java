@@ -208,7 +208,7 @@ literal|"MicroProfile Metrics"
 argument_list|,
 name|syntax
 operator|=
-literal|"microprofile-metrics:metricsType:metricsName"
+literal|"microprofile-metrics:metricType:metricsName"
 argument_list|,
 name|producerOnly
 operator|=
@@ -276,7 +276,7 @@ name|String
 name|metricName
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 argument_list|(
 name|description
 operator|=
@@ -284,11 +284,7 @@ literal|"Comma delimited list of tags associated with the metric in the format t
 argument_list|)
 DECL|field|tags
 specifier|private
-specifier|final
-name|List
-argument_list|<
-name|Tag
-argument_list|>
+name|String
 name|tags
 decl_stmt|;
 annotation|@
@@ -403,7 +399,7 @@ specifier|private
 name|String
 name|metricUnit
 decl_stmt|;
-DECL|method|MicroProfileMetricsEndpoint (String uri, Component component, MetricRegistry metricRegistry, MetricType metricType, String metricsName, List<Tag> tags)
+DECL|method|MicroProfileMetricsEndpoint (String uri, Component component, MetricRegistry metricRegistry, MetricType metricType, String metricsName)
 specifier|public
 name|MicroProfileMetricsEndpoint
 parameter_list|(
@@ -421,12 +417,6 @@ name|metricType
 parameter_list|,
 name|String
 name|metricsName
-parameter_list|,
-name|List
-argument_list|<
-name|Tag
-argument_list|>
-name|tags
 parameter_list|)
 block|{
 name|super
@@ -453,12 +443,6 @@ operator|.
 name|metricName
 operator|=
 name|metricsName
-expr_stmt|;
-name|this
-operator|.
-name|tags
-operator|=
-name|tags
 expr_stmt|;
 block|}
 annotation|@
@@ -650,16 +634,29 @@ return|;
 block|}
 DECL|method|getTags ()
 specifier|public
-name|List
-argument_list|<
-name|Tag
-argument_list|>
+name|String
 name|getTags
 parameter_list|()
 block|{
 return|return
 name|tags
 return|;
+block|}
+DECL|method|setTags (String tags)
+specifier|public
+name|void
+name|setTags
+parameter_list|(
+name|String
+name|tags
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tags
+operator|=
+name|tags
+expr_stmt|;
 block|}
 DECL|method|getAction ()
 specifier|public

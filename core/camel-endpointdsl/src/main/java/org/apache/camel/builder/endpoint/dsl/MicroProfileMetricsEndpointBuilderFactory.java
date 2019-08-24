@@ -362,6 +362,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Comma delimited list of tags associated with the metric in the format          * tagName=tagValue.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|tags (String tags)
+specifier|default
+name|MicroProfileMetricsEndpointBuilder
+name|tags
+parameter_list|(
+name|String
+name|tags
+parameter_list|)
+block|{
+name|setProperty
+argument_list|(
+literal|"tags"
+argument_list|,
+name|tags
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The value to set when using the Histogram metric type.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|value (Long value)
 specifier|default
@@ -511,7 +532,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * MicroProfile Metrics (camel-microprofile-metrics)      * Camel metrics exposed with Eclipse MicroProfile Metrics      *       * Category: monitoring      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-microprofile-metrics      *       * Syntax:<code>microprofile-metrics:metricsType:metricsName</code>      *       * Path parameter: metricType (required)      * Metric type      * The value can be one of: CONCURRENT_GAUGE, COUNTER, GAUGE, METERED,      * HISTOGRAM, TIMER, INVALID      *       * Path parameter: metricName (required)      * Metric name      *       * Path parameter: tags      * Comma delimited list of tags associated with the metric in the format      * tagName=tagValue      */
+comment|/**      * MicroProfile Metrics (camel-microprofile-metrics)      * Camel metrics exposed with Eclipse MicroProfile Metrics      *       * Category: monitoring      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-microprofile-metrics      *       * Syntax:<code>microprofile-metrics:metricType:metricsName</code>      *       * Path parameter: metricType (required)      * Metric type      * The value can be one of: CONCURRENT_GAUGE, COUNTER, GAUGE, METERED,      * HISTOGRAM, TIMER, INVALID      *       * Path parameter: metricName (required)      * Metric name      */
 DECL|method|microProfileMetrics (String path)
 specifier|default
 name|MicroProfileMetricsEndpointBuilder

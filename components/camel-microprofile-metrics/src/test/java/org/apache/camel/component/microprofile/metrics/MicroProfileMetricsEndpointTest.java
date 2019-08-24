@@ -436,11 +436,6 @@ argument_list|,
 name|metricType
 argument_list|,
 literal|null
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 return|;
 block|}
