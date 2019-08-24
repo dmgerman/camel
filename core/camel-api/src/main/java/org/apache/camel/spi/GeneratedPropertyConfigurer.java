@@ -40,8 +40,8 @@ name|GeneratedPropertyConfigurer
 extends|extends
 name|PropertyConfigurer
 block|{
-comment|/**      * Configures the property      *      * @param camelContext  the Camel context      * @param target        the target instance such as {@link org.apache.camel.Endpoint} or {@link org.apache.camel.Component}.      * @param name          the property name      * @param value         the property value      * @return<tt>true</tt> if the configurer configured the property,<tt>false</tt> if the property does not exists      */
-DECL|method|configure (CamelContext camelContext, Object target, String name, Object value)
+comment|/**      * Configures the property      *      * @param camelContext  the Camel context      * @param target        the target instance such as {@link org.apache.camel.Endpoint} or {@link org.apache.camel.Component}.      * @param name          the property name      * @param value         the property value      * @param ignoreCase    whether to ignore case for matching the property name      * @return<tt>true</tt> if the configurer configured the property,<tt>false</tt> if the property does not exists      */
+DECL|method|configure (CamelContext camelContext, Object target, String name, Object value, boolean ignoreCase)
 name|boolean
 name|configure
 parameter_list|(
@@ -56,6 +56,9 @@ name|name
 parameter_list|,
 name|Object
 name|value
+parameter_list|,
+name|boolean
+name|ignoreCase
 parameter_list|)
 function_decl|;
 block|}

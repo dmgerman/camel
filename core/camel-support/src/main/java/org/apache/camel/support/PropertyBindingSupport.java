@@ -1991,6 +1991,8 @@ argument_list|,
 name|key
 argument_list|,
 name|value
+argument_list|,
+name|ignoreCase
 argument_list|)
 condition|)
 block|{
