@@ -171,7 +171,7 @@ name|camelContext
 parameter_list|)
 block|{
 name|PropertyPlaceholderConfigurer
-name|aware
+name|configurer
 init|=
 name|DefinitionPropertiesPlaceholderProviderHelper
 operator|.
@@ -186,11 +186,11 @@ literal|null
 argument_list|)
 decl_stmt|;
 return|return
-name|aware
+name|configurer
 operator|!=
 literal|null
 condition|?
-name|aware
+name|configurer
 operator|.
 name|getWritePropertyPlaceholderOptions
 argument_list|(
