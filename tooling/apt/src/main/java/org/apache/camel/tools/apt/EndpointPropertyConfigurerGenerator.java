@@ -168,6 +168,10 @@ name|dumpExceptionToErrorFile
 import|;
 end_import
 
+begin_comment
+comment|// TODO: ComponentPropertyConfigurerGenerator and EndpointPropertyConfigurerGenerator can be merged to one
+end_comment
+
 begin_class
 DECL|class|EndpointPropertyConfigurerGenerator
 specifier|public
@@ -523,7 +527,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"import org.apache.camel.spi.TriPropertyConfigurer;\n"
+literal|"import org.apache.camel.spi.GeneratedPropertyConfigurer;\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -531,13 +535,6 @@ operator|.
 name|write
 argument_list|(
 literal|"import org.apache.camel.support.component.PropertyConfigurerSupport;\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"import org.apache.camel.util.function.TriConsumer;\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -583,7 +580,7 @@ literal|"public class "
 operator|+
 name|cn
 operator|+
-literal|" extends PropertyConfigurerSupport implements TriPropertyConfigurer {\n"
+literal|" extends PropertyConfigurerSupport implements GeneratedPropertyConfigurer {\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -597,25 +594,21 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    private static final Map<String, TriConsumer<CamelContext, Object, Object>> WRITES;\n"
+literal|"    @Override\n"
 argument_list|)
 expr_stmt|;
 name|w
 operator|.
 name|write
 argument_list|(
-literal|"    static {\n"
+literal|"    public boolean configure(CamelContext camelContext, Object endpoint, String name, Object value) {\n"
 argument_list|)
 expr_stmt|;
 name|w
 operator|.
 name|write
 argument_list|(
-literal|"        Map<String, TriConsumer<CamelContext, Object, Object>> map = new HashMap<>("
-operator|+
-name|size
-operator|+
-literal|");\n"
+literal|"        switch (name) {\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -679,18 +672,19 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"        map.put(\""
-operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"        case \"%s\": %s; return true;\n"
+argument_list|,
 name|option
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"\", (camelContext, endpoint, value) -> "
-operator|+
+argument_list|,
 name|setterLambda
-operator|+
-literal|");\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -698,42 +692,14 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"        WRITES = map;\n"
+literal|"            default: return false;\n"
 argument_list|)
 expr_stmt|;
 name|w
 operator|.
 name|write
 argument_list|(
-literal|"    }\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"    @Override\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"    public Map<String, TriConsumer<CamelContext, Object, Object>> getWriteOptions(CamelContext camelContext) {\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"        return WRITES;\n"
+literal|"        }\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -913,7 +879,6 @@ operator|+
 name|getOrSet
 expr_stmt|;
 block|}
-comment|// ((LogEndpoint) endpoint).setGroupSize(property(camelContext, java.lang.Integer.class, value))
 return|return
 name|String
 operator|.

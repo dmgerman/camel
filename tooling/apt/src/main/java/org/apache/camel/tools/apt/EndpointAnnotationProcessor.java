@@ -1634,7 +1634,7 @@ name|processingEnv
 argument_list|,
 name|roundEnv
 argument_list|,
-literal|"org.apache.camel.spi.TriPropertyConfigurer"
+literal|"org.apache.camel.spi.GeneratedPropertyConfigurer"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1890,7 +1890,7 @@ name|processingEnv
 argument_list|,
 name|roundEnv
 argument_list|,
-literal|"org.apache.camel.spi.TriPropertyConfigurer"
+literal|"org.apache.camel.spi.GeneratedPropertyConfigurer"
 argument_list|)
 expr_stmt|;
 block|}
