@@ -179,7 +179,7 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String displayName, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String deprecationNote, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue, String configurationClass, String configurtationField)
+DECL|method|toJson (String name, String displayName, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String deprecationNote, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, boolean asPredicate, String optionalPrefix, String prefix, boolean multiValue, String configurationClass, String configurationField)
 specifier|public
 specifier|static
 name|String
@@ -255,7 +255,7 @@ name|String
 name|configurationClass
 parameter_list|,
 name|String
-name|configurtationField
+name|configurationField
 parameter_list|)
 block|{
 name|String
@@ -1027,7 +1027,7 @@ name|Strings
 operator|.
 name|isNullOrEmpty
 argument_list|(
-name|configurtationField
+name|configurationField
 argument_list|)
 condition|)
 block|{
@@ -1046,7 +1046,7 @@ name|Strings
 operator|.
 name|doubleQuote
 argument_list|(
-name|configurtationField
+name|configurationField
 argument_list|)
 argument_list|)
 expr_stmt|;

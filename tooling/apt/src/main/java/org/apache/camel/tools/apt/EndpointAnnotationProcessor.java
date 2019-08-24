@@ -1468,6 +1468,10 @@ argument_list|,
 literal|""
 argument_list|,
 name|parentData
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1665,7 +1669,7 @@ name|processingEnv
 argument_list|,
 name|roundEnv
 argument_list|,
-literal|"org.apache.camel.support.component.EndpointPropertyConfigurerSupport"
+literal|"org.apache.camel.spi.TriPropertyConfigurer"
 argument_list|)
 decl_stmt|;
 name|String
@@ -2629,9 +2633,15 @@ name|prefix
 argument_list|,
 name|multiValue
 argument_list|,
-literal|null
+name|entry
+operator|.
+name|getConfigurationClass
+argument_list|()
 argument_list|,
-literal|null
+name|entry
+operator|.
+name|getConfigurationField
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4127,7 +4137,7 @@ return|return
 name|model
 return|;
 block|}
-DECL|method|findComponentClassProperties (PrintWriter writer, RoundEnvironment roundEnv, ComponentModel componentModel, Set<ComponentOption> componentOptions, TypeElement classElement, String prefix, Map<String, Object> parentData)
+DECL|method|findComponentClassProperties (PrintWriter writer, RoundEnvironment roundEnv, ComponentModel componentModel, Set<ComponentOption> componentOptions, TypeElement classElement, String prefix, Map<String, Object> parentData, String nestedTypeName, String nestedFieldName)
 specifier|protected
 name|void
 name|findComponentClassProperties
@@ -4160,6 +4170,12 @@ argument_list|,
 name|Object
 argument_list|>
 name|parentData
+parameter_list|,
+name|String
+name|nestedTypeName
+parameter_list|,
+name|String
+name|nestedFieldName
 parameter_list|)
 block|{
 name|Elements
@@ -4904,6 +4920,10 @@ argument_list|,
 name|isEnum
 argument_list|,
 name|enums
+argument_list|,
+name|nestedTypeName
+argument_list|,
+name|nestedFieldName
 argument_list|)
 decl_stmt|;
 name|componentOptions

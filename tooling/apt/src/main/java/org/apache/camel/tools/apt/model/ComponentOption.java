@@ -130,7 +130,17 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|ComponentOption (String name, String displayName, String type, boolean required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String deprecationNote, boolean secret, String group, String label, boolean enumType, Set<String> enums)
+DECL|field|configurationClass
+specifier|private
+name|String
+name|configurationClass
+decl_stmt|;
+DECL|field|configurationField
+specifier|private
+name|String
+name|configurationField
+decl_stmt|;
+DECL|method|ComponentOption (String name, String displayName, String type, boolean required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String deprecationNote, boolean secret, String group, String label, boolean enumType, Set<String> enums, String configurationClass, String nestedFieldName)
 specifier|public
 name|ComponentOption
 parameter_list|(
@@ -178,6 +188,12 @@ argument_list|<
 name|String
 argument_list|>
 name|enums
+parameter_list|,
+name|String
+name|configurationClass
+parameter_list|,
+name|String
+name|nestedFieldName
 parameter_list|)
 block|{
 name|this
@@ -263,6 +279,18 @@ operator|.
 name|enums
 operator|=
 name|enums
+expr_stmt|;
+name|this
+operator|.
+name|configurationClass
+operator|=
+name|configurationClass
+expr_stmt|;
+name|this
+operator|.
+name|configurationField
+operator|=
+name|nestedFieldName
 expr_stmt|;
 block|}
 DECL|method|getName ()
@@ -447,6 +475,26 @@ parameter_list|()
 block|{
 return|return
 name|enums
+return|;
+block|}
+DECL|method|getConfigurationClass ()
+specifier|public
+name|String
+name|getConfigurationClass
+parameter_list|()
+block|{
+return|return
+name|configurationClass
+return|;
+block|}
+DECL|method|getConfigurationField ()
+specifier|public
+name|String
+name|getConfigurationField
+parameter_list|()
+block|{
+return|return
+name|configurationField
 return|;
 block|}
 DECL|method|getGroup ()
