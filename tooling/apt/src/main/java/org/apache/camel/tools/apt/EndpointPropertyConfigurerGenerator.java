@@ -572,6 +572,13 @@ name|w
 operator|.
 name|write
 argument_list|(
+literal|"@SuppressWarnings(\"unchecked\")\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
 literal|"public class "
 operator|+
 name|cn
