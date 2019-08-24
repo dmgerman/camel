@@ -331,8 +331,6 @@ DECL|field|maxCacheSize
 specifier|private
 name|int
 name|maxCacheSize
-init|=
-literal|10000
 decl_stmt|;
 DECL|field|cache
 specifier|private
