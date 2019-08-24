@@ -590,29 +590,25 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"    private final Map<String, TriConsumer<CamelContext, Object, Object>> writes = new HashMap<>("
+literal|"    private static final Map<String, TriConsumer<CamelContext, Object, Object>> WRITES;\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"    static {\n"
+argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        Map<String, TriConsumer<CamelContext, Object, Object>> map = new HashMap<>("
 operator|+
 name|size
 operator|+
 literal|");\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|write
-argument_list|(
-literal|"    public "
-operator|+
-name|cn
-operator|+
-literal|"() {\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -676,7 +672,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"        writes.put(\""
+literal|"        map.put(\""
 operator|+
 name|option
 operator|.
@@ -691,6 +687,13 @@ literal|");\n"
 argument_list|)
 expr_stmt|;
 block|}
+name|w
+operator|.
+name|write
+argument_list|(
+literal|"        WRITES = map;\n"
+argument_list|)
+expr_stmt|;
 name|w
 operator|.
 name|write
@@ -723,7 +726,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"        return writes;\n"
+literal|"        return WRITES;\n"
 argument_list|)
 expr_stmt|;
 name|w
