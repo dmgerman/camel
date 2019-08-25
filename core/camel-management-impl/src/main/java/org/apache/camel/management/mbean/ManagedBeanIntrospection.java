@@ -203,6 +203,35 @@ name|resetCounters
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getCachedClasses ()
+specifier|public
+name|Long
+name|getCachedClasses
+parameter_list|()
+block|{
+return|return
+name|beanIntrospection
+operator|.
+name|getCachedClassesCounter
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|clearCache ()
+specifier|public
+name|void
+name|clearCache
+parameter_list|()
+block|{
+name|beanIntrospection
+operator|.
+name|clearCache
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

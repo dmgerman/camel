@@ -582,6 +582,26 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+name|IntrospectionSupport
+operator|.
+name|clearCache
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCachedClassesCounter ()
+specifier|public
+name|long
+name|getCachedClassesCounter
+parameter_list|()
+block|{
+return|return
+name|IntrospectionSupport
+operator|.
+name|getCacheCounter
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

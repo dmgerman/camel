@@ -671,6 +671,18 @@ name|void
 name|stop
 parameter_list|()
 block|{
+name|clearCache
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Clears the introspection cache.      */
+DECL|method|clearCache ()
+specifier|public
+specifier|static
+name|void
+name|clearCache
+parameter_list|()
+block|{
 if|if
 condition|(
 name|LOG
@@ -726,6 +738,20 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getCacheCounter ()
+specifier|public
+specifier|static
+name|long
+name|getCacheCounter
+parameter_list|()
+block|{
+return|return
+name|CACHE
+operator|.
+name|size
+argument_list|()
+return|;
 block|}
 DECL|method|isGetter (Method method)
 specifier|public

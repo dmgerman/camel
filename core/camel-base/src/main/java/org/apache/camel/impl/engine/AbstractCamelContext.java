@@ -13037,8 +13037,7 @@ literal|"Skip starting routes as CamelContext has been configured with autoStart
 argument_list|)
 expr_stmt|;
 block|}
-comment|// invoke this logic to warmup the routes and if possible also start the
-comment|// routes
+comment|// invoke this logic to warmup the routes and if possible also start the routes
 name|doStartOrResumeRoutes
 argument_list|(
 name|routeServices
@@ -13053,6 +13052,38 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|long
+name|cacheCounter
+init|=
+name|getBeanIntrospection
+argument_list|()
+operator|.
+name|getCachedClassesCounter
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cacheCounter
+operator|>
+literal|0
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Clearing BeanIntrospection cache with {} objects using during starting Camel"
+argument_list|,
+name|cacheCounter
+argument_list|)
+expr_stmt|;
+name|getBeanIntrospection
+argument_list|()
+operator|.
+name|clearCache
+argument_list|()
+expr_stmt|;
+block|}
 comment|// starting will continue in the start method
 block|}
 DECL|method|startRouteDefinitions ()

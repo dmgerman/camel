@@ -292,6 +292,12 @@ name|void
 name|clearCache
 parameter_list|()
 function_decl|;
+comment|/**      * Number of classes in the introspection cache.      */
+DECL|method|getCachedClassesCounter ()
+name|long
+name|getCachedClassesCounter
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the property or else returning the default value.      *      * @param target         the target bean      * @param propertyName   the property name      * @param defaultValue   the default value      * @param ignoreCase     whether to ignore case for matching the property name      * @return the property value, or the default value if the target does not have a property with the given name      */
 DECL|method|getOrElseProperty (Object target, String propertyName, Object defaultValue, boolean ignoreCase)
 name|Object

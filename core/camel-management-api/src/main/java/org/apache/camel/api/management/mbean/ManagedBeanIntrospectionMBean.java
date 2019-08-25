@@ -111,6 +111,30 @@ name|void
 name|resetCounters
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of cached introspected bean classes"
+argument_list|)
+DECL|method|getCachedClasses ()
+name|Long
+name|getCachedClasses
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clears the cache for introspected bean classes"
+argument_list|)
+DECL|method|clearCache ()
+name|void
+name|clearCache
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
