@@ -3759,6 +3759,8 @@ name|getClass
 argument_list|()
 argument_list|,
 name|name
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if

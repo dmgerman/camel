@@ -286,20 +286,13 @@ argument_list|>
 name|clazz
 parameter_list|)
 function_decl|;
-DECL|method|getOrElseProperty (Object target, String propertyName, Object defaultValue)
-name|Object
-name|getOrElseProperty
-parameter_list|(
-name|Object
-name|target
-parameter_list|,
-name|String
-name|propertyName
-parameter_list|,
-name|Object
-name|defaultValue
-parameter_list|)
+comment|/**      * Clears the introspection cache.      */
+DECL|method|clearCache ()
+name|void
+name|clearCache
+parameter_list|()
 function_decl|;
+comment|/**      * Gets the property or else returning the default value.      *      * @param target         the target bean      * @param propertyName   the property name      * @param defaultValue   the default value      * @param ignoreCase     whether to ignore case for matching the property name      * @return the property value, or the default value if the target does not have a property with the given name      */
 DECL|method|getOrElseProperty (Object target, String propertyName, Object defaultValue, boolean ignoreCase)
 name|Object
 name|getOrElseProperty
@@ -317,22 +310,7 @@ name|boolean
 name|ignoreCase
 parameter_list|)
 function_decl|;
-DECL|method|getPropertyGetter (Class<?> type, String propertyName)
-name|Method
-name|getPropertyGetter
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
-parameter_list|,
-name|String
-name|propertyName
-parameter_list|)
-throws|throws
-name|NoSuchMethodException
-function_decl|;
+comment|/**      * Gets the getter method for the property.      *      * @param type            the target class      * @param propertyName    the property name      * @param ignoreCase      whether to ignore case for matching the property name      * @return                the getter method      * @throws NoSuchMethodException  is thrown if there are no getter method for the property      */
 DECL|method|getPropertyGetter (Class<?> type, String propertyName, boolean ignoreCase)
 name|Method
 name|getPropertyGetter

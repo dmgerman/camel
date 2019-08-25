@@ -1059,6 +1059,8 @@ argument_list|,
 name|propertyName
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -1093,6 +1095,8 @@ operator|+
 literal|"Endpoint"
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
