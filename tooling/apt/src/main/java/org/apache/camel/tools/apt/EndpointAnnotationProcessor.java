@@ -1476,6 +1476,21 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if the component has known class name
+if|if
+condition|(
+operator|!
+literal|"@@@JAVATYPE@@@"
+operator|.
+name|equals
+argument_list|(
+name|componentModel
+operator|.
+name|getJavaType
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|generateComponentConfigurer
 argument_list|(
 name|roundEnv
@@ -1491,6 +1506,7 @@ argument_list|,
 name|componentOptions
 argument_list|)
 expr_stmt|;
+block|}
 comment|// endpoint options
 name|findClassProperties
 argument_list|(
