@@ -2007,7 +2007,6 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 block|}
 comment|// must set reference parameters first before the other bindings
 name|int
