@@ -419,25 +419,6 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|setProperty (TypeConverter typeConverter, Object target, String name, Object value)
-name|boolean
-name|setProperty
-parameter_list|(
-name|TypeConverter
-name|typeConverter
-parameter_list|,
-name|Object
-name|target
-parameter_list|,
-name|String
-name|name
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 DECL|method|findSetterMethods (Class<?> clazz, String name, boolean allowBuilderPattern, boolean allowPrivateSetter, boolean ignoreCase)
 name|Set
 argument_list|<

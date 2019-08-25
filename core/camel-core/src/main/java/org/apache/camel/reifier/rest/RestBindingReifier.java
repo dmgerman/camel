@@ -621,9 +621,6 @@ operator|.
 name|setProperty
 argument_list|(
 name|context
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|json
 argument_list|,
@@ -647,9 +644,6 @@ operator|.
 name|setProperty
 argument_list|(
 name|context
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|json
 argument_list|,
@@ -759,9 +753,6 @@ operator|.
 name|setProperty
 argument_list|(
 name|context
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|outJson
 argument_list|,
@@ -785,9 +776,6 @@ operator|.
 name|setProperty
 argument_list|(
 name|context
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|outJson
 argument_list|,
@@ -1047,9 +1035,6 @@ operator|.
 name|setProperty
 argument_list|(
 name|context
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|jaxb
 argument_list|,
@@ -1164,9 +1149,6 @@ operator|.
 name|setProperty
 argument_list|(
 name|context
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|outJaxb
 argument_list|,
@@ -1210,9 +1192,6 @@ operator|.
 name|setProperty
 argument_list|(
 name|context
-operator|.
-name|getTypeConverter
-argument_list|()
 argument_list|,
 name|outJaxb
 argument_list|,
