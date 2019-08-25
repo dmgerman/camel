@@ -111,15 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|// TODO: Add javadoc for methods
-end_comment
-
-begin_comment
-comment|// TODO: Consolidate some of the methods
-end_comment
-
-begin_comment
-comment|/**  * Used for introspecting beans properties via Java reflection; such as extracting current property values,  * or updating one or more properties etc.  *  * End users should favour using org.apache.camel.support.PropertyBindingSupport instead.  *<p/>  * Notice this API is not final yet  */
+comment|/**  * Used for introspecting beans properties via Java reflection; such as extracting current property values,  * or updating one or more properties etc.  *  * End users should favour using org.apache.camel.support.PropertyBindingSupport instead.  */
 end_comment
 
 begin_interface
@@ -337,15 +329,12 @@ throws|throws
 name|NoSuchMethodException
 function_decl|;
 comment|/**      * This method supports three modes to set a property:      *      * 1. Setting a Map property where the property name refers to a map via name[aKey] where aKey is the map key to use.      *      * 2. Setting a property that has already been resolved, this is the case when {@code context} and {@code refName} are      * NULL and {@code value} is non-NULL.      *      * 3. Setting a property that has not yet been resolved, the property will be resolved based on the suitable methods      * found matching the property name on the {@code target} bean. For this mode to be triggered the parameters      * {@code context} and {@code refName} must NOT be NULL, and {@code value} MUST be NULL.      */
-DECL|method|setProperty (CamelContext context, TypeConverter typeConverter, Object target, String name, Object value, String refName, boolean allowBuilderPattern)
+DECL|method|setProperty (CamelContext context, Object target, String name, Object value)
 name|boolean
 name|setProperty
 parameter_list|(
 name|CamelContext
 name|context
-parameter_list|,
-name|TypeConverter
-name|typeConverter
 parameter_list|,
 name|Object
 name|target
@@ -355,12 +344,6 @@ name|name
 parameter_list|,
 name|Object
 name|value
-parameter_list|,
-name|String
-name|refName
-parameter_list|,
-name|boolean
-name|allowBuilderPattern
 parameter_list|)
 throws|throws
 name|Exception
@@ -400,25 +383,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|setProperty (CamelContext context, Object target, String name, Object value)
-name|boolean
-name|setProperty
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|Object
-name|target
-parameter_list|,
-name|String
-name|name
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
+comment|/**      * Find all the setter methods on the class      */
 DECL|method|findSetterMethods (Class<?> clazz, String name, boolean allowBuilderPattern, boolean allowPrivateSetter, boolean ignoreCase)
 name|Set
 argument_list|<

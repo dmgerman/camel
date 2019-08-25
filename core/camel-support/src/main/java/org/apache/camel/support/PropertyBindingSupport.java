@@ -3215,7 +3215,6 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: Move configurer here so the value can have done all its magic
 name|boolean
 name|hit
 init|=
@@ -3990,6 +3989,10 @@ argument_list|,
 name|value
 argument_list|,
 literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
