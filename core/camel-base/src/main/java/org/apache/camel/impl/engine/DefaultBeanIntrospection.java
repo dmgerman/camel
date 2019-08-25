@@ -449,7 +449,7 @@ literal|" times (overall) [Method: "
 operator|+
 name|method
 operator|+
-literal|" ]"
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -509,7 +509,7 @@ literal|", Arguments: "
 operator|+
 name|obj
 operator|+
-literal|" ]"
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
