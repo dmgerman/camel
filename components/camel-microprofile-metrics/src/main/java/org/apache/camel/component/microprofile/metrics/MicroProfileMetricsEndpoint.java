@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -176,20 +166,6 @@ name|MetricType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|microprofile
-operator|.
-name|metrics
-operator|.
-name|Tag
-import|;
-end_import
-
 begin_class
 annotation|@
 name|UriEndpoint
@@ -208,7 +184,7 @@ literal|"MicroProfile Metrics"
 argument_list|,
 name|syntax
 operator|=
-literal|"microprofile-metrics:metricType:metricsName"
+literal|"microprofile-metrics:metricType:metricName"
 argument_list|,
 name|producerOnly
 operator|=
