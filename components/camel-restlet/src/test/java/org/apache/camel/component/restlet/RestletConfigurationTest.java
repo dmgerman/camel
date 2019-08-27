@@ -147,7 +147,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertNotPresent
+name|assertPresent
 argument_list|(
 name|GsonConverter
 operator|.
