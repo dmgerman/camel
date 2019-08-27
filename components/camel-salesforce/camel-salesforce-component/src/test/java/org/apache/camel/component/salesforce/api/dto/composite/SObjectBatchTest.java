@@ -445,188 +445,185 @@ specifier|final
 name|String
 name|json
 init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)"
-argument_list|,
-name|Pattern
-operator|.
-name|DOTALL
-argument_list|)
-operator|.
-name|matcher
-argument_list|(
-literal|"{\n"
+literal|"{"
 operator|+
-literal|"  \"batchRequests\": [\n"
+literal|"\"batchRequests\":["
 operator|+
-literal|"    {\n"
+literal|"{"
 operator|+
-literal|"      \"method\": \"POST\",\n"
+literal|"\"method\":\"POST\","
 operator|+
-literal|"      \"url\": \"v37.0/sobjects/Account/\",\n"
+literal|"\"url\":\"v37.0/sobjects/Account/\","
 operator|+
-literal|"      \"richInput\": {\n"
+literal|"\"richInput\":{"
 operator|+
-literal|"        \"attributes\": {\n"
+literal|"\"attributes\":{"
 operator|+
-literal|"          \"type\": \"Account\"\n"
+literal|"\"referenceId\":null,"
 operator|+
-literal|"        },\n"
+literal|"\"type\":\"Account\","
 operator|+
-literal|"        \"Industry\": \"Environmental\",\n"
+literal|"\"url\":null"
 operator|+
-literal|"        \"Name\": \"NewAccountName\"\n"
+literal|"},"
 operator|+
-literal|"      }\n"
+literal|"\"Industry\":\"Environmental\","
 operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"DELETE\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/sobjects/Account/001D000000K0fXOIAZ\"\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"GET\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/sobjects/Account/001D000000K0fXOIAZ?fields=Name,BillingPostalCode\"\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"GET\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/sobjects/Account/EPK/12345\"\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"GET\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/sobjects/Account/001D000000K0fXOIAZ/CreatedBy?fields=Name\"\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"GET\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/limits/\"\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"PATCH\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/sobjects/Account/001D000000K0fXOIAZ\",\n"
-operator|+
-literal|"      \"richInput\": {\n"
-operator|+
-literal|"        \"attributes\": {\n"
-operator|+
-literal|"          \"type\": \"Account\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"AccountNumber\": \"AC12345\",\n"
-operator|+
-literal|"        \"Name\": \"NewName\"\n"
-operator|+
-literal|"      }\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"PATCH\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/sobjects/Account/EPK/12345\",\n"
-operator|+
-literal|"      \"richInput\": {\n"
-operator|+
-literal|"        \"attributes\": {\n"
-operator|+
-literal|"          \"type\": \"Account\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"Name\": \"NewName\"\n"
-operator|+
-literal|"      }\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"PATCH\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/sobjects/Account/EPK/12345\",\n"
-operator|+
-literal|"      \"richInput\": {\n"
-operator|+
-literal|"        \"attributes\": {\n"
-operator|+
-literal|"          \"type\": \"Account\"\n"
-operator|+
-literal|"        },\n"
-operator|+
-literal|"        \"Name\": \"NewName\"\n"
-operator|+
-literal|"      }\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"PATCH\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/some/url\"\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"GET\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/query/?q=SELECT Name FROM Account\"\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"GET\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/queryAll/?q=SELECT Name FROM Account\"\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    {\n"
-operator|+
-literal|"      \"method\": \"GET\",\n"
-operator|+
-literal|"      \"url\": \"v37.0/search/?q=FIND {joe}\"\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"  ]\n"
+literal|"\"Name\":\"NewAccountName\""
 operator|+
 literal|"}"
-argument_list|)
-operator|.
-name|replaceAll
-argument_list|(
-literal|""
-argument_list|)
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"DELETE\","
+operator|+
+literal|"\"url\":\"v37.0/sobjects/Account/001D000000K0fXOIAZ\""
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"GET\","
+operator|+
+literal|"\"url\":\"v37.0/sobjects/Account/001D000000K0fXOIAZ?fields=Name,BillingPostalCode\""
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"GET\","
+operator|+
+literal|"\"url\":\"v37.0/sobjects/Account/EPK/12345\""
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"GET\","
+operator|+
+literal|"\"url\":\"v37.0/sobjects/Account/001D000000K0fXOIAZ/CreatedBy?fields=Name\""
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"GET\","
+operator|+
+literal|"\"url\":\"v37.0/limits/\""
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"PATCH\","
+operator|+
+literal|"\"url\":\"v37.0/sobjects/Account/001D000000K0fXOIAZ\","
+operator|+
+literal|"\"richInput\":{"
+operator|+
+literal|"\"attributes\":{"
+operator|+
+literal|"\"referenceId\":null,"
+operator|+
+literal|"\"type\":\"Account\","
+operator|+
+literal|"\"url\":null"
+operator|+
+literal|"},"
+operator|+
+literal|"\"AccountNumber\":\"AC12345\","
+operator|+
+literal|"\"Name\":\"NewName\""
+operator|+
+literal|"}"
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"PATCH\","
+operator|+
+literal|"\"url\":\"v37.0/sobjects/Account/EPK/12345\","
+operator|+
+literal|"\"richInput\":{"
+operator|+
+literal|"\"attributes\":{"
+operator|+
+literal|"\"referenceId\":null,"
+operator|+
+literal|"\"type\":\"Account\","
+operator|+
+literal|"\"url\":null"
+operator|+
+literal|"},"
+operator|+
+literal|"\"Name\":\"NewName\""
+operator|+
+literal|"}"
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"PATCH\","
+operator|+
+literal|"\"url\":\"v37.0/sobjects/Account/EPK/12345\","
+operator|+
+literal|"\"richInput\":{"
+operator|+
+literal|"\"attributes\":{"
+operator|+
+literal|"\"referenceId\":null,"
+operator|+
+literal|"\"type\":\"Account\","
+operator|+
+literal|"\"url\":null"
+operator|+
+literal|"},"
+operator|+
+literal|"\"Name\":\"NewName\""
+operator|+
+literal|"}"
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"PATCH\","
+operator|+
+literal|"\"url\":\"v37.0/some/url\""
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"GET\","
+operator|+
+literal|"\"url\":\"v37.0/query/?q=SELECT Name FROM Account\""
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"GET\","
+operator|+
+literal|"\"url\":\"v37.0/queryAll/?q=SELECT Name FROM Account\""
+operator|+
+literal|"},"
+operator|+
+literal|"{"
+operator|+
+literal|"\"method\":\"GET\","
+operator|+
+literal|"\"url\":\"v37.0/search/?q=FIND {joe}\""
+operator|+
+literal|"}"
+operator|+
+literal|"]"
+operator|+
+literal|"}"
 decl_stmt|;
 specifier|final
 name|ObjectMapper

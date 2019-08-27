@@ -196,9 +196,6 @@ specifier|public
 name|Contact
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|getAttributes
 argument_list|()
 operator|.

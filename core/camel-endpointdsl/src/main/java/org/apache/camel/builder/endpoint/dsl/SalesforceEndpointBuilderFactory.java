@@ -1164,48 +1164,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|serializeNulls ( boolean serializeNulls)
-specifier|default
-name|SalesforceEndpointConsumerBuilder
-name|serializeNulls
-parameter_list|(
-name|boolean
-name|serializeNulls
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"serializeNulls"
-argument_list|,
-name|serializeNulls
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|serializeNulls ( String serializeNulls)
-specifier|default
-name|SalesforceEndpointConsumerBuilder
-name|serializeNulls
-parameter_list|(
-name|String
-name|serializeNulls
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"serializeNulls"
-argument_list|,
-name|serializeNulls
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * SObject blob field name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectBlobFieldName ( String sObjectBlobFieldName)
 specifier|default
@@ -2751,48 +2709,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|serializeNulls ( boolean serializeNulls)
-specifier|default
-name|SalesforceEndpointProducerBuilder
-name|serializeNulls
-parameter_list|(
-name|boolean
-name|serializeNulls
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"serializeNulls"
-argument_list|,
-name|serializeNulls
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|serializeNulls ( String serializeNulls)
-specifier|default
-name|SalesforceEndpointProducerBuilder
-name|serializeNulls
-parameter_list|(
-name|String
-name|serializeNulls
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"serializeNulls"
-argument_list|,
-name|serializeNulls
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * SObject blob field name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|sObjectBlobFieldName ( String sObjectBlobFieldName)
 specifier|default
@@ -4208,48 +4124,6 @@ argument_list|(
 literal|"resultId"
 argument_list|,
 name|resultId
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|serializeNulls (boolean serializeNulls)
-specifier|default
-name|SalesforceEndpointBuilder
-name|serializeNulls
-parameter_list|(
-name|boolean
-name|serializeNulls
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"serializeNulls"
-argument_list|,
-name|serializeNulls
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|serializeNulls (String serializeNulls)
-specifier|default
-name|SalesforceEndpointBuilder
-name|serializeNulls
-parameter_list|(
-name|String
-name|serializeNulls
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"serializeNulls"
-argument_list|,
-name|serializeNulls
 argument_list|)
 expr_stmt|;
 return|return

@@ -47,6 +47,7 @@ block|{
 annotation|@
 name|XStreamAsAttribute
 DECL|field|referenceId
+specifier|private
 name|String
 name|referenceId
 decl_stmt|;

@@ -879,7 +879,6 @@ argument_list|,
 literal|"Asset.java"
 argument_list|)
 argument_list|,
-comment|//
 name|testCase
 argument_list|(
 literal|"with_reference.json"
