@@ -3794,6 +3794,14 @@ operator|=
 literal|"packag"
 expr_stmt|;
 break|break;
+case|case
+literal|"rest"
+case|:
+name|s
+operator|=
+literal|"restEndpoint"
+expr_stmt|;
+break|break;
 block|}
 block|}
 return|return
