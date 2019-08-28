@@ -158,7 +158,7 @@ name|int
 name|size
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"size"
 argument_list|,
@@ -179,7 +179,7 @@ name|String
 name|size
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"size"
 argument_list|,
@@ -200,7 +200,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -221,7 +221,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -242,7 +242,7 @@ name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -263,7 +263,7 @@ name|String
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -284,7 +284,7 @@ name|boolean
 name|multipleConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multipleConsumers"
 argument_list|,
@@ -305,7 +305,7 @@ name|String
 name|multipleConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multipleConsumers"
 argument_list|,
@@ -326,7 +326,7 @@ name|DisruptorWaitStrategy
 name|waitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"waitStrategy"
 argument_list|,
@@ -347,7 +347,7 @@ name|String
 name|waitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"waitStrategy"
 argument_list|,
@@ -390,7 +390,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -411,7 +411,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -432,7 +432,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -453,7 +453,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -474,7 +474,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -495,7 +495,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -516,7 +516,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -537,7 +537,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -580,7 +580,7 @@ name|int
 name|size
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"size"
 argument_list|,
@@ -601,7 +601,7 @@ name|String
 name|size
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"size"
 argument_list|,
@@ -622,7 +622,7 @@ name|boolean
 name|blockWhenFull
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockWhenFull"
 argument_list|,
@@ -643,7 +643,7 @@ name|String
 name|blockWhenFull
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockWhenFull"
 argument_list|,
@@ -664,7 +664,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -685,7 +685,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -706,7 +706,7 @@ name|DisruptorProducerType
 name|producerType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"producerType"
 argument_list|,
@@ -727,7 +727,7 @@ name|String
 name|producerType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"producerType"
 argument_list|,
@@ -748,7 +748,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -769,7 +769,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -790,7 +790,7 @@ name|WaitForTaskToComplete
 name|waitForTaskToComplete
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"waitForTaskToComplete"
 argument_list|,
@@ -811,7 +811,7 @@ name|String
 name|waitForTaskToComplete
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"waitForTaskToComplete"
 argument_list|,
@@ -854,7 +854,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -875,7 +875,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -896,7 +896,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -917,7 +917,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -962,7 +962,7 @@ name|int
 name|size
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"size"
 argument_list|,
@@ -983,7 +983,7 @@ name|String
 name|size
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"size"
 argument_list|,
@@ -1028,7 +1028,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1049,7 +1049,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1070,7 +1070,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1091,7 +1091,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

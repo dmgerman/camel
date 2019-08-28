@@ -120,7 +120,7 @@ name|String
 name|accept
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accept"
 argument_list|,
@@ -141,7 +141,7 @@ name|boolean
 name|disableStreamCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disableStreamCache"
 argument_list|,
@@ -162,7 +162,7 @@ name|String
 name|disableStreamCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disableStreamCache"
 argument_list|,
@@ -183,7 +183,7 @@ name|boolean
 name|mapHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapHeaders"
 argument_list|,
@@ -204,7 +204,7 @@ name|String
 name|mapHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapHeaders"
 argument_list|,
@@ -225,7 +225,7 @@ name|boolean
 name|transferException
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferException"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|transferException
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferException"
 argument_list|,
@@ -267,7 +267,7 @@ name|boolean
 name|urlDecodeHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"urlDecodeHeaders"
 argument_list|,
@@ -288,7 +288,7 @@ name|String
 name|urlDecodeHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"urlDecodeHeaders"
 argument_list|,
@@ -331,7 +331,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -352,7 +352,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -373,7 +373,7 @@ name|boolean
 name|matchOnUriPrefix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"matchOnUriPrefix"
 argument_list|,
@@ -394,7 +394,7 @@ name|String
 name|matchOnUriPrefix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"matchOnUriPrefix"
 argument_list|,
@@ -415,7 +415,7 @@ name|Object
 name|sparkBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sparkBinding"
 argument_list|,
@@ -436,7 +436,7 @@ name|String
 name|sparkBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sparkBinding"
 argument_list|,
@@ -457,7 +457,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -478,7 +478,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

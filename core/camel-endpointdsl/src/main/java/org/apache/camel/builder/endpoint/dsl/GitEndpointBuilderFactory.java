@@ -146,7 +146,7 @@ name|String
 name|branchName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"branchName"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -188,7 +188,7 @@ name|String
 name|remoteName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remoteName"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|remotePath
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remotePath"
 argument_list|,
@@ -230,7 +230,7 @@ name|String
 name|tagName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tagName"
 argument_list|,
@@ -251,7 +251,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -272,7 +272,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -293,7 +293,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -314,7 +314,7 @@ name|GitType
 name|type
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"type"
 argument_list|,
@@ -335,7 +335,7 @@ name|String
 name|type
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"type"
 argument_list|,
@@ -378,7 +378,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -399,7 +399,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -420,7 +420,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -441,7 +441,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -462,7 +462,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -483,7 +483,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -504,7 +504,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -525,7 +525,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -568,7 +568,7 @@ name|String
 name|branchName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"branchName"
 argument_list|,
@@ -589,7 +589,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -610,7 +610,7 @@ name|String
 name|remoteName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remoteName"
 argument_list|,
@@ -631,7 +631,7 @@ name|String
 name|remotePath
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remotePath"
 argument_list|,
@@ -652,7 +652,7 @@ name|String
 name|tagName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tagName"
 argument_list|,
@@ -673,7 +673,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -694,7 +694,7 @@ name|boolean
 name|allowEmpty
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowEmpty"
 argument_list|,
@@ -715,7 +715,7 @@ name|String
 name|allowEmpty
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowEmpty"
 argument_list|,
@@ -736,7 +736,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -757,7 +757,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -778,7 +778,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -821,7 +821,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -842,7 +842,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -863,7 +863,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -884,7 +884,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -929,7 +929,7 @@ name|String
 name|branchName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"branchName"
 argument_list|,
@@ -950,7 +950,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -971,7 +971,7 @@ name|String
 name|remoteName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remoteName"
 argument_list|,
@@ -992,7 +992,7 @@ name|String
 name|remotePath
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remotePath"
 argument_list|,
@@ -1013,7 +1013,7 @@ name|String
 name|tagName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tagName"
 argument_list|,
@@ -1034,7 +1034,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -1079,7 +1079,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1100,7 +1100,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1121,7 +1121,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1142,7 +1142,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

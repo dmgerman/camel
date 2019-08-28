@@ -156,7 +156,7 @@ name|Object
 name|messageFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageFilter"
 argument_list|,
@@ -177,7 +177,7 @@ name|String
 name|messageFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageFilter"
 argument_list|,
@@ -198,7 +198,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -219,7 +219,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -240,7 +240,7 @@ name|Object
 name|endpointDispatcher
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"endpointDispatcher"
 argument_list|,
@@ -261,7 +261,7 @@ name|String
 name|endpointDispatcher
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"endpointDispatcher"
 argument_list|,
@@ -282,7 +282,7 @@ name|Object
 name|endpointMapping
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"endpointMapping"
 argument_list|,
@@ -303,7 +303,7 @@ name|String
 name|endpointMapping
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"endpointMapping"
 argument_list|,
@@ -324,7 +324,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -345,7 +345,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -388,7 +388,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -409,7 +409,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -430,7 +430,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -451,7 +451,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -472,7 +472,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -493,7 +493,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -514,7 +514,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -535,7 +535,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -578,7 +578,7 @@ name|Object
 name|messageFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageFilter"
 argument_list|,
@@ -599,7 +599,7 @@ name|String
 name|messageFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageFilter"
 argument_list|,
@@ -620,7 +620,7 @@ name|boolean
 name|allowResponseAttachmentOverride
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowResponseAttachmentOverride"
 argument_list|,
@@ -641,7 +641,7 @@ name|String
 name|allowResponseAttachmentOverride
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowResponseAttachmentOverride"
 argument_list|,
@@ -662,7 +662,7 @@ name|boolean
 name|allowResponseHeaderOverride
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowResponseHeaderOverride"
 argument_list|,
@@ -683,7 +683,7 @@ name|String
 name|allowResponseHeaderOverride
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowResponseHeaderOverride"
 argument_list|,
@@ -704,7 +704,7 @@ name|URI
 name|faultAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"faultAction"
 argument_list|,
@@ -725,7 +725,7 @@ name|String
 name|faultAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"faultAction"
 argument_list|,
@@ -746,7 +746,7 @@ name|URI
 name|faultTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"faultTo"
 argument_list|,
@@ -767,7 +767,7 @@ name|String
 name|faultTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"faultTo"
 argument_list|,
@@ -788,7 +788,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -809,7 +809,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -830,7 +830,7 @@ name|Object
 name|messageFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageFactory"
 argument_list|,
@@ -851,7 +851,7 @@ name|String
 name|messageFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageFactory"
 argument_list|,
@@ -872,7 +872,7 @@ name|Object
 name|messageIdStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageIdStrategy"
 argument_list|,
@@ -893,7 +893,7 @@ name|String
 name|messageIdStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageIdStrategy"
 argument_list|,
@@ -914,7 +914,7 @@ name|Object
 name|messageSender
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageSender"
 argument_list|,
@@ -935,7 +935,7 @@ name|String
 name|messageSender
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageSender"
 argument_list|,
@@ -956,7 +956,7 @@ name|URI
 name|outputAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputAction"
 argument_list|,
@@ -977,7 +977,7 @@ name|String
 name|outputAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputAction"
 argument_list|,
@@ -998,7 +998,7 @@ name|URI
 name|replyTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"replyTo"
 argument_list|,
@@ -1019,7 +1019,7 @@ name|String
 name|replyTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"replyTo"
 argument_list|,
@@ -1040,7 +1040,7 @@ name|String
 name|soapAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"soapAction"
 argument_list|,
@@ -1061,7 +1061,7 @@ name|int
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -1082,7 +1082,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -1103,7 +1103,7 @@ name|Object
 name|webServiceTemplate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"webServiceTemplate"
 argument_list|,
@@ -1124,7 +1124,7 @@ name|String
 name|webServiceTemplate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"webServiceTemplate"
 argument_list|,
@@ -1145,7 +1145,7 @@ name|URI
 name|wsAddressingAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wsAddressingAction"
 argument_list|,
@@ -1166,7 +1166,7 @@ name|String
 name|wsAddressingAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wsAddressingAction"
 argument_list|,
@@ -1187,7 +1187,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1208,7 +1208,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1251,7 +1251,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1272,7 +1272,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1293,7 +1293,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1314,7 +1314,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1359,7 +1359,7 @@ name|Object
 name|messageFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageFilter"
 argument_list|,
@@ -1380,7 +1380,7 @@ name|String
 name|messageFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageFilter"
 argument_list|,
@@ -1401,7 +1401,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1422,7 +1422,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1467,7 +1467,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1488,7 +1488,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1509,7 +1509,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1530,7 +1530,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

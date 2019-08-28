@@ -158,7 +158,7 @@ name|String
 name|environment
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"environment"
 argument_list|,
@@ -179,7 +179,7 @@ name|String
 name|inBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"inBody"
 argument_list|,
@@ -200,7 +200,7 @@ name|String
 name|merchantId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"merchantId"
 argument_list|,
@@ -221,7 +221,7 @@ name|String
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -242,7 +242,7 @@ name|String
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -263,7 +263,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -284,7 +284,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -305,7 +305,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -326,7 +326,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -347,7 +347,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -390,7 +390,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -411,7 +411,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -432,7 +432,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -453,7 +453,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -474,7 +474,7 @@ name|String
 name|accessToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessToken"
 argument_list|,
@@ -495,7 +495,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -516,7 +516,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -537,7 +537,7 @@ name|Integer
 name|httpReadTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpReadTimeout"
 argument_list|,
@@ -558,7 +558,7 @@ name|String
 name|httpReadTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpReadTimeout"
 argument_list|,
@@ -579,7 +579,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -600,7 +600,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -621,7 +621,7 @@ name|Level
 name|httpLogLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpLogLevel"
 argument_list|,
@@ -642,7 +642,7 @@ name|String
 name|httpLogLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpLogLevel"
 argument_list|,
@@ -685,7 +685,7 @@ name|String
 name|environment
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"environment"
 argument_list|,
@@ -706,7 +706,7 @@ name|String
 name|inBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"inBody"
 argument_list|,
@@ -727,7 +727,7 @@ name|String
 name|merchantId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"merchantId"
 argument_list|,
@@ -748,7 +748,7 @@ name|String
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -769,7 +769,7 @@ name|String
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -790,7 +790,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -811,7 +811,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -832,7 +832,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -853,7 +853,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -874,7 +874,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -917,7 +917,7 @@ name|String
 name|accessToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessToken"
 argument_list|,
@@ -938,7 +938,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -959,7 +959,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -980,7 +980,7 @@ name|Integer
 name|httpReadTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpReadTimeout"
 argument_list|,
@@ -1001,7 +1001,7 @@ name|String
 name|httpReadTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpReadTimeout"
 argument_list|,
@@ -1022,7 +1022,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1043,7 +1043,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1064,7 +1064,7 @@ name|Level
 name|httpLogLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpLogLevel"
 argument_list|,
@@ -1085,7 +1085,7 @@ name|String
 name|httpLogLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpLogLevel"
 argument_list|,
@@ -1130,7 +1130,7 @@ name|String
 name|environment
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"environment"
 argument_list|,
@@ -1151,7 +1151,7 @@ name|String
 name|inBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"inBody"
 argument_list|,
@@ -1172,7 +1172,7 @@ name|String
 name|merchantId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"merchantId"
 argument_list|,
@@ -1193,7 +1193,7 @@ name|String
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -1214,7 +1214,7 @@ name|String
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -1235,7 +1235,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -1256,7 +1256,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1277,7 +1277,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1322,7 +1322,7 @@ name|String
 name|accessToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessToken"
 argument_list|,
@@ -1343,7 +1343,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1364,7 +1364,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1385,7 +1385,7 @@ name|Integer
 name|httpReadTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpReadTimeout"
 argument_list|,
@@ -1406,7 +1406,7 @@ name|String
 name|httpReadTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpReadTimeout"
 argument_list|,
@@ -1427,7 +1427,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1448,7 +1448,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1469,7 +1469,7 @@ name|Level
 name|httpLogLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpLogLevel"
 argument_list|,
@@ -1490,7 +1490,7 @@ name|String
 name|httpLogLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpLogLevel"
 argument_list|,

@@ -146,7 +146,7 @@ name|HazelcastOperation
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -188,7 +188,7 @@ name|Object
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -230,7 +230,7 @@ name|String
 name|hazelcastInstanceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstanceName"
 argument_list|,
@@ -251,7 +251,7 @@ name|boolean
 name|reliable
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reliable"
 argument_list|,
@@ -272,7 +272,7 @@ name|String
 name|reliable
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reliable"
 argument_list|,
@@ -293,7 +293,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -314,7 +314,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -357,7 +357,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -378,7 +378,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -399,7 +399,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -420,7 +420,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -441,7 +441,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -462,7 +462,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -483,7 +483,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -504,7 +504,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -547,7 +547,7 @@ name|HazelcastOperation
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -568,7 +568,7 @@ name|String
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -589,7 +589,7 @@ name|Object
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -610,7 +610,7 @@ name|String
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -631,7 +631,7 @@ name|String
 name|hazelcastInstanceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstanceName"
 argument_list|,
@@ -652,7 +652,7 @@ name|boolean
 name|reliable
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reliable"
 argument_list|,
@@ -673,7 +673,7 @@ name|String
 name|reliable
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reliable"
 argument_list|,
@@ -694,7 +694,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -715,7 +715,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -758,7 +758,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -779,7 +779,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -800,7 +800,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -821,7 +821,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -866,7 +866,7 @@ name|HazelcastOperation
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -887,7 +887,7 @@ name|String
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -908,7 +908,7 @@ name|Object
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -929,7 +929,7 @@ name|String
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -950,7 +950,7 @@ name|String
 name|hazelcastInstanceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstanceName"
 argument_list|,
@@ -971,7 +971,7 @@ name|boolean
 name|reliable
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reliable"
 argument_list|,
@@ -992,7 +992,7 @@ name|String
 name|reliable
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reliable"
 argument_list|,
@@ -1037,7 +1037,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1058,7 +1058,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1079,7 +1079,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1100,7 +1100,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

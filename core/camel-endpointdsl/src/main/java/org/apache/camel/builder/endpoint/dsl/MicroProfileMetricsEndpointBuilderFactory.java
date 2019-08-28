@@ -120,7 +120,7 @@ name|String
 name|action
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"action"
 argument_list|,
@@ -141,7 +141,7 @@ name|Long
 name|counterIncrement
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"counterIncrement"
 argument_list|,
@@ -162,7 +162,7 @@ name|String
 name|counterIncrement
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"counterIncrement"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|description
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"description"
 argument_list|,
@@ -204,7 +204,7 @@ name|String
 name|displayName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"displayName"
 argument_list|,
@@ -225,7 +225,7 @@ name|Boolean
 name|gaugeDecrement
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"gaugeDecrement"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|gaugeDecrement
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"gaugeDecrement"
 argument_list|,
@@ -267,7 +267,7 @@ name|Boolean
 name|gaugeIncrement
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"gaugeIncrement"
 argument_list|,
@@ -288,7 +288,7 @@ name|String
 name|gaugeIncrement
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"gaugeIncrement"
 argument_list|,
@@ -309,7 +309,7 @@ name|Long
 name|mark
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mark"
 argument_list|,
@@ -330,7 +330,7 @@ name|String
 name|mark
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mark"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|metricUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"metricUnit"
 argument_list|,
@@ -372,7 +372,7 @@ name|String
 name|tags
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tags"
 argument_list|,
@@ -393,7 +393,7 @@ name|Long
 name|value
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"value"
 argument_list|,
@@ -414,7 +414,7 @@ name|String
 name|value
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"value"
 argument_list|,
@@ -457,7 +457,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -478,7 +478,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -499,7 +499,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -520,7 +520,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

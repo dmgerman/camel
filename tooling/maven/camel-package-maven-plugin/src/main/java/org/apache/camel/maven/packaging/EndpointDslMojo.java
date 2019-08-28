@@ -2721,7 +2721,7 @@ argument_list|)
 operator|.
 name|setBody
 argument_list|(
-literal|"setProperty(\""
+literal|"doSetProperty(\""
 operator|+
 name|option
 operator|.
@@ -2947,7 +2947,7 @@ argument_list|)
 operator|.
 name|setBody
 argument_list|(
-literal|"setProperty(\""
+literal|"doSetProperty(\""
 operator|+
 name|option
 operator|.

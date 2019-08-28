@@ -146,7 +146,7 @@ name|long
 name|ackGroupTimeMillis
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ackGroupTimeMillis"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|ackGroupTimeMillis
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ackGroupTimeMillis"
 argument_list|,
@@ -188,7 +188,7 @@ name|long
 name|ackTimeoutMillis
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ackTimeoutMillis"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|ackTimeoutMillis
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ackTimeoutMillis"
 argument_list|,
@@ -230,7 +230,7 @@ name|boolean
 name|allowManualAcknowledgement
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowManualAcknowledgement"
 argument_list|,
@@ -251,7 +251,7 @@ name|String
 name|allowManualAcknowledgement
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowManualAcknowledgement"
 argument_list|,
@@ -272,7 +272,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -293,7 +293,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -314,7 +314,7 @@ name|String
 name|consumerName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerName"
 argument_list|,
@@ -335,7 +335,7 @@ name|String
 name|consumerNamePrefix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerNamePrefix"
 argument_list|,
@@ -356,7 +356,7 @@ name|int
 name|consumerQueueSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerQueueSize"
 argument_list|,
@@ -377,7 +377,7 @@ name|String
 name|consumerQueueSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerQueueSize"
 argument_list|,
@@ -398,7 +398,7 @@ name|int
 name|numberOfConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"numberOfConsumers"
 argument_list|,
@@ -419,7 +419,7 @@ name|String
 name|numberOfConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"numberOfConsumers"
 argument_list|,
@@ -440,7 +440,7 @@ name|String
 name|subscriptionName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"subscriptionName"
 argument_list|,
@@ -461,7 +461,7 @@ name|SubscriptionType
 name|subscriptionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"subscriptionType"
 argument_list|,
@@ -482,7 +482,7 @@ name|String
 name|subscriptionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"subscriptionType"
 argument_list|,
@@ -525,7 +525,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -546,7 +546,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -567,7 +567,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -588,7 +588,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -609,7 +609,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -630,7 +630,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -651,7 +651,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -672,7 +672,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -715,7 +715,7 @@ name|boolean
 name|batchingEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"batchingEnabled"
 argument_list|,
@@ -736,7 +736,7 @@ name|String
 name|batchingEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"batchingEnabled"
 argument_list|,
@@ -757,7 +757,7 @@ name|int
 name|batchingMaxMessages
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"batchingMaxMessages"
 argument_list|,
@@ -778,7 +778,7 @@ name|String
 name|batchingMaxMessages
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"batchingMaxMessages"
 argument_list|,
@@ -799,7 +799,7 @@ name|long
 name|batchingMaxPublishDelayMicros
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"batchingMaxPublishDelayMicros"
 argument_list|,
@@ -820,7 +820,7 @@ name|String
 name|batchingMaxPublishDelayMicros
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"batchingMaxPublishDelayMicros"
 argument_list|,
@@ -841,7 +841,7 @@ name|boolean
 name|blockIfQueueFull
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockIfQueueFull"
 argument_list|,
@@ -862,7 +862,7 @@ name|String
 name|blockIfQueueFull
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockIfQueueFull"
 argument_list|,
@@ -883,7 +883,7 @@ name|CompressionType
 name|compressionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionType"
 argument_list|,
@@ -904,7 +904,7 @@ name|String
 name|compressionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionType"
 argument_list|,
@@ -925,7 +925,7 @@ name|long
 name|initialSequenceId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialSequenceId"
 argument_list|,
@@ -946,7 +946,7 @@ name|String
 name|initialSequenceId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialSequenceId"
 argument_list|,
@@ -967,7 +967,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -988,7 +988,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|int
 name|maxPendingMessages
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxPendingMessages"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|String
 name|maxPendingMessages
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxPendingMessages"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|int
 name|maxPendingMessagesAcrossPartitions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxPendingMessagesAcrossPartitions"
 argument_list|,
@@ -1072,7 +1072,7 @@ name|String
 name|maxPendingMessagesAcrossPartitions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxPendingMessagesAcrossPartitions"
 argument_list|,
@@ -1093,7 +1093,7 @@ name|String
 name|producerName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"producerName"
 argument_list|,
@@ -1114,7 +1114,7 @@ name|int
 name|sendTimeoutMs
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendTimeoutMs"
 argument_list|,
@@ -1135,7 +1135,7 @@ name|String
 name|sendTimeoutMs
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendTimeoutMs"
 argument_list|,
@@ -1178,7 +1178,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1199,7 +1199,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1220,7 +1220,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1241,7 +1241,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1310,7 +1310,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1331,7 +1331,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1352,7 +1352,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1373,7 +1373,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

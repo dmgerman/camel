@@ -146,7 +146,7 @@ name|String
 name|bucket
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bucket"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|database
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"database"
 argument_list|,
@@ -188,7 +188,7 @@ name|Object
 name|readPreference
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readPreference"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|readPreference
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readPreference"
 argument_list|,
@@ -230,7 +230,7 @@ name|Object
 name|writeConcern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeConcern"
 argument_list|,
@@ -251,7 +251,7 @@ name|String
 name|writeConcern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeConcern"
 argument_list|,
@@ -272,7 +272,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -293,7 +293,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -314,7 +314,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -335,7 +335,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -356,7 +356,7 @@ name|String
 name|fileAttributeName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileAttributeName"
 argument_list|,
@@ -377,7 +377,7 @@ name|long
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -398,7 +398,7 @@ name|String
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -419,7 +419,7 @@ name|String
 name|persistentTSCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentTSCollection"
 argument_list|,
@@ -440,7 +440,7 @@ name|String
 name|persistentTSObject
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentTSObject"
 argument_list|,
@@ -461,7 +461,7 @@ name|String
 name|query
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"query"
 argument_list|,
@@ -482,7 +482,7 @@ name|QueryStrategy
 name|queryStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queryStrategy"
 argument_list|,
@@ -503,7 +503,7 @@ name|String
 name|queryStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queryStrategy"
 argument_list|,
@@ -546,7 +546,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -567,7 +567,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -588,7 +588,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -609,7 +609,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -630,7 +630,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -651,7 +651,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -672,7 +672,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -693,7 +693,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -736,7 +736,7 @@ name|String
 name|bucket
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bucket"
 argument_list|,
@@ -757,7 +757,7 @@ name|String
 name|database
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"database"
 argument_list|,
@@ -778,7 +778,7 @@ name|Object
 name|readPreference
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readPreference"
 argument_list|,
@@ -799,7 +799,7 @@ name|String
 name|readPreference
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readPreference"
 argument_list|,
@@ -820,7 +820,7 @@ name|Object
 name|writeConcern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeConcern"
 argument_list|,
@@ -841,7 +841,7 @@ name|String
 name|writeConcern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeConcern"
 argument_list|,
@@ -862,7 +862,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -904,7 +904,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -947,7 +947,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -968,7 +968,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -989,7 +989,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1010,7 +1010,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1055,7 +1055,7 @@ name|String
 name|bucket
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bucket"
 argument_list|,
@@ -1076,7 +1076,7 @@ name|String
 name|database
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"database"
 argument_list|,
@@ -1097,7 +1097,7 @@ name|Object
 name|readPreference
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readPreference"
 argument_list|,
@@ -1118,7 +1118,7 @@ name|String
 name|readPreference
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readPreference"
 argument_list|,
@@ -1139,7 +1139,7 @@ name|Object
 name|writeConcern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeConcern"
 argument_list|,
@@ -1160,7 +1160,7 @@ name|String
 name|writeConcern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeConcern"
 argument_list|,
@@ -1205,7 +1205,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1226,7 +1226,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1247,7 +1247,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1268,7 +1268,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

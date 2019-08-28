@@ -206,7 +206,7 @@ name|boolean
 name|failOnUnknownHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnUnknownHost"
 argument_list|,
@@ -227,7 +227,7 @@ name|String
 name|failOnUnknownHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnUnknownHost"
 argument_list|,
@@ -248,7 +248,7 @@ name|String
 name|knownHostsResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"knownHostsResource"
 argument_list|,
@@ -269,7 +269,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -290,7 +290,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -311,7 +311,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -332,7 +332,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -353,7 +353,7 @@ name|String
 name|pollCommand
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollCommand"
 argument_list|,
@@ -374,7 +374,7 @@ name|boolean
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -395,7 +395,7 @@ name|String
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -416,7 +416,7 @@ name|int
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -437,7 +437,7 @@ name|String
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -458,7 +458,7 @@ name|int
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -479,7 +479,7 @@ name|String
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -500,7 +500,7 @@ name|int
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -521,7 +521,7 @@ name|String
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -542,7 +542,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -563,7 +563,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -584,7 +584,7 @@ name|boolean
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -605,7 +605,7 @@ name|String
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -626,7 +626,7 @@ name|long
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -647,7 +647,7 @@ name|String
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -668,7 +668,7 @@ name|LoggingLevel
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -689,7 +689,7 @@ name|String
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -710,7 +710,7 @@ name|ScheduledExecutorService
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -731,7 +731,7 @@ name|String
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -752,7 +752,7 @@ name|String
 name|scheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduler"
 argument_list|,
@@ -778,7 +778,7 @@ argument_list|>
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -799,7 +799,7 @@ name|String
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -820,7 +820,7 @@ name|boolean
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -841,7 +841,7 @@ name|String
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -862,7 +862,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -904,7 +904,7 @@ name|boolean
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -925,7 +925,7 @@ name|String
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -946,7 +946,7 @@ name|String
 name|certResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"certResource"
 argument_list|,
@@ -967,7 +967,7 @@ name|String
 name|certResourcePassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"certResourcePassword"
 argument_list|,
@@ -988,7 +988,7 @@ name|Object
 name|keyPairProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyPairProvider"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|String
 name|keyPairProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyPairProvider"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -1072,7 +1072,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -1115,7 +1115,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1136,7 +1136,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1157,7 +1157,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1178,7 +1178,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1199,7 +1199,7 @@ name|PollingConsumerPollStrategy
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1220,7 +1220,7 @@ name|String
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1241,7 +1241,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1262,7 +1262,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1283,7 +1283,7 @@ name|String
 name|channelType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"channelType"
 argument_list|,
@@ -1304,7 +1304,7 @@ name|String
 name|shellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"shellPrompt"
 argument_list|,
@@ -1325,7 +1325,7 @@ name|long
 name|sleepForShellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sleepForShellPrompt"
 argument_list|,
@@ -1346,7 +1346,7 @@ name|String
 name|sleepForShellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sleepForShellPrompt"
 argument_list|,
@@ -1367,7 +1367,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1388,7 +1388,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1431,7 +1431,7 @@ name|boolean
 name|failOnUnknownHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnUnknownHost"
 argument_list|,
@@ -1452,7 +1452,7 @@ name|String
 name|failOnUnknownHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnUnknownHost"
 argument_list|,
@@ -1473,7 +1473,7 @@ name|String
 name|knownHostsResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"knownHostsResource"
 argument_list|,
@@ -1494,7 +1494,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -1515,7 +1515,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -1536,7 +1536,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1557,7 +1557,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1578,7 +1578,7 @@ name|String
 name|certResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"certResource"
 argument_list|,
@@ -1599,7 +1599,7 @@ name|String
 name|certResourcePassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"certResourcePassword"
 argument_list|,
@@ -1620,7 +1620,7 @@ name|Object
 name|keyPairProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyPairProvider"
 argument_list|,
@@ -1641,7 +1641,7 @@ name|String
 name|keyPairProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyPairProvider"
 argument_list|,
@@ -1662,7 +1662,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -1683,7 +1683,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -1704,7 +1704,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -1747,7 +1747,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1768,7 +1768,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1789,7 +1789,7 @@ name|String
 name|channelType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"channelType"
 argument_list|,
@@ -1810,7 +1810,7 @@ name|String
 name|shellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"shellPrompt"
 argument_list|,
@@ -1831,7 +1831,7 @@ name|long
 name|sleepForShellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sleepForShellPrompt"
 argument_list|,
@@ -1852,7 +1852,7 @@ name|String
 name|sleepForShellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sleepForShellPrompt"
 argument_list|,
@@ -1873,7 +1873,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1894,7 +1894,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1939,7 +1939,7 @@ name|boolean
 name|failOnUnknownHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnUnknownHost"
 argument_list|,
@@ -1960,7 +1960,7 @@ name|String
 name|failOnUnknownHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnUnknownHost"
 argument_list|,
@@ -1981,7 +1981,7 @@ name|String
 name|knownHostsResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"knownHostsResource"
 argument_list|,
@@ -2002,7 +2002,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -2023,7 +2023,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -2044,7 +2044,7 @@ name|String
 name|certResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"certResource"
 argument_list|,
@@ -2065,7 +2065,7 @@ name|String
 name|certResourcePassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"certResourcePassword"
 argument_list|,
@@ -2086,7 +2086,7 @@ name|Object
 name|keyPairProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyPairProvider"
 argument_list|,
@@ -2107,7 +2107,7 @@ name|String
 name|keyPairProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyPairProvider"
 argument_list|,
@@ -2128,7 +2128,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -2149,7 +2149,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -2170,7 +2170,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -2215,7 +2215,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2236,7 +2236,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2257,7 +2257,7 @@ name|String
 name|channelType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"channelType"
 argument_list|,
@@ -2278,7 +2278,7 @@ name|String
 name|shellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"shellPrompt"
 argument_list|,
@@ -2299,7 +2299,7 @@ name|long
 name|sleepForShellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sleepForShellPrompt"
 argument_list|,
@@ -2320,7 +2320,7 @@ name|String
 name|sleepForShellPrompt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sleepForShellPrompt"
 argument_list|,
@@ -2341,7 +2341,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2362,7 +2362,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

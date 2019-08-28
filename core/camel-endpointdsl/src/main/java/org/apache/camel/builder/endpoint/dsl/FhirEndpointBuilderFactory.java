@@ -146,7 +146,7 @@ name|EncodingEnum
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -188,7 +188,7 @@ name|FhirVersionEnum
 name|fhirVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirVersion"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|fhirVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirVersion"
 argument_list|,
@@ -230,7 +230,7 @@ name|String
 name|inBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"inBody"
 argument_list|,
@@ -251,7 +251,7 @@ name|boolean
 name|log
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"log"
 argument_list|,
@@ -272,7 +272,7 @@ name|String
 name|log
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"log"
 argument_list|,
@@ -293,7 +293,7 @@ name|boolean
 name|prettyPrint
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prettyPrint"
 argument_list|,
@@ -314,7 +314,7 @@ name|String
 name|prettyPrint
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prettyPrint"
 argument_list|,
@@ -335,7 +335,7 @@ name|String
 name|serverUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serverUrl"
 argument_list|,
@@ -356,7 +356,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -377,7 +377,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -398,7 +398,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -419,7 +419,7 @@ name|String
 name|proxyPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPassword"
 argument_list|,
@@ -440,7 +440,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -461,7 +461,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -482,7 +482,7 @@ name|String
 name|proxyUser
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyUser"
 argument_list|,
@@ -503,7 +503,7 @@ name|String
 name|accessToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessToken"
 argument_list|,
@@ -524,7 +524,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -545,7 +545,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -588,7 +588,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -609,7 +609,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -630,7 +630,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -651,7 +651,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -672,7 +672,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -693,7 +693,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -714,7 +714,7 @@ name|Object
 name|client
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"client"
 argument_list|,
@@ -735,7 +735,7 @@ name|String
 name|client
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"client"
 argument_list|,
@@ -756,7 +756,7 @@ name|Object
 name|clientFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientFactory"
 argument_list|,
@@ -777,7 +777,7 @@ name|String
 name|clientFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientFactory"
 argument_list|,
@@ -798,7 +798,7 @@ name|boolean
 name|compress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compress"
 argument_list|,
@@ -819,7 +819,7 @@ name|String
 name|compress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compress"
 argument_list|,
@@ -840,7 +840,7 @@ name|Integer
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -861,7 +861,7 @@ name|String
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -882,7 +882,7 @@ name|boolean
 name|deferModelScanning
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deferModelScanning"
 argument_list|,
@@ -903,7 +903,7 @@ name|String
 name|deferModelScanning
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deferModelScanning"
 argument_list|,
@@ -924,7 +924,7 @@ name|Object
 name|fhirContext
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirContext"
 argument_list|,
@@ -945,7 +945,7 @@ name|String
 name|fhirContext
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirContext"
 argument_list|,
@@ -966,7 +966,7 @@ name|boolean
 name|forceConformanceCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"forceConformanceCheck"
 argument_list|,
@@ -987,7 +987,7 @@ name|String
 name|forceConformanceCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"forceConformanceCheck"
 argument_list|,
@@ -1008,7 +1008,7 @@ name|String
 name|sessionCookie
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sessionCookie"
 argument_list|,
@@ -1029,7 +1029,7 @@ name|Integer
 name|socketTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"socketTimeout"
 argument_list|,
@@ -1050,7 +1050,7 @@ name|String
 name|socketTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"socketTimeout"
 argument_list|,
@@ -1071,7 +1071,7 @@ name|SummaryEnum
 name|summary
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"summary"
 argument_list|,
@@ -1092,7 +1092,7 @@ name|String
 name|summary
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"summary"
 argument_list|,
@@ -1113,7 +1113,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1134,7 +1134,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1155,7 +1155,7 @@ name|ServerValidationModeEnum
 name|validationMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"validationMode"
 argument_list|,
@@ -1176,7 +1176,7 @@ name|String
 name|validationMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"validationMode"
 argument_list|,
@@ -1219,7 +1219,7 @@ name|EncodingEnum
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -1240,7 +1240,7 @@ name|String
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -1261,7 +1261,7 @@ name|FhirVersionEnum
 name|fhirVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirVersion"
 argument_list|,
@@ -1282,7 +1282,7 @@ name|String
 name|fhirVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirVersion"
 argument_list|,
@@ -1303,7 +1303,7 @@ name|String
 name|inBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"inBody"
 argument_list|,
@@ -1324,7 +1324,7 @@ name|boolean
 name|log
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"log"
 argument_list|,
@@ -1345,7 +1345,7 @@ name|String
 name|log
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"log"
 argument_list|,
@@ -1366,7 +1366,7 @@ name|boolean
 name|prettyPrint
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prettyPrint"
 argument_list|,
@@ -1387,7 +1387,7 @@ name|String
 name|prettyPrint
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prettyPrint"
 argument_list|,
@@ -1408,7 +1408,7 @@ name|String
 name|serverUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serverUrl"
 argument_list|,
@@ -1429,7 +1429,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1450,7 +1450,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1471,7 +1471,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -1492,7 +1492,7 @@ name|String
 name|proxyPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPassword"
 argument_list|,
@@ -1513,7 +1513,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1534,7 +1534,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1555,7 +1555,7 @@ name|String
 name|proxyUser
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyUser"
 argument_list|,
@@ -1576,7 +1576,7 @@ name|String
 name|accessToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessToken"
 argument_list|,
@@ -1597,7 +1597,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -1618,7 +1618,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -1661,7 +1661,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1682,7 +1682,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1703,7 +1703,7 @@ name|Object
 name|client
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"client"
 argument_list|,
@@ -1724,7 +1724,7 @@ name|String
 name|client
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"client"
 argument_list|,
@@ -1745,7 +1745,7 @@ name|Object
 name|clientFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientFactory"
 argument_list|,
@@ -1766,7 +1766,7 @@ name|String
 name|clientFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientFactory"
 argument_list|,
@@ -1787,7 +1787,7 @@ name|boolean
 name|compress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compress"
 argument_list|,
@@ -1808,7 +1808,7 @@ name|String
 name|compress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compress"
 argument_list|,
@@ -1829,7 +1829,7 @@ name|Integer
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -1850,7 +1850,7 @@ name|String
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -1871,7 +1871,7 @@ name|boolean
 name|deferModelScanning
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deferModelScanning"
 argument_list|,
@@ -1892,7 +1892,7 @@ name|String
 name|deferModelScanning
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deferModelScanning"
 argument_list|,
@@ -1913,7 +1913,7 @@ name|Object
 name|fhirContext
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirContext"
 argument_list|,
@@ -1934,7 +1934,7 @@ name|String
 name|fhirContext
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirContext"
 argument_list|,
@@ -1955,7 +1955,7 @@ name|boolean
 name|forceConformanceCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"forceConformanceCheck"
 argument_list|,
@@ -1976,7 +1976,7 @@ name|String
 name|forceConformanceCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"forceConformanceCheck"
 argument_list|,
@@ -1997,7 +1997,7 @@ name|String
 name|sessionCookie
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sessionCookie"
 argument_list|,
@@ -2018,7 +2018,7 @@ name|Integer
 name|socketTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"socketTimeout"
 argument_list|,
@@ -2039,7 +2039,7 @@ name|String
 name|socketTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"socketTimeout"
 argument_list|,
@@ -2060,7 +2060,7 @@ name|SummaryEnum
 name|summary
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"summary"
 argument_list|,
@@ -2081,7 +2081,7 @@ name|String
 name|summary
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"summary"
 argument_list|,
@@ -2102,7 +2102,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2123,7 +2123,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2144,7 +2144,7 @@ name|ServerValidationModeEnum
 name|validationMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"validationMode"
 argument_list|,
@@ -2165,7 +2165,7 @@ name|String
 name|validationMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"validationMode"
 argument_list|,
@@ -2210,7 +2210,7 @@ name|EncodingEnum
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -2231,7 +2231,7 @@ name|String
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -2252,7 +2252,7 @@ name|FhirVersionEnum
 name|fhirVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirVersion"
 argument_list|,
@@ -2273,7 +2273,7 @@ name|String
 name|fhirVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirVersion"
 argument_list|,
@@ -2294,7 +2294,7 @@ name|String
 name|inBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"inBody"
 argument_list|,
@@ -2315,7 +2315,7 @@ name|boolean
 name|log
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"log"
 argument_list|,
@@ -2336,7 +2336,7 @@ name|String
 name|log
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"log"
 argument_list|,
@@ -2357,7 +2357,7 @@ name|boolean
 name|prettyPrint
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prettyPrint"
 argument_list|,
@@ -2378,7 +2378,7 @@ name|String
 name|prettyPrint
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prettyPrint"
 argument_list|,
@@ -2399,7 +2399,7 @@ name|String
 name|serverUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serverUrl"
 argument_list|,
@@ -2420,7 +2420,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -2441,7 +2441,7 @@ name|String
 name|proxyPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPassword"
 argument_list|,
@@ -2462,7 +2462,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -2483,7 +2483,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -2504,7 +2504,7 @@ name|String
 name|proxyUser
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyUser"
 argument_list|,
@@ -2525,7 +2525,7 @@ name|String
 name|accessToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessToken"
 argument_list|,
@@ -2546,7 +2546,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -2567,7 +2567,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -2612,7 +2612,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2633,7 +2633,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2654,7 +2654,7 @@ name|Object
 name|client
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"client"
 argument_list|,
@@ -2675,7 +2675,7 @@ name|String
 name|client
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"client"
 argument_list|,
@@ -2696,7 +2696,7 @@ name|Object
 name|clientFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientFactory"
 argument_list|,
@@ -2717,7 +2717,7 @@ name|String
 name|clientFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientFactory"
 argument_list|,
@@ -2738,7 +2738,7 @@ name|boolean
 name|compress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compress"
 argument_list|,
@@ -2759,7 +2759,7 @@ name|String
 name|compress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compress"
 argument_list|,
@@ -2780,7 +2780,7 @@ name|Integer
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -2801,7 +2801,7 @@ name|String
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -2822,7 +2822,7 @@ name|boolean
 name|deferModelScanning
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deferModelScanning"
 argument_list|,
@@ -2843,7 +2843,7 @@ name|String
 name|deferModelScanning
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deferModelScanning"
 argument_list|,
@@ -2864,7 +2864,7 @@ name|Object
 name|fhirContext
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirContext"
 argument_list|,
@@ -2885,7 +2885,7 @@ name|String
 name|fhirContext
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fhirContext"
 argument_list|,
@@ -2906,7 +2906,7 @@ name|boolean
 name|forceConformanceCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"forceConformanceCheck"
 argument_list|,
@@ -2927,7 +2927,7 @@ name|String
 name|forceConformanceCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"forceConformanceCheck"
 argument_list|,
@@ -2948,7 +2948,7 @@ name|String
 name|sessionCookie
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sessionCookie"
 argument_list|,
@@ -2969,7 +2969,7 @@ name|Integer
 name|socketTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"socketTimeout"
 argument_list|,
@@ -2990,7 +2990,7 @@ name|String
 name|socketTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"socketTimeout"
 argument_list|,
@@ -3011,7 +3011,7 @@ name|SummaryEnum
 name|summary
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"summary"
 argument_list|,
@@ -3032,7 +3032,7 @@ name|String
 name|summary
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"summary"
 argument_list|,
@@ -3053,7 +3053,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -3074,7 +3074,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -3095,7 +3095,7 @@ name|ServerValidationModeEnum
 name|validationMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"validationMode"
 argument_list|,
@@ -3116,7 +3116,7 @@ name|String
 name|validationMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"validationMode"
 argument_list|,

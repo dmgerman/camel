@@ -130,7 +130,7 @@ name|boolean
 name|allowNamedParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowNamedParameters"
 argument_list|,
@@ -151,7 +151,7 @@ name|String
 name|allowNamedParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowNamedParameters"
 argument_list|,
@@ -172,7 +172,7 @@ name|String
 name|outputClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputClass"
 argument_list|,
@@ -193,7 +193,7 @@ name|JdbcOutputType
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -214,7 +214,7 @@ name|String
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -240,7 +240,7 @@ argument_list|>
 name|parameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"parameters"
 argument_list|,
@@ -261,7 +261,7 @@ name|String
 name|parameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"parameters"
 argument_list|,
@@ -282,7 +282,7 @@ name|int
 name|readSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readSize"
 argument_list|,
@@ -303,7 +303,7 @@ name|String
 name|readSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readSize"
 argument_list|,
@@ -324,7 +324,7 @@ name|boolean
 name|resetAutoCommit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resetAutoCommit"
 argument_list|,
@@ -345,7 +345,7 @@ name|String
 name|resetAutoCommit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resetAutoCommit"
 argument_list|,
@@ -366,7 +366,7 @@ name|boolean
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -387,7 +387,7 @@ name|String
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -408,7 +408,7 @@ name|boolean
 name|useGetBytesForBlob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useGetBytesForBlob"
 argument_list|,
@@ -429,7 +429,7 @@ name|String
 name|useGetBytesForBlob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useGetBytesForBlob"
 argument_list|,
@@ -450,7 +450,7 @@ name|boolean
 name|useHeadersAsParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useHeadersAsParameters"
 argument_list|,
@@ -471,7 +471,7 @@ name|String
 name|useHeadersAsParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useHeadersAsParameters"
 argument_list|,
@@ -492,7 +492,7 @@ name|boolean
 name|useJDBC4ColumnNameAndLabelSemantics
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useJDBC4ColumnNameAndLabelSemantics"
 argument_list|,
@@ -513,7 +513,7 @@ name|String
 name|useJDBC4ColumnNameAndLabelSemantics
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useJDBC4ColumnNameAndLabelSemantics"
 argument_list|,
@@ -556,7 +556,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -577,7 +577,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -598,7 +598,7 @@ name|Object
 name|beanRowMapper
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"beanRowMapper"
 argument_list|,
@@ -619,7 +619,7 @@ name|String
 name|beanRowMapper
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"beanRowMapper"
 argument_list|,
@@ -640,7 +640,7 @@ name|Object
 name|prepareStatementStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prepareStatementStrategy"
 argument_list|,
@@ -661,7 +661,7 @@ name|String
 name|prepareStatementStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prepareStatementStrategy"
 argument_list|,
@@ -682,7 +682,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -703,7 +703,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

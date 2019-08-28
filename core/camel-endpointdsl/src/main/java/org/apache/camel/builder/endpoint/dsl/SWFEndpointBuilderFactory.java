@@ -156,7 +156,7 @@ name|Object
 name|amazonSWClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSWClient"
 argument_list|,
@@ -177,7 +177,7 @@ name|String
 name|amazonSWClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSWClient"
 argument_list|,
@@ -198,7 +198,7 @@ name|Object
 name|dataConverter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataConverter"
 argument_list|,
@@ -219,7 +219,7 @@ name|String
 name|dataConverter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataConverter"
 argument_list|,
@@ -240,7 +240,7 @@ name|String
 name|domainName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"domainName"
 argument_list|,
@@ -261,7 +261,7 @@ name|String
 name|eventName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventName"
 argument_list|,
@@ -282,7 +282,7 @@ name|String
 name|region
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"region"
 argument_list|,
@@ -303,7 +303,7 @@ name|String
 name|version
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"version"
 argument_list|,
@@ -324,7 +324,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -345,7 +345,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -366,7 +366,7 @@ name|String
 name|activityList
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activityList"
 argument_list|,
@@ -387,7 +387,7 @@ name|int
 name|activityThreadPoolSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activityThreadPoolSize"
 argument_list|,
@@ -408,7 +408,7 @@ name|String
 name|activityThreadPoolSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activityThreadPoolSize"
 argument_list|,
@@ -429,7 +429,7 @@ name|Object
 name|activityTypeExecutionOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activityTypeExecutionOptions"
 argument_list|,
@@ -450,7 +450,7 @@ name|String
 name|activityTypeExecutionOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activityTypeExecutionOptions"
 argument_list|,
@@ -471,7 +471,7 @@ name|Object
 name|activityTypeRegistrationOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activityTypeRegistrationOptions"
 argument_list|,
@@ -492,7 +492,7 @@ name|String
 name|activityTypeRegistrationOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activityTypeRegistrationOptions"
 argument_list|,
@@ -513,7 +513,7 @@ name|String
 name|workflowList
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"workflowList"
 argument_list|,
@@ -534,7 +534,7 @@ name|Object
 name|workflowTypeRegistrationOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"workflowTypeRegistrationOptions"
 argument_list|,
@@ -555,7 +555,7 @@ name|String
 name|workflowTypeRegistrationOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"workflowTypeRegistrationOptions"
 argument_list|,
@@ -576,7 +576,7 @@ name|String
 name|accessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessKey"
 argument_list|,
@@ -597,7 +597,7 @@ name|String
 name|secretKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secretKey"
 argument_list|,
@@ -640,7 +640,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -661,7 +661,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -682,7 +682,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -703,7 +703,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -724,7 +724,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -745,7 +745,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -771,7 +771,7 @@ argument_list|>
 name|clientConfigurationParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientConfigurationParameters"
 argument_list|,
@@ -792,7 +792,7 @@ name|String
 name|clientConfigurationParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientConfigurationParameters"
 argument_list|,
@@ -818,7 +818,7 @@ argument_list|>
 name|startWorkflowOptionsParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startWorkflowOptionsParameters"
 argument_list|,
@@ -839,7 +839,7 @@ name|String
 name|startWorkflowOptionsParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startWorkflowOptionsParameters"
 argument_list|,
@@ -865,7 +865,7 @@ argument_list|>
 name|sWClientParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sWClientParameters"
 argument_list|,
@@ -886,7 +886,7 @@ name|String
 name|sWClientParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sWClientParameters"
 argument_list|,
@@ -907,7 +907,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -928,7 +928,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -971,7 +971,7 @@ name|Object
 name|amazonSWClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSWClient"
 argument_list|,
@@ -992,7 +992,7 @@ name|String
 name|amazonSWClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSWClient"
 argument_list|,
@@ -1013,7 +1013,7 @@ name|Object
 name|dataConverter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataConverter"
 argument_list|,
@@ -1034,7 +1034,7 @@ name|String
 name|dataConverter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataConverter"
 argument_list|,
@@ -1055,7 +1055,7 @@ name|String
 name|domainName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"domainName"
 argument_list|,
@@ -1076,7 +1076,7 @@ name|String
 name|eventName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventName"
 argument_list|,
@@ -1097,7 +1097,7 @@ name|String
 name|region
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"region"
 argument_list|,
@@ -1118,7 +1118,7 @@ name|String
 name|version
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"version"
 argument_list|,
@@ -1139,7 +1139,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1160,7 +1160,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1181,7 +1181,7 @@ name|Object
 name|activitySchedulingOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activitySchedulingOptions"
 argument_list|,
@@ -1202,7 +1202,7 @@ name|String
 name|activitySchedulingOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"activitySchedulingOptions"
 argument_list|,
@@ -1223,7 +1223,7 @@ name|String
 name|childPolicy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"childPolicy"
 argument_list|,
@@ -1244,7 +1244,7 @@ name|String
 name|executionStartToCloseTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"executionStartToCloseTimeout"
 argument_list|,
@@ -1265,7 +1265,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1286,7 +1286,7 @@ name|String
 name|signalName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"signalName"
 argument_list|,
@@ -1307,7 +1307,7 @@ name|String
 name|stateResultType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"stateResultType"
 argument_list|,
@@ -1328,7 +1328,7 @@ name|String
 name|taskStartToCloseTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"taskStartToCloseTimeout"
 argument_list|,
@@ -1349,7 +1349,7 @@ name|String
 name|terminationDetails
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"terminationDetails"
 argument_list|,
@@ -1370,7 +1370,7 @@ name|String
 name|terminationReason
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"terminationReason"
 argument_list|,
@@ -1391,7 +1391,7 @@ name|String
 name|accessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessKey"
 argument_list|,
@@ -1412,7 +1412,7 @@ name|String
 name|secretKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secretKey"
 argument_list|,
@@ -1455,7 +1455,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1476,7 +1476,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1502,7 +1502,7 @@ argument_list|>
 name|clientConfigurationParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientConfigurationParameters"
 argument_list|,
@@ -1523,7 +1523,7 @@ name|String
 name|clientConfigurationParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientConfigurationParameters"
 argument_list|,
@@ -1549,7 +1549,7 @@ argument_list|>
 name|startWorkflowOptionsParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startWorkflowOptionsParameters"
 argument_list|,
@@ -1570,7 +1570,7 @@ name|String
 name|startWorkflowOptionsParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startWorkflowOptionsParameters"
 argument_list|,
@@ -1596,7 +1596,7 @@ argument_list|>
 name|sWClientParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sWClientParameters"
 argument_list|,
@@ -1617,7 +1617,7 @@ name|String
 name|sWClientParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sWClientParameters"
 argument_list|,
@@ -1638,7 +1638,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1659,7 +1659,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1704,7 +1704,7 @@ name|Object
 name|amazonSWClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSWClient"
 argument_list|,
@@ -1725,7 +1725,7 @@ name|String
 name|amazonSWClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSWClient"
 argument_list|,
@@ -1746,7 +1746,7 @@ name|Object
 name|dataConverter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataConverter"
 argument_list|,
@@ -1767,7 +1767,7 @@ name|String
 name|dataConverter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataConverter"
 argument_list|,
@@ -1788,7 +1788,7 @@ name|String
 name|domainName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"domainName"
 argument_list|,
@@ -1809,7 +1809,7 @@ name|String
 name|eventName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventName"
 argument_list|,
@@ -1830,7 +1830,7 @@ name|String
 name|region
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"region"
 argument_list|,
@@ -1851,7 +1851,7 @@ name|String
 name|version
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"version"
 argument_list|,
@@ -1872,7 +1872,7 @@ name|String
 name|accessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessKey"
 argument_list|,
@@ -1893,7 +1893,7 @@ name|String
 name|secretKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secretKey"
 argument_list|,
@@ -1938,7 +1938,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1959,7 +1959,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1985,7 +1985,7 @@ argument_list|>
 name|clientConfigurationParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientConfigurationParameters"
 argument_list|,
@@ -2006,7 +2006,7 @@ name|String
 name|clientConfigurationParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientConfigurationParameters"
 argument_list|,
@@ -2032,7 +2032,7 @@ argument_list|>
 name|startWorkflowOptionsParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startWorkflowOptionsParameters"
 argument_list|,
@@ -2053,7 +2053,7 @@ name|String
 name|startWorkflowOptionsParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startWorkflowOptionsParameters"
 argument_list|,
@@ -2079,7 +2079,7 @@ argument_list|>
 name|sWClientParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sWClientParameters"
 argument_list|,
@@ -2100,7 +2100,7 @@ name|String
 name|sWClientParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sWClientParameters"
 argument_list|,
@@ -2121,7 +2121,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2142,7 +2142,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

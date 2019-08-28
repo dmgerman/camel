@@ -120,7 +120,7 @@ name|int
 name|copies
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"copies"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|copies
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"copies"
 argument_list|,
@@ -162,7 +162,7 @@ name|Object
 name|docFlavor
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"docFlavor"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|docFlavor
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"docFlavor"
 argument_list|,
@@ -204,7 +204,7 @@ name|String
 name|flavor
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flavor"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|mediaSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mediaSize"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|mediaTray
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mediaTray"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|mimeType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mimeType"
 argument_list|,
@@ -288,7 +288,7 @@ name|String
 name|orientation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"orientation"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|printerPrefix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"printerPrefix"
 argument_list|,
@@ -330,7 +330,7 @@ name|boolean
 name|sendToPrinter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendToPrinter"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|sendToPrinter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendToPrinter"
 argument_list|,
@@ -372,7 +372,7 @@ name|String
 name|sides
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sides"
 argument_list|,
@@ -415,7 +415,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -436,7 +436,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -457,7 +457,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -478,7 +478,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

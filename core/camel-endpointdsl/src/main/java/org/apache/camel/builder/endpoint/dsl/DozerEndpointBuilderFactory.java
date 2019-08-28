@@ -120,7 +120,7 @@ name|Object
 name|mappingConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mappingConfiguration"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|mappingConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mappingConfiguration"
 argument_list|,
@@ -162,7 +162,7 @@ name|String
 name|mappingFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mappingFile"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|marshalId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"marshalId"
 argument_list|,
@@ -204,7 +204,7 @@ name|String
 name|sourceModel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sourceModel"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|targetModel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"targetModel"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|unmarshalId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"unmarshalId"
 argument_list|,
@@ -289,7 +289,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -310,7 +310,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -331,7 +331,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -352,7 +352,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

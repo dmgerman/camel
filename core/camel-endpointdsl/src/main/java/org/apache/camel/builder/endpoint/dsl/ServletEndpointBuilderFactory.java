@@ -134,7 +134,7 @@ name|boolean
 name|disableStreamCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disableStreamCache"
 argument_list|,
@@ -155,7 +155,7 @@ name|String
 name|disableStreamCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disableStreamCache"
 argument_list|,
@@ -176,7 +176,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -197,7 +197,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -218,7 +218,7 @@ name|boolean
 name|chunked
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chunked"
 argument_list|,
@@ -239,7 +239,7 @@ name|String
 name|chunked
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chunked"
 argument_list|,
@@ -260,7 +260,7 @@ name|boolean
 name|transferException
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferException"
 argument_list|,
@@ -281,7 +281,7 @@ name|String
 name|transferException
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferException"
 argument_list|,
@@ -324,7 +324,7 @@ name|Object
 name|httpBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpBinding"
 argument_list|,
@@ -345,7 +345,7 @@ name|String
 name|httpBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpBinding"
 argument_list|,
@@ -366,7 +366,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -387,7 +387,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -408,7 +408,7 @@ name|boolean
 name|mapHttpMessageBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapHttpMessageBody"
 argument_list|,
@@ -429,7 +429,7 @@ name|String
 name|mapHttpMessageBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapHttpMessageBody"
 argument_list|,
@@ -450,7 +450,7 @@ name|boolean
 name|mapHttpMessageFormUrlEncodedBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapHttpMessageFormUrlEncodedBody"
 argument_list|,
@@ -471,7 +471,7 @@ name|String
 name|mapHttpMessageFormUrlEncodedBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapHttpMessageFormUrlEncodedBody"
 argument_list|,
@@ -492,7 +492,7 @@ name|boolean
 name|mapHttpMessageHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapHttpMessageHeaders"
 argument_list|,
@@ -513,7 +513,7 @@ name|String
 name|mapHttpMessageHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapHttpMessageHeaders"
 argument_list|,
@@ -534,7 +534,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -555,7 +555,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

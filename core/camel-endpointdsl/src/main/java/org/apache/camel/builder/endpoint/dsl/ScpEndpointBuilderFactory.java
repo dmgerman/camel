@@ -132,7 +132,7 @@ name|boolean
 name|disconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disconnect"
 argument_list|,
@@ -153,7 +153,7 @@ name|String
 name|disconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disconnect"
 argument_list|,
@@ -174,7 +174,7 @@ name|String
 name|chmod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chmod"
 argument_list|,
@@ -195,7 +195,7 @@ name|Expression
 name|fileName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileName"
 argument_list|,
@@ -216,7 +216,7 @@ name|String
 name|fileName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileName"
 argument_list|,
@@ -237,7 +237,7 @@ name|String
 name|strictHostKeyChecking
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"strictHostKeyChecking"
 argument_list|,
@@ -258,7 +258,7 @@ name|String
 name|knownHostsFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"knownHostsFile"
 argument_list|,
@@ -279,7 +279,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -300,7 +300,7 @@ name|String
 name|preferredAuthentications
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"preferredAuthentications"
 argument_list|,
@@ -322,7 +322,7 @@ index|[]
 name|privateKeyBytes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKeyBytes"
 argument_list|,
@@ -343,7 +343,7 @@ name|String
 name|privateKeyBytes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKeyBytes"
 argument_list|,
@@ -364,7 +364,7 @@ name|String
 name|privateKeyFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKeyFile"
 argument_list|,
@@ -385,7 +385,7 @@ name|String
 name|privateKeyFilePassphrase
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKeyFilePassphrase"
 argument_list|,
@@ -406,7 +406,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -427,7 +427,7 @@ name|boolean
 name|useUserKnownHostsFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useUserKnownHostsFile"
 argument_list|,
@@ -448,7 +448,7 @@ name|String
 name|useUserKnownHostsFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useUserKnownHostsFile"
 argument_list|,
@@ -491,7 +491,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -512,7 +512,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -533,7 +533,7 @@ name|int
 name|connectTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectTimeout"
 argument_list|,
@@ -554,7 +554,7 @@ name|String
 name|connectTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectTimeout"
 argument_list|,
@@ -575,7 +575,7 @@ name|int
 name|soTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"soTimeout"
 argument_list|,
@@ -596,7 +596,7 @@ name|String
 name|soTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"soTimeout"
 argument_list|,
@@ -617,7 +617,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -638,7 +638,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -659,7 +659,7 @@ name|int
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -680,7 +680,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -701,7 +701,7 @@ name|String
 name|ciphers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ciphers"
 argument_list|,

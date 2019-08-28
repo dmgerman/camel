@@ -130,7 +130,7 @@ name|String
 name|cron
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cron"
 argument_list|,
@@ -151,7 +151,7 @@ name|boolean
 name|deleteJob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteJob"
 argument_list|,
@@ -172,7 +172,7 @@ name|String
 name|deleteJob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteJob"
 argument_list|,
@@ -193,7 +193,7 @@ name|boolean
 name|durableJob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"durableJob"
 argument_list|,
@@ -214,7 +214,7 @@ name|String
 name|durableJob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"durableJob"
 argument_list|,
@@ -235,7 +235,7 @@ name|boolean
 name|pauseJob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pauseJob"
 argument_list|,
@@ -256,7 +256,7 @@ name|String
 name|pauseJob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pauseJob"
 argument_list|,
@@ -277,7 +277,7 @@ name|boolean
 name|recoverableJob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"recoverableJob"
 argument_list|,
@@ -298,7 +298,7 @@ name|String
 name|recoverableJob
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"recoverableJob"
 argument_list|,
@@ -319,7 +319,7 @@ name|boolean
 name|stateful
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"stateful"
 argument_list|,
@@ -340,7 +340,7 @@ name|String
 name|stateful
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"stateful"
 argument_list|,
@@ -361,7 +361,7 @@ name|boolean
 name|autoStartScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoStartScheduler"
 argument_list|,
@@ -382,7 +382,7 @@ name|String
 name|autoStartScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoStartScheduler"
 argument_list|,
@@ -403,7 +403,7 @@ name|boolean
 name|fireNow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fireNow"
 argument_list|,
@@ -424,7 +424,7 @@ name|String
 name|fireNow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fireNow"
 argument_list|,
@@ -445,7 +445,7 @@ name|int
 name|startDelayedSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startDelayedSeconds"
 argument_list|,
@@ -466,7 +466,7 @@ name|String
 name|startDelayedSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startDelayedSeconds"
 argument_list|,
@@ -487,7 +487,7 @@ name|long
 name|triggerStartDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"triggerStartDelay"
 argument_list|,
@@ -508,7 +508,7 @@ name|String
 name|triggerStartDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"triggerStartDelay"
 argument_list|,
@@ -551,7 +551,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -572,7 +572,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -593,7 +593,7 @@ name|Object
 name|customCalendar
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"customCalendar"
 argument_list|,
@@ -614,7 +614,7 @@ name|String
 name|customCalendar
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"customCalendar"
 argument_list|,
@@ -640,7 +640,7 @@ argument_list|>
 name|jobParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jobParameters"
 argument_list|,
@@ -661,7 +661,7 @@ name|String
 name|jobParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jobParameters"
 argument_list|,
@@ -682,7 +682,7 @@ name|boolean
 name|prefixJobNameWithEndpointId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prefixJobNameWithEndpointId"
 argument_list|,
@@ -703,7 +703,7 @@ name|String
 name|prefixJobNameWithEndpointId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prefixJobNameWithEndpointId"
 argument_list|,
@@ -724,7 +724,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -745,7 +745,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -771,7 +771,7 @@ argument_list|>
 name|triggerParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"triggerParameters"
 argument_list|,
@@ -792,7 +792,7 @@ name|String
 name|triggerParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"triggerParameters"
 argument_list|,
@@ -813,7 +813,7 @@ name|boolean
 name|usingFixedCamelContextName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"usingFixedCamelContextName"
 argument_list|,
@@ -834,7 +834,7 @@ name|String
 name|usingFixedCamelContextName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"usingFixedCamelContextName"
 argument_list|,

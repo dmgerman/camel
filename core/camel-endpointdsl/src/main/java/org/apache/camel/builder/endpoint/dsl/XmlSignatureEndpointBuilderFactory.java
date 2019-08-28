@@ -140,7 +140,7 @@ name|String
 name|baseUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"baseUri"
 argument_list|,
@@ -161,7 +161,7 @@ name|Boolean
 name|clearHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clearHeaders"
 argument_list|,
@@ -182,7 +182,7 @@ name|String
 name|clearHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clearHeaders"
 argument_list|,
@@ -208,7 +208,7 @@ argument_list|>
 name|cryptoContextProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cryptoContextProperties"
 argument_list|,
@@ -229,7 +229,7 @@ name|String
 name|cryptoContextProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cryptoContextProperties"
 argument_list|,
@@ -250,7 +250,7 @@ name|Boolean
 name|disallowDoctypeDecl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disallowDoctypeDecl"
 argument_list|,
@@ -271,7 +271,7 @@ name|String
 name|disallowDoctypeDecl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disallowDoctypeDecl"
 argument_list|,
@@ -292,7 +292,7 @@ name|Boolean
 name|omitXmlDeclaration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"omitXmlDeclaration"
 argument_list|,
@@ -313,7 +313,7 @@ name|String
 name|omitXmlDeclaration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"omitXmlDeclaration"
 argument_list|,
@@ -334,7 +334,7 @@ name|String
 name|outputXmlEncoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputXmlEncoding"
 argument_list|,
@@ -355,7 +355,7 @@ name|String
 name|schemaResourceUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schemaResourceUri"
 argument_list|,
@@ -376,7 +376,7 @@ name|Boolean
 name|addKeyInfoReference
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"addKeyInfoReference"
 argument_list|,
@@ -397,7 +397,7 @@ name|String
 name|addKeyInfoReference
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"addKeyInfoReference"
 argument_list|,
@@ -418,7 +418,7 @@ name|Object
 name|canonicalizationMethod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"canonicalizationMethod"
 argument_list|,
@@ -439,7 +439,7 @@ name|String
 name|canonicalizationMethod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"canonicalizationMethod"
 argument_list|,
@@ -460,7 +460,7 @@ name|String
 name|contentObjectId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentObjectId"
 argument_list|,
@@ -481,7 +481,7 @@ name|String
 name|contentReferenceType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentReferenceType"
 argument_list|,
@@ -502,7 +502,7 @@ name|String
 name|contentReferenceUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentReferenceUri"
 argument_list|,
@@ -523,7 +523,7 @@ name|String
 name|digestAlgorithm
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"digestAlgorithm"
 argument_list|,
@@ -544,7 +544,7 @@ name|Object
 name|keyAccessor
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyAccessor"
 argument_list|,
@@ -565,7 +565,7 @@ name|String
 name|keyAccessor
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyAccessor"
 argument_list|,
@@ -586,7 +586,7 @@ name|String
 name|parentLocalName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"parentLocalName"
 argument_list|,
@@ -607,7 +607,7 @@ name|String
 name|parentNamespace
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"parentNamespace"
 argument_list|,
@@ -628,7 +628,7 @@ name|Object
 name|parentXpath
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"parentXpath"
 argument_list|,
@@ -649,7 +649,7 @@ name|String
 name|parentXpath
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"parentXpath"
 argument_list|,
@@ -670,7 +670,7 @@ name|Boolean
 name|plainText
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"plainText"
 argument_list|,
@@ -691,7 +691,7 @@ name|String
 name|plainText
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"plainText"
 argument_list|,
@@ -712,7 +712,7 @@ name|String
 name|plainTextEncoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"plainTextEncoding"
 argument_list|,
@@ -733,7 +733,7 @@ name|String
 name|prefixForXmlSignatureNamespace
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prefixForXmlSignatureNamespace"
 argument_list|,
@@ -754,7 +754,7 @@ name|Object
 name|properties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -775,7 +775,7 @@ name|String
 name|properties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -796,7 +796,7 @@ name|String
 name|signatureAlgorithm
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"signatureAlgorithm"
 argument_list|,
@@ -817,7 +817,7 @@ name|String
 name|signatureId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"signatureId"
 argument_list|,
@@ -841,7 +841,7 @@ argument_list|>
 name|transformMethods
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformMethods"
 argument_list|,
@@ -862,7 +862,7 @@ name|String
 name|transformMethods
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformMethods"
 argument_list|,
@@ -886,7 +886,7 @@ argument_list|>
 name|xpathsToIdAttributes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"xpathsToIdAttributes"
 argument_list|,
@@ -907,7 +907,7 @@ name|String
 name|xpathsToIdAttributes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"xpathsToIdAttributes"
 argument_list|,
@@ -928,7 +928,7 @@ name|Object
 name|keySelector
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keySelector"
 argument_list|,
@@ -949,7 +949,7 @@ name|String
 name|keySelector
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keySelector"
 argument_list|,
@@ -970,7 +970,7 @@ name|Object
 name|outputNodeSearch
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputNodeSearch"
 argument_list|,
@@ -991,7 +991,7 @@ name|String
 name|outputNodeSearch
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputNodeSearch"
 argument_list|,
@@ -1012,7 +1012,7 @@ name|String
 name|outputNodeSearchType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputNodeSearchType"
 argument_list|,
@@ -1033,7 +1033,7 @@ name|Boolean
 name|removeSignatureElements
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"removeSignatureElements"
 argument_list|,
@@ -1054,7 +1054,7 @@ name|String
 name|removeSignatureElements
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"removeSignatureElements"
 argument_list|,
@@ -1075,7 +1075,7 @@ name|Boolean
 name|secureValidation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secureValidation"
 argument_list|,
@@ -1096,7 +1096,7 @@ name|String
 name|secureValidation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secureValidation"
 argument_list|,
@@ -1117,7 +1117,7 @@ name|Object
 name|validationFailedHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"validationFailedHandler"
 argument_list|,
@@ -1138,7 +1138,7 @@ name|String
 name|validationFailedHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"validationFailedHandler"
 argument_list|,
@@ -1159,7 +1159,7 @@ name|Object
 name|xmlSignature2Message
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"xmlSignature2Message"
 argument_list|,
@@ -1180,7 +1180,7 @@ name|String
 name|xmlSignature2Message
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"xmlSignature2Message"
 argument_list|,
@@ -1201,7 +1201,7 @@ name|Object
 name|xmlSignatureChecker
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"xmlSignatureChecker"
 argument_list|,
@@ -1222,7 +1222,7 @@ name|String
 name|xmlSignatureChecker
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"xmlSignatureChecker"
 argument_list|,
@@ -1265,7 +1265,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1286,7 +1286,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1307,7 +1307,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1328,7 +1328,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1349,7 +1349,7 @@ name|Object
 name|uriDereferencer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"uriDereferencer"
 argument_list|,
@@ -1370,7 +1370,7 @@ name|String
 name|uriDereferencer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"uriDereferencer"
 argument_list|,

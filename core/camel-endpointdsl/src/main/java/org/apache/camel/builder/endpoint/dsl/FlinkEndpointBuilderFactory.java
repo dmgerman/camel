@@ -120,7 +120,7 @@ name|boolean
 name|collect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collect"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|collect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collect"
 argument_list|,
@@ -162,7 +162,7 @@ name|Object
 name|dataSet
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataSet"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|dataSet
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataSet"
 argument_list|,
@@ -204,7 +204,7 @@ name|Object
 name|dataSetCallback
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataSetCallback"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|dataSetCallback
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataSetCallback"
 argument_list|,
@@ -246,7 +246,7 @@ name|Object
 name|dataStream
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataStream"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|dataStream
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataStream"
 argument_list|,
@@ -288,7 +288,7 @@ name|Object
 name|dataStreamCallback
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataStreamCallback"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|dataStreamCallback
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataStreamCallback"
 argument_list|,
@@ -352,7 +352,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -373,7 +373,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -394,7 +394,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -415,7 +415,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

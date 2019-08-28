@@ -166,7 +166,7 @@ name|String
 name|alias
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"alias"
 argument_list|,
@@ -187,7 +187,7 @@ name|String
 name|cipherSuites
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cipherSuites"
 argument_list|,
@@ -208,7 +208,7 @@ name|String
 name|clientAuthentication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientAuthentication"
 argument_list|,
@@ -229,7 +229,7 @@ name|PrivateKey
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -250,7 +250,7 @@ name|String
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -271,7 +271,7 @@ name|Object
 name|pskStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pskStore"
 argument_list|,
@@ -292,7 +292,7 @@ name|String
 name|pskStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pskStore"
 argument_list|,
@@ -313,7 +313,7 @@ name|PublicKey
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -334,7 +334,7 @@ name|String
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -355,7 +355,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -376,7 +376,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -397,7 +397,7 @@ name|Object
 name|trustedRpkStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustedRpkStore"
 argument_list|,
@@ -418,7 +418,7 @@ name|String
 name|trustedRpkStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustedRpkStore"
 argument_list|,
@@ -439,7 +439,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -460,7 +460,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -481,7 +481,7 @@ name|String
 name|coapMethodRestrict
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"coapMethodRestrict"
 argument_list|,
@@ -524,7 +524,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -545,7 +545,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -566,7 +566,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -587,7 +587,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -608,7 +608,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -629,7 +629,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -650,7 +650,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -671,7 +671,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -714,7 +714,7 @@ name|String
 name|alias
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"alias"
 argument_list|,
@@ -735,7 +735,7 @@ name|String
 name|cipherSuites
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cipherSuites"
 argument_list|,
@@ -756,7 +756,7 @@ name|String
 name|clientAuthentication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientAuthentication"
 argument_list|,
@@ -777,7 +777,7 @@ name|PrivateKey
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -798,7 +798,7 @@ name|String
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -819,7 +819,7 @@ name|Object
 name|pskStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pskStore"
 argument_list|,
@@ -840,7 +840,7 @@ name|String
 name|pskStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pskStore"
 argument_list|,
@@ -861,7 +861,7 @@ name|PublicKey
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -882,7 +882,7 @@ name|String
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -903,7 +903,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -924,7 +924,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -945,7 +945,7 @@ name|Object
 name|trustedRpkStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustedRpkStore"
 argument_list|,
@@ -966,7 +966,7 @@ name|String
 name|trustedRpkStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustedRpkStore"
 argument_list|,
@@ -987,7 +987,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1008,7 +1008,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1072,7 +1072,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1093,7 +1093,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1114,7 +1114,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1159,7 +1159,7 @@ name|String
 name|alias
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"alias"
 argument_list|,
@@ -1180,7 +1180,7 @@ name|String
 name|cipherSuites
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cipherSuites"
 argument_list|,
@@ -1201,7 +1201,7 @@ name|String
 name|clientAuthentication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientAuthentication"
 argument_list|,
@@ -1222,7 +1222,7 @@ name|PrivateKey
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -1243,7 +1243,7 @@ name|String
 name|privateKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privateKey"
 argument_list|,
@@ -1264,7 +1264,7 @@ name|Object
 name|pskStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pskStore"
 argument_list|,
@@ -1285,7 +1285,7 @@ name|String
 name|pskStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pskStore"
 argument_list|,
@@ -1306,7 +1306,7 @@ name|PublicKey
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -1327,7 +1327,7 @@ name|String
 name|publicKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicKey"
 argument_list|,
@@ -1348,7 +1348,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1369,7 +1369,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1390,7 +1390,7 @@ name|Object
 name|trustedRpkStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustedRpkStore"
 argument_list|,
@@ -1411,7 +1411,7 @@ name|String
 name|trustedRpkStore
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustedRpkStore"
 argument_list|,
@@ -1456,7 +1456,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1477,7 +1477,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1498,7 +1498,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1519,7 +1519,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

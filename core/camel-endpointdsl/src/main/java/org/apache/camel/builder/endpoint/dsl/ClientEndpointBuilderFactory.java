@@ -156,7 +156,7 @@ name|Object
 name|dataModuleOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataModuleOptions"
 argument_list|,
@@ -177,7 +177,7 @@ name|String
 name|dataModuleOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataModuleOptions"
 argument_list|,
@@ -198,7 +198,7 @@ name|Object
 name|protocolOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"protocolOptions"
 argument_list|,
@@ -219,7 +219,7 @@ name|String
 name|protocolOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"protocolOptions"
 argument_list|,
@@ -240,7 +240,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -261,7 +261,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -282,7 +282,7 @@ name|short
 name|acknowledgeWindow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgeWindow"
 argument_list|,
@@ -303,7 +303,7 @@ name|String
 name|acknowledgeWindow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgeWindow"
 argument_list|,
@@ -324,7 +324,7 @@ name|ASDUAddressType
 name|adsuAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"adsuAddressType"
 argument_list|,
@@ -345,7 +345,7 @@ name|String
 name|adsuAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"adsuAddressType"
 argument_list|,
@@ -366,7 +366,7 @@ name|CauseOfTransmissionType
 name|causeOfTransmissionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeOfTransmissionType"
 argument_list|,
@@ -387,7 +387,7 @@ name|String
 name|causeOfTransmissionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeOfTransmissionType"
 argument_list|,
@@ -408,7 +408,7 @@ name|InformationObjectAddressType
 name|informationObjectAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"informationObjectAddressType"
 argument_list|,
@@ -429,7 +429,7 @@ name|String
 name|informationObjectAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"informationObjectAddressType"
 argument_list|,
@@ -450,7 +450,7 @@ name|short
 name|maxUnacknowledged
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxUnacknowledged"
 argument_list|,
@@ -471,7 +471,7 @@ name|String
 name|maxUnacknowledged
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxUnacknowledged"
 argument_list|,
@@ -492,7 +492,7 @@ name|int
 name|timeout1
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout1"
 argument_list|,
@@ -513,7 +513,7 @@ name|String
 name|timeout1
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout1"
 argument_list|,
@@ -534,7 +534,7 @@ name|int
 name|timeout2
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout2"
 argument_list|,
@@ -555,7 +555,7 @@ name|String
 name|timeout2
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout2"
 argument_list|,
@@ -576,7 +576,7 @@ name|int
 name|timeout3
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout3"
 argument_list|,
@@ -597,7 +597,7 @@ name|String
 name|timeout3
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout3"
 argument_list|,
@@ -618,7 +618,7 @@ name|byte
 name|causeSourceAddress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeSourceAddress"
 argument_list|,
@@ -639,7 +639,7 @@ name|String
 name|causeSourceAddress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeSourceAddress"
 argument_list|,
@@ -660,7 +660,7 @@ name|boolean
 name|ignoreBackgroundScan
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreBackgroundScan"
 argument_list|,
@@ -681,7 +681,7 @@ name|String
 name|ignoreBackgroundScan
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreBackgroundScan"
 argument_list|,
@@ -702,7 +702,7 @@ name|boolean
 name|ignoreDaylightSavingTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreDaylightSavingTime"
 argument_list|,
@@ -723,7 +723,7 @@ name|String
 name|ignoreDaylightSavingTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreDaylightSavingTime"
 argument_list|,
@@ -744,7 +744,7 @@ name|TimeZone
 name|timeZone
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeZone"
 argument_list|,
@@ -765,7 +765,7 @@ name|String
 name|timeZone
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeZone"
 argument_list|,
@@ -786,7 +786,7 @@ name|String
 name|connectionId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionId"
 argument_list|,
@@ -829,7 +829,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -850,7 +850,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -871,7 +871,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -892,7 +892,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -913,7 +913,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -934,7 +934,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -955,7 +955,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -976,7 +976,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1019,7 +1019,7 @@ name|Object
 name|dataModuleOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataModuleOptions"
 argument_list|,
@@ -1040,7 +1040,7 @@ name|String
 name|dataModuleOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataModuleOptions"
 argument_list|,
@@ -1061,7 +1061,7 @@ name|Object
 name|protocolOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"protocolOptions"
 argument_list|,
@@ -1082,7 +1082,7 @@ name|String
 name|protocolOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"protocolOptions"
 argument_list|,
@@ -1103,7 +1103,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1124,7 +1124,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1145,7 +1145,7 @@ name|short
 name|acknowledgeWindow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgeWindow"
 argument_list|,
@@ -1166,7 +1166,7 @@ name|String
 name|acknowledgeWindow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgeWindow"
 argument_list|,
@@ -1187,7 +1187,7 @@ name|ASDUAddressType
 name|adsuAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"adsuAddressType"
 argument_list|,
@@ -1208,7 +1208,7 @@ name|String
 name|adsuAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"adsuAddressType"
 argument_list|,
@@ -1229,7 +1229,7 @@ name|CauseOfTransmissionType
 name|causeOfTransmissionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeOfTransmissionType"
 argument_list|,
@@ -1250,7 +1250,7 @@ name|String
 name|causeOfTransmissionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeOfTransmissionType"
 argument_list|,
@@ -1271,7 +1271,7 @@ name|InformationObjectAddressType
 name|informationObjectAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"informationObjectAddressType"
 argument_list|,
@@ -1292,7 +1292,7 @@ name|String
 name|informationObjectAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"informationObjectAddressType"
 argument_list|,
@@ -1313,7 +1313,7 @@ name|short
 name|maxUnacknowledged
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxUnacknowledged"
 argument_list|,
@@ -1334,7 +1334,7 @@ name|String
 name|maxUnacknowledged
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxUnacknowledged"
 argument_list|,
@@ -1355,7 +1355,7 @@ name|int
 name|timeout1
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout1"
 argument_list|,
@@ -1376,7 +1376,7 @@ name|String
 name|timeout1
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout1"
 argument_list|,
@@ -1397,7 +1397,7 @@ name|int
 name|timeout2
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout2"
 argument_list|,
@@ -1418,7 +1418,7 @@ name|String
 name|timeout2
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout2"
 argument_list|,
@@ -1439,7 +1439,7 @@ name|int
 name|timeout3
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout3"
 argument_list|,
@@ -1460,7 +1460,7 @@ name|String
 name|timeout3
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout3"
 argument_list|,
@@ -1481,7 +1481,7 @@ name|byte
 name|causeSourceAddress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeSourceAddress"
 argument_list|,
@@ -1502,7 +1502,7 @@ name|String
 name|causeSourceAddress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeSourceAddress"
 argument_list|,
@@ -1523,7 +1523,7 @@ name|boolean
 name|ignoreBackgroundScan
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreBackgroundScan"
 argument_list|,
@@ -1544,7 +1544,7 @@ name|String
 name|ignoreBackgroundScan
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreBackgroundScan"
 argument_list|,
@@ -1565,7 +1565,7 @@ name|boolean
 name|ignoreDaylightSavingTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreDaylightSavingTime"
 argument_list|,
@@ -1586,7 +1586,7 @@ name|String
 name|ignoreDaylightSavingTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreDaylightSavingTime"
 argument_list|,
@@ -1607,7 +1607,7 @@ name|TimeZone
 name|timeZone
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeZone"
 argument_list|,
@@ -1628,7 +1628,7 @@ name|String
 name|timeZone
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeZone"
 argument_list|,
@@ -1649,7 +1649,7 @@ name|String
 name|connectionId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionId"
 argument_list|,
@@ -1692,7 +1692,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1713,7 +1713,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1734,7 +1734,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1755,7 +1755,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1800,7 +1800,7 @@ name|Object
 name|dataModuleOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataModuleOptions"
 argument_list|,
@@ -1821,7 +1821,7 @@ name|String
 name|dataModuleOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataModuleOptions"
 argument_list|,
@@ -1842,7 +1842,7 @@ name|Object
 name|protocolOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"protocolOptions"
 argument_list|,
@@ -1863,7 +1863,7 @@ name|String
 name|protocolOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"protocolOptions"
 argument_list|,
@@ -1884,7 +1884,7 @@ name|short
 name|acknowledgeWindow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgeWindow"
 argument_list|,
@@ -1905,7 +1905,7 @@ name|String
 name|acknowledgeWindow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgeWindow"
 argument_list|,
@@ -1926,7 +1926,7 @@ name|ASDUAddressType
 name|adsuAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"adsuAddressType"
 argument_list|,
@@ -1947,7 +1947,7 @@ name|String
 name|adsuAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"adsuAddressType"
 argument_list|,
@@ -1968,7 +1968,7 @@ name|CauseOfTransmissionType
 name|causeOfTransmissionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeOfTransmissionType"
 argument_list|,
@@ -1989,7 +1989,7 @@ name|String
 name|causeOfTransmissionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeOfTransmissionType"
 argument_list|,
@@ -2010,7 +2010,7 @@ name|InformationObjectAddressType
 name|informationObjectAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"informationObjectAddressType"
 argument_list|,
@@ -2031,7 +2031,7 @@ name|String
 name|informationObjectAddressType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"informationObjectAddressType"
 argument_list|,
@@ -2052,7 +2052,7 @@ name|short
 name|maxUnacknowledged
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxUnacknowledged"
 argument_list|,
@@ -2073,7 +2073,7 @@ name|String
 name|maxUnacknowledged
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxUnacknowledged"
 argument_list|,
@@ -2094,7 +2094,7 @@ name|int
 name|timeout1
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout1"
 argument_list|,
@@ -2115,7 +2115,7 @@ name|String
 name|timeout1
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout1"
 argument_list|,
@@ -2136,7 +2136,7 @@ name|int
 name|timeout2
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout2"
 argument_list|,
@@ -2157,7 +2157,7 @@ name|String
 name|timeout2
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout2"
 argument_list|,
@@ -2178,7 +2178,7 @@ name|int
 name|timeout3
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout3"
 argument_list|,
@@ -2199,7 +2199,7 @@ name|String
 name|timeout3
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout3"
 argument_list|,
@@ -2220,7 +2220,7 @@ name|byte
 name|causeSourceAddress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeSourceAddress"
 argument_list|,
@@ -2241,7 +2241,7 @@ name|String
 name|causeSourceAddress
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"causeSourceAddress"
 argument_list|,
@@ -2262,7 +2262,7 @@ name|boolean
 name|ignoreBackgroundScan
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreBackgroundScan"
 argument_list|,
@@ -2283,7 +2283,7 @@ name|String
 name|ignoreBackgroundScan
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreBackgroundScan"
 argument_list|,
@@ -2304,7 +2304,7 @@ name|boolean
 name|ignoreDaylightSavingTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreDaylightSavingTime"
 argument_list|,
@@ -2325,7 +2325,7 @@ name|String
 name|ignoreDaylightSavingTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ignoreDaylightSavingTime"
 argument_list|,
@@ -2346,7 +2346,7 @@ name|TimeZone
 name|timeZone
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeZone"
 argument_list|,
@@ -2367,7 +2367,7 @@ name|String
 name|timeZone
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeZone"
 argument_list|,
@@ -2388,7 +2388,7 @@ name|String
 name|connectionId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionId"
 argument_list|,
@@ -2433,7 +2433,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2454,7 +2454,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2475,7 +2475,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2496,7 +2496,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

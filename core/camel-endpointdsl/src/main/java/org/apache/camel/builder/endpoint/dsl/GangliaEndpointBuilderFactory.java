@@ -120,7 +120,7 @@ name|int
 name|dmax
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dmax"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|dmax
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dmax"
 argument_list|,
@@ -162,7 +162,7 @@ name|String
 name|groupName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupName"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|metricName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"metricName"
 argument_list|,
@@ -204,7 +204,7 @@ name|UDPAddressingMode
 name|mode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mode"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|mode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mode"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|prefix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prefix"
 argument_list|,
@@ -267,7 +267,7 @@ name|GMetricSlope
 name|slope
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"slope"
 argument_list|,
@@ -288,7 +288,7 @@ name|String
 name|slope
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"slope"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|spoofHostname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"spoofHostname"
 argument_list|,
@@ -330,7 +330,7 @@ name|int
 name|tmax
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tmax"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|tmax
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tmax"
 argument_list|,
@@ -372,7 +372,7 @@ name|int
 name|ttl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ttl"
 argument_list|,
@@ -393,7 +393,7 @@ name|String
 name|ttl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ttl"
 argument_list|,
@@ -414,7 +414,7 @@ name|GMetricType
 name|type
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"type"
 argument_list|,
@@ -435,7 +435,7 @@ name|String
 name|type
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"type"
 argument_list|,
@@ -456,7 +456,7 @@ name|String
 name|units
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"units"
 argument_list|,
@@ -477,7 +477,7 @@ name|boolean
 name|wireFormat31x
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wireFormat31x"
 argument_list|,
@@ -498,7 +498,7 @@ name|String
 name|wireFormat31x
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wireFormat31x"
 argument_list|,
@@ -541,7 +541,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -562,7 +562,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -583,7 +583,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -604,7 +604,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

@@ -156,7 +156,7 @@ name|String
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -177,7 +177,7 @@ name|String
 name|fileName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileName"
 argument_list|,
@@ -198,7 +198,7 @@ name|String
 name|url
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"url"
 argument_list|,
@@ -219,7 +219,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -240,7 +240,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -261,7 +261,7 @@ name|boolean
 name|fileWatcher
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileWatcher"
 argument_list|,
@@ -282,7 +282,7 @@ name|String
 name|fileWatcher
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileWatcher"
 argument_list|,
@@ -303,7 +303,7 @@ name|int
 name|groupLines
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupLines"
 argument_list|,
@@ -324,7 +324,7 @@ name|String
 name|groupLines
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupLines"
 argument_list|,
@@ -345,7 +345,7 @@ name|Object
 name|groupStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupStrategy"
 argument_list|,
@@ -366,7 +366,7 @@ name|String
 name|groupStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupStrategy"
 argument_list|,
@@ -387,7 +387,7 @@ name|long
 name|initialPromptDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialPromptDelay"
 argument_list|,
@@ -408,7 +408,7 @@ name|String
 name|initialPromptDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialPromptDelay"
 argument_list|,
@@ -429,7 +429,7 @@ name|long
 name|promptDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"promptDelay"
 argument_list|,
@@ -450,7 +450,7 @@ name|String
 name|promptDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"promptDelay"
 argument_list|,
@@ -471,7 +471,7 @@ name|String
 name|promptMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"promptMessage"
 argument_list|,
@@ -492,7 +492,7 @@ name|boolean
 name|retry
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retry"
 argument_list|,
@@ -513,7 +513,7 @@ name|String
 name|retry
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retry"
 argument_list|,
@@ -534,7 +534,7 @@ name|boolean
 name|scanStream
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scanStream"
 argument_list|,
@@ -555,7 +555,7 @@ name|String
 name|scanStream
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scanStream"
 argument_list|,
@@ -576,7 +576,7 @@ name|long
 name|scanStreamDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scanStreamDelay"
 argument_list|,
@@ -597,7 +597,7 @@ name|String
 name|scanStreamDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scanStreamDelay"
 argument_list|,
@@ -640,7 +640,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -661,7 +661,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -682,7 +682,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -703,7 +703,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -724,7 +724,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -745,7 +745,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -766,7 +766,7 @@ name|int
 name|connectTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectTimeout"
 argument_list|,
@@ -787,7 +787,7 @@ name|String
 name|connectTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectTimeout"
 argument_list|,
@@ -813,7 +813,7 @@ argument_list|>
 name|httpHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpHeaders"
 argument_list|,
@@ -834,7 +834,7 @@ name|String
 name|httpHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpHeaders"
 argument_list|,
@@ -855,7 +855,7 @@ name|int
 name|readTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readTimeout"
 argument_list|,
@@ -876,7 +876,7 @@ name|String
 name|readTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readTimeout"
 argument_list|,
@@ -897,7 +897,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -918,7 +918,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -961,7 +961,7 @@ name|String
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -982,7 +982,7 @@ name|String
 name|fileName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileName"
 argument_list|,
@@ -1003,7 +1003,7 @@ name|String
 name|url
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"url"
 argument_list|,
@@ -1024,7 +1024,7 @@ name|int
 name|autoCloseCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCloseCount"
 argument_list|,
@@ -1045,7 +1045,7 @@ name|String
 name|autoCloseCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCloseCount"
 argument_list|,
@@ -1066,7 +1066,7 @@ name|boolean
 name|closeOnDone
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeOnDone"
 argument_list|,
@@ -1087,7 +1087,7 @@ name|String
 name|closeOnDone
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeOnDone"
 argument_list|,
@@ -1108,7 +1108,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -1129,7 +1129,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -1150,7 +1150,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1171,7 +1171,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1214,7 +1214,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1235,7 +1235,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1256,7 +1256,7 @@ name|int
 name|connectTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectTimeout"
 argument_list|,
@@ -1277,7 +1277,7 @@ name|String
 name|connectTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectTimeout"
 argument_list|,
@@ -1303,7 +1303,7 @@ argument_list|>
 name|httpHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpHeaders"
 argument_list|,
@@ -1324,7 +1324,7 @@ name|String
 name|httpHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpHeaders"
 argument_list|,
@@ -1345,7 +1345,7 @@ name|int
 name|readTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readTimeout"
 argument_list|,
@@ -1366,7 +1366,7 @@ name|String
 name|readTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readTimeout"
 argument_list|,
@@ -1387,7 +1387,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1408,7 +1408,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1453,7 +1453,7 @@ name|String
 name|encoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"encoding"
 argument_list|,
@@ -1474,7 +1474,7 @@ name|String
 name|fileName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileName"
 argument_list|,
@@ -1495,7 +1495,7 @@ name|String
 name|url
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"url"
 argument_list|,
@@ -1540,7 +1540,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1561,7 +1561,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1582,7 +1582,7 @@ name|int
 name|connectTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectTimeout"
 argument_list|,
@@ -1603,7 +1603,7 @@ name|String
 name|connectTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectTimeout"
 argument_list|,
@@ -1629,7 +1629,7 @@ argument_list|>
 name|httpHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpHeaders"
 argument_list|,
@@ -1650,7 +1650,7 @@ name|String
 name|httpHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpHeaders"
 argument_list|,
@@ -1671,7 +1671,7 @@ name|int
 name|readTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readTimeout"
 argument_list|,
@@ -1692,7 +1692,7 @@ name|String
 name|readTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readTimeout"
 argument_list|,
@@ -1713,7 +1713,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1734,7 +1734,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

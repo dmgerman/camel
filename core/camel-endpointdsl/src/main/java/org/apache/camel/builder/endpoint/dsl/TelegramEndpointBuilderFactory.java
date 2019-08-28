@@ -206,7 +206,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -227,7 +227,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -248,7 +248,7 @@ name|Integer
 name|limit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"limit"
 argument_list|,
@@ -269,7 +269,7 @@ name|String
 name|limit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"limit"
 argument_list|,
@@ -290,7 +290,7 @@ name|boolean
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -311,7 +311,7 @@ name|String
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -332,7 +332,7 @@ name|Integer
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -353,7 +353,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -374,7 +374,7 @@ name|int
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -395,7 +395,7 @@ name|String
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -416,7 +416,7 @@ name|int
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -437,7 +437,7 @@ name|String
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -458,7 +458,7 @@ name|int
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -479,7 +479,7 @@ name|String
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -500,7 +500,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -521,7 +521,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -542,7 +542,7 @@ name|boolean
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -563,7 +563,7 @@ name|String
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -584,7 +584,7 @@ name|long
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -605,7 +605,7 @@ name|String
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -626,7 +626,7 @@ name|LoggingLevel
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -647,7 +647,7 @@ name|String
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -668,7 +668,7 @@ name|ScheduledExecutorService
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -689,7 +689,7 @@ name|String
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -710,7 +710,7 @@ name|String
 name|scheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduler"
 argument_list|,
@@ -736,7 +736,7 @@ argument_list|>
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -757,7 +757,7 @@ name|String
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -778,7 +778,7 @@ name|boolean
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -799,7 +799,7 @@ name|String
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -820,7 +820,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -841,7 +841,7 @@ name|String
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -862,7 +862,7 @@ name|boolean
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -904,7 +904,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -925,7 +925,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -946,7 +946,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -967,7 +967,7 @@ name|String
 name|authorizationToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"authorizationToken"
 argument_list|,
@@ -1010,7 +1010,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1031,7 +1031,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1052,7 +1052,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1073,7 +1073,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1094,7 +1094,7 @@ name|PollingConsumerPollStrategy
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1115,7 +1115,7 @@ name|String
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1136,7 +1136,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1157,7 +1157,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1178,7 +1178,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1199,7 +1199,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1242,7 +1242,7 @@ name|String
 name|chatId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chatId"
 argument_list|,
@@ -1263,7 +1263,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1284,7 +1284,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1305,7 +1305,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -1326,7 +1326,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1347,7 +1347,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1368,7 +1368,7 @@ name|String
 name|authorizationToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"authorizationToken"
 argument_list|,
@@ -1411,7 +1411,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1432,7 +1432,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1453,7 +1453,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1474,7 +1474,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1519,7 +1519,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -1540,7 +1540,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1561,7 +1561,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1582,7 +1582,7 @@ name|String
 name|authorizationToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"authorizationToken"
 argument_list|,
@@ -1627,7 +1627,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1648,7 +1648,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1669,7 +1669,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1690,7 +1690,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

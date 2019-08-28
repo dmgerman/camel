@@ -172,7 +172,7 @@ name|boolean
 name|durable
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"durable"
 argument_list|,
@@ -193,7 +193,7 @@ name|String
 name|durable
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"durable"
 argument_list|,
@@ -214,7 +214,7 @@ name|boolean
 name|shared
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"shared"
 argument_list|,
@@ -235,7 +235,7 @@ name|String
 name|shared
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"shared"
 argument_list|,
@@ -256,7 +256,7 @@ name|String
 name|subscriptionId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"subscriptionId"
 argument_list|,
@@ -277,7 +277,7 @@ name|SessionAcknowledgementType
 name|acknowledgementMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgementMode"
 argument_list|,
@@ -298,7 +298,7 @@ name|String
 name|acknowledgementMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgementMode"
 argument_list|,
@@ -319,7 +319,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -340,7 +340,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -361,7 +361,7 @@ name|int
 name|consumerCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerCount"
 argument_list|,
@@ -382,7 +382,7 @@ name|String
 name|consumerCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerCount"
 argument_list|,
@@ -403,7 +403,7 @@ name|String
 name|durableSubscriptionId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"durableSubscriptionId"
 argument_list|,
@@ -424,7 +424,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -445,7 +445,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -466,7 +466,7 @@ name|LoggingLevel
 name|errorHandlerLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"errorHandlerLoggingLevel"
 argument_list|,
@@ -487,7 +487,7 @@ name|String
 name|errorHandlerLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"errorHandlerLoggingLevel"
 argument_list|,
@@ -508,7 +508,7 @@ name|boolean
 name|errorHandlerLogStackTrace
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"errorHandlerLogStackTrace"
 argument_list|,
@@ -529,7 +529,7 @@ name|String
 name|errorHandlerLogStackTrace
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"errorHandlerLogStackTrace"
 argument_list|,
@@ -550,7 +550,7 @@ name|boolean
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -571,7 +571,7 @@ name|String
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -592,7 +592,7 @@ name|int
 name|transactionBatchCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionBatchCount"
 argument_list|,
@@ -613,7 +613,7 @@ name|String
 name|transactionBatchCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionBatchCount"
 argument_list|,
@@ -634,7 +634,7 @@ name|long
 name|transactionBatchTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionBatchTimeout"
 argument_list|,
@@ -655,7 +655,7 @@ name|String
 name|transactionBatchTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionBatchTimeout"
 argument_list|,
@@ -676,7 +676,7 @@ name|Object
 name|transactionCommitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionCommitStrategy"
 argument_list|,
@@ -697,7 +697,7 @@ name|String
 name|transactionCommitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionCommitStrategy"
 argument_list|,
@@ -740,7 +740,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -761,7 +761,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -782,7 +782,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -803,7 +803,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -824,7 +824,7 @@ name|String
 name|messageSelector
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageSelector"
 argument_list|,
@@ -845,7 +845,7 @@ name|boolean
 name|asyncStartListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStartListener"
 argument_list|,
@@ -866,7 +866,7 @@ name|String
 name|asyncStartListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStartListener"
 argument_list|,
@@ -887,7 +887,7 @@ name|boolean
 name|asyncStopListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStopListener"
 argument_list|,
@@ -908,7 +908,7 @@ name|String
 name|asyncStopListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStopListener"
 argument_list|,
@@ -929,7 +929,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -950,7 +950,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -971,7 +971,7 @@ name|Integer
 name|connectionCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionCount"
 argument_list|,
@@ -992,7 +992,7 @@ name|String
 name|connectionCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionCount"
 argument_list|,
@@ -1013,7 +1013,7 @@ name|Object
 name|connectionFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionFactory"
 argument_list|,
@@ -1034,7 +1034,7 @@ name|String
 name|connectionFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionFactory"
 argument_list|,
@@ -1055,7 +1055,7 @@ name|Object
 name|connectionResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionResource"
 argument_list|,
@@ -1076,7 +1076,7 @@ name|String
 name|connectionResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionResource"
 argument_list|,
@@ -1097,7 +1097,7 @@ name|Object
 name|destinationCreationStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"destinationCreationStrategy"
 argument_list|,
@@ -1118,7 +1118,7 @@ name|String
 name|destinationCreationStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"destinationCreationStrategy"
 argument_list|,
@@ -1139,7 +1139,7 @@ name|Object
 name|exceptionListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionListener"
 argument_list|,
@@ -1160,7 +1160,7 @@ name|String
 name|exceptionListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionListener"
 argument_list|,
@@ -1181,7 +1181,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -1202,7 +1202,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -1223,7 +1223,7 @@ name|boolean
 name|includeAllJMSXProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"includeAllJMSXProperties"
 argument_list|,
@@ -1244,7 +1244,7 @@ name|String
 name|includeAllJMSXProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"includeAllJMSXProperties"
 argument_list|,
@@ -1265,7 +1265,7 @@ name|Object
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jmsKeyFormatStrategy"
 argument_list|,
@@ -1286,7 +1286,7 @@ name|String
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jmsKeyFormatStrategy"
 argument_list|,
@@ -1307,7 +1307,7 @@ name|boolean
 name|mapJmsMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapJmsMessage"
 argument_list|,
@@ -1328,7 +1328,7 @@ name|String
 name|mapJmsMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapJmsMessage"
 argument_list|,
@@ -1349,7 +1349,7 @@ name|Object
 name|messageCreatedStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageCreatedStrategy"
 argument_list|,
@@ -1370,7 +1370,7 @@ name|String
 name|messageCreatedStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageCreatedStrategy"
 argument_list|,
@@ -1391,7 +1391,7 @@ name|boolean
 name|sharedJMSSession
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedJMSSession"
 argument_list|,
@@ -1412,7 +1412,7 @@ name|String
 name|sharedJMSSession
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedJMSSession"
 argument_list|,
@@ -1455,7 +1455,7 @@ name|SessionAcknowledgementType
 name|acknowledgementMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgementMode"
 argument_list|,
@@ -1476,7 +1476,7 @@ name|String
 name|acknowledgementMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgementMode"
 argument_list|,
@@ -1497,7 +1497,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1518,7 +1518,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1539,7 +1539,7 @@ name|String
 name|namedReplyTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namedReplyTo"
 argument_list|,
@@ -1560,7 +1560,7 @@ name|boolean
 name|persistent
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistent"
 argument_list|,
@@ -1581,7 +1581,7 @@ name|String
 name|persistent
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistent"
 argument_list|,
@@ -1602,7 +1602,7 @@ name|int
 name|producerCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"producerCount"
 argument_list|,
@@ -1623,7 +1623,7 @@ name|String
 name|producerCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"producerCount"
 argument_list|,
@@ -1644,7 +1644,7 @@ name|long
 name|ttl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ttl"
 argument_list|,
@@ -1665,7 +1665,7 @@ name|String
 name|ttl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ttl"
 argument_list|,
@@ -1686,7 +1686,7 @@ name|Object
 name|transactionCommitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionCommitStrategy"
 argument_list|,
@@ -1707,7 +1707,7 @@ name|String
 name|transactionCommitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionCommitStrategy"
 argument_list|,
@@ -1750,7 +1750,7 @@ name|boolean
 name|allowNullBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowNullBody"
 argument_list|,
@@ -1771,7 +1771,7 @@ name|String
 name|allowNullBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowNullBody"
 argument_list|,
@@ -1792,7 +1792,7 @@ name|boolean
 name|prefillPool
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prefillPool"
 argument_list|,
@@ -1813,7 +1813,7 @@ name|String
 name|prefillPool
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"prefillPool"
 argument_list|,
@@ -1834,7 +1834,7 @@ name|long
 name|responseTimeOut
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"responseTimeOut"
 argument_list|,
@@ -1855,7 +1855,7 @@ name|String
 name|responseTimeOut
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"responseTimeOut"
 argument_list|,
@@ -1876,7 +1876,7 @@ name|boolean
 name|asyncStartListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStartListener"
 argument_list|,
@@ -1897,7 +1897,7 @@ name|String
 name|asyncStartListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStartListener"
 argument_list|,
@@ -1918,7 +1918,7 @@ name|boolean
 name|asyncStopListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStopListener"
 argument_list|,
@@ -1939,7 +1939,7 @@ name|String
 name|asyncStopListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStopListener"
 argument_list|,
@@ -1960,7 +1960,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1981,7 +1981,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2002,7 +2002,7 @@ name|Integer
 name|connectionCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionCount"
 argument_list|,
@@ -2023,7 +2023,7 @@ name|String
 name|connectionCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionCount"
 argument_list|,
@@ -2044,7 +2044,7 @@ name|Object
 name|connectionFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionFactory"
 argument_list|,
@@ -2065,7 +2065,7 @@ name|String
 name|connectionFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionFactory"
 argument_list|,
@@ -2086,7 +2086,7 @@ name|Object
 name|connectionResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionResource"
 argument_list|,
@@ -2107,7 +2107,7 @@ name|String
 name|connectionResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionResource"
 argument_list|,
@@ -2128,7 +2128,7 @@ name|Object
 name|destinationCreationStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"destinationCreationStrategy"
 argument_list|,
@@ -2149,7 +2149,7 @@ name|String
 name|destinationCreationStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"destinationCreationStrategy"
 argument_list|,
@@ -2170,7 +2170,7 @@ name|Object
 name|exceptionListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionListener"
 argument_list|,
@@ -2191,7 +2191,7 @@ name|String
 name|exceptionListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionListener"
 argument_list|,
@@ -2212,7 +2212,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -2233,7 +2233,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -2254,7 +2254,7 @@ name|boolean
 name|includeAllJMSXProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"includeAllJMSXProperties"
 argument_list|,
@@ -2275,7 +2275,7 @@ name|String
 name|includeAllJMSXProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"includeAllJMSXProperties"
 argument_list|,
@@ -2296,7 +2296,7 @@ name|Object
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jmsKeyFormatStrategy"
 argument_list|,
@@ -2317,7 +2317,7 @@ name|String
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jmsKeyFormatStrategy"
 argument_list|,
@@ -2338,7 +2338,7 @@ name|boolean
 name|mapJmsMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapJmsMessage"
 argument_list|,
@@ -2359,7 +2359,7 @@ name|String
 name|mapJmsMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapJmsMessage"
 argument_list|,
@@ -2380,7 +2380,7 @@ name|Object
 name|messageCreatedStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageCreatedStrategy"
 argument_list|,
@@ -2401,7 +2401,7 @@ name|String
 name|messageCreatedStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageCreatedStrategy"
 argument_list|,
@@ -2422,7 +2422,7 @@ name|boolean
 name|sharedJMSSession
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedJMSSession"
 argument_list|,
@@ -2443,7 +2443,7 @@ name|String
 name|sharedJMSSession
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedJMSSession"
 argument_list|,
@@ -2488,7 +2488,7 @@ name|SessionAcknowledgementType
 name|acknowledgementMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgementMode"
 argument_list|,
@@ -2509,7 +2509,7 @@ name|String
 name|acknowledgementMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"acknowledgementMode"
 argument_list|,
@@ -2530,7 +2530,7 @@ name|Object
 name|transactionCommitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionCommitStrategy"
 argument_list|,
@@ -2551,7 +2551,7 @@ name|String
 name|transactionCommitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transactionCommitStrategy"
 argument_list|,
@@ -2596,7 +2596,7 @@ name|boolean
 name|asyncStartListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStartListener"
 argument_list|,
@@ -2617,7 +2617,7 @@ name|String
 name|asyncStartListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStartListener"
 argument_list|,
@@ -2638,7 +2638,7 @@ name|boolean
 name|asyncStopListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStopListener"
 argument_list|,
@@ -2659,7 +2659,7 @@ name|String
 name|asyncStopListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStopListener"
 argument_list|,
@@ -2680,7 +2680,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2701,7 +2701,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2722,7 +2722,7 @@ name|Integer
 name|connectionCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionCount"
 argument_list|,
@@ -2743,7 +2743,7 @@ name|String
 name|connectionCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionCount"
 argument_list|,
@@ -2764,7 +2764,7 @@ name|Object
 name|connectionFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionFactory"
 argument_list|,
@@ -2785,7 +2785,7 @@ name|String
 name|connectionFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionFactory"
 argument_list|,
@@ -2806,7 +2806,7 @@ name|Object
 name|connectionResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionResource"
 argument_list|,
@@ -2827,7 +2827,7 @@ name|String
 name|connectionResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionResource"
 argument_list|,
@@ -2848,7 +2848,7 @@ name|Object
 name|destinationCreationStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"destinationCreationStrategy"
 argument_list|,
@@ -2869,7 +2869,7 @@ name|String
 name|destinationCreationStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"destinationCreationStrategy"
 argument_list|,
@@ -2890,7 +2890,7 @@ name|Object
 name|exceptionListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionListener"
 argument_list|,
@@ -2911,7 +2911,7 @@ name|String
 name|exceptionListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionListener"
 argument_list|,
@@ -2932,7 +2932,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -2953,7 +2953,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -2974,7 +2974,7 @@ name|boolean
 name|includeAllJMSXProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"includeAllJMSXProperties"
 argument_list|,
@@ -2995,7 +2995,7 @@ name|String
 name|includeAllJMSXProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"includeAllJMSXProperties"
 argument_list|,
@@ -3016,7 +3016,7 @@ name|Object
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jmsKeyFormatStrategy"
 argument_list|,
@@ -3037,7 +3037,7 @@ name|String
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jmsKeyFormatStrategy"
 argument_list|,
@@ -3058,7 +3058,7 @@ name|boolean
 name|mapJmsMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapJmsMessage"
 argument_list|,
@@ -3079,7 +3079,7 @@ name|String
 name|mapJmsMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapJmsMessage"
 argument_list|,
@@ -3100,7 +3100,7 @@ name|Object
 name|messageCreatedStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageCreatedStrategy"
 argument_list|,
@@ -3121,7 +3121,7 @@ name|String
 name|messageCreatedStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageCreatedStrategy"
 argument_list|,
@@ -3142,7 +3142,7 @@ name|boolean
 name|sharedJMSSession
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedJMSSession"
 argument_list|,
@@ -3163,7 +3163,7 @@ name|String
 name|sharedJMSSession
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedJMSSession"
 argument_list|,

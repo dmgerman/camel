@@ -120,7 +120,7 @@ name|boolean
 name|failOnNullBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnNullBody"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|failOnNullBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnNullBody"
 argument_list|,
@@ -162,7 +162,7 @@ name|boolean
 name|failOnNullHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnNullHeader"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|failOnNullHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnNullHeader"
 argument_list|,
@@ -204,7 +204,7 @@ name|String
 name|headerName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerName"
 argument_list|,
@@ -247,7 +247,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -268,7 +268,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -289,7 +289,7 @@ name|Object
 name|errorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"errorHandler"
 argument_list|,
@@ -310,7 +310,7 @@ name|String
 name|errorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"errorHandler"
 argument_list|,
@@ -331,7 +331,7 @@ name|Object
 name|resourceResolver
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resourceResolver"
 argument_list|,
@@ -352,7 +352,7 @@ name|String
 name|resourceResolver
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resourceResolver"
 argument_list|,
@@ -373,7 +373,7 @@ name|Object
 name|resourceResolverFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resourceResolverFactory"
 argument_list|,
@@ -394,7 +394,7 @@ name|String
 name|resourceResolverFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resourceResolverFactory"
 argument_list|,
@@ -415,7 +415,7 @@ name|Object
 name|schemaFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schemaFactory"
 argument_list|,
@@ -436,7 +436,7 @@ name|String
 name|schemaFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schemaFactory"
 argument_list|,
@@ -457,7 +457,7 @@ name|String
 name|schemaLanguage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schemaLanguage"
 argument_list|,
@@ -478,7 +478,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -499,7 +499,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -520,7 +520,7 @@ name|boolean
 name|useSharedSchema
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useSharedSchema"
 argument_list|,
@@ -541,7 +541,7 @@ name|String
 name|useSharedSchema
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useSharedSchema"
 argument_list|,

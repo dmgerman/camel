@@ -120,7 +120,7 @@ name|boolean
 name|binary
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"binary"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|binary
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"binary"
 argument_list|,
@@ -162,7 +162,7 @@ name|boolean
 name|cacheScript
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheScript"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|cacheScript
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheScript"
 argument_list|,
@@ -204,7 +204,7 @@ name|boolean
 name|contentCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentCache"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|contentCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentCache"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|script
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"script"
 argument_list|,
@@ -267,7 +267,7 @@ name|boolean
 name|transform
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transform"
 argument_list|,
@@ -288,7 +288,7 @@ name|String
 name|transform
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transform"
 argument_list|,
@@ -331,7 +331,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -352,7 +352,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -373,7 +373,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -394,7 +394,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

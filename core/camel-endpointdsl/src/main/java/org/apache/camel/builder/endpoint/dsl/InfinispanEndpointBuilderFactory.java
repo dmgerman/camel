@@ -178,7 +178,7 @@ name|String
 name|hosts
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hosts"
 argument_list|,
@@ -199,7 +199,7 @@ name|Object
 name|queryBuilder
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queryBuilder"
 argument_list|,
@@ -220,7 +220,7 @@ name|String
 name|queryBuilder
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queryBuilder"
 argument_list|,
@@ -241,7 +241,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -262,7 +262,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -283,7 +283,7 @@ name|boolean
 name|clusteredListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clusteredListener"
 argument_list|,
@@ -304,7 +304,7 @@ name|String
 name|clusteredListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clusteredListener"
 argument_list|,
@@ -327,7 +327,7 @@ name|String
 name|command
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"command"
 argument_list|,
@@ -348,7 +348,7 @@ name|Object
 name|customListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"customListener"
 argument_list|,
@@ -369,7 +369,7 @@ name|String
 name|customListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"customListener"
 argument_list|,
@@ -393,7 +393,7 @@ argument_list|>
 name|eventTypes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventTypes"
 argument_list|,
@@ -414,7 +414,7 @@ name|String
 name|eventTypes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventTypes"
 argument_list|,
@@ -435,7 +435,7 @@ name|boolean
 name|sync
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sync"
 argument_list|,
@@ -456,7 +456,7 @@ name|String
 name|sync
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sync"
 argument_list|,
@@ -499,7 +499,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -520,7 +520,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -541,7 +541,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -562,7 +562,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -583,7 +583,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -604,7 +604,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -625,7 +625,7 @@ name|Object
 name|cacheContainer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainer"
 argument_list|,
@@ -646,7 +646,7 @@ name|String
 name|cacheContainer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainer"
 argument_list|,
@@ -667,7 +667,7 @@ name|Object
 name|cacheContainerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainerConfiguration"
 argument_list|,
@@ -688,7 +688,7 @@ name|String
 name|cacheContainerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainerConfiguration"
 argument_list|,
@@ -714,7 +714,7 @@ argument_list|>
 name|configurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationProperties"
 argument_list|,
@@ -735,7 +735,7 @@ name|String
 name|configurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationProperties"
 argument_list|,
@@ -756,7 +756,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -778,7 +778,7 @@ index|[]
 name|flags
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flags"
 argument_list|,
@@ -799,7 +799,7 @@ name|String
 name|flags
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flags"
 argument_list|,
@@ -820,7 +820,7 @@ name|BiFunction
 name|remappingFunction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remappingFunction"
 argument_list|,
@@ -841,7 +841,7 @@ name|String
 name|remappingFunction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remappingFunction"
 argument_list|,
@@ -862,7 +862,7 @@ name|Object
 name|resultHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHeader"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|resultHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHeader"
 argument_list|,
@@ -904,7 +904,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -925,7 +925,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -968,7 +968,7 @@ name|String
 name|hosts
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hosts"
 argument_list|,
@@ -989,7 +989,7 @@ name|Object
 name|queryBuilder
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queryBuilder"
 argument_list|,
@@ -1010,7 +1010,7 @@ name|String
 name|queryBuilder
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queryBuilder"
 argument_list|,
@@ -1031,7 +1031,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1052,7 +1052,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1073,7 +1073,7 @@ name|InfinispanOperation
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1094,7 +1094,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1137,7 +1137,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1158,7 +1158,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1179,7 +1179,7 @@ name|Object
 name|cacheContainer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainer"
 argument_list|,
@@ -1200,7 +1200,7 @@ name|String
 name|cacheContainer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainer"
 argument_list|,
@@ -1221,7 +1221,7 @@ name|Object
 name|cacheContainerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainerConfiguration"
 argument_list|,
@@ -1242,7 +1242,7 @@ name|String
 name|cacheContainerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainerConfiguration"
 argument_list|,
@@ -1268,7 +1268,7 @@ argument_list|>
 name|configurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationProperties"
 argument_list|,
@@ -1289,7 +1289,7 @@ name|String
 name|configurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationProperties"
 argument_list|,
@@ -1310,7 +1310,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -1332,7 +1332,7 @@ index|[]
 name|flags
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flags"
 argument_list|,
@@ -1353,7 +1353,7 @@ name|String
 name|flags
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flags"
 argument_list|,
@@ -1374,7 +1374,7 @@ name|BiFunction
 name|remappingFunction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remappingFunction"
 argument_list|,
@@ -1395,7 +1395,7 @@ name|String
 name|remappingFunction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remappingFunction"
 argument_list|,
@@ -1416,7 +1416,7 @@ name|Object
 name|resultHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHeader"
 argument_list|,
@@ -1437,7 +1437,7 @@ name|String
 name|resultHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHeader"
 argument_list|,
@@ -1458,7 +1458,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1479,7 +1479,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1524,7 +1524,7 @@ name|String
 name|hosts
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hosts"
 argument_list|,
@@ -1545,7 +1545,7 @@ name|Object
 name|queryBuilder
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queryBuilder"
 argument_list|,
@@ -1566,7 +1566,7 @@ name|String
 name|queryBuilder
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queryBuilder"
 argument_list|,
@@ -1611,7 +1611,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1632,7 +1632,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1653,7 +1653,7 @@ name|Object
 name|cacheContainer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainer"
 argument_list|,
@@ -1674,7 +1674,7 @@ name|String
 name|cacheContainer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainer"
 argument_list|,
@@ -1695,7 +1695,7 @@ name|Object
 name|cacheContainerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainerConfiguration"
 argument_list|,
@@ -1716,7 +1716,7 @@ name|String
 name|cacheContainerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheContainerConfiguration"
 argument_list|,
@@ -1742,7 +1742,7 @@ argument_list|>
 name|configurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationProperties"
 argument_list|,
@@ -1763,7 +1763,7 @@ name|String
 name|configurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationProperties"
 argument_list|,
@@ -1784,7 +1784,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -1806,7 +1806,7 @@ index|[]
 name|flags
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flags"
 argument_list|,
@@ -1827,7 +1827,7 @@ name|String
 name|flags
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flags"
 argument_list|,
@@ -1848,7 +1848,7 @@ name|BiFunction
 name|remappingFunction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remappingFunction"
 argument_list|,
@@ -1869,7 +1869,7 @@ name|String
 name|remappingFunction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remappingFunction"
 argument_list|,
@@ -1890,7 +1890,7 @@ name|Object
 name|resultHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHeader"
 argument_list|,
@@ -1911,7 +1911,7 @@ name|String
 name|resultHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHeader"
 argument_list|,
@@ -1932,7 +1932,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1953,7 +1953,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

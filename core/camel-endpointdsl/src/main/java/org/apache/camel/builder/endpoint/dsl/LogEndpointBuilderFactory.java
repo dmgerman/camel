@@ -134,7 +134,7 @@ name|Boolean
 name|groupActiveOnly
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupActiveOnly"
 argument_list|,
@@ -155,7 +155,7 @@ name|String
 name|groupActiveOnly
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupActiveOnly"
 argument_list|,
@@ -176,7 +176,7 @@ name|Long
 name|groupDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupDelay"
 argument_list|,
@@ -197,7 +197,7 @@ name|String
 name|groupDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupDelay"
 argument_list|,
@@ -218,7 +218,7 @@ name|Long
 name|groupInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupInterval"
 argument_list|,
@@ -239,7 +239,7 @@ name|String
 name|groupInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupInterval"
 argument_list|,
@@ -260,7 +260,7 @@ name|Integer
 name|groupSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupSize"
 argument_list|,
@@ -281,7 +281,7 @@ name|String
 name|groupSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"groupSize"
 argument_list|,
@@ -302,7 +302,7 @@ name|String
 name|level
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"level"
 argument_list|,
@@ -323,7 +323,7 @@ name|Boolean
 name|logMask
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"logMask"
 argument_list|,
@@ -344,7 +344,7 @@ name|String
 name|logMask
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"logMask"
 argument_list|,
@@ -365,7 +365,7 @@ name|String
 name|marker
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"marker"
 argument_list|,
@@ -386,7 +386,7 @@ name|int
 name|maxChars
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxChars"
 argument_list|,
@@ -407,7 +407,7 @@ name|String
 name|maxChars
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxChars"
 argument_list|,
@@ -428,7 +428,7 @@ name|boolean
 name|multiline
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multiline"
 argument_list|,
@@ -449,7 +449,7 @@ name|String
 name|multiline
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multiline"
 argument_list|,
@@ -470,7 +470,7 @@ name|boolean
 name|showAll
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showAll"
 argument_list|,
@@ -491,7 +491,7 @@ name|String
 name|showAll
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showAll"
 argument_list|,
@@ -512,7 +512,7 @@ name|boolean
 name|showBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showBody"
 argument_list|,
@@ -533,7 +533,7 @@ name|String
 name|showBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showBody"
 argument_list|,
@@ -554,7 +554,7 @@ name|boolean
 name|showBodyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showBodyType"
 argument_list|,
@@ -575,7 +575,7 @@ name|String
 name|showBodyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showBodyType"
 argument_list|,
@@ -596,7 +596,7 @@ name|boolean
 name|showCaughtException
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showCaughtException"
 argument_list|,
@@ -617,7 +617,7 @@ name|String
 name|showCaughtException
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showCaughtException"
 argument_list|,
@@ -638,7 +638,7 @@ name|boolean
 name|showException
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showException"
 argument_list|,
@@ -659,7 +659,7 @@ name|String
 name|showException
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showException"
 argument_list|,
@@ -680,7 +680,7 @@ name|boolean
 name|showExchangeId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showExchangeId"
 argument_list|,
@@ -701,7 +701,7 @@ name|String
 name|showExchangeId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showExchangeId"
 argument_list|,
@@ -722,7 +722,7 @@ name|boolean
 name|showExchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showExchangePattern"
 argument_list|,
@@ -743,7 +743,7 @@ name|String
 name|showExchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showExchangePattern"
 argument_list|,
@@ -764,7 +764,7 @@ name|boolean
 name|showFiles
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showFiles"
 argument_list|,
@@ -785,7 +785,7 @@ name|String
 name|showFiles
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showFiles"
 argument_list|,
@@ -806,7 +806,7 @@ name|boolean
 name|showFuture
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showFuture"
 argument_list|,
@@ -827,7 +827,7 @@ name|String
 name|showFuture
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showFuture"
 argument_list|,
@@ -848,7 +848,7 @@ name|boolean
 name|showHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showHeaders"
 argument_list|,
@@ -869,7 +869,7 @@ name|String
 name|showHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showHeaders"
 argument_list|,
@@ -890,7 +890,7 @@ name|boolean
 name|showProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showProperties"
 argument_list|,
@@ -911,7 +911,7 @@ name|String
 name|showProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showProperties"
 argument_list|,
@@ -932,7 +932,7 @@ name|boolean
 name|showStackTrace
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showStackTrace"
 argument_list|,
@@ -953,7 +953,7 @@ name|String
 name|showStackTrace
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showStackTrace"
 argument_list|,
@@ -974,7 +974,7 @@ name|boolean
 name|showStreams
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showStreams"
 argument_list|,
@@ -995,7 +995,7 @@ name|String
 name|showStreams
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"showStreams"
 argument_list|,
@@ -1016,7 +1016,7 @@ name|boolean
 name|skipBodyLineSeparator
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipBodyLineSeparator"
 argument_list|,
@@ -1037,7 +1037,7 @@ name|String
 name|skipBodyLineSeparator
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipBodyLineSeparator"
 argument_list|,
@@ -1058,7 +1058,7 @@ name|OutputStyle
 name|style
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"style"
 argument_list|,
@@ -1079,7 +1079,7 @@ name|String
 name|style
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"style"
 argument_list|,
@@ -1122,7 +1122,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1143,7 +1143,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1164,7 +1164,7 @@ name|ExchangeFormatter
 name|exchangeFormatter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangeFormatter"
 argument_list|,
@@ -1185,7 +1185,7 @@ name|String
 name|exchangeFormatter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangeFormatter"
 argument_list|,
@@ -1206,7 +1206,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1227,7 +1227,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

@@ -517,10 +517,10 @@ name|getUri
 argument_list|()
 return|;
 block|}
-DECL|method|setProperty (String key, Object value)
+DECL|method|doSetProperty (String key, Object value)
 specifier|public
 name|void
-name|setProperty
+name|doSetProperty
 parameter_list|(
 name|String
 name|key

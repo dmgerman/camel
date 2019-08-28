@@ -120,7 +120,7 @@ name|boolean
 name|batch
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"batch"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|batch
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"batch"
 argument_list|,
@@ -162,7 +162,7 @@ name|Object
 name|dataSource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataSource"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|dataSource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataSource"
 argument_list|,
@@ -204,7 +204,7 @@ name|boolean
 name|function
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"function"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|function
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"function"
 argument_list|,
@@ -246,7 +246,7 @@ name|boolean
 name|noop
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"noop"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|noop
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"noop"
 argument_list|,
@@ -288,7 +288,7 @@ name|String
 name|outputHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputHeader"
 argument_list|,
@@ -309,7 +309,7 @@ name|boolean
 name|useMessageBodyForTemplate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useMessageBodyForTemplate"
 argument_list|,
@@ -330,7 +330,7 @@ name|String
 name|useMessageBodyForTemplate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useMessageBodyForTemplate"
 argument_list|,
@@ -373,7 +373,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -394,7 +394,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -415,7 +415,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -436,7 +436,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

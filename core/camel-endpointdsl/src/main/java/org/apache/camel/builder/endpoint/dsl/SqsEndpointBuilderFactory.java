@@ -220,7 +220,7 @@ name|String
 name|amazonAWSHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonAWSHost"
 argument_list|,
@@ -241,7 +241,7 @@ name|Object
 name|amazonSQSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -262,7 +262,7 @@ name|String
 name|amazonSQSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -283,7 +283,7 @@ name|boolean
 name|autoCreateQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateQueue"
 argument_list|,
@@ -304,7 +304,7 @@ name|String
 name|autoCreateQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateQueue"
 argument_list|,
@@ -325,7 +325,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -346,7 +346,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -367,7 +367,7 @@ name|String
 name|queueOwnerAWSAccountId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queueOwnerAWSAccountId"
 argument_list|,
@@ -388,7 +388,7 @@ name|String
 name|region
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"region"
 argument_list|,
@@ -409,7 +409,7 @@ name|String
 name|attributeNames
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"attributeNames"
 argument_list|,
@@ -430,7 +430,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -451,7 +451,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -472,7 +472,7 @@ name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -493,7 +493,7 @@ name|String
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -514,7 +514,7 @@ name|Integer
 name|defaultVisibilityTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultVisibilityTimeout"
 argument_list|,
@@ -535,7 +535,7 @@ name|String
 name|defaultVisibilityTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultVisibilityTimeout"
 argument_list|,
@@ -556,7 +556,7 @@ name|boolean
 name|deleteAfterRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteAfterRead"
 argument_list|,
@@ -577,7 +577,7 @@ name|String
 name|deleteAfterRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteAfterRead"
 argument_list|,
@@ -598,7 +598,7 @@ name|boolean
 name|deleteIfFiltered
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteIfFiltered"
 argument_list|,
@@ -619,7 +619,7 @@ name|String
 name|deleteIfFiltered
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteIfFiltered"
 argument_list|,
@@ -640,7 +640,7 @@ name|boolean
 name|extendMessageVisibility
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"extendMessageVisibility"
 argument_list|,
@@ -661,7 +661,7 @@ name|String
 name|extendMessageVisibility
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"extendMessageVisibility"
 argument_list|,
@@ -682,7 +682,7 @@ name|Integer
 name|kmsDataKeyReusePeriodSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"kmsDataKeyReusePeriodSeconds"
 argument_list|,
@@ -703,7 +703,7 @@ name|String
 name|kmsDataKeyReusePeriodSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"kmsDataKeyReusePeriodSeconds"
 argument_list|,
@@ -724,7 +724,7 @@ name|String
 name|kmsMasterKeyId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"kmsMasterKeyId"
 argument_list|,
@@ -745,7 +745,7 @@ name|int
 name|maxMessagesPerPoll
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxMessagesPerPoll"
 argument_list|,
@@ -766,7 +766,7 @@ name|String
 name|maxMessagesPerPoll
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxMessagesPerPoll"
 argument_list|,
@@ -787,7 +787,7 @@ name|String
 name|messageAttributeNames
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageAttributeNames"
 argument_list|,
@@ -808,7 +808,7 @@ name|boolean
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -829,7 +829,7 @@ name|String
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -850,7 +850,7 @@ name|boolean
 name|serverSideEncryptionEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serverSideEncryptionEnabled"
 argument_list|,
@@ -871,7 +871,7 @@ name|String
 name|serverSideEncryptionEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serverSideEncryptionEnabled"
 argument_list|,
@@ -892,7 +892,7 @@ name|Integer
 name|visibilityTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"visibilityTimeout"
 argument_list|,
@@ -913,7 +913,7 @@ name|String
 name|visibilityTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"visibilityTimeout"
 argument_list|,
@@ -934,7 +934,7 @@ name|Integer
 name|waitTimeSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"waitTimeSeconds"
 argument_list|,
@@ -955,7 +955,7 @@ name|String
 name|waitTimeSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"waitTimeSeconds"
 argument_list|,
@@ -976,7 +976,7 @@ name|int
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -997,7 +997,7 @@ name|String
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -1018,7 +1018,7 @@ name|int
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -1039,7 +1039,7 @@ name|String
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -1060,7 +1060,7 @@ name|int
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -1081,7 +1081,7 @@ name|String
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -1102,7 +1102,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -1123,7 +1123,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -1144,7 +1144,7 @@ name|boolean
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -1165,7 +1165,7 @@ name|String
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -1186,7 +1186,7 @@ name|long
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -1207,7 +1207,7 @@ name|String
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -1228,7 +1228,7 @@ name|LoggingLevel
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -1249,7 +1249,7 @@ name|String
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -1270,7 +1270,7 @@ name|ScheduledExecutorService
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -1291,7 +1291,7 @@ name|String
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -1312,7 +1312,7 @@ name|String
 name|scheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduler"
 argument_list|,
@@ -1338,7 +1338,7 @@ argument_list|>
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -1359,7 +1359,7 @@ name|String
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -1380,7 +1380,7 @@ name|boolean
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -1401,7 +1401,7 @@ name|String
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -1422,7 +1422,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -1443,7 +1443,7 @@ name|String
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -1464,7 +1464,7 @@ name|boolean
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -1485,7 +1485,7 @@ name|String
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -1506,7 +1506,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -1527,7 +1527,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1548,7 +1548,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1569,7 +1569,7 @@ name|Integer
 name|maximumMessageSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumMessageSize"
 argument_list|,
@@ -1590,7 +1590,7 @@ name|String
 name|maximumMessageSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumMessageSize"
 argument_list|,
@@ -1611,7 +1611,7 @@ name|Integer
 name|messageRetentionPeriod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageRetentionPeriod"
 argument_list|,
@@ -1632,7 +1632,7 @@ name|String
 name|messageRetentionPeriod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageRetentionPeriod"
 argument_list|,
@@ -1653,7 +1653,7 @@ name|String
 name|policy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"policy"
 argument_list|,
@@ -1674,7 +1674,7 @@ name|Integer
 name|receiveMessageWaitTimeSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"receiveMessageWaitTimeSeconds"
 argument_list|,
@@ -1695,7 +1695,7 @@ name|String
 name|receiveMessageWaitTimeSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"receiveMessageWaitTimeSeconds"
 argument_list|,
@@ -1716,7 +1716,7 @@ name|String
 name|redrivePolicy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"redrivePolicy"
 argument_list|,
@@ -1737,7 +1737,7 @@ name|String
 name|accessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessKey"
 argument_list|,
@@ -1758,7 +1758,7 @@ name|String
 name|secretKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secretKey"
 argument_list|,
@@ -1801,7 +1801,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1822,7 +1822,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1843,7 +1843,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1864,7 +1864,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1885,7 +1885,7 @@ name|PollingConsumerPollStrategy
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1906,7 +1906,7 @@ name|String
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1927,7 +1927,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1948,7 +1948,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1969,7 +1969,7 @@ name|boolean
 name|delayQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delayQueue"
 argument_list|,
@@ -1990,7 +1990,7 @@ name|String
 name|delayQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delayQueue"
 argument_list|,
@@ -2011,7 +2011,7 @@ name|String
 name|queueUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queueUrl"
 argument_list|,
@@ -2032,7 +2032,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2053,7 +2053,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2096,7 +2096,7 @@ name|String
 name|amazonAWSHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonAWSHost"
 argument_list|,
@@ -2117,7 +2117,7 @@ name|Object
 name|amazonSQSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -2138,7 +2138,7 @@ name|String
 name|amazonSQSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -2159,7 +2159,7 @@ name|boolean
 name|autoCreateQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateQueue"
 argument_list|,
@@ -2180,7 +2180,7 @@ name|String
 name|autoCreateQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateQueue"
 argument_list|,
@@ -2201,7 +2201,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -2222,7 +2222,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -2243,7 +2243,7 @@ name|String
 name|queueOwnerAWSAccountId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queueOwnerAWSAccountId"
 argument_list|,
@@ -2264,7 +2264,7 @@ name|String
 name|region
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"region"
 argument_list|,
@@ -2285,7 +2285,7 @@ name|Integer
 name|delaySeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delaySeconds"
 argument_list|,
@@ -2306,7 +2306,7 @@ name|String
 name|delaySeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delaySeconds"
 argument_list|,
@@ -2327,7 +2327,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -2348,7 +2348,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -2369,7 +2369,7 @@ name|Object
 name|messageDeduplicationIdStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageDeduplicationIdStrategy"
 argument_list|,
@@ -2390,7 +2390,7 @@ name|String
 name|messageDeduplicationIdStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageDeduplicationIdStrategy"
 argument_list|,
@@ -2411,7 +2411,7 @@ name|Object
 name|messageGroupIdStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageGroupIdStrategy"
 argument_list|,
@@ -2432,7 +2432,7 @@ name|String
 name|messageGroupIdStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageGroupIdStrategy"
 argument_list|,
@@ -2453,7 +2453,7 @@ name|SqsOperations
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -2474,7 +2474,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -2495,7 +2495,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -2516,7 +2516,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -2537,7 +2537,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -2558,7 +2558,7 @@ name|Integer
 name|maximumMessageSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumMessageSize"
 argument_list|,
@@ -2579,7 +2579,7 @@ name|String
 name|maximumMessageSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumMessageSize"
 argument_list|,
@@ -2600,7 +2600,7 @@ name|Integer
 name|messageRetentionPeriod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageRetentionPeriod"
 argument_list|,
@@ -2621,7 +2621,7 @@ name|String
 name|messageRetentionPeriod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageRetentionPeriod"
 argument_list|,
@@ -2642,7 +2642,7 @@ name|String
 name|policy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"policy"
 argument_list|,
@@ -2663,7 +2663,7 @@ name|Integer
 name|receiveMessageWaitTimeSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"receiveMessageWaitTimeSeconds"
 argument_list|,
@@ -2684,7 +2684,7 @@ name|String
 name|receiveMessageWaitTimeSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"receiveMessageWaitTimeSeconds"
 argument_list|,
@@ -2705,7 +2705,7 @@ name|String
 name|redrivePolicy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"redrivePolicy"
 argument_list|,
@@ -2726,7 +2726,7 @@ name|String
 name|accessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessKey"
 argument_list|,
@@ -2747,7 +2747,7 @@ name|String
 name|secretKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secretKey"
 argument_list|,
@@ -2790,7 +2790,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2811,7 +2811,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2832,7 +2832,7 @@ name|boolean
 name|delayQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delayQueue"
 argument_list|,
@@ -2853,7 +2853,7 @@ name|String
 name|delayQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delayQueue"
 argument_list|,
@@ -2874,7 +2874,7 @@ name|String
 name|queueUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queueUrl"
 argument_list|,
@@ -2895,7 +2895,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2916,7 +2916,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2961,7 +2961,7 @@ name|String
 name|amazonAWSHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonAWSHost"
 argument_list|,
@@ -2982,7 +2982,7 @@ name|Object
 name|amazonSQSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -3003,7 +3003,7 @@ name|String
 name|amazonSQSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -3024,7 +3024,7 @@ name|boolean
 name|autoCreateQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateQueue"
 argument_list|,
@@ -3045,7 +3045,7 @@ name|String
 name|autoCreateQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateQueue"
 argument_list|,
@@ -3066,7 +3066,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -3087,7 +3087,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -3108,7 +3108,7 @@ name|String
 name|queueOwnerAWSAccountId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queueOwnerAWSAccountId"
 argument_list|,
@@ -3129,7 +3129,7 @@ name|String
 name|region
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"region"
 argument_list|,
@@ -3150,7 +3150,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -3171,7 +3171,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -3192,7 +3192,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -3213,7 +3213,7 @@ name|Integer
 name|maximumMessageSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumMessageSize"
 argument_list|,
@@ -3234,7 +3234,7 @@ name|String
 name|maximumMessageSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumMessageSize"
 argument_list|,
@@ -3255,7 +3255,7 @@ name|Integer
 name|messageRetentionPeriod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageRetentionPeriod"
 argument_list|,
@@ -3276,7 +3276,7 @@ name|String
 name|messageRetentionPeriod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageRetentionPeriod"
 argument_list|,
@@ -3297,7 +3297,7 @@ name|String
 name|policy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"policy"
 argument_list|,
@@ -3318,7 +3318,7 @@ name|Integer
 name|receiveMessageWaitTimeSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"receiveMessageWaitTimeSeconds"
 argument_list|,
@@ -3339,7 +3339,7 @@ name|String
 name|receiveMessageWaitTimeSeconds
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"receiveMessageWaitTimeSeconds"
 argument_list|,
@@ -3360,7 +3360,7 @@ name|String
 name|redrivePolicy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"redrivePolicy"
 argument_list|,
@@ -3381,7 +3381,7 @@ name|String
 name|accessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessKey"
 argument_list|,
@@ -3402,7 +3402,7 @@ name|String
 name|secretKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secretKey"
 argument_list|,
@@ -3447,7 +3447,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -3468,7 +3468,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -3489,7 +3489,7 @@ name|boolean
 name|delayQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delayQueue"
 argument_list|,
@@ -3510,7 +3510,7 @@ name|String
 name|delayQueue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delayQueue"
 argument_list|,
@@ -3531,7 +3531,7 @@ name|String
 name|queueUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queueUrl"
 argument_list|,
@@ -3552,7 +3552,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -3573,7 +3573,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

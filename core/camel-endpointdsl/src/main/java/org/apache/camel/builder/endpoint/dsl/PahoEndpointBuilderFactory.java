@@ -146,7 +146,7 @@ name|boolean
 name|autoReconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoReconnect"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|autoReconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoReconnect"
 argument_list|,
@@ -188,7 +188,7 @@ name|String
 name|brokerUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"brokerUrl"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|clientId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientId"
 argument_list|,
@@ -230,7 +230,7 @@ name|Object
 name|connectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOptions"
 argument_list|,
@@ -251,7 +251,7 @@ name|String
 name|connectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOptions"
 argument_list|,
@@ -272,7 +272,7 @@ name|String
 name|filePersistenceDirectory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"filePersistenceDirectory"
 argument_list|,
@@ -293,7 +293,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -314,7 +314,7 @@ name|PahoPersistence
 name|persistence
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistence"
 argument_list|,
@@ -335,7 +335,7 @@ name|String
 name|persistence
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistence"
 argument_list|,
@@ -356,7 +356,7 @@ name|int
 name|qos
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"qos"
 argument_list|,
@@ -377,7 +377,7 @@ name|String
 name|qos
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"qos"
 argument_list|,
@@ -398,7 +398,7 @@ name|boolean
 name|resolveMqttConnectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resolveMqttConnectOptions"
 argument_list|,
@@ -419,7 +419,7 @@ name|String
 name|resolveMqttConnectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resolveMqttConnectOptions"
 argument_list|,
@@ -440,7 +440,7 @@ name|boolean
 name|retained
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retained"
 argument_list|,
@@ -461,7 +461,7 @@ name|String
 name|retained
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retained"
 argument_list|,
@@ -482,7 +482,7 @@ name|String
 name|userName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"userName"
 argument_list|,
@@ -503,7 +503,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -524,7 +524,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -567,7 +567,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -588,7 +588,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -609,7 +609,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -630,7 +630,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -651,7 +651,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -672,7 +672,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -693,7 +693,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -714,7 +714,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -757,7 +757,7 @@ name|boolean
 name|autoReconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoReconnect"
 argument_list|,
@@ -778,7 +778,7 @@ name|String
 name|autoReconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoReconnect"
 argument_list|,
@@ -799,7 +799,7 @@ name|String
 name|brokerUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"brokerUrl"
 argument_list|,
@@ -820,7 +820,7 @@ name|String
 name|clientId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientId"
 argument_list|,
@@ -841,7 +841,7 @@ name|Object
 name|connectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOptions"
 argument_list|,
@@ -862,7 +862,7 @@ name|String
 name|connectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOptions"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|filePersistenceDirectory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"filePersistenceDirectory"
 argument_list|,
@@ -904,7 +904,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -925,7 +925,7 @@ name|PahoPersistence
 name|persistence
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistence"
 argument_list|,
@@ -946,7 +946,7 @@ name|String
 name|persistence
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistence"
 argument_list|,
@@ -967,7 +967,7 @@ name|int
 name|qos
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"qos"
 argument_list|,
@@ -988,7 +988,7 @@ name|String
 name|qos
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"qos"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|boolean
 name|resolveMqttConnectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resolveMqttConnectOptions"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|String
 name|resolveMqttConnectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resolveMqttConnectOptions"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|boolean
 name|retained
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retained"
 argument_list|,
@@ -1072,7 +1072,7 @@ name|String
 name|retained
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retained"
 argument_list|,
@@ -1093,7 +1093,7 @@ name|String
 name|userName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"userName"
 argument_list|,
@@ -1114,7 +1114,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1135,7 +1135,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1178,7 +1178,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1199,7 +1199,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1220,7 +1220,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1241,7 +1241,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1286,7 +1286,7 @@ name|boolean
 name|autoReconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoReconnect"
 argument_list|,
@@ -1307,7 +1307,7 @@ name|String
 name|autoReconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoReconnect"
 argument_list|,
@@ -1328,7 +1328,7 @@ name|String
 name|brokerUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"brokerUrl"
 argument_list|,
@@ -1349,7 +1349,7 @@ name|String
 name|clientId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientId"
 argument_list|,
@@ -1370,7 +1370,7 @@ name|Object
 name|connectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOptions"
 argument_list|,
@@ -1391,7 +1391,7 @@ name|String
 name|connectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOptions"
 argument_list|,
@@ -1412,7 +1412,7 @@ name|String
 name|filePersistenceDirectory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"filePersistenceDirectory"
 argument_list|,
@@ -1433,7 +1433,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -1454,7 +1454,7 @@ name|PahoPersistence
 name|persistence
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistence"
 argument_list|,
@@ -1475,7 +1475,7 @@ name|String
 name|persistence
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistence"
 argument_list|,
@@ -1496,7 +1496,7 @@ name|int
 name|qos
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"qos"
 argument_list|,
@@ -1517,7 +1517,7 @@ name|String
 name|qos
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"qos"
 argument_list|,
@@ -1538,7 +1538,7 @@ name|boolean
 name|resolveMqttConnectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resolveMqttConnectOptions"
 argument_list|,
@@ -1559,7 +1559,7 @@ name|String
 name|resolveMqttConnectOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resolveMqttConnectOptions"
 argument_list|,
@@ -1580,7 +1580,7 @@ name|boolean
 name|retained
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retained"
 argument_list|,
@@ -1601,7 +1601,7 @@ name|String
 name|retained
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retained"
 argument_list|,
@@ -1622,7 +1622,7 @@ name|String
 name|userName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"userName"
 argument_list|,
@@ -1667,7 +1667,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1688,7 +1688,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1709,7 +1709,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1730,7 +1730,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

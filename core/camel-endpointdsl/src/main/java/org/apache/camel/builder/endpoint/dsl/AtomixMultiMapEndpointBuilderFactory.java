@@ -150,7 +150,7 @@ name|Object
 name|atomix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"atomix"
 argument_list|,
@@ -171,7 +171,7 @@ name|String
 name|atomix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"atomix"
 argument_list|,
@@ -192,7 +192,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -213,7 +213,7 @@ name|Action
 name|defaultAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultAction"
 argument_list|,
@@ -234,7 +234,7 @@ name|String
 name|defaultAction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultAction"
 argument_list|,
@@ -255,7 +255,7 @@ name|Object
 name|key
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"key"
 argument_list|,
@@ -276,7 +276,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"key"
 argument_list|,
@@ -300,7 +300,7 @@ argument_list|>
 name|nodes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nodes"
 argument_list|,
@@ -321,7 +321,7 @@ name|String
 name|nodes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nodes"
 argument_list|,
@@ -342,7 +342,7 @@ name|String
 name|resultHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHeader"
 argument_list|,
@@ -363,7 +363,7 @@ name|String
 name|transportClassName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transportClassName"
 argument_list|,
@@ -384,7 +384,7 @@ name|long
 name|ttl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ttl"
 argument_list|,
@@ -405,7 +405,7 @@ name|String
 name|ttl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ttl"
 argument_list|,
@@ -448,7 +448,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -469,7 +469,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -490,7 +490,7 @@ name|Properties
 name|defaultResourceConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultResourceConfig"
 argument_list|,
@@ -511,7 +511,7 @@ name|String
 name|defaultResourceConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultResourceConfig"
 argument_list|,
@@ -532,7 +532,7 @@ name|Properties
 name|defaultResourceOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultResourceOptions"
 argument_list|,
@@ -553,7 +553,7 @@ name|String
 name|defaultResourceOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultResourceOptions"
 argument_list|,
@@ -574,7 +574,7 @@ name|boolean
 name|ephemeral
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ephemeral"
 argument_list|,
@@ -595,7 +595,7 @@ name|String
 name|ephemeral
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ephemeral"
 argument_list|,
@@ -616,7 +616,7 @@ name|ReadConsistency
 name|readConsistency
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readConsistency"
 argument_list|,
@@ -637,7 +637,7 @@ name|String
 name|readConsistency
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readConsistency"
 argument_list|,
@@ -663,7 +663,7 @@ argument_list|>
 name|resourceConfigs
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resourceConfigs"
 argument_list|,
@@ -684,7 +684,7 @@ name|String
 name|resourceConfigs
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resourceConfigs"
 argument_list|,
@@ -710,7 +710,7 @@ argument_list|>
 name|resourceOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resourceOptions"
 argument_list|,
@@ -731,7 +731,7 @@ name|String
 name|resourceOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resourceOptions"
 argument_list|,
@@ -752,7 +752,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -773,7 +773,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

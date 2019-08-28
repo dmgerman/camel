@@ -130,7 +130,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -151,7 +151,7 @@ name|String
 name|user
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"user"
 argument_list|,
@@ -194,7 +194,7 @@ name|Boolean
 name|autoCreateSlot
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateSlot"
 argument_list|,
@@ -215,7 +215,7 @@ name|String
 name|autoCreateSlot
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateSlot"
 argument_list|,
@@ -236,7 +236,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -257,7 +257,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -283,7 +283,7 @@ argument_list|>
 name|slotOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"slotOptions"
 argument_list|,
@@ -304,7 +304,7 @@ name|String
 name|slotOptions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"slotOptions"
 argument_list|,
@@ -325,7 +325,7 @@ name|Integer
 name|statusInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"statusInterval"
 argument_list|,
@@ -346,7 +346,7 @@ name|String
 name|statusInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"statusInterval"
 argument_list|,
@@ -367,7 +367,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -388,7 +388,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

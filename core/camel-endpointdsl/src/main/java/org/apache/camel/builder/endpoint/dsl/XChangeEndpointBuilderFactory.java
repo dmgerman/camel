@@ -120,7 +120,7 @@ name|Object
 name|currency
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"currency"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|currency
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"currency"
 argument_list|,
@@ -162,7 +162,7 @@ name|Object
 name|currencyPair
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"currencyPair"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|currencyPair
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"currencyPair"
 argument_list|,
@@ -204,7 +204,7 @@ name|XChangeMethod
 name|method
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"method"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|method
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"method"
 argument_list|,
@@ -246,7 +246,7 @@ name|XChangeService
 name|service
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"service"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|service
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"service"
 argument_list|,
@@ -310,7 +310,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -331,7 +331,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -352,7 +352,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -373,7 +373,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

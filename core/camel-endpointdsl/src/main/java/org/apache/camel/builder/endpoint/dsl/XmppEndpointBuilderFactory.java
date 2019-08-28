@@ -160,7 +160,7 @@ name|boolean
 name|login
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"login"
 argument_list|,
@@ -181,7 +181,7 @@ name|String
 name|login
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"login"
 argument_list|,
@@ -202,7 +202,7 @@ name|String
 name|nickname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickname"
 argument_list|,
@@ -223,7 +223,7 @@ name|boolean
 name|pubsub
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pubsub"
 argument_list|,
@@ -244,7 +244,7 @@ name|String
 name|pubsub
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pubsub"
 argument_list|,
@@ -265,7 +265,7 @@ name|String
 name|room
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"room"
 argument_list|,
@@ -286,7 +286,7 @@ name|String
 name|serviceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceName"
 argument_list|,
@@ -307,7 +307,7 @@ name|boolean
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -328,7 +328,7 @@ name|String
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -349,7 +349,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -370,7 +370,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -391,7 +391,7 @@ name|int
 name|connectionPollDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionPollDelay"
 argument_list|,
@@ -412,7 +412,7 @@ name|String
 name|connectionPollDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionPollDelay"
 argument_list|,
@@ -433,7 +433,7 @@ name|boolean
 name|doc
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"doc"
 argument_list|,
@@ -454,7 +454,7 @@ name|String
 name|doc
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"doc"
 argument_list|,
@@ -475,7 +475,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -496,7 +496,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -517,7 +517,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -538,7 +538,7 @@ name|String
 name|roomPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"roomPassword"
 argument_list|,
@@ -559,7 +559,7 @@ name|String
 name|user
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"user"
 argument_list|,
@@ -602,7 +602,7 @@ name|boolean
 name|createAccount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createAccount"
 argument_list|,
@@ -623,7 +623,7 @@ name|String
 name|createAccount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createAccount"
 argument_list|,
@@ -644,7 +644,7 @@ name|String
 name|resource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resource"
 argument_list|,
@@ -665,7 +665,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -686,7 +686,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -707,7 +707,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -728,7 +728,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -749,7 +749,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -770,7 +770,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -791,7 +791,7 @@ name|Object
 name|connectionConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionConfig"
 argument_list|,
@@ -812,7 +812,7 @@ name|String
 name|connectionConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionConfig"
 argument_list|,
@@ -833,7 +833,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -854,7 +854,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -897,7 +897,7 @@ name|boolean
 name|login
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"login"
 argument_list|,
@@ -918,7 +918,7 @@ name|String
 name|login
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"login"
 argument_list|,
@@ -939,7 +939,7 @@ name|String
 name|nickname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickname"
 argument_list|,
@@ -960,7 +960,7 @@ name|boolean
 name|pubsub
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pubsub"
 argument_list|,
@@ -981,7 +981,7 @@ name|String
 name|pubsub
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pubsub"
 argument_list|,
@@ -1002,7 +1002,7 @@ name|String
 name|room
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"room"
 argument_list|,
@@ -1023,7 +1023,7 @@ name|String
 name|serviceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceName"
 argument_list|,
@@ -1044,7 +1044,7 @@ name|boolean
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -1065,7 +1065,7 @@ name|String
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -1086,7 +1086,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1107,7 +1107,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1128,7 +1128,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -1149,7 +1149,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -1170,7 +1170,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -1191,7 +1191,7 @@ name|String
 name|roomPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"roomPassword"
 argument_list|,
@@ -1212,7 +1212,7 @@ name|String
 name|user
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"user"
 argument_list|,
@@ -1255,7 +1255,7 @@ name|boolean
 name|createAccount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createAccount"
 argument_list|,
@@ -1276,7 +1276,7 @@ name|String
 name|createAccount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createAccount"
 argument_list|,
@@ -1297,7 +1297,7 @@ name|String
 name|resource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resource"
 argument_list|,
@@ -1318,7 +1318,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1339,7 +1339,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1360,7 +1360,7 @@ name|Object
 name|connectionConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionConfig"
 argument_list|,
@@ -1381,7 +1381,7 @@ name|String
 name|connectionConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionConfig"
 argument_list|,
@@ -1402,7 +1402,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1423,7 +1423,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1468,7 +1468,7 @@ name|boolean
 name|login
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"login"
 argument_list|,
@@ -1489,7 +1489,7 @@ name|String
 name|login
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"login"
 argument_list|,
@@ -1510,7 +1510,7 @@ name|String
 name|nickname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickname"
 argument_list|,
@@ -1531,7 +1531,7 @@ name|boolean
 name|pubsub
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pubsub"
 argument_list|,
@@ -1552,7 +1552,7 @@ name|String
 name|pubsub
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pubsub"
 argument_list|,
@@ -1573,7 +1573,7 @@ name|String
 name|room
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"room"
 argument_list|,
@@ -1594,7 +1594,7 @@ name|String
 name|serviceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceName"
 argument_list|,
@@ -1615,7 +1615,7 @@ name|boolean
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -1636,7 +1636,7 @@ name|String
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -1657,7 +1657,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -1678,7 +1678,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -1699,7 +1699,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -1720,7 +1720,7 @@ name|String
 name|roomPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"roomPassword"
 argument_list|,
@@ -1741,7 +1741,7 @@ name|String
 name|user
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"user"
 argument_list|,
@@ -1786,7 +1786,7 @@ name|boolean
 name|createAccount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createAccount"
 argument_list|,
@@ -1807,7 +1807,7 @@ name|String
 name|createAccount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createAccount"
 argument_list|,
@@ -1828,7 +1828,7 @@ name|String
 name|resource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resource"
 argument_list|,
@@ -1849,7 +1849,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1870,7 +1870,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1891,7 +1891,7 @@ name|Object
 name|connectionConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionConfig"
 argument_list|,
@@ -1912,7 +1912,7 @@ name|String
 name|connectionConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionConfig"
 argument_list|,
@@ -1933,7 +1933,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1954,7 +1954,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

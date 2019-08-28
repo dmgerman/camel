@@ -120,7 +120,7 @@ name|Object
 name|oids
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"oids"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|oids
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"oids"
 argument_list|,
@@ -162,7 +162,7 @@ name|String
 name|protocol
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"protocol"
 argument_list|,
@@ -183,7 +183,7 @@ name|int
 name|retries
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retries"
 argument_list|,
@@ -204,7 +204,7 @@ name|String
 name|retries
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"retries"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|snmpCommunity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"snmpCommunity"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|snmpContextEngineId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"snmpContextEngineId"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|snmpContextName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"snmpContextName"
 argument_list|,
@@ -288,7 +288,7 @@ name|int
 name|snmpVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"snmpVersion"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|snmpVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"snmpVersion"
 argument_list|,
@@ -330,7 +330,7 @@ name|int
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -372,7 +372,7 @@ name|SnmpActionType
 name|type
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"type"
 argument_list|,
@@ -393,7 +393,7 @@ name|String
 name|type
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"type"
 argument_list|,
@@ -414,7 +414,7 @@ name|String
 name|authenticationPassphrase
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"authenticationPassphrase"
 argument_list|,
@@ -435,7 +435,7 @@ name|String
 name|authenticationProtocol
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"authenticationProtocol"
 argument_list|,
@@ -456,7 +456,7 @@ name|String
 name|privacyPassphrase
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privacyPassphrase"
 argument_list|,
@@ -477,7 +477,7 @@ name|String
 name|privacyProtocol
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"privacyProtocol"
 argument_list|,
@@ -498,7 +498,7 @@ name|int
 name|securityLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"securityLevel"
 argument_list|,
@@ -519,7 +519,7 @@ name|String
 name|securityLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"securityLevel"
 argument_list|,
@@ -540,7 +540,7 @@ name|String
 name|securityName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"securityName"
 argument_list|,
@@ -583,7 +583,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -604,7 +604,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -625,7 +625,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -646,7 +646,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

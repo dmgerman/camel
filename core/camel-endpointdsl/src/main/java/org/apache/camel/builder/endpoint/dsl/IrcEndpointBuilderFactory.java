@@ -146,7 +146,7 @@ name|boolean
 name|autoRejoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoRejoin"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|autoRejoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoRejoin"
 argument_list|,
@@ -188,7 +188,7 @@ name|long
 name|commandTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"commandTimeout"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|commandTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"commandTimeout"
 argument_list|,
@@ -230,7 +230,7 @@ name|boolean
 name|namesOnJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namesOnJoin"
 argument_list|,
@@ -251,7 +251,7 @@ name|String
 name|namesOnJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namesOnJoin"
 argument_list|,
@@ -272,7 +272,7 @@ name|String
 name|nickname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickname"
 argument_list|,
@@ -295,7 +295,7 @@ name|boolean
 name|persistent
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistent"
 argument_list|,
@@ -318,7 +318,7 @@ name|String
 name|persistent
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistent"
 argument_list|,
@@ -339,7 +339,7 @@ name|String
 name|realname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"realname"
 argument_list|,
@@ -360,7 +360,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -381,7 +381,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -402,7 +402,7 @@ name|boolean
 name|onJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onJoin"
 argument_list|,
@@ -423,7 +423,7 @@ name|String
 name|onJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onJoin"
 argument_list|,
@@ -444,7 +444,7 @@ name|boolean
 name|onKick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onKick"
 argument_list|,
@@ -465,7 +465,7 @@ name|String
 name|onKick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onKick"
 argument_list|,
@@ -486,7 +486,7 @@ name|boolean
 name|onMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onMode"
 argument_list|,
@@ -507,7 +507,7 @@ name|String
 name|onMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onMode"
 argument_list|,
@@ -528,7 +528,7 @@ name|boolean
 name|onNick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onNick"
 argument_list|,
@@ -549,7 +549,7 @@ name|String
 name|onNick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onNick"
 argument_list|,
@@ -570,7 +570,7 @@ name|boolean
 name|onPart
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPart"
 argument_list|,
@@ -591,7 +591,7 @@ name|String
 name|onPart
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPart"
 argument_list|,
@@ -612,7 +612,7 @@ name|boolean
 name|onPrivmsg
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPrivmsg"
 argument_list|,
@@ -633,7 +633,7 @@ name|String
 name|onPrivmsg
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPrivmsg"
 argument_list|,
@@ -654,7 +654,7 @@ name|boolean
 name|onQuit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onQuit"
 argument_list|,
@@ -675,7 +675,7 @@ name|String
 name|onQuit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onQuit"
 argument_list|,
@@ -696,7 +696,7 @@ name|boolean
 name|onReply
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onReply"
 argument_list|,
@@ -717,7 +717,7 @@ name|String
 name|onReply
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onReply"
 argument_list|,
@@ -738,7 +738,7 @@ name|boolean
 name|onTopic
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onTopic"
 argument_list|,
@@ -759,7 +759,7 @@ name|String
 name|onTopic
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onTopic"
 argument_list|,
@@ -780,7 +780,7 @@ name|String
 name|nickPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickPassword"
 argument_list|,
@@ -801,7 +801,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -822,7 +822,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -843,7 +843,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -864,7 +864,7 @@ name|Object
 name|trustManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustManager"
 argument_list|,
@@ -885,7 +885,7 @@ name|String
 name|trustManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustManager"
 argument_list|,
@@ -906,7 +906,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -949,7 +949,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -970,7 +970,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -991,7 +991,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1012,7 +1012,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1033,7 +1033,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1054,7 +1054,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1075,7 +1075,7 @@ name|boolean
 name|colors
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"colors"
 argument_list|,
@@ -1096,7 +1096,7 @@ name|String
 name|colors
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"colors"
 argument_list|,
@@ -1117,7 +1117,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1138,7 +1138,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1181,7 +1181,7 @@ name|boolean
 name|autoRejoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoRejoin"
 argument_list|,
@@ -1202,7 +1202,7 @@ name|String
 name|autoRejoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoRejoin"
 argument_list|,
@@ -1223,7 +1223,7 @@ name|long
 name|commandTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"commandTimeout"
 argument_list|,
@@ -1244,7 +1244,7 @@ name|String
 name|commandTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"commandTimeout"
 argument_list|,
@@ -1265,7 +1265,7 @@ name|boolean
 name|namesOnJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namesOnJoin"
 argument_list|,
@@ -1286,7 +1286,7 @@ name|String
 name|namesOnJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namesOnJoin"
 argument_list|,
@@ -1307,7 +1307,7 @@ name|String
 name|nickname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickname"
 argument_list|,
@@ -1330,7 +1330,7 @@ name|boolean
 name|persistent
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistent"
 argument_list|,
@@ -1353,7 +1353,7 @@ name|String
 name|persistent
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistent"
 argument_list|,
@@ -1374,7 +1374,7 @@ name|String
 name|realname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"realname"
 argument_list|,
@@ -1395,7 +1395,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1416,7 +1416,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1437,7 +1437,7 @@ name|boolean
 name|onJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onJoin"
 argument_list|,
@@ -1458,7 +1458,7 @@ name|String
 name|onJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onJoin"
 argument_list|,
@@ -1479,7 +1479,7 @@ name|boolean
 name|onKick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onKick"
 argument_list|,
@@ -1500,7 +1500,7 @@ name|String
 name|onKick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onKick"
 argument_list|,
@@ -1521,7 +1521,7 @@ name|boolean
 name|onMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onMode"
 argument_list|,
@@ -1542,7 +1542,7 @@ name|String
 name|onMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onMode"
 argument_list|,
@@ -1563,7 +1563,7 @@ name|boolean
 name|onNick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onNick"
 argument_list|,
@@ -1584,7 +1584,7 @@ name|String
 name|onNick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onNick"
 argument_list|,
@@ -1605,7 +1605,7 @@ name|boolean
 name|onPart
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPart"
 argument_list|,
@@ -1626,7 +1626,7 @@ name|String
 name|onPart
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPart"
 argument_list|,
@@ -1647,7 +1647,7 @@ name|boolean
 name|onPrivmsg
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPrivmsg"
 argument_list|,
@@ -1668,7 +1668,7 @@ name|String
 name|onPrivmsg
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPrivmsg"
 argument_list|,
@@ -1689,7 +1689,7 @@ name|boolean
 name|onQuit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onQuit"
 argument_list|,
@@ -1710,7 +1710,7 @@ name|String
 name|onQuit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onQuit"
 argument_list|,
@@ -1731,7 +1731,7 @@ name|boolean
 name|onReply
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onReply"
 argument_list|,
@@ -1752,7 +1752,7 @@ name|String
 name|onReply
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onReply"
 argument_list|,
@@ -1773,7 +1773,7 @@ name|boolean
 name|onTopic
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onTopic"
 argument_list|,
@@ -1794,7 +1794,7 @@ name|String
 name|onTopic
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onTopic"
 argument_list|,
@@ -1815,7 +1815,7 @@ name|String
 name|nickPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickPassword"
 argument_list|,
@@ -1836,7 +1836,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -1857,7 +1857,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1878,7 +1878,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1899,7 +1899,7 @@ name|Object
 name|trustManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustManager"
 argument_list|,
@@ -1920,7 +1920,7 @@ name|String
 name|trustManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustManager"
 argument_list|,
@@ -1941,7 +1941,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -1984,7 +1984,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2005,7 +2005,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2026,7 +2026,7 @@ name|boolean
 name|colors
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"colors"
 argument_list|,
@@ -2047,7 +2047,7 @@ name|String
 name|colors
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"colors"
 argument_list|,
@@ -2068,7 +2068,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2089,7 +2089,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2134,7 +2134,7 @@ name|boolean
 name|autoRejoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoRejoin"
 argument_list|,
@@ -2155,7 +2155,7 @@ name|String
 name|autoRejoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoRejoin"
 argument_list|,
@@ -2176,7 +2176,7 @@ name|long
 name|commandTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"commandTimeout"
 argument_list|,
@@ -2197,7 +2197,7 @@ name|String
 name|commandTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"commandTimeout"
 argument_list|,
@@ -2218,7 +2218,7 @@ name|boolean
 name|namesOnJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namesOnJoin"
 argument_list|,
@@ -2239,7 +2239,7 @@ name|String
 name|namesOnJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namesOnJoin"
 argument_list|,
@@ -2260,7 +2260,7 @@ name|String
 name|nickname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickname"
 argument_list|,
@@ -2283,7 +2283,7 @@ name|boolean
 name|persistent
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistent"
 argument_list|,
@@ -2306,7 +2306,7 @@ name|String
 name|persistent
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistent"
 argument_list|,
@@ -2327,7 +2327,7 @@ name|String
 name|realname
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"realname"
 argument_list|,
@@ -2348,7 +2348,7 @@ name|boolean
 name|onJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onJoin"
 argument_list|,
@@ -2369,7 +2369,7 @@ name|String
 name|onJoin
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onJoin"
 argument_list|,
@@ -2390,7 +2390,7 @@ name|boolean
 name|onKick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onKick"
 argument_list|,
@@ -2411,7 +2411,7 @@ name|String
 name|onKick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onKick"
 argument_list|,
@@ -2432,7 +2432,7 @@ name|boolean
 name|onMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onMode"
 argument_list|,
@@ -2453,7 +2453,7 @@ name|String
 name|onMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onMode"
 argument_list|,
@@ -2474,7 +2474,7 @@ name|boolean
 name|onNick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onNick"
 argument_list|,
@@ -2495,7 +2495,7 @@ name|String
 name|onNick
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onNick"
 argument_list|,
@@ -2516,7 +2516,7 @@ name|boolean
 name|onPart
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPart"
 argument_list|,
@@ -2537,7 +2537,7 @@ name|String
 name|onPart
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPart"
 argument_list|,
@@ -2558,7 +2558,7 @@ name|boolean
 name|onPrivmsg
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPrivmsg"
 argument_list|,
@@ -2579,7 +2579,7 @@ name|String
 name|onPrivmsg
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onPrivmsg"
 argument_list|,
@@ -2600,7 +2600,7 @@ name|boolean
 name|onQuit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onQuit"
 argument_list|,
@@ -2621,7 +2621,7 @@ name|String
 name|onQuit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onQuit"
 argument_list|,
@@ -2642,7 +2642,7 @@ name|boolean
 name|onReply
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onReply"
 argument_list|,
@@ -2663,7 +2663,7 @@ name|String
 name|onReply
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onReply"
 argument_list|,
@@ -2684,7 +2684,7 @@ name|boolean
 name|onTopic
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onTopic"
 argument_list|,
@@ -2705,7 +2705,7 @@ name|String
 name|onTopic
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onTopic"
 argument_list|,
@@ -2726,7 +2726,7 @@ name|String
 name|nickPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nickPassword"
 argument_list|,
@@ -2747,7 +2747,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -2768,7 +2768,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -2789,7 +2789,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -2810,7 +2810,7 @@ name|Object
 name|trustManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustManager"
 argument_list|,
@@ -2831,7 +2831,7 @@ name|String
 name|trustManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustManager"
 argument_list|,
@@ -2852,7 +2852,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -2897,7 +2897,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2918,7 +2918,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2939,7 +2939,7 @@ name|boolean
 name|colors
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"colors"
 argument_list|,
@@ -2960,7 +2960,7 @@ name|String
 name|colors
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"colors"
 argument_list|,
@@ -2981,7 +2981,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -3002,7 +3002,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

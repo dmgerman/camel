@@ -120,7 +120,7 @@ name|int
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -162,7 +162,7 @@ name|boolean
 name|disconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disconnect"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|disconnect
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disconnect"
 argument_list|,
@@ -204,7 +204,7 @@ name|boolean
 name|enableSSL
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"enableSSL"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|enableSSL
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"enableSSL"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|hostAddresses
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hostAddresses"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|indexName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"indexName"
 argument_list|,
@@ -288,7 +288,7 @@ name|int
 name|maxRetryTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxRetryTimeout"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|maxRetryTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxRetryTimeout"
 argument_list|,
@@ -330,7 +330,7 @@ name|ElasticsearchOperation
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -372,7 +372,7 @@ name|int
 name|scrollKeepAliveMs
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scrollKeepAliveMs"
 argument_list|,
@@ -393,7 +393,7 @@ name|String
 name|scrollKeepAliveMs
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scrollKeepAliveMs"
 argument_list|,
@@ -414,7 +414,7 @@ name|int
 name|socketTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"socketTimeout"
 argument_list|,
@@ -435,7 +435,7 @@ name|String
 name|socketTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"socketTimeout"
 argument_list|,
@@ -456,7 +456,7 @@ name|boolean
 name|useScroll
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useScroll"
 argument_list|,
@@ -477,7 +477,7 @@ name|String
 name|useScroll
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useScroll"
 argument_list|,
@@ -498,7 +498,7 @@ name|int
 name|waitForActiveShards
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"waitForActiveShards"
 argument_list|,
@@ -519,7 +519,7 @@ name|String
 name|waitForActiveShards
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"waitForActiveShards"
 argument_list|,
@@ -562,7 +562,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -583,7 +583,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -604,7 +604,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -625,7 +625,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

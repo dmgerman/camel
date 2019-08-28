@@ -206,7 +206,7 @@ name|boolean
 name|connectOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOnStartup"
 argument_list|,
@@ -227,7 +227,7 @@ name|String
 name|connectOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOnStartup"
 argument_list|,
@@ -248,7 +248,7 @@ name|HdfsFileSystemType
 name|fileSystemType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileSystemType"
 argument_list|,
@@ -269,7 +269,7 @@ name|String
 name|fileSystemType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileSystemType"
 argument_list|,
@@ -290,7 +290,7 @@ name|HdfsFileType
 name|fileType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileType"
 argument_list|,
@@ -311,7 +311,7 @@ name|String
 name|fileType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileType"
 argument_list|,
@@ -332,7 +332,7 @@ name|WritableType
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -353,7 +353,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -374,7 +374,7 @@ name|String
 name|owner
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"owner"
 argument_list|,
@@ -395,7 +395,7 @@ name|WritableType
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,
@@ -416,7 +416,7 @@ name|String
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,
@@ -437,7 +437,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -458,7 +458,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -479,7 +479,7 @@ name|String
 name|pattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pattern"
 argument_list|,
@@ -500,7 +500,7 @@ name|boolean
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -521,7 +521,7 @@ name|String
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -542,7 +542,7 @@ name|int
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -563,7 +563,7 @@ name|String
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -584,7 +584,7 @@ name|int
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -605,7 +605,7 @@ name|String
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -626,7 +626,7 @@ name|int
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -647,7 +647,7 @@ name|String
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -668,7 +668,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -689,7 +689,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -710,7 +710,7 @@ name|boolean
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -731,7 +731,7 @@ name|String
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -752,7 +752,7 @@ name|long
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -773,7 +773,7 @@ name|String
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -794,7 +794,7 @@ name|LoggingLevel
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -815,7 +815,7 @@ name|String
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -836,7 +836,7 @@ name|ScheduledExecutorService
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -857,7 +857,7 @@ name|String
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -878,7 +878,7 @@ name|String
 name|scheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduler"
 argument_list|,
@@ -904,7 +904,7 @@ argument_list|>
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -925,7 +925,7 @@ name|String
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -946,7 +946,7 @@ name|boolean
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -967,7 +967,7 @@ name|String
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -988,7 +988,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|String
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|boolean
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|String
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -1094,7 +1094,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1115,7 +1115,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1136,7 +1136,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1157,7 +1157,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1178,7 +1178,7 @@ name|PollingConsumerPollStrategy
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1199,7 +1199,7 @@ name|String
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1220,7 +1220,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1241,7 +1241,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1262,7 +1262,7 @@ name|long
 name|blockSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockSize"
 argument_list|,
@@ -1283,7 +1283,7 @@ name|String
 name|blockSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockSize"
 argument_list|,
@@ -1304,7 +1304,7 @@ name|int
 name|bufferSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bufferSize"
 argument_list|,
@@ -1325,7 +1325,7 @@ name|String
 name|bufferSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bufferSize"
 argument_list|,
@@ -1346,7 +1346,7 @@ name|int
 name|checkIdleInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"checkIdleInterval"
 argument_list|,
@@ -1367,7 +1367,7 @@ name|String
 name|checkIdleInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"checkIdleInterval"
 argument_list|,
@@ -1388,7 +1388,7 @@ name|int
 name|chunkSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chunkSize"
 argument_list|,
@@ -1409,7 +1409,7 @@ name|String
 name|chunkSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chunkSize"
 argument_list|,
@@ -1430,7 +1430,7 @@ name|HdfsCompressionCodec
 name|compressionCodec
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionCodec"
 argument_list|,
@@ -1451,7 +1451,7 @@ name|String
 name|compressionCodec
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionCodec"
 argument_list|,
@@ -1472,7 +1472,7 @@ name|CompressionType
 name|compressionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionType"
 argument_list|,
@@ -1493,7 +1493,7 @@ name|String
 name|compressionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionType"
 argument_list|,
@@ -1514,7 +1514,7 @@ name|String
 name|openedSuffix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"openedSuffix"
 argument_list|,
@@ -1535,7 +1535,7 @@ name|String
 name|readSuffix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readSuffix"
 argument_list|,
@@ -1556,7 +1556,7 @@ name|short
 name|replication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"replication"
 argument_list|,
@@ -1577,7 +1577,7 @@ name|String
 name|replication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"replication"
 argument_list|,
@@ -1598,7 +1598,7 @@ name|String
 name|splitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"splitStrategy"
 argument_list|,
@@ -1619,7 +1619,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1640,7 +1640,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1683,7 +1683,7 @@ name|boolean
 name|connectOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOnStartup"
 argument_list|,
@@ -1704,7 +1704,7 @@ name|String
 name|connectOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOnStartup"
 argument_list|,
@@ -1725,7 +1725,7 @@ name|HdfsFileSystemType
 name|fileSystemType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileSystemType"
 argument_list|,
@@ -1746,7 +1746,7 @@ name|String
 name|fileSystemType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileSystemType"
 argument_list|,
@@ -1767,7 +1767,7 @@ name|HdfsFileType
 name|fileType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileType"
 argument_list|,
@@ -1788,7 +1788,7 @@ name|String
 name|fileType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileType"
 argument_list|,
@@ -1809,7 +1809,7 @@ name|WritableType
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -1830,7 +1830,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -1851,7 +1851,7 @@ name|String
 name|owner
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"owner"
 argument_list|,
@@ -1872,7 +1872,7 @@ name|WritableType
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,
@@ -1893,7 +1893,7 @@ name|String
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,
@@ -1914,7 +1914,7 @@ name|boolean
 name|append
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"append"
 argument_list|,
@@ -1935,7 +1935,7 @@ name|String
 name|append
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"append"
 argument_list|,
@@ -1956,7 +1956,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1977,7 +1977,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1998,7 +1998,7 @@ name|boolean
 name|overwrite
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"overwrite"
 argument_list|,
@@ -2019,7 +2019,7 @@ name|String
 name|overwrite
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"overwrite"
 argument_list|,
@@ -2062,7 +2062,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2083,7 +2083,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2104,7 +2104,7 @@ name|long
 name|blockSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockSize"
 argument_list|,
@@ -2125,7 +2125,7 @@ name|String
 name|blockSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockSize"
 argument_list|,
@@ -2146,7 +2146,7 @@ name|int
 name|bufferSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bufferSize"
 argument_list|,
@@ -2167,7 +2167,7 @@ name|String
 name|bufferSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bufferSize"
 argument_list|,
@@ -2188,7 +2188,7 @@ name|int
 name|checkIdleInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"checkIdleInterval"
 argument_list|,
@@ -2209,7 +2209,7 @@ name|String
 name|checkIdleInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"checkIdleInterval"
 argument_list|,
@@ -2230,7 +2230,7 @@ name|int
 name|chunkSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chunkSize"
 argument_list|,
@@ -2251,7 +2251,7 @@ name|String
 name|chunkSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chunkSize"
 argument_list|,
@@ -2272,7 +2272,7 @@ name|HdfsCompressionCodec
 name|compressionCodec
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionCodec"
 argument_list|,
@@ -2293,7 +2293,7 @@ name|String
 name|compressionCodec
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionCodec"
 argument_list|,
@@ -2314,7 +2314,7 @@ name|CompressionType
 name|compressionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionType"
 argument_list|,
@@ -2335,7 +2335,7 @@ name|String
 name|compressionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionType"
 argument_list|,
@@ -2356,7 +2356,7 @@ name|String
 name|openedSuffix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"openedSuffix"
 argument_list|,
@@ -2377,7 +2377,7 @@ name|String
 name|readSuffix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readSuffix"
 argument_list|,
@@ -2398,7 +2398,7 @@ name|short
 name|replication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"replication"
 argument_list|,
@@ -2419,7 +2419,7 @@ name|String
 name|replication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"replication"
 argument_list|,
@@ -2440,7 +2440,7 @@ name|String
 name|splitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"splitStrategy"
 argument_list|,
@@ -2461,7 +2461,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2482,7 +2482,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2527,7 +2527,7 @@ name|boolean
 name|connectOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOnStartup"
 argument_list|,
@@ -2548,7 +2548,7 @@ name|String
 name|connectOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectOnStartup"
 argument_list|,
@@ -2569,7 +2569,7 @@ name|HdfsFileSystemType
 name|fileSystemType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileSystemType"
 argument_list|,
@@ -2590,7 +2590,7 @@ name|String
 name|fileSystemType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileSystemType"
 argument_list|,
@@ -2611,7 +2611,7 @@ name|HdfsFileType
 name|fileType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileType"
 argument_list|,
@@ -2632,7 +2632,7 @@ name|String
 name|fileType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileType"
 argument_list|,
@@ -2653,7 +2653,7 @@ name|WritableType
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -2674,7 +2674,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -2695,7 +2695,7 @@ name|String
 name|owner
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"owner"
 argument_list|,
@@ -2716,7 +2716,7 @@ name|WritableType
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,
@@ -2737,7 +2737,7 @@ name|String
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,
@@ -2782,7 +2782,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2803,7 +2803,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2824,7 +2824,7 @@ name|long
 name|blockSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockSize"
 argument_list|,
@@ -2845,7 +2845,7 @@ name|String
 name|blockSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blockSize"
 argument_list|,
@@ -2866,7 +2866,7 @@ name|int
 name|bufferSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bufferSize"
 argument_list|,
@@ -2887,7 +2887,7 @@ name|String
 name|bufferSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bufferSize"
 argument_list|,
@@ -2908,7 +2908,7 @@ name|int
 name|checkIdleInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"checkIdleInterval"
 argument_list|,
@@ -2929,7 +2929,7 @@ name|String
 name|checkIdleInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"checkIdleInterval"
 argument_list|,
@@ -2950,7 +2950,7 @@ name|int
 name|chunkSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chunkSize"
 argument_list|,
@@ -2971,7 +2971,7 @@ name|String
 name|chunkSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"chunkSize"
 argument_list|,
@@ -2992,7 +2992,7 @@ name|HdfsCompressionCodec
 name|compressionCodec
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionCodec"
 argument_list|,
@@ -3013,7 +3013,7 @@ name|String
 name|compressionCodec
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionCodec"
 argument_list|,
@@ -3034,7 +3034,7 @@ name|CompressionType
 name|compressionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionType"
 argument_list|,
@@ -3055,7 +3055,7 @@ name|String
 name|compressionType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"compressionType"
 argument_list|,
@@ -3076,7 +3076,7 @@ name|String
 name|openedSuffix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"openedSuffix"
 argument_list|,
@@ -3097,7 +3097,7 @@ name|String
 name|readSuffix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readSuffix"
 argument_list|,
@@ -3118,7 +3118,7 @@ name|short
 name|replication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"replication"
 argument_list|,
@@ -3139,7 +3139,7 @@ name|String
 name|replication
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"replication"
 argument_list|,
@@ -3160,7 +3160,7 @@ name|String
 name|splitStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"splitStrategy"
 argument_list|,
@@ -3181,7 +3181,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -3202,7 +3202,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

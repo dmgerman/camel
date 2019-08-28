@@ -166,7 +166,7 @@ name|Object
 name|cacheConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfiguration"
 argument_list|,
@@ -187,7 +187,7 @@ name|String
 name|cacheConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfiguration"
 argument_list|,
@@ -208,7 +208,7 @@ name|Properties
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfigurationProperties"
 argument_list|,
@@ -229,7 +229,7 @@ name|String
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfigurationProperties"
 argument_list|,
@@ -250,7 +250,7 @@ name|String
 name|cachingProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cachingProvider"
 argument_list|,
@@ -271,7 +271,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -292,7 +292,7 @@ name|boolean
 name|managementEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"managementEnabled"
 argument_list|,
@@ -313,7 +313,7 @@ name|String
 name|managementEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"managementEnabled"
 argument_list|,
@@ -334,7 +334,7 @@ name|boolean
 name|readThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readThrough"
 argument_list|,
@@ -355,7 +355,7 @@ name|String
 name|readThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readThrough"
 argument_list|,
@@ -376,7 +376,7 @@ name|boolean
 name|statisticsEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"statisticsEnabled"
 argument_list|,
@@ -397,7 +397,7 @@ name|String
 name|statisticsEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"statisticsEnabled"
 argument_list|,
@@ -418,7 +418,7 @@ name|boolean
 name|storeByValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"storeByValue"
 argument_list|,
@@ -439,7 +439,7 @@ name|String
 name|storeByValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"storeByValue"
 argument_list|,
@@ -460,7 +460,7 @@ name|boolean
 name|writeThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeThrough"
 argument_list|,
@@ -481,7 +481,7 @@ name|String
 name|writeThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeThrough"
 argument_list|,
@@ -502,7 +502,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -523,7 +523,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -547,7 +547,7 @@ argument_list|>
 name|filteredEvents
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"filteredEvents"
 argument_list|,
@@ -568,7 +568,7 @@ name|String
 name|filteredEvents
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"filteredEvents"
 argument_list|,
@@ -589,7 +589,7 @@ name|boolean
 name|oldValueRequired
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"oldValueRequired"
 argument_list|,
@@ -610,7 +610,7 @@ name|String
 name|oldValueRequired
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"oldValueRequired"
 argument_list|,
@@ -631,7 +631,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -652,7 +652,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -698,7 +698,7 @@ argument_list|>
 name|eventFilters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventFilters"
 argument_list|,
@@ -719,7 +719,7 @@ name|String
 name|eventFilters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventFilters"
 argument_list|,
@@ -740,7 +740,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -761,7 +761,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -782,7 +782,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -803,7 +803,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -824,7 +824,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -845,7 +845,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -866,7 +866,7 @@ name|Object
 name|cacheLoaderFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheLoaderFactory"
 argument_list|,
@@ -887,7 +887,7 @@ name|String
 name|cacheLoaderFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheLoaderFactory"
 argument_list|,
@@ -908,7 +908,7 @@ name|Object
 name|cacheWriterFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheWriterFactory"
 argument_list|,
@@ -929,7 +929,7 @@ name|String
 name|cacheWriterFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheWriterFactory"
 argument_list|,
@@ -950,7 +950,7 @@ name|boolean
 name|createCacheIfNotExists
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExists"
 argument_list|,
@@ -971,7 +971,7 @@ name|String
 name|createCacheIfNotExists
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExists"
 argument_list|,
@@ -992,7 +992,7 @@ name|Object
 name|expiryPolicyFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"expiryPolicyFactory"
 argument_list|,
@@ -1013,7 +1013,7 @@ name|String
 name|expiryPolicyFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"expiryPolicyFactory"
 argument_list|,
@@ -1034,7 +1034,7 @@ name|boolean
 name|lookupProviders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lookupProviders"
 argument_list|,
@@ -1055,7 +1055,7 @@ name|String
 name|lookupProviders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lookupProviders"
 argument_list|,
@@ -1098,7 +1098,7 @@ name|Object
 name|cacheConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfiguration"
 argument_list|,
@@ -1119,7 +1119,7 @@ name|String
 name|cacheConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfiguration"
 argument_list|,
@@ -1140,7 +1140,7 @@ name|Properties
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfigurationProperties"
 argument_list|,
@@ -1161,7 +1161,7 @@ name|String
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfigurationProperties"
 argument_list|,
@@ -1182,7 +1182,7 @@ name|String
 name|cachingProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cachingProvider"
 argument_list|,
@@ -1203,7 +1203,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -1224,7 +1224,7 @@ name|boolean
 name|managementEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"managementEnabled"
 argument_list|,
@@ -1245,7 +1245,7 @@ name|String
 name|managementEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"managementEnabled"
 argument_list|,
@@ -1266,7 +1266,7 @@ name|boolean
 name|readThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readThrough"
 argument_list|,
@@ -1287,7 +1287,7 @@ name|String
 name|readThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readThrough"
 argument_list|,
@@ -1308,7 +1308,7 @@ name|boolean
 name|statisticsEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"statisticsEnabled"
 argument_list|,
@@ -1329,7 +1329,7 @@ name|String
 name|statisticsEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"statisticsEnabled"
 argument_list|,
@@ -1350,7 +1350,7 @@ name|boolean
 name|storeByValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"storeByValue"
 argument_list|,
@@ -1371,7 +1371,7 @@ name|String
 name|storeByValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"storeByValue"
 argument_list|,
@@ -1392,7 +1392,7 @@ name|boolean
 name|writeThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeThrough"
 argument_list|,
@@ -1413,7 +1413,7 @@ name|String
 name|writeThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeThrough"
 argument_list|,
@@ -1434,7 +1434,7 @@ name|String
 name|action
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"action"
 argument_list|,
@@ -1455,7 +1455,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1476,7 +1476,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1519,7 +1519,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1540,7 +1540,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1561,7 +1561,7 @@ name|Object
 name|cacheLoaderFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheLoaderFactory"
 argument_list|,
@@ -1582,7 +1582,7 @@ name|String
 name|cacheLoaderFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheLoaderFactory"
 argument_list|,
@@ -1603,7 +1603,7 @@ name|Object
 name|cacheWriterFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheWriterFactory"
 argument_list|,
@@ -1624,7 +1624,7 @@ name|String
 name|cacheWriterFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheWriterFactory"
 argument_list|,
@@ -1645,7 +1645,7 @@ name|boolean
 name|createCacheIfNotExists
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExists"
 argument_list|,
@@ -1666,7 +1666,7 @@ name|String
 name|createCacheIfNotExists
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExists"
 argument_list|,
@@ -1687,7 +1687,7 @@ name|Object
 name|expiryPolicyFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"expiryPolicyFactory"
 argument_list|,
@@ -1708,7 +1708,7 @@ name|String
 name|expiryPolicyFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"expiryPolicyFactory"
 argument_list|,
@@ -1729,7 +1729,7 @@ name|boolean
 name|lookupProviders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lookupProviders"
 argument_list|,
@@ -1750,7 +1750,7 @@ name|String
 name|lookupProviders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lookupProviders"
 argument_list|,
@@ -1795,7 +1795,7 @@ name|Object
 name|cacheConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfiguration"
 argument_list|,
@@ -1816,7 +1816,7 @@ name|String
 name|cacheConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfiguration"
 argument_list|,
@@ -1837,7 +1837,7 @@ name|Properties
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfigurationProperties"
 argument_list|,
@@ -1858,7 +1858,7 @@ name|String
 name|cacheConfigurationProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheConfigurationProperties"
 argument_list|,
@@ -1879,7 +1879,7 @@ name|String
 name|cachingProvider
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cachingProvider"
 argument_list|,
@@ -1900,7 +1900,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -1921,7 +1921,7 @@ name|boolean
 name|managementEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"managementEnabled"
 argument_list|,
@@ -1942,7 +1942,7 @@ name|String
 name|managementEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"managementEnabled"
 argument_list|,
@@ -1963,7 +1963,7 @@ name|boolean
 name|readThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readThrough"
 argument_list|,
@@ -1984,7 +1984,7 @@ name|String
 name|readThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"readThrough"
 argument_list|,
@@ -2005,7 +2005,7 @@ name|boolean
 name|statisticsEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"statisticsEnabled"
 argument_list|,
@@ -2026,7 +2026,7 @@ name|String
 name|statisticsEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"statisticsEnabled"
 argument_list|,
@@ -2047,7 +2047,7 @@ name|boolean
 name|storeByValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"storeByValue"
 argument_list|,
@@ -2068,7 +2068,7 @@ name|String
 name|storeByValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"storeByValue"
 argument_list|,
@@ -2089,7 +2089,7 @@ name|boolean
 name|writeThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeThrough"
 argument_list|,
@@ -2110,7 +2110,7 @@ name|String
 name|writeThrough
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeThrough"
 argument_list|,
@@ -2155,7 +2155,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2176,7 +2176,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2197,7 +2197,7 @@ name|Object
 name|cacheLoaderFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheLoaderFactory"
 argument_list|,
@@ -2218,7 +2218,7 @@ name|String
 name|cacheLoaderFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheLoaderFactory"
 argument_list|,
@@ -2239,7 +2239,7 @@ name|Object
 name|cacheWriterFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheWriterFactory"
 argument_list|,
@@ -2260,7 +2260,7 @@ name|String
 name|cacheWriterFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheWriterFactory"
 argument_list|,
@@ -2281,7 +2281,7 @@ name|boolean
 name|createCacheIfNotExists
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExists"
 argument_list|,
@@ -2302,7 +2302,7 @@ name|String
 name|createCacheIfNotExists
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExists"
 argument_list|,
@@ -2323,7 +2323,7 @@ name|Object
 name|expiryPolicyFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"expiryPolicyFactory"
 argument_list|,
@@ -2344,7 +2344,7 @@ name|String
 name|expiryPolicyFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"expiryPolicyFactory"
 argument_list|,
@@ -2365,7 +2365,7 @@ name|boolean
 name|lookupProviders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lookupProviders"
 argument_list|,
@@ -2386,7 +2386,7 @@ name|String
 name|lookupProviders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lookupProviders"
 argument_list|,

@@ -170,7 +170,7 @@ name|AggregationStrategy
 name|aggregationStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"aggregationStrategy"
 argument_list|,
@@ -191,7 +191,7 @@ name|String
 name|aggregationStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"aggregationStrategy"
 argument_list|,
@@ -212,7 +212,7 @@ name|boolean
 name|allowNullBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowNullBody"
 argument_list|,
@@ -233,7 +233,7 @@ name|String
 name|allowNullBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowNullBody"
 argument_list|,
@@ -254,7 +254,7 @@ name|int
 name|completionInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"completionInterval"
 argument_list|,
@@ -275,7 +275,7 @@ name|String
 name|completionInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"completionInterval"
 argument_list|,
@@ -296,7 +296,7 @@ name|Predicate
 name|completionPredicate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"completionPredicate"
 argument_list|,
@@ -317,7 +317,7 @@ name|String
 name|completionPredicate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"completionPredicate"
 argument_list|,
@@ -338,7 +338,7 @@ name|int
 name|completionSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"completionSize"
 argument_list|,
@@ -359,7 +359,7 @@ name|String
 name|completionSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"completionSize"
 argument_list|,
@@ -380,7 +380,7 @@ name|int
 name|completionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"completionTimeout"
 argument_list|,
@@ -401,7 +401,7 @@ name|String
 name|completionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"completionTimeout"
 argument_list|,
@@ -422,7 +422,7 @@ name|int
 name|consumerCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerCount"
 argument_list|,
@@ -443,7 +443,7 @@ name|String
 name|consumerCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerCount"
 argument_list|,
@@ -464,7 +464,7 @@ name|boolean
 name|eagerCheckCompletion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eagerCheckCompletion"
 argument_list|,
@@ -485,7 +485,7 @@ name|String
 name|eagerCheckCompletion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eagerCheckCompletion"
 argument_list|,
@@ -506,7 +506,7 @@ name|boolean
 name|includeAllJMSXProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"includeAllJMSXProperties"
 argument_list|,
@@ -527,7 +527,7 @@ name|String
 name|includeAllJMSXProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"includeAllJMSXProperties"
 argument_list|,
@@ -548,7 +548,7 @@ name|boolean
 name|mapJmsMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapJmsMessage"
 argument_list|,
@@ -569,7 +569,7 @@ name|String
 name|mapJmsMessage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mapJmsMessage"
 argument_list|,
@@ -590,7 +590,7 @@ name|int
 name|pollDuration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollDuration"
 argument_list|,
@@ -611,7 +611,7 @@ name|String
 name|pollDuration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollDuration"
 argument_list|,
@@ -632,7 +632,7 @@ name|boolean
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -653,7 +653,7 @@ name|String
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -696,7 +696,7 @@ name|boolean
 name|asyncStartListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStartListener"
 argument_list|,
@@ -717,7 +717,7 @@ name|String
 name|asyncStartListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"asyncStartListener"
 argument_list|,
@@ -738,7 +738,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -759,7 +759,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -780,7 +780,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -801,7 +801,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -822,7 +822,7 @@ name|Object
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jmsKeyFormatStrategy"
 argument_list|,
@@ -843,7 +843,7 @@ name|String
 name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jmsKeyFormatStrategy"
 argument_list|,
@@ -864,7 +864,7 @@ name|int
 name|keepAliveDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keepAliveDelay"
 argument_list|,
@@ -885,7 +885,7 @@ name|String
 name|keepAliveDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keepAliveDelay"
 argument_list|,
@@ -906,7 +906,7 @@ name|Object
 name|messageCreatedStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageCreatedStrategy"
 argument_list|,
@@ -927,7 +927,7 @@ name|String
 name|messageCreatedStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageCreatedStrategy"
 argument_list|,
@@ -948,7 +948,7 @@ name|int
 name|recoveryInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"recoveryInterval"
 argument_list|,
@@ -969,7 +969,7 @@ name|String
 name|recoveryInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"recoveryInterval"
 argument_list|,
@@ -990,7 +990,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1011,7 +1011,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1032,7 +1032,7 @@ name|ScheduledExecutorService
 name|timeoutCheckerExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeoutCheckerExecutorService"
 argument_list|,
@@ -1053,7 +1053,7 @@ name|String
 name|timeoutCheckerExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeoutCheckerExecutorService"
 argument_list|,

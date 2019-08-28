@@ -156,7 +156,7 @@ name|Object
 name|azureBlobClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"azureBlobClient"
 argument_list|,
@@ -177,7 +177,7 @@ name|String
 name|azureBlobClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"azureBlobClient"
 argument_list|,
@@ -198,7 +198,7 @@ name|Long
 name|blobOffset
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobOffset"
 argument_list|,
@@ -219,7 +219,7 @@ name|String
 name|blobOffset
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobOffset"
 argument_list|,
@@ -240,7 +240,7 @@ name|BlobType
 name|blobType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobType"
 argument_list|,
@@ -261,7 +261,7 @@ name|String
 name|blobType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobType"
 argument_list|,
@@ -282,7 +282,7 @@ name|boolean
 name|closeStreamAfterRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeStreamAfterRead"
 argument_list|,
@@ -303,7 +303,7 @@ name|String
 name|closeStreamAfterRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeStreamAfterRead"
 argument_list|,
@@ -324,7 +324,7 @@ name|Object
 name|credentials
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"credentials"
 argument_list|,
@@ -345,7 +345,7 @@ name|String
 name|credentials
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"credentials"
 argument_list|,
@@ -366,7 +366,7 @@ name|Long
 name|dataLength
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataLength"
 argument_list|,
@@ -387,7 +387,7 @@ name|String
 name|dataLength
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataLength"
 argument_list|,
@@ -408,7 +408,7 @@ name|String
 name|fileDir
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileDir"
 argument_list|,
@@ -429,7 +429,7 @@ name|boolean
 name|publicForRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicForRead"
 argument_list|,
@@ -450,7 +450,7 @@ name|String
 name|publicForRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicForRead"
 argument_list|,
@@ -471,7 +471,7 @@ name|int
 name|streamReadSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamReadSize"
 argument_list|,
@@ -492,7 +492,7 @@ name|String
 name|streamReadSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamReadSize"
 argument_list|,
@@ -513,7 +513,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -534,7 +534,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -577,7 +577,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -598,7 +598,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -619,7 +619,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -640,7 +640,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -661,7 +661,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -682,7 +682,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -703,7 +703,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -724,7 +724,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -767,7 +767,7 @@ name|Object
 name|azureBlobClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"azureBlobClient"
 argument_list|,
@@ -788,7 +788,7 @@ name|String
 name|azureBlobClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"azureBlobClient"
 argument_list|,
@@ -809,7 +809,7 @@ name|Long
 name|blobOffset
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobOffset"
 argument_list|,
@@ -830,7 +830,7 @@ name|String
 name|blobOffset
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobOffset"
 argument_list|,
@@ -851,7 +851,7 @@ name|BlobType
 name|blobType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobType"
 argument_list|,
@@ -872,7 +872,7 @@ name|String
 name|blobType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobType"
 argument_list|,
@@ -893,7 +893,7 @@ name|boolean
 name|closeStreamAfterRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeStreamAfterRead"
 argument_list|,
@@ -914,7 +914,7 @@ name|String
 name|closeStreamAfterRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeStreamAfterRead"
 argument_list|,
@@ -935,7 +935,7 @@ name|Object
 name|credentials
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"credentials"
 argument_list|,
@@ -956,7 +956,7 @@ name|String
 name|credentials
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"credentials"
 argument_list|,
@@ -977,7 +977,7 @@ name|Long
 name|dataLength
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataLength"
 argument_list|,
@@ -998,7 +998,7 @@ name|String
 name|dataLength
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataLength"
 argument_list|,
@@ -1019,7 +1019,7 @@ name|String
 name|fileDir
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileDir"
 argument_list|,
@@ -1040,7 +1040,7 @@ name|boolean
 name|publicForRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicForRead"
 argument_list|,
@@ -1061,7 +1061,7 @@ name|String
 name|publicForRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicForRead"
 argument_list|,
@@ -1082,7 +1082,7 @@ name|int
 name|streamReadSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamReadSize"
 argument_list|,
@@ -1103,7 +1103,7 @@ name|String
 name|streamReadSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamReadSize"
 argument_list|,
@@ -1129,7 +1129,7 @@ argument_list|>
 name|blobMetadata
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobMetadata"
 argument_list|,
@@ -1150,7 +1150,7 @@ name|String
 name|blobMetadata
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobMetadata"
 argument_list|,
@@ -1171,7 +1171,7 @@ name|String
 name|blobPrefix
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobPrefix"
 argument_list|,
@@ -1192,7 +1192,7 @@ name|boolean
 name|closeStreamAfterWrite
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeStreamAfterWrite"
 argument_list|,
@@ -1213,7 +1213,7 @@ name|String
 name|closeStreamAfterWrite
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeStreamAfterWrite"
 argument_list|,
@@ -1234,7 +1234,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1255,7 +1255,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1276,7 +1276,7 @@ name|BlobServiceOperations
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1297,7 +1297,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1318,7 +1318,7 @@ name|int
 name|streamWriteSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamWriteSize"
 argument_list|,
@@ -1339,7 +1339,7 @@ name|String
 name|streamWriteSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamWriteSize"
 argument_list|,
@@ -1360,7 +1360,7 @@ name|boolean
 name|useFlatListing
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFlatListing"
 argument_list|,
@@ -1381,7 +1381,7 @@ name|String
 name|useFlatListing
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFlatListing"
 argument_list|,
@@ -1424,7 +1424,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1445,7 +1445,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1466,7 +1466,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1487,7 +1487,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1532,7 +1532,7 @@ name|Object
 name|azureBlobClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"azureBlobClient"
 argument_list|,
@@ -1553,7 +1553,7 @@ name|String
 name|azureBlobClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"azureBlobClient"
 argument_list|,
@@ -1574,7 +1574,7 @@ name|Long
 name|blobOffset
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobOffset"
 argument_list|,
@@ -1595,7 +1595,7 @@ name|String
 name|blobOffset
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobOffset"
 argument_list|,
@@ -1616,7 +1616,7 @@ name|BlobType
 name|blobType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobType"
 argument_list|,
@@ -1637,7 +1637,7 @@ name|String
 name|blobType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"blobType"
 argument_list|,
@@ -1658,7 +1658,7 @@ name|boolean
 name|closeStreamAfterRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeStreamAfterRead"
 argument_list|,
@@ -1679,7 +1679,7 @@ name|String
 name|closeStreamAfterRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"closeStreamAfterRead"
 argument_list|,
@@ -1700,7 +1700,7 @@ name|Object
 name|credentials
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"credentials"
 argument_list|,
@@ -1721,7 +1721,7 @@ name|String
 name|credentials
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"credentials"
 argument_list|,
@@ -1742,7 +1742,7 @@ name|Long
 name|dataLength
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataLength"
 argument_list|,
@@ -1763,7 +1763,7 @@ name|String
 name|dataLength
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataLength"
 argument_list|,
@@ -1784,7 +1784,7 @@ name|String
 name|fileDir
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fileDir"
 argument_list|,
@@ -1805,7 +1805,7 @@ name|boolean
 name|publicForRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicForRead"
 argument_list|,
@@ -1826,7 +1826,7 @@ name|String
 name|publicForRead
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publicForRead"
 argument_list|,
@@ -1847,7 +1847,7 @@ name|int
 name|streamReadSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamReadSize"
 argument_list|,
@@ -1868,7 +1868,7 @@ name|String
 name|streamReadSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamReadSize"
 argument_list|,
@@ -1913,7 +1913,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1934,7 +1934,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1955,7 +1955,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1976,7 +1976,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

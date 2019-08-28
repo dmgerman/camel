@@ -216,7 +216,7 @@ name|String
 name|appid
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"appid"
 argument_list|,
@@ -237,7 +237,7 @@ name|String
 name|headerName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerName"
 argument_list|,
@@ -258,7 +258,7 @@ name|WeatherLanguage
 name|language
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"language"
 argument_list|,
@@ -279,7 +279,7 @@ name|String
 name|language
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"language"
 argument_list|,
@@ -300,7 +300,7 @@ name|WeatherMode
 name|mode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mode"
 argument_list|,
@@ -321,7 +321,7 @@ name|String
 name|mode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mode"
 argument_list|,
@@ -342,7 +342,7 @@ name|String
 name|period
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"period"
 argument_list|,
@@ -363,7 +363,7 @@ name|WeatherUnits
 name|units
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"units"
 argument_list|,
@@ -384,7 +384,7 @@ name|String
 name|units
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"units"
 argument_list|,
@@ -405,7 +405,7 @@ name|WeatherApi
 name|weatherApi
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"weatherApi"
 argument_list|,
@@ -426,7 +426,7 @@ name|String
 name|weatherApi
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"weatherApi"
 argument_list|,
@@ -447,7 +447,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -468,7 +468,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -489,7 +489,7 @@ name|boolean
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -510,7 +510,7 @@ name|String
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -531,7 +531,7 @@ name|int
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -552,7 +552,7 @@ name|String
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -573,7 +573,7 @@ name|int
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -594,7 +594,7 @@ name|String
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -615,7 +615,7 @@ name|int
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -636,7 +636,7 @@ name|String
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -657,7 +657,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -678,7 +678,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -699,7 +699,7 @@ name|boolean
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -720,7 +720,7 @@ name|String
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -741,7 +741,7 @@ name|long
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -762,7 +762,7 @@ name|String
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -783,7 +783,7 @@ name|LoggingLevel
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -804,7 +804,7 @@ name|String
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -825,7 +825,7 @@ name|ScheduledExecutorService
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -846,7 +846,7 @@ name|String
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -867,7 +867,7 @@ name|String
 name|scheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduler"
 argument_list|,
@@ -893,7 +893,7 @@ argument_list|>
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -914,7 +914,7 @@ name|String
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -935,7 +935,7 @@ name|boolean
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -956,7 +956,7 @@ name|String
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -977,7 +977,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -998,7 +998,7 @@ name|String
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -1019,7 +1019,7 @@ name|boolean
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -1040,7 +1040,7 @@ name|String
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -1061,7 +1061,7 @@ name|Integer
 name|cnt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cnt"
 argument_list|,
@@ -1082,7 +1082,7 @@ name|String
 name|cnt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cnt"
 argument_list|,
@@ -1106,7 +1106,7 @@ argument_list|>
 name|ids
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ids"
 argument_list|,
@@ -1127,7 +1127,7 @@ name|String
 name|ids
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ids"
 argument_list|,
@@ -1148,7 +1148,7 @@ name|String
 name|lat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lat"
 argument_list|,
@@ -1169,7 +1169,7 @@ name|String
 name|location
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"location"
 argument_list|,
@@ -1190,7 +1190,7 @@ name|String
 name|lon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lon"
 argument_list|,
@@ -1211,7 +1211,7 @@ name|String
 name|rightLon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"rightLon"
 argument_list|,
@@ -1232,7 +1232,7 @@ name|String
 name|topLat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"topLat"
 argument_list|,
@@ -1253,7 +1253,7 @@ name|String
 name|zip
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zip"
 argument_list|,
@@ -1274,7 +1274,7 @@ name|Integer
 name|zoom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zoom"
 argument_list|,
@@ -1295,7 +1295,7 @@ name|String
 name|zoom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zoom"
 argument_list|,
@@ -1316,7 +1316,7 @@ name|String
 name|proxyAuthDomain
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthDomain"
 argument_list|,
@@ -1337,7 +1337,7 @@ name|String
 name|proxyAuthHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthHost"
 argument_list|,
@@ -1358,7 +1358,7 @@ name|String
 name|proxyAuthMethod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthMethod"
 argument_list|,
@@ -1379,7 +1379,7 @@ name|String
 name|proxyAuthPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthPassword"
 argument_list|,
@@ -1400,7 +1400,7 @@ name|String
 name|proxyAuthUsername
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthUsername"
 argument_list|,
@@ -1421,7 +1421,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -1442,7 +1442,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1463,7 +1463,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -1484,7 +1484,7 @@ name|String
 name|geolocationAccessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"geolocationAccessKey"
 argument_list|,
@@ -1505,7 +1505,7 @@ name|String
 name|geolocationRequestHostIP
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"geolocationRequestHostIP"
 argument_list|,
@@ -1548,7 +1548,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1569,7 +1569,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1590,7 +1590,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1611,7 +1611,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1632,7 +1632,7 @@ name|PollingConsumerPollStrategy
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1653,7 +1653,7 @@ name|String
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1674,7 +1674,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1695,7 +1695,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1716,7 +1716,7 @@ name|Object
 name|httpConnectionManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpConnectionManager"
 argument_list|,
@@ -1737,7 +1737,7 @@ name|String
 name|httpConnectionManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpConnectionManager"
 argument_list|,
@@ -1758,7 +1758,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1779,7 +1779,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1822,7 +1822,7 @@ name|String
 name|appid
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"appid"
 argument_list|,
@@ -1843,7 +1843,7 @@ name|String
 name|headerName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerName"
 argument_list|,
@@ -1864,7 +1864,7 @@ name|WeatherLanguage
 name|language
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"language"
 argument_list|,
@@ -1885,7 +1885,7 @@ name|String
 name|language
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"language"
 argument_list|,
@@ -1906,7 +1906,7 @@ name|WeatherMode
 name|mode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mode"
 argument_list|,
@@ -1927,7 +1927,7 @@ name|String
 name|mode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mode"
 argument_list|,
@@ -1948,7 +1948,7 @@ name|String
 name|period
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"period"
 argument_list|,
@@ -1969,7 +1969,7 @@ name|WeatherUnits
 name|units
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"units"
 argument_list|,
@@ -1990,7 +1990,7 @@ name|String
 name|units
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"units"
 argument_list|,
@@ -2011,7 +2011,7 @@ name|WeatherApi
 name|weatherApi
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"weatherApi"
 argument_list|,
@@ -2032,7 +2032,7 @@ name|String
 name|weatherApi
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"weatherApi"
 argument_list|,
@@ -2053,7 +2053,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -2074,7 +2074,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -2095,7 +2095,7 @@ name|Integer
 name|cnt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cnt"
 argument_list|,
@@ -2116,7 +2116,7 @@ name|String
 name|cnt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cnt"
 argument_list|,
@@ -2140,7 +2140,7 @@ argument_list|>
 name|ids
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ids"
 argument_list|,
@@ -2161,7 +2161,7 @@ name|String
 name|ids
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ids"
 argument_list|,
@@ -2182,7 +2182,7 @@ name|String
 name|lat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lat"
 argument_list|,
@@ -2203,7 +2203,7 @@ name|String
 name|location
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"location"
 argument_list|,
@@ -2224,7 +2224,7 @@ name|String
 name|lon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lon"
 argument_list|,
@@ -2245,7 +2245,7 @@ name|String
 name|rightLon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"rightLon"
 argument_list|,
@@ -2266,7 +2266,7 @@ name|String
 name|topLat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"topLat"
 argument_list|,
@@ -2287,7 +2287,7 @@ name|String
 name|zip
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zip"
 argument_list|,
@@ -2308,7 +2308,7 @@ name|Integer
 name|zoom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zoom"
 argument_list|,
@@ -2329,7 +2329,7 @@ name|String
 name|zoom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zoom"
 argument_list|,
@@ -2350,7 +2350,7 @@ name|String
 name|proxyAuthDomain
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthDomain"
 argument_list|,
@@ -2371,7 +2371,7 @@ name|String
 name|proxyAuthHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthHost"
 argument_list|,
@@ -2392,7 +2392,7 @@ name|String
 name|proxyAuthMethod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthMethod"
 argument_list|,
@@ -2413,7 +2413,7 @@ name|String
 name|proxyAuthPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthPassword"
 argument_list|,
@@ -2434,7 +2434,7 @@ name|String
 name|proxyAuthUsername
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthUsername"
 argument_list|,
@@ -2455,7 +2455,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -2476,7 +2476,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -2497,7 +2497,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -2518,7 +2518,7 @@ name|String
 name|geolocationAccessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"geolocationAccessKey"
 argument_list|,
@@ -2539,7 +2539,7 @@ name|String
 name|geolocationRequestHostIP
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"geolocationRequestHostIP"
 argument_list|,
@@ -2582,7 +2582,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2603,7 +2603,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2624,7 +2624,7 @@ name|Object
 name|httpConnectionManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpConnectionManager"
 argument_list|,
@@ -2645,7 +2645,7 @@ name|String
 name|httpConnectionManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpConnectionManager"
 argument_list|,
@@ -2666,7 +2666,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2687,7 +2687,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2732,7 +2732,7 @@ name|String
 name|appid
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"appid"
 argument_list|,
@@ -2753,7 +2753,7 @@ name|String
 name|headerName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerName"
 argument_list|,
@@ -2774,7 +2774,7 @@ name|WeatherLanguage
 name|language
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"language"
 argument_list|,
@@ -2795,7 +2795,7 @@ name|String
 name|language
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"language"
 argument_list|,
@@ -2816,7 +2816,7 @@ name|WeatherMode
 name|mode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mode"
 argument_list|,
@@ -2837,7 +2837,7 @@ name|String
 name|mode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mode"
 argument_list|,
@@ -2858,7 +2858,7 @@ name|String
 name|period
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"period"
 argument_list|,
@@ -2879,7 +2879,7 @@ name|WeatherUnits
 name|units
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"units"
 argument_list|,
@@ -2900,7 +2900,7 @@ name|String
 name|units
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"units"
 argument_list|,
@@ -2921,7 +2921,7 @@ name|WeatherApi
 name|weatherApi
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"weatherApi"
 argument_list|,
@@ -2942,7 +2942,7 @@ name|String
 name|weatherApi
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"weatherApi"
 argument_list|,
@@ -2963,7 +2963,7 @@ name|Integer
 name|cnt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cnt"
 argument_list|,
@@ -2984,7 +2984,7 @@ name|String
 name|cnt
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cnt"
 argument_list|,
@@ -3008,7 +3008,7 @@ argument_list|>
 name|ids
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ids"
 argument_list|,
@@ -3029,7 +3029,7 @@ name|String
 name|ids
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"ids"
 argument_list|,
@@ -3050,7 +3050,7 @@ name|String
 name|lat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lat"
 argument_list|,
@@ -3071,7 +3071,7 @@ name|String
 name|location
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"location"
 argument_list|,
@@ -3092,7 +3092,7 @@ name|String
 name|lon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lon"
 argument_list|,
@@ -3113,7 +3113,7 @@ name|String
 name|rightLon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"rightLon"
 argument_list|,
@@ -3134,7 +3134,7 @@ name|String
 name|topLat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"topLat"
 argument_list|,
@@ -3155,7 +3155,7 @@ name|String
 name|zip
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zip"
 argument_list|,
@@ -3176,7 +3176,7 @@ name|Integer
 name|zoom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zoom"
 argument_list|,
@@ -3197,7 +3197,7 @@ name|String
 name|zoom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zoom"
 argument_list|,
@@ -3218,7 +3218,7 @@ name|String
 name|proxyAuthDomain
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthDomain"
 argument_list|,
@@ -3239,7 +3239,7 @@ name|String
 name|proxyAuthHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthHost"
 argument_list|,
@@ -3260,7 +3260,7 @@ name|String
 name|proxyAuthMethod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthMethod"
 argument_list|,
@@ -3281,7 +3281,7 @@ name|String
 name|proxyAuthPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthPassword"
 argument_list|,
@@ -3302,7 +3302,7 @@ name|String
 name|proxyAuthUsername
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyAuthUsername"
 argument_list|,
@@ -3323,7 +3323,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -3344,7 +3344,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -3365,7 +3365,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -3386,7 +3386,7 @@ name|String
 name|geolocationAccessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"geolocationAccessKey"
 argument_list|,
@@ -3407,7 +3407,7 @@ name|String
 name|geolocationRequestHostIP
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"geolocationRequestHostIP"
 argument_list|,
@@ -3452,7 +3452,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -3473,7 +3473,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -3494,7 +3494,7 @@ name|Object
 name|httpConnectionManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpConnectionManager"
 argument_list|,
@@ -3515,7 +3515,7 @@ name|String
 name|httpConnectionManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpConnectionManager"
 argument_list|,
@@ -3536,7 +3536,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -3557,7 +3557,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

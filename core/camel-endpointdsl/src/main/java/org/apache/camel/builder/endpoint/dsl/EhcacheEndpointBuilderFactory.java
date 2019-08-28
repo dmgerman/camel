@@ -166,7 +166,7 @@ name|Object
 name|cacheManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManager"
 argument_list|,
@@ -187,7 +187,7 @@ name|String
 name|cacheManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManager"
 argument_list|,
@@ -208,7 +208,7 @@ name|Object
 name|cacheManagerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManagerConfiguration"
 argument_list|,
@@ -229,7 +229,7 @@ name|String
 name|cacheManagerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManagerConfiguration"
 argument_list|,
@@ -250,7 +250,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -271,7 +271,7 @@ name|boolean
 name|createCacheIfNotExist
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExist"
 argument_list|,
@@ -292,7 +292,7 @@ name|String
 name|createCacheIfNotExist
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExist"
 argument_list|,
@@ -313,7 +313,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -334,7 +334,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -355,7 +355,7 @@ name|EventFiring
 name|eventFiring
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventFiring"
 argument_list|,
@@ -376,7 +376,7 @@ name|String
 name|eventFiring
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventFiring"
 argument_list|,
@@ -397,7 +397,7 @@ name|EventOrdering
 name|eventOrdering
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventOrdering"
 argument_list|,
@@ -418,7 +418,7 @@ name|String
 name|eventOrdering
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventOrdering"
 argument_list|,
@@ -442,7 +442,7 @@ argument_list|>
 name|eventTypes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventTypes"
 argument_list|,
@@ -463,7 +463,7 @@ name|String
 name|eventTypes
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"eventTypes"
 argument_list|,
@@ -506,7 +506,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -527,7 +527,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -548,7 +548,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -569,7 +569,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -590,7 +590,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -611,7 +611,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -632,7 +632,7 @@ name|Object
 name|configuration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configuration"
 argument_list|,
@@ -653,7 +653,7 @@ name|String
 name|configuration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configuration"
 argument_list|,
@@ -679,7 +679,7 @@ argument_list|>
 name|configurations
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurations"
 argument_list|,
@@ -700,7 +700,7 @@ name|String
 name|configurations
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurations"
 argument_list|,
@@ -721,7 +721,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -742,7 +742,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -763,7 +763,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -784,7 +784,7 @@ name|String
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,
@@ -827,7 +827,7 @@ name|Object
 name|cacheManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManager"
 argument_list|,
@@ -848,7 +848,7 @@ name|String
 name|cacheManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManager"
 argument_list|,
@@ -869,7 +869,7 @@ name|Object
 name|cacheManagerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManagerConfiguration"
 argument_list|,
@@ -890,7 +890,7 @@ name|String
 name|cacheManagerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManagerConfiguration"
 argument_list|,
@@ -911,7 +911,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -932,7 +932,7 @@ name|boolean
 name|createCacheIfNotExist
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExist"
 argument_list|,
@@ -953,7 +953,7 @@ name|String
 name|createCacheIfNotExist
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExist"
 argument_list|,
@@ -974,7 +974,7 @@ name|String
 name|action
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"action"
 argument_list|,
@@ -995,7 +995,7 @@ name|Object
 name|key
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"key"
 argument_list|,
@@ -1016,7 +1016,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"key"
 argument_list|,
@@ -1037,7 +1037,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1058,7 +1058,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1101,7 +1101,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1122,7 +1122,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1143,7 +1143,7 @@ name|Object
 name|configuration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configuration"
 argument_list|,
@@ -1164,7 +1164,7 @@ name|String
 name|configuration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configuration"
 argument_list|,
@@ -1190,7 +1190,7 @@ argument_list|>
 name|configurations
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurations"
 argument_list|,
@@ -1211,7 +1211,7 @@ name|String
 name|configurations
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurations"
 argument_list|,
@@ -1232,7 +1232,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -1253,7 +1253,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1274,7 +1274,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1295,7 +1295,7 @@ name|String
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,
@@ -1340,7 +1340,7 @@ name|Object
 name|cacheManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManager"
 argument_list|,
@@ -1361,7 +1361,7 @@ name|String
 name|cacheManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManager"
 argument_list|,
@@ -1382,7 +1382,7 @@ name|Object
 name|cacheManagerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManagerConfiguration"
 argument_list|,
@@ -1403,7 +1403,7 @@ name|String
 name|cacheManagerConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cacheManagerConfiguration"
 argument_list|,
@@ -1424,7 +1424,7 @@ name|String
 name|configurationUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurationUri"
 argument_list|,
@@ -1445,7 +1445,7 @@ name|boolean
 name|createCacheIfNotExist
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExist"
 argument_list|,
@@ -1466,7 +1466,7 @@ name|String
 name|createCacheIfNotExist
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCacheIfNotExist"
 argument_list|,
@@ -1511,7 +1511,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1532,7 +1532,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1553,7 +1553,7 @@ name|Object
 name|configuration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configuration"
 argument_list|,
@@ -1574,7 +1574,7 @@ name|String
 name|configuration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configuration"
 argument_list|,
@@ -1600,7 +1600,7 @@ argument_list|>
 name|configurations
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurations"
 argument_list|,
@@ -1621,7 +1621,7 @@ name|String
 name|configurations
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"configurations"
 argument_list|,
@@ -1642,7 +1642,7 @@ name|String
 name|keyType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyType"
 argument_list|,
@@ -1663,7 +1663,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1684,7 +1684,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1705,7 +1705,7 @@ name|String
 name|valueType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueType"
 argument_list|,

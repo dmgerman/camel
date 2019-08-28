@@ -146,7 +146,7 @@ name|String
 name|dataStoreClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataStoreClass"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|keyClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyClass"
 argument_list|,
@@ -188,7 +188,7 @@ name|String
 name|valueClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueClass"
 argument_list|,
@@ -209,7 +209,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -230,7 +230,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -251,7 +251,7 @@ name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -272,7 +272,7 @@ name|String
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -293,7 +293,7 @@ name|Object
 name|endKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"endKey"
 argument_list|,
@@ -314,7 +314,7 @@ name|String
 name|endKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"endKey"
 argument_list|,
@@ -335,7 +335,7 @@ name|long
 name|endTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"endTime"
 argument_list|,
@@ -356,7 +356,7 @@ name|String
 name|endTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"endTime"
 argument_list|,
@@ -377,7 +377,7 @@ name|Object
 name|fields
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fields"
 argument_list|,
@@ -398,7 +398,7 @@ name|String
 name|fields
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fields"
 argument_list|,
@@ -419,7 +419,7 @@ name|Object
 name|keyRangeFrom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyRangeFrom"
 argument_list|,
@@ -440,7 +440,7 @@ name|String
 name|keyRangeFrom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyRangeFrom"
 argument_list|,
@@ -461,7 +461,7 @@ name|Object
 name|keyRangeTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyRangeTo"
 argument_list|,
@@ -482,7 +482,7 @@ name|String
 name|keyRangeTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyRangeTo"
 argument_list|,
@@ -503,7 +503,7 @@ name|long
 name|limit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"limit"
 argument_list|,
@@ -524,7 +524,7 @@ name|String
 name|limit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"limit"
 argument_list|,
@@ -545,7 +545,7 @@ name|Object
 name|startKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startKey"
 argument_list|,
@@ -566,7 +566,7 @@ name|String
 name|startKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startKey"
 argument_list|,
@@ -587,7 +587,7 @@ name|long
 name|startTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startTime"
 argument_list|,
@@ -608,7 +608,7 @@ name|String
 name|startTime
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startTime"
 argument_list|,
@@ -629,7 +629,7 @@ name|long
 name|timeRangeFrom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeRangeFrom"
 argument_list|,
@@ -650,7 +650,7 @@ name|String
 name|timeRangeFrom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeRangeFrom"
 argument_list|,
@@ -671,7 +671,7 @@ name|long
 name|timeRangeTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeRangeTo"
 argument_list|,
@@ -692,7 +692,7 @@ name|String
 name|timeRangeTo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeRangeTo"
 argument_list|,
@@ -713,7 +713,7 @@ name|long
 name|timestamp
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timestamp"
 argument_list|,
@@ -734,7 +734,7 @@ name|String
 name|timestamp
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timestamp"
 argument_list|,
@@ -777,7 +777,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -798,7 +798,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -819,7 +819,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -840,7 +840,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -861,7 +861,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -882,7 +882,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -903,7 +903,7 @@ name|Object
 name|hadoopConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hadoopConfiguration"
 argument_list|,
@@ -924,7 +924,7 @@ name|String
 name|hadoopConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hadoopConfiguration"
 argument_list|,
@@ -945,7 +945,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -966,7 +966,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|String
 name|dataStoreClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataStoreClass"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|String
 name|keyClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyClass"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|String
 name|valueClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueClass"
 argument_list|,
@@ -1072,7 +1072,7 @@ name|boolean
 name|flushOnEveryOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flushOnEveryOperation"
 argument_list|,
@@ -1093,7 +1093,7 @@ name|String
 name|flushOnEveryOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flushOnEveryOperation"
 argument_list|,
@@ -1114,7 +1114,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1135,7 +1135,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1178,7 +1178,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1199,7 +1199,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1220,7 +1220,7 @@ name|Object
 name|hadoopConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hadoopConfiguration"
 argument_list|,
@@ -1241,7 +1241,7 @@ name|String
 name|hadoopConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hadoopConfiguration"
 argument_list|,
@@ -1262,7 +1262,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1283,7 +1283,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1328,7 +1328,7 @@ name|String
 name|dataStoreClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataStoreClass"
 argument_list|,
@@ -1349,7 +1349,7 @@ name|String
 name|keyClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"keyClass"
 argument_list|,
@@ -1370,7 +1370,7 @@ name|String
 name|valueClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"valueClass"
 argument_list|,
@@ -1415,7 +1415,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1436,7 +1436,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1457,7 +1457,7 @@ name|Object
 name|hadoopConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hadoopConfiguration"
 argument_list|,
@@ -1478,7 +1478,7 @@ name|String
 name|hadoopConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hadoopConfiguration"
 argument_list|,
@@ -1499,7 +1499,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1520,7 +1520,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

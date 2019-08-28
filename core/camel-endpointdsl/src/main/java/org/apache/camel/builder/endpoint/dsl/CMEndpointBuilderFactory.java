@@ -120,7 +120,7 @@ name|String
 name|defaultFrom
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultFrom"
 argument_list|,
@@ -141,7 +141,7 @@ name|int
 name|defaultMaxNumberOfParts
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultMaxNumberOfParts"
 argument_list|,
@@ -162,7 +162,7 @@ name|String
 name|defaultMaxNumberOfParts
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultMaxNumberOfParts"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|productToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"productToken"
 argument_list|,
@@ -204,7 +204,7 @@ name|boolean
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -268,7 +268,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -289,7 +289,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -310,7 +310,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -331,7 +331,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

@@ -130,7 +130,7 @@ name|Object
 name|analyzer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"analyzer"
 argument_list|,
@@ -151,7 +151,7 @@ name|String
 name|analyzer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"analyzer"
 argument_list|,
@@ -172,7 +172,7 @@ name|File
 name|indexDir
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"indexDir"
 argument_list|,
@@ -193,7 +193,7 @@ name|String
 name|indexDir
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"indexDir"
 argument_list|,
@@ -214,7 +214,7 @@ name|int
 name|maxHits
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxHits"
 argument_list|,
@@ -235,7 +235,7 @@ name|String
 name|maxHits
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxHits"
 argument_list|,
@@ -256,7 +256,7 @@ name|File
 name|srcDir
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"srcDir"
 argument_list|,
@@ -277,7 +277,7 @@ name|String
 name|srcDir
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"srcDir"
 argument_list|,
@@ -320,7 +320,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -341,7 +341,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -362,7 +362,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -383,7 +383,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

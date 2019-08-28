@@ -146,7 +146,7 @@ name|HazelcastOperation
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -188,7 +188,7 @@ name|Object
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -230,7 +230,7 @@ name|String
 name|hazelcastInstanceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstanceName"
 argument_list|,
@@ -251,7 +251,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -272,7 +272,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -293,7 +293,7 @@ name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -314,7 +314,7 @@ name|String
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -335,7 +335,7 @@ name|int
 name|onErrorDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onErrorDelay"
 argument_list|,
@@ -356,7 +356,7 @@ name|String
 name|onErrorDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onErrorDelay"
 argument_list|,
@@ -377,7 +377,7 @@ name|int
 name|pollTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollTimeout"
 argument_list|,
@@ -398,7 +398,7 @@ name|String
 name|pollTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollTimeout"
 argument_list|,
@@ -419,7 +419,7 @@ name|boolean
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -440,7 +440,7 @@ name|String
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -461,7 +461,7 @@ name|boolean
 name|transferExchange
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferExchange"
 argument_list|,
@@ -482,7 +482,7 @@ name|String
 name|transferExchange
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferExchange"
 argument_list|,
@@ -525,7 +525,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -546,7 +546,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -567,7 +567,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -588,7 +588,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -609,7 +609,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -630,7 +630,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -651,7 +651,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -672,7 +672,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -715,7 +715,7 @@ name|HazelcastOperation
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -736,7 +736,7 @@ name|String
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -757,7 +757,7 @@ name|Object
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -778,7 +778,7 @@ name|String
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -799,7 +799,7 @@ name|String
 name|hazelcastInstanceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstanceName"
 argument_list|,
@@ -820,7 +820,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -841,7 +841,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -862,7 +862,7 @@ name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -904,7 +904,7 @@ name|int
 name|onErrorDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onErrorDelay"
 argument_list|,
@@ -925,7 +925,7 @@ name|String
 name|onErrorDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onErrorDelay"
 argument_list|,
@@ -946,7 +946,7 @@ name|int
 name|pollTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollTimeout"
 argument_list|,
@@ -967,7 +967,7 @@ name|String
 name|pollTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollTimeout"
 argument_list|,
@@ -988,7 +988,7 @@ name|boolean
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|String
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|boolean
 name|transferExchange
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferExchange"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|String
 name|transferExchange
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferExchange"
 argument_list|,
@@ -1094,7 +1094,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1115,7 +1115,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1136,7 +1136,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1157,7 +1157,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1202,7 +1202,7 @@ name|HazelcastOperation
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -1223,7 +1223,7 @@ name|String
 name|defaultOperation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperation"
 argument_list|,
@@ -1244,7 +1244,7 @@ name|Object
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -1265,7 +1265,7 @@ name|String
 name|hazelcastInstance
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstance"
 argument_list|,
@@ -1286,7 +1286,7 @@ name|String
 name|hazelcastInstanceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hazelcastInstanceName"
 argument_list|,
@@ -1307,7 +1307,7 @@ name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -1328,7 +1328,7 @@ name|String
 name|concurrentConsumers
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"concurrentConsumers"
 argument_list|,
@@ -1349,7 +1349,7 @@ name|int
 name|onErrorDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onErrorDelay"
 argument_list|,
@@ -1370,7 +1370,7 @@ name|String
 name|onErrorDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"onErrorDelay"
 argument_list|,
@@ -1391,7 +1391,7 @@ name|int
 name|pollTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollTimeout"
 argument_list|,
@@ -1412,7 +1412,7 @@ name|String
 name|pollTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollTimeout"
 argument_list|,
@@ -1433,7 +1433,7 @@ name|boolean
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -1454,7 +1454,7 @@ name|String
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -1475,7 +1475,7 @@ name|boolean
 name|transferExchange
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferExchange"
 argument_list|,
@@ -1496,7 +1496,7 @@ name|String
 name|transferExchange
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transferExchange"
 argument_list|,
@@ -1541,7 +1541,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1562,7 +1562,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1583,7 +1583,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1604,7 +1604,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

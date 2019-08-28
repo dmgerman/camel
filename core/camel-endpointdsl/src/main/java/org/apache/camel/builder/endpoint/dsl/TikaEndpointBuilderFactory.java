@@ -120,7 +120,7 @@ name|Object
 name|tikaConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tikaConfig"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|tikaConfig
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tikaConfig"
 argument_list|,
@@ -162,7 +162,7 @@ name|String
 name|tikaConfigUri
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tikaConfigUri"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|tikaParseOutputEncoding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tikaParseOutputEncoding"
 argument_list|,
@@ -204,7 +204,7 @@ name|TikaParseOutputFormat
 name|tikaParseOutputFormat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tikaParseOutputFormat"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|tikaParseOutputFormat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tikaParseOutputFormat"
 argument_list|,
@@ -268,7 +268,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -289,7 +289,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -310,7 +310,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -331,7 +331,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

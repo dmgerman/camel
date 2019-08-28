@@ -146,7 +146,7 @@ name|boolean
 name|propagateIncomingBodyIfNoReturnValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"propagateIncomingBodyIfNoReturnValue"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|propagateIncomingBodyIfNoReturnValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"propagateIncomingBodyIfNoReturnValue"
 argument_list|,
@@ -188,7 +188,7 @@ name|boolean
 name|treatCollectionsAsCacheObjects
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"treatCollectionsAsCacheObjects"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|treatCollectionsAsCacheObjects
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"treatCollectionsAsCacheObjects"
 argument_list|,
@@ -230,7 +230,7 @@ name|boolean
 name|autoUnsubscribe
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoUnsubscribe"
 argument_list|,
@@ -251,7 +251,7 @@ name|String
 name|autoUnsubscribe
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoUnsubscribe"
 argument_list|,
@@ -272,7 +272,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -293,7 +293,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -314,7 +314,7 @@ name|boolean
 name|fireExistingQueryResults
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fireExistingQueryResults"
 argument_list|,
@@ -335,7 +335,7 @@ name|String
 name|fireExistingQueryResults
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fireExistingQueryResults"
 argument_list|,
@@ -356,7 +356,7 @@ name|boolean
 name|oneExchangePerUpdate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"oneExchangePerUpdate"
 argument_list|,
@@ -377,7 +377,7 @@ name|String
 name|oneExchangePerUpdate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"oneExchangePerUpdate"
 argument_list|,
@@ -398,7 +398,7 @@ name|int
 name|pageSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pageSize"
 argument_list|,
@@ -419,7 +419,7 @@ name|String
 name|pageSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pageSize"
 argument_list|,
@@ -440,7 +440,7 @@ name|Object
 name|remoteFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remoteFilter"
 argument_list|,
@@ -461,7 +461,7 @@ name|String
 name|remoteFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remoteFilter"
 argument_list|,
@@ -482,7 +482,7 @@ name|long
 name|timeInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeInterval"
 argument_list|,
@@ -503,7 +503,7 @@ name|String
 name|timeInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeInterval"
 argument_list|,
@@ -546,7 +546,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -567,7 +567,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -588,7 +588,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -609,7 +609,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -630,7 +630,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -651,7 +651,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -672,7 +672,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -693,7 +693,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -736,7 +736,7 @@ name|boolean
 name|propagateIncomingBodyIfNoReturnValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"propagateIncomingBodyIfNoReturnValue"
 argument_list|,
@@ -757,7 +757,7 @@ name|String
 name|propagateIncomingBodyIfNoReturnValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"propagateIncomingBodyIfNoReturnValue"
 argument_list|,
@@ -778,7 +778,7 @@ name|boolean
 name|treatCollectionsAsCacheObjects
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"treatCollectionsAsCacheObjects"
 argument_list|,
@@ -799,7 +799,7 @@ name|String
 name|treatCollectionsAsCacheObjects
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"treatCollectionsAsCacheObjects"
 argument_list|,
@@ -820,7 +820,7 @@ name|Object
 name|query
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"query"
 argument_list|,
@@ -841,7 +841,7 @@ name|String
 name|query
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"query"
 argument_list|,
@@ -862,7 +862,7 @@ name|CachePeekMode
 name|cachePeekMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cachePeekMode"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|cachePeekMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cachePeekMode"
 argument_list|,
@@ -904,7 +904,7 @@ name|boolean
 name|failIfInexistentCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failIfInexistentCache"
 argument_list|,
@@ -925,7 +925,7 @@ name|String
 name|failIfInexistentCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failIfInexistentCache"
 argument_list|,
@@ -946,7 +946,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -967,7 +967,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -988,7 +988,7 @@ name|IgniteCacheOperation
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1052,7 +1052,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1073,7 +1073,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1094,7 +1094,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1115,7 +1115,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1160,7 +1160,7 @@ name|boolean
 name|propagateIncomingBodyIfNoReturnValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"propagateIncomingBodyIfNoReturnValue"
 argument_list|,
@@ -1181,7 +1181,7 @@ name|String
 name|propagateIncomingBodyIfNoReturnValue
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"propagateIncomingBodyIfNoReturnValue"
 argument_list|,
@@ -1202,7 +1202,7 @@ name|boolean
 name|treatCollectionsAsCacheObjects
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"treatCollectionsAsCacheObjects"
 argument_list|,
@@ -1223,7 +1223,7 @@ name|String
 name|treatCollectionsAsCacheObjects
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"treatCollectionsAsCacheObjects"
 argument_list|,
@@ -1268,7 +1268,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1289,7 +1289,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1310,7 +1310,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1331,7 +1331,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

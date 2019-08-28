@@ -146,7 +146,7 @@ name|String
 name|allowedOrigins
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowedOrigins"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|baseResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"baseResource"
 argument_list|,
@@ -188,7 +188,7 @@ name|boolean
 name|crossOriginFilterOn
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"crossOriginFilterOn"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|crossOriginFilterOn
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"crossOriginFilterOn"
 argument_list|,
@@ -230,7 +230,7 @@ name|String
 name|filterPath
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"filterPath"
 argument_list|,
@@ -251,7 +251,7 @@ name|int
 name|interval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"interval"
 argument_list|,
@@ -272,7 +272,7 @@ name|String
 name|interval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"interval"
 argument_list|,
@@ -293,7 +293,7 @@ name|boolean
 name|jsonCommented
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jsonCommented"
 argument_list|,
@@ -314,7 +314,7 @@ name|String
 name|jsonCommented
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jsonCommented"
 argument_list|,
@@ -335,7 +335,7 @@ name|int
 name|logLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"logLevel"
 argument_list|,
@@ -356,7 +356,7 @@ name|String
 name|logLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"logLevel"
 argument_list|,
@@ -377,7 +377,7 @@ name|int
 name|maxInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxInterval"
 argument_list|,
@@ -398,7 +398,7 @@ name|String
 name|maxInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxInterval"
 argument_list|,
@@ -419,7 +419,7 @@ name|int
 name|multiFrameInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multiFrameInterval"
 argument_list|,
@@ -440,7 +440,7 @@ name|String
 name|multiFrameInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multiFrameInterval"
 argument_list|,
@@ -461,7 +461,7 @@ name|int
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -482,7 +482,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -503,7 +503,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -524,7 +524,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -545,7 +545,7 @@ name|boolean
 name|sessionHeadersEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sessionHeadersEnabled"
 argument_list|,
@@ -566,7 +566,7 @@ name|String
 name|sessionHeadersEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sessionHeadersEnabled"
 argument_list|,
@@ -609,7 +609,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -630,7 +630,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -651,7 +651,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -672,7 +672,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -693,7 +693,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -714,7 +714,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -735,7 +735,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -756,7 +756,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -799,7 +799,7 @@ name|String
 name|allowedOrigins
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowedOrigins"
 argument_list|,
@@ -820,7 +820,7 @@ name|String
 name|baseResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"baseResource"
 argument_list|,
@@ -841,7 +841,7 @@ name|boolean
 name|crossOriginFilterOn
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"crossOriginFilterOn"
 argument_list|,
@@ -862,7 +862,7 @@ name|String
 name|crossOriginFilterOn
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"crossOriginFilterOn"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|filterPath
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"filterPath"
 argument_list|,
@@ -904,7 +904,7 @@ name|int
 name|interval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"interval"
 argument_list|,
@@ -925,7 +925,7 @@ name|String
 name|interval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"interval"
 argument_list|,
@@ -946,7 +946,7 @@ name|boolean
 name|jsonCommented
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jsonCommented"
 argument_list|,
@@ -967,7 +967,7 @@ name|String
 name|jsonCommented
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jsonCommented"
 argument_list|,
@@ -988,7 +988,7 @@ name|int
 name|logLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"logLevel"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|String
 name|logLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"logLevel"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|int
 name|maxInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxInterval"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|String
 name|maxInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxInterval"
 argument_list|,
@@ -1072,7 +1072,7 @@ name|int
 name|multiFrameInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multiFrameInterval"
 argument_list|,
@@ -1093,7 +1093,7 @@ name|String
 name|multiFrameInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multiFrameInterval"
 argument_list|,
@@ -1114,7 +1114,7 @@ name|int
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -1135,7 +1135,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -1156,7 +1156,7 @@ name|boolean
 name|disconnectLocalSession
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disconnectLocalSession"
 argument_list|,
@@ -1177,7 +1177,7 @@ name|String
 name|disconnectLocalSession
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"disconnectLocalSession"
 argument_list|,
@@ -1198,7 +1198,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1219,7 +1219,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1262,7 +1262,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1283,7 +1283,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1304,7 +1304,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1325,7 +1325,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1370,7 +1370,7 @@ name|String
 name|allowedOrigins
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowedOrigins"
 argument_list|,
@@ -1391,7 +1391,7 @@ name|String
 name|baseResource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"baseResource"
 argument_list|,
@@ -1412,7 +1412,7 @@ name|boolean
 name|crossOriginFilterOn
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"crossOriginFilterOn"
 argument_list|,
@@ -1433,7 +1433,7 @@ name|String
 name|crossOriginFilterOn
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"crossOriginFilterOn"
 argument_list|,
@@ -1454,7 +1454,7 @@ name|String
 name|filterPath
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"filterPath"
 argument_list|,
@@ -1475,7 +1475,7 @@ name|int
 name|interval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"interval"
 argument_list|,
@@ -1496,7 +1496,7 @@ name|String
 name|interval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"interval"
 argument_list|,
@@ -1517,7 +1517,7 @@ name|boolean
 name|jsonCommented
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jsonCommented"
 argument_list|,
@@ -1538,7 +1538,7 @@ name|String
 name|jsonCommented
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"jsonCommented"
 argument_list|,
@@ -1559,7 +1559,7 @@ name|int
 name|logLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"logLevel"
 argument_list|,
@@ -1580,7 +1580,7 @@ name|String
 name|logLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"logLevel"
 argument_list|,
@@ -1601,7 +1601,7 @@ name|int
 name|maxInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxInterval"
 argument_list|,
@@ -1622,7 +1622,7 @@ name|String
 name|maxInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxInterval"
 argument_list|,
@@ -1643,7 +1643,7 @@ name|int
 name|multiFrameInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multiFrameInterval"
 argument_list|,
@@ -1664,7 +1664,7 @@ name|String
 name|multiFrameInterval
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"multiFrameInterval"
 argument_list|,
@@ -1685,7 +1685,7 @@ name|int
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -1706,7 +1706,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -1751,7 +1751,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1772,7 +1772,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1793,7 +1793,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1814,7 +1814,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

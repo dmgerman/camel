@@ -120,7 +120,7 @@ name|Boolean
 name|allowCompression
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowCompression"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|allowCompression
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowCompression"
 argument_list|,
@@ -162,7 +162,7 @@ name|Integer
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -204,7 +204,7 @@ name|Integer
 name|defaultMaxConnectionsPerHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultMaxConnectionsPerHost"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|defaultMaxConnectionsPerHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultMaxConnectionsPerHost"
 argument_list|,
@@ -246,7 +246,7 @@ name|Boolean
 name|followRedirects
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"followRedirects"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|followRedirects
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"followRedirects"
 argument_list|,
@@ -288,7 +288,7 @@ name|Integer
 name|maxRetries
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxRetries"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|maxRetries
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxRetries"
 argument_list|,
@@ -330,7 +330,7 @@ name|Integer
 name|maxTotalConnections
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxTotalConnections"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|maxTotalConnections
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxTotalConnections"
 argument_list|,
@@ -372,7 +372,7 @@ name|String
 name|requestHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"requestHandler"
 argument_list|,
@@ -393,7 +393,7 @@ name|Integer
 name|soTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"soTimeout"
 argument_list|,
@@ -414,7 +414,7 @@ name|String
 name|soTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"soTimeout"
 argument_list|,
@@ -435,7 +435,7 @@ name|int
 name|streamingQueueSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamingQueueSize"
 argument_list|,
@@ -456,7 +456,7 @@ name|String
 name|streamingQueueSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamingQueueSize"
 argument_list|,
@@ -477,7 +477,7 @@ name|int
 name|streamingThreadCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamingThreadCount"
 argument_list|,
@@ -498,7 +498,7 @@ name|String
 name|streamingThreadCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamingThreadCount"
 argument_list|,
@@ -519,7 +519,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -540,7 +540,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -561,7 +561,7 @@ name|String
 name|collection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collection"
 argument_list|,
@@ -582,7 +582,7 @@ name|String
 name|zkHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"zkHost"
 argument_list|,
@@ -625,7 +625,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -646,7 +646,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -667,7 +667,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -688,7 +688,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

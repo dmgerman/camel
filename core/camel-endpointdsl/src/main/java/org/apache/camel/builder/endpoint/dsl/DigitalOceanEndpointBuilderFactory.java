@@ -120,7 +120,7 @@ name|Integer
 name|page
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"page"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|page
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"page"
 argument_list|,
@@ -162,7 +162,7 @@ name|Integer
 name|perPage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"perPage"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|perPage
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"perPage"
 argument_list|,
@@ -204,7 +204,7 @@ name|DigitalOceanResources
 name|resource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resource"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|resource
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resource"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|httpProxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpProxyHost"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|httpProxyPassword
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpProxyPassword"
 argument_list|,
@@ -288,7 +288,7 @@ name|Integer
 name|httpProxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpProxyPort"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|httpProxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpProxyPort"
 argument_list|,
@@ -330,7 +330,7 @@ name|String
 name|httpProxyUser
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"httpProxyUser"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|oAuthToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"oAuthToken"
 argument_list|,
@@ -394,7 +394,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -415,7 +415,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -436,7 +436,7 @@ name|Object
 name|digitalOceanClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"digitalOceanClient"
 argument_list|,
@@ -457,7 +457,7 @@ name|String
 name|digitalOceanClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"digitalOceanClient"
 argument_list|,
@@ -478,7 +478,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -499,7 +499,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

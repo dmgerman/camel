@@ -120,7 +120,7 @@ name|String
 name|args
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"args"
 argument_list|,
@@ -141,7 +141,7 @@ name|Object
 name|binding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"binding"
 argument_list|,
@@ -162,7 +162,7 @@ name|String
 name|binding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"binding"
 argument_list|,
@@ -183,7 +183,7 @@ name|Object
 name|commandExecutor
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"commandExecutor"
 argument_list|,
@@ -204,7 +204,7 @@ name|String
 name|commandExecutor
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"commandExecutor"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|outFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outFile"
 argument_list|,
@@ -246,7 +246,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|timeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeout"
 argument_list|,
@@ -288,7 +288,7 @@ name|boolean
 name|useStderrOnEmptyStdout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useStderrOnEmptyStdout"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|useStderrOnEmptyStdout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useStderrOnEmptyStdout"
 argument_list|,
@@ -330,7 +330,7 @@ name|String
 name|workingDir
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"workingDir"
 argument_list|,
@@ -373,7 +373,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -394,7 +394,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -415,7 +415,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -436,7 +436,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

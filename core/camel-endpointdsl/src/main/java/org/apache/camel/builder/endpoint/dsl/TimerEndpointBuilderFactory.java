@@ -140,7 +140,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -161,7 +161,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -182,7 +182,7 @@ name|boolean
 name|fixedRate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fixedRate"
 argument_list|,
@@ -203,7 +203,7 @@ name|String
 name|fixedRate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"fixedRate"
 argument_list|,
@@ -224,7 +224,7 @@ name|long
 name|period
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"period"
 argument_list|,
@@ -245,7 +245,7 @@ name|String
 name|period
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"period"
 argument_list|,
@@ -266,7 +266,7 @@ name|long
 name|repeatCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"repeatCount"
 argument_list|,
@@ -287,7 +287,7 @@ name|String
 name|repeatCount
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"repeatCount"
 argument_list|,
@@ -330,7 +330,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -372,7 +372,7 @@ name|boolean
 name|daemon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"daemon"
 argument_list|,
@@ -393,7 +393,7 @@ name|String
 name|daemon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"daemon"
 argument_list|,
@@ -414,7 +414,7 @@ name|String
 name|pattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pattern"
 argument_list|,
@@ -435,7 +435,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -456,7 +456,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -477,7 +477,7 @@ name|Date
 name|time
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"time"
 argument_list|,
@@ -498,7 +498,7 @@ name|String
 name|time
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"time"
 argument_list|,
@@ -519,7 +519,7 @@ name|Timer
 name|timer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timer"
 argument_list|,
@@ -540,7 +540,7 @@ name|String
 name|timer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timer"
 argument_list|,

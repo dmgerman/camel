@@ -120,7 +120,7 @@ name|boolean
 name|contentCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentCache"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|contentCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentCache"
 argument_list|,
@@ -162,7 +162,7 @@ name|JoltInputOutputType
 name|inputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"inputType"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|inputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"inputType"
 argument_list|,
@@ -204,7 +204,7 @@ name|JoltInputOutputType
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -246,7 +246,7 @@ name|JoltTransformType
 name|transformDsl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformDsl"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|transformDsl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformDsl"
 argument_list|,
@@ -310,7 +310,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -331,7 +331,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -352,7 +352,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -373,7 +373,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

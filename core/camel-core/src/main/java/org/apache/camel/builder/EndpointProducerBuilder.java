@@ -92,9 +92,9 @@ name|getUri
 parameter_list|()
 function_decl|;
 comment|/**      * Adds an option to this endpoint. This API is only intended for Camel      * internally.      */
-DECL|method|setProperty (String name, Object value)
+DECL|method|doSetProperty (String name, Object value)
 name|void
-name|setProperty
+name|doSetProperty
 parameter_list|(
 name|String
 name|name

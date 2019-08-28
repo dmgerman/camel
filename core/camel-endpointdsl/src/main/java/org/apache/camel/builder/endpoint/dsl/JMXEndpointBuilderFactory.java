@@ -142,7 +142,7 @@ name|String
 name|format
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"format"
 argument_list|,
@@ -163,7 +163,7 @@ name|long
 name|granularityPeriod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"granularityPeriod"
 argument_list|,
@@ -184,7 +184,7 @@ name|String
 name|granularityPeriod
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"granularityPeriod"
 argument_list|,
@@ -205,7 +205,7 @@ name|String
 name|monitorType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"monitorType"
 argument_list|,
@@ -226,7 +226,7 @@ name|String
 name|objectDomain
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"objectDomain"
 argument_list|,
@@ -247,7 +247,7 @@ name|String
 name|objectName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"objectName"
 argument_list|,
@@ -268,7 +268,7 @@ name|String
 name|observedAttribute
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"observedAttribute"
 argument_list|,
@@ -289,7 +289,7 @@ name|int
 name|initThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initThreshold"
 argument_list|,
@@ -310,7 +310,7 @@ name|String
 name|initThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initThreshold"
 argument_list|,
@@ -331,7 +331,7 @@ name|int
 name|modulus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"modulus"
 argument_list|,
@@ -352,7 +352,7 @@ name|String
 name|modulus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"modulus"
 argument_list|,
@@ -373,7 +373,7 @@ name|int
 name|offset
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"offset"
 argument_list|,
@@ -394,7 +394,7 @@ name|String
 name|offset
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"offset"
 argument_list|,
@@ -415,7 +415,7 @@ name|boolean
 name|differenceMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"differenceMode"
 argument_list|,
@@ -436,7 +436,7 @@ name|String
 name|differenceMode
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"differenceMode"
 argument_list|,
@@ -457,7 +457,7 @@ name|boolean
 name|notifyHigh
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"notifyHigh"
 argument_list|,
@@ -478,7 +478,7 @@ name|String
 name|notifyHigh
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"notifyHigh"
 argument_list|,
@@ -499,7 +499,7 @@ name|boolean
 name|notifyLow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"notifyLow"
 argument_list|,
@@ -520,7 +520,7 @@ name|String
 name|notifyLow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"notifyLow"
 argument_list|,
@@ -541,7 +541,7 @@ name|Double
 name|thresholdHigh
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"thresholdHigh"
 argument_list|,
@@ -562,7 +562,7 @@ name|String
 name|thresholdHigh
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"thresholdHigh"
 argument_list|,
@@ -583,7 +583,7 @@ name|Double
 name|thresholdLow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"thresholdLow"
 argument_list|,
@@ -604,7 +604,7 @@ name|String
 name|thresholdLow
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"thresholdLow"
 argument_list|,
@@ -625,7 +625,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -646,7 +646,7 @@ name|String
 name|user
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"user"
 argument_list|,
@@ -689,7 +689,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -710,7 +710,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -731,7 +731,7 @@ name|ExecutorService
 name|executorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"executorService"
 argument_list|,
@@ -752,7 +752,7 @@ name|String
 name|executorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"executorService"
 argument_list|,
@@ -773,7 +773,7 @@ name|Object
 name|handback
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"handback"
 argument_list|,
@@ -794,7 +794,7 @@ name|String
 name|handback
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"handback"
 argument_list|,
@@ -815,7 +815,7 @@ name|Object
 name|notificationFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"notificationFilter"
 argument_list|,
@@ -836,7 +836,7 @@ name|String
 name|notificationFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"notificationFilter"
 argument_list|,
@@ -862,7 +862,7 @@ argument_list|>
 name|objectProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"objectProperties"
 argument_list|,
@@ -883,7 +883,7 @@ name|String
 name|objectProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"objectProperties"
 argument_list|,
@@ -904,7 +904,7 @@ name|int
 name|reconnectDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reconnectDelay"
 argument_list|,
@@ -925,7 +925,7 @@ name|String
 name|reconnectDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reconnectDelay"
 argument_list|,
@@ -946,7 +946,7 @@ name|boolean
 name|reconnectOnConnectionFailure
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reconnectOnConnectionFailure"
 argument_list|,
@@ -967,7 +967,7 @@ name|String
 name|reconnectOnConnectionFailure
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"reconnectOnConnectionFailure"
 argument_list|,
@@ -988,7 +988,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|boolean
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|String
 name|testConnectionOnStartup
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"testConnectionOnStartup"
 argument_list|,

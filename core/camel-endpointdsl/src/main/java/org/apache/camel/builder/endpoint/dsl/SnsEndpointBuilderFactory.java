@@ -134,7 +134,7 @@ name|Object
 name|amazonSNSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSNSClient"
 argument_list|,
@@ -155,7 +155,7 @@ name|String
 name|amazonSNSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSNSClient"
 argument_list|,
@@ -176,7 +176,7 @@ name|Object
 name|amazonSQSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -197,7 +197,7 @@ name|String
 name|amazonSQSClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -218,7 +218,7 @@ name|boolean
 name|autoCreateTopic
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateTopic"
 argument_list|,
@@ -239,7 +239,7 @@ name|String
 name|autoCreateTopic
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"autoCreateTopic"
 argument_list|,
@@ -260,7 +260,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -281,7 +281,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -302,7 +302,7 @@ name|String
 name|kmsMasterKeyId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"kmsMasterKeyId"
 argument_list|,
@@ -323,7 +323,7 @@ name|String
 name|messageStructure
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"messageStructure"
 argument_list|,
@@ -344,7 +344,7 @@ name|String
 name|policy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"policy"
 argument_list|,
@@ -365,7 +365,7 @@ name|String
 name|proxyHost
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyHost"
 argument_list|,
@@ -386,7 +386,7 @@ name|Integer
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -407,7 +407,7 @@ name|String
 name|proxyPort
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"proxyPort"
 argument_list|,
@@ -428,7 +428,7 @@ name|String
 name|queueUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"queueUrl"
 argument_list|,
@@ -449,7 +449,7 @@ name|String
 name|region
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"region"
 argument_list|,
@@ -470,7 +470,7 @@ name|boolean
 name|serverSideEncryptionEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serverSideEncryptionEnabled"
 argument_list|,
@@ -491,7 +491,7 @@ name|String
 name|serverSideEncryptionEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serverSideEncryptionEnabled"
 argument_list|,
@@ -512,7 +512,7 @@ name|String
 name|subject
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"subject"
 argument_list|,
@@ -533,7 +533,7 @@ name|boolean
 name|subscribeSNStoSQS
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"subscribeSNStoSQS"
 argument_list|,
@@ -554,7 +554,7 @@ name|String
 name|subscribeSNStoSQS
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"subscribeSNStoSQS"
 argument_list|,
@@ -575,7 +575,7 @@ name|String
 name|accessKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"accessKey"
 argument_list|,
@@ -596,7 +596,7 @@ name|String
 name|secretKey
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"secretKey"
 argument_list|,
@@ -639,7 +639,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -660,7 +660,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -681,7 +681,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -702,7 +702,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

@@ -206,7 +206,7 @@ name|boolean
 name|joinTransaction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"joinTransaction"
 argument_list|,
@@ -227,7 +227,7 @@ name|String
 name|joinTransaction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"joinTransaction"
 argument_list|,
@@ -248,7 +248,7 @@ name|int
 name|maximumResults
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumResults"
 argument_list|,
@@ -269,7 +269,7 @@ name|String
 name|maximumResults
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumResults"
 argument_list|,
@@ -290,7 +290,7 @@ name|String
 name|namedQuery
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namedQuery"
 argument_list|,
@@ -311,7 +311,7 @@ name|String
 name|nativeQuery
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nativeQuery"
 argument_list|,
@@ -332,7 +332,7 @@ name|String
 name|persistenceUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistenceUnit"
 argument_list|,
@@ -353,7 +353,7 @@ name|String
 name|query
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"query"
 argument_list|,
@@ -377,7 +377,7 @@ argument_list|>
 name|resultClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultClass"
 argument_list|,
@@ -398,7 +398,7 @@ name|String
 name|resultClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultClass"
 argument_list|,
@@ -419,7 +419,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -440,7 +440,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -461,7 +461,7 @@ name|boolean
 name|consumeDelete
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumeDelete"
 argument_list|,
@@ -482,7 +482,7 @@ name|String
 name|consumeDelete
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumeDelete"
 argument_list|,
@@ -503,7 +503,7 @@ name|boolean
 name|consumeLockEntity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumeLockEntity"
 argument_list|,
@@ -524,7 +524,7 @@ name|String
 name|consumeLockEntity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumeLockEntity"
 argument_list|,
@@ -545,7 +545,7 @@ name|Object
 name|deleteHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteHandler"
 argument_list|,
@@ -566,7 +566,7 @@ name|String
 name|deleteHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteHandler"
 argument_list|,
@@ -587,7 +587,7 @@ name|LockModeType
 name|lockModeType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lockModeType"
 argument_list|,
@@ -608,7 +608,7 @@ name|String
 name|lockModeType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lockModeType"
 argument_list|,
@@ -629,7 +629,7 @@ name|int
 name|maxMessagesPerPoll
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxMessagesPerPoll"
 argument_list|,
@@ -650,7 +650,7 @@ name|String
 name|maxMessagesPerPoll
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maxMessagesPerPoll"
 argument_list|,
@@ -671,7 +671,7 @@ name|Object
 name|preDeleteHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"preDeleteHandler"
 argument_list|,
@@ -692,7 +692,7 @@ name|String
 name|preDeleteHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"preDeleteHandler"
 argument_list|,
@@ -713,7 +713,7 @@ name|boolean
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -734,7 +734,7 @@ name|String
 name|sendEmptyMessageWhenIdle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sendEmptyMessageWhenIdle"
 argument_list|,
@@ -755,7 +755,7 @@ name|boolean
 name|skipLockedEntity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipLockedEntity"
 argument_list|,
@@ -776,7 +776,7 @@ name|String
 name|skipLockedEntity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipLockedEntity"
 argument_list|,
@@ -797,7 +797,7 @@ name|boolean
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -818,7 +818,7 @@ name|String
 name|transacted
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transacted"
 argument_list|,
@@ -839,7 +839,7 @@ name|int
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -860,7 +860,7 @@ name|String
 name|backoffErrorThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffErrorThreshold"
 argument_list|,
@@ -881,7 +881,7 @@ name|int
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -902,7 +902,7 @@ name|String
 name|backoffIdleThreshold
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffIdleThreshold"
 argument_list|,
@@ -923,7 +923,7 @@ name|int
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -944,7 +944,7 @@ name|String
 name|backoffMultiplier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"backoffMultiplier"
 argument_list|,
@@ -965,7 +965,7 @@ name|long
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -986,7 +986,7 @@ name|String
 name|delay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"delay"
 argument_list|,
@@ -1007,7 +1007,7 @@ name|boolean
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -1028,7 +1028,7 @@ name|String
 name|greedy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"greedy"
 argument_list|,
@@ -1049,7 +1049,7 @@ name|long
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -1070,7 +1070,7 @@ name|String
 name|initialDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"initialDelay"
 argument_list|,
@@ -1091,7 +1091,7 @@ name|LoggingLevel
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -1112,7 +1112,7 @@ name|String
 name|runLoggingLevel
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"runLoggingLevel"
 argument_list|,
@@ -1133,7 +1133,7 @@ name|ScheduledExecutorService
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -1154,7 +1154,7 @@ name|String
 name|scheduledExecutorService
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduledExecutorService"
 argument_list|,
@@ -1175,7 +1175,7 @@ name|String
 name|scheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"scheduler"
 argument_list|,
@@ -1201,7 +1201,7 @@ argument_list|>
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -1222,7 +1222,7 @@ name|String
 name|schedulerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"schedulerProperties"
 argument_list|,
@@ -1243,7 +1243,7 @@ name|boolean
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -1264,7 +1264,7 @@ name|String
 name|startScheduler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"startScheduler"
 argument_list|,
@@ -1285,7 +1285,7 @@ name|TimeUnit
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -1306,7 +1306,7 @@ name|String
 name|timeUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"timeUnit"
 argument_list|,
@@ -1327,7 +1327,7 @@ name|boolean
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -1348,7 +1348,7 @@ name|String
 name|useFixedDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useFixedDelay"
 argument_list|,
@@ -1391,7 +1391,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1412,7 +1412,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -1433,7 +1433,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1454,7 +1454,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -1480,7 +1480,7 @@ argument_list|>
 name|parameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"parameters"
 argument_list|,
@@ -1501,7 +1501,7 @@ name|String
 name|parameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"parameters"
 argument_list|,
@@ -1522,7 +1522,7 @@ name|PollingConsumerPollStrategy
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1543,7 +1543,7 @@ name|String
 name|pollStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"pollStrategy"
 argument_list|,
@@ -1564,7 +1564,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1585,7 +1585,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1611,7 +1611,7 @@ argument_list|>
 name|entityManagerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
@@ -1632,7 +1632,7 @@ name|String
 name|entityManagerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
@@ -1653,7 +1653,7 @@ name|boolean
 name|sharedEntityManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedEntityManager"
 argument_list|,
@@ -1674,7 +1674,7 @@ name|String
 name|sharedEntityManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedEntityManager"
 argument_list|,
@@ -1695,7 +1695,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1716,7 +1716,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1759,7 +1759,7 @@ name|boolean
 name|joinTransaction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"joinTransaction"
 argument_list|,
@@ -1780,7 +1780,7 @@ name|String
 name|joinTransaction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"joinTransaction"
 argument_list|,
@@ -1801,7 +1801,7 @@ name|int
 name|maximumResults
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumResults"
 argument_list|,
@@ -1822,7 +1822,7 @@ name|String
 name|maximumResults
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumResults"
 argument_list|,
@@ -1843,7 +1843,7 @@ name|String
 name|namedQuery
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namedQuery"
 argument_list|,
@@ -1864,7 +1864,7 @@ name|String
 name|nativeQuery
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nativeQuery"
 argument_list|,
@@ -1885,7 +1885,7 @@ name|String
 name|persistenceUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistenceUnit"
 argument_list|,
@@ -1906,7 +1906,7 @@ name|String
 name|query
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"query"
 argument_list|,
@@ -1930,7 +1930,7 @@ argument_list|>
 name|resultClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultClass"
 argument_list|,
@@ -1951,7 +1951,7 @@ name|String
 name|resultClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultClass"
 argument_list|,
@@ -1972,7 +1972,7 @@ name|boolean
 name|findEntity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"findEntity"
 argument_list|,
@@ -1993,7 +1993,7 @@ name|String
 name|findEntity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"findEntity"
 argument_list|,
@@ -2014,7 +2014,7 @@ name|boolean
 name|flushOnSend
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flushOnSend"
 argument_list|,
@@ -2035,7 +2035,7 @@ name|String
 name|flushOnSend
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"flushOnSend"
 argument_list|,
@@ -2056,7 +2056,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -2077,7 +2077,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -2098,7 +2098,7 @@ name|boolean
 name|remove
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remove"
 argument_list|,
@@ -2119,7 +2119,7 @@ name|String
 name|remove
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"remove"
 argument_list|,
@@ -2140,7 +2140,7 @@ name|Boolean
 name|useExecuteUpdate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useExecuteUpdate"
 argument_list|,
@@ -2161,7 +2161,7 @@ name|String
 name|useExecuteUpdate
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"useExecuteUpdate"
 argument_list|,
@@ -2182,7 +2182,7 @@ name|boolean
 name|usePersist
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"usePersist"
 argument_list|,
@@ -2203,7 +2203,7 @@ name|String
 name|usePersist
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"usePersist"
 argument_list|,
@@ -2246,7 +2246,7 @@ name|boolean
 name|usePassedInEntityManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"usePassedInEntityManager"
 argument_list|,
@@ -2267,7 +2267,7 @@ name|String
 name|usePassedInEntityManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"usePassedInEntityManager"
 argument_list|,
@@ -2288,7 +2288,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2309,7 +2309,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2335,7 +2335,7 @@ argument_list|>
 name|entityManagerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
@@ -2356,7 +2356,7 @@ name|String
 name|entityManagerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
@@ -2377,7 +2377,7 @@ name|boolean
 name|sharedEntityManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedEntityManager"
 argument_list|,
@@ -2398,7 +2398,7 @@ name|String
 name|sharedEntityManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedEntityManager"
 argument_list|,
@@ -2419,7 +2419,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2440,7 +2440,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2485,7 +2485,7 @@ name|boolean
 name|joinTransaction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"joinTransaction"
 argument_list|,
@@ -2506,7 +2506,7 @@ name|String
 name|joinTransaction
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"joinTransaction"
 argument_list|,
@@ -2527,7 +2527,7 @@ name|int
 name|maximumResults
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumResults"
 argument_list|,
@@ -2548,7 +2548,7 @@ name|String
 name|maximumResults
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"maximumResults"
 argument_list|,
@@ -2569,7 +2569,7 @@ name|String
 name|namedQuery
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"namedQuery"
 argument_list|,
@@ -2590,7 +2590,7 @@ name|String
 name|nativeQuery
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"nativeQuery"
 argument_list|,
@@ -2611,7 +2611,7 @@ name|String
 name|persistenceUnit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistenceUnit"
 argument_list|,
@@ -2632,7 +2632,7 @@ name|String
 name|query
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"query"
 argument_list|,
@@ -2656,7 +2656,7 @@ argument_list|>
 name|resultClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultClass"
 argument_list|,
@@ -2677,7 +2677,7 @@ name|String
 name|resultClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultClass"
 argument_list|,
@@ -2722,7 +2722,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2743,7 +2743,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2769,7 +2769,7 @@ argument_list|>
 name|entityManagerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
@@ -2790,7 +2790,7 @@ name|String
 name|entityManagerProperties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"entityManagerProperties"
 argument_list|,
@@ -2811,7 +2811,7 @@ name|boolean
 name|sharedEntityManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedEntityManager"
 argument_list|,
@@ -2832,7 +2832,7 @@ name|String
 name|sharedEntityManager
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sharedEntityManager"
 argument_list|,
@@ -2853,7 +2853,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2874,7 +2874,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

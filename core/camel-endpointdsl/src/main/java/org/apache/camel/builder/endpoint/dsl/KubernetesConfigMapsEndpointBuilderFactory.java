@@ -120,7 +120,7 @@ name|String
 name|apiVersion
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"apiVersion"
 argument_list|,
@@ -141,7 +141,7 @@ name|String
 name|dnsDomain
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dnsDomain"
 argument_list|,
@@ -162,7 +162,7 @@ name|Object
 name|kubernetesClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"kubernetesClient"
 argument_list|,
@@ -183,7 +183,7 @@ name|String
 name|kubernetesClient
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"kubernetesClient"
 argument_list|,
@@ -204,7 +204,7 @@ name|String
 name|portName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"portName"
 argument_list|,
@@ -225,7 +225,7 @@ name|String
 name|portProtocol
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"portProtocol"
 argument_list|,
@@ -246,7 +246,7 @@ name|String
 name|caCertData
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"caCertData"
 argument_list|,
@@ -267,7 +267,7 @@ name|String
 name|caCertFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"caCertFile"
 argument_list|,
@@ -288,7 +288,7 @@ name|String
 name|clientCertData
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientCertData"
 argument_list|,
@@ -309,7 +309,7 @@ name|String
 name|clientCertFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientCertFile"
 argument_list|,
@@ -330,7 +330,7 @@ name|String
 name|clientKeyAlgo
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientKeyAlgo"
 argument_list|,
@@ -351,7 +351,7 @@ name|String
 name|clientKeyData
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientKeyData"
 argument_list|,
@@ -372,7 +372,7 @@ name|String
 name|clientKeyFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientKeyFile"
 argument_list|,
@@ -393,7 +393,7 @@ name|String
 name|clientKeyPassphrase
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"clientKeyPassphrase"
 argument_list|,
@@ -414,7 +414,7 @@ name|String
 name|oauthToken
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"oauthToken"
 argument_list|,
@@ -435,7 +435,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -456,7 +456,7 @@ name|Boolean
 name|trustCerts
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustCerts"
 argument_list|,
@@ -477,7 +477,7 @@ name|String
 name|trustCerts
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"trustCerts"
 argument_list|,
@@ -498,7 +498,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -541,7 +541,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -562,7 +562,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -583,7 +583,7 @@ name|Integer
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -604,7 +604,7 @@ name|String
 name|connectionTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"connectionTimeout"
 argument_list|,
@@ -625,7 +625,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -646,7 +646,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

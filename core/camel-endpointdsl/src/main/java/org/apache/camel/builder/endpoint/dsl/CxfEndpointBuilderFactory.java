@@ -170,7 +170,7 @@ name|DataFormat
 name|dataFormat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataFormat"
 argument_list|,
@@ -191,7 +191,7 @@ name|String
 name|dataFormat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataFormat"
 argument_list|,
@@ -212,7 +212,7 @@ name|Boolean
 name|wrappedStyle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wrappedStyle"
 argument_list|,
@@ -233,7 +233,7 @@ name|String
 name|wrappedStyle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wrappedStyle"
 argument_list|,
@@ -254,7 +254,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -275,7 +275,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -296,7 +296,7 @@ name|boolean
 name|loggingFeatureEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingFeatureEnabled"
 argument_list|,
@@ -317,7 +317,7 @@ name|String
 name|loggingFeatureEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingFeatureEnabled"
 argument_list|,
@@ -338,7 +338,7 @@ name|int
 name|loggingSizeLimit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingSizeLimit"
 argument_list|,
@@ -359,7 +359,7 @@ name|String
 name|loggingSizeLimit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingSizeLimit"
 argument_list|,
@@ -380,7 +380,7 @@ name|boolean
 name|skipFaultLogging
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipFaultLogging"
 argument_list|,
@@ -401,7 +401,7 @@ name|String
 name|skipFaultLogging
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipFaultLogging"
 argument_list|,
@@ -422,7 +422,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -443,7 +443,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -464,7 +464,7 @@ name|String
 name|bindingId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bindingId"
 argument_list|,
@@ -485,7 +485,7 @@ name|String
 name|portName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"portName"
 argument_list|,
@@ -506,7 +506,7 @@ name|String
 name|publishedEndpointUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publishedEndpointUrl"
 argument_list|,
@@ -530,7 +530,7 @@ argument_list|>
 name|serviceClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceClass"
 argument_list|,
@@ -551,7 +551,7 @@ name|String
 name|serviceClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceClass"
 argument_list|,
@@ -572,7 +572,7 @@ name|String
 name|serviceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceName"
 argument_list|,
@@ -593,7 +593,7 @@ name|String
 name|wsdlURL
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wsdlURL"
 argument_list|,
@@ -636,7 +636,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -657,7 +657,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -678,7 +678,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -699,7 +699,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -720,7 +720,7 @@ name|Boolean
 name|allowStreaming
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowStreaming"
 argument_list|,
@@ -741,7 +741,7 @@ name|String
 name|allowStreaming
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowStreaming"
 argument_list|,
@@ -762,7 +762,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -783,7 +783,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -804,7 +804,7 @@ name|Object
 name|bus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bus"
 argument_list|,
@@ -825,7 +825,7 @@ name|String
 name|bus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bus"
 argument_list|,
@@ -846,7 +846,7 @@ name|long
 name|continuationTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"continuationTimeout"
 argument_list|,
@@ -867,7 +867,7 @@ name|String
 name|continuationTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"continuationTimeout"
 argument_list|,
@@ -888,7 +888,7 @@ name|Object
 name|cxfBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfBinding"
 argument_list|,
@@ -909,7 +909,7 @@ name|String
 name|cxfBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfBinding"
 argument_list|,
@@ -930,7 +930,7 @@ name|Object
 name|cxfConfigurer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfConfigurer"
 argument_list|,
@@ -951,7 +951,7 @@ name|String
 name|cxfConfigurer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfConfigurer"
 argument_list|,
@@ -972,7 +972,7 @@ name|boolean
 name|defaultBus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultBus"
 argument_list|,
@@ -993,7 +993,7 @@ name|String
 name|defaultBus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultBus"
 argument_list|,
@@ -1014,7 +1014,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -1035,7 +1035,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -1056,7 +1056,7 @@ name|boolean
 name|mergeProtocolHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mergeProtocolHeaders"
 argument_list|,
@@ -1077,7 +1077,7 @@ name|String
 name|mergeProtocolHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mergeProtocolHeaders"
 argument_list|,
@@ -1098,7 +1098,7 @@ name|boolean
 name|mtomEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mtomEnabled"
 argument_list|,
@@ -1119,7 +1119,7 @@ name|String
 name|mtomEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mtomEnabled"
 argument_list|,
@@ -1145,7 +1145,7 @@ argument_list|>
 name|properties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -1166,7 +1166,7 @@ name|String
 name|properties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -1187,7 +1187,7 @@ name|boolean
 name|skipPayloadMessagePartCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipPayloadMessagePartCheck"
 argument_list|,
@@ -1208,7 +1208,7 @@ name|String
 name|skipPayloadMessagePartCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipPayloadMessagePartCheck"
 argument_list|,
@@ -1229,7 +1229,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1250,7 +1250,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1293,7 +1293,7 @@ name|DataFormat
 name|dataFormat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataFormat"
 argument_list|,
@@ -1314,7 +1314,7 @@ name|String
 name|dataFormat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataFormat"
 argument_list|,
@@ -1335,7 +1335,7 @@ name|Boolean
 name|wrappedStyle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wrappedStyle"
 argument_list|,
@@ -1356,7 +1356,7 @@ name|String
 name|wrappedStyle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wrappedStyle"
 argument_list|,
@@ -1377,7 +1377,7 @@ name|Object
 name|cookieHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cookieHandler"
 argument_list|,
@@ -1398,7 +1398,7 @@ name|String
 name|cookieHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cookieHandler"
 argument_list|,
@@ -1419,7 +1419,7 @@ name|String
 name|defaultOperationName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperationName"
 argument_list|,
@@ -1440,7 +1440,7 @@ name|String
 name|defaultOperationNamespace
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultOperationNamespace"
 argument_list|,
@@ -1461,7 +1461,7 @@ name|Object
 name|hostnameVerifier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hostnameVerifier"
 argument_list|,
@@ -1482,7 +1482,7 @@ name|String
 name|hostnameVerifier
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"hostnameVerifier"
 argument_list|,
@@ -1503,7 +1503,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1524,7 +1524,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1545,7 +1545,7 @@ name|Object
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1566,7 +1566,7 @@ name|String
 name|sslContextParameters
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"sslContextParameters"
 argument_list|,
@@ -1587,7 +1587,7 @@ name|boolean
 name|wrapped
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wrapped"
 argument_list|,
@@ -1608,7 +1608,7 @@ name|String
 name|wrapped
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wrapped"
 argument_list|,
@@ -1629,7 +1629,7 @@ name|boolean
 name|loggingFeatureEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingFeatureEnabled"
 argument_list|,
@@ -1650,7 +1650,7 @@ name|String
 name|loggingFeatureEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingFeatureEnabled"
 argument_list|,
@@ -1671,7 +1671,7 @@ name|int
 name|loggingSizeLimit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingSizeLimit"
 argument_list|,
@@ -1692,7 +1692,7 @@ name|String
 name|loggingSizeLimit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingSizeLimit"
 argument_list|,
@@ -1713,7 +1713,7 @@ name|boolean
 name|skipFaultLogging
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipFaultLogging"
 argument_list|,
@@ -1734,7 +1734,7 @@ name|String
 name|skipFaultLogging
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipFaultLogging"
 argument_list|,
@@ -1755,7 +1755,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -1776,7 +1776,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -1797,7 +1797,7 @@ name|String
 name|bindingId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bindingId"
 argument_list|,
@@ -1818,7 +1818,7 @@ name|String
 name|portName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"portName"
 argument_list|,
@@ -1839,7 +1839,7 @@ name|String
 name|publishedEndpointUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publishedEndpointUrl"
 argument_list|,
@@ -1863,7 +1863,7 @@ argument_list|>
 name|serviceClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceClass"
 argument_list|,
@@ -1884,7 +1884,7 @@ name|String
 name|serviceClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceClass"
 argument_list|,
@@ -1905,7 +1905,7 @@ name|String
 name|serviceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceName"
 argument_list|,
@@ -1926,7 +1926,7 @@ name|String
 name|wsdlURL
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wsdlURL"
 argument_list|,
@@ -1969,7 +1969,7 @@ name|Boolean
 name|allowStreaming
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowStreaming"
 argument_list|,
@@ -1990,7 +1990,7 @@ name|String
 name|allowStreaming
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowStreaming"
 argument_list|,
@@ -2011,7 +2011,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2032,7 +2032,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2053,7 +2053,7 @@ name|Object
 name|bus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bus"
 argument_list|,
@@ -2074,7 +2074,7 @@ name|String
 name|bus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bus"
 argument_list|,
@@ -2095,7 +2095,7 @@ name|long
 name|continuationTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"continuationTimeout"
 argument_list|,
@@ -2116,7 +2116,7 @@ name|String
 name|continuationTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"continuationTimeout"
 argument_list|,
@@ -2137,7 +2137,7 @@ name|Object
 name|cxfBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfBinding"
 argument_list|,
@@ -2158,7 +2158,7 @@ name|String
 name|cxfBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfBinding"
 argument_list|,
@@ -2179,7 +2179,7 @@ name|Object
 name|cxfConfigurer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfConfigurer"
 argument_list|,
@@ -2200,7 +2200,7 @@ name|String
 name|cxfConfigurer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfConfigurer"
 argument_list|,
@@ -2221,7 +2221,7 @@ name|boolean
 name|defaultBus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultBus"
 argument_list|,
@@ -2242,7 +2242,7 @@ name|String
 name|defaultBus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultBus"
 argument_list|,
@@ -2263,7 +2263,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -2284,7 +2284,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -2305,7 +2305,7 @@ name|boolean
 name|mergeProtocolHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mergeProtocolHeaders"
 argument_list|,
@@ -2326,7 +2326,7 @@ name|String
 name|mergeProtocolHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mergeProtocolHeaders"
 argument_list|,
@@ -2347,7 +2347,7 @@ name|boolean
 name|mtomEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mtomEnabled"
 argument_list|,
@@ -2368,7 +2368,7 @@ name|String
 name|mtomEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mtomEnabled"
 argument_list|,
@@ -2394,7 +2394,7 @@ argument_list|>
 name|properties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -2415,7 +2415,7 @@ name|String
 name|properties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -2436,7 +2436,7 @@ name|boolean
 name|skipPayloadMessagePartCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipPayloadMessagePartCheck"
 argument_list|,
@@ -2457,7 +2457,7 @@ name|String
 name|skipPayloadMessagePartCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipPayloadMessagePartCheck"
 argument_list|,
@@ -2478,7 +2478,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2499,7 +2499,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2544,7 +2544,7 @@ name|DataFormat
 name|dataFormat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataFormat"
 argument_list|,
@@ -2565,7 +2565,7 @@ name|String
 name|dataFormat
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dataFormat"
 argument_list|,
@@ -2586,7 +2586,7 @@ name|Boolean
 name|wrappedStyle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wrappedStyle"
 argument_list|,
@@ -2607,7 +2607,7 @@ name|String
 name|wrappedStyle
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wrappedStyle"
 argument_list|,
@@ -2628,7 +2628,7 @@ name|boolean
 name|loggingFeatureEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingFeatureEnabled"
 argument_list|,
@@ -2649,7 +2649,7 @@ name|String
 name|loggingFeatureEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingFeatureEnabled"
 argument_list|,
@@ -2670,7 +2670,7 @@ name|int
 name|loggingSizeLimit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingSizeLimit"
 argument_list|,
@@ -2691,7 +2691,7 @@ name|String
 name|loggingSizeLimit
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"loggingSizeLimit"
 argument_list|,
@@ -2712,7 +2712,7 @@ name|boolean
 name|skipFaultLogging
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipFaultLogging"
 argument_list|,
@@ -2733,7 +2733,7 @@ name|String
 name|skipFaultLogging
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipFaultLogging"
 argument_list|,
@@ -2754,7 +2754,7 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"password"
 argument_list|,
@@ -2775,7 +2775,7 @@ name|String
 name|username
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"username"
 argument_list|,
@@ -2796,7 +2796,7 @@ name|String
 name|bindingId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bindingId"
 argument_list|,
@@ -2817,7 +2817,7 @@ name|String
 name|portName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"portName"
 argument_list|,
@@ -2838,7 +2838,7 @@ name|String
 name|publishedEndpointUrl
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"publishedEndpointUrl"
 argument_list|,
@@ -2862,7 +2862,7 @@ argument_list|>
 name|serviceClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceClass"
 argument_list|,
@@ -2883,7 +2883,7 @@ name|String
 name|serviceClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceClass"
 argument_list|,
@@ -2904,7 +2904,7 @@ name|String
 name|serviceName
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"serviceName"
 argument_list|,
@@ -2925,7 +2925,7 @@ name|String
 name|wsdlURL
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"wsdlURL"
 argument_list|,
@@ -2970,7 +2970,7 @@ name|Boolean
 name|allowStreaming
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowStreaming"
 argument_list|,
@@ -2991,7 +2991,7 @@ name|String
 name|allowStreaming
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowStreaming"
 argument_list|,
@@ -3012,7 +3012,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -3033,7 +3033,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -3054,7 +3054,7 @@ name|Object
 name|bus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bus"
 argument_list|,
@@ -3075,7 +3075,7 @@ name|String
 name|bus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bus"
 argument_list|,
@@ -3096,7 +3096,7 @@ name|long
 name|continuationTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"continuationTimeout"
 argument_list|,
@@ -3117,7 +3117,7 @@ name|String
 name|continuationTimeout
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"continuationTimeout"
 argument_list|,
@@ -3138,7 +3138,7 @@ name|Object
 name|cxfBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfBinding"
 argument_list|,
@@ -3159,7 +3159,7 @@ name|String
 name|cxfBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfBinding"
 argument_list|,
@@ -3180,7 +3180,7 @@ name|Object
 name|cxfConfigurer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfConfigurer"
 argument_list|,
@@ -3201,7 +3201,7 @@ name|String
 name|cxfConfigurer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cxfConfigurer"
 argument_list|,
@@ -3222,7 +3222,7 @@ name|boolean
 name|defaultBus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultBus"
 argument_list|,
@@ -3243,7 +3243,7 @@ name|String
 name|defaultBus
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"defaultBus"
 argument_list|,
@@ -3264,7 +3264,7 @@ name|HeaderFilterStrategy
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -3285,7 +3285,7 @@ name|String
 name|headerFilterStrategy
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
@@ -3306,7 +3306,7 @@ name|boolean
 name|mergeProtocolHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mergeProtocolHeaders"
 argument_list|,
@@ -3327,7 +3327,7 @@ name|String
 name|mergeProtocolHeaders
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mergeProtocolHeaders"
 argument_list|,
@@ -3348,7 +3348,7 @@ name|boolean
 name|mtomEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mtomEnabled"
 argument_list|,
@@ -3369,7 +3369,7 @@ name|String
 name|mtomEnabled
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mtomEnabled"
 argument_list|,
@@ -3395,7 +3395,7 @@ argument_list|>
 name|properties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -3416,7 +3416,7 @@ name|String
 name|properties
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -3437,7 +3437,7 @@ name|boolean
 name|skipPayloadMessagePartCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipPayloadMessagePartCheck"
 argument_list|,
@@ -3458,7 +3458,7 @@ name|String
 name|skipPayloadMessagePartCheck
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"skipPayloadMessagePartCheck"
 argument_list|,
@@ -3479,7 +3479,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -3500,7 +3500,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,

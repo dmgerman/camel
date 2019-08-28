@@ -146,7 +146,7 @@ name|String
 name|collection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collection"
 argument_list|,
@@ -167,7 +167,7 @@ name|String
 name|collectionIndex
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collectionIndex"
 argument_list|,
@@ -188,7 +188,7 @@ name|boolean
 name|createCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCollection"
 argument_list|,
@@ -209,7 +209,7 @@ name|String
 name|createCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCollection"
 argument_list|,
@@ -230,7 +230,7 @@ name|String
 name|database
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"database"
 argument_list|,
@@ -251,7 +251,7 @@ name|Object
 name|mongoConnection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mongoConnection"
 argument_list|,
@@ -272,7 +272,7 @@ name|String
 name|mongoConnection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mongoConnection"
 argument_list|,
@@ -293,7 +293,7 @@ name|MongoDbOperation
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -314,7 +314,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -335,7 +335,7 @@ name|MongoDbOutputType
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -356,7 +356,7 @@ name|String
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -377,7 +377,7 @@ name|boolean
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -398,7 +398,7 @@ name|String
 name|bridgeErrorHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
@@ -419,7 +419,7 @@ name|String
 name|consumerType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"consumerType"
 argument_list|,
@@ -440,7 +440,7 @@ name|String
 name|streamFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamFilter"
 argument_list|,
@@ -461,7 +461,7 @@ name|String
 name|persistentId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentId"
 argument_list|,
@@ -482,7 +482,7 @@ name|boolean
 name|persistentTailTracking
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentTailTracking"
 argument_list|,
@@ -503,7 +503,7 @@ name|String
 name|persistentTailTracking
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentTailTracking"
 argument_list|,
@@ -524,7 +524,7 @@ name|String
 name|tailTrackCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackCollection"
 argument_list|,
@@ -545,7 +545,7 @@ name|String
 name|tailTrackDb
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackDb"
 argument_list|,
@@ -566,7 +566,7 @@ name|String
 name|tailTrackField
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackField"
 argument_list|,
@@ -587,7 +587,7 @@ name|String
 name|tailTrackIncreasingField
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackIncreasingField"
 argument_list|,
@@ -630,7 +630,7 @@ name|ExceptionHandler
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -651,7 +651,7 @@ name|String
 name|exceptionHandler
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exceptionHandler"
 argument_list|,
@@ -672,7 +672,7 @@ name|ExchangePattern
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -693,7 +693,7 @@ name|String
 name|exchangePattern
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"exchangePattern"
 argument_list|,
@@ -714,7 +714,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -735,7 +735,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -756,7 +756,7 @@ name|long
 name|cursorRegenerationDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cursorRegenerationDelay"
 argument_list|,
@@ -777,7 +777,7 @@ name|String
 name|cursorRegenerationDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cursorRegenerationDelay"
 argument_list|,
@@ -798,7 +798,7 @@ name|boolean
 name|dynamicity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dynamicity"
 argument_list|,
@@ -819,7 +819,7 @@ name|String
 name|dynamicity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dynamicity"
 argument_list|,
@@ -840,7 +840,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -861,7 +861,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -882,7 +882,7 @@ name|boolean
 name|writeResultAsHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeResultAsHeader"
 argument_list|,
@@ -903,7 +903,7 @@ name|String
 name|writeResultAsHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeResultAsHeader"
 argument_list|,
@@ -946,7 +946,7 @@ name|String
 name|collection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collection"
 argument_list|,
@@ -967,7 +967,7 @@ name|String
 name|collectionIndex
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collectionIndex"
 argument_list|,
@@ -988,7 +988,7 @@ name|boolean
 name|createCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCollection"
 argument_list|,
@@ -1009,7 +1009,7 @@ name|String
 name|createCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCollection"
 argument_list|,
@@ -1030,7 +1030,7 @@ name|String
 name|database
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"database"
 argument_list|,
@@ -1051,7 +1051,7 @@ name|Object
 name|mongoConnection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mongoConnection"
 argument_list|,
@@ -1072,7 +1072,7 @@ name|String
 name|mongoConnection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mongoConnection"
 argument_list|,
@@ -1093,7 +1093,7 @@ name|MongoDbOperation
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1114,7 +1114,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1135,7 +1135,7 @@ name|MongoDbOutputType
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -1156,7 +1156,7 @@ name|String
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -1177,7 +1177,7 @@ name|boolean
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1198,7 +1198,7 @@ name|String
 name|lazyStartProducer
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
@@ -1219,7 +1219,7 @@ name|String
 name|streamFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamFilter"
 argument_list|,
@@ -1240,7 +1240,7 @@ name|String
 name|persistentId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentId"
 argument_list|,
@@ -1261,7 +1261,7 @@ name|boolean
 name|persistentTailTracking
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentTailTracking"
 argument_list|,
@@ -1282,7 +1282,7 @@ name|String
 name|persistentTailTracking
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentTailTracking"
 argument_list|,
@@ -1303,7 +1303,7 @@ name|String
 name|tailTrackCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackCollection"
 argument_list|,
@@ -1324,7 +1324,7 @@ name|String
 name|tailTrackDb
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackDb"
 argument_list|,
@@ -1345,7 +1345,7 @@ name|String
 name|tailTrackField
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackField"
 argument_list|,
@@ -1366,7 +1366,7 @@ name|String
 name|tailTrackIncreasingField
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackIncreasingField"
 argument_list|,
@@ -1409,7 +1409,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1430,7 +1430,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -1451,7 +1451,7 @@ name|long
 name|cursorRegenerationDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cursorRegenerationDelay"
 argument_list|,
@@ -1472,7 +1472,7 @@ name|String
 name|cursorRegenerationDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cursorRegenerationDelay"
 argument_list|,
@@ -1493,7 +1493,7 @@ name|boolean
 name|dynamicity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dynamicity"
 argument_list|,
@@ -1514,7 +1514,7 @@ name|String
 name|dynamicity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dynamicity"
 argument_list|,
@@ -1535,7 +1535,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1556,7 +1556,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -1577,7 +1577,7 @@ name|boolean
 name|writeResultAsHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeResultAsHeader"
 argument_list|,
@@ -1598,7 +1598,7 @@ name|String
 name|writeResultAsHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeResultAsHeader"
 argument_list|,
@@ -1643,7 +1643,7 @@ name|String
 name|collection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collection"
 argument_list|,
@@ -1664,7 +1664,7 @@ name|String
 name|collectionIndex
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"collectionIndex"
 argument_list|,
@@ -1685,7 +1685,7 @@ name|boolean
 name|createCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCollection"
 argument_list|,
@@ -1706,7 +1706,7 @@ name|String
 name|createCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"createCollection"
 argument_list|,
@@ -1727,7 +1727,7 @@ name|String
 name|database
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"database"
 argument_list|,
@@ -1748,7 +1748,7 @@ name|Object
 name|mongoConnection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mongoConnection"
 argument_list|,
@@ -1769,7 +1769,7 @@ name|String
 name|mongoConnection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"mongoConnection"
 argument_list|,
@@ -1790,7 +1790,7 @@ name|MongoDbOperation
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1811,7 +1811,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"operation"
 argument_list|,
@@ -1832,7 +1832,7 @@ name|MongoDbOutputType
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -1853,7 +1853,7 @@ name|String
 name|outputType
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"outputType"
 argument_list|,
@@ -1874,7 +1874,7 @@ name|String
 name|streamFilter
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"streamFilter"
 argument_list|,
@@ -1895,7 +1895,7 @@ name|String
 name|persistentId
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentId"
 argument_list|,
@@ -1916,7 +1916,7 @@ name|boolean
 name|persistentTailTracking
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentTailTracking"
 argument_list|,
@@ -1937,7 +1937,7 @@ name|String
 name|persistentTailTracking
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"persistentTailTracking"
 argument_list|,
@@ -1958,7 +1958,7 @@ name|String
 name|tailTrackCollection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackCollection"
 argument_list|,
@@ -1979,7 +1979,7 @@ name|String
 name|tailTrackDb
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackDb"
 argument_list|,
@@ -2000,7 +2000,7 @@ name|String
 name|tailTrackField
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackField"
 argument_list|,
@@ -2021,7 +2021,7 @@ name|String
 name|tailTrackIncreasingField
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"tailTrackIncreasingField"
 argument_list|,
@@ -2066,7 +2066,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2087,7 +2087,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -2108,7 +2108,7 @@ name|long
 name|cursorRegenerationDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cursorRegenerationDelay"
 argument_list|,
@@ -2129,7 +2129,7 @@ name|String
 name|cursorRegenerationDelay
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"cursorRegenerationDelay"
 argument_list|,
@@ -2150,7 +2150,7 @@ name|boolean
 name|dynamicity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dynamicity"
 argument_list|,
@@ -2171,7 +2171,7 @@ name|String
 name|dynamicity
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"dynamicity"
 argument_list|,
@@ -2192,7 +2192,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2213,7 +2213,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -2234,7 +2234,7 @@ name|boolean
 name|writeResultAsHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeResultAsHeader"
 argument_list|,
@@ -2255,7 +2255,7 @@ name|String
 name|writeResultAsHeader
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"writeResultAsHeader"
 argument_list|,
