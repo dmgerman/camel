@@ -819,10 +819,10 @@ return|;
 block|}
 block|}
 comment|/**      * OptaPlanner (camel-optaplanner)      * Solves the planning problem contained in a message with OptaPlanner.      *       * Category: engine,planning      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-optaplanner      *       * Syntax:<code>optaplanner:configFile</code>      *       * Path parameter: configFile (required)      * Specifies the location to the solver file      */
-DECL|method|optaPlanner (String path)
+DECL|method|optaplanner (String path)
 specifier|default
 name|OptaPlannerEndpointBuilder
-name|optaPlanner
+name|optaplanner
 parameter_list|(
 name|String
 name|path

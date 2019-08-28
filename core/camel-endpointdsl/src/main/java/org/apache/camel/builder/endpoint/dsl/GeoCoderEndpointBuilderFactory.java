@@ -512,10 +512,10 @@ return|;
 block|}
 block|}
 comment|/**      * Geocoder (camel-geocoder)      * The geocoder component is used for looking up geocodes (latitude and      * longitude) for a given address, or reverse lookup.      *       * Category: api,location      * Available as of version: 2.12      * Maven coordinates: org.apache.camel:camel-geocoder      *       * Syntax:<code>geocoder:address:latlng</code>      *       * Path parameter: address      * The geo address which should be prefixed with address:      *       * Path parameter: latlng      * The geo latitude and longitude which should be prefixed with latlng:      */
-DECL|method|geoCoder (String path)
+DECL|method|geocoder (String path)
 specifier|default
 name|GeoCoderEndpointBuilder
-name|geoCoder
+name|geocoder
 parameter_list|(
 name|String
 name|path

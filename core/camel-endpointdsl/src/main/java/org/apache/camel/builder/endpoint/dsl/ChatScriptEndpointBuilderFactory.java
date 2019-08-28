@@ -281,10 +281,10 @@ return|;
 block|}
 block|}
 comment|/**      * ChatScript (camel-chatscript)      * Represents a ChatScript endpoint.      *       * Category: ai,chatscript      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-chatscript      *       * Syntax:<code>chatscript:host:port/botName</code>      *       * Path parameter: host (required)      * Hostname or IP of the server on which CS server is running      *       * Path parameter: port      * Port on which ChatScript is listening to      * Default value: 1024      *       * Path parameter: botName (required)      * Name of the Bot in CS to converse with      */
-DECL|method|chatScript (String path)
+DECL|method|chatscript (String path)
 specifier|default
 name|ChatScriptEndpointBuilder
-name|chatScript
+name|chatscript
 parameter_list|(
 name|String
 name|path

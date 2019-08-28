@@ -260,10 +260,10 @@ return|;
 block|}
 block|}
 comment|/**      * Google BigQuery Standard SQL (camel-google-bigquery)      * Google BigQuery data warehouse for analytics (using SQL queries).      *       * Category: cloud,messaging      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-google-bigquery      *       * Syntax:<code>google-bigquery-sql:projectId:query</code>      *       * Path parameter: query (required)      * BigQuery standard SQL query      *       * Path parameter: projectId (required)      * Google Cloud Project Id      */
-DECL|method|googleBigQuerySQL (String path)
+DECL|method|googleBigquerySql (String path)
 specifier|default
 name|GoogleBigQuerySQLEndpointBuilder
-name|googleBigQuerySQL
+name|googleBigquerySql
 parameter_list|(
 name|String
 name|path

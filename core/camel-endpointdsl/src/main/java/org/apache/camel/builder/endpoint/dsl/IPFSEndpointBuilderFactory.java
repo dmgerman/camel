@@ -272,10 +272,10 @@ return|;
 block|}
 block|}
 comment|/**      * IPFS (camel-ipfs)      * The camel-ipfs component provides access to the Interplanetary File      * System (IPFS).      *       * Category: file,ipfs      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-ipfs      *       * Syntax:<code>ipfs:ipfsHost:ipfsPort/ipfsCmd</code>      *       * Path parameter: ipfsHost      * The ipfs host      *       * Path parameter: ipfsPort      * The ipfs port      *       * Path parameter: ipfsCmd      * The ipfs command      * The value can be one of: add, cat, get, version      */
-DECL|method|iPFS (String path)
+DECL|method|ipfs (String path)
 specifier|default
 name|IPFSEndpointBuilder
-name|iPFS
+name|ipfs
 parameter_list|(
 name|String
 name|path

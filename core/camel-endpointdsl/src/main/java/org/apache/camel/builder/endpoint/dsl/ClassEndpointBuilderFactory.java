@@ -338,10 +338,10 @@ return|;
 block|}
 block|}
 comment|/**      * Class (camel-bean)      * The class component is for invoking Java classes (Java beans) from Camel.      *       * Category: core,java      * Available as of version: 2.4      * Maven coordinates: org.apache.camel:camel-bean      *       * Syntax:<code>class:beanName</code>      *       * Path parameter: beanName (required)      * Sets the name of the bean to invoke      */
-DECL|method|classEndpoint (String path)
+DECL|method|clas (String path)
 specifier|default
 name|ClassEndpointBuilder
-name|classEndpoint
+name|clas
 parameter_list|(
 name|String
 name|path

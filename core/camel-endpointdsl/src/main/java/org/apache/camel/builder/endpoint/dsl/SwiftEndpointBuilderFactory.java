@@ -407,10 +407,10 @@ return|;
 block|}
 block|}
 comment|/**      * OpenStack Swift (camel-openstack)      * The openstack-swift component allows messages to be sent to an OpenStack      * object storage services.      *       * Category: cloud,paas      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-openstack      *       * Syntax:<code>openstack-swift:host</code>      *       * Path parameter: host (required)      * OpenStack host url      */
-DECL|method|swift (String path)
+DECL|method|openstackSwift (String path)
 specifier|default
 name|SwiftEndpointBuilder
-name|swift
+name|openstackSwift
 parameter_list|(
 name|String
 name|path

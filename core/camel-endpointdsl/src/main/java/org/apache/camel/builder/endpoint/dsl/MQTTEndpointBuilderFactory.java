@@ -4284,10 +4284,10 @@ DECL|enumConstant|EXACTLY_ONCE
 name|EXACTLY_ONCE
 block|;     }
 comment|/**      * MQTT (camel-mqtt)      * Component for communicating with MQTT M2M message brokers using      * FuseSource MQTT Client.      *       * Category: messaging,iot      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-mqtt      *       * Syntax:<code>mqtt:name</code>      *       * Path parameter: name (required)      * A logical name to use which is not the topic name.      */
-DECL|method|mQTT (String path)
+DECL|method|mqtt (String path)
 specifier|default
 name|MQTTEndpointBuilder
-name|mQTT
+name|mqtt
 parameter_list|(
 name|String
 name|path

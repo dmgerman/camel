@@ -1213,10 +1213,10 @@ return|;
 block|}
 block|}
 comment|/**      * Dataset (camel-dataset)      * The dataset component provides a mechanism to easily perform load& soak      * testing of your system.      *       * Category: core,testing      * Available as of version: 1.3      * Maven coordinates: org.apache.camel:camel-dataset      *       * Syntax:<code>dataset:name</code>      *       * Path parameter: name (required)      * Name of DataSet to lookup in the registry      */
-DECL|method|dataSet (String path)
+DECL|method|dataset (String path)
 specifier|default
 name|DataSetEndpointBuilder
-name|dataSet
+name|dataset
 parameter_list|(
 name|String
 name|path

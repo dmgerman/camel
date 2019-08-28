@@ -1836,6 +1836,47 @@ name|String
 name|path
 parameter_list|)
 block|{
+return|return
+name|cometd
+argument_list|(
+literal|"cometd"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * CometD (Secure) (camel-cometd)      * The cometd component is a transport for working with the Jetty      * implementation of the cometd/bayeux protocol.      *       * Category: websocket      * Available as of version: 2.0      * Maven coordinates: org.apache.camel:camel-cometd      *       * Syntax:<code>cometds:host:port/channelName</code>      *       * Path parameter: host (required)      * Hostname      *       * Path parameter: port (required)      * Host port number      *       * Path parameter: channelName (required)      * The channelName represents a topic that can be subscribed to by the Camel      * endpoints.      */
+DECL|method|cometds (String path)
+specifier|default
+name|CometdEndpointBuilder
+name|cometds
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|cometd
+argument_list|(
+literal|"cometds"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * CometD (camel-cometd)      * The cometd component is a transport for working with the Jetty      * implementation of the cometd/bayeux protocol.      *       * Category: websocket      * Available as of version: 2.0      * Maven coordinates: org.apache.camel:camel-cometd      */
+DECL|method|cometd (String scheme, String path)
+specifier|default
+name|CometdEndpointBuilder
+name|cometd
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+block|{
 class|class
 name|CometdEndpointBuilderImpl
 extends|extends
@@ -1849,12 +1890,15 @@ specifier|public
 name|CometdEndpointBuilderImpl
 parameter_list|(
 name|String
+name|scheme
+parameter_list|,
+name|String
 name|path
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"cometd"
+name|scheme
 argument_list|,
 name|path
 argument_list|)
@@ -1865,6 +1909,8 @@ return|return
 operator|new
 name|CometdEndpointBuilderImpl
 argument_list|(
+name|scheme
+argument_list|,
 name|path
 argument_list|)
 return|;

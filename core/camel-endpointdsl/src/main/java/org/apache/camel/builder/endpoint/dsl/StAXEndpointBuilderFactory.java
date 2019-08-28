@@ -218,10 +218,10 @@ return|;
 block|}
 block|}
 comment|/**      * StAX (camel-stax)      * The stax component allows messages to be process through a SAX      * ContentHandler.      *       * Category: transformation      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-stax      *       * Syntax:<code>stax:contentHandlerClass</code>      *       * Path parameter: contentHandlerClass (required)      * The FQN class name for the ContentHandler implementation to use.      */
-DECL|method|stAX (String path)
+DECL|method|stax (String path)
 specifier|default
 name|StAXEndpointBuilder
-name|stAX
+name|stax
 parameter_list|(
 name|String
 name|path

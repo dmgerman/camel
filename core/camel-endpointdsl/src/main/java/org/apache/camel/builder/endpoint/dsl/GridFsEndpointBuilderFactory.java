@@ -1301,10 +1301,10 @@ DECL|enumConstant|PersistentTimestampAndFileAttribute
 name|PersistentTimestampAndFileAttribute
 block|;     }
 comment|/**      * MongoDB GridFS (camel-mongodb-gridfs)      * Component for working with MongoDB GridFS.      *       * Category: database,nosql      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-mongodb-gridfs      *       * Syntax:<code>mongodb-gridfs:connectionBean</code>      *       * Path parameter: connectionBean (required)      * Name of com.mongodb.Mongo to use.      */
-DECL|method|gridFs (String path)
+DECL|method|mongodbGridfs (String path)
 specifier|default
 name|GridFsEndpointBuilder
-name|gridFs
+name|mongodbGridfs
 parameter_list|(
 name|String
 name|path

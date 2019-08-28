@@ -256,10 +256,10 @@ DECL|enumConstant|describeCluster
 name|describeCluster
 block|;     }
 comment|/**      * AWS MSK (camel-aws-msk)      * The aws-kms is used for managing Amazon KMS      *       * Category: cloud,management      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-aws-msk      *       * Syntax:<code>aws-msk:label</code>      *       * Path parameter: label (required)      * Logical name      */
-DECL|method|mSK (String path)
+DECL|method|awsMsk (String path)
 specifier|default
 name|MSKEndpointBuilder
-name|mSK
+name|awsMsk
 parameter_list|(
 name|String
 name|path

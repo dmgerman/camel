@@ -4073,11 +4073,128 @@ return|;
 block|}
 block|}
 comment|/**      * IMAP (camel-mail)      * To send or receive emails using imap/pop3 or smtp protocols.      *       * Category: mail      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mail      *       * Syntax:<code>imap:host:port</code>      *       * Path parameter: host (required)      * The mail server host name      *       * Path parameter: port      * The port number of the mail server      */
-DECL|method|mail (String path)
+DECL|method|imap (String path)
 specifier|default
 name|MailEndpointBuilder
-name|mail
+name|imap
 parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|imap
+argument_list|(
+literal|"imap"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * IMAPS (Secure) (camel-mail)      * To send or receive emails using imap/pop3 or smtp protocols.      *       * Category: mail      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mail      *       * Syntax:<code>imaps:host:port</code>      *       * Path parameter: host (required)      * The mail server host name      *       * Path parameter: port      * The port number of the mail server      */
+DECL|method|imaps (String path)
+specifier|default
+name|MailEndpointBuilder
+name|imaps
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|imap
+argument_list|(
+literal|"imaps"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * POP3 (camel-mail)      * To send or receive emails using imap/pop3 or smtp protocols.      *       * Category: mail      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mail      *       * Syntax:<code>pop3:host:port</code>      *       * Path parameter: host (required)      * The mail server host name      *       * Path parameter: port      * The port number of the mail server      */
+DECL|method|pop3 (String path)
+specifier|default
+name|MailEndpointBuilder
+name|pop3
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|imap
+argument_list|(
+literal|"pop3"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * POP3S (camel-mail)      * To send or receive emails using imap/pop3 or smtp protocols.      *       * Category: mail      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mail      *       * Syntax:<code>pop3s:host:port</code>      *       * Path parameter: host (required)      * The mail server host name      *       * Path parameter: port      * The port number of the mail server      */
+DECL|method|pop3s (String path)
+specifier|default
+name|MailEndpointBuilder
+name|pop3s
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|imap
+argument_list|(
+literal|"pop3s"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * SMTP (camel-mail)      * To send or receive emails using imap/pop3 or smtp protocols.      *       * Category: mail      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mail      *       * Syntax:<code>smtp:host:port</code>      *       * Path parameter: host (required)      * The mail server host name      *       * Path parameter: port      * The port number of the mail server      */
+DECL|method|smtp (String path)
+specifier|default
+name|MailEndpointBuilder
+name|smtp
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|imap
+argument_list|(
+literal|"smtp"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * SMTPS (camel-mail)      * To send or receive emails using imap/pop3 or smtp protocols.      *       * Category: mail      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mail      *       * Syntax:<code>smtps:host:port</code>      *       * Path parameter: host (required)      * The mail server host name      *       * Path parameter: port      * The port number of the mail server      */
+DECL|method|smtps (String path)
+specifier|default
+name|MailEndpointBuilder
+name|smtps
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|imap
+argument_list|(
+literal|"smtps"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * IMAP (camel-mail)      * To send or receive emails using imap/pop3 or smtp protocols.      *       * Category: mail      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-mail      */
+DECL|method|imap (String scheme, String path)
+specifier|default
+name|MailEndpointBuilder
+name|imap
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
 name|String
 name|path
 parameter_list|)
@@ -4095,12 +4212,15 @@ specifier|public
 name|MailEndpointBuilderImpl
 parameter_list|(
 name|String
+name|scheme
+parameter_list|,
+name|String
 name|path
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"imap"
+name|scheme
 argument_list|,
 name|path
 argument_list|)
@@ -4111,6 +4231,8 @@ return|return
 operator|new
 name|MailEndpointBuilderImpl
 argument_list|(
+name|scheme
+argument_list|,
 name|path
 argument_list|)
 return|;

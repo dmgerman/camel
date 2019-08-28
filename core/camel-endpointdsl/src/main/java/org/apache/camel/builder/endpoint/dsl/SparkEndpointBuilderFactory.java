@@ -491,10 +491,10 @@ return|;
 block|}
 block|}
 comment|/**      * Spark Rest (camel-spark-rest)      * The spark-rest component is used for hosting REST services which has been      * defined using Camel rest-dsl.      *       * Category: rest      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-spark-rest      *       * Syntax:<code>spark-rest:verb:path</code>      *       * Path parameter: verb (required)      * get, post, put, patch, delete, head, trace, connect, or options.      * The value can be one of: get, post, put, patch, delete, head, trace,      * connect, options      *       * Path parameter: path (required)      * The content path which support Spark syntax.      */
-DECL|method|spark (String path)
+DECL|method|sparkRest (String path)
 specifier|default
 name|SparkEndpointBuilder
-name|spark
+name|sparkRest
 parameter_list|(
 name|String
 name|path

@@ -4753,6 +4753,47 @@ name|String
 name|path
 parameter_list|)
 block|{
+return|return
+name|sip
+argument_list|(
+literal|"sip"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * SIP (Secure) (camel-sip)      * To send and receive messages using the SIP protocol (used in telco and      * mobile).      *       * Category: mobile      * Available as of version: 2.5      * Maven coordinates: org.apache.camel:camel-sip      *       * Syntax:<code>sips:uri</code>      *       * Path parameter: uri (required)      * URI of the SIP server to connect to (the username and password can be      * included such as: john:secretmyserver:9999)      */
+DECL|method|sips (String path)
+specifier|default
+name|SipEndpointBuilder
+name|sips
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|sip
+argument_list|(
+literal|"sips"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * SIP (camel-sip)      * To send and receive messages using the SIP protocol (used in telco and      * mobile).      *       * Category: mobile      * Available as of version: 2.5      * Maven coordinates: org.apache.camel:camel-sip      */
+DECL|method|sip (String scheme, String path)
+specifier|default
+name|SipEndpointBuilder
+name|sip
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+block|{
 class|class
 name|SipEndpointBuilderImpl
 extends|extends
@@ -4766,12 +4807,15 @@ specifier|public
 name|SipEndpointBuilderImpl
 parameter_list|(
 name|String
+name|scheme
+parameter_list|,
+name|String
 name|path
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"sip"
+name|scheme
 argument_list|,
 name|path
 argument_list|)
@@ -4782,6 +4826,8 @@ return|return
 operator|new
 name|SipEndpointBuilderImpl
 argument_list|(
+name|scheme
+argument_list|,
 name|path
 argument_list|)
 return|;

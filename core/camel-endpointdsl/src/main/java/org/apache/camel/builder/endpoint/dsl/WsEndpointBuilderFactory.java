@@ -2002,11 +2002,52 @@ return|;
 block|}
 block|}
 comment|/**      * AHC Websocket (camel-ahc-ws)      * To exchange data with external Websocket servers using Async Http Client.      *       * Category: websocket      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-ahc-ws      *       * Syntax:<code>ahc-ws:httpUri</code>      *       * Path parameter: httpUri (required)      * The URI to use such as http://hostname:port/path      */
-DECL|method|ws (String path)
+DECL|method|ahcWs (String path)
 specifier|default
 name|WsEndpointBuilder
-name|ws
+name|ahcWs
 parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|ahcWs
+argument_list|(
+literal|"ahc-ws"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * AHC Secure Websocket (Secure) (camel-ahc-ws)      * To exchange data with external Websocket servers using Async Http Client.      *       * Category: websocket      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-ahc-ws      *       * Syntax:<code>ahc-wss:httpUri</code>      *       * Path parameter: httpUri (required)      * The URI to use such as http://hostname:port/path      */
+DECL|method|ahcWss (String path)
+specifier|default
+name|WsEndpointBuilder
+name|ahcWss
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|ahcWs
+argument_list|(
+literal|"ahc-wss"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * AHC Websocket (camel-ahc-ws)      * To exchange data with external Websocket servers using Async Http Client.      *       * Category: websocket      * Available as of version: 2.14      * Maven coordinates: org.apache.camel:camel-ahc-ws      */
+DECL|method|ahcWs (String scheme, String path)
+specifier|default
+name|WsEndpointBuilder
+name|ahcWs
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
 name|String
 name|path
 parameter_list|)
@@ -2024,12 +2065,15 @@ specifier|public
 name|WsEndpointBuilderImpl
 parameter_list|(
 name|String
+name|scheme
+parameter_list|,
+name|String
 name|path
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"ahc-ws"
+name|scheme
 argument_list|,
 name|path
 argument_list|)
@@ -2040,6 +2084,8 @@ return|return
 operator|new
 name|WsEndpointBuilderImpl
 argument_list|(
+name|scheme
+argument_list|,
 name|path
 argument_list|)
 return|;

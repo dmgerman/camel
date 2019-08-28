@@ -344,10 +344,10 @@ return|;
 block|}
 block|}
 comment|/**      * InfluxDB (camel-influxdb)      * The influxdb component allows you to interact with InfluxDB, a time      * series database.      *       * Category: database      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-influxdb      *       * Syntax:<code>influxdb:connectionBean</code>      *       * Path parameter: connectionBean (required)      * Connection to the influx database, of class InfluxDB.class      */
-DECL|method|influxDb (String path)
+DECL|method|influxdb (String path)
 specifier|default
 name|InfluxDbEndpointBuilder
-name|influxDb
+name|influxdb
 parameter_list|(
 name|String
 name|path

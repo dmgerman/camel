@@ -344,10 +344,10 @@ return|;
 block|}
 block|}
 comment|/**      * CM SMS Gateway (camel-cm-sms)      * The cm-sms component allows to integrate with CM SMS Gateway.      *       * Category: mobile      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-cm-sms      *       * Syntax:<code>cm-sms:host</code>      *       * Path parameter: host (required)      * SMS Provider HOST with scheme      */
-DECL|method|cM (String path)
+DECL|method|cmSms (String path)
 specifier|default
 name|CMEndpointBuilder
-name|cM
+name|cmSms
 parameter_list|(
 name|String
 name|path

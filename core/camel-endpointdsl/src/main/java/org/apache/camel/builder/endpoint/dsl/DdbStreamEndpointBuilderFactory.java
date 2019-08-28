@@ -361,10 +361,10 @@ DECL|enumConstant|AFTER_SEQUENCE_NUMBER
 name|AFTER_SEQUENCE_NUMBER
 block|;     }
 comment|/**      * AWS DynamoDB Streams (camel-aws-ddb)      * The aws-ddbstream component is used for working with Amazon DynamoDB      * Streams.      *       * Category: cloud,messaging,streams      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-aws-ddb      *       * Syntax:<code>aws-ddbstream:tableName</code>      *       * Path parameter: tableName (required)      * Name of the dynamodb table      */
-DECL|method|ddbStream (String path)
+DECL|method|awsDdbstream (String path)
 specifier|default
 name|DdbStreamEndpointBuilder
-name|ddbStream
+name|awsDdbstream
 parameter_list|(
 name|String
 name|path

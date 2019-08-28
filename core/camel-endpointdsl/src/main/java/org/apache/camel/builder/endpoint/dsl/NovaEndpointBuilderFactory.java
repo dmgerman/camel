@@ -407,10 +407,10 @@ return|;
 block|}
 block|}
 comment|/**      * OpenStack Nova (camel-openstack)      * The openstack-nova component allows messages to be sent to an OpenStack      * compute services.      *       * Category: cloud,paas      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-openstack      *       * Syntax:<code>openstack-nova:host</code>      *       * Path parameter: host (required)      * OpenStack host url      */
-DECL|method|nova (String path)
+DECL|method|openstackNova (String path)
 specifier|default
 name|NovaEndpointBuilder
-name|nova
+name|openstackNova
 parameter_list|(
 name|String
 name|path

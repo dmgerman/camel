@@ -1083,6 +1083,47 @@ name|String
 name|path
 parameter_list|)
 block|{
+return|return
+name|http
+argument_list|(
+literal|"http"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * HTTPS (Secure) (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http      *       * Syntax:<code>https:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
+DECL|method|https (String path)
+specifier|default
+name|HttpEndpointBuilder
+name|https
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|http
+argument_list|(
+literal|"https"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * HTTP (camel-http)      * For calling out to external HTTP servers using Apache HTTP Client 4.x.      *       * Category: http      * Available as of version: 2.3      * Maven coordinates: org.apache.camel:camel-http      */
+DECL|method|http (String scheme, String path)
+specifier|default
+name|HttpEndpointBuilder
+name|http
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+block|{
 class|class
 name|HttpEndpointBuilderImpl
 extends|extends
@@ -1096,12 +1137,15 @@ specifier|public
 name|HttpEndpointBuilderImpl
 parameter_list|(
 name|String
+name|scheme
+parameter_list|,
+name|String
 name|path
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"http"
+name|scheme
 argument_list|,
 name|path
 argument_list|)
@@ -1112,6 +1156,8 @@ return|return
 operator|new
 name|HttpEndpointBuilderImpl
 argument_list|(
+name|scheme
+argument_list|,
 name|path
 argument_list|)
 return|;

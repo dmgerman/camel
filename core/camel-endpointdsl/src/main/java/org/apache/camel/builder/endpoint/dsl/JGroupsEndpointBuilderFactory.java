@@ -777,10 +777,10 @@ return|;
 block|}
 block|}
 comment|/**      * JGroups (camel-jgroups)      * The jgroups component provides exchange of messages between Camel and      * JGroups clusters.      *       * Category: clustering,messaging      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-jgroups      *       * Syntax:<code>jgroups:clusterName</code>      *       * Path parameter: clusterName (required)      * The name of the JGroups cluster the component should connect to.      */
-DECL|method|jGroups (String path)
+DECL|method|jgroups (String path)
 specifier|default
 name|JGroupsEndpointBuilder
-name|jGroups
+name|jgroups
 parameter_list|(
 name|String
 name|path

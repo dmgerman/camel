@@ -3219,6 +3219,47 @@ name|String
 name|path
 parameter_list|)
 block|{
+return|return
+name|smpp
+argument_list|(
+literal|"smpp"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * SMPP (Secure) (camel-smpp)      * To send and receive SMS using a SMSC (Short Message Service Center).      *       * Category: mobile      * Available as of version: 2.2      * Maven coordinates: org.apache.camel:camel-smpp      *       * Syntax:<code>smpps:host:port</code>      *       * Path parameter: host      * Hostname for the SMSC server to use.      * Default value: localhost      *       * Path parameter: port      * Port number for the SMSC server to use.      * Default value: 2775      */
+DECL|method|smpps (String path)
+specifier|default
+name|SmppEndpointBuilder
+name|smpps
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|smpp
+argument_list|(
+literal|"smpps"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * SMPP (camel-smpp)      * To send and receive SMS using a SMSC (Short Message Service Center).      *       * Category: mobile      * Available as of version: 2.2      * Maven coordinates: org.apache.camel:camel-smpp      */
+DECL|method|smpp (String scheme, String path)
+specifier|default
+name|SmppEndpointBuilder
+name|smpp
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+block|{
 class|class
 name|SmppEndpointBuilderImpl
 extends|extends
@@ -3232,12 +3273,15 @@ specifier|public
 name|SmppEndpointBuilderImpl
 parameter_list|(
 name|String
+name|scheme
+parameter_list|,
+name|String
 name|path
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"smpp"
+name|scheme
 argument_list|,
 name|path
 argument_list|)
@@ -3248,6 +3292,8 @@ return|return
 operator|new
 name|SmppEndpointBuilderImpl
 argument_list|(
+name|scheme
+argument_list|,
 name|path
 argument_list|)
 return|;

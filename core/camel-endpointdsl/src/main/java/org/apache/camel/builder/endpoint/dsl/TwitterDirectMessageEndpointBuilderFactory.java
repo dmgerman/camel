@@ -2428,10 +2428,10 @@ DECL|enumConstant|DIRECT
 name|DIRECT
 block|;     }
 comment|/**      * Twitter Direct Message (camel-twitter)      * The Twitter Direct Message Component consumes/produces user's direct      * messages.      *       * Category: api,social      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-twitter      *       * Syntax:<code>twitter-directmessage:user</code>      *       * Path parameter: user (required)      * The user name to send a direct message. This will be ignored for      * consumer.      */
-DECL|method|twitterDirectMessage (String path)
+DECL|method|twitterDirectmessage (String path)
 specifier|default
 name|TwitterDirectMessageEndpointBuilder
-name|twitterDirectMessage
+name|twitterDirectmessage
 parameter_list|(
 name|String
 name|path

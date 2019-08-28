@@ -522,10 +522,10 @@ return|;
 block|}
 block|}
 comment|/**      * AWS CloudWatch (camel-aws-cw)      * The aws-cw component is used for sending metrics to an Amazon CloudWatch.      *       * Category: cloud,monitoring      * Available as of version: 2.11      * Maven coordinates: org.apache.camel:camel-aws-cw      *       * Syntax:<code>aws-cw:namespace</code>      *       * Path parameter: namespace (required)      * The metric namespace      */
-DECL|method|cw (String path)
+DECL|method|awsCw (String path)
 specifier|default
 name|CwEndpointBuilder
-name|cw
+name|awsCw
 parameter_list|(
 name|String
 name|path

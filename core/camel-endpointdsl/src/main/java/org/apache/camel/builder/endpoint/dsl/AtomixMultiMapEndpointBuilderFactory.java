@@ -832,10 +832,10 @@ DECL|enumConstant|LOCAL
 name|LOCAL
 block|;     }
 comment|/**      * Atomix MultiMap (camel-atomix)      * The atomix-multimap component is used to access Atomix's distributed      * multi map.      *       * Category: clustering      * Available as of version: 2.20      * Maven coordinates: org.apache.camel:camel-atomix      *       * Syntax:<code>atomix-multimap:resourceName</code>      *       * Path parameter: resourceName (required)      * The distributed resource name      */
-DECL|method|atomixMultiMap (String path)
+DECL|method|atomixMultimap (String path)
 specifier|default
 name|AtomixMultiMapEndpointBuilder
-name|atomixMultiMap
+name|atomixMultimap
 parameter_list|(
 name|String
 name|path

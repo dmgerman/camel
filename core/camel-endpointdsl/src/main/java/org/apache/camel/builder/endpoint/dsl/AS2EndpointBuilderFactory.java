@@ -3408,10 +3408,10 @@ DECL|enumConstant|SHA3_512WITHRSAANDMGF1
 name|SHA3_512WITHRSAANDMGF1
 block|;     }
 comment|/**      * AS2 (camel-as2)      * Component used for transferring data secure and reliable over the      * internet using the AS2 protocol.      *       * Category: AS2      * Available as of version: 2.22      * Maven coordinates: org.apache.camel:camel-as2      *       * Syntax:<code>as2:apiName/methodName</code>      *       * Path parameter: apiName (required)      * What kind of operation to perform      * The value can be one of: CLIENT, SERVER      *       * Path parameter: methodName (required)      * What sub operation to use for the selected operation      */
-DECL|method|aS2 (String path)
+DECL|method|as2 (String path)
 specifier|default
 name|AS2EndpointBuilder
-name|aS2
+name|as2
 parameter_list|(
 name|String
 name|path

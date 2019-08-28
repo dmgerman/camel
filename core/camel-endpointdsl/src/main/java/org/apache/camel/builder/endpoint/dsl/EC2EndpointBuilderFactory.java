@@ -277,10 +277,10 @@ DECL|enumConstant|deleteTags
 name|deleteTags
 block|;     }
 comment|/**      * AWS EC2 (camel-aws-ec2)      * The aws-ec2 is used for managing Amazon EC2 instances.      *       * Category: cloud,management      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-aws-ec2      *       * Syntax:<code>aws-ec2:label</code>      *       * Path parameter: label (required)      * Logical name      */
-DECL|method|eC2 (String path)
+DECL|method|awsEc2 (String path)
 specifier|default
 name|EC2EndpointBuilder
-name|eC2
+name|awsEc2
 parameter_list|(
 name|String
 name|path

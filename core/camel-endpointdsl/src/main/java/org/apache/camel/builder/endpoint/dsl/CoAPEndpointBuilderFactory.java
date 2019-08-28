@@ -1532,11 +1532,90 @@ return|;
 block|}
 block|}
 comment|/**      * CoAP (camel-coap)      * The coap component is used for sending and receiving messages from COAP      * capable devices.      *       * Category: iot      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-coap      *       * Syntax:<code>coap:uri</code>      *       * Path parameter: uri      * The URI for the CoAP endpoint      */
-DECL|method|coAP (String path)
+DECL|method|coap (String path)
 specifier|default
 name|CoAPEndpointBuilder
-name|coAP
+name|coap
 parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|coap
+argument_list|(
+literal|"coap"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * CoAP (camel-coap)      * The coap component is used for sending and receiving messages from COAP      * capable devices.      *       * Category: iot      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-coap      *       * Syntax:<code>coap+tcp:uri</code>      *       * Path parameter: uri      * The URI for the CoAP endpoint      */
+DECL|method|coapTcp (String path)
+specifier|default
+name|CoAPEndpointBuilder
+name|coapTcp
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|coap
+argument_list|(
+literal|"coap+tcp"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * CoAP (Secure) (camel-coap)      * The coap component is used for sending and receiving messages from COAP      * capable devices.      *       * Category: iot      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-coap      *       * Syntax:<code>coaps:uri</code>      *       * Path parameter: uri      * The URI for the CoAP endpoint      */
+DECL|method|coaps (String path)
+specifier|default
+name|CoAPEndpointBuilder
+name|coaps
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|coap
+argument_list|(
+literal|"coaps"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * CoAP (camel-coap)      * The coap component is used for sending and receiving messages from COAP      * capable devices.      *       * Category: iot      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-coap      *       * Syntax:<code>coaps+tcp:uri</code>      *       * Path parameter: uri      * The URI for the CoAP endpoint      */
+DECL|method|coapsTcp (String path)
+specifier|default
+name|CoAPEndpointBuilder
+name|coapsTcp
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|coap
+argument_list|(
+literal|"coaps+tcp"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * CoAP (camel-coap)      * The coap component is used for sending and receiving messages from COAP      * capable devices.      *       * Category: iot      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-coap      */
+DECL|method|coap (String scheme, String path)
+specifier|default
+name|CoAPEndpointBuilder
+name|coap
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
 name|String
 name|path
 parameter_list|)
@@ -1554,12 +1633,15 @@ specifier|public
 name|CoAPEndpointBuilderImpl
 parameter_list|(
 name|String
+name|scheme
+parameter_list|,
+name|String
 name|path
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"coap"
+name|scheme
 argument_list|,
 name|path
 argument_list|)
@@ -1570,6 +1652,8 @@ return|return
 operator|new
 name|CoAPEndpointBuilderImpl
 argument_list|(
+name|scheme
+argument_list|,
 name|path
 argument_list|)
 return|;

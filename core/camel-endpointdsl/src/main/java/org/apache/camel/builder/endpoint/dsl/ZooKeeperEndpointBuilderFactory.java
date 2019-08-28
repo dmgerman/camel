@@ -1113,10 +1113,10 @@ return|;
 block|}
 block|}
 comment|/**      * ZooKeeper (camel-zookeeper)      * The zookeeper component allows interaction with a ZooKeeper cluster.      *       * Category: clustering      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-zookeeper      *       * Syntax:<code>zookeeper:serverUrls/path</code>      *       * Path parameter: serverUrls (required)      * The zookeeper server hosts (multiple servers can be separated by comma)      *       * Path parameter: path (required)      * The node in the ZooKeeper server (aka znode)      */
-DECL|method|zooKeeper (String path)
+DECL|method|zookeeper (String path)
 specifier|default
 name|ZooKeeperEndpointBuilder
-name|zooKeeper
+name|zookeeper
 parameter_list|(
 name|String
 name|path

@@ -7249,10 +7249,10 @@ DECL|enumConstant|Exclusive
 name|Exclusive
 block|;     }
 comment|/**      * ActiveMQ (camel-activemq)      * The activemq component allows messages to be sent to (or consumed from)      * Apache ActiveMQ. This component extends the Camel JMS component.      *       * Category: messaging      * Available as of version: 1.0      * Maven coordinates: org.apache.camel:camel-activemq      *       * Syntax:<code>activemq:destinationType:destinationName</code>      *       * Path parameter: destinationType      * The kind of destination to use      * Default value: queue      * The value can be one of: queue, topic, temp-queue, temp-topic      *       * Path parameter: destinationName (required)      * Name of the queue or topic to use as destination      */
-DECL|method|activeMQ (String path)
+DECL|method|activemq (String path)
 specifier|default
 name|ActiveMQEndpointBuilder
-name|activeMQ
+name|activemq
 parameter_list|(
 name|String
 name|path

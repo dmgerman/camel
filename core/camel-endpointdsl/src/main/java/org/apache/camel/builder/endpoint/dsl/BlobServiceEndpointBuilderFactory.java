@@ -2050,10 +2050,10 @@ DECL|enumConstant|getPageBlobRanges
 name|getPageBlobRanges
 block|;     }
 comment|/**      * Azure Storage Blob Service (camel-azure)      * The azure-blob component is used for storing and retrieving blobs from      * Azure Storage Blob Service.      *       * Category: cloud,database,nosql      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-azure      *       * Syntax:<code>azure-blob:containerOrBlobUri</code>      *       * Path parameter: containerOrBlobUri (required)      * Container or Blob compact Uri      */
-DECL|method|blobService (String path)
+DECL|method|azureBlob (String path)
 specifier|default
 name|BlobServiceEndpointBuilder
-name|blobService
+name|azureBlob
 parameter_list|(
 name|String
 name|path

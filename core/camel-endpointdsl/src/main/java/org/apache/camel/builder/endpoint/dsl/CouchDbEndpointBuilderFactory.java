@@ -1092,10 +1092,10 @@ return|;
 block|}
 block|}
 comment|/**      * CouchDB (camel-couchdb)      * The couchdb component is used for integrate with CouchDB databases.      *       * Category: database,nosql      * Available as of version: 2.11      * Maven coordinates: org.apache.camel:camel-couchdb      *       * Syntax:<code>couchdb:protocol:hostname:port/database</code>      *       * Path parameter: protocol (required)      * The protocol to use for communicating with the database.      * The value can be one of: http, https      *       * Path parameter: hostname (required)      * Hostname of the running couchdb instance      *       * Path parameter: port      * Port number for the running couchdb instance      * Default value: 5984      *       * Path parameter: database (required)      * Name of the database to use      */
-DECL|method|couchDb (String path)
+DECL|method|couchdb (String path)
 specifier|default
 name|CouchDbEndpointBuilder
-name|couchDb
+name|couchdb
 parameter_list|(
 name|String
 name|path

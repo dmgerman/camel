@@ -256,10 +256,10 @@ DECL|enumConstant|deleteCluster
 name|deleteCluster
 block|;     }
 comment|/**      * AWS EKS (camel-aws-eks)      * The aws-kms is used for managing Amazon EKS      *       * Category: cloud,management      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-aws-eks      *       * Syntax:<code>aws-eks:label</code>      *       * Path parameter: label (required)      * Logical name      */
-DECL|method|eKS (String path)
+DECL|method|awsEks (String path)
 specifier|default
 name|EKSEndpointBuilder
-name|eKS
+name|awsEks
 parameter_list|(
 name|String
 name|path

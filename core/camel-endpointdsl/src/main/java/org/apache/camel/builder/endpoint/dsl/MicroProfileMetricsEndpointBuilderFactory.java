@@ -533,10 +533,10 @@ return|;
 block|}
 block|}
 comment|/**      * MicroProfile Metrics (camel-microprofile-metrics)      * Camel metrics exposed with Eclipse MicroProfile Metrics      *       * Category: monitoring      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-microprofile-metrics      *       * Syntax:<code>microprofile-metrics:metricType:metricName</code>      *       * Path parameter: metricType (required)      * Metric type      * The value can be one of: CONCURRENT_GAUGE, COUNTER, GAUGE, METERED,      * HISTOGRAM, TIMER, INVALID      *       * Path parameter: metricName (required)      * Metric name      */
-DECL|method|microProfileMetrics (String path)
+DECL|method|microprofileMetrics (String path)
 specifier|default
 name|MicroProfileMetricsEndpointBuilder
-name|microProfileMetrics
+name|microprofileMetrics
 parameter_list|(
 name|String
 name|path

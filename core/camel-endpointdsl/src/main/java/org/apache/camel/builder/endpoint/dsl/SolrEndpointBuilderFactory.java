@@ -710,6 +710,66 @@ name|String
 name|path
 parameter_list|)
 block|{
+return|return
+name|solr
+argument_list|(
+literal|"solr"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-solr      *       * Syntax:<code>solrCloud:url</code>      *       * Path parameter: url (required)      * Hostname and port for the solr server      */
+DECL|method|solrCloud (String path)
+specifier|default
+name|SolrEndpointBuilder
+name|solrCloud
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|solr
+argument_list|(
+literal|"solrCloud"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * Solr (Secure) (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-solr      *       * Syntax:<code>solrs:url</code>      *       * Path parameter: url (required)      * Hostname and port for the solr server      */
+DECL|method|solrs (String path)
+specifier|default
+name|SolrEndpointBuilder
+name|solrs
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|solr
+argument_list|(
+literal|"solrs"
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+comment|/**      * Solr (camel-solr)      * The solr component allows you to interface with an Apache Lucene Solr      * server.      *       * Category: monitoring,search      * Available as of version: 2.9      * Maven coordinates: org.apache.camel:camel-solr      */
+DECL|method|solr (String scheme, String path)
+specifier|default
+name|SolrEndpointBuilder
+name|solr
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+block|{
 class|class
 name|SolrEndpointBuilderImpl
 extends|extends
@@ -723,12 +783,15 @@ specifier|public
 name|SolrEndpointBuilderImpl
 parameter_list|(
 name|String
+name|scheme
+parameter_list|,
+name|String
 name|path
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"solr"
+name|scheme
 argument_list|,
 name|path
 argument_list|)
@@ -739,6 +802,8 @@ return|return
 operator|new
 name|SolrEndpointBuilderImpl
 argument_list|(
+name|scheme
+argument_list|,
 name|path
 argument_list|)
 return|;

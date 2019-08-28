@@ -652,10 +652,10 @@ return|;
 block|}
 block|}
 comment|/**      * Jetty (camel-jetty)      * The jetty component provides HTTP-based endpoints for consuming and      * producing HTTP requests.      *       * Category: http      * Available as of version: 1.2      * Maven coordinates: org.apache.camel:camel-jetty      *       * Syntax:<code>jetty:httpUri</code>      *       * Path parameter: httpUri (required)      * The url of the HTTP endpoint to call.      */
-DECL|method|jettyHttp9 (String path)
+DECL|method|jetty (String path)
 specifier|default
 name|JettyHttpEndpointBuilder9
-name|jettyHttp9
+name|jetty
 parameter_list|(
 name|String
 name|path

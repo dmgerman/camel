@@ -2155,10 +2155,10 @@ return|;
 block|}
 block|}
 comment|/**      * AWS Simple Workflow (camel-aws-swf)      * The aws-swf component is used for managing workflows from Amazon Simple      * Workflow.      *       * Category: cloud,workflow      * Available as of version: 2.13      * Maven coordinates: org.apache.camel:camel-aws-swf      *       * Syntax:<code>aws-swf:type</code>      *       * Path parameter: type (required)      * Activity or workflow      * The value can be one of: activity, workflow      */
-DECL|method|sWF (String path)
+DECL|method|awsSwf (String path)
 specifier|default
 name|SWFEndpointBuilder
-name|sWF
+name|awsSwf
 parameter_list|(
 name|String
 name|path
