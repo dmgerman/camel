@@ -284,7 +284,7 @@ name|watchModify
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|watchModify
@@ -303,7 +303,7 @@ name|watchDelete
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|watchDelete

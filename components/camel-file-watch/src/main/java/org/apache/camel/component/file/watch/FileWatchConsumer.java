@@ -274,6 +274,20 @@ name|AntPathMatcher
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The file-watch consumer.  */
 end_comment
@@ -1033,6 +1047,20 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEvents
+argument_list|()
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|getEndpoint
 argument_list|()
@@ -1052,6 +1080,7 @@ block|{
 return|return
 literal|false
 return|;
+block|}
 block|}
 if|if
 condition|(
