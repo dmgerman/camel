@@ -47,9 +47,15 @@ end_import
 begin_class
 DECL|class|Application
 specifier|public
+specifier|final
 class|class
 name|Application
 block|{
+DECL|method|Application ()
+specifier|private
+name|Application
+parameter_list|()
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

@@ -261,7 +261,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//Selecting the leaders of Ecuador
+comment|// Selecting the leaders of Ecuador
 name|IRI
 name|propertyLeader
 init|=
@@ -311,9 +311,11 @@ range|:
 name|leadersResources
 control|)
 block|{
-comment|// Transform the leader resource (URI) into  an broweable URL.
+comment|// Transform the leader resource (URI) into an broweable
+comment|// URL.
 comment|// For instance:
-comment|// http://dbpedia.org/resource/Oswaldo_Guayasam%C3%ADn  --> http://dbpedia.org/page/Oswaldo_Guayasam%C3%ADn
+comment|// http://dbpedia.org/resource/Oswaldo_Guayasam%C3%ADn -->
+comment|// http://dbpedia.org/page/Oswaldo_Guayasam%C3%ADn
 name|String
 name|aLeader
 init|=
@@ -355,8 +357,8 @@ name|log
 argument_list|(
 literal|" Content: ${body} "
 argument_list|)
-comment|//Process each leader in a separate route.
-comment|//In order to extract more information.
+comment|// Process each leader in a separate route.
+comment|// In order to extract more information.
 operator|.
 name|split
 argument_list|(
@@ -388,7 +390,7 @@ argument_list|)
 operator|.
 name|unmarshal
 argument_list|()
-comment|//Extract RDF data of the leaders as JSONLD
+comment|// Extract RDF data of the leaders as JSONLD
 operator|.
 name|any23
 argument_list|(
