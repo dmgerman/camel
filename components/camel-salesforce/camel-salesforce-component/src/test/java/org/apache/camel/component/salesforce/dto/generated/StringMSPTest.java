@@ -348,15 +348,6 @@ name|StringMultiSelectPicklistSerializer
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|JsonInclude
-argument_list|(
-name|value
-operator|=
-name|Include
-operator|.
-name|ALWAYS
-argument_list|)
 DECL|method|getMspField ()
 specifier|public
 name|java

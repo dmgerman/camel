@@ -518,10 +518,10 @@ argument_list|(
 name|tree
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should serialize to JSON as in Salesforce example"
-argument_list|,
+specifier|final
+name|String
+name|expected
+init|=
 literal|"{"
 operator|+
 literal|"\"records\":["
@@ -542,7 +542,9 @@ literal|"\"attributes\":{"
 operator|+
 literal|"\"referenceId\":\"ref1\","
 operator|+
-literal|"\"type\":\"Account\""
+literal|"\"type\":\"Account\","
+operator|+
+literal|"\"url\":null"
 operator|+
 literal|"},"
 operator|+
@@ -562,7 +564,9 @@ literal|"\"attributes\":{"
 operator|+
 literal|"\"referenceId\":\"ref2\","
 operator|+
-literal|"\"type\":\"Contact\""
+literal|"\"type\":\"Contact\","
+operator|+
+literal|"\"url\":null"
 operator|+
 literal|"}"
 operator|+
@@ -580,7 +584,9 @@ literal|"\"attributes\":{"
 operator|+
 literal|"\"referenceId\":\"ref3\","
 operator|+
-literal|"\"type\":\"Contact\""
+literal|"\"type\":\"Contact\","
+operator|+
+literal|"\"url\":null"
 operator|+
 literal|"}"
 operator|+
@@ -608,7 +614,9 @@ literal|"\"attributes\":{"
 operator|+
 literal|"\"referenceId\":\"ref4\","
 operator|+
-literal|"\"type\":\"Account\""
+literal|"\"type\":\"Account\","
+operator|+
+literal|"\"url\":null"
 operator|+
 literal|"}"
 operator|+
@@ -617,6 +625,12 @@ operator|+
 literal|"]"
 operator|+
 literal|"}"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should serialize to JSON as in Salesforce example"
+argument_list|,
+name|expected
 argument_list|,
 name|json
 argument_list|)

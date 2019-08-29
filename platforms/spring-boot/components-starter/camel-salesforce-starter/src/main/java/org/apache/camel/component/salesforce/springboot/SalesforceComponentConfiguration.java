@@ -1864,14 +1864,6 @@ specifier|private
 name|String
 name|sObjectSearch
 decl_stmt|;
-comment|/**          * Should the NULL values of given DTO be serialized with empty (NULL)          * values. This affects only JSON data format.          */
-DECL|field|serializeNulls
-specifier|private
-name|Boolean
-name|serializeNulls
-init|=
-literal|false
-decl_stmt|;
 comment|/**          * APEX method name          */
 DECL|field|apexMethod
 specifier|private
@@ -2388,32 +2380,6 @@ operator|.
 name|sObjectSearch
 operator|=
 name|sObjectSearch
-expr_stmt|;
-block|}
-DECL|method|getSerializeNulls ()
-specifier|public
-name|Boolean
-name|getSerializeNulls
-parameter_list|()
-block|{
-return|return
-name|serializeNulls
-return|;
-block|}
-DECL|method|setSerializeNulls (Boolean serializeNulls)
-specifier|public
-name|void
-name|setSerializeNulls
-parameter_list|(
-name|Boolean
-name|serializeNulls
-parameter_list|)
-block|{
-name|this
-operator|.
-name|serializeNulls
-operator|=
-name|serializeNulls
 expr_stmt|;
 block|}
 DECL|method|getApexMethod ()
