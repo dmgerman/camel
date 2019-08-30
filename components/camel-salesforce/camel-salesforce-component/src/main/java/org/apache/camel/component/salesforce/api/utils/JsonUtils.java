@@ -97,24 +97,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|databind
-operator|.
-name|ser
-operator|.
-name|impl
-operator|.
-name|SimpleFilterProvider
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -333,6 +315,24 @@ operator|.
 name|ser
 operator|.
 name|SerializerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|ser
+operator|.
+name|impl
+operator|.
+name|SimpleFilterProvider
 import|;
 end_import
 
