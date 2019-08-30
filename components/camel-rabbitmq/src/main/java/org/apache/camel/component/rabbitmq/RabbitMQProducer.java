@@ -1123,7 +1123,6 @@ name|getReplyTo
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// remove the OVERRIDE header so it does not propagate
 name|String
 name|exchangeName
 init|=
@@ -1135,7 +1134,7 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|removeHeader
+name|getHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -1339,7 +1338,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// remove the OVERRIDE header so it does not propagate
 name|String
 name|exchangeName
 init|=
@@ -1351,7 +1349,7 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|removeHeader
+name|getHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.

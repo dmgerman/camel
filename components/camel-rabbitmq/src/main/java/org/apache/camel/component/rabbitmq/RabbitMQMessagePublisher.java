@@ -687,7 +687,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// remove the OVERRIDE header so it does not propagate
 name|String
 name|exchangeName
 init|=
@@ -696,7 +695,7 @@ name|String
 operator|)
 name|message
 operator|.
-name|removeHeader
+name|getHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
