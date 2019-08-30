@@ -329,7 +329,7 @@ argument_list|)
 expr_stmt|;
 name|notify
 operator|.
-name|matchesMockWaitTime
+name|matchesWaitTime
 argument_list|()
 expr_stmt|;
 name|File
@@ -446,7 +446,7 @@ argument_list|)
 expr_stmt|;
 name|notify
 operator|.
-name|matchesMockWaitTime
+name|matchesWaitTime
 argument_list|()
 expr_stmt|;
 name|File
