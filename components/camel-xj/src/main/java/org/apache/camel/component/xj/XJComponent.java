@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/xj.html">XJ Component</a> is for performing xml to json and back transformations of messages  */
+comment|/**  * The<a href="https://camel.apache.org/components/latest/xj-component.html">XJ Component</a> is for performing xml to json and back transformations of messages  */
 end_comment
 
 begin_class
