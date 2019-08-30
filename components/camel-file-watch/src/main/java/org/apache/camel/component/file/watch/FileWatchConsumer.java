@@ -82,16 +82,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|ExecutorService
@@ -191,18 +181,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
 import|;
 end_import
 
