@@ -277,7 +277,7 @@ case|:
 name|handler
 operator|=
 operator|new
-name|JSONWriter
+name|JSONLDWriter
 argument_list|(
 name|outputStream
 argument_list|)
