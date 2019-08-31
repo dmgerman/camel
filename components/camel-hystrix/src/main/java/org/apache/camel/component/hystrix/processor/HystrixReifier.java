@@ -142,6 +142,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -212,7 +224,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|RouteContext
+name|BeanIntrospection
 import|;
 end_import
 
@@ -224,9 +236,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|IntrospectionSupport
+name|RouteContext
 import|;
 end_import
 
@@ -1362,6 +1374,8 @@ comment|// Extract properties from default configuration, the one configured on
 comment|// camel context takes the precedence over those in the registry
 name|loadProperties
 argument_list|(
+name|camelContext
+argument_list|,
 name|properties
 argument_list|,
 name|Suppliers
@@ -1424,6 +1438,8 @@ argument_list|()
 decl_stmt|;
 name|loadProperties
 argument_list|(
+name|camelContext
+argument_list|,
 name|properties
 argument_list|,
 name|Suppliers
@@ -1465,6 +1481,8 @@ block|}
 comment|// Extract properties from local configuration
 name|loadProperties
 argument_list|(
+name|camelContext
+argument_list|,
 name|properties
 argument_list|,
 name|Optional
@@ -1479,7 +1497,22 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Extract properties from definition
-name|IntrospectionSupport
+name|BeanIntrospection
+name|beanIntrospection
+init|=
+name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getBeanIntrospection
+argument_list|()
+decl_stmt|;
+name|beanIntrospection
 operator|.
 name|getProperties
 argument_list|(
@@ -1515,11 +1548,14 @@ return|return
 name|config
 return|;
 block|}
-DECL|method|loadProperties (Map<String, Object> properties, Optional<?> optional)
+DECL|method|loadProperties (CamelContext camelContext, Map<String, Object> properties, Optional<?> optional)
 specifier|private
 name|void
 name|loadProperties
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -1535,13 +1571,28 @@ argument_list|>
 name|optional
 parameter_list|)
 block|{
+name|BeanIntrospection
+name|beanIntrospection
+init|=
+name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getBeanIntrospection
+argument_list|()
+decl_stmt|;
 name|optional
 operator|.
 name|ifPresent
 argument_list|(
 name|bean
 lambda|->
-name|IntrospectionSupport
+name|beanIntrospection
 operator|.
 name|getProperties
 argument_list|(

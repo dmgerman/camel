@@ -128,9 +128,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|IntrospectionSupport
+name|PropertiesHelper
 import|;
 end_import
 
@@ -362,7 +362,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|hasProperties
 argument_list|(
@@ -380,7 +380,7 @@ name|Object
 argument_list|>
 name|param
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -421,7 +421,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|hasProperties
 argument_list|(
@@ -439,7 +439,7 @@ name|Object
 argument_list|>
 name|param
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(

@@ -80,7 +80,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -92,9 +92,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|PropertyBindingSupport
+name|PropertiesHelper
 import|;
 end_import
 
@@ -182,7 +182,7 @@ expr_stmt|;
 name|Map
 name|objectProperties
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -193,10 +193,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|objectProperties
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|objectProperties
 operator|.

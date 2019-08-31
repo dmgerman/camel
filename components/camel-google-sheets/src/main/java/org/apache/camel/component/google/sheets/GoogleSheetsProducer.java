@@ -68,7 +68,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|ExtendedCamelContext
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -132,9 +132,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|IntrospectionSupport
+name|BeanIntrospection
 import|;
 end_import
 
@@ -247,8 +247,8 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|TypeConverter
-name|typeConverter
+name|BeanIntrospection
+name|beanIntrospection
 init|=
 name|getEndpoint
 argument_list|()
@@ -256,7 +256,14 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
-name|getTypeConverter
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getBeanIntrospection
 argument_list|()
 decl_stmt|;
 for|for
@@ -275,11 +282,15 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|IntrospectionSupport
+name|beanIntrospection
 operator|.
 name|setProperty
 argument_list|(
-name|typeConverter
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|,
 name|request
 argument_list|,
