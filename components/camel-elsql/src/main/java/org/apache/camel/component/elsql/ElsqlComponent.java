@@ -130,7 +130,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|PropertyBindingSupport
 import|;
 end_import
 
@@ -142,9 +142,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|PropertyBindingSupport
+name|PropertiesHelper
 import|;
 end_import
 
@@ -353,7 +353,7 @@ name|Object
 argument_list|>
 name|params
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(

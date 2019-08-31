@@ -178,9 +178,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|IntrospectionSupport
+name|ObjectHelper
 import|;
 end_import
 
@@ -194,7 +194,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|PropertiesHelper
 import|;
 end_import
 
@@ -295,6 +295,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|source
+specifier|private
 name|DestinationSource
 name|source
 decl_stmt|;
@@ -665,7 +666,7 @@ comment|// http://activemq.apache.org/destination-options.html
 name|Map
 name|options
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(

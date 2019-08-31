@@ -126,20 +126,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
@@ -157,6 +143,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|PropertiesHelper
 import|;
 end_import
 
@@ -494,7 +494,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|hasProperties
 argument_list|(
@@ -593,7 +593,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|hasProperties
 argument_list|(
@@ -612,7 +612,7 @@ name|Object
 argument_list|>
 name|realmParams
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -730,7 +730,7 @@ name|Object
 argument_list|>
 name|clientParams
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(

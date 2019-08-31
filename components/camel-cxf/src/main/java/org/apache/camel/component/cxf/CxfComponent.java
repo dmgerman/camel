@@ -150,9 +150,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|IntrospectionSupport
+name|PropertiesHelper
 import|;
 end_import
 
@@ -538,7 +538,7 @@ name|Object
 argument_list|>
 name|properties
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -547,13 +547,6 @@ argument_list|,
 literal|"properties."
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|properties
-operator|!=
-literal|null
-condition|)
-block|{
 name|result
 operator|.
 name|setProperties
@@ -561,7 +554,6 @@ argument_list|(
 name|properties
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|result
@@ -579,7 +571,7 @@ name|setMtomEnabled
 argument_list|(
 name|Boolean
 operator|.
-name|valueOf
+name|parseBoolean
 argument_list|(
 operator|(
 name|String
