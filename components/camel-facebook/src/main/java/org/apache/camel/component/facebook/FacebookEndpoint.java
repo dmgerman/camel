@@ -715,6 +715,9 @@ name|addAll
 argument_list|(
 name|getEndpointPropertyNames
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|configuration
 argument_list|)
 argument_list|)

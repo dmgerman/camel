@@ -485,6 +485,11 @@ name|getEndpointProperties
 argument_list|(
 name|endpoint
 operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
 name|getConfiguration
 argument_list|()
 argument_list|,

@@ -98,7 +98,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExtendedCamelContext
 import|;
 end_import
 
@@ -162,9 +186,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|IntrospectionSupport
+name|BeanIntrospection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|PropertiesHelper
 import|;
 end_import
 
@@ -332,7 +370,7 @@ name|Object
 argument_list|>
 name|readingProperties
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -607,12 +645,15 @@ return|return
 name|properties
 return|;
 block|}
-DECL|method|getEndpointProperties (FacebookEndpointConfiguration configuration, Map<String, Object> properties)
+DECL|method|getEndpointProperties (CamelContext camelContext, FacebookEndpointConfiguration configuration, Map<String, Object> properties)
 specifier|public
 specifier|static
 name|void
 name|getEndpointProperties
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|FacebookEndpointConfiguration
 name|configuration
 parameter_list|,
@@ -625,9 +666,24 @@ argument_list|>
 name|properties
 parameter_list|)
 block|{
+name|BeanIntrospection
+name|beanIntrospection
+init|=
+name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getBeanIntrospection
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|IntrospectionSupport
+name|beanIntrospection
 operator|.
 name|getProperties
 argument_list|(
@@ -698,7 +754,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getEndpointPropertyNames (FacebookEndpointConfiguration configuration)
+DECL|method|getEndpointPropertyNames (CamelContext camelContext, FacebookEndpointConfiguration configuration)
 specifier|public
 specifier|static
 name|Set
@@ -707,6 +763,9 @@ name|String
 argument_list|>
 name|getEndpointPropertyNames
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|FacebookEndpointConfiguration
 name|configuration
 parameter_list|)
@@ -726,6 +785,8 @@ argument_list|()
 decl_stmt|;
 name|getEndpointProperties
 argument_list|(
+name|camelContext
+argument_list|,
 name|configuration
 argument_list|,
 name|properties
