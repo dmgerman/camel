@@ -42,9 +42,33 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ExtendedCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
-name|ClassResolver
+name|BeanIntrospection
 import|;
 end_import
 
@@ -58,7 +82,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
+name|ObjectHelper
 import|;
 end_import
 
@@ -88,7 +112,7 @@ specifier|private
 name|ManagedGroupFactoryBuilder
 parameter_list|()
 block|{     }
-DECL|method|create (CuratorFramework curator, ClassLoader loader, ClassResolver resolver, Callable<CuratorFramework> factory)
+DECL|method|create (CuratorFramework curator, ClassLoader loader, CamelContext camelContext, Callable<CuratorFramework> factory)
 specifier|public
 specifier|static
 name|ManagedGroupFactory
@@ -100,8 +124,8 @@ parameter_list|,
 name|ClassLoader
 name|loader
 parameter_list|,
-name|ClassResolver
-name|resolver
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|Callable
 argument_list|<
@@ -137,7 +161,10 @@ name|?
 argument_list|>
 name|clazz
 init|=
-name|resolver
+name|camelContext
+operator|.
+name|getClassResolver
+argument_list|()
 operator|.
 name|resolveClass
 argument_list|(
@@ -154,15 +181,34 @@ block|{
 name|Object
 name|instance
 init|=
-name|clazz
+name|ObjectHelper
 operator|.
 name|newInstance
+argument_list|(
+name|clazz
+argument_list|)
+decl_stmt|;
+name|BeanIntrospection
+name|beanIntrospection
+init|=
+name|camelContext
+operator|.
+name|adapt
+argument_list|(
+name|ExtendedCamelContext
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getBeanIntrospection
 argument_list|()
 decl_stmt|;
-name|IntrospectionSupport
+name|beanIntrospection
 operator|.
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|instance
 argument_list|,
 literal|"classLoader"

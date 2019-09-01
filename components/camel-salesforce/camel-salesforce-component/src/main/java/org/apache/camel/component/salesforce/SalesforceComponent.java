@@ -3363,8 +3363,7 @@ operator|new
 name|SalesforceEndpointConfig
 argument_list|()
 decl_stmt|;
-comment|// let's work with a copy for IntrospectionSupport so original
-comment|// properties are intact
+comment|// let's work with a copy so original properties are intact
 name|PropertyBindingSupport
 operator|.
 name|bindProperties
@@ -3389,8 +3388,7 @@ operator|new
 name|SalesforceLoginConfig
 argument_list|()
 decl_stmt|;
-comment|// let's work with a copy for IntrospectionSupport so original
-comment|// properties are intact
+comment|// let's work with a copy so original properties are intact
 name|PropertyBindingSupport
 operator|.
 name|bindProperties
@@ -3430,8 +3428,7 @@ name|SSLContextParameters
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// let's work with a copy for IntrospectionSupport so original
-comment|// properties are intact
+comment|// let's work with a copy so original properties are intact
 name|PropertyBindingSupport
 operator|.
 name|bindProperties
