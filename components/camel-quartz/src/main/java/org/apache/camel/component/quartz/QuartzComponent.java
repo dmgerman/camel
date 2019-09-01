@@ -172,20 +172,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|ResourceHelper
 import|;
 end_import
@@ -215,6 +201,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|PropertiesHelper
 import|;
 end_import
 
@@ -295,7 +295,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory for QuartzEndpoint. This component will hold a Quartz Scheduler that will provide scheduled timer based  * endpoint that generate a QuartzMessage to a route. Currently it support Cron and Simple trigger scheduling type.  *  *<p>This component uses Quartz 2.x API and provide all the features from "camel-quartz". It has reused some  * of the code, but mostly has been re-written in attempt to be more easier to maintain, and use Quartz more  * fully.</p>  */
+comment|/**  * This component will hold a Quartz Scheduler that will provide scheduled timer based  * endpoint that generate a QuartzMessage to a route. Currently it support Cron and Simple trigger scheduling type.  */
 end_comment
 
 begin_class
@@ -1416,7 +1416,7 @@ name|Object
 argument_list|>
 name|triggerParameters
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -1433,7 +1433,7 @@ name|Object
 argument_list|>
 name|jobParameters
 init|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(

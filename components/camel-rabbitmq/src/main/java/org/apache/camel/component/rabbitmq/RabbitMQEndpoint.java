@@ -306,9 +306,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|IntrospectionSupport
+name|PropertiesHelper
 import|;
 end_import
 
@@ -2943,7 +2943,7 @@ name|getExchangeArgs
 parameter_list|()
 block|{
 return|return
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -2965,7 +2965,7 @@ name|getQueueArgs
 parameter_list|()
 block|{
 return|return
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -2987,7 +2987,7 @@ name|getBindingArgs
 parameter_list|()
 block|{
 return|return
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(

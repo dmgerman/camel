@@ -68,18 +68,6 @@ name|rabbitmq
 operator|.
 name|client
 operator|.
-name|Address
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
 name|ConnectionFactory
 import|;
 end_import
@@ -148,9 +136,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|IntrospectionSupport
+name|PropertiesHelper
 import|;
 end_import
 
@@ -1778,7 +1766,7 @@ name|localArgs
 operator|.
 name|putAll
 argument_list|(
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(

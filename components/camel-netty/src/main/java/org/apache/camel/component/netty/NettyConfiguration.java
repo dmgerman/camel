@@ -258,20 +258,6 @@ name|camel
 operator|.
 name|support
 operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
 name|PropertyBindingSupport
 import|;
 end_import
@@ -287,6 +273,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|PropertiesHelper
 import|;
 end_import
 
@@ -1432,7 +1432,7 @@ expr_stmt|;
 comment|// additional netty options, we don't want to store an empty map, so set it as null if empty
 name|options
 operator|=
-name|IntrospectionSupport
+name|PropertiesHelper
 operator|.
 name|extractProperties
 argument_list|(
@@ -1443,10 +1443,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|options
-operator|!=
-literal|null
-operator|&&
 name|options
 operator|.
 name|isEmpty
