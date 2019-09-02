@@ -185,6 +185,14 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object. This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
+DECL|field|allowJavaSerializedObject
+specifier|private
+name|Boolean
+name|allowJavaSerializedObject
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient. The option is a org.apache.camel.http.common.HttpBinding      * type.      */
 DECL|field|httpBinding
 specifier|private
@@ -196,14 +204,6 @@ DECL|field|httpConfiguration
 specifier|private
 name|String
 name|httpConfiguration
-decl_stmt|;
-comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object. This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
-DECL|field|allowJavaSerializedObject
-specifier|private
-name|Boolean
-name|allowJavaSerializedObject
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter      * header to and from Camel message. The option is a      * org.apache.camel.spi.HeaderFilterStrategy type.      */
 DECL|field|headerFilterStrategy
@@ -557,6 +557,32 @@ operator|=
 name|socketTimeout
 expr_stmt|;
 block|}
+DECL|method|getAllowJavaSerializedObject ()
+specifier|public
+name|Boolean
+name|getAllowJavaSerializedObject
+parameter_list|()
+block|{
+return|return
+name|allowJavaSerializedObject
+return|;
+block|}
+DECL|method|setAllowJavaSerializedObject (Boolean allowJavaSerializedObject)
+specifier|public
+name|void
+name|setAllowJavaSerializedObject
+parameter_list|(
+name|Boolean
+name|allowJavaSerializedObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowJavaSerializedObject
+operator|=
+name|allowJavaSerializedObject
+expr_stmt|;
+block|}
 DECL|method|getHttpBinding ()
 specifier|public
 name|String
@@ -607,32 +633,6 @@ operator|.
 name|httpConfiguration
 operator|=
 name|httpConfiguration
-expr_stmt|;
-block|}
-DECL|method|getAllowJavaSerializedObject ()
-specifier|public
-name|Boolean
-name|getAllowJavaSerializedObject
-parameter_list|()
-block|{
-return|return
-name|allowJavaSerializedObject
-return|;
-block|}
-DECL|method|setAllowJavaSerializedObject (Boolean allowJavaSerializedObject)
-specifier|public
-name|void
-name|setAllowJavaSerializedObject
-parameter_list|(
-name|Boolean
-name|allowJavaSerializedObject
-parameter_list|)
-block|{
-name|this
-operator|.
-name|allowJavaSerializedObject
-operator|=
-name|allowJavaSerializedObject
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()

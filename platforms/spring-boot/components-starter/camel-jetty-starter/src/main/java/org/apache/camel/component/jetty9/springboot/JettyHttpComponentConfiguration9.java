@@ -116,81 +116,13 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The key password, which is used to access the certificate's key entry in      * the keystore (this is the same password that is supplied to the keystore      * command's -keypass option).      */
-DECL|field|sslKeyPassword
+comment|/**      * Allows to set a timeout in millis when using Jetty as consumer (server).      * By default Jetty uses 30000. You can use a value of = 0 to never expire.      * If a timeout occurs then the request will be expired and Jetty will      * return back a http error 503 to the client. This option is only in use      * when using Jetty with the Asynchronous Routing Engine.      */
+DECL|field|continuationTimeout
 specifier|private
-name|String
-name|sslKeyPassword
-decl_stmt|;
-comment|/**      * The ssl password, which is required to access the keystore file (this is      * the same password that is supplied to the keystore command's -storepass      * option).      */
-DECL|field|sslPassword
-specifier|private
-name|String
-name|sslPassword
-decl_stmt|;
-comment|/**      * Specifies the location of the Java keystore file, which contains the      * Jetty server's own X.509 certificate in a key entry.      */
-DECL|field|keystore
-specifier|private
-name|String
-name|keystore
-decl_stmt|;
-comment|/**      * This option is used to set the ErrorHandler that Jetty server uses. The      * option is a org.eclipse.jetty.server.handler.ErrorHandler type.      */
-DECL|field|errorHandler
-specifier|private
-name|String
-name|errorHandler
-decl_stmt|;
-comment|/**      * A map which contains per port number specific SSL connectors.      */
-DECL|field|sslSocketConnectors
-specifier|private
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
-name|sslSocketConnectors
-decl_stmt|;
-comment|/**      * A map which contains per port number specific HTTP connectors. Uses the      * same principle as sslSocketConnectors.      */
-DECL|field|socketConnectors
-specifier|private
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
-name|socketConnectors
-decl_stmt|;
-comment|/**      * To set a value for minimum number of threads in HttpClient thread pool.      * Notice that both a min and max size must be configured.      */
-DECL|field|httpClientMinThreads
-specifier|private
-name|Integer
-name|httpClientMinThreads
-decl_stmt|;
-comment|/**      * To set a value for maximum number of threads in HttpClient thread pool.      * Notice that both a min and max size must be configured.      */
-DECL|field|httpClientMaxThreads
-specifier|private
-name|Integer
-name|httpClientMaxThreads
-decl_stmt|;
-comment|/**      * To set a value for minimum number of threads in server thread pool.      * Notice that both a min and max size must be configured.      */
-DECL|field|minThreads
-specifier|private
-name|Integer
-name|minThreads
-decl_stmt|;
-comment|/**      * To set a value for maximum number of threads in server thread pool.      * Notice that both a min and max size must be configured.      */
-DECL|field|maxThreads
-specifier|private
-name|Integer
-name|maxThreads
-decl_stmt|;
-comment|/**      * To use a custom thread pool for the server. This option should only be      * used in special circumstances. The option is a      * org.eclipse.jetty.util.thread.ThreadPool type.      */
-DECL|field|threadPool
-specifier|private
-name|String
-name|threadPool
+name|Long
+name|continuationTimeout
+init|=
+literal|30000L
 decl_stmt|;
 comment|/**      * If this option is true, Jetty JMX support will be enabled for this      * endpoint.      */
 DECL|field|enableJmx
@@ -200,11 +132,11 @@ name|enableJmx
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which      * are used to customize how a response should be written for the producer.      * The option is a org.apache.camel.component.jetty.JettyHttpBinding type.      */
-DECL|field|jettyHttpBinding
+comment|/**      * This option is used to set the ErrorHandler that Jetty server uses. The      * option is a org.eclipse.jetty.server.handler.ErrorHandler type.      */
+DECL|field|errorHandler
 specifier|private
 name|String
-name|jettyHttpBinding
+name|errorHandler
 decl_stmt|;
 comment|/**      * Not to be used - use JettyHttpBinding instead. The option is a      * org.apache.camel.http.common.HttpBinding type.      */
 DECL|field|httpBinding
@@ -212,11 +144,41 @@ specifier|private
 name|String
 name|httpBinding
 decl_stmt|;
+comment|/**      * To set a value for maximum number of threads in HttpClient thread pool.      * Notice that both a min and max size must be configured.      */
+DECL|field|httpClientMaxThreads
+specifier|private
+name|Integer
+name|httpClientMaxThreads
+decl_stmt|;
+comment|/**      * To set a value for minimum number of threads in HttpClient thread pool.      * Notice that both a min and max size must be configured.      */
+DECL|field|httpClientMinThreads
+specifier|private
+name|Integer
+name|httpClientMinThreads
+decl_stmt|;
 comment|/**      * Jetty component does not use HttpConfiguration. The option is a      * org.apache.camel.http.common.HttpConfiguration type.      */
 DECL|field|httpConfiguration
 specifier|private
 name|String
 name|httpConfiguration
+decl_stmt|;
+comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which      * are used to customize how a response should be written for the producer.      * The option is a org.apache.camel.component.jetty.JettyHttpBinding type.      */
+DECL|field|jettyHttpBinding
+specifier|private
+name|String
+name|jettyHttpBinding
+decl_stmt|;
+comment|/**      * Specifies the location of the Java keystore file, which contains the      * Jetty server's own X.509 certificate in a key entry.      */
+DECL|field|keystore
+specifier|private
+name|String
+name|keystore
+decl_stmt|;
+comment|/**      * To set a value for maximum number of threads in server thread pool.      * Notice that both a min and max size must be configured.      */
+DECL|field|maxThreads
+specifier|private
+name|Integer
+name|maxThreads
 decl_stmt|;
 comment|/**      * To use a existing configured org.eclipse.jetty.jmx.MBeanContainer if JMX      * is enabled that Jetty uses for registering mbeans. The option is a      * org.eclipse.jetty.jmx.MBeanContainer type.      */
 DECL|field|mbContainer
@@ -224,81 +186,11 @@ specifier|private
 name|String
 name|mbContainer
 decl_stmt|;
-comment|/**      * A map which contains general SSL connector properties.      */
-DECL|field|sslSocketConnectorProperties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|sslSocketConnectorProperties
-decl_stmt|;
-comment|/**      * A map which contains general HTTP connector properties. Uses the same      * principle as sslSocketConnectorProperties.      */
-DECL|field|socketConnectorProperties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|socketConnectorProperties
-decl_stmt|;
-comment|/**      * Allows to set a timeout in millis when using Jetty as consumer (server).      * By default Jetty uses 30000. You can use a value of = 0 to never expire.      * If a timeout occurs then the request will be expired and Jetty will      * return back a http error 503 to the client. This option is only in use      * when using Jetty with the Asynchronous Routing Engine.      */
-DECL|field|continuationTimeout
-specifier|private
-name|Long
-name|continuationTimeout
-init|=
-literal|30000L
-decl_stmt|;
-comment|/**      * Whether or not to use Jetty continuations for the Jetty Server.      */
-DECL|field|useContinuation
-specifier|private
-name|Boolean
-name|useContinuation
-init|=
-literal|true
-decl_stmt|;
-comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.support.jsse.SSLContextParameters type.      */
-DECL|field|sslContextParameters
-specifier|private
-name|String
-name|sslContextParameters
-decl_stmt|;
-comment|/**      * Enable usage of global SSL context parameters      */
-DECL|field|useGlobalSslContextParameters
-specifier|private
-name|Boolean
-name|useGlobalSslContextParameters
-init|=
-literal|false
-decl_stmt|;
-comment|/**      * Allows to configure a custom value of the response buffer size on the      * Jetty connectors.      */
-DECL|field|responseBufferSize
+comment|/**      * To set a value for minimum number of threads in server thread pool.      * Notice that both a min and max size must be configured.      */
+DECL|field|minThreads
 specifier|private
 name|Integer
-name|responseBufferSize
-decl_stmt|;
-comment|/**      * Allows to configure a custom value of the request buffer size on the      * Jetty connectors.      */
-DECL|field|requestBufferSize
-specifier|private
-name|Integer
-name|requestBufferSize
-decl_stmt|;
-comment|/**      * Allows to configure a custom value of the request header size on the      * Jetty connectors.      */
-DECL|field|requestHeaderSize
-specifier|private
-name|Integer
-name|requestHeaderSize
-decl_stmt|;
-comment|/**      * Allows to configure a custom value of the response header size on the      * Jetty connectors.      */
-DECL|field|responseHeaderSize
-specifier|private
-name|Integer
-name|responseHeaderSize
+name|minThreads
 decl_stmt|;
 comment|/**      * To use a http proxy to configure the hostname.      */
 DECL|field|proxyHost
@@ -312,13 +204,29 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
-comment|/**      * To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr.      */
-DECL|field|useXForwardedForHeader
+comment|/**      * Allows to configure a custom value of the request buffer size on the      * Jetty connectors.      */
+DECL|field|requestBufferSize
 specifier|private
-name|Boolean
-name|useXForwardedForHeader
-init|=
-literal|false
+name|Integer
+name|requestBufferSize
+decl_stmt|;
+comment|/**      * Allows to configure a custom value of the request header size on the      * Jetty connectors.      */
+DECL|field|requestHeaderSize
+specifier|private
+name|Integer
+name|requestHeaderSize
+decl_stmt|;
+comment|/**      * Allows to configure a custom value of the response buffer size on the      * Jetty connectors.      */
+DECL|field|responseBufferSize
+specifier|private
+name|Integer
+name|responseBufferSize
+decl_stmt|;
+comment|/**      * Allows to configure a custom value of the response header size on the      * Jetty connectors.      */
+DECL|field|responseHeaderSize
+specifier|private
+name|Integer
+name|responseHeaderSize
 decl_stmt|;
 comment|/**      * If the option is true, jetty will send the server header with the jetty      * version information to the client which sends the request. NOTE please      * make sure there is no any other camel-jetty endpoint is share the same      * port, otherwise this option may not work as expected.      */
 DECL|field|sendServerVersion
@@ -327,6 +235,98 @@ name|Boolean
 name|sendServerVersion
 init|=
 literal|true
+decl_stmt|;
+comment|/**      * A map which contains general HTTP connector properties. Uses the same      * principle as sslSocketConnectorProperties.      */
+DECL|field|socketConnectorProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|socketConnectorProperties
+decl_stmt|;
+comment|/**      * A map which contains per port number specific HTTP connectors. Uses the      * same principle as sslSocketConnectors.      */
+DECL|field|socketConnectors
+specifier|private
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
+name|socketConnectors
+decl_stmt|;
+comment|/**      * To configure security using SSLContextParameters. The option is a      * org.apache.camel.support.jsse.SSLContextParameters type.      */
+DECL|field|sslContextParameters
+specifier|private
+name|String
+name|sslContextParameters
+decl_stmt|;
+comment|/**      * The key password, which is used to access the certificate's key entry in      * the keystore (this is the same password that is supplied to the keystore      * command's -keypass option).      */
+DECL|field|sslKeyPassword
+specifier|private
+name|String
+name|sslKeyPassword
+decl_stmt|;
+comment|/**      * The ssl password, which is required to access the keystore file (this is      * the same password that is supplied to the keystore command's -storepass      * option).      */
+DECL|field|sslPassword
+specifier|private
+name|String
+name|sslPassword
+decl_stmt|;
+comment|/**      * A map which contains general SSL connector properties.      */
+DECL|field|sslSocketConnectorProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|sslSocketConnectorProperties
+decl_stmt|;
+comment|/**      * A map which contains per port number specific SSL connectors.      */
+DECL|field|sslSocketConnectors
+specifier|private
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
+name|sslSocketConnectors
+decl_stmt|;
+comment|/**      * To use a custom thread pool for the server. This option should only be      * used in special circumstances. The option is a      * org.eclipse.jetty.util.thread.ThreadPool type.      */
+DECL|field|threadPool
+specifier|private
+name|String
+name|threadPool
+decl_stmt|;
+comment|/**      * Whether or not to use Jetty continuations for the Jetty Server.      */
+DECL|field|useContinuation
+specifier|private
+name|Boolean
+name|useContinuation
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Enable usage of global SSL context parameters      */
+DECL|field|useGlobalSslContextParameters
+specifier|private
+name|Boolean
+name|useGlobalSslContextParameters
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr.      */
+DECL|field|useXForwardedForHeader
+specifier|private
+name|Boolean
+name|useXForwardedForHeader
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object. This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
 DECL|field|allowJavaSerializedObject
@@ -350,310 +350,30 @@ name|basicPropertyBinding
 init|=
 literal|false
 decl_stmt|;
-DECL|method|getSslKeyPassword ()
+DECL|method|getContinuationTimeout ()
 specifier|public
-name|String
-name|getSslKeyPassword
+name|Long
+name|getContinuationTimeout
 parameter_list|()
 block|{
 return|return
-name|sslKeyPassword
+name|continuationTimeout
 return|;
 block|}
-DECL|method|setSslKeyPassword (String sslKeyPassword)
+DECL|method|setContinuationTimeout (Long continuationTimeout)
 specifier|public
 name|void
-name|setSslKeyPassword
+name|setContinuationTimeout
 parameter_list|(
-name|String
-name|sslKeyPassword
+name|Long
+name|continuationTimeout
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sslKeyPassword
+name|continuationTimeout
 operator|=
-name|sslKeyPassword
-expr_stmt|;
-block|}
-DECL|method|getSslPassword ()
-specifier|public
-name|String
-name|getSslPassword
-parameter_list|()
-block|{
-return|return
-name|sslPassword
-return|;
-block|}
-DECL|method|setSslPassword (String sslPassword)
-specifier|public
-name|void
-name|setSslPassword
-parameter_list|(
-name|String
-name|sslPassword
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sslPassword
-operator|=
-name|sslPassword
-expr_stmt|;
-block|}
-DECL|method|getKeystore ()
-specifier|public
-name|String
-name|getKeystore
-parameter_list|()
-block|{
-return|return
-name|keystore
-return|;
-block|}
-DECL|method|setKeystore (String keystore)
-specifier|public
-name|void
-name|setKeystore
-parameter_list|(
-name|String
-name|keystore
-parameter_list|)
-block|{
-name|this
-operator|.
-name|keystore
-operator|=
-name|keystore
-expr_stmt|;
-block|}
-DECL|method|getErrorHandler ()
-specifier|public
-name|String
-name|getErrorHandler
-parameter_list|()
-block|{
-return|return
-name|errorHandler
-return|;
-block|}
-DECL|method|setErrorHandler (String errorHandler)
-specifier|public
-name|void
-name|setErrorHandler
-parameter_list|(
-name|String
-name|errorHandler
-parameter_list|)
-block|{
-name|this
-operator|.
-name|errorHandler
-operator|=
-name|errorHandler
-expr_stmt|;
-block|}
-DECL|method|getSslSocketConnectors ()
-specifier|public
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
-name|getSslSocketConnectors
-parameter_list|()
-block|{
-return|return
-name|sslSocketConnectors
-return|;
-block|}
-DECL|method|setSslSocketConnectors ( Map<Integer, Connector> sslSocketConnectors)
-specifier|public
-name|void
-name|setSslSocketConnectors
-parameter_list|(
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
-name|sslSocketConnectors
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sslSocketConnectors
-operator|=
-name|sslSocketConnectors
-expr_stmt|;
-block|}
-DECL|method|getSocketConnectors ()
-specifier|public
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
-name|getSocketConnectors
-parameter_list|()
-block|{
-return|return
-name|socketConnectors
-return|;
-block|}
-DECL|method|setSocketConnectors (Map<Integer, Connector> socketConnectors)
-specifier|public
-name|void
-name|setSocketConnectors
-parameter_list|(
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|Connector
-argument_list|>
-name|socketConnectors
-parameter_list|)
-block|{
-name|this
-operator|.
-name|socketConnectors
-operator|=
-name|socketConnectors
-expr_stmt|;
-block|}
-DECL|method|getHttpClientMinThreads ()
-specifier|public
-name|Integer
-name|getHttpClientMinThreads
-parameter_list|()
-block|{
-return|return
-name|httpClientMinThreads
-return|;
-block|}
-DECL|method|setHttpClientMinThreads (Integer httpClientMinThreads)
-specifier|public
-name|void
-name|setHttpClientMinThreads
-parameter_list|(
-name|Integer
-name|httpClientMinThreads
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpClientMinThreads
-operator|=
-name|httpClientMinThreads
-expr_stmt|;
-block|}
-DECL|method|getHttpClientMaxThreads ()
-specifier|public
-name|Integer
-name|getHttpClientMaxThreads
-parameter_list|()
-block|{
-return|return
-name|httpClientMaxThreads
-return|;
-block|}
-DECL|method|setHttpClientMaxThreads (Integer httpClientMaxThreads)
-specifier|public
-name|void
-name|setHttpClientMaxThreads
-parameter_list|(
-name|Integer
-name|httpClientMaxThreads
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpClientMaxThreads
-operator|=
-name|httpClientMaxThreads
-expr_stmt|;
-block|}
-DECL|method|getMinThreads ()
-specifier|public
-name|Integer
-name|getMinThreads
-parameter_list|()
-block|{
-return|return
-name|minThreads
-return|;
-block|}
-DECL|method|setMinThreads (Integer minThreads)
-specifier|public
-name|void
-name|setMinThreads
-parameter_list|(
-name|Integer
-name|minThreads
-parameter_list|)
-block|{
-name|this
-operator|.
-name|minThreads
-operator|=
-name|minThreads
-expr_stmt|;
-block|}
-DECL|method|getMaxThreads ()
-specifier|public
-name|Integer
-name|getMaxThreads
-parameter_list|()
-block|{
-return|return
-name|maxThreads
-return|;
-block|}
-DECL|method|setMaxThreads (Integer maxThreads)
-specifier|public
-name|void
-name|setMaxThreads
-parameter_list|(
-name|Integer
-name|maxThreads
-parameter_list|)
-block|{
-name|this
-operator|.
-name|maxThreads
-operator|=
-name|maxThreads
-expr_stmt|;
-block|}
-DECL|method|getThreadPool ()
-specifier|public
-name|String
-name|getThreadPool
-parameter_list|()
-block|{
-return|return
-name|threadPool
-return|;
-block|}
-DECL|method|setThreadPool (String threadPool)
-specifier|public
-name|void
-name|setThreadPool
-parameter_list|(
-name|String
-name|threadPool
-parameter_list|)
-block|{
-name|this
-operator|.
-name|threadPool
-operator|=
-name|threadPool
+name|continuationTimeout
 expr_stmt|;
 block|}
 DECL|method|getEnableJmx ()
@@ -682,30 +402,30 @@ operator|=
 name|enableJmx
 expr_stmt|;
 block|}
-DECL|method|getJettyHttpBinding ()
+DECL|method|getErrorHandler ()
 specifier|public
 name|String
-name|getJettyHttpBinding
+name|getErrorHandler
 parameter_list|()
 block|{
 return|return
-name|jettyHttpBinding
+name|errorHandler
 return|;
 block|}
-DECL|method|setJettyHttpBinding (String jettyHttpBinding)
+DECL|method|setErrorHandler (String errorHandler)
 specifier|public
 name|void
-name|setJettyHttpBinding
+name|setErrorHandler
 parameter_list|(
 name|String
-name|jettyHttpBinding
+name|errorHandler
 parameter_list|)
 block|{
 name|this
 operator|.
-name|jettyHttpBinding
+name|errorHandler
 operator|=
-name|jettyHttpBinding
+name|errorHandler
 expr_stmt|;
 block|}
 DECL|method|getHttpBinding ()
@@ -734,6 +454,58 @@ operator|=
 name|httpBinding
 expr_stmt|;
 block|}
+DECL|method|getHttpClientMaxThreads ()
+specifier|public
+name|Integer
+name|getHttpClientMaxThreads
+parameter_list|()
+block|{
+return|return
+name|httpClientMaxThreads
+return|;
+block|}
+DECL|method|setHttpClientMaxThreads (Integer httpClientMaxThreads)
+specifier|public
+name|void
+name|setHttpClientMaxThreads
+parameter_list|(
+name|Integer
+name|httpClientMaxThreads
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClientMaxThreads
+operator|=
+name|httpClientMaxThreads
+expr_stmt|;
+block|}
+DECL|method|getHttpClientMinThreads ()
+specifier|public
+name|Integer
+name|getHttpClientMinThreads
+parameter_list|()
+block|{
+return|return
+name|httpClientMinThreads
+return|;
+block|}
+DECL|method|setHttpClientMinThreads (Integer httpClientMinThreads)
+specifier|public
+name|void
+name|setHttpClientMinThreads
+parameter_list|(
+name|Integer
+name|httpClientMinThreads
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpClientMinThreads
+operator|=
+name|httpClientMinThreads
+expr_stmt|;
+block|}
 DECL|method|getHttpConfiguration ()
 specifier|public
 name|String
@@ -758,6 +530,84 @@ operator|.
 name|httpConfiguration
 operator|=
 name|httpConfiguration
+expr_stmt|;
+block|}
+DECL|method|getJettyHttpBinding ()
+specifier|public
+name|String
+name|getJettyHttpBinding
+parameter_list|()
+block|{
+return|return
+name|jettyHttpBinding
+return|;
+block|}
+DECL|method|setJettyHttpBinding (String jettyHttpBinding)
+specifier|public
+name|void
+name|setJettyHttpBinding
+parameter_list|(
+name|String
+name|jettyHttpBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jettyHttpBinding
+operator|=
+name|jettyHttpBinding
+expr_stmt|;
+block|}
+DECL|method|getKeystore ()
+specifier|public
+name|String
+name|getKeystore
+parameter_list|()
+block|{
+return|return
+name|keystore
+return|;
+block|}
+DECL|method|setKeystore (String keystore)
+specifier|public
+name|void
+name|setKeystore
+parameter_list|(
+name|String
+name|keystore
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keystore
+operator|=
+name|keystore
+expr_stmt|;
+block|}
+DECL|method|getMaxThreads ()
+specifier|public
+name|Integer
+name|getMaxThreads
+parameter_list|()
+block|{
+return|return
+name|maxThreads
+return|;
+block|}
+DECL|method|setMaxThreads (Integer maxThreads)
+specifier|public
+name|void
+name|setMaxThreads
+parameter_list|(
+name|Integer
+name|maxThreads
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxThreads
+operator|=
+name|maxThreads
 expr_stmt|;
 block|}
 DECL|method|getMbContainer ()
@@ -786,284 +636,30 @@ operator|=
 name|mbContainer
 expr_stmt|;
 block|}
-DECL|method|getSslSocketConnectorProperties ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|getSslSocketConnectorProperties
-parameter_list|()
-block|{
-return|return
-name|sslSocketConnectorProperties
-return|;
-block|}
-DECL|method|setSslSocketConnectorProperties ( Map<String, Object> sslSocketConnectorProperties)
-specifier|public
-name|void
-name|setSslSocketConnectorProperties
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|sslSocketConnectorProperties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sslSocketConnectorProperties
-operator|=
-name|sslSocketConnectorProperties
-expr_stmt|;
-block|}
-DECL|method|getSocketConnectorProperties ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|getSocketConnectorProperties
-parameter_list|()
-block|{
-return|return
-name|socketConnectorProperties
-return|;
-block|}
-DECL|method|setSocketConnectorProperties ( Map<String, Object> socketConnectorProperties)
-specifier|public
-name|void
-name|setSocketConnectorProperties
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|socketConnectorProperties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|socketConnectorProperties
-operator|=
-name|socketConnectorProperties
-expr_stmt|;
-block|}
-DECL|method|getContinuationTimeout ()
-specifier|public
-name|Long
-name|getContinuationTimeout
-parameter_list|()
-block|{
-return|return
-name|continuationTimeout
-return|;
-block|}
-DECL|method|setContinuationTimeout (Long continuationTimeout)
-specifier|public
-name|void
-name|setContinuationTimeout
-parameter_list|(
-name|Long
-name|continuationTimeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|continuationTimeout
-operator|=
-name|continuationTimeout
-expr_stmt|;
-block|}
-DECL|method|getUseContinuation ()
-specifier|public
-name|Boolean
-name|getUseContinuation
-parameter_list|()
-block|{
-return|return
-name|useContinuation
-return|;
-block|}
-DECL|method|setUseContinuation (Boolean useContinuation)
-specifier|public
-name|void
-name|setUseContinuation
-parameter_list|(
-name|Boolean
-name|useContinuation
-parameter_list|)
-block|{
-name|this
-operator|.
-name|useContinuation
-operator|=
-name|useContinuation
-expr_stmt|;
-block|}
-DECL|method|getSslContextParameters ()
-specifier|public
-name|String
-name|getSslContextParameters
-parameter_list|()
-block|{
-return|return
-name|sslContextParameters
-return|;
-block|}
-DECL|method|setSslContextParameters (String sslContextParameters)
-specifier|public
-name|void
-name|setSslContextParameters
-parameter_list|(
-name|String
-name|sslContextParameters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sslContextParameters
-operator|=
-name|sslContextParameters
-expr_stmt|;
-block|}
-DECL|method|getUseGlobalSslContextParameters ()
-specifier|public
-name|Boolean
-name|getUseGlobalSslContextParameters
-parameter_list|()
-block|{
-return|return
-name|useGlobalSslContextParameters
-return|;
-block|}
-DECL|method|setUseGlobalSslContextParameters ( Boolean useGlobalSslContextParameters)
-specifier|public
-name|void
-name|setUseGlobalSslContextParameters
-parameter_list|(
-name|Boolean
-name|useGlobalSslContextParameters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|useGlobalSslContextParameters
-operator|=
-name|useGlobalSslContextParameters
-expr_stmt|;
-block|}
-DECL|method|getResponseBufferSize ()
+DECL|method|getMinThreads ()
 specifier|public
 name|Integer
-name|getResponseBufferSize
+name|getMinThreads
 parameter_list|()
 block|{
 return|return
-name|responseBufferSize
+name|minThreads
 return|;
 block|}
-DECL|method|setResponseBufferSize (Integer responseBufferSize)
+DECL|method|setMinThreads (Integer minThreads)
 specifier|public
 name|void
-name|setResponseBufferSize
+name|setMinThreads
 parameter_list|(
 name|Integer
-name|responseBufferSize
+name|minThreads
 parameter_list|)
 block|{
 name|this
 operator|.
-name|responseBufferSize
+name|minThreads
 operator|=
-name|responseBufferSize
-expr_stmt|;
-block|}
-DECL|method|getRequestBufferSize ()
-specifier|public
-name|Integer
-name|getRequestBufferSize
-parameter_list|()
-block|{
-return|return
-name|requestBufferSize
-return|;
-block|}
-DECL|method|setRequestBufferSize (Integer requestBufferSize)
-specifier|public
-name|void
-name|setRequestBufferSize
-parameter_list|(
-name|Integer
-name|requestBufferSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|requestBufferSize
-operator|=
-name|requestBufferSize
-expr_stmt|;
-block|}
-DECL|method|getRequestHeaderSize ()
-specifier|public
-name|Integer
-name|getRequestHeaderSize
-parameter_list|()
-block|{
-return|return
-name|requestHeaderSize
-return|;
-block|}
-DECL|method|setRequestHeaderSize (Integer requestHeaderSize)
-specifier|public
-name|void
-name|setRequestHeaderSize
-parameter_list|(
-name|Integer
-name|requestHeaderSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|requestHeaderSize
-operator|=
-name|requestHeaderSize
-expr_stmt|;
-block|}
-DECL|method|getResponseHeaderSize ()
-specifier|public
-name|Integer
-name|getResponseHeaderSize
-parameter_list|()
-block|{
-return|return
-name|responseHeaderSize
-return|;
-block|}
-DECL|method|setResponseHeaderSize (Integer responseHeaderSize)
-specifier|public
-name|void
-name|setResponseHeaderSize
-parameter_list|(
-name|Integer
-name|responseHeaderSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|responseHeaderSize
-operator|=
-name|responseHeaderSize
+name|minThreads
 expr_stmt|;
 block|}
 DECL|method|getProxyHost ()
@@ -1118,30 +714,108 @@ operator|=
 name|proxyPort
 expr_stmt|;
 block|}
-DECL|method|getUseXForwardedForHeader ()
+DECL|method|getRequestBufferSize ()
 specifier|public
-name|Boolean
-name|getUseXForwardedForHeader
+name|Integer
+name|getRequestBufferSize
 parameter_list|()
 block|{
 return|return
-name|useXForwardedForHeader
+name|requestBufferSize
 return|;
 block|}
-DECL|method|setUseXForwardedForHeader (Boolean useXForwardedForHeader)
+DECL|method|setRequestBufferSize (Integer requestBufferSize)
 specifier|public
 name|void
-name|setUseXForwardedForHeader
+name|setRequestBufferSize
 parameter_list|(
-name|Boolean
-name|useXForwardedForHeader
+name|Integer
+name|requestBufferSize
 parameter_list|)
 block|{
 name|this
 operator|.
-name|useXForwardedForHeader
+name|requestBufferSize
 operator|=
-name|useXForwardedForHeader
+name|requestBufferSize
+expr_stmt|;
+block|}
+DECL|method|getRequestHeaderSize ()
+specifier|public
+name|Integer
+name|getRequestHeaderSize
+parameter_list|()
+block|{
+return|return
+name|requestHeaderSize
+return|;
+block|}
+DECL|method|setRequestHeaderSize (Integer requestHeaderSize)
+specifier|public
+name|void
+name|setRequestHeaderSize
+parameter_list|(
+name|Integer
+name|requestHeaderSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestHeaderSize
+operator|=
+name|requestHeaderSize
+expr_stmt|;
+block|}
+DECL|method|getResponseBufferSize ()
+specifier|public
+name|Integer
+name|getResponseBufferSize
+parameter_list|()
+block|{
+return|return
+name|responseBufferSize
+return|;
+block|}
+DECL|method|setResponseBufferSize (Integer responseBufferSize)
+specifier|public
+name|void
+name|setResponseBufferSize
+parameter_list|(
+name|Integer
+name|responseBufferSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|responseBufferSize
+operator|=
+name|responseBufferSize
+expr_stmt|;
+block|}
+DECL|method|getResponseHeaderSize ()
+specifier|public
+name|Integer
+name|getResponseHeaderSize
+parameter_list|()
+block|{
+return|return
+name|responseHeaderSize
+return|;
+block|}
+DECL|method|setResponseHeaderSize (Integer responseHeaderSize)
+specifier|public
+name|void
+name|setResponseHeaderSize
+parameter_list|(
+name|Integer
+name|responseHeaderSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|responseHeaderSize
+operator|=
+name|responseHeaderSize
 expr_stmt|;
 block|}
 DECL|method|getSendServerVersion ()
@@ -1168,6 +842,332 @@ operator|.
 name|sendServerVersion
 operator|=
 name|sendServerVersion
+expr_stmt|;
+block|}
+DECL|method|getSocketConnectorProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getSocketConnectorProperties
+parameter_list|()
+block|{
+return|return
+name|socketConnectorProperties
+return|;
+block|}
+DECL|method|setSocketConnectorProperties ( Map<String, Object> socketConnectorProperties)
+specifier|public
+name|void
+name|setSocketConnectorProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|socketConnectorProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|socketConnectorProperties
+operator|=
+name|socketConnectorProperties
+expr_stmt|;
+block|}
+DECL|method|getSocketConnectors ()
+specifier|public
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
+name|getSocketConnectors
+parameter_list|()
+block|{
+return|return
+name|socketConnectors
+return|;
+block|}
+DECL|method|setSocketConnectors (Map<Integer, Connector> socketConnectors)
+specifier|public
+name|void
+name|setSocketConnectors
+parameter_list|(
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
+name|socketConnectors
+parameter_list|)
+block|{
+name|this
+operator|.
+name|socketConnectors
+operator|=
+name|socketConnectors
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|String
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (String sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|String
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getSslKeyPassword ()
+specifier|public
+name|String
+name|getSslKeyPassword
+parameter_list|()
+block|{
+return|return
+name|sslKeyPassword
+return|;
+block|}
+DECL|method|setSslKeyPassword (String sslKeyPassword)
+specifier|public
+name|void
+name|setSslKeyPassword
+parameter_list|(
+name|String
+name|sslKeyPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslKeyPassword
+operator|=
+name|sslKeyPassword
+expr_stmt|;
+block|}
+DECL|method|getSslPassword ()
+specifier|public
+name|String
+name|getSslPassword
+parameter_list|()
+block|{
+return|return
+name|sslPassword
+return|;
+block|}
+DECL|method|setSslPassword (String sslPassword)
+specifier|public
+name|void
+name|setSslPassword
+parameter_list|(
+name|String
+name|sslPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslPassword
+operator|=
+name|sslPassword
+expr_stmt|;
+block|}
+DECL|method|getSslSocketConnectorProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getSslSocketConnectorProperties
+parameter_list|()
+block|{
+return|return
+name|sslSocketConnectorProperties
+return|;
+block|}
+DECL|method|setSslSocketConnectorProperties ( Map<String, Object> sslSocketConnectorProperties)
+specifier|public
+name|void
+name|setSslSocketConnectorProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|sslSocketConnectorProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslSocketConnectorProperties
+operator|=
+name|sslSocketConnectorProperties
+expr_stmt|;
+block|}
+DECL|method|getSslSocketConnectors ()
+specifier|public
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
+name|getSslSocketConnectors
+parameter_list|()
+block|{
+return|return
+name|sslSocketConnectors
+return|;
+block|}
+DECL|method|setSslSocketConnectors ( Map<Integer, Connector> sslSocketConnectors)
+specifier|public
+name|void
+name|setSslSocketConnectors
+parameter_list|(
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Connector
+argument_list|>
+name|sslSocketConnectors
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslSocketConnectors
+operator|=
+name|sslSocketConnectors
+expr_stmt|;
+block|}
+DECL|method|getThreadPool ()
+specifier|public
+name|String
+name|getThreadPool
+parameter_list|()
+block|{
+return|return
+name|threadPool
+return|;
+block|}
+DECL|method|setThreadPool (String threadPool)
+specifier|public
+name|void
+name|setThreadPool
+parameter_list|(
+name|String
+name|threadPool
+parameter_list|)
+block|{
+name|this
+operator|.
+name|threadPool
+operator|=
+name|threadPool
+expr_stmt|;
+block|}
+DECL|method|getUseContinuation ()
+specifier|public
+name|Boolean
+name|getUseContinuation
+parameter_list|()
+block|{
+return|return
+name|useContinuation
+return|;
+block|}
+DECL|method|setUseContinuation (Boolean useContinuation)
+specifier|public
+name|void
+name|setUseContinuation
+parameter_list|(
+name|Boolean
+name|useContinuation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useContinuation
+operator|=
+name|useContinuation
+expr_stmt|;
+block|}
+DECL|method|getUseGlobalSslContextParameters ()
+specifier|public
+name|Boolean
+name|getUseGlobalSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|useGlobalSslContextParameters
+return|;
+block|}
+DECL|method|setUseGlobalSslContextParameters ( Boolean useGlobalSslContextParameters)
+specifier|public
+name|void
+name|setUseGlobalSslContextParameters
+parameter_list|(
+name|Boolean
+name|useGlobalSslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGlobalSslContextParameters
+operator|=
+name|useGlobalSslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getUseXForwardedForHeader ()
+specifier|public
+name|Boolean
+name|getUseXForwardedForHeader
+parameter_list|()
+block|{
+return|return
+name|useXForwardedForHeader
+return|;
+block|}
+DECL|method|setUseXForwardedForHeader (Boolean useXForwardedForHeader)
+specifier|public
+name|void
+name|setUseXForwardedForHeader
+parameter_list|(
+name|Boolean
+name|useXForwardedForHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useXForwardedForHeader
+operator|=
+name|useXForwardedForHeader
 expr_stmt|;
 block|}
 DECL|method|getAllowJavaSerializedObject ()
