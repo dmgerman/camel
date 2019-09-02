@@ -188,7 +188,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 import|;
 end_import
 
@@ -244,7 +244,7 @@ parameter_list|,
 name|T
 parameter_list|>
 extends|extends
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 implements|implements
 name|PropertyNamesInterceptor
 implements|,
