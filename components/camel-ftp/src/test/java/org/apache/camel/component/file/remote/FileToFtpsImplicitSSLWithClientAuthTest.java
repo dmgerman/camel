@@ -84,7 +84,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp2/camel?password=admin&consumer.initialDelay=2000&disableSecureDataChannelDefaults=true"
+literal|"/tmp2/camel?password=admin&initialDelay=2000&disableSecureDataChannelDefaults=true"
 operator|+
 literal|"&securityProtocol=SSLv3&implicit=true&ftpClient.keyStore.file=./src/test/resources/server.jks&ftpClient.keyStore.type=JKS"
 operator|+

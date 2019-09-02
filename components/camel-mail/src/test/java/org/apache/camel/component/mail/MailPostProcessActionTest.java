@@ -512,7 +512,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://bill@localhost?password=secret&postProcessAction=#postProcessAction&consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://bill@localhost?password=secret&postProcessAction=#postProcessAction&initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|to

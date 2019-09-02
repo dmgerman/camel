@@ -148,7 +148,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true&consumer.delay=100&consumer.initialDelay=0"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&delay=100&initialDelay=0"
 argument_list|)
 operator|.
 name|to

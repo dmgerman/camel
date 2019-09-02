@@ -168,7 +168,7 @@ argument_list|()
 operator|.
 name|port
 operator|+
-literal|"/?splitEntries=true&sortEntries=true&consumer.delay=100&username=camel&password=camelPass"
+literal|"/?splitEntries=true&sortEntries=true&delay=100&username=camel&password=camelPass"
 argument_list|)
 operator|.
 name|to

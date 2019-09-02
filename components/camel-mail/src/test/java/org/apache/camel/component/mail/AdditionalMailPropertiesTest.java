@@ -131,7 +131,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"pop3://localhost?username=james&mail.pop3.forgettopheaders=true&consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://localhost?username=james&mail.pop3.forgettopheaders=true&initialDelay=100&delay=100"
 argument_list|,
 name|MailEndpoint
 operator|.
@@ -245,7 +245,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://james@localhost?mail.pop3.forgettopheaders=true&consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://james@localhost?mail.pop3.forgettopheaders=true&initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|to

@@ -342,7 +342,7 @@ argument_list|)
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"pop3://bill@localhost?password=secret&consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://bill@localhost?password=secret&initialDelay=100&delay=100"
 argument_list|,
 literal|0
 argument_list|)

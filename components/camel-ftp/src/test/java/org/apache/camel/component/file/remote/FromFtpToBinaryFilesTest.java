@@ -157,7 +157,7 @@ argument_list|()
 operator|+
 literal|"/incoming?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&recursive=true"
+literal|"&delay=2000&recursive=true"
 return|;
 block|}
 annotation|@
@@ -336,7 +336,7 @@ argument_list|()
 operator|+
 literal|"/incoming?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&recursive=false"
+literal|"&delay=2000&recursive=false"
 decl_stmt|;
 name|Endpoint
 name|endpoint
@@ -419,7 +419,7 @@ argument_list|()
 operator|+
 literal|"/incoming/a?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=2000&recursive=false"
+literal|"&delay=2000&recursive=false"
 expr_stmt|;
 name|endpoint
 operator|=

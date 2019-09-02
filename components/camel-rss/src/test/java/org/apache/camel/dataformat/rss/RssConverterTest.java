@@ -81,7 +81,7 @@ block|{
 comment|// START SNIPPET: ex
 name|from
 argument_list|(
-literal|"rss:file:src/test/data/rss20.xml?splitEntries=false&consumer.delay=1000"
+literal|"rss:file:src/test/data/rss20.xml?splitEntries=false&delay=1000"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -99,7 +99,7 @@ expr_stmt|;
 comment|// END SNIPPET: ex
 name|from
 argument_list|(
-literal|"rss:file:src/test/data/rss20.xml?splitEntries=false&consumer.delay=1500"
+literal|"rss:file:src/test/data/rss20.xml?splitEntries=false&delay=1500"
 argument_list|)
 operator|.
 name|convertBodyTo

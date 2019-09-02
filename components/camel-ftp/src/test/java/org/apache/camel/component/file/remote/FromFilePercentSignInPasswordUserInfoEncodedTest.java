@@ -42,7 +42,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp3/camel?consumer.initialDelay=3000"
+literal|"/tmp3/camel?initialDelay=3000"
 return|;
 block|}
 block|}

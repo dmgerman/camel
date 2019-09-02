@@ -620,7 +620,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pop3://route-test-james@localhost?consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://route-test-james@localhost?initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|to
@@ -657,7 +657,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://route-test-result@localhost?consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://route-test-result@localhost?initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|convertBodyTo

@@ -823,7 +823,7 @@ literal|"?reading.limit=10&reading.locale=en.US&reading.since="
 operator|+
 name|since
 operator|+
-literal|"&consumer.initialDelay=1000&consumer.sendEmptyMessageWhenIdle=true&"
+literal|"&initialDelay=1000&consumer.sendEmptyMessageWhenIdle=true&"
 operator|+
 name|getOauthParams
 argument_list|()
@@ -847,7 +847,7 @@ literal|"?query=cheese&reading.limit=10&reading.locale=en.US&reading.since="
 operator|+
 name|since
 operator|+
-literal|"&consumer.initialDelay=1000&"
+literal|"&initialDelay=1000&"
 operator|+
 name|getOauthParams
 argument_list|()

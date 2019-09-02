@@ -240,7 +240,7 @@ comment|// blog entries to "seda:feeds". So only when James Straham updates his 
 comment|// Camel will create an exchange for the seda:feeds.
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true&consumer.delay=1000"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&delay=1000"
 argument_list|)
 operator|.
 name|to

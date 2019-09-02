@@ -157,7 +157,7 @@ argument_list|()
 operator|+
 literal|"/tmp4/camel?password=admin&binary=true"
 operator|+
-literal|"&consumer.delay=5000&recursive=false"
+literal|"&delay=5000&recursive=false"
 return|;
 block|}
 annotation|@

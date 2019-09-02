@@ -361,7 +361,7 @@ name|from
 argument_list|(
 literal|"olingo2://read/Manufacturers?filterAlreadySeen=true&"
 operator|+
-literal|"consumer.delay=2&consumer.sendEmptyMessageWhenIdle=true&"
+literal|"delay=2&consumer.sendEmptyMessageWhenIdle=true&"
 operator|+
 literal|"consumer.splitResult=false"
 argument_list|)
@@ -532,7 +532,7 @@ name|from
 argument_list|(
 literal|"olingo2://read/Manufacturers?filterAlreadySeen=true&"
 operator|+
-literal|"consumer.delay=2&consumer.sendEmptyMessageWhenIdle=false&"
+literal|"delay=2&consumer.sendEmptyMessageWhenIdle=false&"
 operator|+
 literal|"consumer.splitResult=false"
 argument_list|)
@@ -672,7 +672,7 @@ name|from
 argument_list|(
 literal|"olingo2://read/Manufacturers('1')?filterAlreadySeen=true&"
 operator|+
-literal|"consumer.delay=2&consumer.sendEmptyMessageWhenIdle=true&"
+literal|"delay=2&consumer.sendEmptyMessageWhenIdle=true&"
 operator|+
 literal|"consumer.splitResult=true"
 argument_list|)
@@ -858,7 +858,7 @@ name|from
 argument_list|(
 literal|"olingo2://read/Manufacturers('1')?filterAlreadySeen=true&"
 operator|+
-literal|"consumer.delay=2&consumer.sendEmptyMessageWhenIdle=false&"
+literal|"delay=2&consumer.sendEmptyMessageWhenIdle=false&"
 operator|+
 literal|"consumer.splitResult=true"
 argument_list|)

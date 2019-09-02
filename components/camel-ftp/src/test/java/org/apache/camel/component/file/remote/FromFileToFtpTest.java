@@ -80,7 +80,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp2/camel?password=admin&consumer.initialDelay=3000"
+literal|"/tmp2/camel?password=admin&initialDelay=3000"
 return|;
 block|}
 annotation|@
@@ -147,7 +147,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:src/main/data?noop=true&consumer.delay=3000"
+literal|"file:src/main/data?noop=true&delay=3000"
 argument_list|)
 operator|.
 name|to

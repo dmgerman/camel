@@ -473,7 +473,7 @@ literal|"olingo4://read/"
 operator|+
 name|PEOPLE
 operator|+
-literal|"?consumer.delay=2&consumer.sendEmptyMessageWhenIdle=true&consumer.splitResult=false&filterAlreadySeen=true"
+literal|"?delay=2&consumer.sendEmptyMessageWhenIdle=true&consumer.splitResult=false&filterAlreadySeen=true"
 argument_list|)
 operator|.
 name|to
@@ -649,7 +649,7 @@ literal|"olingo4://read/"
 operator|+
 name|PEOPLE
 operator|+
-literal|"?consumer.delay=2&consumer.sendEmptyMessageWhenIdle=false&consumer.splitResult=false&filterAlreadySeen=true"
+literal|"?delay=2&consumer.sendEmptyMessageWhenIdle=false&consumer.splitResult=false&filterAlreadySeen=true"
 argument_list|)
 operator|.
 name|to
@@ -793,7 +793,7 @@ literal|"('KSFO')"
 operator|+
 literal|"?filterAlreadySeen=true&"
 operator|+
-literal|"consumer.delay=2&consumer.sendEmptyMessageWhenIdle=true&"
+literal|"delay=2&consumer.sendEmptyMessageWhenIdle=true&"
 operator|+
 literal|"consumer.splitResult=true"
 argument_list|)
@@ -985,7 +985,7 @@ literal|"('KSFO')"
 operator|+
 literal|"?filterAlreadySeen=true&"
 operator|+
-literal|"consumer.delay=2&consumer.sendEmptyMessageWhenIdle=false&"
+literal|"delay=2&consumer.sendEmptyMessageWhenIdle=false&"
 operator|+
 literal|"consumer.splitResult=true"
 argument_list|)

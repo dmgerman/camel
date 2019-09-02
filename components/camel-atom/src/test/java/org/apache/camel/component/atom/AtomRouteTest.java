@@ -313,7 +313,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?consumer.delay=500"
+literal|"atom:file:src/test/data/feed.atom?delay=500"
 argument_list|)
 operator|.
 name|to

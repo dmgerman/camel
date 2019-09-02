@@ -920,7 +920,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://jonesRawPop3@localhost?password=secret&consumer.initialDelay=100&consumer.delay=100&delete=true&mapMailMessage=false"
+literal|"pop3://jonesRawPop3@localhost?password=secret&initialDelay=100&delay=100&delete=true&mapMailMessage=false"
 argument_list|)
 operator|.
 name|to
@@ -930,7 +930,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"imap://jonesRawImap@localhost?password=secret&consumer.initialDelay=100&consumer.delay=100&delete=true&mapMailMessage=false"
+literal|"imap://jonesRawImap@localhost?password=secret&initialDelay=100&delay=100&delete=true&mapMailMessage=false"
 argument_list|)
 operator|.
 name|to
@@ -940,7 +940,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://jonesPop3@localhost?password=secret&consumer.initialDelay=100&consumer.delay=100&delete=true"
+literal|"pop3://jonesPop3@localhost?password=secret&initialDelay=100&delay=100&delete=true"
 argument_list|)
 operator|.
 name|to
@@ -950,7 +950,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"imap://jonesImap@localhost?password=secret&consumer.initialDelay=100&consumer.delay=100&delete=true"
+literal|"imap://jonesImap@localhost?password=secret&initialDelay=100&delay=100&delete=true"
 argument_list|)
 operator|.
 name|to

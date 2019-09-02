@@ -147,7 +147,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp2/camel?password=admin&consumer.initialDelay=2000&ftpClient=#ftpsClient"
+literal|"/tmp2/camel?password=admin&initialDelay=2000&ftpClient=#ftpsClient"
 operator|+
 operator|(
 name|in

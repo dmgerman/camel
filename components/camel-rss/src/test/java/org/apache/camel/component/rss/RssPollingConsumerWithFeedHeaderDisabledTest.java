@@ -199,7 +199,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"rss:file:src/test/data/rss20.xml?splitEntries=false&consumer.delay=500&feedHeader=false"
+literal|"rss:file:src/test/data/rss20.xml?splitEntries=false&delay=500&feedHeader=false"
 argument_list|)
 operator|.
 name|to

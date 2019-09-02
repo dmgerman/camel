@@ -256,7 +256,7 @@ expr_stmt|;
 comment|// END SNIPPET: e1
 name|from
 argument_list|(
-literal|"pop3://localhost?username=james2&password=secret&consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://localhost?username=james2&password=secret&initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|to

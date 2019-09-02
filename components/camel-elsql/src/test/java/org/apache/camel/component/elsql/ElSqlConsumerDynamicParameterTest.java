@@ -505,7 +505,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"elsql:projectsByIdBean:elsql/projects.elsql?dataSource=#dataSource&consumer.initialDelay=0&consumer.delay=50"
+literal|"elsql:projectsByIdBean:elsql/projects.elsql?dataSource=#dataSource&initialDelay=0&delay=50"
 argument_list|)
 operator|.
 name|routeId

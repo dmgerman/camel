@@ -211,7 +211,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:src/test/resources/org/apache/camel/dataformat/tarfile/data/?consumer.delay=1000&noop=true"
+literal|"file:src/test/resources/org/apache/camel/dataformat/tarfile/data/?delay=1000&noop=true"
 argument_list|)
 operator|.
 name|unmarshal

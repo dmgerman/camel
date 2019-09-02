@@ -64,7 +64,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"rss:file:src/test/data/rss20.xml?splitEntries=true&sortEntries=true&consumer.delay=50"
+literal|"rss:file:src/test/data/rss20.xml?splitEntries=true&sortEntries=true&delay=50"
 argument_list|)
 operator|.
 name|to
@@ -75,7 +75,7 @@ expr_stmt|;
 comment|// should NOT sort by default
 name|from
 argument_list|(
-literal|"rss:file:src/test/data/rss20.xml?splitEntries=true&consumer.delay=50"
+literal|"rss:file:src/test/data/rss20.xml?splitEntries=true&delay=50"
 argument_list|)
 operator|.
 name|to

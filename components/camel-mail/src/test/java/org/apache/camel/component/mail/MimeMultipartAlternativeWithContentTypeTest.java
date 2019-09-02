@@ -488,7 +488,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://sachin@mymailserver.com?password=secret&consumer.initialDelay=100&consumer.delay=100&contentType=text/html; charset=UTF-8"
+literal|"pop3://sachin@mymailserver.com?password=secret&initialDelay=100&delay=100&contentType=text/html; charset=UTF-8"
 argument_list|)
 operator|.
 name|to

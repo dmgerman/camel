@@ -178,7 +178,7 @@ argument_list|()
 operator|+
 literal|"/slowfile?password=admin"
 operator|+
-literal|"&readLock=none&consumer.delay=500"
+literal|"&readLock=none&delay=500"
 return|;
 block|}
 annotation|@

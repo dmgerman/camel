@@ -468,7 +468,7 @@ block|{
 comment|// Unzip file and Split it according to FileEntry
 name|from
 argument_list|(
-literal|"file:src/test/resources/org/apache/camel/aggregate/zipfile/data?consumer.delay=1000&noop=true&recursive=true"
+literal|"file:src/test/resources/org/apache/camel/aggregate/zipfile/data?delay=1000&noop=true&recursive=true"
 argument_list|)
 operator|.
 name|aggregate

@@ -543,7 +543,7 @@ name|from
 argument_list|(
 literal|"sql:select * from projects where license<> 'BAD' order by id"
 operator|+
-literal|"?consumer.initialDelay=0&consumer.delay=50"
+literal|"?initialDelay=0&delay=50"
 operator|+
 literal|"&consumer.onConsume=delete from projects where id = :#id"
 operator|+

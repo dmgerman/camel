@@ -541,7 +541,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sql:select * from projects where id = :#${bean:myIdGenerator.nextId}?consumer.initialDelay=0&consumer.delay=50"
+literal|"sql:select * from projects where id = :#${bean:myIdGenerator.nextId}?initialDelay=0&delay=50"
 argument_list|)
 operator|.
 name|routeId

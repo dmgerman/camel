@@ -95,7 +95,7 @@ argument_list|()
 operator|.
 name|port
 operator|+
-literal|"/?splitEntries=true&consumer.delay=500&username=camel&password=camelPass"
+literal|"/?splitEntries=true&delay=500&username=camel&password=camelPass"
 argument_list|)
 operator|.
 name|to
@@ -114,7 +114,7 @@ argument_list|()
 operator|.
 name|port
 operator|+
-literal|"/?splitEntries=true&filter=false&consumer.delay=500&username=camel&password=camelPass"
+literal|"/?splitEntries=true&filter=false&delay=500&username=camel&password=camelPass"
 argument_list|)
 operator|.
 name|to
@@ -133,7 +133,7 @@ argument_list|()
 operator|.
 name|port
 operator|+
-literal|"/?splitEntries=true&filter=true&lastUpdate=#myDate&consumer.delay=500&username=camel&password=camelPass"
+literal|"/?splitEntries=true&filter=true&lastUpdate=#myDate&delay=500&username=camel&password=camelPass"
 argument_list|)
 operator|.
 name|to

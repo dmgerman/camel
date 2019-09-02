@@ -582,7 +582,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://james@mymailserver.com?password=secret&consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://james@mymailserver.com?password=secret&initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|process

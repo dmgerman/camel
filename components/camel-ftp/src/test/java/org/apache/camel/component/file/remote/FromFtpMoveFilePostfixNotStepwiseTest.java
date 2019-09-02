@@ -48,7 +48,7 @@ argument_list|()
 operator|+
 literal|"/movefile?password=admin&binary=false"
 operator|+
-literal|"&move=${file:name}.old&consumer.delay=5000&stepwise=false"
+literal|"&move=${file:name}.old&delay=5000&stepwise=false"
 return|;
 block|}
 block|}

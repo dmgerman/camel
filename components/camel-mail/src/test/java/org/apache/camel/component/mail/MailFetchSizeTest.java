@@ -510,7 +510,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret&fetchSize=2&consumer.delay=2000"
+literal|"pop3://jones@localhost?password=secret&fetchSize=2&delay=2000"
 operator|+
 literal|"&delete=true"
 argument_list|)

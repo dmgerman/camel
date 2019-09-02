@@ -137,7 +137,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"rss:file:src/test/data/rss20.xml?splitEntries=true&sortEntries=true&consumer.delay=100"
+literal|"rss:file:src/test/data/rss20.xml?splitEntries=true&sortEntries=true&delay=100"
 argument_list|)
 operator|.
 name|to

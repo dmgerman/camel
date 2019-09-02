@@ -84,7 +84,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/slowfile?password=admin&binary=false&readLock=rename&consumer.delay=2000"
+literal|"/slowfile?password=admin&binary=false&readLock=rename&delay=2000"
 return|;
 block|}
 annotation|@

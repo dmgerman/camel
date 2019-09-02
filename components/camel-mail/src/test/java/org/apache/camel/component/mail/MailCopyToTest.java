@@ -415,7 +415,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"imap://jones@localhost?password=secret&copyTo=backup&consumer.initialDelay=100&consumer.delay=100"
+literal|"imap://jones@localhost?password=secret&copyTo=backup&initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|to

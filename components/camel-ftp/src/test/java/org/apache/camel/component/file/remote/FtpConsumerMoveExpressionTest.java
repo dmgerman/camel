@@ -150,7 +150,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/filelanguage?password=admin&consumer.delay=5000"
+literal|"/filelanguage?password=admin&delay=5000"
 return|;
 block|}
 annotation|@

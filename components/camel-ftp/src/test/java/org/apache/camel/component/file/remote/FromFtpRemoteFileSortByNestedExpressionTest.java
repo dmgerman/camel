@@ -94,7 +94,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/sortbynested?password=admin&consumer.delay=5000"
+literal|"/sortbynested?password=admin&delay=5000"
 return|;
 block|}
 annotation|@

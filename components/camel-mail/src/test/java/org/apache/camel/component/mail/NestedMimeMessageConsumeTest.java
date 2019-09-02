@@ -598,7 +598,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"pop3://james3@localhost?consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://james3@localhost?initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|removeHeader
@@ -613,7 +613,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://james4@localhost?consumer.initialDelay=200&consumer.delay=100"
+literal|"pop3://james4@localhost?initialDelay=200&delay=100"
 argument_list|)
 operator|.
 name|convertBodyTo

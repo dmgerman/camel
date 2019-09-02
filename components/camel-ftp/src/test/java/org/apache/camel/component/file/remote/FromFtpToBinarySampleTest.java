@@ -121,7 +121,7 @@ comment|// the delay parameter is from the FileConsumer component so we should u
 comment|// the URI parameter name. The FTP Component is an extension of the File Component.
 name|from
 argument_list|(
-literal|"ftp://tiger:scott@localhost/public/reports?binary=true&consumer.delay="
+literal|"ftp://tiger:scott@localhost/public/reports?binary=true&delay="
 operator|+
 name|delay
 argument_list|)

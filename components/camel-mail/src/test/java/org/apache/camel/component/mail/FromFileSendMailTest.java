@@ -274,7 +274,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/mailtext?consumer.initialDelay=100&consumer.delay=100"
+literal|"file://target/mailtext?initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|setHeader
@@ -309,7 +309,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://localhost?password=secret&username=claus&consumer.initialDelay=100&consumer.delay=100"
+literal|"smtp://localhost?password=secret&username=claus&initialDelay=100&delay=100"
 argument_list|,
 literal|"mock:result"
 argument_list|)

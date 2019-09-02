@@ -46,7 +46,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/movefile?password=admin&binary=false&consumer.delay=5000"
+literal|"/movefile?password=admin&binary=false&delay=5000"
 operator|+
 literal|"&preMove=done/${file:name}&stepwise=false"
 return|;

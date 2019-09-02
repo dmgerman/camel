@@ -106,7 +106,7 @@ argument_list|()
 operator|+
 literal|"/deletenoperm?password=foo"
 operator|+
-literal|"&delete=true&consumer.delay=5000"
+literal|"&delete=true&delay=5000"
 return|;
 block|}
 annotation|@

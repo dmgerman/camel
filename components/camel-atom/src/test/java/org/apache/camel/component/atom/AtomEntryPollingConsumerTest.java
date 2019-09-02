@@ -264,7 +264,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true&consumer.delay=500"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&delay=500"
 argument_list|)
 operator|.
 name|to
@@ -274,7 +274,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=false&consumer.delay=500"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=false&delay=500"
 argument_list|)
 operator|.
 name|to
@@ -284,7 +284,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=true&lastUpdate=#myDate&consumer.delay=500"
+literal|"atom:file:src/test/data/feed.atom?splitEntries=true&filter=true&lastUpdate=#myDate&delay=500"
 argument_list|)
 operator|.
 name|to

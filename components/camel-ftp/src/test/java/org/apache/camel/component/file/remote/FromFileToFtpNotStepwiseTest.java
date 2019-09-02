@@ -42,7 +42,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp2/camel?password=admin&consumer.initialDelay=3000&stepwise=false"
+literal|"/tmp2/camel?password=admin&initialDelay=3000&stepwise=false"
 return|;
 block|}
 block|}

@@ -275,7 +275,7 @@ literal|"&password="
 operator|+
 name|password
 operator|+
-literal|"&delete=false&unseen=true&fetchSize=1&consumer.useFixedDelay=true&consumer.initialDelay=100&consumer.delay=100"
+literal|"&delete=false&unseen=true&fetchSize=1&consumer.useFixedDelay=true&initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|to

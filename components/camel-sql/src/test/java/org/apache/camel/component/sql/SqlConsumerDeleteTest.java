@@ -605,7 +605,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sql:select * from projects order by id?consumer.initialDelay=0&consumer.delay=50&consumer.onConsume=delete from projects where id = :#id"
+literal|"sql:select * from projects order by id?initialDelay=0&delay=50&consumer.onConsume=delete from projects where id = :#id"
 argument_list|)
 operator|.
 name|to

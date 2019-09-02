@@ -121,7 +121,7 @@ argument_list|()
 operator|+
 literal|"/unknown/?password=admin"
 operator|+
-literal|"&maximumReconnectAttempts=0&autoCreate=false&throwExceptionOnConnectFailed=true&consumer.bridgeErrorHandler=true"
+literal|"&maximumReconnectAttempts=0&autoCreate=false&throwExceptionOnConnectFailed=true&bridgeErrorHandler=true"
 decl_stmt|;
 annotation|@
 name|Test

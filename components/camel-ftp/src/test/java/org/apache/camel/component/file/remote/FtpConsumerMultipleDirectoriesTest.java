@@ -118,7 +118,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/multidir/?password=admin&recursive=true&consumer.delay=5000&sortBy=file:path"
+literal|"/multidir/?password=admin&recursive=true&delay=5000&sortBy=file:path"
 return|;
 block|}
 annotation|@

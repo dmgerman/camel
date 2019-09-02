@@ -532,7 +532,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sql:select * from projects where license = 'ASF' order by id?alwaysPopulateStatement=true&prepareStatementStrategy=#myStrategy&consumer.initialDelay=0&consumer.delay=50"
+literal|"sql:select * from projects where license = 'ASF' order by id?alwaysPopulateStatement=true&prepareStatementStrategy=#myStrategy&initialDelay=0&delay=50"
 argument_list|)
 operator|.
 name|to

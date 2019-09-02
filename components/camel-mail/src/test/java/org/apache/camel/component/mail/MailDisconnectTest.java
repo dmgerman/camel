@@ -226,7 +226,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://jones@localhost?password=secret&disconnect=true&consumer.initialDelay=100&consumer.delay=100"
+literal|"pop3://jones@localhost?password=secret&disconnect=true&initialDelay=100&delay=100"
 argument_list|)
 operator|.
 name|to

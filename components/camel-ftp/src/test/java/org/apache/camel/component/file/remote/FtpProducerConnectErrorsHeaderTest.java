@@ -80,7 +80,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp4/camel?password=xxx&consumer.delay=5000"
+literal|"/tmp4/camel?password=xxx&delay=5000"
 return|;
 block|}
 annotation|@

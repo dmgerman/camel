@@ -297,7 +297,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/unsortedfeed.atom?splitEntries=true&sortEntries=true&consumer.delay=50"
+literal|"atom:file:src/test/data/unsortedfeed.atom?splitEntries=true&sortEntries=true&delay=50"
 argument_list|)
 operator|.
 name|to
@@ -307,7 +307,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/unsortedfeed.atom?splitEntries=true&sortEntries=false&consumer.delay=50"
+literal|"atom:file:src/test/data/unsortedfeed.atom?splitEntries=true&sortEntries=false&delay=50"
 argument_list|)
 operator|.
 name|to

@@ -152,7 +152,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/movefile?password=admin&binary=false&consumer.delay=5000"
+literal|"/movefile?password=admin&binary=false&delay=5000"
 operator|+
 literal|"&preMove=../inprogress/${file:name.noext}.bak"
 return|;

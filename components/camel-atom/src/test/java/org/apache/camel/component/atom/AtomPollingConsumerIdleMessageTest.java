@@ -188,7 +188,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atom:file:src/test/data/empty-feed.atom?splitEntries=true&consumer.delay=50&consumer.initialDelay=0"
+literal|"atom:file:src/test/data/empty-feed.atom?splitEntries=true&delay=50&initialDelay=0"
 operator|+
 literal|"&feedHeader=false&sendEmptyMessageWhenIdle=true"
 argument_list|)

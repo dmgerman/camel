@@ -167,7 +167,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"rss:http://www.iafrica.com/pls/cms/grapevine.xml?consumer.initialDelay=2000"
+literal|"rss:http://www.iafrica.com/pls/cms/grapevine.xml?initialDelay=2000"
 argument_list|)
 operator|.
 name|to
@@ -177,7 +177,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"rss:http://www.iafrica.com/pls/cms/grapevine.xml?p_section=world_news&consumer.initialDelay=3000"
+literal|"rss:http://www.iafrica.com/pls/cms/grapevine.xml?p_section=world_news&initialDelay=3000"
 argument_list|)
 operator|.
 name|to
