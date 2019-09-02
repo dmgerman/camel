@@ -66,7 +66,7 @@ begin_enum
 annotation|@
 name|Converter
 argument_list|(
-name|loader
+name|generateLoader
 operator|=
 literal|true
 argument_list|)

@@ -212,7 +212,7 @@ name|consumerTemplateCacheSize
 init|=
 literal|1000
 decl_stmt|;
-comment|/**      * Whether to load custom type converters by scanning classpath.      * This is used for backwards compatibility with Camel 2.x.      * Its recommended to migrate to use fast type converter loading      * by setting<tt>@Converter(loader = true)</tt> on your custom      * type converter classes.      */
+comment|/**      * Whether to load custom type converters by scanning classpath.      * This is used for backwards compatibility with Camel 2.x.      * Its recommended to migrate to use fast type converter loading      * by setting<tt>@Converter(generateLoader = true)</tt> on your custom      * type converter classes.      */
 DECL|field|loadTypeConverters
 specifier|private
 name|boolean

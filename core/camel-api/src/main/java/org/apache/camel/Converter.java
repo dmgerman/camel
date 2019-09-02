@@ -143,10 +143,10 @@ default|default
 literal|false
 function_decl|;
 comment|/**      * Whether to let the Camel compiler plugin to generate java source code      * for fast loading of the type converters.      *<p/>      * Important this configuration must be set on the class-level, not on the method.      */
-DECL|method|loader ()
+DECL|method|generateLoader ()
 DECL|field|false
 name|boolean
-name|loader
+name|generateLoader
 parameter_list|()
 default|default
 literal|false

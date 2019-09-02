@@ -105,7 +105,7 @@ return|return
 operator|!
 name|conv
 operator|.
-name|loader
+name|generateLoader
 argument_list|()
 return|;
 block|}
