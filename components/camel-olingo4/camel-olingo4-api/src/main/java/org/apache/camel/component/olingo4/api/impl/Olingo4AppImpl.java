@@ -320,6 +320,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -2022,7 +2036,15 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{      }
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|client
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|read (final Edm edm, final String resourcePath, final Map<String, String> queryParams, final Map<String, String> endpointHttpHeaders, final Olingo4ResponseHandler<T> responseHandler)
