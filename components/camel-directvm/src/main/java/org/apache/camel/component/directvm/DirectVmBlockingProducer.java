@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The direct producer.  *<p/>  * If blocking is enabled ({@code DirectEndpoint#isBlock}) then the DirectEndpoint will create an instance  * of this class instead of {@code DirectProducer}.  * This producers {@code process} method will block for the configured duration ({@code DirectEndpoint#getTimeout},  * default to 30 seconds). After which if a consumer is still unavailable a DirectConsumerNotAvailableException  * will be thrown.  *<p/>  * Implementation note: Concurrent Producers will block for the duration it takes to determine if a  * consumer is available, but actual consumer execution will happen concurrently.  */
+comment|/**  * The direct producer.  *<p/>  * If blocking is enabled ({@code DirectEndpoint#isBlock}) then the  * DirectEndpoint will create an instance of this class instead of  * {@code DirectProducer}. This producers {@code process} method will block for  * the configured duration ({@code DirectEndpoint#getTimeout}, default to 30  * seconds). After which if a consumer is still unavailable a  * DirectConsumerNotAvailableException will be thrown.  *<p/>  * Implementation note: Concurrent Producers will block for the duration it  * takes to determine if a consumer is available, but actual consumer execution  * will happen concurrently.  */
 end_comment
 
 begin_class
@@ -220,6 +220,28 @@ literal|null
 condition|)
 block|{
 comment|// okay then await until we have a consumer or we timed out
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isFailIfNoConsumers
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|DirectVmConsumerNotAvailableException
+argument_list|(
+literal|"No consumers available on endpoint: "
+operator|+
+name|endpoint
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 name|answer
 operator|=
 name|awaitConsumer
@@ -243,6 +265,7 @@ argument_list|,
 name|exchange
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 return|return
