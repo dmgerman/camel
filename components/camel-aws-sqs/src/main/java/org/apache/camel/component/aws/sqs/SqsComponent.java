@@ -535,10 +535,10 @@ argument_list|,
 name|configuration
 argument_list|)
 decl_stmt|;
-name|sqsEndpoint
-operator|.
-name|setConsumerProperties
+name|setProperties
 argument_list|(
+name|sqsEndpoint
+argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;

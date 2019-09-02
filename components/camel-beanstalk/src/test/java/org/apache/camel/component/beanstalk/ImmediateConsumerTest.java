@@ -569,7 +569,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"beanstalk:tube?consumer.awaitJob=false"
+literal|"beanstalk:tube?awaitJob=false"
 argument_list|)
 operator|.
 name|process

@@ -983,7 +983,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"beanstalk:tube?consumer.onFailure=release"
+literal|"beanstalk:tube?onFailure=release"
 argument_list|)
 operator|.
 name|routeId
