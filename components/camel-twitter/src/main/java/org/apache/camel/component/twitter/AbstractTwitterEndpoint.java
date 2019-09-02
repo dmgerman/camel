@@ -121,10 +121,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|optionalPrefix
-operator|=
-literal|"consumer."
-argument_list|,
 name|defaultValue
 operator|=
 literal|""

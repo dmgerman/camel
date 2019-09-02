@@ -812,7 +812,7 @@ name|name
 argument_list|)
 condition|)
 block|{
-comment|// consumer.sendEmptyMessageWhenIdle is true since user may not have some items like events
+comment|// sendEmptyMessageWhenIdle is true since user may not have some items like events
 name|from
 argument_list|(
 literal|"facebook://"
@@ -823,7 +823,7 @@ literal|"?reading.limit=10&reading.locale=en.US&reading.since="
 operator|+
 name|since
 operator|+
-literal|"&initialDelay=1000&consumer.sendEmptyMessageWhenIdle=true&"
+literal|"&initialDelay=1000&sendEmptyMessageWhenIdle=true&"
 operator|+
 name|getOauthParams
 argument_list|()

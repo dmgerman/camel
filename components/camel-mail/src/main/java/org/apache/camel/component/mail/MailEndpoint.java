@@ -230,10 +230,6 @@ block|{
 annotation|@
 name|UriParam
 argument_list|(
-name|optionalPrefix
-operator|=
-literal|"consumer."
-argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -472,7 +468,7 @@ operator|=
 name|configuration
 expr_stmt|;
 comment|// ScheduledPollConsumer default delay is 500 millis and that is too often for polling a mailbox,
-comment|// so we override with a new default value. End user can override this value by providing a consumer.delay parameter
+comment|// so we override with a new default value. End user can override this value by providing a delay parameter
 name|setDelay
 argument_list|(
 name|MailConsumer

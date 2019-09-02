@@ -361,7 +361,7 @@ name|from
 argument_list|(
 literal|"olingo2://read/Manufacturers?filterAlreadySeen=true&"
 operator|+
-literal|"delay=2&consumer.sendEmptyMessageWhenIdle=true&"
+literal|"delay=2&sendEmptyMessageWhenIdle=true&"
 operator|+
 literal|"consumer.splitResult=false"
 argument_list|)
@@ -472,7 +472,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * consumer.splitResults is set to false since this ensures the first      * returned message contains all the results. -      * consumer.sendEmptyMessageWhenIdle is set to false so only 1 message      * should even be returned.      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * consumer.splitResults is set to false since this ensures the first      * returned message contains all the results. -      * sendEmptyMessageWhenIdle is set to false so only 1 message      * should even be returned.      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeenNoEmptyMsgs ()
@@ -532,7 +532,7 @@ name|from
 argument_list|(
 literal|"olingo2://read/Manufacturers?filterAlreadySeen=true&"
 operator|+
-literal|"delay=2&consumer.sendEmptyMessageWhenIdle=false&"
+literal|"delay=2&sendEmptyMessageWhenIdle=false&"
 operator|+
 literal|"consumer.splitResult=false"
 argument_list|)
@@ -625,7 +625,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * WithPredicate in address FilterAlreadySeen: true SplitResults: true      * consumer.sendEmptyMessageWhenIdle: true      *      * @throws Exception      */
+comment|/**      * WithPredicate in address FilterAlreadySeen: true SplitResults: true      * sendEmptyMessageWhenIdle: true      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeenWithPredicate1 ()
@@ -672,7 +672,7 @@ name|from
 argument_list|(
 literal|"olingo2://read/Manufacturers('1')?filterAlreadySeen=true&"
 operator|+
-literal|"delay=2&consumer.sendEmptyMessageWhenIdle=true&"
+literal|"delay=2&sendEmptyMessageWhenIdle=true&"
 operator|+
 literal|"consumer.splitResult=true"
 argument_list|)
@@ -798,7 +798,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * WithPredicate in address FilterAlreadySeen: true SplitResults: true      * consumer.sendEmptyMessageWhenIdle: false      *      * @throws Exception      */
+comment|/**      * WithPredicate in address FilterAlreadySeen: true SplitResults: true      * sendEmptyMessageWhenIdle: false      *      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeenWithPredicate2 ()
@@ -858,7 +858,7 @@ name|from
 argument_list|(
 literal|"olingo2://read/Manufacturers('1')?filterAlreadySeen=true&"
 operator|+
-literal|"delay=2&consumer.sendEmptyMessageWhenIdle=false&"
+literal|"delay=2&sendEmptyMessageWhenIdle=false&"
 operator|+
 literal|"consumer.splitResult=true"
 argument_list|)
