@@ -389,6 +389,14 @@ name|filterAlreadySeen
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * For endpoints that return an array or collection, a consumer endpoint          * will map every element to distinct messages, unless splitResult is          * set to false.          */
+DECL|field|splitResult
+specifier|private
+name|Boolean
+name|splitResult
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|Olingo4ApiName
@@ -699,6 +707,32 @@ operator|.
 name|filterAlreadySeen
 operator|=
 name|filterAlreadySeen
+expr_stmt|;
+block|}
+DECL|method|getSplitResult ()
+specifier|public
+name|Boolean
+name|getSplitResult
+parameter_list|()
+block|{
+return|return
+name|splitResult
+return|;
+block|}
+DECL|method|setSplitResult (Boolean splitResult)
+specifier|public
+name|void
+name|setSplitResult
+parameter_list|(
+name|Boolean
+name|splitResult
+parameter_list|)
+block|{
+name|this
+operator|.
+name|splitResult
+operator|=
+name|splitResult
 expr_stmt|;
 block|}
 block|}

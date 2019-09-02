@@ -372,9 +372,9 @@ name|from
 argument_list|(
 literal|"jpa:org.apache.camel.example.spring.boot.rest.jpa.Order"
 operator|+
-literal|"?consumer.namedQuery=new-orders"
+literal|"?namedQuery=new-orders"
 operator|+
-literal|"&consumer.delay={{example.processOrderPeriod:5s}}"
+literal|"&delay={{example.processOrderPeriod:5s}}"
 operator|+
 literal|"&consumeDelete=false"
 argument_list|)
