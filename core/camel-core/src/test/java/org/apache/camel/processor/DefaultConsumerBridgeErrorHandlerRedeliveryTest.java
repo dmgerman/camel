@@ -296,7 +296,7 @@ comment|// so the above error handler will trigger if exceptions also
 comment|// occurs inside the consumer
 name|from
 argument_list|(
-literal|"my:foo?consumer.bridgeErrorHandler=true"
+literal|"my:foo?bridgeErrorHandler=true"
 argument_list|)
 operator|.
 name|to

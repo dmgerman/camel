@@ -1317,24 +1317,6 @@ name|isSuccess
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// optional consumer. prefix
-name|result
-operator|=
-name|catalog
-operator|.
-name|validateEndpointProperties
-argument_list|(
-literal|"file:inbox?consumer.delay=5000&consumer.greedy=true"
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|.
-name|isSuccess
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// optional without consumer. prefix
 name|result
 operator|=
@@ -1343,24 +1325,6 @@ operator|.
 name|validateEndpointProperties
 argument_list|(
 literal|"file:inbox?delay=5000&greedy=true"
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|.
-name|isSuccess
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// mixed optional without consumer. prefix
-name|result
-operator|=
-name|catalog
-operator|.
-name|validateEndpointProperties
-argument_list|(
-literal|"file:inbox?delay=5000&consumer.greedy=true"
 argument_list|)
 expr_stmt|;
 name|assertTrue

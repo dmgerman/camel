@@ -350,7 +350,7 @@ comment|// let Camel's error handler decide what to do
 operator|.
 name|pollEnrich
 argument_list|(
-literal|"file:target/data/foo?initialDelay=0&delay=10&pollStrategy=#myPoll&consumer.bridgeErrorHandler=true"
+literal|"file:target/data/foo?initialDelay=0&delay=10&pollStrategy=#myPoll&bridgeErrorHandler=true"
 argument_list|,
 literal|10000
 argument_list|,

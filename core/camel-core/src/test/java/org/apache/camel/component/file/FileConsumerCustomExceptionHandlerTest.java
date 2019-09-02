@@ -389,7 +389,7 @@ comment|// the exclusiveReadLockStrategy is only configured because this
 comment|// is from an unit test, so we use that to simulate exceptions
 name|from
 argument_list|(
-literal|"file:target/data/nospace?exclusiveReadLockStrategy=#myReadLockStrategy&consumer.exceptionHandler=#myExceptionHandler&initialDelay=0&delay=10"
+literal|"file:target/data/nospace?exclusiveReadLockStrategy=#myReadLockStrategy&exceptionHandler=#myExceptionHandler&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|convertBodyTo

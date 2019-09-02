@@ -326,7 +326,7 @@ name|endpoint
 init|=
 name|resolveMandatoryEndpoint
 argument_list|(
-literal|"file:///C:/camel/temp?delay=10&useFixedDelay=true&initialDelay=10&consumer.bridgeErrorHandler=true"
+literal|"file:///C:/camel/temp?delay=10&useFixedDelay=true&initialDelay=10&bridgeErrorHandler=true"
 operator|+
 literal|"&autoCreate=false&startingDirectoryMustExist=true&directoryMustExist=true&readLock=changed"
 argument_list|,
@@ -360,7 +360,7 @@ name|resolveMandatoryEndpoint
 argument_list|(
 literal|"file:///C:/camel/temp?delay=10&useFixedDelay=true&initialDelay=10&startingDirectoryMustExist=true"
 operator|+
-literal|"&consumer.bridgeErrorHandler=true&autoCreate=false&directoryMustExist=true&readLock=changed"
+literal|"&bridgeErrorHandler=true&autoCreate=false&directoryMustExist=true&readLock=changed"
 argument_list|,
 name|FileEndpoint
 operator|.
@@ -392,7 +392,7 @@ name|resolveMandatoryEndpoint
 argument_list|(
 literal|"file:///C:/camel/temp?delay=10&startingDirectoryMustExist=true&useFixedDelay=true&initialDelay=10"
 operator|+
-literal|"&consumer.bridgeErrorHandler=true&autoCreate=false&directoryMustExist=true&readLock=changed"
+literal|"&bridgeErrorHandler=true&autoCreate=false&directoryMustExist=true&readLock=changed"
 argument_list|,
 name|FileEndpoint
 operator|.

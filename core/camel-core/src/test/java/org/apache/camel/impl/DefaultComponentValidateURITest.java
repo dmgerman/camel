@@ -214,9 +214,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// test that we support both notations of scheduled polling consumer
-comment|// options
-comment|// with consumer. prefix
+comment|// test that we support both notations of scheduled polling consumer options
 name|Endpoint
 name|endpint
 init|=
@@ -224,52 +222,9 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"file://target/data/foo?consumer.delay=1000"
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|endpint
-argument_list|)
-expr_stmt|;
-name|endpint
-operator|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"file://target/data/foo?consumer.delay=1000&consumer.initialDelay=5000"
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|endpint
-argument_list|)
-expr_stmt|;
-name|endpint
-operator|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"file://target/data/foo?consumer.delay=1000&consumer.initialDelay=5000&consumer.useFixedDelay=false"
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|endpint
-argument_list|)
-expr_stmt|;
-comment|// without consumer. prefix
-name|endpint
-operator|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
 literal|"file://foo2?delay=1000"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertNotNull
 argument_list|(
 name|endpint
@@ -296,21 +251,6 @@ operator|.
 name|getEndpoint
 argument_list|(
 literal|"file://foo2?delay=1000&initialDelay=5000&useFixedDelay=false"
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|endpint
-argument_list|)
-expr_stmt|;
-comment|// combined with and without consumer. prefix
-name|endpint
-operator|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"file://foo3?delay=1000&consumer.initialDelay=5000&useFixedDelay=false"
 argument_list|)
 expr_stmt|;
 name|assertNotNull

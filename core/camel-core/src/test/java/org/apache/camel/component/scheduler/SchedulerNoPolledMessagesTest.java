@@ -224,7 +224,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"scheduler://foo?delay=100&backoffMultiplier=10&backoffIdleThreshold=2"
+literal|"scheduler://foo?delay=100&backoffMultiplier=10&backoffIdleThreshold=2&scheduler.concurrentTasks=2"
 argument_list|)
 operator|.
 name|log

@@ -265,7 +265,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:foo?synchronous=true&consumer.exceptionHandler=#myHandler"
+literal|"seda:foo?synchronous=true&exceptionHandler=#myHandler"
 argument_list|)
 operator|.
 name|routeId
