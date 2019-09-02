@@ -82,20 +82,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ScheduledPollEndpoint
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the component that manages {@link IronMQEndpoint}.  */
 end_comment
@@ -249,15 +235,10 @@ argument_list|,
 name|ironMQConfiguration
 argument_list|)
 decl_stmt|;
-operator|(
-operator|(
-name|ScheduledPollEndpoint
-operator|)
-name|endpoint
-operator|)
-operator|.
-name|setConsumerProperties
+name|setProperties
 argument_list|(
+name|endpoint
+argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;

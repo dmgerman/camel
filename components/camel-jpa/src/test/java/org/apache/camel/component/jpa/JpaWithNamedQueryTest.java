@@ -488,7 +488,14 @@ name|template
 operator|.
 name|send
 argument_list|(
-name|endpoint
+literal|"jpa://"
+operator|+
+name|MultiSteps
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 operator|new
 name|Processor
@@ -1057,7 +1064,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"?consumer.namedQuery=step1"
+literal|"?namedQuery=step1"
 return|;
 block|}
 annotation|@

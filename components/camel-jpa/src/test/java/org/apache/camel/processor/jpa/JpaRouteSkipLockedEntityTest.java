@@ -448,9 +448,9 @@ block|{
 name|String
 name|options
 init|=
-literal|"?consumer.skipLockedEntity=true"
+literal|"?skipLockedEntity=true"
 decl_stmt|;
-comment|//&consumer.lockModeType=PESSIMISTIC_FORCE_INCREMENT";
+comment|//&lockModeType=PESSIMISTIC_FORCE_INCREMENT";
 name|from
 argument_list|(
 literal|"jpa://"
@@ -498,7 +498,7 @@ literal|"jpa2://select"
 operator|+
 name|options
 operator|+
-literal|"&consumer.query=select s from VersionedItem s"
+literal|"&query=select s from VersionedItem s"
 argument_list|)
 operator|.
 name|routeId

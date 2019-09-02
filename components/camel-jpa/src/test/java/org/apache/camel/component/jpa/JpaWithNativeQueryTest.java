@@ -159,7 +159,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"?consumer.nativeQuery=select * from MultiSteps where step = 1"
+literal|"?nativeQuery=select * from MultiSteps where step = 1"
 return|;
 block|}
 block|}

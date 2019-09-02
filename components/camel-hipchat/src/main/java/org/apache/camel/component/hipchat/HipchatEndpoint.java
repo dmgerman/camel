@@ -133,6 +133,34 @@ name|ScheduledPollEndpoint
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|HipchatConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+argument_list|,
+name|label
+operator|=
+literal|"consumer,scheduler"
+argument_list|,
+name|description
+operator|=
+literal|"Milliseconds before the next poll."
+argument_list|)
+DECL|field|delay
+specifier|private
+name|long
+name|delay
+init|=
+name|HipchatConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|HipchatConfiguration
@@ -154,6 +182,16 @@ argument_list|(
 name|uri
 argument_list|,
 name|component
+argument_list|)
+expr_stmt|;
+comment|//Default delay of 500 millis is too often and would result in Rate Limit error's from
+comment|//HipChat API as per https://www.hipchat.com/docs/apiv2/rate_limiting. End user can override using
+comment|//consumer.delay parameter
+name|setDelay
+argument_list|(
+name|HipchatConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
 argument_list|)
 expr_stmt|;
 name|configuration
@@ -205,18 +243,6 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-comment|//Default delay of 500 millis is too often and would result in Rate Limit error's from
-comment|//HipChat API as per https://www.hipchat.com/docs/apiv2/rate_limiting. End user can override using
-comment|//consumer.delay parameter
-name|consumer
-operator|.
-name|setDelay
-argument_list|(
-name|HipchatConsumer
-operator|.
-name|DEFAULT_CONSUMER_DELAY
-argument_list|)
-expr_stmt|;
 name|configureConsumer
 argument_list|(
 name|consumer
@@ -235,6 +261,32 @@ block|{
 return|return
 name|configuration
 return|;
+block|}
+comment|/**      * Milliseconds before the next poll.      */
+annotation|@
+name|Override
+DECL|method|setDelay (long delay)
+specifier|public
+name|void
+name|setDelay
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setDelay
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|delay
+operator|=
+name|delay
+expr_stmt|;
 block|}
 block|}
 end_class

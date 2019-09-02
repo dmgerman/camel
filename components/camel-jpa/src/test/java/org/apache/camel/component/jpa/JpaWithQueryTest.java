@@ -84,7 +84,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"?consumer.query=select o from "
+literal|"?query=select o from "
 operator|+
 name|entityName
 operator|+

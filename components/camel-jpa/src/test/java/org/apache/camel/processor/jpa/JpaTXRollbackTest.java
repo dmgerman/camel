@@ -328,7 +328,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"?consumer.transacted=true&delay=1000"
+literal|"?transacted=true&delay=1000"
 argument_list|)
 operator|.
 name|routeId

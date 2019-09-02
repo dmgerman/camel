@@ -458,6 +458,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|options
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;

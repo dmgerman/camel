@@ -169,7 +169,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"?consumer.lockModeType=PESSIMISTIC_WRITE"
+literal|"?lockModeType=PESSIMISTIC_WRITE"
 argument_list|)
 decl_stmt|;
 name|JpaConsumer

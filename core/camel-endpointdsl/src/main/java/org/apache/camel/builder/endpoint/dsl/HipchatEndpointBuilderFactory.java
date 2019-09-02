@@ -490,7 +490,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
+comment|/**          * Milliseconds before the next poll.          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (long delay)
 specifier|default
 name|HipchatEndpointConsumerBuilder
@@ -511,7 +511,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Milliseconds before the next poll. You can also specify time values          * using units, such as 60s (60 seconds), 5m30s (5 minutes and 30          * seconds), and 1h (1 hour).          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
+comment|/**          * Milliseconds before the next poll.          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
 DECL|method|delay (String delay)
 specifier|default
 name|HipchatEndpointConsumerBuilder

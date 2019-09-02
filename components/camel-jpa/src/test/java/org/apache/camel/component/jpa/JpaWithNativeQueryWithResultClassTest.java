@@ -157,7 +157,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"?consumer.resultClass=org.apache.camel.examples.MultiSteps&consumer.nativeQuery=select * from MultiSteps where step = 1"
+literal|"?resultClass=org.apache.camel.examples.MultiSteps&nativeQuery=select * from MultiSteps where step = 1"
 return|;
 block|}
 block|}
