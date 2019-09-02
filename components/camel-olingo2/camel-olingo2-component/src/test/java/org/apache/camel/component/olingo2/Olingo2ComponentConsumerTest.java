@@ -307,7 +307,7 @@ name|startCamelContext
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * consumer.splitResults is set to false since this ensures the first      * returned message contains all the results. This is preferred for the      * purposes of this test. The default will mean the first n messages contain      * the results (where n is the result total) then subsequent messages will      * be empty      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * splitResults is set to false since this ensures the first      * returned message contains all the results. This is preferred for the      * purposes of this test. The default will mean the first n messages contain      * the results (where n is the result total) then subsequent messages will      * be empty      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeen ()
@@ -363,7 +363,7 @@ literal|"olingo2://read/Manufacturers?filterAlreadySeen=true&"
 operator|+
 literal|"delay=2&sendEmptyMessageWhenIdle=true&"
 operator|+
-literal|"consumer.splitResult=false"
+literal|"splitResult=false"
 argument_list|)
 operator|.
 name|to
@@ -472,7 +472,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * consumer.splitResults is set to false since this ensures the first      * returned message contains all the results. -      * sendEmptyMessageWhenIdle is set to false so only 1 message      * should even be returned.      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * splitResults is set to false since this ensures the first      * returned message contains all the results. -      * sendEmptyMessageWhenIdle is set to false so only 1 message      * should even be returned.      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeenNoEmptyMsgs ()
@@ -534,7 +534,7 @@ literal|"olingo2://read/Manufacturers?filterAlreadySeen=true&"
 operator|+
 literal|"delay=2&sendEmptyMessageWhenIdle=false&"
 operator|+
-literal|"consumer.splitResult=false"
+literal|"splitResult=false"
 argument_list|)
 operator|.
 name|to
@@ -674,7 +674,7 @@ literal|"olingo2://read/Manufacturers('1')?filterAlreadySeen=true&"
 operator|+
 literal|"delay=2&sendEmptyMessageWhenIdle=true&"
 operator|+
-literal|"consumer.splitResult=true"
+literal|"splitResult=true"
 argument_list|)
 operator|.
 name|to
@@ -860,7 +860,7 @@ literal|"olingo2://read/Manufacturers('1')?filterAlreadySeen=true&"
 operator|+
 literal|"delay=2&sendEmptyMessageWhenIdle=false&"
 operator|+
-literal|"consumer.splitResult=true"
+literal|"splitResult=true"
 argument_list|)
 operator|.
 name|to
@@ -1018,7 +1018,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"olingo2://read/Manufacturers('1')/Address?consumer.splitResult=true"
+literal|"olingo2://read/Manufacturers('1')/Address?splitResult=true"
 argument_list|)
 operator|.
 name|to
@@ -1220,7 +1220,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"olingo2://read/Manufacturers?consumer.splitResult=true"
+literal|"olingo2://read/Manufacturers?splitResult=true"
 argument_list|)
 operator|.
 name|to

@@ -237,10 +237,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|optionalPrefix
-operator|=
-literal|"consumer."
 argument_list|)
 DECL|field|onConsume
 specifier|private
@@ -253,10 +249,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|optionalPrefix
-operator|=
-literal|"consumer."
 argument_list|,
 name|defaultValue
 operator|=
@@ -275,10 +267,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|optionalPrefix
-operator|=
-literal|"consumer."
 argument_list|)
 DECL|field|routeEmptyResultSet
 specifier|private

@@ -352,7 +352,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"mybatis:selectUnprocessedAccounts?consumer.onConsume=consumeAccount"
+literal|"mybatis:selectUnprocessedAccounts?onConsume=consumeAccount"
 argument_list|)
 operator|.
 name|to

@@ -419,7 +419,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * consumer.splitResults is set to false since this ensures the first      * returned message contains all the results. This is preferred for the      * purposes of this test. The default will mean the first n messages contain      * the results (where n is the result total) then subsequent messages will      * be empty      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * splitResults is set to false since this ensures the first      * returned message contains all the results. This is preferred for the      * purposes of this test. The default will mean the first n messages contain      * the results (where n is the result total) then subsequent messages will      * be empty      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeen ()
@@ -473,7 +473,7 @@ literal|"olingo4://read/"
 operator|+
 name|PEOPLE
 operator|+
-literal|"?delay=2&sendEmptyMessageWhenIdle=true&consumer.splitResult=false&filterAlreadySeen=true"
+literal|"?delay=2&sendEmptyMessageWhenIdle=true&splitResult=false&filterAlreadySeen=true"
 argument_list|)
 operator|.
 name|to
@@ -582,7 +582,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * consumer.splitResults is set to false since this ensures the first      * returned message contains all the results. -      * sendEmptyMessageWhenIdle is set to false so only 1 message      * should even be returned.      */
+comment|/**      * Read entity set of the People object and filter already seen items on      * subsequent exchanges Use a delay since the mock endpoint does not always      * get the correct number of exchanges before being satisfied. Note: -      * splitResults is set to false since this ensures the first      * returned message contains all the results. -      * sendEmptyMessageWhenIdle is set to false so only 1 message      * should even be returned.      */
 annotation|@
 name|Test
 DECL|method|testConsumerReadFilterAlreadySeenNoEmptyMsgs ()
@@ -649,7 +649,7 @@ literal|"olingo4://read/"
 operator|+
 name|PEOPLE
 operator|+
-literal|"?delay=2&sendEmptyMessageWhenIdle=false&consumer.splitResult=false&filterAlreadySeen=true"
+literal|"?delay=2&sendEmptyMessageWhenIdle=false&splitResult=false&filterAlreadySeen=true"
 argument_list|)
 operator|.
 name|to
@@ -795,7 +795,7 @@ literal|"?filterAlreadySeen=true&"
 operator|+
 literal|"delay=2&sendEmptyMessageWhenIdle=true&"
 operator|+
-literal|"consumer.splitResult=true"
+literal|"splitResult=true"
 argument_list|)
 operator|.
 name|to
@@ -987,7 +987,7 @@ literal|"?filterAlreadySeen=true&"
 operator|+
 literal|"delay=2&sendEmptyMessageWhenIdle=false&"
 operator|+
-literal|"consumer.splitResult=true"
+literal|"splitResult=true"
 argument_list|)
 operator|.
 name|to
@@ -1142,7 +1142,7 @@ literal|"olingo4://read/"
 operator|+
 name|PEOPLE
 operator|+
-literal|"?consumer.splitResult=true"
+literal|"?splitResult=true"
 argument_list|)
 operator|.
 name|to
@@ -1336,7 +1336,7 @@ literal|"olingo4://read/"
 operator|+
 name|TEST_PEOPLE
 operator|+
-literal|"/FavoriteFeature?consumer.splitResult=true"
+literal|"/FavoriteFeature?splitResult=true"
 argument_list|)
 operator|.
 name|to
@@ -1452,7 +1452,7 @@ literal|"olingo4://read/"
 operator|+
 name|TEST_PEOPLE
 operator|+
-literal|"/AddressInfo?consumer.splitResult=true"
+literal|"/AddressInfo?splitResult=true"
 argument_list|)
 operator|.
 name|to
@@ -1584,7 +1584,7 @@ literal|"olingo4://read/"
 operator|+
 name|TEST_PEOPLE
 operator|+
-literal|"/AddressInfo?consumer.splitResult=false"
+literal|"/AddressInfo?splitResult=false"
 argument_list|)
 operator|.
 name|to

@@ -359,6 +359,24 @@ specifier|private
 name|boolean
 name|filterAlreadySeen
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|splitResult
+specifier|private
+name|boolean
+name|splitResult
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|Olingo4ApiName
@@ -692,6 +710,33 @@ operator|.
 name|filterAlreadySeen
 operator|=
 name|filterAlreadySeen
+expr_stmt|;
+block|}
+DECL|method|isSplitResult ()
+specifier|public
+name|boolean
+name|isSplitResult
+parameter_list|()
+block|{
+return|return
+name|splitResult
+return|;
+block|}
+comment|/**      * For endpoints that return an array or collection, a consumer endpoint will map every element to distinct messages, unless      * splitResult is set to false.      */
+DECL|method|setSplitResult (boolean splitResult)
+specifier|public
+name|void
+name|setSplitResult
+parameter_list|(
+name|boolean
+name|splitResult
+parameter_list|)
+block|{
+name|this
+operator|.
+name|splitResult
+operator|=
+name|splitResult
 expr_stmt|;
 block|}
 annotation|@

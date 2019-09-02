@@ -604,7 +604,16 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-comment|// also set consumer.* properties
+name|consumer
+operator|.
+name|setSplitResult
+argument_list|(
+name|configuration
+operator|.
+name|isSplitResult
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|configureConsumer
 argument_list|(
 name|consumer
@@ -1125,7 +1134,7 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-comment|/**              * Avoid swallowing consumer scheduler properties, which get              * processed in configureProperties()              */
+comment|// Avoid swallowing consumer scheduler properties, which get processed in configureProperties()
 if|if
 condition|(
 name|paramName

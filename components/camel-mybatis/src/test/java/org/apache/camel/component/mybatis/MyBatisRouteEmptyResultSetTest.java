@@ -160,7 +160,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mybatis:selectAllAccounts?consumer.useIterator=false&consumer.routeEmptyResultSet=true"
+literal|"mybatis:selectAllAccounts?useIterator=false&routeEmptyResultSet=true"
 argument_list|)
 operator|.
 name|to

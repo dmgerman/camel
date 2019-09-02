@@ -424,6 +424,8 @@ operator|new
 name|IOException
 argument_list|(
 literal|"unable to load the required sample class"
+argument_list|,
+name|t
 argument_list|)
 throw|;
 block|}

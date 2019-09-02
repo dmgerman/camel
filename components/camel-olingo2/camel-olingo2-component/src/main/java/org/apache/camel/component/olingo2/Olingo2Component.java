@@ -554,19 +554,10 @@ argument_list|,
 name|endpointConfiguration
 argument_list|)
 decl_stmt|;
-comment|// set endpoint property inBody
 name|setProperties
 argument_list|(
 name|endpoint
 argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-comment|// configure endpoint properties and initialize state
-name|endpoint
-operator|.
-name|configureProperties
-argument_list|(
 name|parameters
 argument_list|)
 expr_stmt|;
