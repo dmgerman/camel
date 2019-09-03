@@ -925,6 +925,32 @@ argument_list|(
 name|directory
 argument_list|)
 decl_stmt|;
+comment|// check if directory is a path
+name|boolean
+name|isPath
+init|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|directory
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|"/"
+argument_list|)
+argument_list|,
+name|directory
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|"\\"
+argument_list|)
+argument_list|)
+operator|!=
+operator|-
+literal|1
+decl_stmt|;
 name|File
 name|path
 decl_stmt|;
@@ -956,7 +982,11 @@ operator|=
 name|endpointPath
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|isPath
+condition|)
 block|{
 comment|// relative after the endpoint path
 name|String
@@ -1005,7 +1035,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// dir is relative to the root path
+comment|// dir path is relative to the root path
+name|path
+operator|=
+operator|new
+name|File
+argument_list|(
+name|directory
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// dir is a child of the root path
 name|path
 operator|=
 operator|new
@@ -1019,7 +1062,6 @@ argument_list|,
 name|directory
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// We need to make sure that this is thread-safe and only one thread tries to create the path directory at the same time.
 synchronized|synchronized
