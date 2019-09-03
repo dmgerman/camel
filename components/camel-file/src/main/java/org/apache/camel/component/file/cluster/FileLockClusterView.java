@@ -420,7 +420,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|close
+name|closeInternal
 argument_list|()
 expr_stmt|;
 name|fireLeadershipChangedEvent
@@ -558,17 +558,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|close
+name|closeInternal
 argument_list|()
 expr_stmt|;
 block|}
 comment|// *********************************
 comment|//
 comment|// *********************************
-DECL|method|close ()
+DECL|method|closeInternal ()
 specifier|private
 name|void
-name|close
+name|closeInternal
 parameter_list|()
 throws|throws
 name|Exception

@@ -14,6 +14,16 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the core lifecycle API for services which can be initialized, started and stopped  */
 end_comment
@@ -23,6 +33,8 @@ DECL|interface|Service
 specifier|public
 interface|interface
 name|Service
+extends|extends
+name|AutoCloseable
 block|{
 comment|/**      * Initialize the service      *      * @throws RuntimeCamelException is thrown if initialization failed      */
 DECL|method|init ()
@@ -43,6 +55,46 @@ name|void
 name|stop
 parameter_list|()
 function_decl|;
+comment|/**      * Delegates to {@link Service#stop()} so it can be used in      * try-with-resources expression.      *       * @throws IOException per contract of {@link AutoCloseable} if      *             {@link Service#stop()} fails      */
+DECL|method|close ()
+specifier|default
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+try|try
+block|{
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 end_interface
 
