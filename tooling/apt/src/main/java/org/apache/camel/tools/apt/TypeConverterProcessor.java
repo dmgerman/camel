@@ -549,7 +549,7 @@ control|)
 block|{
 if|if
 condition|(
-literal|"loader"
+literal|"generateLoader"
 operator|.
 name|equals
 argument_list|(
