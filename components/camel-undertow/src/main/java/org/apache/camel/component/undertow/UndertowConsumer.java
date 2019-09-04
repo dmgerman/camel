@@ -1067,6 +1067,13 @@ argument_list|(
 name|camelExchange
 argument_list|)
 expr_stmt|;
+name|sendResponse
+argument_list|(
+name|httpExchange
+argument_list|,
+name|camelExchange
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1091,13 +1098,6 @@ name|camelExchange
 argument_list|)
 expr_stmt|;
 block|}
-name|sendResponse
-argument_list|(
-name|httpExchange
-argument_list|,
-name|camelExchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|sendResponse (HttpServerExchange httpExchange, Exchange camelExchange)
 specifier|private
