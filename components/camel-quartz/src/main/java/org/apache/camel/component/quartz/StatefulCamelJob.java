@@ -53,17 +53,7 @@ class|class
 name|StatefulCamelJob
 extends|extends
 name|CamelJob
-block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|25L
-decl_stmt|;
-block|}
+block|{  }
 end_class
 
 end_unit

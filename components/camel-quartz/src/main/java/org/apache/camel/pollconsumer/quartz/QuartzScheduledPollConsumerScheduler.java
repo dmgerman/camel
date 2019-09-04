@@ -331,11 +331,6 @@ specifier|private
 name|String
 name|routeId
 decl_stmt|;
-DECL|field|consumer
-specifier|private
-name|Consumer
-name|consumer
-decl_stmt|;
 DECL|field|runnable
 specifier|private
 name|Runnable
@@ -398,12 +393,6 @@ name|Consumer
 name|consumer
 parameter_list|)
 block|{
-name|this
-operator|.
-name|consumer
-operator|=
-name|consumer
-expr_stmt|;
 comment|// find the route of the consumer
 for|for
 control|(
