@@ -2898,7 +2898,21 @@ name|lines
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// check the first four lines
+comment|// check first if it is a standard documentation file, we expect at least five lines
+if|if
+condition|(
+name|lines
+operator|.
+name|length
+operator|<
+literal|5
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// check the first four lines (ignoring the first line)
 name|boolean
 name|title
 init|=
