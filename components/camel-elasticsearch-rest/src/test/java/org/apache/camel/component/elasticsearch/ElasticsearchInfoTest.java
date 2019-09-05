@@ -38,9 +38,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
+name|action
 operator|.
-name|core
+name|main
 operator|.
 name|MainResponse
 import|;
