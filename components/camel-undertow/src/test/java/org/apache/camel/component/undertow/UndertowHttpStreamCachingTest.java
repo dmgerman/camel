@@ -175,7 +175,6 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|//from("undertow:http://localhost:8080/client?useStreaming=true")
 name|from
 argument_list|(
 literal|"undertow:http://localhost:{{port}}/client"
