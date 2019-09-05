@@ -99,12 +99,6 @@ name|Ping
 argument_list|(
 literal|"Ping"
 argument_list|)
-block|,
-DECL|enumConstant|Info
-name|Info
-argument_list|(
-literal|"Info"
-argument_list|)
 block|;
 DECL|field|text
 specifier|private
