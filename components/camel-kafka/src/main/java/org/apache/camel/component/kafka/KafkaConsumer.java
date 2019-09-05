@@ -2462,13 +2462,18 @@ else|else
 block|{
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"KafkaException consuming {} from topic {}. Will attempt to re-connect on next run"
+literal|"KafkaException consuming {} from topic {} causedby {}. Will attempt to re-connect on next run"
 argument_list|,
 name|threadId
 argument_list|,
 name|topicName
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|reConnect
