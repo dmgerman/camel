@@ -709,11 +709,16 @@ return|;
 block|}
 else|else
 block|{
+comment|// add the support: snmp walk (use snmp4j GET_NEXT)
 return|return
 operator|new
 name|SnmpProducer
 argument_list|(
 name|this
+argument_list|,
+name|this
+operator|.
+name|type
 argument_list|)
 return|;
 block|}
