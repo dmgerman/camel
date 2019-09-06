@@ -546,6 +546,15 @@ specifier|private
 name|TransactionTemplate
 name|transactionTemplateReadOnly
 decl_stmt|;
+DECL|field|propagationBehavior
+specifier|private
+name|int
+name|propagationBehavior
+init|=
+name|TransactionDefinition
+operator|.
+name|PROPAGATION_REQUIRED
+decl_stmt|;
 DECL|field|jdbcTemplate
 specifier|private
 name|JdbcTemplate
@@ -664,7 +673,7 @@ name|dataSource
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param repositoryName the repositoryName to set      */
+comment|/**      * Sets the name of the repository      */
 DECL|method|setRepositoryName (String repositoryName)
 specifier|public
 specifier|final
@@ -710,9 +719,7 @@ name|transactionTemplate
 operator|.
 name|setPropagationBehavior
 argument_list|(
-name|TransactionDefinition
-operator|.
-name|PROPAGATION_REQUIRED
+name|propagationBehavior
 argument_list|)
 expr_stmt|;
 name|transactionTemplateReadOnly
@@ -727,9 +734,7 @@ name|transactionTemplateReadOnly
 operator|.
 name|setPropagationBehavior
 argument_list|(
-name|TransactionDefinition
-operator|.
-name|PROPAGATION_REQUIRED
+name|propagationBehavior
 argument_list|)
 expr_stmt|;
 name|transactionTemplateReadOnly
@@ -740,7 +745,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param dataSource The DataSource to use for accessing the database      */
+comment|/**      * Sets the DataSource to use for accessing the database      */
 DECL|method|setDataSource (DataSource dataSource)
 specifier|public
 specifier|final
@@ -1019,7 +1024,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Updates the current exchange details in the given repository table      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the aggregated exchange      * @param repositoryName The name of the table      * @throws Exception      */
+comment|/**      * Updates the current exchange details in the given repository table      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the aggregated exchange      * @param repositoryName The name of the table      */
 DECL|method|update (final CamelContext camelContext, final String key, final Exchange exchange, String repositoryName)
 specifier|protected
 name|void
@@ -1170,7 +1175,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inserts a new record into the given repository table.      * note : the exchange properties are NOT persisted.      *      * @param camelContext   the current CamelContext      * @param correlationId  the correlation key      * @param exchange       the aggregated exchange to insert. The headers will be persisted but not the properties.      * @param repositoryName The name of the table      * @throws Exception      */
+comment|/**      * Inserts a new record into the given repository table.      * note : the exchange properties are NOT persisted.      *      * @param camelContext   the current CamelContext      * @param correlationId  the correlation key      * @param exchange       the aggregated exchange to insert. The headers will be persisted but not the properties.      * @param repositoryName The name of the table      */
 DECL|method|insert (final CamelContext camelContext, final String correlationId, final Exchange exchange, String repositoryName)
 specifier|protected
 name|void
@@ -2184,7 +2189,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      *  If recovery is enabled then a background task is run every x'th time to scan for failed exchanges to recover      *  and resubmit. By default this interval is 5000 millis.      * @param interval  the interval      * @param timeUnit  the time unit      */
+comment|/**      *  If recovery is enabled then a background task is run every x'th time to scan for failed exchanges to recover      *  and resubmit. By default this interval is 5000 millis.      */
 annotation|@
 name|Override
 DECL|method|setRecoveryInterval (long interval, TimeUnit timeUnit)
@@ -2253,7 +2258,7 @@ return|return
 name|useRecovery
 return|;
 block|}
-comment|/**      *      * @param useRecovery Whether or not recovery is enabled. This option is by default true. When enabled the Camel      *                    Aggregator automatic recover failed aggregated exchange and have them resubmittedd      */
+comment|/**      * Whether or not recovery is enabled. This option is by default true. When enabled the Camel      * Aggregator automatic recover failed aggregated exchange and have them resubmitted.      */
 annotation|@
 name|Override
 DECL|method|setUseRecovery (boolean useRecovery)
@@ -2314,7 +2319,7 @@ return|return
 name|deadLetterUri
 return|;
 block|}
-comment|/**      *      * @param deadLetterUri  An endpoint uri for a Dead Letter Channel where exhausted recovered Exchanges will be      *                       moved. If this option is used then the maximumRedeliveries option must also be provided.      *                       Important note : if the deadletter route throws an exception, it will be send again to DLQ      *                       until it succeed !      */
+comment|/**      * An endpoint uri for a Dead Letter Channel where exhausted recovered Exchanges will be      * moved. If this option is used then the maximumRedeliveries option must also be provided.      * Important note : if the deadletter route throws an exception, it will be send again to DLQ until it succeed !      */
 annotation|@
 name|Override
 DECL|method|setDeadLetterUri (String deadLetterUri)
@@ -2343,7 +2348,7 @@ return|return
 name|returnOldExchange
 return|;
 block|}
-comment|/**      *      * @param returnOldExchange Whether the get operation should return the old existing Exchange if any existed.      *                          By default this option is false to optimize as we do not need the old exchange when      *                          aggregating      */
+comment|/**      * Whether the get operation should return the old existing Exchange if any existed.      * By default this option is false to optimize as we do not need the old exchange when aggregating.      */
 DECL|method|setReturnOldExchange (boolean returnOldExchange)
 specifier|public
 name|void
@@ -2398,7 +2403,7 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-comment|/**      * Allows to store headers as String which is human readable. By default this option is disabled,      * storing the headers in binary format.      * @param headersToStoreAsText the list of headers to store as String      */
+comment|/**      * Allows to store headers as String which is human readable. By default this option is disabled,      * storing the headers in binary format.      *      * @param headersToStoreAsText the list of headers to store as String      */
 DECL|method|setHeadersToStoreAsText (List<String> headersToStoreAsText)
 specifier|public
 name|void
@@ -2418,7 +2423,7 @@ operator|=
 name|headersToStoreAsText
 expr_stmt|;
 block|}
-comment|/**      *      * @param storeBodyAsText Whether to store the message body as String which is human readable.      *                        By default this option is false storing the body in binary format.      */
+comment|/**      * Whether to store the message body as String which is human readable.      * By default this option is false storing the body in binary format.      */
 DECL|method|setStoreBodyAsText (boolean storeBodyAsText)
 specifier|public
 name|void
@@ -2461,7 +2466,33 @@ operator|=
 name|allowSerializedHeaders
 expr_stmt|;
 block|}
-comment|/**      * @return the lobHandler      */
+DECL|method|getPropagationBehavior ()
+specifier|public
+name|int
+name|getPropagationBehavior
+parameter_list|()
+block|{
+return|return
+name|propagationBehavior
+return|;
+block|}
+comment|/**      * Sets propagation behavior to use with spring transaction template which are used for database access.      * The default is TransactionDefinition.PROPAGATION_REQUIRED.      */
+DECL|method|setPropagationBehavior (int propagationBehavior)
+specifier|public
+name|void
+name|setPropagationBehavior
+parameter_list|(
+name|int
+name|propagationBehavior
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propagationBehavior
+operator|=
+name|propagationBehavior
+expr_stmt|;
+block|}
 DECL|method|getLobHandler ()
 specifier|public
 name|LobHandler
@@ -2472,7 +2503,7 @@ return|return
 name|lobHandler
 return|;
 block|}
-comment|/**      * @param lobHandler the lobHandler to set      */
+comment|/**      * Sets a custom LobHandler to use      */
 DECL|method|setLobHandler (LobHandler lobHandler)
 specifier|public
 name|void
