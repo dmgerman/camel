@@ -130,7 +130,7 @@ name|TransformDirection
 name|transformDirection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformDirection"
 argument_list|,
@@ -151,7 +151,7 @@ name|String
 name|transformDirection
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformDirection"
 argument_list|,
@@ -172,7 +172,7 @@ name|boolean
 name|allowStAX
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowStAX"
 argument_list|,
@@ -193,7 +193,7 @@ name|String
 name|allowStAX
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"allowStAX"
 argument_list|,
@@ -214,7 +214,7 @@ name|boolean
 name|contentCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentCache"
 argument_list|,
@@ -235,7 +235,7 @@ name|String
 name|contentCache
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"contentCache"
 argument_list|,
@@ -256,7 +256,7 @@ name|boolean
 name|deleteOutputFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteOutputFile"
 argument_list|,
@@ -277,7 +277,7 @@ name|String
 name|deleteOutputFile
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"deleteOutputFile"
 argument_list|,
@@ -298,7 +298,7 @@ name|boolean
 name|failOnNullBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnNullBody"
 argument_list|,
@@ -319,7 +319,7 @@ name|String
 name|failOnNullBody
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"failOnNullBody"
 argument_list|,
@@ -340,7 +340,7 @@ name|XsltOutput
 name|output
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"output"
 argument_list|,
@@ -361,7 +361,7 @@ name|String
 name|output
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"output"
 argument_list|,
@@ -382,7 +382,7 @@ name|boolean
 name|saxon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"saxon"
 argument_list|,
@@ -403,7 +403,7 @@ name|String
 name|saxon
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"saxon"
 argument_list|,
@@ -424,7 +424,7 @@ name|int
 name|transformerCacheSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformerCacheSize"
 argument_list|,
@@ -445,7 +445,7 @@ name|String
 name|transformerCacheSize
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformerCacheSize"
 argument_list|,
@@ -488,7 +488,7 @@ name|boolean
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -509,7 +509,7 @@ name|String
 name|basicPropertyBinding
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
@@ -530,7 +530,7 @@ name|Object
 name|entityResolver
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"entityResolver"
 argument_list|,
@@ -551,7 +551,7 @@ name|String
 name|entityResolver
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"entityResolver"
 argument_list|,
@@ -572,7 +572,7 @@ name|Object
 name|errorListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"errorListener"
 argument_list|,
@@ -593,7 +593,7 @@ name|String
 name|errorListener
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"errorListener"
 argument_list|,
@@ -614,7 +614,7 @@ name|Object
 name|resultHandlerFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHandlerFactory"
 argument_list|,
@@ -635,7 +635,7 @@ name|String
 name|resultHandlerFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"resultHandlerFactory"
 argument_list|,
@@ -656,7 +656,7 @@ name|Object
 name|saxonConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"saxonConfiguration"
 argument_list|,
@@ -677,7 +677,7 @@ name|String
 name|saxonConfiguration
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"saxonConfiguration"
 argument_list|,
@@ -701,7 +701,7 @@ argument_list|>
 name|saxonExtensionFunctions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"saxonExtensionFunctions"
 argument_list|,
@@ -722,7 +722,7 @@ name|String
 name|saxonExtensionFunctions
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"saxonExtensionFunctions"
 argument_list|,
@@ -743,7 +743,7 @@ name|boolean
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -764,7 +764,7 @@ name|String
 name|synchronous
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"synchronous"
 argument_list|,
@@ -785,7 +785,7 @@ name|Object
 name|transformerFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformerFactory"
 argument_list|,
@@ -806,7 +806,7 @@ name|String
 name|transformerFactory
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformerFactory"
 argument_list|,
@@ -827,7 +827,7 @@ name|String
 name|transformerFactoryClass
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"transformerFactoryClass"
 argument_list|,
@@ -848,7 +848,7 @@ name|Object
 name|uriResolver
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"uriResolver"
 argument_list|,
@@ -869,7 +869,7 @@ name|String
 name|uriResolver
 parameter_list|)
 block|{
-name|setProperty
+name|doSetProperty
 argument_list|(
 literal|"uriResolver"
 argument_list|,
@@ -910,10 +910,10 @@ DECL|enumConstant|file
 name|file
 block|;     }
 comment|/**      * XJ (camel-xj)      * Transforms json/xml message back and forth using a XSLT.      *       * Category: transformation      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-xj      *       * Syntax:<code>xj:resourceUri</code>      *       * Path parameter: resourceUri (required)      * Path to the template. The following is supported by the default      * URIResolver. You can prefix with: classpath, file, http, ref, or bean.      * classpath, file and http loads the resource using these protocols      * (classpath is default). ref will lookup the resource in the registry.      * bean will call a method on a bean to be used as the resource. For bean      * you can specify the method name after dot, eg bean:myBean.myMethod      */
-DECL|method|xJ (String path)
+DECL|method|xj (String path)
 specifier|default
 name|XJEndpointBuilder
-name|xJ
+name|xj
 parameter_list|(
 name|String
 name|path
