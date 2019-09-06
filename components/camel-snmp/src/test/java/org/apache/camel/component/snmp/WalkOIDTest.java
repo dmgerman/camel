@@ -264,6 +264,11 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
+literal|"timer:foo?repeatCount=1"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"snmp:10.211.55.6:161?protocol=udp&type=GET_NEXT&oids=1.3.6.1.2.1.2.2.1.2,1.3.6.1.2.1.25.3.3.1.2"
 argument_list|)
 operator|.

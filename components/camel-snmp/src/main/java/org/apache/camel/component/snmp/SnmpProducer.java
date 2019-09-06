@@ -24,6 +24,36 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Vector
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|TimeoutException
@@ -284,17 +314,25 @@ specifier|private
 name|CommunityTarget
 name|target
 decl_stmt|;
+DECL|field|actionType
+specifier|private
+name|SnmpActionType
+name|actionType
+decl_stmt|;
 DECL|field|pdu
 specifier|private
 name|PDU
 name|pdu
 decl_stmt|;
-DECL|method|SnmpProducer (SnmpEndpoint endpoint)
+DECL|method|SnmpProducer (SnmpEndpoint endpoint, SnmpActionType actionType)
 specifier|public
 name|SnmpProducer
 parameter_list|(
 name|SnmpEndpoint
 name|endpoint
+parameter_list|,
+name|SnmpActionType
+name|actionType
 parameter_list|)
 block|{
 name|super
@@ -307,6 +345,12 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|actionType
+operator|=
+name|actionType
 expr_stmt|;
 block|}
 annotation|@
@@ -549,6 +593,7 @@ name|SnmpActionType
 operator|.
 name|GET_NEXT
 condition|)
+block|{
 name|this
 operator|.
 name|pdu
@@ -560,7 +605,9 @@ operator|.
 name|GETNEXT
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|this
 operator|.
 name|pdu
@@ -572,6 +619,7 @@ operator|.
 name|GET
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -919,14 +967,6 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|Variable
-name|variable
-init|=
-name|variableBinding
-operator|.
-name|getVariable
-argument_list|()
-decl_stmt|;
 name|nextOid
 operator|=
 name|variableBinding
@@ -1105,7 +1145,7 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{ }
+block|{             }
 try|try
 block|{
 name|snmp
@@ -1119,7 +1159,7 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{ }
+block|{             }
 block|}
 block|}
 comment|//end process
