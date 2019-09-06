@@ -146,6 +146,18 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|awaitility
+operator|.
+name|Awaitility
+operator|.
+name|await
+import|;
+end_import
+
 begin_class
 DECL|class|KafkaConsumerOffsetRepositoryEmptyTest
 specifier|public
@@ -371,13 +383,23 @@ literal|3000
 argument_list|)
 expr_stmt|;
 comment|// to give the local state some buffer
+name|await
+argument_list|()
+operator|.
+name|atMost
+argument_list|(
+literal|1
+argument_list|,
 name|TimeUnit
 operator|.
-name|MILLISECONDS
+name|SECONDS
+argument_list|)
 operator|.
-name|sleep
+name|until
 argument_list|(
-literal|500
+name|stateRepository
+operator|::
+name|isStarted
 argument_list|)
 expr_stmt|;
 name|assertEquals
