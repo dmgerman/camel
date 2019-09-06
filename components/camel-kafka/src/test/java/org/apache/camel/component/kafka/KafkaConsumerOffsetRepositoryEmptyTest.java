@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -356,6 +368,16 @@ operator|.
 name|assertIsSatisfied
 argument_list|(
 literal|3000
+argument_list|)
+expr_stmt|;
+comment|// to give the local state some buffer
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+operator|.
+name|sleep
+argument_list|(
+literal|500
 argument_list|)
 expr_stmt|;
 name|assertEquals
