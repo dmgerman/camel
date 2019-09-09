@@ -500,6 +500,33 @@ name|RecoverableAggregationRepository
 implements|,
 name|OptimisticLockingAggregationRepository
 block|{
+DECL|field|EXCHANGE
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|EXCHANGE
+init|=
+literal|"exchange"
+decl_stmt|;
+DECL|field|ID
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|ID
+init|=
+literal|"id"
+decl_stmt|;
+DECL|field|BODY
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|BODY
+init|=
+literal|"body"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -515,33 +542,6 @@ name|JdbcAggregationRepository
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|ID
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ID
-init|=
-literal|"id"
-decl_stmt|;
-DECL|field|EXCHANGE
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|EXCHANGE
-init|=
-literal|"exchange"
-decl_stmt|;
-DECL|field|BODY
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|BODY
-init|=
-literal|"body"
 decl_stmt|;
 DECL|field|PROPAGATION_CONSTANTS
 specifier|private
@@ -1361,7 +1361,7 @@ expr_stmt|;
 block|}
 DECL|method|insertAndUpdateHelper (final CamelContext camelContext, final String key, final Exchange exchange, String sql, final boolean idComesFirst)
 specifier|protected
-name|void
+name|int
 name|insertAndUpdateHelper
 parameter_list|(
 specifier|final
@@ -1402,6 +1402,9 @@ argument_list|,
 name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
+name|Integer
+name|updateCount
+init|=
 name|jdbcTemplate
 operator|.
 name|execute
@@ -1552,7 +1555,16 @@ block|}
 block|}
 block|}
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+return|return
+name|updateCount
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|updateCount
+return|;
 block|}
 annotation|@
 name|Override
@@ -2407,6 +2419,19 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+DECL|method|getHeadersToStoreAsText ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getHeadersToStoreAsText
+parameter_list|()
+block|{
+return|return
+name|headersToStoreAsText
+return|;
+block|}
 comment|/**      * Allows to store headers as String which is human readable. By default this option is disabled,      * storing the headers in binary format.      *      * @param headersToStoreAsText the list of headers to store as String      */
 DECL|method|setHeadersToStoreAsText (List<String> headersToStoreAsText)
 specifier|public
@@ -2426,6 +2451,16 @@ name|headersToStoreAsText
 operator|=
 name|headersToStoreAsText
 expr_stmt|;
+block|}
+DECL|method|isStoreBodyAsText ()
+specifier|public
+name|boolean
+name|isStoreBodyAsText
+parameter_list|()
+block|{
+return|return
+name|storeBodyAsText
+return|;
 block|}
 comment|/**      * Whether to store the message body as String which is human readable.      * By default this option is false storing the body in binary format.      */
 DECL|method|setStoreBodyAsText (boolean storeBodyAsText)
