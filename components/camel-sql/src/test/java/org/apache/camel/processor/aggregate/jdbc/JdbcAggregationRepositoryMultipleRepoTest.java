@@ -137,6 +137,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|repo1
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|JdbcAggregationRepository
 name|repo2
 init|=
@@ -157,6 +162,11 @@ name|setReturnOldExchange
 argument_list|(
 literal|true
 argument_list|)
+expr_stmt|;
+name|repo2
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 comment|// Can't get something we have not put in...
 name|Exchange
@@ -476,6 +486,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|repo1
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|JdbcAggregationRepository
 name|repo2
 init|=
@@ -490,6 +505,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|repo2
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Exchange
 name|exchange1
 init|=
