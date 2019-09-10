@@ -784,7 +784,7 @@ return|return
 name|connectionBean
 return|;
 block|}
-comment|/**      * Name of {@link com.mongodb.Mongo} to use.      */
+comment|/**      * Name of {@link com.mongodb.MongoClient} to use.      */
 DECL|method|setConnectionBean (String connectionBean)
 specifier|public
 name|void
