@@ -1460,9 +1460,21 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// add uri parameters as headers to the Camel message
+comment|// add uri parameters as headers to the Camel message;
+comment|// when acting as a HTTP proxy we don't want to place query
+comment|// parameters in Camel message headers as the query parameters
+comment|// will be passed via Exchange.HTTP_QUERY, otherwise we could have
+comment|// both the Exchange.HTTP_QUERY and the values from the message
+comment|// headers, so we end up with two values for the same query
+comment|// parameter
 if|if
 condition|(
+operator|!
+name|configuration
+operator|.
+name|isHttpProxy
+argument_list|()
+operator|&&
 name|request
 operator|.
 name|uri
@@ -1634,6 +1646,7 @@ block|}
 block|}
 comment|// if body is application/x-www-form-urlencoded then extract the body as query string and append as headers
 comment|// if it is a bridgeEndpoint we need to skip this part of work
+comment|// if we're proxying the body is a buffer that we do not want to consume directly
 if|if
 condition|(
 name|request
@@ -1686,6 +1699,12 @@ operator|!
 name|configuration
 operator|.
 name|isBridgeEndpoint
+argument_list|()
+operator|&&
+operator|!
+name|configuration
+operator|.
+name|isHttpProxy
 argument_list|()
 condition|)
 block|{
