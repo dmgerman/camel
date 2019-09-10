@@ -480,7 +480,7 @@ literal|"camel-processed"
 decl_stmt|;
 DECL|field|mongoConnection
 specifier|private
-name|Mongo
+name|MongoClient
 name|mongoConnection
 decl_stmt|;
 DECL|field|db
@@ -803,7 +803,7 @@ expr_stmt|;
 block|}
 DECL|method|getMongoConnection ()
 specifier|public
-name|Mongo
+name|MongoClient
 name|getMongoConnection
 parameter_list|()
 block|{
@@ -812,12 +812,12 @@ name|mongoConnection
 return|;
 block|}
 comment|/**      * Sets the Mongo instance that represents the backing connection      *      * @param mongoConnection the connection to the database      */
-DECL|method|setMongoConnection (Mongo mongoConnection)
+DECL|method|setMongoConnection (MongoClient mongoConnection)
 specifier|public
 name|void
 name|setMongoConnection
 parameter_list|(
-name|Mongo
+name|MongoClient
 name|mongoConnection
 parameter_list|)
 block|{
