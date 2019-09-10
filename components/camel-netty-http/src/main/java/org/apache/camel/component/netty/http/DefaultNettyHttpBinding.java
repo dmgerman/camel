@@ -787,6 +787,7 @@ condition|)
 block|{
 comment|// keep the body as is, and use type converters
 comment|// for proxy use case pass the request body buffer directly to the response to avoid additional processing
+comment|// we need to retain it so that the request can be released and we can keep the content
 name|answer
 operator|.
 name|setBody
@@ -794,6 +795,9 @@ argument_list|(
 name|request
 operator|.
 name|content
+argument_list|()
+operator|.
+name|retain
 argument_list|()
 argument_list|)
 expr_stmt|;
