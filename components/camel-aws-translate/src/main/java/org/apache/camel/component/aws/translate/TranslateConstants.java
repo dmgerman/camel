@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in Camel AWS EKS module  */
+comment|/**  * Constants used in Camel AWS Translate module  */
 end_comment
 
 begin_interface

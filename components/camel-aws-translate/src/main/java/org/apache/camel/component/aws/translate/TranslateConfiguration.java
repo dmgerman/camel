@@ -351,7 +351,7 @@ return|return
 name|proxyHost
 return|;
 block|}
-comment|/**      * To define a proxy host when instantiating the EKS client      */
+comment|/**      * To define a proxy host when instantiating the Translate client      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -378,7 +378,7 @@ return|return
 name|proxyPort
 return|;
 block|}
-comment|/**      * To define a proxy port when instantiating the EKS client      */
+comment|/**      * To define a proxy port when instantiating the Translate client      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void
@@ -405,7 +405,7 @@ return|return
 name|region
 return|;
 block|}
-comment|/**      * The region in which EKS client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1)      * You'll need to use the name Regions.EU_WEST_1.name()      */
+comment|/**      * The region in which Translate client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1)      * You'll need to use the name Regions.EU_WEST_1.name()      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void

@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Producer which sends messages to the Amazon EKS Service  *<a href="http://aws.amazon.com/eks/">AWS EKS</a>  */
+comment|/**  * A Producer which sends messages to the Amazon Translate Service  *<a href="http://aws.amazon.com/translate/">AWS Translate</a>  */
 end_comment
 
 begin_class
@@ -166,11 +166,11 @@ name|TranslateProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|eksProducerToString
+DECL|field|translateProducerToString
 specifier|private
 specifier|transient
 name|String
-name|eksProducerToString
+name|translateProducerToString
 decl_stmt|;
 DECL|method|TranslateProducer (Endpoint endpoint)
 specifier|public
@@ -304,14 +304,14 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|eksProducerToString
+name|translateProducerToString
 operator|==
 literal|null
 condition|)
 block|{
-name|eksProducerToString
+name|translateProducerToString
 operator|=
-literal|"EKSProducer["
+literal|"TranslateProducer["
 operator|+
 name|URISupport
 operator|.
@@ -328,7 +328,7 @@ literal|"]"
 expr_stmt|;
 block|}
 return|return
-name|eksProducerToString
+name|translateProducerToString
 return|;
 block|}
 annotation|@
