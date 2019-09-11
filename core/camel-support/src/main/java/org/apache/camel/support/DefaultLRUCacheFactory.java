@@ -771,7 +771,7 @@ if|if
 condition|(
 name|size
 argument_list|()
-operator|>=
+operator|>
 name|maximumCacheSize
 condition|)
 block|{
