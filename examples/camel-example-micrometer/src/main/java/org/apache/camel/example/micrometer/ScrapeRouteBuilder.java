@@ -157,7 +157,7 @@ name|method
 argument_list|(
 name|prometheusMeterRegistry
 argument_list|,
-literal|"scrape"
+literal|"scrape()"
 argument_list|)
 expr_stmt|;
 block|}
