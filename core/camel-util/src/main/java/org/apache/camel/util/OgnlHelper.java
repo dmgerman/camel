@@ -748,18 +748,18 @@ init|=
 literal|0
 decl_stmt|;
 comment|// j is used as counter per method
-name|boolean
-name|squareBracket
+name|int
+name|squareBracketCnt
 init|=
-literal|false
+literal|0
 decl_stmt|;
-comment|// special to keep track if we are inside a square bracket block, eg: [foo]
-name|boolean
-name|parenthesisBracket
+comment|// special to keep track if and how deep we are inside a square bracket block, eg: [foo]
+name|int
+name|parenthesisBracketCnt
 init|=
-literal|false
+literal|0
 decl_stmt|;
-comment|// special to keep track if we are inside a parenthesis block, eg: bar(${body}, ${header.foo})
+comment|// special to keep track if and how deep we are inside a parenthesis block, eg: bar(${body}, ${header.foo})
 for|for
 control|(
 name|int
@@ -841,13 +841,13 @@ name|ch
 operator|==
 literal|'['
 operator|&&
-operator|!
-name|parenthesisBracket
+name|parenthesisBracketCnt
+operator|==
+literal|0
 condition|)
 block|{
-name|squareBracket
-operator|=
-literal|true
+name|squareBracketCnt
+operator|++
 expr_stmt|;
 block|}
 elseif|else
@@ -858,9 +858,8 @@ operator|==
 literal|'('
 condition|)
 block|{
-name|parenthesisBracket
-operator|=
-literal|true
+name|parenthesisBracketCnt
+operator|++
 expr_stmt|;
 block|}
 elseif|else
@@ -871,9 +870,8 @@ operator|==
 literal|')'
 condition|)
 block|{
-name|parenthesisBracket
-operator|=
-literal|false
+name|parenthesisBracketCnt
+operator|--
 expr_stmt|;
 block|}
 name|j
@@ -889,11 +887,13 @@ name|ch
 operator|==
 literal|'.'
 operator|&&
-operator|!
-name|squareBracket
+name|squareBracketCnt
+operator|==
+literal|0
 operator|&&
-operator|!
-name|parenthesisBracket
+name|parenthesisBracketCnt
+operator|==
+literal|0
 condition|)
 block|{
 comment|// only treat dot as a method separator if not inside a square bracket block
@@ -971,8 +971,9 @@ name|ch
 operator|==
 literal|']'
 operator|&&
-operator|!
-name|parenthesisBracket
+name|parenthesisBracketCnt
+operator|==
+literal|0
 condition|)
 block|{
 comment|// append ending ] to method name
@@ -1013,9 +1014,8 @@ operator|=
 literal|0
 expr_stmt|;
 comment|// no more square bracket
-name|squareBracket
-operator|=
-literal|false
+name|squareBracketCnt
+operator|--
 expr_stmt|;
 block|}
 comment|// and don't lose the char if its not an ] end marker (as we already added that)
@@ -1025,7 +1025,9 @@ name|ch
 operator|!=
 literal|']'
 operator|||
-name|parenthesisBracket
+name|parenthesisBracketCnt
+operator|>
+literal|0
 condition|)
 block|{
 name|sb
@@ -1096,7 +1098,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|parenthesisBracket
+name|parenthesisBracketCnt
+operator|>
+literal|0
 operator|&&
 name|last
 operator|!=
