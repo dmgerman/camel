@@ -130,6 +130,11 @@ specifier|final
 name|HttpCommonEndpoint
 name|endpoint
 decl_stmt|;
+DECL|field|requestRead
+specifier|private
+name|boolean
+name|requestRead
+decl_stmt|;
 DECL|method|HttpMessage (Exchange exchange, HttpCommonEndpoint endpoint, HttpServletRequest request, HttpServletResponse response)
 specifier|public
 name|HttpMessage
@@ -151,6 +156,12 @@ name|super
 argument_list|(
 name|exchange
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|requestRead
+operator|=
+literal|false
 expr_stmt|;
 name|this
 operator|.
@@ -248,7 +259,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpMessage (HttpServletRequest request, HttpServletResponse response, Exchange exchange, HttpCommonEndpoint endpoint)
+DECL|method|HttpMessage (HttpServletRequest request, HttpServletResponse response, Exchange exchange, HttpCommonEndpoint endpoint, boolean requestRead)
 specifier|private
 name|HttpMessage
 parameter_list|(
@@ -263,6 +274,9 @@ name|exchange
 parameter_list|,
 name|HttpCommonEndpoint
 name|endpoint
+parameter_list|,
+name|boolean
+name|requestRead
 parameter_list|)
 block|{
 name|super
@@ -287,6 +301,12 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|requestRead
+operator|=
+name|requestRead
 expr_stmt|;
 block|}
 DECL|method|getRequest ()
@@ -317,6 +337,16 @@ name|Object
 name|createBody
 parameter_list|()
 block|{
+comment|// HTTP request may be read only once
+if|if
+condition|(
+name|requestRead
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 try|try
 block|{
 return|return
@@ -345,6 +375,13 @@ name|e
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
+name|requestRead
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -366,6 +403,8 @@ name|getExchange
 argument_list|()
 argument_list|,
 name|endpoint
+argument_list|,
+name|requestRead
 argument_list|)
 return|;
 block|}
