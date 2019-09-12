@@ -228,6 +228,13 @@ argument_list|,
 literal|"aws-swf"
 argument_list|)
 expr_stmt|;
+name|testComponent
+argument_list|(
+name|COMPONENT
+argument_list|,
+literal|"aws-translate"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
