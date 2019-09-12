@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|translate
+operator|.
+name|AmazonTranslate
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -85,20 +99,6 @@ operator|.
 name|spi
 operator|.
 name|UriPath
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|translate
-operator|.
-name|AmazonTranslate
 import|;
 end_import
 
@@ -405,7 +405,7 @@ return|return
 name|region
 return|;
 block|}
-comment|/**      * The region in which Translate client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1)      * You'll need to use the name Regions.EU_WEST_1.name()      */
+comment|/**      * The region in which Translate client needs to work. When using this      * parameter, the configuration will expect the capitalized name of the      * region (for example AP_EAST_1) You'll need to use the name      * Regions.EU_WEST_1.name()      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
