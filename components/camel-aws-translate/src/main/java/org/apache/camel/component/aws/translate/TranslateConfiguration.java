@@ -233,6 +233,24 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|autodetectSourceLanguage
+specifier|private
+name|boolean
+name|autodetectSourceLanguage
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getTranslateClient ()
 specifier|public
 name|AmazonTranslate
@@ -420,6 +438,33 @@ operator|.
 name|region
 operator|=
 name|region
+expr_stmt|;
+block|}
+DECL|method|isAutodetectSourceLanguage ()
+specifier|public
+name|boolean
+name|isAutodetectSourceLanguage
+parameter_list|()
+block|{
+return|return
+name|autodetectSourceLanguage
+return|;
+block|}
+comment|/**      * Being able to autodetect the source language      */
+DECL|method|setAutodetectSourceLanguage (boolean autodetectSourceLanguage)
+specifier|public
+name|void
+name|setAutodetectSourceLanguage
+parameter_list|(
+name|boolean
+name|autodetectSourceLanguage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autodetectSourceLanguage
+operator|=
+name|autodetectSourceLanguage
 expr_stmt|;
 block|}
 comment|// *************************************************
