@@ -248,8 +248,6 @@ DECL|field|autodetectSourceLanguage
 specifier|private
 name|boolean
 name|autodetectSourceLanguage
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getTranslateClient ()
 specifier|public
