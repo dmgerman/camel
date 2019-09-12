@@ -199,7 +199,9 @@ name|TranslateConstants
 operator|.
 name|SOURCE_LANGUAGE
 argument_list|,
-literal|"it"
+name|TranslateLanguageEnum
+operator|.
+name|ITALIAN
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -213,7 +215,9 @@ name|TranslateConstants
 operator|.
 name|TARGET_LANGUAGE
 argument_list|,
-literal|"en"
+name|TranslateLanguageEnum
+operator|.
+name|ENGLISH
 argument_list|)
 expr_stmt|;
 name|exchange
