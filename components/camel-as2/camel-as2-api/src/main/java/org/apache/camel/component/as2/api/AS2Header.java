@@ -234,6 +234,16 @@ name|CONTENT_DESCRIPTION
 init|=
 literal|"Content-Description"
 decl_stmt|;
+comment|/**      * Message Header name for Disposition Type      */
+DECL|field|DISPOSITION_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISPOSITION_TYPE
+init|=
+literal|"Disposition-Type"
+decl_stmt|;
 comment|/**      * Message Header name for Disposition Notification To      */
 DECL|field|DISPOSITION_NOTIFICATION_TO
 specifier|public
