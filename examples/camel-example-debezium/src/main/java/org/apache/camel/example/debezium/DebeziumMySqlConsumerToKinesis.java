@@ -227,7 +227,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"About to run Debezium integration..."
 argument_list|)

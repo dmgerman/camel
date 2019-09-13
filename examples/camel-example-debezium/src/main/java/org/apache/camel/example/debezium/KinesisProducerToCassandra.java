@@ -187,7 +187,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"About to run Kinesis to Cassandra integration..."
 argument_list|)
