@@ -59,7 +59,7 @@ name|Object
 name|getData
 parameter_list|()
 function_decl|;
-comment|/**      * Event signalling that the list of members of the Kubernetes cluster has changed.      */
+comment|/**      * Event signalling that the list of members of the Kubernetes cluster has      * changed.      */
 DECL|interface|KubernetesClusterMemberListChangedEvent
 interface|interface
 name|KubernetesClusterMemberListChangedEvent

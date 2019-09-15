@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Resources Quota component provides a producer to execute kubernetes resources quota operations.  */
+comment|/**  * The Kubernetes Resources Quota component provides a producer to execute  * kubernetes resources quota operations.  */
 end_comment
 
 begin_class

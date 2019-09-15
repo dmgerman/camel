@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Replication Controllers component provides a producer to execute kubernetes replication controller  * operations and a consumer to consume replication controller events.  */
+comment|/**  * The Kubernetes Replication Controllers component provides a producer to  * execute kubernetes replication controller operations and a consumer to  * consume replication controller events.  */
 end_comment
 
 begin_class

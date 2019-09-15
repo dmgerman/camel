@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Nodes component provides a producer to execute kubernetes node operations  * and a consumer to consume node events.  */
+comment|/**  * The Kubernetes Nodes component provides a producer to execute kubernetes node  * operations and a consumer to consume node events.  */
 end_comment
 
 begin_class

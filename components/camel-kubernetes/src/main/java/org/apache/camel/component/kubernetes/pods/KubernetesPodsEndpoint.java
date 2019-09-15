@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Pods component provides a producer to execute kubernetes pod operations  * and a consumer to consume pod events.  */
+comment|/**  * The Kubernetes Pods component provides a producer to execute kubernetes pod  * operations and a consumer to consume pod events.  */
 end_comment
 
 begin_class

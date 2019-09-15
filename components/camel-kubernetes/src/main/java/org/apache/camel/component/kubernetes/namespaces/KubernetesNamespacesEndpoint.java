@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Namespaces component provides a producer to execute kubernetes namespace operations  * and a consumer to consume namespace events.  */
+comment|/**  * The Kubernetes Namespaces component provides a producer to execute kubernetes  * namespace operations and a consumer to consume namespace events.  */
 end_comment
 
 begin_class

@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Monitors current status and participate to leader election when no active leaders are present.  * It communicates changes in leadership and cluster members to the given event handler.  */
+comment|/**  * Monitors current status and participate to leader election when no active  * leaders are present. It communicates changes in leadership and cluster  * members to the given event handler.  */
 end_comment
 
 begin_class
@@ -242,12 +242,12 @@ enum|enum
 name|State
 block|{
 DECL|enumConstant|NOT_LEADER
+DECL|enumConstant|BECOMING_LEADER
+DECL|enumConstant|LEADER
 name|NOT_LEADER
 block|,
-DECL|enumConstant|BECOMING_LEADER
 name|BECOMING_LEADER
 block|,
-DECL|enumConstant|LEADER
 name|LEADER
 block|}
 DECL|field|camelContext
@@ -518,7 +518,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * This pod is currently not leader. It should monitor the leader configuration and try      * to acquire the leadership if possible.      */
+comment|/**      * This pod is currently not leader. It should monitor the leader      * configuration and try to acquire the leadership if possible.      */
 DECL|method|refreshStatusNotLeader ()
 specifier|private
 name|void
@@ -800,7 +800,7 @@ name|rescheduleAfterDelay
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This pod has acquired the leadership but it should wait for the old leader      * to tear down resources before starting the local services.      */
+comment|/**      * This pod has acquired the leadership but it should wait for the old      * leader to tear down resources before starting the local services.      */
 DECL|method|refreshStatusBecomingLeader ()
 specifier|private
 name|void
@@ -808,7 +808,8 @@ name|refreshStatusBecomingLeader
 parameter_list|()
 block|{
 comment|// Wait always the same amount of time before becoming the leader
-comment|// Even if the current pod is already leader, we should let a possible old version of the pod to shut down
+comment|// Even if the current pod is already leader, we should let a possible
+comment|// old version of the pod to shut down
 name|long
 name|delay
 init|=

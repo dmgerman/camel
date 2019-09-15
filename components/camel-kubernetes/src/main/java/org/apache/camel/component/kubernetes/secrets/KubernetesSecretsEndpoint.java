@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Secrets component provides a producer to execute kubernetes secret operations.  */
+comment|/**  * The Kubernetes Secrets component provides a producer to execute kubernetes  * secret operations.  */
 end_comment
 
 begin_class

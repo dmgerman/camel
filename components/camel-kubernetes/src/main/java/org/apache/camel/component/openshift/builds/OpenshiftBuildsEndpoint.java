@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Openshift Builds component provides a producer to execute openshift build operations.  */
+comment|/**  * The Openshift Builds component provides a producer to execute openshift build  * operations.  */
 end_comment
 
 begin_class

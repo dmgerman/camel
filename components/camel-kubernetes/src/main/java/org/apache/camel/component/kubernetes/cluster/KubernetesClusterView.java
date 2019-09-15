@@ -265,7 +265,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The cluster view on a specific Camel cluster namespace (not to be confused with Kubernetes namespaces).  * Namespaces are represented as keys in a Kubernetes ConfigMap (values are the current leader pods).  */
+comment|/**  * The cluster view on a specific Camel cluster namespace (not to be confused  * with Kubernetes namespaces). Namespaces are represented as keys in a  * Kubernetes ConfigMap (values are the current leader pods).  */
 end_comment
 
 begin_class

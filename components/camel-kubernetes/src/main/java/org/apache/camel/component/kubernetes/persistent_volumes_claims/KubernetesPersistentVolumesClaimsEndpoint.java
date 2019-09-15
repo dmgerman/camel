@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Persistent Volumes Claims component provides a producer to execute kubernetes persistent volume claim operations.  */
+comment|/**  * The Kubernetes Persistent Volumes Claims component provides a producer to  * execute kubernetes persistent volume claim operations.  */
 end_comment
 
 begin_class

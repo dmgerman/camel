@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes HPA component provides a producer to execute kubernetes hpa operations  * and a consumer to consume HPA events.  */
+comment|/**  * The Kubernetes HPA component provides a producer to execute kubernetes hpa  * operations and a consumer to consume HPA events.  */
 end_comment
 
 begin_class

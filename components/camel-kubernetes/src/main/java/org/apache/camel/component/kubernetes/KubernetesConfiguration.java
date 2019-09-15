@@ -1172,7 +1172,7 @@ return|return
 name|connectionTimeout
 return|;
 block|}
-comment|/**      * Connection timeout in milliseconds to use when making requests to the Kubernetes API server.      */
+comment|/**      * Connection timeout in milliseconds to use when making requests to the      * Kubernetes API server.      */
 DECL|method|setConnectionTimeout (Integer connectionTimeout)
 specifier|public
 name|void

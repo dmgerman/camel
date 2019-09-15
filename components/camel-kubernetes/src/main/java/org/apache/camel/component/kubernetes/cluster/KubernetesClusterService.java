@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Kubernetes based cluster service leveraging Kubernetes optimistic locks on resources (specifically ConfigMaps).  */
+comment|/**  * A Kubernetes based cluster service leveraging Kubernetes optimistic locks on  * resources (specifically ConfigMaps).  */
 end_comment
 
 begin_class
@@ -312,7 +312,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Set the connection timeout to be much lower than the renewal deadline,
+comment|// Set the connection timeout to be much lower than the renewal
+comment|// deadline,
 comment|// to avoid losing the leadership in case of stale connections
 name|int
 name|timeout
@@ -690,7 +691,7 @@ name|getMasterUrl
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the URL of the Kubernetes master (read from Kubernetes client properties by default).      */
+comment|/**      * Set the URL of the Kubernetes master (read from Kubernetes client      * properties by default).      */
 DECL|method|setMasterUrl (String masterUrl)
 specifier|public
 name|void
@@ -721,7 +722,7 @@ name|getConnectionTimeout
 argument_list|()
 return|;
 block|}
-comment|/**      * Connection timeout in milliseconds to use when making requests to the Kubernetes API server.      */
+comment|/**      * Connection timeout in milliseconds to use when making requests to the      * Kubernetes API server.      */
 DECL|method|setConnectionTimeoutMillis (Integer connectionTimeout)
 specifier|public
 name|void
@@ -754,7 +755,7 @@ name|getKubernetesResourcesNamespace
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the name of the Kubernetes namespace containing the pods and the configmap (autodetected by default)      */
+comment|/**      * Set the name of the Kubernetes namespace containing the pods and the      * configmap (autodetected by default)      */
 DECL|method|setKubernetesNamespace (String kubernetesNamespace)
 specifier|public
 name|void
@@ -789,7 +790,7 @@ name|getConfigMapName
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the name of the ConfigMap used to do optimistic locking (defaults to 'leaders').      */
+comment|/**      * Set the name of the ConfigMap used to do optimistic locking (defaults to      * 'leaders').      */
 DECL|method|setConfigMapName (String configMapName)
 specifier|public
 name|void
@@ -824,7 +825,7 @@ name|getPodName
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the name of the current pod (autodetected from container host name by default).      */
+comment|/**      * Set the name of the current pod (autodetected from container host name by      * default).      */
 DECL|method|setPodName (String podName)
 specifier|public
 name|void
@@ -920,7 +921,7 @@ name|getJitterFactor
 argument_list|()
 return|;
 block|}
-comment|/**      * A jitter factor to apply in order to prevent all pods to call Kubernetes APIs in the same instant.      */
+comment|/**      * A jitter factor to apply in order to prevent all pods to call Kubernetes      * APIs in the same instant.      */
 DECL|method|setJitterFactor (double jitterFactor)
 specifier|public
 name|void
@@ -982,7 +983,7 @@ name|getRenewDeadlineMillis
 argument_list|()
 return|;
 block|}
-comment|/**      * The deadline after which the leader must stop its services because it may have lost the leadership.      */
+comment|/**      * The deadline after which the leader must stop its services because it may      * have lost the leadership.      */
 DECL|method|setRenewDeadlineMillis (long renewDeadlineMillis)
 specifier|public
 name|void
@@ -1013,7 +1014,7 @@ name|getRetryPeriodMillis
 argument_list|()
 return|;
 block|}
-comment|/**      * The time between two subsequent attempts to check and acquire the leadership.      * It is randomized using the jitter factor.      */
+comment|/**      * The time between two subsequent attempts to check and acquire the      * leadership. It is randomized using the jitter factor.      */
 DECL|method|setRetryPeriodMillis (long retryPeriodMillis)
 specifier|public
 name|void

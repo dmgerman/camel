@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Configmaps component provides a producer to execute kubernetes configmap operations.  */
+comment|/**  * The Kubernetes Configmaps component provides a producer to execute kubernetes  * configmap operations.  */
 end_comment
 
 begin_class

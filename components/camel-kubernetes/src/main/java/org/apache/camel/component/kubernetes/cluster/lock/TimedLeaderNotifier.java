@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Receives information about the current leader and handles expiration automatically.  */
+comment|/**  * Receives information about the current leader and handles expiration  * automatically.  */
 end_comment
 
 begin_class

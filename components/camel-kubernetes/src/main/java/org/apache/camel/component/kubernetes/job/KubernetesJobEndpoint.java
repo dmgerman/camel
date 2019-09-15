@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Jobs component provides a producer to execute kubernetes job operations  */
+comment|/**  * The Kubernetes Jobs component provides a producer to execute kubernetes job  * operations  */
 end_comment
 
 begin_class

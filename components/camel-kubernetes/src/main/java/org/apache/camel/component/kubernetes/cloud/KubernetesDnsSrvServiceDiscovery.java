@@ -426,7 +426,7 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Compute the query string to lookup SRV records.      *      * https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#supported-dns-schema      * https://github.com/kubernetes/dns/blob/master/docs/specification.md      *      * @param serviceName the service name      * @return the query      */
+comment|/**      * Compute the query string to lookup SRV records.      * https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#supported-dns-schema      * https://github.com/kubernetes/dns/blob/master/docs/specification.md      *      * @param serviceName the service name      * @return the query      */
 DECL|method|computeQueryString (String serviceName)
 specifier|protected
 name|String

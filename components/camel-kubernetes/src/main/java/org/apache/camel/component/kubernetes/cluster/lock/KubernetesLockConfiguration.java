@@ -113,7 +113,7 @@ name|DEFAULT_RETRY_PERIOD_MILLIS
 init|=
 literal|5000
 decl_stmt|;
-comment|/**      * Kubernetes namespace containing the pods and the ConfigMap used for locking.      */
+comment|/**      * Kubernetes namespace containing the pods and the ConfigMap used for      * locking.      */
 DECL|field|kubernetesResourcesNamespace
 specifier|private
 name|String
@@ -127,7 +127,7 @@ name|configMapName
 init|=
 name|DEFAULT_CONFIGMAP_NAME
 decl_stmt|;
-comment|/**      * Name of the lock group (or namespace according to the Camel cluster convention) within the chosen ConfigMap.      */
+comment|/**      * Name of the lock group (or namespace according to the Camel cluster      * convention) within the chosen ConfigMap.      */
 DECL|field|groupName
 specifier|private
 name|String
@@ -155,7 +155,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * A jitter factor to apply in order to prevent all pods to call Kubernetes APIs in the same instant.      */
+comment|/**      * A jitter factor to apply in order to prevent all pods to call Kubernetes      * APIs in the same instant.      */
 DECL|field|jitterFactor
 specifier|private
 name|double
@@ -171,7 +171,7 @@ name|leaseDurationMillis
 init|=
 name|DEFAULT_LEASE_DURATION_MILLIS
 decl_stmt|;
-comment|/**      * The deadline after which the leader must stop its services because it may have lost the leadership.      */
+comment|/**      * The deadline after which the leader must stop its services because it may      * have lost the leadership.      */
 DECL|field|renewDeadlineMillis
 specifier|private
 name|long
@@ -179,7 +179,7 @@ name|renewDeadlineMillis
 init|=
 name|DEFAULT_RENEW_DEADLINE_MILLIS
 decl_stmt|;
-comment|/**      * The time between two subsequent attempts to check and acquire the leadership.      * It is randomized using the jitter factor.      */
+comment|/**      * The time between two subsequent attempts to check and acquire the      * leadership. It is randomized using the jitter factor.      */
 DECL|field|retryPeriodMillis
 specifier|private
 name|long

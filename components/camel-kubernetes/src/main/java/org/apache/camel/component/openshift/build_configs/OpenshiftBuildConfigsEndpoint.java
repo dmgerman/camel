@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Kubernetes Build Config component provides a producer to execute kubernetes build config operations.  */
+comment|/**  * The Kubernetes Build Config component provides a producer to execute  * kubernetes build config operations.  */
 end_comment
 
 begin_class
