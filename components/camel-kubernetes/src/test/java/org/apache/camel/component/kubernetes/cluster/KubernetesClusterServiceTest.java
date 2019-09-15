@@ -419,7 +419,7 @@ name|mypod1
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -430,7 +430,7 @@ name|mypod2
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -540,7 +540,7 @@ name|member
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -666,7 +666,7 @@ name|mypod1
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
@@ -677,7 +677,7 @@ name|mypod2
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
@@ -750,7 +750,7 @@ name|mypod1
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -761,7 +761,7 @@ name|mypod2
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -953,7 +953,7 @@ name|mypod1
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -964,7 +964,7 @@ name|mypod2
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1079,7 +1079,7 @@ name|mypod1
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1090,7 +1090,7 @@ name|mypod2
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1221,7 +1221,7 @@ name|a1
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1232,7 +1232,7 @@ name|a2
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1243,7 +1243,7 @@ name|b1
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1254,7 +1254,7 @@ name|b2
 operator|.
 name|waitForAnyLeader
 argument_list|(
-literal|2
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
