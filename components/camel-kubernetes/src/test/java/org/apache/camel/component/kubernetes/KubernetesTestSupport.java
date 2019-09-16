@@ -89,7 +89,7 @@ block|{
 comment|// INSERT credentials and host here
 name|authToken
 operator|=
-literal|"IVStwJAV_7p26ifo1NX1R3cjNDLkGFUaU0R6VW6dbwo"
+literal|""
 expr_stmt|;
 name|host
 operator|=
