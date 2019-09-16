@@ -216,13 +216,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-throw|throw
+return|return
 operator|new
-name|IllegalArgumentException
+name|KubernetesConfigMapsConsumer
 argument_list|(
-literal|"The kubernetes-configmaps doesn't support consumer"
+name|this
+argument_list|,
+name|processor
 argument_list|)
-throw|;
+return|;
 block|}
 block|}
 end_class
