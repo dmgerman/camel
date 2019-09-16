@@ -539,7 +539,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"kubernetes-config-maps://%s?oauthToken=%s&namespace=myproject&labelKey=this&labelValue=rocks"
+literal|"kubernetes-config-maps://%s?oauthToken=%s&namespace=default&labelKey=this&labelValue=rocks"
 argument_list|,
 name|host
 argument_list|,
