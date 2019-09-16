@@ -56,18 +56,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -98,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|main
 operator|.
-name|DefaultCamelContext
+name|Main
 import|;
 end_import
 
@@ -167,6 +155,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// use Camel Main to setup and run Camel
+DECL|field|main
+specifier|private
+specifier|static
+name|Main
+name|main
+init|=
+operator|new
+name|Main
+argument_list|()
+decl_stmt|;
 DECL|method|KinesisProducerToCassandra ()
 specifier|private
 name|KinesisProducerToCassandra
@@ -192,17 +191,10 @@ argument_list|(
 literal|"About to run Kinesis to Cassandra integration..."
 argument_list|)
 expr_stmt|;
-specifier|final
-name|CamelContext
-name|camelContext
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
-decl_stmt|;
-name|camelContext
+comment|// add route
+name|main
 operator|.
-name|addRoutes
+name|addRouteBuilder
 argument_list|(
 operator|new
 name|RouteBuilder
@@ -587,20 +579,11 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|camelContext
+comment|// start and run Camel (block)
+name|main
 operator|.
-name|start
+name|run
 argument_list|()
-expr_stmt|;
-comment|// We block the thread here
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-name|Long
-operator|.
-name|MAX_VALUE
-argument_list|)
 expr_stmt|;
 block|}
 block|}
