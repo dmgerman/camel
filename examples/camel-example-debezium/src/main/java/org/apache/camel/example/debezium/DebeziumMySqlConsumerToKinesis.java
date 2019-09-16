@@ -245,29 +245,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-specifier|final
-name|PropertiesComponent
-name|pc
-init|=
-name|getContext
-argument_list|()
-operator|.
-name|getComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|pc
-operator|.
-name|setLocation
-argument_list|(
-literal|"classpath:application.properties"
-argument_list|)
-expr_stmt|;
 comment|// Initial Debezium route that will run and listens to the changes,
 comment|// first it will perform an initial snapshot using (select * from) in case there are no offsets
 comment|// exists for the connector and then it will listens to MySQL binlogs for any DB events such as (UPDATE, INSERT and DELETE)
