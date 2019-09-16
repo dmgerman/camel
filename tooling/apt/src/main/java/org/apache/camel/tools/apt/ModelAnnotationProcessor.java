@@ -610,6 +610,15 @@ name|classElement
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|propertyPlaceholderDefinitions
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|messager
 operator|.
 name|printMessage
@@ -642,6 +651,7 @@ argument_list|,
 name|propertyPlaceholderDefinitions
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
