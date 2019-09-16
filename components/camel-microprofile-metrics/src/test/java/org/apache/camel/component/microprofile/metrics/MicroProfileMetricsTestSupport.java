@@ -367,6 +367,28 @@ name|class
 argument_list|)
 return|;
 block|}
+DECL|method|getGauge (String metricName)
+specifier|protected
+name|MicroProfileMetricsCamelGauge
+name|getGauge
+parameter_list|(
+name|String
+name|metricName
+parameter_list|)
+block|{
+return|return
+name|findMetric
+argument_list|(
+name|metricRegistry
+argument_list|,
+name|metricName
+argument_list|,
+name|MicroProfileMetricsCamelGauge
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|getHistogram (String metricName)
 specifier|protected
 name|Histogram

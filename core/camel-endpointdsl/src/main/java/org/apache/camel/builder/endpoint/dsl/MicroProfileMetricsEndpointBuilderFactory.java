@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Decrements a counter when using the ConcurrentGauge metric type.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
+comment|/**          * Decrements a gauge value when using the ConcurrentGauge metric type.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|gaugeDecrement ( Boolean gaugeDecrement)
 specifier|default
 name|MicroProfileMetricsEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Decrements a counter when using the ConcurrentGauge metric type.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
+comment|/**          * Decrements a gauge value when using the ConcurrentGauge metric type.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|gaugeDecrement ( String gaugeDecrement)
 specifier|default
 name|MicroProfileMetricsEndpointBuilder
@@ -257,7 +257,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Increments a counter when using the ConcurrentGauge metric type.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
+comment|/**          * Increments a gauge value when using the ConcurrentGauge metric type.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|gaugeIncrement ( Boolean gaugeIncrement)
 specifier|default
 name|MicroProfileMetricsEndpointBuilder
@@ -278,7 +278,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Increments a counter when using the ConcurrentGauge metric type.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
+comment|/**          * Increments a gauge value when using the ConcurrentGauge metric type.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: producer          */
 DECL|method|gaugeIncrement ( String gaugeIncrement)
 specifier|default
 name|MicroProfileMetricsEndpointBuilder
@@ -293,6 +293,48 @@ argument_list|(
 literal|"gaugeIncrement"
 argument_list|,
 name|gaugeIncrement
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the gauge value when using the Gauge metric type.          *           * The option is a:<code>java.lang.Number</code> type.          *           * Group: producer          */
+DECL|method|gaugeValue (Number gaugeValue)
+specifier|default
+name|MicroProfileMetricsEndpointBuilder
+name|gaugeValue
+parameter_list|(
+name|Number
+name|gaugeValue
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"gaugeValue"
+argument_list|,
+name|gaugeValue
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the gauge value when using the Gauge metric type.          *           * The option will be converted to a<code>java.lang.Number</code> type.          *           * Group: producer          */
+DECL|method|gaugeValue (String gaugeValue)
+specifier|default
+name|MicroProfileMetricsEndpointBuilder
+name|gaugeValue
+parameter_list|(
+name|String
+name|gaugeValue
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"gaugeValue"
+argument_list|,
+name|gaugeValue
 argument_list|)
 expr_stmt|;
 return|return

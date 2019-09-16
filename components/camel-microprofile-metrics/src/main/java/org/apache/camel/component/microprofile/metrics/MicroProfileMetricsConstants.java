@@ -69,6 +69,17 @@ name|HEADER_PREFIX
 operator|+
 literal|"GaugeDecrement"
 decl_stmt|;
+DECL|field|HEADER_GAUGE_VALUE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_GAUGE_VALUE
+init|=
+name|HEADER_PREFIX
+operator|+
+literal|"GaugeValue"
+decl_stmt|;
 DECL|field|HEADER_HISTOGRAM_VALUE
 specifier|public
 specifier|static

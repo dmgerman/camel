@@ -344,6 +344,18 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
+literal|"Decrement metric value when using concurrent gauge type"
+argument_list|)
+DECL|field|gaugeValue
+specifier|private
+name|Number
+name|gaugeValue
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
 literal|"Metric description"
 argument_list|)
 DECL|field|description
@@ -460,16 +472,28 @@ name|equals
 argument_list|(
 name|MetricType
 operator|.
-name|GAUGE
+name|CONCURRENT_GAUGE
 argument_list|)
-operator|||
+condition|)
+block|{
+return|return
+operator|new
+name|MicroProfileMetricsConcurrentGaugeProducer
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 name|metricType
 operator|.
 name|equals
 argument_list|(
 name|MetricType
 operator|.
-name|CONCURRENT_GAUGE
+name|GAUGE
 argument_list|)
 condition|)
 block|{
@@ -752,7 +776,7 @@ return|return
 name|gaugeIncrement
 return|;
 block|}
-comment|/**      * Increments a counter when using the ConcurrentGauge metric type      */
+comment|/**      * Increments a gauge value when using the ConcurrentGauge metric type      */
 DECL|method|setGaugeIncrement (Boolean gaugeIncrement)
 specifier|public
 name|void
@@ -779,7 +803,7 @@ return|return
 name|gaugeDecrement
 return|;
 block|}
-comment|/**      * Decrements a counter when using the ConcurrentGauge metric type      */
+comment|/**      * Decrements a gauge value when using the ConcurrentGauge metric type      */
 DECL|method|setGaugeDecrement (Boolean gaugeDecrement)
 specifier|public
 name|void
@@ -794,6 +818,33 @@ operator|.
 name|gaugeDecrement
 operator|=
 name|gaugeDecrement
+expr_stmt|;
+block|}
+DECL|method|getGaugeValue ()
+specifier|public
+name|Number
+name|getGaugeValue
+parameter_list|()
+block|{
+return|return
+name|gaugeValue
+return|;
+block|}
+comment|/**      * Sets the gauge value when using the Gauge metric type      */
+DECL|method|setGaugeValue (Number gaugeValue)
+specifier|public
+name|void
+name|setGaugeValue
+parameter_list|(
+name|Number
+name|gaugeValue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|gaugeValue
+operator|=
+name|gaugeValue
 expr_stmt|;
 block|}
 DECL|method|getDescription ()
