@@ -516,24 +516,6 @@ name|tools
 operator|.
 name|apt
 operator|.
-name|PropertyPlaceholderGenerator
-operator|.
-name|generatePropertyPlaceholderDefinitionsHelper
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|tools
-operator|.
-name|apt
-operator|.
 name|helper
 operator|.
 name|JsonSchemaHelper
@@ -715,7 +697,7 @@ name|skipUnwanted
 init|=
 literal|true
 decl_stmt|;
-DECL|method|processModelClass (final ProcessingEnvironment processingEnv, final RoundEnvironment roundEnv, final TypeElement classElement, Set<String> propertyPlaceholderDefinitions, final boolean last)
+DECL|method|processModelClass (final ProcessingEnvironment processingEnv, final RoundEnvironment roundEnv, final TypeElement classElement, Set<String> propertyPlaceholderDefinitions)
 specifier|protected
 name|void
 name|processModelClass
@@ -737,10 +719,6 @@ argument_list|<
 name|String
 argument_list|>
 name|propertyPlaceholderDefinitions
-parameter_list|,
-specifier|final
-name|boolean
-name|last
 parameter_list|)
 block|{
 specifier|final
@@ -961,47 +939,6 @@ name|propertyPlaceholderDefinitions
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// if last then generate source code for helper that contains all the generated property placeholder providers
-comment|// (this allows fast property placeholders at runtime without reflection overhead)
-if|if
-condition|(
-name|last
-condition|)
-block|{
-name|processingEnv
-operator|.
-name|getMessager
-argument_list|()
-operator|.
-name|printMessage
-argument_list|(
-name|Kind
-operator|.
-name|WARNING
-argument_list|,
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Generating placeholder definitions helper for %d definitions"
-argument_list|,
-name|propertyPlaceholderDefinitions
-operator|.
-name|size
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|generatePropertyPlaceholderDefinitionsHelper
-argument_list|(
-name|processingEnv
-argument_list|,
-name|roundEnv
-argument_list|,
-name|propertyPlaceholderDefinitions
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|writeJSonSchemeAndPropertyPlaceholderProvider (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String modelName, Set<String> propertyPlaceholderDefinitions)
 specifier|protected
