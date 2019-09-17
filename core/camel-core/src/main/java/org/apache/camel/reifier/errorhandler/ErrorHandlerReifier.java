@@ -242,6 +242,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|RouteDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|ErrorHandler
@@ -1265,7 +1279,8 @@ name|ref
 argument_list|)
 condition|)
 block|{
-comment|// see if there has been configured a route builder on the route
+comment|// see if there has been configured a error handler builder on the route
+comment|// TODO: Avoid using RouteDefinition - tests should pass: https://issues.apache.org/jira/browse/CAMEL-13984
 name|RouteDefinition
 name|route
 init|=
@@ -1284,55 +1299,7 @@ operator|.
 name|getErrorHandlerFactory
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-operator|&&
-name|route
-operator|.
-name|getErrorHandlerRef
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|answer
-operator|=
-name|routeContext
-operator|.
-name|lookup
-argument_list|(
-name|route
-operator|.
-name|getErrorHandlerRef
-argument_list|()
-argument_list|,
-name|ErrorHandlerBuilder
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
-comment|// fallback to the default error handler if none configured on
-comment|// the route
-name|answer
-operator|=
-operator|new
-name|DefaultErrorHandlerBuilder
-argument_list|()
-expr_stmt|;
-block|}
-comment|// check if its also a ref with no error handler configuration like
-comment|// me
+comment|// check if its also a ref with no error handler configuration like me
 if|if
 condition|(
 name|answer
