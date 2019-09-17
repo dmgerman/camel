@@ -645,26 +645,6 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer,advanced"
-argument_list|,
-name|description
-operator|=
-literal|"Refers to a custom org.apache.camel.component.http.UrlRewrite which allows you to rewrite urls when you bridge/proxy endpoints."
-operator|+
-literal|" See more details at http://camel.apache.org/urlrewrite.html"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|field|urlRewrite
-specifier|private
-name|UrlRewrite
-name|urlRewrite
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
 literal|"consumer"
 argument_list|,
 name|defaultValue
@@ -1745,37 +1725,6 @@ operator|.
 name|httpMethodRestrict
 operator|=
 name|httpMethodRestrict
-expr_stmt|;
-block|}
-annotation|@
-name|Deprecated
-DECL|method|getUrlRewrite ()
-specifier|public
-name|UrlRewrite
-name|getUrlRewrite
-parameter_list|()
-block|{
-return|return
-name|urlRewrite
-return|;
-block|}
-comment|/**      * Refers to a custom org.apache.camel.component.http.UrlRewrite which allows you to rewrite urls when you bridge/proxy endpoints.      * See more details at http://camel.apache.org/urlrewrite.html      */
-annotation|@
-name|Deprecated
-DECL|method|setUrlRewrite (UrlRewrite urlRewrite)
-specifier|public
-name|void
-name|setUrlRewrite
-parameter_list|(
-name|UrlRewrite
-name|urlRewrite
-parameter_list|)
-block|{
-name|this
-operator|.
-name|urlRewrite
-operator|=
-name|urlRewrite
 expr_stmt|;
 block|}
 DECL|method|getResponseBufferSize ()

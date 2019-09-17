@@ -2814,45 +2814,6 @@ operator|.
 name|toASCIIString
 argument_list|()
 expr_stmt|;
-comment|// execute any custom url rewrite
-name|String
-name|rewriteUrl
-init|=
-name|HttpHelper
-operator|.
-name|urlRewrite
-argument_list|(
-name|exchange
-argument_list|,
-name|url
-argument_list|,
-name|getEndpoint
-argument_list|()
-argument_list|,
-name|this
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|rewriteUrl
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// update url and query string from the rewritten url
-name|url
-operator|=
-name|rewriteUrl
-expr_stmt|;
-name|uri
-operator|=
-operator|new
-name|URI
-argument_list|(
-name|url
-argument_list|)
-expr_stmt|;
-block|}
 comment|// create http holder objects for the request
 name|HttpEntity
 name|requestEntity
