@@ -191,12 +191,16 @@ name|getShortJavaType
 parameter_list|()
 block|{
 return|return
-name|getShortJavaType
+name|StringHelper
+operator|.
+name|getClassShortName
 argument_list|(
-literal|40
+name|javaType
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getShortJavaType (int watermark)
 specifier|public
 name|String
