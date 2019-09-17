@@ -364,7 +364,10 @@ name|Override
 specifier|public
 name|int
 name|getStatusCode
-parameter_list|()
+parameter_list|(
+name|RecordedRequest
+name|request
+parameter_list|)
 block|{
 return|return
 name|responseCode
@@ -529,7 +532,10 @@ name|Override
 specifier|public
 name|int
 name|getStatusCode
-parameter_list|()
+parameter_list|(
+name|RecordedRequest
+name|request
+parameter_list|)
 block|{
 return|return
 name|responseCode
@@ -751,7 +757,10 @@ name|Override
 specifier|public
 name|int
 name|getStatusCode
-parameter_list|()
+parameter_list|(
+name|RecordedRequest
+name|request
+parameter_list|)
 block|{
 return|return
 name|responseCode
