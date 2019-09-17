@@ -316,6 +316,12 @@ name|GET_NODE_OPERATION
 init|=
 literal|"getNode"
 decl_stmt|;
+DECL|field|CREATE_NODE_OPERATION
+name|String
+name|CREATE_NODE_OPERATION
+init|=
+literal|"createNode"
+decl_stmt|;
 comment|// HPA
 DECL|field|LIST_HPA
 name|String

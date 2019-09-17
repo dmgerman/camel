@@ -199,6 +199,12 @@ name|KUBERNETES_NODE_NAME
 init|=
 literal|"CamelKubernetesNodeName"
 decl_stmt|;
+DECL|field|KUBERNETES_NODE_SPEC
+name|String
+name|KUBERNETES_NODE_SPEC
+init|=
+literal|"CamelKubernetesNodeSpec"
+decl_stmt|;
 DECL|field|KUBERNETES_DEPLOYMENTS_LABELS
 name|String
 name|KUBERNETES_DEPLOYMENTS_LABELS
