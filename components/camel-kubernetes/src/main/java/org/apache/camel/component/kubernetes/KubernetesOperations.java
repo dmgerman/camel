@@ -322,6 +322,12 @@ name|CREATE_NODE_OPERATION
 init|=
 literal|"createNode"
 decl_stmt|;
+DECL|field|DELETE_NODE_OPERATION
+name|String
+name|DELETE_NODE_OPERATION
+init|=
+literal|"deleteNode"
+decl_stmt|;
 comment|// HPA
 DECL|field|LIST_HPA
 name|String
