@@ -84,16 +84,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -127,8 +117,6 @@ comment|/**  * Basic tests on the lock test server.  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|LockTestServerTest
 specifier|public
 class|class
