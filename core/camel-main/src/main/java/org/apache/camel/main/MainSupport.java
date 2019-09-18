@@ -2318,6 +2318,43 @@ operator|=
 name|initialProperties
 expr_stmt|;
 block|}
+comment|/**      * Adds a initial property for the properties component,      * which will be used before any locations are resolved.      *      * @param key    the property key      * @param value  the property value      */
+DECL|method|addInitialProperty (String key, String value)
+specifier|public
+name|void
+name|addInitialProperty
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|initialProperties
+operator|==
+literal|null
+condition|)
+block|{
+name|initialProperties
+operator|=
+operator|new
+name|OrderedProperties
+argument_list|()
+expr_stmt|;
+block|}
+name|initialProperties
+operator|.
+name|setProperty
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getOverrideProperties ()
 specifier|public
 name|Properties
@@ -2343,6 +2380,43 @@ operator|.
 name|overrideProperties
 operator|=
 name|overrideProperties
+expr_stmt|;
+block|}
+comment|/**      * Adds an override property that take precedence      * and will use first, if a property exist.      *      * @param key    the property key      * @param value  the property value      */
+DECL|method|addOverrideProperty (String key, String value)
+specifier|public
+name|void
+name|addOverrideProperty
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|overrideProperties
+operator|==
+literal|null
+condition|)
+block|{
+name|overrideProperties
+operator|=
+operator|new
+name|OrderedProperties
+argument_list|()
+expr_stmt|;
+block|}
+name|overrideProperties
+operator|.
+name|setProperty
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isTrace ()
