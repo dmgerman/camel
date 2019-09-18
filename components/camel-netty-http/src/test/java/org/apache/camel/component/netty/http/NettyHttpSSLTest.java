@@ -210,7 +210,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 decl_stmt|;
 name|setSystemProp
@@ -426,7 +426,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"netty-http:https://localhost:{{port}}?ssl=true&passphrase=changeit&keyStoreResource=jsse/localhost.ks&trustStoreResource=jsse/localhost.ks"
+literal|"netty-http:https://localhost:{{port}}?ssl=true&passphrase=changeit&keyStoreResource=jsse/localhost.p12&trustStoreResource=jsse/localhost.p12"
 argument_list|)
 operator|.
 name|to

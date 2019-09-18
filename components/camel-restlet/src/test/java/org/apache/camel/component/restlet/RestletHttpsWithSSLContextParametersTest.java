@@ -229,7 +229,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 operator|.
 name|getPath
@@ -244,6 +244,13 @@ operator|.
 name|setPassword
 argument_list|(
 literal|"changeit"
+argument_list|)
+expr_stmt|;
+name|ksp
+operator|.
+name|setType
+argument_list|(
+literal|"PKCS12"
 argument_list|)
 expr_stmt|;
 name|KeyManagersParameters
@@ -442,7 +449,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 decl_stmt|;
 name|System

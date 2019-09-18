@@ -179,7 +179,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"jsse/localhost-alias.ks"
+literal|"jsse/localhost-alias.p12"
 argument_list|)
 operator|.
 name|toString

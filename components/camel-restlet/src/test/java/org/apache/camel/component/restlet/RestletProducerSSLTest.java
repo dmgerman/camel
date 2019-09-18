@@ -317,7 +317,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/jsse/localhost.ks"
+literal|"src/test/resources/jsse/localhost.p12"
 argument_list|)
 operator|.
 name|getAbsolutePath

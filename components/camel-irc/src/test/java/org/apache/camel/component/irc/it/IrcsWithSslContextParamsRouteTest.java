@@ -134,7 +134,7 @@ name|ksp
 operator|.
 name|setResource
 argument_list|(
-literal|"localhost.ks"
+literal|"localhost.p12"
 argument_list|)
 expr_stmt|;
 name|ksp

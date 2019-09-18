@@ -467,7 +467,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 decl_stmt|;
 name|System
@@ -664,7 +664,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/jsse/localhost.ks"
+literal|"src/test/resources/jsse/localhost.p12"
 argument_list|)
 operator|.
 name|getAbsolutePath

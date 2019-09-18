@@ -419,7 +419,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 decl_stmt|;
 name|setSystemProp
@@ -433,6 +433,20 @@ argument_list|()
 operator|.
 name|getPath
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|setSystemProp
+argument_list|(
+literal|"javax.net.ssl.trustStorePassword"
+argument_list|,
+literal|"changeit"
+argument_list|)
+expr_stmt|;
+name|setSystemProp
+argument_list|(
+literal|"javax.net.ssl.trustStoreType"
+argument_list|,
+literal|"PKCS12"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1125,7 +1139,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 decl_stmt|;
 try|try
@@ -1240,7 +1254,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 decl_stmt|;
 name|componentJetty

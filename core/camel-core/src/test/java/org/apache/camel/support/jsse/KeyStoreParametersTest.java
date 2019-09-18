@@ -145,7 +145,7 @@ name|ksp
 operator|.
 name|setResource
 argument_list|(
-literal|"org/apache/camel/support/jsse/localhost.ks"
+literal|"org/apache/camel/support/jsse/localhost.p12"
 argument_list|)
 expr_stmt|;
 name|ksp
@@ -233,7 +233,7 @@ name|ks
 operator|.
 name|getCertificate
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -274,7 +274,7 @@ name|ks
 operator|.
 name|getCertificate
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -288,7 +288,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"/org/apache/camel/support/jsse/localhost.ks"
+literal|"/org/apache/camel/support/jsse/localhost.p12"
 argument_list|)
 decl_stmt|;
 name|ksp
@@ -314,7 +314,7 @@ name|ks
 operator|.
 name|getCertificate
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -327,7 +327,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"/org/apache/camel/support/jsse/localhost.ks"
+literal|"/org/apache/camel/support/jsse/localhost.p12"
 argument_list|)
 expr_stmt|;
 name|File
@@ -365,7 +365,7 @@ name|ks
 operator|.
 name|getCertificate
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -409,7 +409,7 @@ name|ks
 operator|.
 name|getCertificate
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -462,7 +462,7 @@ name|ks
 operator|.
 name|getCertificate
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -578,7 +578,7 @@ name|ksp
 operator|.
 name|setType
 argument_list|(
-literal|"pkcs12"
+literal|"JCEKS"
 argument_list|)
 expr_stmt|;
 try|try

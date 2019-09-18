@@ -477,7 +477,7 @@ name|truststoreParameters
 operator|.
 name|setResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 expr_stmt|;
 name|truststoreParameters
@@ -519,7 +519,7 @@ name|keystoreParameters
 operator|.
 name|setResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 expr_stmt|;
 name|keystoreParameters
@@ -633,7 +633,7 @@ name|ksp
 operator|.
 name|setResource
 argument_list|(
-literal|"jsse/localhost.ks"
+literal|"jsse/localhost.p12"
 argument_list|)
 expr_stmt|;
 name|ksp

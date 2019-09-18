@@ -133,7 +133,7 @@ name|ksp
 operator|.
 name|setResource
 argument_list|(
-literal|"org/apache/camel/support/jsse/localhost.ks"
+literal|"org/apache/camel/support/jsse/localhost.p12"
 argument_list|)
 expr_stmt|;
 name|ksp

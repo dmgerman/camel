@@ -652,7 +652,7 @@ argument_list|)
 operator|.
 name|keystorePassword
 argument_list|(
-literal|"password"
+literal|"changeit"
 argument_list|)
 argument_list|)
 decl_stmt|;

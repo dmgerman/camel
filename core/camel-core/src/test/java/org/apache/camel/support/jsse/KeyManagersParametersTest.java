@@ -131,7 +131,7 @@ name|ksp
 operator|.
 name|setResource
 argument_list|(
-literal|"org/apache/camel/support/jsse/localhost.ks"
+literal|"org/apache/camel/support/jsse/localhost.p12"
 argument_list|)
 expr_stmt|;
 name|ksp
@@ -139,6 +139,13 @@ operator|.
 name|setPassword
 argument_list|(
 literal|"changeit"
+argument_list|)
+expr_stmt|;
+name|ksp
+operator|.
+name|setType
+argument_list|(
+literal|"PKCS12"
 argument_list|)
 expr_stmt|;
 return|return
@@ -615,7 +622,7 @@ operator|=
 operator|new
 name|AliasedX509ExtendedKeyManager
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|,
 operator|(
 name|X509KeyManager
@@ -643,7 +650,7 @@ name|km
 operator|.
 name|getPrivateKey
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -694,7 +701,7 @@ name|km
 operator|.
 name|getPrivateKey
 argument_list|(
-literal|"server"
+literal|"localhost"
 argument_list|)
 argument_list|)
 expr_stmt|;
