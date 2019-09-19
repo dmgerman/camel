@@ -1181,7 +1181,7 @@ name|sslContextFactory
 operator|.
 name|setTrustStoreType
 argument_list|(
-literal|"JKS"
+literal|"PKCS12"
 argument_list|)
 expr_stmt|;
 name|sslContextFactory
