@@ -365,8 +365,6 @@ block|,
 literal|"nodeId=foo"
 block|,
 literal|"routeId=routeA"
-block|,
-literal|"serviceName=MicroProfileMetricsMessageHistory"
 block|}
 argument_list|)
 decl_stmt|;
@@ -420,8 +418,6 @@ block|,
 literal|"nodeId=bar"
 block|,
 literal|"routeId=routeB"
-block|,
-literal|"serviceName=MicroProfileMetricsMessageHistory"
 block|}
 argument_list|)
 decl_stmt|;
@@ -475,8 +471,6 @@ block|,
 literal|"nodeId=baz"
 block|,
 literal|"routeId=routeB"
-block|,
-literal|"serviceName=MicroProfileMetricsMessageHistory"
 block|}
 argument_list|)
 decl_stmt|;

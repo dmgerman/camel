@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -121,20 +111,6 @@ operator|.
 name|metrics
 operator|.
 name|MetricType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|microprofile
-operator|.
-name|metrics
-operator|.
-name|Tag
 import|;
 end_import
 

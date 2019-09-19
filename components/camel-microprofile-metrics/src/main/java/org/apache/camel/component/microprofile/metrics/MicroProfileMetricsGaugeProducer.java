@@ -70,6 +70,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|microprofile
+operator|.
+name|metrics
+operator|.
+name|gauge
+operator|.
+name|SimpleGauge
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|eclipse
 operator|.
 name|microprofile
@@ -136,7 +156,7 @@ name|MicroProfileMetricsGaugeProducer
 extends|extends
 name|AbstractMicroProfileMetricsProducer
 argument_list|<
-name|MicroProfileMetricsCamelGauge
+name|SimpleGauge
 argument_list|>
 block|{
 DECL|method|MicroProfileMetricsGaugeProducer (MicroProfileMetricsEndpoint endpoint)
@@ -155,7 +175,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doProcess (Exchange exchange, MicroProfileMetricsEndpoint endpoint, MicroProfileMetricsCamelGauge gauge)
+DECL|method|doProcess (Exchange exchange, MicroProfileMetricsEndpoint endpoint, SimpleGauge gauge)
 specifier|protected
 name|void
 name|doProcess
@@ -166,7 +186,7 @@ parameter_list|,
 name|MicroProfileMetricsEndpoint
 name|endpoint
 parameter_list|,
-name|MicroProfileMetricsCamelGauge
+name|SimpleGauge
 name|gauge
 parameter_list|)
 block|{
@@ -217,7 +237,7 @@ name|Function
 argument_list|<
 name|MetricRegistry
 argument_list|,
-name|MicroProfileMetricsCamelGauge
+name|SimpleGauge
 argument_list|>
 name|registerMetric
 parameter_list|(
@@ -241,7 +261,7 @@ argument_list|(
 name|metadata
 argument_list|,
 operator|new
-name|MicroProfileMetricsCamelGauge
+name|SimpleGauge
 argument_list|()
 argument_list|,
 name|tags

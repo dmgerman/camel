@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.microprofile.metrics
+DECL|package|org.apache.camel.component.microprofile.metrics.gauge
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|microprofile
 operator|.
 name|metrics
+operator|.
+name|gauge
 package|;
 end_package
 
@@ -35,9 +37,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MicroProfileMetricsCamelGauge
+DECL|class|SimpleGauge
+specifier|public
 class|class
-name|MicroProfileMetricsCamelGauge
+name|SimpleGauge
 implements|implements
 name|Gauge
 argument_list|<
