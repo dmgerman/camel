@@ -1145,20 +1145,20 @@ name|printMessage
 argument_list|(
 name|Kind
 operator|.
-name|ERROR
+name|WARNING
 argument_list|,
 name|String
 operator|.
 name|format
 argument_list|(
-literal|"Schema name '%s' in '%s' must be lowercase!"
-argument_list|,
-name|schemaName
+literal|"Mixed case schema name in '%s' with value '%s' has been deprecated. Please use lowercase only!"
 argument_list|,
 name|classElement
 operator|.
 name|getQualifiedName
 argument_list|()
+argument_list|,
+name|schemaName
 argument_list|)
 argument_list|)
 expr_stmt|;
