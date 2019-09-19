@@ -259,6 +259,8 @@ argument_list|(
 name|ret
 operator|.
 name|actualPath
+argument_list|,
+name|configuration
 argument_list|)
 expr_stmt|;
 name|ret
@@ -338,6 +340,8 @@ argument_list|(
 name|ret
 operator|.
 name|suffixedPath
+argument_list|,
+name|configuration
 argument_list|)
 expr_stmt|;
 name|ret

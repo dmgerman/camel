@@ -147,6 +147,11 @@ argument_list|(
 literal|0L
 argument_list|)
 decl_stmt|;
+DECL|field|config
+specifier|private
+name|HdfsConfiguration
+name|config
+decl_stmt|;
 DECL|method|HdfsInputStream ()
 specifier|protected
 name|HdfsInputStream
@@ -238,6 +243,8 @@ argument_list|(
 name|ret
 operator|.
 name|actualPath
+argument_list|,
+name|configuration
 argument_list|)
 decl_stmt|;
 if|if
@@ -300,6 +307,12 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+name|ret
+operator|.
+name|config
+operator|=
+name|configuration
+expr_stmt|;
 return|return
 name|ret
 return|;
@@ -335,6 +348,8 @@ operator|.
 name|newHdfsInfo
 argument_list|(
 name|actualPath
+argument_list|,
+name|config
 argument_list|)
 decl_stmt|;
 name|info

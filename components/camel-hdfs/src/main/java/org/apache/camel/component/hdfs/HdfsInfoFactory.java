@@ -54,7 +54,7 @@ specifier|private
 name|HdfsInfoFactory
 parameter_list|()
 block|{     }
-DECL|method|newHdfsInfo (String hdfsPath)
+DECL|method|newHdfsInfo (String hdfsPath, HdfsConfiguration configuration)
 specifier|public
 specifier|static
 name|HdfsInfo
@@ -62,6 +62,9 @@ name|newHdfsInfo
 parameter_list|(
 name|String
 name|hdfsPath
+parameter_list|,
+name|HdfsConfiguration
+name|configuration
 parameter_list|)
 throws|throws
 name|IOException
@@ -70,7 +73,7 @@ comment|// need to remember auth as Hadoop will override that, which otherwise m
 name|Configuration
 name|auth
 init|=
-name|HdfsComponent
+name|configuration
 operator|.
 name|getJAASConfiguration
 argument_list|()
@@ -82,12 +85,14 @@ operator|new
 name|HdfsInfo
 argument_list|(
 name|hdfsPath
+argument_list|,
+name|configuration
 argument_list|)
 return|;
 block|}
 finally|finally
 block|{
-name|HdfsComponent
+name|configuration
 operator|.
 name|setJAASConfiguration
 argument_list|(
