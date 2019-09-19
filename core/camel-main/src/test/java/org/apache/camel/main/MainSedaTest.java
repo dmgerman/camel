@@ -114,7 +114,7 @@ argument_list|)
 expr_stmt|;
 name|main
 operator|.
-name|addInitialProperty
+name|addProperty
 argument_list|(
 literal|"camel.component.seda.defaultQueueFactory"
 argument_list|,
@@ -123,7 +123,7 @@ argument_list|)
 expr_stmt|;
 name|main
 operator|.
-name|addInitialProperty
+name|addProperty
 argument_list|(
 literal|"camel.component.seda.defaultQueueFactory.counter"
 argument_list|,

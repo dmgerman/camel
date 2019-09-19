@@ -2318,6 +2318,27 @@ operator|=
 name|initialProperties
 expr_stmt|;
 block|}
+comment|/**      * Adds a property (initial) for the properties component,      * which will be used before any locations are resolved.      *      * @param key    the property key      * @param value  the property value      *      * @see #addInitialProperty(String, String)      * @see #addOverrideProperty(String, String)      */
+DECL|method|addProperty (String key, String value)
+specifier|public
+name|void
+name|addProperty
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+name|addInitialProperty
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Adds a initial property for the properties component,      * which will be used before any locations are resolved.      *      * @param key    the property key      * @param value  the property value      */
 DECL|method|addInitialProperty (String key, String value)
 specifier|public
