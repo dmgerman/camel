@@ -385,24 +385,82 @@ expr_stmt|;
 comment|// then
 comment|/* exception was thrown */
 block|}
-comment|//    @Test
-comment|//    public void loginWithKeytab() {
-comment|//        // given
-comment|//        List<String> namedNodes;
-comment|//        String kerberosConfigFileLocation;
-comment|//        int replicationFactor;
-comment|//
-comment|//        String username;
-comment|//        String keyTabFileLocation;
-comment|//
-comment|//        underTest = new KerberosConfiguration(namedNodes, kerberosConfigFileLocation, replicationFactor);
-comment|//
-comment|//        // when
-comment|//        underTest.loginWithKeytab(username, keyTabFileLocation);
-comment|//
-comment|//        // then
-comment|//
-comment|//    }
+annotation|@
+name|Test
+DECL|method|loginWithKeytab ()
+specifier|public
+name|void
+name|loginWithKeytab
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// given
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|namedNodes
+init|=
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"kerb_node_01.example.com:8021"
+argument_list|,
+literal|"kerb_node_02.example.com:8022"
+argument_list|)
+decl_stmt|;
+name|String
+name|kerberosConfigFileLocation
+init|=
+name|pwd
+argument_list|()
+operator|+
+literal|"/src/test/resources/kerberos/test-kerb5.conf"
+decl_stmt|;
+name|int
+name|replicationFactor
+init|=
+literal|3
+decl_stmt|;
+name|underTest
+operator|=
+operator|new
+name|KerberosConfiguration
+argument_list|(
+name|namedNodes
+argument_list|,
+name|kerberosConfigFileLocation
+argument_list|,
+name|replicationFactor
+argument_list|)
+expr_stmt|;
+name|String
+name|username
+init|=
+literal|"test_user"
+decl_stmt|;
+name|String
+name|keyTabFileLocation
+init|=
+name|pwd
+argument_list|()
+operator|+
+literal|"/src/test/resources/kerberos/test-keytab.bin"
+decl_stmt|;
+comment|// when
+name|underTest
+operator|.
+name|loginWithKeytab
+argument_list|(
+name|username
+argument_list|,
+name|keyTabFileLocation
+argument_list|)
+expr_stmt|;
+comment|// then
+block|}
 DECL|method|pwd ()
 specifier|private
 name|String
