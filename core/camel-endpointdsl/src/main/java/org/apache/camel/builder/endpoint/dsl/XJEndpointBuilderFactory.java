@@ -162,7 +162,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source. You          * can enable this if the XSLT library supports StAX such as the Saxon          * library (camel-saxon). The Xalan library (default in JVM) does not          * support StAXSource.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowStAX (boolean allowStAX)
 specifier|default
 name|XJEndpointBuilder
@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source. You          * can enable this if the XSLT library supports StAX such as the Saxon          * library (camel-saxon). The Xalan library (default in JVM) does not          * support StAXSource.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|allowStAX (String allowStAX)
 specifier|default
 name|XJEndpointBuilder
