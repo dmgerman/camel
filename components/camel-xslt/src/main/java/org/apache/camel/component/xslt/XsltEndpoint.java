@@ -626,10 +626,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|,
 name|displayName
 operator|=
 literal|"Allow StAX"
@@ -638,8 +634,6 @@ DECL|field|allowStAX
 specifier|private
 name|boolean
 name|allowStAX
-init|=
-literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1327,7 +1321,7 @@ return|return
 name|allowStAX
 return|;
 block|}
-comment|/**      * Whether to allow using StAX as the javax.xml.transform.Source.      */
+comment|/**      * Whether to allow using StAX as the javax.xml.transform.Source.      * You can enable this if the XSLT library supports StAX such as the Saxon library (camel-saxon).      * The Xalan library (default in JVM) does not support StAXSource.      */
 DECL|method|setAllowStAX (boolean allowStAX)
 specifier|public
 name|void
