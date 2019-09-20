@@ -765,11 +765,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Got event with configmap name: "
 operator|+
