@@ -468,6 +468,14 @@ operator|.
 name|getCompressionType
 argument_list|()
 argument_list|)
+operator|.
+name|messageRoutingMode
+argument_list|(
+name|configuration
+operator|.
+name|getMessageRoutingMode
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|producer
 operator|=

@@ -1083,6 +1083,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Set the message routing mode for the producer.          *           * The option is a:          *<code>org.apache.pulsar.client.api.MessageRoutingMode</code> type.          *           * Group: producer          */
+DECL|method|messageRoutingMode ( MessageRoutingMode messageRoutingMode)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|messageRoutingMode
+parameter_list|(
+name|MessageRoutingMode
+name|messageRoutingMode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"messageRoutingMode"
+argument_list|,
+name|messageRoutingMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set the message routing mode for the producer.          *           * The option will be converted to a          *<code>org.apache.pulsar.client.api.MessageRoutingMode</code> type.          *           * Group: producer          */
+DECL|method|messageRoutingMode ( String messageRoutingMode)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|messageRoutingMode
+parameter_list|(
+name|String
+name|messageRoutingMode
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"messageRoutingMode"
+argument_list|,
+name|messageRoutingMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Name of the producer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|producerName (String producerName)
 specifier|default
@@ -1418,6 +1460,20 @@ name|ZSTD
 block|,
 DECL|enumConstant|SNAPPY
 name|SNAPPY
+block|;     }
+comment|/**      * Proxy enum for      *<code>org.apache.pulsar.client.api.MessageRoutingMode</code> enum.      */
+DECL|enum|MessageRoutingMode
+enum|enum
+name|MessageRoutingMode
+block|{
+DECL|enumConstant|SinglePartition
+name|SinglePartition
+block|,
+DECL|enumConstant|RoundRobinPartition
+name|RoundRobinPartition
+block|,
+DECL|enumConstant|CustomPartition
+name|CustomPartition
 block|;     }
 comment|/**      * Apache Pulsar (camel-pulsar)      * Camel Apache Pulsar Component      *       * Category: messaging      * Available as of version: 2.24      * Maven coordinates: org.apache.camel:camel-pulsar      *       * Syntax:<code>pulsar:persistence://tenant/namespace/topic</code>      *       * Path parameter: persistence (required)      * Whether the topic is persistent or non-persistent      * The value can be one of: persistent, non-persistent      *       * Path parameter: tenant (required)      * The tenant      *       * Path parameter: namespace (required)      * The namespace      *       * Path parameter: topic (required)      * The topic      */
 DECL|method|pulsar (String path)

@@ -113,6 +113,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pulsar
+operator|.
+name|client
+operator|.
+name|api
+operator|.
+name|MessageRoutingMode
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -527,6 +543,30 @@ init|=
 name|CompressionType
 operator|.
 name|NONE
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"MessageRoutingMode"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"RoundRobinPartition"
+argument_list|)
+DECL|field|messageRoutingMode
+specifier|private
+name|MessageRoutingMode
+name|messageRoutingMode
+init|=
+name|MessageRoutingMode
+operator|.
+name|RoundRobinPartition
 decl_stmt|;
 DECL|method|getSubscriptionName ()
 specifier|public
@@ -1065,6 +1105,33 @@ block|{
 return|return
 name|compressionType
 return|;
+block|}
+comment|/**      * Set the message routing mode for the producer.      */
+DECL|method|getMessageRoutingMode ()
+specifier|public
+name|MessageRoutingMode
+name|getMessageRoutingMode
+parameter_list|()
+block|{
+return|return
+name|messageRoutingMode
+return|;
+block|}
+DECL|method|setMessageRoutingMode (MessageRoutingMode messageRoutingMode)
+specifier|public
+name|void
+name|setMessageRoutingMode
+parameter_list|(
+name|MessageRoutingMode
+name|messageRoutingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageRoutingMode
+operator|=
+name|messageRoutingMode
+expr_stmt|;
 block|}
 block|}
 end_class
