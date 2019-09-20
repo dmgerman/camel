@@ -515,6 +515,21 @@ specifier|private
 name|String
 name|redrivePolicy
 decl_stmt|;
+comment|// Likely used only for testing
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"https"
+argument_list|)
+DECL|field|protocol
+specifier|private
+name|String
+name|protocol
+init|=
+literal|"https"
+decl_stmt|;
 comment|/**      * Whether or not the queue is a FIFO queue      */
 DECL|method|isFifoQueue ()
 name|boolean
@@ -1555,6 +1570,33 @@ operator|.
 name|autoCreateQueue
 operator|=
 name|autoCreateQueue
+expr_stmt|;
+block|}
+DECL|method|getProtocol ()
+specifier|public
+name|String
+name|getProtocol
+parameter_list|()
+block|{
+return|return
+name|protocol
+return|;
+block|}
+comment|/**      * The underlying protocol used to communicate with SQS      */
+DECL|method|setProtocol (String protocol)
+specifier|public
+name|void
+name|setProtocol
+parameter_list|(
+name|String
+name|protocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|protocol
+operator|=
+name|protocol
 expr_stmt|;
 block|}
 comment|// *************************************************
