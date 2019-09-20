@@ -569,7 +569,7 @@ literal|"producer"
 argument_list|,
 name|description
 operator|=
-literal|"MessageRoutingMode"
+literal|"Message Routing Mode to use"
 argument_list|,
 name|defaultValue
 operator|=
@@ -593,7 +593,7 @@ literal|"producer"
 argument_list|,
 name|description
 operator|=
-literal|"Custom Message Router"
+literal|"Custom Message Router to use"
 argument_list|)
 DECL|field|messageRouter
 specifier|private
