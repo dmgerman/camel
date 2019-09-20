@@ -124,6 +124,22 @@ name|client
 operator|.
 name|api
 operator|.
+name|MessageRouter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pulsar
+operator|.
+name|client
+operator|.
+name|api
+operator|.
 name|MessageRoutingMode
 import|;
 end_import
@@ -567,6 +583,22 @@ init|=
 name|MessageRoutingMode
 operator|.
 name|RoundRobinPartition
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Custom Message Router"
+argument_list|)
+DECL|field|messageRouter
+specifier|private
+name|MessageRouter
+name|messageRouter
 decl_stmt|;
 DECL|method|getSubscriptionName ()
 specifier|public
@@ -1131,6 +1163,33 @@ operator|.
 name|messageRoutingMode
 operator|=
 name|messageRoutingMode
+expr_stmt|;
+block|}
+comment|/**      * Set a custom Message Router.      */
+DECL|method|getMessageRouter ()
+specifier|public
+name|MessageRouter
+name|getMessageRouter
+parameter_list|()
+block|{
+return|return
+name|messageRouter
+return|;
+block|}
+DECL|method|setMessageRouter (MessageRouter messageRouter)
+specifier|public
+name|void
+name|setMessageRouter
+parameter_list|(
+name|MessageRouter
+name|messageRouter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageRouter
+operator|=
+name|messageRouter
 expr_stmt|;
 block|}
 block|}

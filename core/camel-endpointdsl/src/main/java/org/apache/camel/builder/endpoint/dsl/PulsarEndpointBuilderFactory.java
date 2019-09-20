@@ -1083,6 +1083,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Set a custom Message Router.          *           * The option is a:          *<code>org.apache.pulsar.client.api.MessageRouter</code> type.          *           * Group: producer          */
+DECL|method|messageRouter (Object messageRouter)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|messageRouter
+parameter_list|(
+name|Object
+name|messageRouter
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"messageRouter"
+argument_list|,
+name|messageRouter
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Set a custom Message Router.          *           * The option will be converted to a          *<code>org.apache.pulsar.client.api.MessageRouter</code> type.          *           * Group: producer          */
+DECL|method|messageRouter (String messageRouter)
+specifier|default
+name|PulsarEndpointProducerBuilder
+name|messageRouter
+parameter_list|(
+name|String
+name|messageRouter
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"messageRouter"
+argument_list|,
+name|messageRouter
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Set the message routing mode for the producer.          *           * The option is a:          *<code>org.apache.pulsar.client.api.MessageRoutingMode</code> type.          *           * Group: producer          */
 DECL|method|messageRoutingMode ( MessageRoutingMode messageRoutingMode)
 specifier|default
