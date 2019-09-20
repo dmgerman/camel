@@ -505,7 +505,7 @@ return|return
 name|allowManualAcknowledgement
 return|;
 block|}
-comment|/**      * Whether to allow manual message acknowledgements.      *<p/>      * If this option is enabled, then messages are not immediately acknowledged after being consumed.      * Instead, an instance of {@link PulsarMessageReceipt} is stored as a header on the {@link org.apache.camel.Exchange}.      * Messages can then be acknowledged using {@link PulsarMessageReceipt} at any time before the ackTimeout occurs.      */
+comment|/**      * Whether to allow manual message acknowledgements.      *<p/>      * If this option is enabled, then messages are not immediately acknowledged      * after being consumed. Instead, an instance of      * {@link PulsarMessageReceipt} is stored as a header on the      * {@link org.apache.camel.Exchange}. Messages can then be acknowledged      * using {@link PulsarMessageReceipt} at any time before the ackTimeout      * occurs.      */
 DECL|method|setAllowManualAcknowledgement (boolean allowManualAcknowledgement)
 specifier|public
 name|void
@@ -532,7 +532,7 @@ return|return
 name|pulsarMessageReceiptFactory
 return|;
 block|}
-comment|/**      * Provide a factory to create an alternate implementation of {@link PulsarMessageReceipt}.      */
+comment|/**      * Provide a factory to create an alternate implementation of      * {@link PulsarMessageReceipt}.      */
 DECL|method|setPulsarMessageReceiptFactory (PulsarMessageReceiptFactory pulsarMessageReceiptFactory)
 specifier|public
 name|void

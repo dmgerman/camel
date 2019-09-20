@@ -637,7 +637,7 @@ return|return
 name|subscriptionType
 return|;
 block|}
-comment|/**      * Type of the subscription [EXCLUSIVE|SHARED|FAILOVER], defaults to EXCLUSIVE      */
+comment|/**      * Type of the subscription [EXCLUSIVE|SHARED|FAILOVER], defaults to      * EXCLUSIVE      */
 DECL|method|setSubscriptionType (SubscriptionType subscriptionType)
 specifier|public
 name|void
@@ -772,7 +772,7 @@ return|return
 name|consumerNamePrefix
 return|;
 block|}
-comment|/**      * Prefix to add to consumer names when a SHARED or FAILOVER subscription is used      */
+comment|/**      * Prefix to add to consumer names when a SHARED or FAILOVER subscription is      * used      */
 DECL|method|setConsumerNamePrefix (String consumerNamePrefix)
 specifier|public
 name|void
@@ -799,7 +799,7 @@ return|return
 name|allowManualAcknowledgement
 return|;
 block|}
-comment|/**      * Whether to allow manual message acknowledgements.      *<p/>      * If this option is enabled, then messages are not immediately acknowledged after being consumed.      * Instead, an instance of {@link PulsarMessageReceipt} is stored as a header on the {@link org.apache.camel.Exchange}.      * Messages can then be acknowledged using {@link PulsarMessageReceipt} at any time before the ackTimeout occurs.      */
+comment|/**      * Whether to allow manual message acknowledgements.      *<p/>      * If this option is enabled, then messages are not immediately acknowledged      * after being consumed. Instead, an instance of      * {@link PulsarMessageReceipt} is stored as a header on the      * {@link org.apache.camel.Exchange}. Messages can then be acknowledged      * using {@link PulsarMessageReceipt} at any time before the ackTimeout      * occurs.      */
 DECL|method|setAllowManualAcknowledgement (boolean allowManualAcknowledgement)
 specifier|public
 name|void
@@ -853,7 +853,7 @@ return|return
 name|ackGroupTimeMillis
 return|;
 block|}
-comment|/**      * Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100      */
+comment|/**      * Group the consumer acknowledgments for the specified time in milliseconds      * - defaults to 100      */
 DECL|method|setAckGroupTimeMillis (long ackGroupTimeMillis)
 specifier|public
 name|void
@@ -870,7 +870,7 @@ operator|=
 name|ackGroupTimeMillis
 expr_stmt|;
 block|}
-comment|/**       * Send timeout in milliseconds.       * Defaults to 30,000ms (30 seconds)      */
+comment|/**      * Send timeout in milliseconds. Defaults to 30,000ms (30 seconds)      */
 DECL|method|setSendTimeoutMs (int sendTimeoutMs)
 specifier|public
 name|void
@@ -897,7 +897,7 @@ return|return
 name|sendTimeoutMs
 return|;
 block|}
-comment|/**      * Set whether the send and asyncSend operations should block when the outgoing message queue is full.      * If set to false, send operations will immediately fail with ProducerQueueIsFullError when there is no space left      * in the pending queue.      * Default is false.      */
+comment|/**      * Set whether the send and asyncSend operations should block when the      * outgoing message queue is full. If set to false, send operations will      * immediately fail with ProducerQueueIsFullError when there is no space      * left in the pending queue. Default is false.      */
 DECL|method|setBlockIfQueueFull (boolean blockIfQueueFull)
 specifier|public
 name|void
@@ -924,7 +924,7 @@ return|return
 name|blockIfQueueFull
 return|;
 block|}
-comment|/**      * Set the max size of the queue holding the messages pending to receive an acknowledgment from the broker.      * Default is 1000.      */
+comment|/**      * Set the max size of the queue holding the messages pending to receive an      * acknowledgment from the broker. Default is 1000.      */
 DECL|method|setMaxPendingMessages (int maxPendingMessages)
 specifier|public
 name|void
@@ -951,7 +951,7 @@ return|return
 name|maxPendingMessages
 return|;
 block|}
-comment|/**      * Set the number of max pending messages across all the partitions.      * Default is 50000.      */
+comment|/**      * Set the number of max pending messages across all the partitions. Default      * is 50000.      */
 DECL|method|setMaxPendingMessagesAcrossPartitions (int maxPendingMessagesAcrossPartitions)
 specifier|public
 name|void
@@ -978,7 +978,7 @@ return|return
 name|maxPendingMessagesAcrossPartitions
 return|;
 block|}
-comment|/**      * Set the time period within which the messages sent will be batched if batch messages are      * enabled. If set to a non zero value, messages will be queued until either:      *<ul>      *<li>this time interval expires</li>      *<li>the max number of messages in a batch is reached      *</ul>      * Default is 1ms.      */
+comment|/**      * Set the time period within which the messages sent will be batched if      * batch messages are enabled. If set to a non zero value, messages will be      * queued until either:      *<ul>      *<li>this time interval expires</li>      *<li>the max number of messages in a batch is reached      *</ul>      * Default is 1ms.      */
 DECL|method|setBatchingMaxPublishDelayMicros (long batchingMaxPublishDelayMicros)
 specifier|public
 name|void
@@ -1005,7 +1005,7 @@ return|return
 name|batchingMaxPublishDelayMicros
 return|;
 block|}
-comment|/**      * Set the maximum number of messages permitted in a batch.      * Default 1,000.      */
+comment|/**      * Set the maximum number of messages permitted in a batch. Default 1,000.      */
 DECL|method|setBatchingMaxMessages (int batchingMaxMessages)
 specifier|public
 name|void
@@ -1032,7 +1032,7 @@ return|return
 name|batchingMaxMessages
 return|;
 block|}
-comment|/**      * Control whether automatic batching of messages is enabled for the producer.      * Default is true.      */
+comment|/**      * Control whether automatic batching of messages is enabled for the      * producer. Default is true.      */
 DECL|method|setBatchingEnabled (boolean batchingEnabled)
 specifier|public
 name|void
@@ -1059,7 +1059,7 @@ return|return
 name|batchingEnabled
 return|;
 block|}
-comment|/**      * Set the baseline for the sequence ids for messages published by the producer.      * First message will be using (initialSequenceId  1) as its sequence id and subsequent messages will be assigned      * incremental sequence ids, if not otherwise specified.      */
+comment|/**      * Set the baseline for the sequence ids for messages published by the      * producer. First message will be using (initialSequenceId 1) as its      * sequence id and subsequent messages will be assigned incremental sequence      * ids, if not otherwise specified.      */
 DECL|method|setInitialSequenceId (long initialSequenceId)
 specifier|public
 name|void

@@ -750,7 +750,8 @@ argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
-comment|// The mock does not actually acknowledge using the pulsar consumer, so the message will be re-consumed
+comment|// The mock does not actually acknowledge using the pulsar consumer, so
+comment|// the message will be re-consumed
 comment|// after the ackTimeout.
 name|verify
 argument_list|(

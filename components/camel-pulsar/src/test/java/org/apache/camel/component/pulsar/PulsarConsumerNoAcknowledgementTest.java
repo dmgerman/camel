@@ -394,7 +394,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// Set to true here instead of the endpoint query parameter.
+comment|// Set to true here instead of
+comment|// the endpoint query
+comment|// parameter.
 name|jndi
 operator|.
 name|bind

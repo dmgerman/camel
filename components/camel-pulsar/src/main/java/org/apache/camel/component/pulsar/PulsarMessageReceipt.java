@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acknowledge the receipt of a message using the Pulsar consumer.  *<p>  * Available on the {@link Exchange} if {@link PulsarConfiguration#isAllowManualAcknowledgement()} is true.  * An alternative to the default may be provided by implementing {@link PulsarMessageReceiptFactory}.  */
+comment|/**  * Acknowledge the receipt of a message using the Pulsar consumer.  *<p>  * Available on the {@link Exchange} if  * {@link PulsarConfiguration#isAllowManualAcknowledgement()} is true. An  * alternative to the default may be provided by implementing  * {@link PulsarMessageReceiptFactory}.  */
 end_comment
 
 begin_interface
@@ -110,7 +110,7 @@ parameter_list|()
 throws|throws
 name|PulsarClientException
 function_decl|;
-comment|/**      * Acknowledge receipt of all of the messages in the stream up to and including this message synchronously.      *      * @see org.apache.pulsar.client.api.Consumer#acknowledgeCumulative(MessageId)      */
+comment|/**      * Acknowledge receipt of all of the messages in the stream up to and      * including this message synchronously.      *      * @see org.apache.pulsar.client.api.Consumer#acknowledgeCumulative(MessageId)      */
 DECL|method|acknowledgeCumulative ()
 name|void
 name|acknowledgeCumulative
@@ -127,7 +127,7 @@ argument_list|>
 name|acknowledgeAsync
 parameter_list|()
 function_decl|;
-comment|/**      * Acknowledge receipt of all of the messages in the stream up to and including this message asynchronously.      *      * @see org.apache.pulsar.client.api.Consumer#acknowledgeCumulativeAsync(MessageId)      */
+comment|/**      * Acknowledge receipt of all of the messages in the stream up to and      * including this message asynchronously.      *      * @see org.apache.pulsar.client.api.Consumer#acknowledgeCumulativeAsync(MessageId)      */
 DECL|method|acknowledgeCumulativeAsync ()
 name|CompletableFuture
 argument_list|<
@@ -136,7 +136,7 @@ argument_list|>
 name|acknowledgeCumulativeAsync
 parameter_list|()
 function_decl|;
-comment|/**      * Acknowledge the failure to process this message.      *      * @see org.apache.pulsar.client.api.Consumer#negativeAcknowledge(MessageId)      * Note: Available in Puslar 2.4.0. Implementations with earlier versions should return an {@link java.lang.UnsupportedOperationException}.      */
+comment|/**      * Acknowledge the failure to process this message.      *      * @see org.apache.pulsar.client.api.Consumer#negativeAcknowledge(MessageId)      *      Note: Available in Puslar 2.4.0. Implementations with earlier      *      versions should return an      *      {@link java.lang.UnsupportedOperationException}.      */
 DECL|method|negativeAcknowledge ()
 name|void
 name|negativeAcknowledge

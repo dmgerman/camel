@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to create a new {@link PulsarMessageReceipt} to store on the {@link Exchange}.  *<p>  * Implement this interface if an alternate implementation of {@link PulsarMessageReceipt} is required  * as newer Pulsar clients may have acknowledgement functionality not yet supported by {@link DefaultPulsarMessageReceipt}.  */
+comment|/**  * Factory to create a new {@link PulsarMessageReceipt} to store on the  * {@link Exchange}.  *<p>  * Implement this interface if an alternate implementation of  * {@link PulsarMessageReceipt} is required as newer Pulsar clients may have  * acknowledgement functionality not yet supported by  * {@link DefaultPulsarMessageReceipt}.  */
 end_comment
 
 begin_interface
