@@ -71,6 +71,7 @@ end_import
 begin_class
 DECL|class|HdfsKerberosConfigurationFactory
 specifier|public
+specifier|final
 class|class
 name|HdfsKerberosConfigurationFactory
 block|{
@@ -99,6 +100,13 @@ name|KERBEROS_5_SYS_ENV
 init|=
 literal|"java.security.krb5.conf"
 decl_stmt|;
+DECL|method|HdfsKerberosConfigurationFactory ()
+specifier|private
+name|HdfsKerberosConfigurationFactory
+parameter_list|()
+block|{
+comment|// factory class
+block|}
 DECL|method|setKerberosConfigFile (String kerberosConfigFileLocation)
 specifier|public
 specifier|static
