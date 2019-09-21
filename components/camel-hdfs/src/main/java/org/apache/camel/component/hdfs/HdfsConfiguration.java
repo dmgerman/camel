@@ -2615,7 +2615,7 @@ return|return
 name|kerberosNamedNodes
 return|;
 block|}
-comment|/**      * A comma separated list of kerberos nodes (e.g. host01.example.com:8021,host02.example.com:8021,host03.example.com:8025)      */
+comment|/**      * A comma separated list of kerberos nodes      * (e.g. srv11.example.com:8021,srv12.example.com:8021) - see kerb5.conf file (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html)      */
 DECL|method|setKerberosNamedNodes (String kerberosNamedNodes)
 specifier|public
 name|void
@@ -2709,7 +2709,7 @@ return|return
 name|kerberosKeytabLocation
 return|;
 block|}
-comment|/**      * The location of the keytab file used to authenticate with the kerberos nodes      */
+comment|/**      * The location of the keytab file used to authenticate with the kerberos nodes      * (contains pairs of kerberos principals and encrypted keys (which are derived from the Kerberos password))      */
 DECL|method|setKerberosKeytabLocation (String kerberosKeytabLocation)
 specifier|public
 name|void

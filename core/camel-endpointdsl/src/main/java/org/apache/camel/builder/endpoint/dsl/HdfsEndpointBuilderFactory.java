@@ -343,7 +343,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -364,7 +364,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of kerberos nodes (e.g.          * host01.example.com:8021,host02.example.com:8021,host03.example.com:8025).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * A comma separated list of kerberos nodes (e.g.          * srv11.example.com:8021,srv12.example.com:8021) - see kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosNamedNodes ( String kerberosNamedNodes)
 specifier|default
 name|HdfsEndpointConsumerBuilder
@@ -1904,7 +1904,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -1925,7 +1925,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of kerberos nodes (e.g.          * host01.example.com:8021,host02.example.com:8021,host03.example.com:8025).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * A comma separated list of kerberos nodes (e.g.          * srv11.example.com:8021,srv12.example.com:8021) - see kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosNamedNodes ( String kerberosNamedNodes)
 specifier|default
 name|HdfsEndpointProducerBuilder
@@ -2832,7 +2832,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
 specifier|default
 name|HdfsEndpointBuilder
@@ -2853,7 +2853,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of kerberos nodes (e.g.          * host01.example.com:8021,host02.example.com:8021,host03.example.com:8025).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * A comma separated list of kerberos nodes (e.g.          * srv11.example.com:8021,srv12.example.com:8021) - see kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosNamedNodes (String kerberosNamedNodes)
 specifier|default
 name|HdfsEndpointBuilder

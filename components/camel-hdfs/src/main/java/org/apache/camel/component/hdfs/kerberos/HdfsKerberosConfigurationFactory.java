@@ -186,7 +186,7 @@ name|LOGGER
 operator|.
 name|warn
 argument_list|(
-literal|"{} was already configured with: {}"
+literal|"[{}] was already configured with: [{}] config file"
 argument_list|,
 name|KERBEROS_5_SYS_ENV
 argument_list|,
