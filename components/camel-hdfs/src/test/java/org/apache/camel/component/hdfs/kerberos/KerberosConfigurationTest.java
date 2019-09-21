@@ -387,10 +387,17 @@ comment|/* exception was thrown */
 block|}
 annotation|@
 name|Test
-DECL|method|loginWithKeytab ()
+argument_list|(
+name|expected
+operator|=
+name|FileNotFoundException
+operator|.
+name|class
+argument_list|)
+DECL|method|loginWithMissingKeytabFile ()
 specifier|public
 name|void
-name|loginWithKeytab
+name|loginWithMissingKeytabFile
 parameter_list|()
 throws|throws
 name|IOException
@@ -447,7 +454,7 @@ init|=
 name|pwd
 argument_list|()
 operator|+
-literal|"/src/test/resources/kerberos/test-keytab.bin"
+literal|"/src/test/resources/kerberos/missing.bin"
 decl_stmt|;
 comment|// when
 name|underTest
@@ -460,6 +467,7 @@ name|keyTabFileLocation
 argument_list|)
 expr_stmt|;
 comment|// then
+comment|/* exception was thrown */
 block|}
 DECL|method|pwd ()
 specifier|private

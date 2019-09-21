@@ -32,6 +32,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -44,10 +54,17 @@ name|HdfsKerberosConfigurationFactoryTest
 block|{
 annotation|@
 name|Test
-DECL|method|setupExistingKerberosConfigFile ()
+argument_list|(
+name|expected
+operator|=
+name|FileNotFoundException
+operator|.
+name|class
+argument_list|)
+DECL|method|setupExistingKerberosConfigFileWithMissingConfigFile ()
 specifier|public
 name|void
-name|setupExistingKerberosConfigFile
+name|setupExistingKerberosConfigFileWithMissingConfigFile
 parameter_list|()
 throws|throws
 name|IOException
@@ -56,7 +73,7 @@ comment|// given
 name|String
 name|kerberosConfigFileLocation
 init|=
-literal|null
+literal|"missing.conf"
 decl_stmt|;
 comment|// when
 name|HdfsKerberosConfigurationFactory
@@ -67,6 +84,7 @@ name|kerberosConfigFileLocation
 argument_list|)
 expr_stmt|;
 comment|// then
+comment|/* exception was thrown */
 block|}
 block|}
 end_class
