@@ -477,7 +477,7 @@ comment|// need to remember auth as Hadoop will override that, which otherwise m
 name|Configuration
 name|auth
 init|=
-name|config
+name|HdfsComponent
 operator|.
 name|getJAASConfiguration
 argument_list|()
@@ -628,7 +628,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|""
 argument_list|,
@@ -645,7 +645,7 @@ throw|;
 block|}
 finally|finally
 block|{
-name|config
+name|HdfsComponent
 operator|.
 name|setJAASConfiguration
 argument_list|(
@@ -919,7 +919,7 @@ comment|// need to remember auth as Hadoop will override that, which otherwise m
 name|Configuration
 name|auth
 init|=
-name|config
+name|HdfsComponent
 operator|.
 name|getJAASConfiguration
 argument_list|()
@@ -934,7 +934,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|config
+name|HdfsComponent
 operator|.
 name|setJAASConfiguration
 argument_list|(

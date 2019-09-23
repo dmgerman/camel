@@ -92,6 +92,12 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * To use the given configuration for security with JAAS. The option is a      * javax.security.auth.login.Configuration type.      */
+DECL|field|jAASConfiguration
+specifier|private
+name|String
+name|jAASConfiguration
+decl_stmt|;
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
 DECL|field|basicPropertyBinding
 specifier|private
@@ -100,6 +106,32 @@ name|basicPropertyBinding
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getJAASConfiguration ()
+specifier|public
+name|String
+name|getJAASConfiguration
+parameter_list|()
+block|{
+return|return
+name|jAASConfiguration
+return|;
+block|}
+DECL|method|setJAASConfiguration (String jAASConfiguration)
+specifier|public
+name|void
+name|setJAASConfiguration
+parameter_list|(
+name|String
+name|jAASConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jAASConfiguration
+operator|=
+name|jAASConfiguration
+expr_stmt|;
+block|}
 DECL|method|getBasicPropertyBinding ()
 specifier|public
 name|Boolean

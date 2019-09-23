@@ -73,7 +73,7 @@ comment|// need to remember auth as Hadoop will override that, which otherwise m
 name|Configuration
 name|auth
 init|=
-name|configuration
+name|HdfsComponent
 operator|.
 name|getJAASConfiguration
 argument_list|()
@@ -92,7 +92,7 @@ return|;
 block|}
 finally|finally
 block|{
-name|configuration
+name|HdfsComponent
 operator|.
 name|setJAASConfiguration
 argument_list|(
