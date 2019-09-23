@@ -1036,7 +1036,7 @@ operator|new
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates the HttpClientConfigurer based on the given parameters      *      * @param parameters the map of parameters      * @param secure whether the endpoint is secure (eg https4)      * @return the configurer      * @throws Exception is thrown if error creating configurer      */
+comment|/**      * Creates the HttpClientConfigurer based on the given parameters      *      * @param parameters the map of parameters      * @param secure whether the endpoint is secure (eg https)      * @return the configurer      * @throws Exception is thrown if error creating configurer      */
 DECL|method|createHttpClientConfigurer (Map<String, Object> parameters, boolean secure)
 specifier|protected
 name|HttpClientConfigurer
