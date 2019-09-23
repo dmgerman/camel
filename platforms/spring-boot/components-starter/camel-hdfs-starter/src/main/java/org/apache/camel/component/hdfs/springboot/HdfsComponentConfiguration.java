@@ -98,6 +98,12 @@ specifier|private
 name|String
 name|jAASConfiguration
 decl_stmt|;
+comment|/**      * To use kerberos authentication, set the value of the      * 'java.security.krb5.conf' environment variable to an existing file. If      * the environment variable is already set, warn if different than the      * specified parameter      */
+DECL|field|kerberosConfigFile
+specifier|private
+name|String
+name|kerberosConfigFile
+decl_stmt|;
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
 DECL|field|basicPropertyBinding
 specifier|private
@@ -130,6 +136,32 @@ operator|.
 name|jAASConfiguration
 operator|=
 name|jAASConfiguration
+expr_stmt|;
+block|}
+DECL|method|getKerberosConfigFile ()
+specifier|public
+name|String
+name|getKerberosConfigFile
+parameter_list|()
+block|{
+return|return
+name|kerberosConfigFile
+return|;
+block|}
+DECL|method|setKerberosConfigFile (String kerberosConfigFile)
+specifier|public
+name|void
+name|setKerberosConfigFile
+parameter_list|(
+name|String
+name|kerberosConfigFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|kerberosConfigFile
+operator|=
+name|kerberosConfigFile
 expr_stmt|;
 block|}
 DECL|method|getBasicPropertyBinding ()
