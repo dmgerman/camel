@@ -283,6 +283,12 @@ name|KUBERNETES_HPA_SPEC
 init|=
 literal|"CamelKubernetesHPASpec"
 decl_stmt|;
+DECL|field|KUBERNETES_HPA_LABELS
+name|String
+name|KUBERNETES_HPA_LABELS
+init|=
+literal|"CamelKubernetesHPALabels"
+decl_stmt|;
 DECL|field|KUBERNETES_JOB_NAME
 name|String
 name|KUBERNETES_JOB_NAME

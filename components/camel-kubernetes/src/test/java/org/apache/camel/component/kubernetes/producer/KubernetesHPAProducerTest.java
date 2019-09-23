@@ -493,7 +493,7 @@ name|setHeader
 argument_list|(
 name|KubernetesConstants
 operator|.
-name|KUBERNETES_PODS_LABELS
+name|KUBERNETES_HPA_LABELS
 argument_list|,
 name|labels
 argument_list|)

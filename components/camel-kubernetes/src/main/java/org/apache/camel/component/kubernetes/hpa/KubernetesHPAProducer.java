@@ -520,7 +520,7 @@ name|getHeader
 argument_list|(
 name|KubernetesConstants
 operator|.
-name|KUBERNETES_PODS_LABELS
+name|KUBERNETES_HPA_LABELS
 argument_list|,
 name|Map
 operator|.
@@ -984,7 +984,7 @@ name|getHeader
 argument_list|(
 name|KubernetesConstants
 operator|.
-name|KUBERNETES_PODS_LABELS
+name|KUBERNETES_HPA_LABELS
 argument_list|,
 name|Map
 operator|.
