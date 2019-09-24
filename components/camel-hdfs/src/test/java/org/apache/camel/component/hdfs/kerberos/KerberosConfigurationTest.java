@@ -148,8 +148,6 @@ specifier|public
 name|void
 name|newKerberosConfiguration
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 comment|// given
 name|List
@@ -341,8 +339,6 @@ specifier|public
 name|void
 name|newKerberosConfigurationWithMissingKerberosConfigFile
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 comment|// given
 name|List

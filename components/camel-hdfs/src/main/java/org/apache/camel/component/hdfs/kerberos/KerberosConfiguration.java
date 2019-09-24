@@ -276,8 +276,6 @@ parameter_list|,
 name|int
 name|replicationFactor
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|HdfsComponent
 operator|.
