@@ -74,7 +74,9 @@ name|test
 operator|.
 name|spring
 operator|.
-name|CamelSpringBootRunner
+name|junit5
+operator|.
+name|CamelSpringBootTest
 import|;
 end_import
 
@@ -90,6 +92,8 @@ name|test
 operator|.
 name|spring
 operator|.
+name|junit5
+operator|.
 name|ExcludeRoutes
 import|;
 end_import
@@ -100,19 +104,11 @@ name|org
 operator|.
 name|junit
 operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|runner
-operator|.
-name|RunWith
 import|;
 end_import
 
@@ -164,12 +160,7 @@ end_import
 
 begin_class
 annotation|@
-name|RunWith
-argument_list|(
-name|CamelSpringBootRunner
-operator|.
-name|class
-argument_list|)
+name|CamelSpringBootTest
 annotation|@
 name|SpringBootApplication
 argument_list|()

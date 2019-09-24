@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An execution listener that simulates the timing output built in to {@link org.apache.camel.test.junit5.CamelTestSupport}.  */
+comment|/**  * An execution listener that simulates the timing output built in to  * {@link org.apache.camel.test.junit5.CamelTestSupport}.  */
 end_comment
 
 begin_class
@@ -124,7 +124,26 @@ name|ThreadLocal
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Exists primarily for testing purposes, but allows for access to the underlying stop watch instance for a test.      */
+comment|/**      * Returns the precedence that is used by Spring to choose the appropriate      * execution order of test listeners.      *       * See {@link SpringTestExecutionListenerSorter#getPrecedence(Class)} for more.      */
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+return|return
+name|SpringTestExecutionListenerSorter
+operator|.
+name|getPrecedence
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Exists primarily for testing purposes, but allows for access to the      * underlying stop watch instance for a test.      */
 DECL|method|getStopWatch ()
 specifier|public
 specifier|static

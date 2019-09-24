@@ -26,18 +26,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|core
-operator|.
-name|Ordered
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|test
 operator|.
 name|context
@@ -63,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for {@link CamelSpringTestContextLoader} that sets the test class state  * in {@link CamelSpringTestHelper} almost immediately before the loader initializes  * the Spring context.  *<p/>  * Implemented as a listener as the state can be set on a {@code ThreadLocal} and we are pretty sure  * that the same thread will be used to initialize the Spring context.  */
+comment|/**  * Helper for {@link CamelSpringTestContextLoader} that sets the test class  * state in {@link CamelSpringTestHelper} almost immediately before the loader  * initializes the Spring context.  *<p/>  * Implemented as a listener as the state can be set on a {@code ThreadLocal}  * and we are pretty sure that the same thread will be used to initialize the  * Spring context.  */
 end_comment
 
 begin_class
@@ -74,7 +62,7 @@ name|CamelSpringTestContextLoaderTestExecutionListener
 extends|extends
 name|AbstractTestExecutionListener
 block|{
-comment|/**      * The default implementation returns {@link org.springframework.core.Ordered#LOWEST_PRECEDENCE},      * thereby ensuring that custom listeners are ordered after default      * listeners supplied by the framework. Can be overridden by subclasses      * as necessary.      */
+comment|/**      * Returns the precedence that is used by Spring to choose the appropriate      * execution order of test listeners.      *       * See {@link SpringTestExecutionListenerSorter#getPrecedence(Class)} for more.      */
 annotation|@
 name|Override
 DECL|method|getOrder ()
@@ -83,11 +71,14 @@ name|int
 name|getOrder
 parameter_list|()
 block|{
-comment|//set Camel first
 return|return
-name|Ordered
+name|SpringTestExecutionListenerSorter
 operator|.
-name|HIGHEST_PRECEDENCE
+name|getPrecedence
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@

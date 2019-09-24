@@ -257,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base test-class for classic Spring application such as standalone, web applications.  * Do<tt>not</tt> use this class for Spring Boot testing, instead use<code>@RunWith(CamelSpringBootRunner.class)</code>.  */
+comment|/**  * Base test-class for classic Spring application such as standalone, web applications.  * Do<tt>not</tt> use this class for Spring Boot testing, instead use<code>@CamelSpringBootTest</code>.  */
 end_comment
 
 begin_class

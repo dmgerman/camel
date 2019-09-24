@@ -134,6 +134,25 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * Returns the precedence that is used by Spring to choose the appropriate      * execution order of test listeners.      *       * See {@link SpringTestExecutionListenerSorter#getPrecedence(Class)} for more.      */
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+return|return
+name|SpringTestExecutionListenerSorter
+operator|.
+name|getPrecedence
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|prepareTestInstance (TestContext testContext)
@@ -210,7 +229,8 @@ operator|.
 name|getApplicationContext
 argument_list|()
 decl_stmt|;
-comment|// Post CamelContext(s) instantiation but pre CamelContext(s) start setup
+comment|// Post CamelContext(s) instantiation but pre CamelContext(s) start
+comment|// setup
 name|CamelAnnotationsHandler
 operator|.
 name|handleProvidesBreakpoint
@@ -458,8 +478,10 @@ name|isRunning
 argument_list|()
 condition|)
 block|{
-comment|// dump route coverage for each test method so its accurate statistics
-comment|// even if spring application context is running (i.e. its not dirtied per test method)
+comment|// dump route coverage for each test method so its accurate
+comment|// statistics
+comment|// even if spring application context is running (i.e. its not
+comment|// dirtied per test method)
 name|CamelAnnotationsHandler
 operator|.
 name|handleRouteCoverageDump

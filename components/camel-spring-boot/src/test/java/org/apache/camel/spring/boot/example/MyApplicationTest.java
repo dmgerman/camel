@@ -4,7 +4,7 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot.mockendpoints
+DECL|package|org.apache.camel.spring.boot.example
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|spring
 operator|.
 name|boot
 operator|.
-name|mockendpoints
+name|example
 package|;
 end_package
 
@@ -28,7 +28,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|EndpointInject
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FluentProducerTemplate
+name|ProducerTemplate
 import|;
 end_import
 
@@ -140,109 +140,68 @@ name|SpringBootApplication
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|SpringBootTest
-import|;
-end_import
+begin_comment
+comment|/**  * This example is included in the spring-boot.adoc "Testing the JUnit 5 way" section.  */
+end_comment
 
 begin_class
 annotation|@
 name|CamelSpringBootTest
 annotation|@
-name|MockEndpoints
-annotation|@
 name|SpringBootApplication
 annotation|@
-name|SpringBootTest
+name|MockEndpoints
 argument_list|(
-name|classes
-operator|=
-name|MockEndpointsTest
-operator|.
-name|class
+literal|"direct:end"
 argument_list|)
-DECL|class|MockEndpointsTest
+DECL|class|MyApplicationTest
 specifier|public
 class|class
-name|MockEndpointsTest
+name|MyApplicationTest
 block|{
 annotation|@
 name|Autowired
-DECL|field|producerTemplate
-name|FluentProducerTemplate
-name|producerTemplate
+DECL|field|template
+specifier|private
+name|ProducerTemplate
+name|template
 decl_stmt|;
 annotation|@
-name|Autowired
-DECL|field|camelContext
-name|CamelContext
-name|camelContext
+name|EndpointInject
+argument_list|(
+literal|"mock:direct:end"
+argument_list|)
+DECL|field|mock
+specifier|private
+name|MockEndpoint
+name|mock
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|shouldMockEndpoints ()
+DECL|method|testReceive ()
 specifier|public
 name|void
-name|shouldMockEndpoints
+name|testReceive
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|mock
-init|=
-name|camelContext
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"mock://seda:foo"
-argument_list|,
-name|MockEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-comment|// Given
-name|String
-name|msg
-init|=
-literal|"msg"
-decl_stmt|;
 name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|msg
+literal|"Hello"
 argument_list|)
 expr_stmt|;
-comment|// When
-name|producerTemplate
+name|template
 operator|.
-name|withBody
-argument_list|(
-name|msg
-argument_list|)
-operator|.
-name|to
+name|sendBody
 argument_list|(
 literal|"direct:start"
+argument_list|,
+literal|"Hello"
 argument_list|)
-operator|.
-name|send
-argument_list|()
 expr_stmt|;
-comment|// Then
 name|mock
 operator|.
 name|assertIsSatisfied
