@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Notice the capacity is<b>per key</b> which means that each key can contain at most  * (the capacity) services. The pool can contain an unbounded number of keys.  *<p/>  * By default the capacity is set to 100.  */
+comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Notice the capacity is<b>per key</b> which means that each key can contain at most  * (the capacity) services. The pool will contain at most (the capacity) number of keys.  *<p/>  * By default the capacity is set to 100.  */
 end_comment
 
 begin_class
@@ -324,8 +324,9 @@ name|void
 name|stop
 parameter_list|()
 function_decl|;
+comment|// returns true if the pool is empty
 DECL|method|evict (S s)
-name|void
+name|boolean
 name|evict
 parameter_list|(
 name|S
@@ -516,13 +517,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
 name|p
 operator|.
 name|evict
 argument_list|(
 name|s
 argument_list|)
+condition|)
+block|{
+name|pool
+operator|.
+name|remove
+argument_list|(
+name|e
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Tries to acquire the service with the given key      *      * @param endpoint the endpoint      * @return the acquired service      */
@@ -1177,7 +1189,7 @@ annotation|@
 name|Override
 DECL|method|evict (S s)
 specifier|public
-name|void
+name|boolean
 name|evict
 parameter_list|(
 name|S
@@ -1211,6 +1223,9 @@ argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|doStop (S s)
 name|void
@@ -1439,7 +1454,7 @@ annotation|@
 name|Override
 DECL|method|evict (S s)
 specifier|public
-name|void
+name|boolean
 name|evict
 parameter_list|(
 name|S
@@ -1460,6 +1475,12 @@ argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
+return|return
+name|queue
+operator|.
+name|isEmpty
+argument_list|()
+return|;
 block|}
 block|}
 block|}
