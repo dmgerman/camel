@@ -1040,7 +1040,7 @@ name|findCamelDirectory
 argument_list|(
 name|dir
 argument_list|,
-literal|"core/camel-core"
+literal|"core/camel-core-engine"
 argument_list|)
 return|;
 block|}

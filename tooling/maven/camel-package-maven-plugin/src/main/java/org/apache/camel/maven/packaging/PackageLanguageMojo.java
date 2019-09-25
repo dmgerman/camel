@@ -1179,7 +1179,7 @@ throw|throw
 operator|new
 name|MojoExecutionException
 argument_list|(
-literal|"Error finding core/camel-core/target/camel-core-"
+literal|"Error finding core/camel-core/target/camel-core-engine-"
 operator|+
 name|project
 operator|.
