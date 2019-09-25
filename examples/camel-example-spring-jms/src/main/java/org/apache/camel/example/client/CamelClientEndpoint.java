@@ -96,6 +96,26 @@ begin_import
 import|import
 name|org
 operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -131,6 +151,22 @@ specifier|final
 class|class
 name|CamelClientEndpoint
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|CamelClientEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|CamelClientEndpoint ()
 specifier|private
 name|CamelClientEndpoint
@@ -153,11 +189,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Notice this client requires that the CamelServer is already running!"
 argument_list|)
@@ -238,11 +272,9 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// let the producer process the exchange where it does all the work in this oneline of code
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Invoking the multiply with 11"
 argument_list|)
@@ -260,24 +292,22 @@ name|response
 init|=
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|Integer
+name|int
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"... the result is: "
-operator|+
+literal|"... the result is: {}"
+argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
