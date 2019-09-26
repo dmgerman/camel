@@ -483,7 +483,7 @@ name|getHeader
 argument_list|(
 name|IrcConstants
 operator|.
-name|IRC_TARGET
+name|IRC_SEND_TO
 argument_list|,
 name|String
 operator|.
@@ -557,7 +557,7 @@ name|getHeader
 argument_list|(
 name|IrcConstants
 operator|.
-name|IRC_TARGET
+name|IRC_SEND_TO
 argument_list|,
 name|String
 operator|.

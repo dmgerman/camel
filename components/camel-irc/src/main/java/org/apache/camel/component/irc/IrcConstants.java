@@ -47,6 +47,15 @@ name|IRC_TARGET
 init|=
 literal|"irc.target"
 decl_stmt|;
+DECL|field|IRC_SEND_TO
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IRC_SEND_TO
+init|=
+literal|"irc.sendTo"
+decl_stmt|;
 DECL|field|IRC_USER_KICKED
 specifier|public
 specifier|static

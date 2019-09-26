@@ -247,7 +247,7 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|String
-name|targetChannel
+name|sendTo
 init|=
 name|exchange
 operator|.
@@ -258,7 +258,7 @@ name|getHeader
 argument_list|(
 name|IrcConstants
 operator|.
-name|IRC_TARGET
+name|IRC_SEND_TO
 argument_list|,
 name|String
 operator|.
@@ -322,7 +322,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|targetChannel
+name|sendTo
 operator|!=
 literal|null
 condition|)
@@ -333,7 +333,7 @@ name|debug
 argument_list|(
 literal|"Sending to: {} message: {}"
 argument_list|,
-name|targetChannel
+name|sendTo
 argument_list|,
 name|msg
 argument_list|)
@@ -342,7 +342,7 @@ name|connection
 operator|.
 name|doPrivmsg
 argument_list|(
-name|targetChannel
+name|sendTo
 argument_list|,
 name|msg
 argument_list|)

@@ -397,7 +397,7 @@ argument_list|()
 argument_list|,
 name|body1
 argument_list|,
-literal|"irc.target"
+literal|"irc.sendTo"
 argument_list|,
 name|properties
 operator|.
@@ -416,7 +416,7 @@ argument_list|()
 argument_list|,
 name|body2
 argument_list|,
-literal|"irc.target"
+literal|"irc.sendTo"
 argument_list|,
 name|properties
 operator|.
