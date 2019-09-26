@@ -2557,6 +2557,11 @@ name|AmazonSQSClientBuilder
 operator|.
 name|standard
 argument_list|()
+operator|.
+name|withClientConfiguration
+argument_list|(
+name|clientConfiguration
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -2567,11 +2572,6 @@ name|AmazonSQSClientBuilder
 operator|.
 name|standard
 argument_list|()
-operator|.
-name|withClientConfiguration
-argument_list|(
-name|clientConfiguration
-argument_list|)
 expr_stmt|;
 block|}
 block|}
