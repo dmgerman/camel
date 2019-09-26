@@ -345,7 +345,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-s3 component is used for storing and retrieving objecct from Amazon  * S3 Storage Service.  */
+comment|/**  * The aws-s3 component is used for storing and retrieving object from Amazon  * S3 Storage Service.  */
 end_comment
 
 begin_class
