@@ -158,6 +158,18 @@ name|box
 operator|.
 name|sdk
 operator|.
+name|BoxItem
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|box
+operator|.
+name|sdk
+operator|.
 name|BoxSharedLink
 import|;
 end_import
@@ -219,7 +231,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Box Files Manager  *   *<p>  * Provides operations to manage Box files.  *   *   *  */
+comment|/**  * Box Files Manager  *  *<p>  * Provides operations to manage Box files.  *  *  *  */
 end_comment
 
 begin_class
@@ -250,7 +262,7 @@ specifier|private
 name|BoxAPIConnection
 name|boxConnection
 decl_stmt|;
-comment|/**      * Create files manager to manage the files of Box connection's      * authenticated user.      *       * @param boxConnection      *            - Box connection to authenticated user account.      */
+comment|/**      * Create files manager to manage the files of Box connection's      * authenticated user.      *      * @param boxConnection      *            - Box connection to authenticated user account.      */
 DECL|method|BoxFilesManager (BoxAPIConnection boxConnection)
 specifier|public
 name|BoxFilesManager
@@ -266,7 +278,7 @@ operator|=
 name|boxConnection
 expr_stmt|;
 block|}
-comment|/**      * Get file information.      *       * @param fileId      *            - the id of file.      * @param fields      *            - the information fields to retrieve; if<code>null</code> all      *            information fields are retrieved.      * @return The file information.      */
+comment|/**      * Get file information.      *      * @param fileId      *            - the id of file.      * @param fields      *            - the information fields to retrieve; if<code>null</code> all      *            information fields are retrieved.      * @return The file information.      */
 DECL|method|getFileInfo (String fileId, String... fields)
 specifier|public
 name|BoxFile
@@ -383,7 +395,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Update file information.      *       * @param fileId      *            - the id of file to update.      * @param info      *            - the updated information      * @return The updated file.      */
+comment|/**      * Update file information.      *      * @param fileId      *            - the id of file to update.      * @param info      *            - the updated information      * @return The updated file.      */
 DECL|method|updateFileInfo (String fileId, BoxFile.Info info)
 specifier|public
 name|BoxFile
@@ -493,8 +505,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Upload a new file to parent folder.      *       * @param parentFolderId      *            - the id of parent folder.      * @param content      *            - a stream containing contents of the file to upload.      * @param fileName      *            the name to give the uploaded file.      * @param created      *            - the content created date that will be given to the uploaded      *            file.      * @param modified      *            - the content modified date that will be given to the uploaded      *            file.      * @param size      *            - the size of the file's content used for monitoring the      *            upload's progress.      * @param listener      *            - a listener for monitoring the upload's progress.      * @return The uploaded file.      */
-DECL|method|uploadFile (String parentFolderId, InputStream content, String fileName, Date created, Date modified, Long size, ProgressListener listener)
+comment|/**      * Upload a new file to parent folder.      *      * @param parentFolderId      *            - the id of parent folder.      * @param content      *            - a stream containing contents of the file to upload.      * @param fileName      *            the name to give the uploaded file.      * @param created      *            - the content created date that will be given to the uploaded      *            file.      * @param modified      *            - the content modified date that will be given to the uploaded      *            file.      * @param size      *            - the size of the file's content used for monitoring the      *            upload's progress.      * @param check      *            - if the file name is already used, call the uploadNewVersion instead.      * @param listener      *            - a listener for monitoring the upload's progress.      * @return The uploaded file.      */
+DECL|method|uploadFile (String parentFolderId, InputStream content, String fileName, Date created, Date modified, Long size, boolean check, ProgressListener listener)
 specifier|public
 name|BoxFile
 name|uploadFile
@@ -516,6 +528,9 @@ name|modified
 parameter_list|,
 name|Long
 name|size
+parameter_list|,
+name|boolean
+name|check
 parameter_list|,
 name|ProgressListener
 name|listener
@@ -583,6 +598,94 @@ literal|"Paramerer 'fileName' can not be null"
 argument_list|)
 throw|;
 block|}
+name|BoxFile
+name|boxFile
+init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|uploadNewFile
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+name|check
+condition|)
+block|{
+name|BoxSearchManager
+name|bsm
+init|=
+operator|new
+name|BoxSearchManager
+argument_list|(
+name|boxConnection
+argument_list|)
+decl_stmt|;
+name|Collection
+argument_list|<
+name|BoxItem
+argument_list|>
+name|res
+init|=
+name|bsm
+operator|.
+name|searchFolder
+argument_list|(
+name|parentFolderId
+argument_list|,
+name|fileName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|res
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|BoxItem
+name|boxItem
+init|=
+name|res
+operator|.
+name|iterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+name|boxFile
+operator|=
+name|uploadNewFileVersion
+argument_list|(
+name|boxItem
+operator|.
+name|getID
+argument_list|()
+argument_list|,
+name|content
+argument_list|,
+name|modified
+argument_list|,
+name|size
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+name|uploadNewFile
+operator|=
+literal|false
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|uploadNewFile
+condition|)
+block|{
 name|BoxFolder
 name|parentFolder
 init|=
@@ -675,7 +778,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|boxFile
+operator|=
 name|parentFolder
 operator|.
 name|uploadFile
@@ -685,6 +789,10 @@ argument_list|)
 operator|.
 name|getResource
 argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|boxFile
 return|;
 block|}
 catch|catch
@@ -719,7 +827,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Upload a new version of file.      *       * @param fileId      *            - the id of file.      * @param fileContent      *            - a stream containing contents of the file to upload.      * @param modified      *            - the content modified date that will be given to the uploaded      *            file.      * @param fileSize      *            - the size of the file's content used for monitoring the      *            upload's progress.      * @param listener      *            - a listener for monitoring the upload's progress.      * @return The uploaded file.      */
+comment|/**      * Upload a new version of file.      *      * @param fileId      *            - the id of file.      * @param fileContent      *            - a stream containing contents of the file to upload.      * @param modified      *            - the content modified date that will be given to the uploaded      *            file.      * @param fileSize      *            - the size of the file's content used for monitoring the      *            upload's progress.      * @param listener      *            - a listener for monitoring the upload's progress.      * @return The uploaded file.      */
 DECL|method|uploadNewFileVersion (String fileId, InputStream fileContent, Date modified, Long fileSize, ProgressListener listener)
 specifier|public
 name|BoxFile
@@ -884,7 +992,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get any previous versions of file.      *       * @param fileId      *            - the id of file.      * @return The list of previous file versions.      */
+comment|/**      * Get any previous versions of file.      *      * @param fileId      *            - the id of file.      * @return The list of previous file versions.      */
 DECL|method|getFileVersions (String fileId)
 specifier|public
 name|Collection
@@ -973,7 +1081,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Download a file.      *       * @param fileId      *            - the id of file.      * @param output      *            - the stream to which the file contents will be written.      * @param rangeStart      *            - the byte offset in file at which to start the download; if      *<code>null</code> the entire contents of file will be      *            downloaded.      * @param rangeEnd      *            - the byte offset in file at which to stop the download; if      *<code>null</code> the entire contents of file will be      *            downloaded.      * @param listener      *            - a listener for monitoring the download's progress; if      *<code>null</code> the download's progress will not be      *            monitored.      * @return The stream containing the contents of the downloaded file.      */
+comment|/**      * Download a file.      *      * @param fileId      *            - the id of file.      * @param output      *            - the stream to which the file contents will be written.      * @param rangeStart      *            - the byte offset in file at which to start the download; if      *<code>null</code> the entire contents of file will be      *            downloaded.      * @param rangeEnd      *            - the byte offset in file at which to stop the download; if      *<code>null</code> the entire contents of file will be      *            downloaded.      * @param listener      *            - a listener for monitoring the download's progress; if      *<code>null</code> the download's progress will not be      *            monitored.      * @return The stream containing the contents of the downloaded file.      */
 DECL|method|downloadFile (String fileId, OutputStream output, Long rangeStart, Long rangeEnd, ProgressListener listener)
 specifier|public
 name|OutputStream
@@ -1164,7 +1272,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Download a previous version of file.      *       * @param fileId      *            - the id of file.      * @param version      *            - the version of file to download; initial version of file has      *            value of<code>0</code>, second version of file is      *<code>1</code> and so on.      * @param output      *            - the stream to which the version contents will be written.      * @param listener      *            - a listener for monitoring the download's progress; if      *<code>null</code> the download's progress will not be      *            monitored.      * @return The stream containing the contents of the downloaded file      *         version.      */
+comment|/**      * Download a previous version of file.      *      * @param fileId      *            - the id of file.      * @param version      *            - the version of file to download; initial version of file has      *            value of<code>0</code>, second version of file is      *<code>1</code> and so on.      * @param output      *            - the stream to which the version contents will be written.      * @param listener      *            - a listener for monitoring the download's progress; if      *<code>null</code> the download's progress will not be      *            monitored.      * @return The stream containing the contents of the downloaded file      *         version.      */
 DECL|method|downloadPreviousFileVersion (String fileId, Integer version, OutputStream output, ProgressListener listener)
 specifier|public
 name|OutputStream
@@ -1346,7 +1454,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Promote a previous version of file.      *       * @param fileId      *            - the id of file.      * @param version      *            - the version of file to promote; initial version of file has      *            value of<code>0</code>, second version of file is      *<code>1</code> and so on.      * @return The promoted version of file.      */
+comment|/**      * Promote a previous version of file.      *      * @param fileId      *            - the id of file.      * @param version      *            - the version of file to promote; initial version of file has      *            value of<code>0</code>, second version of file is      *<code>1</code> and so on.      * @return The promoted version of file.      */
 DECL|method|promoteFileVersion (String fileId, Integer version)
 specifier|public
 name|BoxFileVersion
@@ -1485,7 +1593,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Copy file to destination folder while optionally giving it a new name.      *       * @param fileId      *            - the id of file to copy.      * @param destinationFolderId      *            - the id of the destination folder.      * @param newName      *            - the new name for copied file; if<code>newName</code> is      *<code>null</code>, the copied file has same name as the      *            original.      * @return The copied file.      */
+comment|/**      * Copy file to destination folder while optionally giving it a new name.      *      * @param fileId      *            - the id of file to copy.      * @param destinationFolderId      *            - the id of the destination folder.      * @param newName      *            - the new name for copied file; if<code>newName</code> is      *<code>null</code>, the copied file has same name as the      *            original.      * @return The copied file.      */
 DECL|method|copyFile (String fileId, String destinationFolderId, String newName)
 specifier|public
 name|BoxFile
@@ -1652,7 +1760,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Move file to destination folder while optionally giving it a new name.      *       * @param fileId      *            - the id of file to move.      * @param destinationFolderId      *            - the id of the destination folder.      * @param newName      *            - the new name of moved file; if<code>newName</code> is      *<code>null</code>, the moved file has same name as the      *            original.      * @return The moved file.      */
+comment|/**      * Move file to destination folder while optionally giving it a new name.      *      * @param fileId      *            - the id of file to move.      * @param destinationFolderId      *            - the id of the destination folder.      * @param newName      *            - the new name of moved file; if<code>newName</code> is      *<code>null</code>, the moved file has same name as the      *            original.      * @return The moved file.      */
 DECL|method|moveFile (String fileId, String destinationFolderId, String newName)
 specifier|public
 name|BoxFile
@@ -1825,7 +1933,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Rename file giving it the name<code>newName</code>      *       * @param fileId      *            - the id of file to rename.      * @param newFileName      *            - the new name of file.      * @return The renamed file.      */
+comment|/**      * Rename file giving it the name<code>newName</code>      *      * @param fileId      *            - the id of file to rename.      * @param newFileName      *            - the new name of file.      * @return The renamed file.      */
 DECL|method|renameFile (String fileId, String newFileName)
 specifier|public
 name|BoxFile
@@ -1939,7 +2047,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Delete the file.      *       * @param fileId      *            - the id of file to delete.      */
+comment|/**      * Delete the file.      *      * @param fileId      *            - the id of file to delete.      */
 DECL|method|deleteFile (String fileId)
 specifier|public
 name|void
@@ -2024,7 +2132,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Delete a file version.      *       * @param fileId      *            - the id of file with version to delete.      * @param version      *            - the version of file to delete; initial version of file has      *            value of<code>0</code>, second version of file is      *<code>1</code> and so on.      */
+comment|/**      * Delete a file version.      *      * @param fileId      *            - the id of file with version to delete.      * @param version      *            - the version of file to delete; initial version of file has      *            value of<code>0</code>, second version of file is      *<code>1</code> and so on.      */
 DECL|method|deleteFileVersion (String fileId, Integer version)
 specifier|public
 name|void
@@ -2160,7 +2268,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Create a shared link to file.      *       * @param fileId      *            - the id of the file to create shared link on.      * @param access      *            - the access level of the shared link.      * @param unshareDate      *            - the date and time at which time the created shared link will      *            expire; if<code>unsharedDate</code> is<code>null</code> then      *            a non-expiring link is created.      * @param permissions      *            - the permissions of the created link; if      *<code>permissions</code> is<code>null</code> then the created      *            shared link is create with default permissions.      * @return The created shared link.      */
+comment|/**      * Create a shared link to file.      *      * @param fileId      *            - the id of the file to create shared link on.      * @param access      *            - the access level of the shared link.      * @param unshareDate      *            - the date and time at which time the created shared link will      *            expire; if<code>unsharedDate</code> is<code>null</code> then      *            a non-expiring link is created.      * @param permissions      *            - the permissions of the created link; if      *<code>permissions</code> is<code>null</code> then the created      *            shared link is create with default permissions.      * @return The created shared link.      */
 DECL|method|createFileSharedLink (String fileId, BoxSharedLink.Access access, Date unshareDate, BoxSharedLink.Permissions permissions)
 specifier|public
 name|BoxSharedLink
@@ -2308,7 +2416,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get an expiring URL for downloading a file directly from Box. This can be      * user, for example, for sending as a redirect to a browser to cause the      * browser to download the file directly from Box.      *       * @param fileId      *            - the id of file.      * @return The temporary download URL      */
+comment|/**      * Get an expiring URL for downloading a file directly from Box. This can be      * user, for example, for sending as a redirect to a browser to cause the      * browser to download the file directly from Box.      *      * @param fileId      *            - the id of file.      * @return The temporary download URL      */
 DECL|method|getDownloadURL (String fileId)
 specifier|public
 name|URL
@@ -2394,7 +2502,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get an expiring URL for creating an embedded preview session. The URL      * will expire after 60 seconds and the preview session will expire after 60      * minutes.      *       * @param fileId      *            - the id of the file to get preview link on.      * @return The preview link.      */
+comment|/**      * Get an expiring URL for creating an embedded preview session. The URL      * will expire after 60 seconds and the preview session will expire after 60      * minutes.      *      * @param fileId      *            - the id of the file to get preview link on.      * @return The preview link.      */
 DECL|method|getFilePreviewLink (String fileId)
 specifier|public
 name|URL
@@ -2480,7 +2588,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get an expiring URL for creating an embedded preview session. The URL      * will expire after 60 seconds and the preview session will expire after 60      * minutes.      *       * @param fileId      *            - the id of the file to get preview link on.      * @param fileType      *            - either PNG of JPG.      * @param minWidth      *            - minimum width.      * @param minHeight      *            - minimum height.      * @param maxWidth      *            - maximum width.      * @param maxHeight      *            - maximum height.      * @return The byte array of the thumbnail image.      */
+comment|/**      * Get an expiring URL for creating an embedded preview session. The URL      * will expire after 60 seconds and the preview session will expire after 60      * minutes.      *      * @param fileId      *            - the id of the file to get preview link on.      * @param fileType      *            - either PNG of JPG.      * @param minWidth      *            - minimum width.      * @param minHeight      *            - minimum height.      * @param maxWidth      *            - maximum width.      * @param maxHeight      *            - maximum height.      * @return The byte array of the thumbnail image.      */
 DECL|method|getFileThumbnail (String fileId, BoxFile.ThumbnailFileType fileType, Integer minWidth, Integer minHeight, Integer maxWidth, Integer maxHeight)
 specifier|public
 name|byte
@@ -2689,7 +2797,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Create metadata for file in either the global properties template or the      * specified template type.      *       * @param fileId      *            - the id of the file to create metadata for.      * @param metadata      *            - the new metadata values.      * @param typeName      *            - the metadata template type name; if<code>null</code> the      *            global properties template type is used.      * @return The metadata returned from the server.      */
+comment|/**      * Create metadata for file in either the global properties template or the      * specified template type.      *      * @param fileId      *            - the id of the file to create metadata for.      * @param metadata      *            - the new metadata values.      * @param typeName      *            - the metadata template type name; if<code>null</code> the      *            global properties template type is used.      * @return The metadata returned from the server.      */
 DECL|method|createFileMetadata (String fileId, Metadata metadata, String typeName)
 specifier|public
 name|Metadata
@@ -2819,7 +2927,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Gets the file properties metadata.      *       * @param fileId      *            - the id of the file to retrieve metadata for.      * @param typeName      *            - the metadata template type name; if<code>null</code> the      *            global properties template type is used.      * @return The metadata returned from the server.      */
+comment|/**      * Gets the file properties metadata.      *      * @param fileId      *            - the id of the file to retrieve metadata for.      * @param typeName      *            - the metadata template type name; if<code>null</code> the      *            global properties template type is used.      * @return The metadata returned from the server.      */
 DECL|method|getFileMetadata (String fileId, String typeName)
 specifier|public
 name|Metadata
@@ -2927,7 +3035,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Update the file properties metadata.      *       * @param fileId      *            - the id of file to delete.      * @param metadata      *            - the new metadata values.      * @return The metadata returned from the server.      */
+comment|/**      * Update the file properties metadata.      *      * @param fileId      *            - the id of file to delete.      * @param metadata      *            - the new metadata values.      * @return The metadata returned from the server.      */
 DECL|method|updateFileMetadata (String fileId, Metadata metadata)
 specifier|public
 name|Metadata
@@ -3033,7 +3141,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Delete the file properties metadata.      *       * @param fileId      *            - the id of file to delete.      */
+comment|/**      * Delete the file properties metadata.      *      * @param fileId      *            - the id of file to delete.      */
 DECL|method|deleteFileMetadata (String fileId)
 specifier|public
 name|void
@@ -3084,6 +3192,137 @@ name|file
 operator|.
 name|deleteMetadata
 argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|BoxAPIException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Box API returned the error code %d\n\n%s"
+argument_list|,
+name|e
+operator|.
+name|getResponseCode
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getResponse
+argument_list|()
+argument_list|)
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Does a pre-verification before upload, to check if the filename already exists or if there is permission to upload.      * It will throw a BoxAPIResponseException if there is any problem in uploading the given file.      *      * @param parentFolderId      *            - the id of parent folder.      * @param fileName      *            the name to give the uploaded file.      * @param size      *            - the size of the file's content used for monitoring the upload's progress.      *      */
+DECL|method|checkUpload (String fileName, String parentFolderId, Long size)
+specifier|public
+name|void
+name|checkUpload
+parameter_list|(
+name|String
+name|fileName
+parameter_list|,
+name|String
+name|parentFolderId
+parameter_list|,
+name|Long
+name|size
+parameter_list|)
+block|{
+try|try
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Preflight check file with name '"
+operator|+
+name|fileName
+operator|+
+literal|"' to parent_folder(id="
+operator|+
+name|parentFolderId
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|parentFolderId
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter 'parentFolderId' can not be null"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|fileName
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter 'fileName' can not be null"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|size
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter 'size' can not be null"
+argument_list|)
+throw|;
+block|}
+name|BoxFolder
+name|parentFolder
+init|=
+operator|new
+name|BoxFolder
+argument_list|(
+name|boxConnection
+argument_list|,
+name|parentFolderId
+argument_list|)
+decl_stmt|;
+name|parentFolder
+operator|.
+name|canUpload
+argument_list|(
+name|fileName
+argument_list|,
+name|size
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
