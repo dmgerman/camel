@@ -1396,6 +1396,14 @@ argument_list|,
 name|kerberosNamedNodes
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isNotEmpty
+argument_list|(
+name|kerberosNamedNodes
+argument_list|)
+condition|)
+block|{
 return|return
 name|Arrays
 operator|.
@@ -1419,6 +1427,13 @@ operator|.
 name|toList
 argument_list|()
 argument_list|)
+return|;
+block|}
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 DECL|method|checkConsumerOptions ()
