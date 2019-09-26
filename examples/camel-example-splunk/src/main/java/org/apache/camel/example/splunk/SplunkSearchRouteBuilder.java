@@ -32,22 +32,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|properties
-operator|.
-name|PropertiesComponent
-import|;
-end_import
-
 begin_class
 DECL|class|SplunkSearchRouteBuilder
 specifier|public
@@ -74,22 +58,11 @@ literal|"About to setup Splunk search route: Splunk Server --> log{results}"
 argument_list|)
 expr_stmt|;
 comment|// configure properties component
-name|PropertiesComponent
-name|pc
-init|=
 name|getContext
 argument_list|()
 operator|.
-name|getComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|pc
+name|getPropertiesComponent
+argument_list|()
 operator|.
 name|setLocation
 argument_list|(

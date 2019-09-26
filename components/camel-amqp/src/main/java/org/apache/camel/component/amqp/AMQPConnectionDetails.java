@@ -267,14 +267,8 @@ name|propertiesComponent
 init|=
 name|camelContext
 operator|.
-name|getComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|)
+name|getPropertiesComponent
+argument_list|()
 decl_stmt|;
 name|String
 name|host

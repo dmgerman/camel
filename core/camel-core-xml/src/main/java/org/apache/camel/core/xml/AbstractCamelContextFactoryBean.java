@@ -1644,6 +1644,42 @@ name|tcr
 argument_list|)
 expr_stmt|;
 block|}
+comment|// then properties component
+name|PropertiesComponent
+name|pc
+init|=
+name|getBeanForType
+argument_list|(
+name|PropertiesComponent
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pc
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using PropertiesComponent: {}"
+argument_list|,
+name|pc
+argument_list|)
+expr_stmt|;
+name|getContext
+argument_list|()
+operator|.
+name|setPropertiesComponent
+argument_list|(
+name|pc
+argument_list|)
+expr_stmt|;
+block|}
 comment|// then set custom properties
 name|Map
 argument_list|<
@@ -4953,10 +4989,8 @@ comment|// register the properties component
 name|getContext
 argument_list|()
 operator|.
-name|addComponent
+name|setPropertiesComponent
 argument_list|(
-literal|"properties"
-argument_list|,
 name|pc
 argument_list|)
 expr_stmt|;

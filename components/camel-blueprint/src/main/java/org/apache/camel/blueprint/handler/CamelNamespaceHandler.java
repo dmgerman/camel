@@ -2212,18 +2212,6 @@ argument_list|(
 name|implicitId
 argument_list|)
 expr_stmt|;
-comment|// The properties component is always used / created by the CamelContextFactoryBean
-comment|// so we need to ensure that the resolver is ready to use
-name|ComponentMetadata
-name|propertiesComponentResolver
-init|=
-name|getComponentResolverReference
-argument_list|(
-name|context
-argument_list|,
-literal|"properties"
-argument_list|)
-decl_stmt|;
 name|MutablePassThroughMetadata
 name|factory
 init|=
@@ -2332,16 +2320,6 @@ name|context
 argument_list|,
 literal|"blueprintBundleContext"
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|factory2
-operator|.
-name|addDependsOn
-argument_list|(
-name|propertiesComponentResolver
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// We need to add other components which the camel context dependsOn

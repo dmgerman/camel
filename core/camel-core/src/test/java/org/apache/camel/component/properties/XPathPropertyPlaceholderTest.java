@@ -271,9 +271,7 @@ init|=
 name|context
 operator|.
 name|getPropertiesComponent
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|pc
 operator|.

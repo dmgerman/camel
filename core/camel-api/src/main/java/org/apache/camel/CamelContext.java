@@ -1301,13 +1301,13 @@ name|PropertiesComponent
 name|getPropertiesComponent
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the configured properties component or create one if none has been configured.      *      * @param autoCreate whether the component should be created if none is configured      * @return the properties component      */
-DECL|method|getPropertiesComponent (boolean autoCreate)
-name|PropertiesComponent
-name|getPropertiesComponent
+comment|/**      * Sets a custom properties component to be used.      */
+DECL|method|setPropertiesComponent (PropertiesComponent propertiesComponent)
+name|void
+name|setPropertiesComponent
 parameter_list|(
-name|boolean
-name|autoCreate
+name|PropertiesComponent
+name|propertiesComponent
 parameter_list|)
 function_decl|;
 comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the languages      * @deprecated not in use      */

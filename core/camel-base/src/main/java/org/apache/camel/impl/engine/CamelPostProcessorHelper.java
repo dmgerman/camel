@@ -1598,15 +1598,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// enforce a properties component to be created if none existed
-name|getCamelContext
-argument_list|()
-operator|.
-name|getPropertiesComponent
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|String
 name|key
 decl_stmt|;

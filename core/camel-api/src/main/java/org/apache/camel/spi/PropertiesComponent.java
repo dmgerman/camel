@@ -66,18 +66,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Component
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|StaticService
 import|;
 end_import
@@ -92,8 +80,6 @@ specifier|public
 interface|interface
 name|PropertiesComponent
 extends|extends
-name|Component
-extends|,
 name|StaticService
 block|{
 comment|/**      * The prefix token.      */
@@ -109,13 +95,6 @@ name|String
 name|SUFFIX_TOKEN
 init|=
 literal|"}}"
-decl_stmt|;
-comment|/**      * Has the component been created as a default by {@link org.apache.camel.CamelContext} during starting up Camel.      */
-DECL|field|DEFAULT_CREATED
-name|String
-name|DEFAULT_CREATED
-init|=
-literal|"PropertiesComponentDefaultCreated"
 decl_stmt|;
 comment|/**      * Parses the input text and resolve all property placeholders from within the text.      *      * @param uri  input text      * @return text with resolved property placeholders      * @throws IllegalArgumentException is thrown if error during parsing      */
 DECL|method|parseUri (String uri)
@@ -217,6 +196,15 @@ name|setOverrideProperties
 parameter_list|(
 name|Properties
 name|overrideProperties
+parameter_list|)
+function_decl|;
+comment|/**      * Encoding to use when loading properties file from the file system or classpath.      *<p/>      * If no encoding has been set, then the properties files is loaded using ISO-8859-1 encoding (latin-1)      * as documented by {@link java.util.Properties#load(java.io.InputStream)}      *<p/>      * Important you must set encoding before setting locations.      */
+DECL|method|setEncoding (String encoding)
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
 parameter_list|)
 function_decl|;
 block|}

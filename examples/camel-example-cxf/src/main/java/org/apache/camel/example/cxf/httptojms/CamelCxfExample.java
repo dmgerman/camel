@@ -86,22 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
-operator|.
-name|PropertiesComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -380,22 +364,6 @@ name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
 comment|// END SNIPPET: e1
-name|PropertiesComponent
-name|pc
-init|=
-operator|new
-name|PropertiesComponent
-argument_list|()
-decl_stmt|;
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|pc
-argument_list|)
-expr_stmt|;
 comment|// Set up the JMS broker and the CXF SOAP over JMS server
 comment|// START SNIPPET: e2
 name|JmsBroker

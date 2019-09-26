@@ -255,27 +255,14 @@ name|Exception
 block|{
 comment|// START SNIPPET: ex
 comment|// setup properties component
-name|PropertiesComponent
-name|properties
-init|=
-operator|new
-name|PropertiesComponent
+name|context
+operator|.
+name|getPropertiesComponent
 argument_list|()
-decl_stmt|;
-name|properties
 operator|.
 name|setLocation
 argument_list|(
 literal|"classpath:org/apache/camel/builder/xml/myprop.properties"
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|properties
 argument_list|)
 expr_stmt|;
 comment|// myprop.properties contains the following properties
@@ -314,7 +301,7 @@ argument_list|()
 operator|.
 name|xpath
 argument_list|(
-literal|"//name = function:simple('Donkey ${properties:bar}')"
+literal|"//name = function:simple('Donkey {{bar}}')"
 argument_list|)
 operator|.
 name|to

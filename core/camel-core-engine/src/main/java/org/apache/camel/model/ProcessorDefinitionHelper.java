@@ -2999,15 +2999,6 @@ operator|instanceof
 name|String
 condition|)
 block|{
-comment|// enforce a properties component to be created if
-comment|// none existed
-name|camelContext
-operator|.
-name|getPropertiesComponent
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 comment|// value must be enclosed with placeholder tokens
 name|String
 name|s

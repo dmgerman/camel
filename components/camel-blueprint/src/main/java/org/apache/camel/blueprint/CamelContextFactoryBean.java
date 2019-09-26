@@ -1940,17 +1940,14 @@ comment|// lookup existing configured properties component
 name|PropertiesComponent
 name|pc
 init|=
+operator|(
+name|PropertiesComponent
+operator|)
 name|getContext
 argument_list|()
 operator|.
-name|getComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|)
+name|getPropertiesComponent
+argument_list|()
 decl_stmt|;
 comment|// any extra properties
 name|ServiceReference

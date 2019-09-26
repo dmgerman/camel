@@ -188,10 +188,8 @@ expr_stmt|;
 comment|// add properties component to camel context
 name|context
 operator|.
-name|addComponent
+name|setPropertiesComponent
 argument_list|(
-literal|"properties"
-argument_list|,
 name|pc
 argument_list|)
 expr_stmt|;

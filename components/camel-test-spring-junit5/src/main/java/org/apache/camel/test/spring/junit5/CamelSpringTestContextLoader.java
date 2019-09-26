@@ -2508,7 +2508,7 @@ operator|new
 name|BeanPostProcessor
 argument_list|()
 block|{
-block|@Override                 public Object postProcessAfterInitialization(Object bean
+block|@Override                 public Object postProcessBeforeInitialization(Object bean
 argument_list|,
 name|String
 name|beanName
@@ -2518,41 +2518,26 @@ if|if
 condition|(
 name|bean
 operator|instanceof
-name|CamelContext
+name|PropertiesComponent
 condition|)
 block|{
-name|CamelContext
-name|camelContext
-init|=
-operator|(
-name|CamelContext
-operator|)
-name|bean
-decl_stmt|;
 name|PropertiesComponent
 name|pc
 init|=
-name|camelContext
-operator|.
-name|getPropertiesComponent
-argument_list|(
-literal|true
-argument_list|)
+operator|(
+name|PropertiesComponent
+operator|)
+name|bean
 decl_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using {} properties to override any existing properties on the PropertiesComponent on CamelContext with name [{}]."
+literal|"Using {} properties to override any existing properties on the PropertiesComponent"
 argument_list|,
 name|extra
 operator|.
 name|size
-argument_list|()
-argument_list|,
-name|camelContext
-operator|.
-name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

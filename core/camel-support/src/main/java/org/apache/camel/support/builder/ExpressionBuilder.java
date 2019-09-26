@@ -5232,7 +5232,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// the properties component is mandatory if no locations provided
 name|PropertiesComponent
 name|pc
 init|=
@@ -5242,27 +5241,8 @@ name|getContext
 argument_list|()
 operator|.
 name|getPropertiesComponent
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|pc
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"PropertiesComponent with name properties must be defined"
-operator|+
-literal|" in CamelContext to support property placeholders in expressions"
-argument_list|)
-throw|;
-block|}
 comment|// enclose key with {{ }} to force parsing as key can be a nested expression too
 return|return
 name|pc

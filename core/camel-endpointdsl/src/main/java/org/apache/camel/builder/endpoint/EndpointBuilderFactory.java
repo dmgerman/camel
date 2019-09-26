@@ -552,8 +552,6 @@ name|PgEventEndpointBuilderFactory
 extends|,
 name|PrinterEndpointBuilderFactory
 extends|,
-name|PropertiesEndpointBuilderFactory
-extends|,
 name|PubNubEndpointBuilderFactory
 extends|,
 name|PulsarEndpointBuilderFactory

@@ -183,7 +183,7 @@ name|when
 argument_list|(
 name|simple
 argument_list|(
-literal|"${body} contains '${properties:cool.name}'"
+literal|"${body} contains '{{cool.name}}'"
 argument_list|)
 argument_list|)
 operator|.
@@ -222,32 +222,14 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-name|PropertiesComponent
-name|pc
-init|=
-operator|new
-name|PropertiesComponent
-argument_list|()
-decl_stmt|;
-name|pc
-operator|.
-name|setLocations
-argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-literal|"classpath:org/apache/camel/component/properties/myproperties.properties"
-block|}
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
-name|addComponent
+name|getPropertiesComponent
+argument_list|()
+operator|.
+name|setLocation
 argument_list|(
-literal|"properties"
-argument_list|,
-name|pc
+literal|"classpath:org/apache/camel/component/properties/myproperties.properties"
 argument_list|)
 expr_stmt|;
 return|return
