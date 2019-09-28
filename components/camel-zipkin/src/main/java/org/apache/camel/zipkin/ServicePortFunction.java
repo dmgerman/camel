@@ -47,6 +47,7 @@ end_comment
 begin_class
 DECL|class|ServicePortFunction
 specifier|public
+specifier|final
 class|class
 name|ServicePortFunction
 block|{
@@ -59,6 +60,11 @@ name|PORT_PREFIX
 init|=
 literal|"_SERVICE_PORT"
 decl_stmt|;
+DECL|method|ServicePortFunction ()
+specifier|private
+name|ServicePortFunction
+parameter_list|()
+block|{     }
 DECL|method|apply (String remainder)
 specifier|public
 specifier|static

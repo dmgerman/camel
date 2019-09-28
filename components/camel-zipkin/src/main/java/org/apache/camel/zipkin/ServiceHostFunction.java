@@ -47,6 +47,7 @@ end_comment
 begin_class
 DECL|class|ServiceHostFunction
 specifier|public
+specifier|final
 class|class
 name|ServiceHostFunction
 block|{
@@ -59,6 +60,11 @@ name|HOST_PREFIX
 init|=
 literal|"_SERVICE_HOST"
 decl_stmt|;
+DECL|method|ServiceHostFunction ()
+specifier|private
+name|ServiceHostFunction
+parameter_list|()
+block|{     }
 DECL|method|apply (String remainder)
 specifier|public
 specifier|static
