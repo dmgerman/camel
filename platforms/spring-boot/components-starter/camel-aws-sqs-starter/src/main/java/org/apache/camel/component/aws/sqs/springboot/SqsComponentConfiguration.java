@@ -567,6 +567,14 @@ name|autoCreateQueue
 init|=
 literal|true
 decl_stmt|;
+comment|/**          * The underlying protocol used to communicate with SQS          */
+DECL|field|protocol
+specifier|private
+name|String
+name|protocol
+init|=
+literal|"https"
+decl_stmt|;
 DECL|method|getAmazonAWSHost ()
 specifier|public
 name|String
@@ -1423,6 +1431,32 @@ operator|.
 name|autoCreateQueue
 operator|=
 name|autoCreateQueue
+expr_stmt|;
+block|}
+DECL|method|getProtocol ()
+specifier|public
+name|String
+name|getProtocol
+parameter_list|()
+block|{
+return|return
+name|protocol
+return|;
+block|}
+DECL|method|setProtocol (String protocol)
+specifier|public
+name|void
+name|setProtocol
+parameter_list|(
+name|String
+name|protocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|protocol
+operator|=
+name|protocol
 expr_stmt|;
 block|}
 block|}

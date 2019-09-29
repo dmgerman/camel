@@ -357,6 +357,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The underlying protocol used to communicate with SQS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|protocol (String protocol)
+specifier|default
+name|SqsEndpointConsumerBuilder
+name|protocol
+parameter_list|(
+name|String
+name|protocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"protocol"
+argument_list|,
+name|protocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Specify the queue owner aws account id when you need to connect the          * queue with different account owner.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|queueOwnerAWSAccountId ( String queueOwnerAWSAccountId)
 specifier|default
@@ -2233,6 +2254,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The underlying protocol used to communicate with SQS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|protocol (String protocol)
+specifier|default
+name|SqsEndpointProducerBuilder
+name|protocol
+parameter_list|(
+name|String
+name|protocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"protocol"
+argument_list|,
+name|protocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Specify the queue owner aws account id when you need to connect the          * queue with different account owner.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|queueOwnerAWSAccountId ( String queueOwnerAWSAccountId)
 specifier|default
@@ -3092,6 +3134,27 @@ argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
 name|headerFilterStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The underlying protocol used to communicate with SQS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|protocol (String protocol)
+specifier|default
+name|SqsEndpointBuilder
+name|protocol
+parameter_list|(
+name|String
+name|protocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"protocol"
+argument_list|,
+name|protocol
 argument_list|)
 expr_stmt|;
 return|return
