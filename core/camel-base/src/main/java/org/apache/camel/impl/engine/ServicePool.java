@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  * Notice the capacity is<b>per key</b> which means that each key can contain at most  * (the capacity) services. The pool will contain at most (the capacity) number of keys.  *<p/>  * By default the capacity is set to 100.  */
+comment|/**  * A service pool is like a connection pool but can pool any kind of objects.  *<p/>  *  The pool will contain at most (the capacity) number of services.  *<p/>  * By default the capacity is set to 100.  */
 end_comment
 
 begin_class
