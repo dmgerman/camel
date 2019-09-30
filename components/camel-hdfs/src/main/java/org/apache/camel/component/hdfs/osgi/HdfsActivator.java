@@ -78,7 +78,9 @@ name|context
 parameter_list|)
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// no action needed
+block|}
 annotation|@
 name|Override
 DECL|method|stop (BundleContext context)
@@ -92,17 +94,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// There's problem inside OSGi when framwork is being shutdown
+comment|// There's problem inside OSGi when framework is being shutdown
 comment|// hadoop.fs code registers some JVM shutdown hooks throughout the code and this ordered
 comment|// list of hooks is run in shutdown thread.
 comment|// At that time bundle class loader / bundle wiring is no longer valid (bundle is stopped)
 comment|// so ShutdownHookManager can't load additional classes. But there are some inner classes
 comment|// loaded when iterating over registered hadoop shutdown hooks.
-comment|// Let's explicitely load these inner classes when bundle is stopped, as there's last chance
+comment|// Let's explicitly load these inner classes when bundle is stopped, as there's last chance
 comment|// to use valid bundle class loader.
 comment|// This is based on the knowledge of what's contained in SMX bundle
 comment|// org.apache.servicemix.bundles.hadoop-client-*.jar
-comment|// the above is just a warning that hadopp may have some quirks when running inside OSGi
+comment|// the above is just a warning that hadoop may have some quirks when running inside OSGi
 name|ClassLoader
 name|hadoopCl
 init|=

@@ -376,7 +376,7 @@ name|replicationFactor
 argument_list|)
 expr_stmt|;
 comment|// then
-comment|/* exception was thrown */
+comment|/* message is printed in the logs */
 block|}
 annotation|@
 name|Test

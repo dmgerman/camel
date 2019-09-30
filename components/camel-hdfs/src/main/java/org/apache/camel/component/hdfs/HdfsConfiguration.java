@@ -1276,7 +1276,7 @@ condition|)
 block|{
 name|String
 index|[]
-name|strstrategies
+name|strategyElements
 init|=
 name|splitStrategy
 operator|.
@@ -1288,16 +1288,16 @@ decl_stmt|;
 for|for
 control|(
 name|String
-name|strstrategy
+name|strategyElement
 range|:
-name|strstrategies
+name|strategyElements
 control|)
 block|{
 name|String
 index|[]
 name|tokens
 init|=
-name|strstrategy
+name|strategyElement
 operator|.
 name|split
 argument_list|(
@@ -1330,7 +1330,7 @@ block|}
 name|HdfsProducer
 operator|.
 name|SplitStrategyType
-name|sst
+name|strategyType
 init|=
 name|HdfsProducer
 operator|.
@@ -1345,7 +1345,7 @@ index|]
 argument_list|)
 decl_stmt|;
 name|long
-name|ssv
+name|strategyValue
 init|=
 name|Long
 operator|.
@@ -1366,9 +1366,9 @@ name|HdfsProducer
 operator|.
 name|SplitStrategy
 argument_list|(
-name|sst
+name|strategyType
 argument_list|,
-name|ssv
+name|strategyValue
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1451,7 +1451,9 @@ specifier|public
 name|void
 name|checkConsumerOptions
 parameter_list|()
-block|{     }
+block|{
+comment|// no validation required
+block|}
 DECL|method|checkProducerOptions ()
 specifier|public
 name|void
@@ -1466,11 +1468,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|getSplitStrategies
-argument_list|()
-operator|.
-name|isEmpty
+name|hasSplitStrategies
 argument_list|()
 condition|)
 block|{
@@ -2389,6 +2387,20 @@ parameter_list|()
 block|{
 return|return
 name|splitStrategies
+return|;
+block|}
+DECL|method|hasSplitStrategies ()
+specifier|public
+name|boolean
+name|hasSplitStrategies
+parameter_list|()
+block|{
+return|return
+operator|!
+name|splitStrategies
+operator|.
+name|isEmpty
+argument_list|()
 return|;
 block|}
 DECL|method|getSplitStrategy ()
