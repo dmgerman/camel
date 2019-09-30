@@ -4065,10 +4065,6 @@ condition|(
 name|threadSafety
 operator|&&
 name|answer
-operator|!=
-literal|null
-operator|&&
-name|answer
 operator|instanceof
 name|NodeList
 condition|)
@@ -4083,10 +4079,8 @@ name|NodeList
 operator|)
 name|answer
 decl_stmt|;
-comment|// when the result is NodeList and it has 2+ elements then its
-comment|// not thread-safe to use concurrently
-comment|// and we need to clone each node and build a thread-safe list
-comment|// to be used instead
+comment|// when the result is NodeList and it has 1 or more elements then its not thread-safe to use concurrently
+comment|// and we need to clone each node and build a thread-safe list to be used instead
 name|boolean
 name|threadSafetyNeeded
 init|=
@@ -4095,7 +4089,7 @@ operator|.
 name|getLength
 argument_list|()
 operator|>=
-literal|2
+literal|1
 decl_stmt|;
 if|if
 condition|(
