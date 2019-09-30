@@ -14,6 +14,22 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+operator|.
+name|sanitizeUri
+import|;
+end_import
+
 begin_comment
 comment|/**  * A runtime exception thrown if an {@link Endpoint} cannot be resolved via URI  */
 end_comment
@@ -47,7 +63,10 @@ name|super
 argument_list|(
 literal|"Failed to resolve endpoint: "
 operator|+
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 operator|+
 literal|" due to: "
 operator|+
@@ -81,7 +100,10 @@ name|super
 argument_list|(
 literal|"Failed to resolve endpoint: "
 operator|+
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 operator|+
 literal|" due to: "
 operator|+
@@ -107,7 +129,10 @@ name|super
 argument_list|(
 literal|"Failed to resolve endpoint: "
 operator|+
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
