@@ -1206,11 +1206,11 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-literal|true
+literal|false
 return|;
 block|}
 return|return
-literal|false
+literal|true
 return|;
 block|}
 end_function
