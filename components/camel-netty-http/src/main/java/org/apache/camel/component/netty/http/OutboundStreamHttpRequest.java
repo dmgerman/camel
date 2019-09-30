@@ -66,7 +66,7 @@ name|codec
 operator|.
 name|http
 operator|.
-name|DefaultHttpResponse
+name|DefaultHttpRequest
 import|;
 end_import
 
@@ -131,12 +131,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|ChunkedHttpResponse
+DECL|class|OutboundStreamHttpRequest
 specifier|public
 class|class
-name|ChunkedHttpResponse
+name|OutboundStreamHttpRequest
 extends|extends
-name|DefaultHttpResponse
+name|DefaultHttpRequest
 implements|implements
 name|ChunkedInput
 argument_list|<
@@ -148,27 +148,32 @@ specifier|private
 name|HttpChunkedInput
 name|input
 decl_stmt|;
-DECL|method|ChunkedHttpResponse (InputStream in, DefaultHttpResponse response)
+DECL|method|OutboundStreamHttpRequest (InputStream in, DefaultHttpRequest request)
 specifier|public
-name|ChunkedHttpResponse
+name|OutboundStreamHttpRequest
 parameter_list|(
 name|InputStream
 name|in
 parameter_list|,
-name|DefaultHttpResponse
-name|response
+name|DefaultHttpRequest
+name|request
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|response
+name|request
 operator|.
 name|protocolVersion
 argument_list|()
 argument_list|,
-name|response
+name|request
 operator|.
-name|status
+name|method
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|uri
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -187,15 +192,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getResponse ()
+DECL|method|getRequest ()
 specifier|public
-name|DefaultHttpResponse
-name|getResponse
+name|DefaultHttpRequest
+name|getRequest
 parameter_list|()
 block|{
 return|return
 operator|new
-name|DefaultHttpResponse
+name|DefaultHttpRequest
 argument_list|(
 name|this
 operator|.
@@ -204,7 +209,12 @@ argument_list|()
 argument_list|,
 name|this
 operator|.
-name|status
+name|method
+argument_list|()
+argument_list|,
+name|this
+operator|.
+name|uri
 argument_list|()
 argument_list|,
 name|this

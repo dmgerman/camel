@@ -159,12 +159,29 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Binds from Netty {@link HttpRequest} to Camel headers as a {@link Map}.      *      * @param request       the netty http request      * @param headers       the Camel headers that should be populated      * @param exchange      the exchange that should contain the returned message.      * @param configuration the endpoint configuration      * @throws Exception is thrown if error during binding      */
-DECL|method|populateCamelHeaders (FullHttpRequest request, Map<String, Object> headers, Exchange exchange, NettyHttpConfiguration configuration)
+comment|/**      * Binds from Netty {@link InboundStreamHttpRequest} to Camel {@link Message}.      *<p/>      *      * @param request       the netty http request      * @param exchange      the exchange that should contain the returned message.      * @param configuration the endpoint configuration      * @return the message to store on the given exchange      * @throws Exception is thrown if error during binding      */
+DECL|method|toCamelMessage (InboundStreamHttpRequest request, Exchange exchange, NettyHttpConfiguration configuration)
+name|Message
+name|toCamelMessage
+parameter_list|(
+name|InboundStreamHttpRequest
+name|request
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|NettyHttpConfiguration
+name|configuration
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Binds from Netty {@link HttpRequest} to Camel headers as a {@link Map}.      * Will use the<tt>populateCamelHeaders</tt> method for populating the headers.      *      * @param request       the netty http request      * @param headers       the Camel headers that should be populated      * @param exchange      the exchange that should contain the returned message.      * @param configuration the endpoint configuration      * @throws Exception is thrown if error during binding      */
+DECL|method|populateCamelHeaders (HttpRequest request, Map<String, Object> headers, Exchange exchange, NettyHttpConfiguration configuration)
 name|void
 name|populateCamelHeaders
 parameter_list|(
-name|FullHttpRequest
+name|HttpRequest
 name|request
 parameter_list|,
 name|Map
@@ -201,12 +218,29 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Binds from Netty {@link InboundStreamHttpResponse} to Camel {@link Message}.      *<p/>      * Will use the<tt>populateCamelHeaders</tt> method for populating the headers.      *      * @param response      the netty http response      * @param exchange      the exchange that should contain the returned message.      * @param configuration the endpoint configuration      * @return the message to store on the given exchange      * @throws Exception is thrown if error during binding      */
+DECL|method|toCamelMessage (InboundStreamHttpResponse response, Exchange exchange, NettyHttpConfiguration configuration)
+name|Message
+name|toCamelMessage
+parameter_list|(
+name|InboundStreamHttpResponse
+name|response
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|NettyHttpConfiguration
+name|configuration
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Binds from Netty {@link HttpResponse} to Camel headers as a {@link Map}.      *      * @param response      the netty http response      * @param headers       the Camel headers that should be populated      * @param exchange      the exchange that should contain the returned message.      * @param configuration the endpoint configuration      * @throws Exception is thrown if error during binding      */
-DECL|method|populateCamelHeaders (FullHttpResponse response, Map<String, Object> headers, Exchange exchange, NettyHttpConfiguration configuration)
+DECL|method|populateCamelHeaders (HttpResponse response, Map<String, Object> headers, Exchange exchange, NettyHttpConfiguration configuration)
 name|void
 name|populateCamelHeaders
 parameter_list|(
-name|FullHttpResponse
+name|HttpResponse
 name|response
 parameter_list|,
 name|Map

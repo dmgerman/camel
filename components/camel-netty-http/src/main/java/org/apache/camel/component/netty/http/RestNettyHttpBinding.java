@@ -52,7 +52,7 @@ name|codec
 operator|.
 name|http
 operator|.
-name|FullHttpRequest
+name|HttpRequest
 import|;
 end_import
 
@@ -162,12 +162,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|populateCamelHeaders (FullHttpRequest request, Map<String, Object> headers, Exchange exchange, NettyHttpConfiguration configuration)
+DECL|method|populateCamelHeaders (HttpRequest request, Map<String, Object> headers, Exchange exchange, NettyHttpConfiguration configuration)
 specifier|public
 name|void
 name|populateCamelHeaders
 parameter_list|(
-name|FullHttpRequest
+name|HttpRequest
 name|request
 parameter_list|,
 name|Map
