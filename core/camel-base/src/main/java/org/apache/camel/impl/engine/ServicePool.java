@@ -536,6 +536,47 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|ServicePool
+operator|.
+name|stop
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|e
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|removeService
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Error removing service {}"
+argument_list|,
+name|s
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|/**      * Tries to acquire the service with the given key      *      * @param endpoint the endpoint      * @return the acquired service      */
 DECL|method|acquire (Endpoint endpoint)
