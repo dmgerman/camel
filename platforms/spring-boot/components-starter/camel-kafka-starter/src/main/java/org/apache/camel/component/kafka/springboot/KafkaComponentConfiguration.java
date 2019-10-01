@@ -489,22 +489,6 @@ specifier|private
 name|String
 name|groupId
 decl_stmt|;
-comment|/**          * If the option is true, then KafkaProducer will ignore the          * KafkaConstants.TOPIC header setting of the inbound message.          */
-DECL|field|bridgeEndpoint
-specifier|private
-name|Boolean
-name|bridgeEndpoint
-init|=
-literal|false
-decl_stmt|;
-comment|/**          * If the option is true, then KafkaProducer will detect if the message          * is attempted to be sent back to the same topic it may come from, if          * the message was original from a kafka consumer. If the          * KafkaConstants.TOPIC header is the same as the original kafka          * consumer topic, then the header setting is ignored, and the topic of          * the producer endpoint is used. In other words this avoids sending the          * same message back to where it came from. This option is not in use if          * the option bridgeEndpoint is set to true.          */
-DECL|field|circularTopicDetection
-specifier|private
-name|Boolean
-name|circularTopicDetection
-init|=
-literal|true
-decl_stmt|;
 comment|/**          * The partitioner class for partitioning messages amongst sub-topics.          * The default partitioner is based on the hash of the key.          */
 DECL|field|partitioner
 specifier|private
@@ -1207,58 +1191,6 @@ operator|.
 name|groupId
 operator|=
 name|groupId
-expr_stmt|;
-block|}
-DECL|method|getBridgeEndpoint ()
-specifier|public
-name|Boolean
-name|getBridgeEndpoint
-parameter_list|()
-block|{
-return|return
-name|bridgeEndpoint
-return|;
-block|}
-DECL|method|setBridgeEndpoint (Boolean bridgeEndpoint)
-specifier|public
-name|void
-name|setBridgeEndpoint
-parameter_list|(
-name|Boolean
-name|bridgeEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|bridgeEndpoint
-operator|=
-name|bridgeEndpoint
-expr_stmt|;
-block|}
-DECL|method|getCircularTopicDetection ()
-specifier|public
-name|Boolean
-name|getCircularTopicDetection
-parameter_list|()
-block|{
-return|return
-name|circularTopicDetection
-return|;
-block|}
-DECL|method|setCircularTopicDetection (Boolean circularTopicDetection)
-specifier|public
-name|void
-name|setCircularTopicDetection
-parameter_list|(
-name|Boolean
-name|circularTopicDetection
-parameter_list|)
-block|{
-name|this
-operator|.
-name|circularTopicDetection
-operator|=
-name|circularTopicDetection
 expr_stmt|;
 block|}
 DECL|method|getPartitioner ()

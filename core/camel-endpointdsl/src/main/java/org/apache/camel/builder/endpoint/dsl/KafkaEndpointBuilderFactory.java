@@ -2241,48 +2241,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If the option is true, then KafkaProducer will ignore the          * KafkaConstants.TOPIC header setting of the inbound message.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|bridgeEndpoint ( boolean bridgeEndpoint)
-specifier|default
-name|KafkaEndpointProducerBuilder
-name|bridgeEndpoint
-parameter_list|(
-name|boolean
-name|bridgeEndpoint
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bridgeEndpoint"
-argument_list|,
-name|bridgeEndpoint
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If the option is true, then KafkaProducer will ignore the          * KafkaConstants.TOPIC header setting of the inbound message.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|bridgeEndpoint ( String bridgeEndpoint)
-specifier|default
-name|KafkaEndpointProducerBuilder
-name|bridgeEndpoint
-parameter_list|(
-name|String
-name|bridgeEndpoint
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bridgeEndpoint"
-argument_list|,
-name|bridgeEndpoint
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The total bytes of memory the producer can use to buffer records          * waiting to be sent to the server. If records are sent faster than          * they can be delivered to the server the producer will either block or          * throw an exception based on the preference specified by          * block.on.buffer.full.This setting should correspond roughly to the          * total memory the producer will use, but is not a hard bound since not          * all memory the producer uses is used for buffering. Some additional          * memory will be used for compression (if compression is enabled) as          * well as for maintaining in-flight requests.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|bufferMemorySize ( Integer bufferMemorySize)
 specifier|default
@@ -2319,48 +2277,6 @@ argument_list|(
 literal|"bufferMemorySize"
 argument_list|,
 name|bufferMemorySize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If the option is true, then KafkaProducer will detect if the message          * is attempted to be sent back to the same topic it may come from, if          * the message was original from a kafka consumer. If the          * KafkaConstants.TOPIC header is the same as the original kafka          * consumer topic, then the header setting is ignored, and the topic of          * the producer endpoint is used. In other words this avoids sending the          * same message back to where it came from. This option is not in use if          * the option bridgeEndpoint is set to true.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|circularTopicDetection ( boolean circularTopicDetection)
-specifier|default
-name|KafkaEndpointProducerBuilder
-name|circularTopicDetection
-parameter_list|(
-name|boolean
-name|circularTopicDetection
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"circularTopicDetection"
-argument_list|,
-name|circularTopicDetection
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * If the option is true, then KafkaProducer will detect if the message          * is attempted to be sent back to the same topic it may come from, if          * the message was original from a kafka consumer. If the          * KafkaConstants.TOPIC header is the same as the original kafka          * consumer topic, then the header setting is ignored, and the topic of          * the producer endpoint is used. In other words this avoids sending the          * same message back to where it came from. This option is not in use if          * the option bridgeEndpoint is set to true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|circularTopicDetection ( String circularTopicDetection)
-specifier|default
-name|KafkaEndpointProducerBuilder
-name|circularTopicDetection
-parameter_list|(
-name|String
-name|circularTopicDetection
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"circularTopicDetection"
-argument_list|,
-name|circularTopicDetection
 argument_list|)
 expr_stmt|;
 return|return
@@ -4068,6 +3984,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The location of the trust store file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|sslTruststoreLocation ( String sslTruststoreLocation)
+specifier|default
+name|KafkaEndpointProducerBuilder
+name|sslTruststoreLocation
+parameter_list|(
+name|String
+name|sslTruststoreLocation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sslTruststoreLocation"
+argument_list|,
+name|sslTruststoreLocation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The file format of the trust store file. Default value is JKS.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|sslTruststoreType ( String sslTruststoreType)
 specifier|default
@@ -4104,27 +4041,6 @@ argument_list|(
 literal|"schemaRegistryURL"
 argument_list|,
 name|schemaRegistryURL
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The location of the trust store file.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
-DECL|method|sslTruststoreLocation ( String sslTruststoreLocation)
-specifier|default
-name|KafkaEndpointProducerBuilder
-name|sslTruststoreLocation
-parameter_list|(
-name|String
-name|sslTruststoreLocation
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"sslTruststoreLocation"
-argument_list|,
-name|sslTruststoreLocation
 argument_list|)
 expr_stmt|;
 return|return

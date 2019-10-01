@@ -1349,6 +1349,17 @@ name|doRun
 argument_list|()
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Terminating KafkaConsumer thread: {} receiving from topic: {}"
+argument_list|,
+name|threadId
+argument_list|,
+name|topicName
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|preInit ()
 name|void
