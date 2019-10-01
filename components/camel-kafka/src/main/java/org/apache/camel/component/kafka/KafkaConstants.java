@@ -61,6 +61,15 @@ name|TOPIC
 init|=
 literal|"kafka.TOPIC"
 decl_stmt|;
+DECL|field|OVERRIDE_TOPIC
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OVERRIDE_TOPIC
+init|=
+literal|"kafka.OVERRIDE_TOPIC"
+decl_stmt|;
 DECL|field|OFFSET
 specifier|public
 specifier|static
