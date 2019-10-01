@@ -199,6 +199,46 @@ name|AbstractMongoDbTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|SCHEME
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|SCHEME
+init|=
+literal|"mongodb"
+decl_stmt|;
+DECL|field|HOST
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|HOST
+init|=
+literal|"localhost:"
+operator|+
+name|EmbedMongoConfiguration
+operator|.
+name|PORT
+decl_stmt|;
+DECL|field|USER
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|USER
+init|=
+literal|"test-user"
+decl_stmt|;
+DECL|field|PASSWORD
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|PASSWORD
+init|=
+literal|"test-pwd"
+decl_stmt|;
 DECL|field|mongo
 specifier|protected
 specifier|static
@@ -441,6 +481,98 @@ expr_stmt|;
 return|return
 name|ctx
 return|;
+block|}
+comment|/**      * Useful to simulate the presence of an authenticated user with      * name {@value #USER} and password {@value #PASSWORD}      */
+DECL|method|createAuthorizationUser ()
+specifier|protected
+name|void
+name|createAuthorizationUser
+parameter_list|()
+block|{
+name|MongoDatabase
+name|admin
+init|=
+name|mongo
+operator|.
+name|getDatabase
+argument_list|(
+literal|"admin"
+argument_list|)
+decl_stmt|;
+name|MongoCollection
+argument_list|<
+name|Document
+argument_list|>
+name|usersCollection
+init|=
+name|admin
+operator|.
+name|getCollection
+argument_list|(
+literal|"system.users"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|usersCollection
+operator|.
+name|count
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+name|usersCollection
+operator|.
+name|insertOne
+argument_list|(
+name|Document
+operator|.
+name|parse
+argument_list|(
+literal|"{\n"
+operator|+
+literal|"    \"_id\": \"admin.test-user\",\n"
+operator|+
+literal|"    \"user\": \"test-user\",\n"
+operator|+
+literal|"    \"db\": \"admin\",\n"
+operator|+
+literal|"    \"credentials\": {\n"
+operator|+
+literal|"        \"SCRAM-SHA-1\": {\n"
+operator|+
+literal|"            \"iterationCount\": 10000,\n"
+operator|+
+literal|"            \"salt\": \"gmmPAoNdvFSWCV6PGnNcAw==\",\n"
+operator|+
+literal|"            \"storedKey\": \"qE9u1Ax7Y40hisNHL2b8/LAvG7s=\",\n"
+operator|+
+literal|"            \"serverKey\": \"RefeJcxClt9JbOP/VnrQ7YeQh6w=\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"roles\": [\n"
+operator|+
+literal|"        {\n"
+operator|+
+literal|"            \"role\": \"readWrite\",\n"
+operator|+
+literal|"            \"db\": \"test\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    ]\n"
+operator|+
+literal|"}"
+operator|+
+literal|""
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|pumpDataIntoTestCollection ()
 specifier|protected

@@ -293,7 +293,7 @@ class|class
 name|EmbedMongoConfiguration
 block|{
 DECL|field|PORT
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int
