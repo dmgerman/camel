@@ -219,7 +219,7 @@ control|(
 name|String
 name|name
 range|:
-name|answer
+name|properties
 operator|.
 name|stringPropertyNames
 argument_list|()
