@@ -567,8 +567,6 @@ operator|+
 literal|"    ]\n"
 operator|+
 literal|"}"
-operator|+
-literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;

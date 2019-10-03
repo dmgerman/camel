@@ -166,7 +166,7 @@ name|mongodb
 operator|.
 name|conf
 operator|.
-name|MongoConfiguration
+name|ConnectionParamsConfiguration
 import|;
 end_import
 
@@ -399,11 +399,11 @@ argument_list|>
 name|parameters
 parameter_list|)
 block|{
-name|MongoConfiguration
+name|ConnectionParamsConfiguration
 name|mongoConf
 init|=
 operator|new
-name|MongoConfiguration
+name|ConnectionParamsConfiguration
 argument_list|(
 name|cast
 argument_list|(
@@ -562,11 +562,9 @@ name|e
 parameter_list|)
 block|{
 comment|// When there is any connection exception, the driver tries to reconnect until timeout is reached
-comment|// wrapping the original socket exception into a timeout exception
+comment|// wrapping the original security/socket exception into a timeout exception
 name|String
 name|description
-init|=
-literal|null
 decl_stmt|;
 name|VerificationError
 operator|.

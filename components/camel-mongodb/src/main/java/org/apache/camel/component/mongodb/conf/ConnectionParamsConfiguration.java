@@ -31,10 +31,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MongoConfiguration
+DECL|class|ConnectionParamsConfiguration
 specifier|public
 class|class
-name|MongoConfiguration
+name|ConnectionParamsConfiguration
 block|{
 DECL|field|host
 specifier|private
@@ -60,18 +60,9 @@ name|adminDB
 init|=
 literal|"admin"
 decl_stmt|;
-DECL|method|MongoConfiguration ()
+DECL|method|ConnectionParamsConfiguration (Map<String, String> parameters)
 specifier|public
-name|MongoConfiguration
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|MongoConfiguration (Map<String, String> parameters)
-specifier|public
-name|MongoConfiguration
+name|ConnectionParamsConfiguration
 parameter_list|(
 name|Map
 argument_list|<
@@ -82,9 +73,6 @@ argument_list|>
 name|parameters
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|host
@@ -134,12 +122,10 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-literal|""
-operator|.
-name|equals
-argument_list|(
 name|optionalAdminDB
-argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|this
