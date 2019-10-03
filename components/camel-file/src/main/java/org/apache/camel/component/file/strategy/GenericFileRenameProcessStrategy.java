@@ -528,6 +528,13 @@ name|Exception
 block|{
 try|try
 block|{
+name|operations
+operator|.
+name|releaseRetrievedFileResources
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|commitRenamer
@@ -645,20 +652,31 @@ block|}
 block|}
 finally|finally
 block|{
-comment|// must invoke super
-name|super
+name|deleteLocalWorkFile
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// must release lock last
+if|if
+condition|(
+name|exclusiveReadLockStrategy
+operator|!=
+literal|null
+condition|)
+block|{
+name|exclusiveReadLockStrategy
 operator|.
-name|commit
+name|releaseExclusiveReadLockOnCommit
 argument_list|(
 name|operations
 argument_list|,
-name|endpoint
+name|file
 argument_list|,
 name|exchange
-argument_list|,
-name|file
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getBeginRenamer ()
