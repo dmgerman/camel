@@ -75,7 +75,7 @@ specifier|private
 class|class
 name|MyMainSupport
 extends|extends
-name|MainSupport
+name|MainCommandLineSupport
 block|{
 DECL|field|context
 specifier|private

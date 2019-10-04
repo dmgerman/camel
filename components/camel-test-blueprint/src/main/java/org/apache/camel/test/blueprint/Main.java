@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|main
 operator|.
-name|MainSupport
+name|MainCommandLineSupport
 import|;
 end_import
 
@@ -88,7 +88,7 @@ specifier|public
 class|class
 name|Main
 extends|extends
-name|MainSupport
+name|MainCommandLineSupport
 block|{
 DECL|field|instance
 specifier|protected

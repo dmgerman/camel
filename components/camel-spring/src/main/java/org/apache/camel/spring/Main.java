@@ -242,7 +242,7 @@ name|camel
 operator|.
 name|main
 operator|.
-name|MainSupport
+name|MainCommandLineSupport
 block|{
 DECL|field|LOCATION_PROPERTIES
 specifier|public

@@ -88,7 +88,7 @@ specifier|public
 class|class
 name|Main
 extends|extends
-name|MainSupport
+name|MainCommandLineSupport
 block|{
 DECL|field|instance
 specifier|protected
