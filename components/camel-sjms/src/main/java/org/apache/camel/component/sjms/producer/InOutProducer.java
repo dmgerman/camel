@@ -704,6 +704,14 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|String
+name|correlationID
+init|=
+name|message
+operator|.
+name|getJMSCorrelationID
+argument_list|()
+decl_stmt|;
 name|Exchanger
 argument_list|<
 name|Object
@@ -714,12 +722,16 @@ name|EXCHANGERS
 operator|.
 name|get
 argument_list|(
-name|message
-operator|.
-name|getJMSCorrelationID
-argument_list|()
+name|correlationID
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|exchanger
+operator|!=
+literal|null
+condition|)
+block|{
 name|exchanger
 operator|.
 name|exchange
@@ -734,6 +746,36 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we could not correlate the received reply message to a matching request and therefore
+comment|// we cannot continue routing the unknown message
+comment|// log a warn and then ignore the message
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Reply received for unknown correlationID [{}] on reply destination [{}]. Current correlation map size: {}. The message will be ignored: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|correlationID
+block|,
+name|replyToDestination
+block|,
+name|EXCHANGERS
+operator|.
+name|size
+argument_list|()
+block|,
+name|message
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
