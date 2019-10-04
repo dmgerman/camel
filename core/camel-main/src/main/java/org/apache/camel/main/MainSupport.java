@@ -84,6 +84,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -461,6 +471,20 @@ operator|.
 name|support
 operator|.
 name|LifecycleStrategySupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|OrderedComparator
 import|;
 end_import
 
@@ -3065,6 +3089,17 @@ comment|// try to load the route builders
 name|loadRouteBuilders
 argument_list|(
 name|camelContext
+argument_list|)
+expr_stmt|;
+comment|// sort routes according to ordered
+name|routeBuilders
+operator|.
+name|sort
+argument_list|(
+name|OrderedComparator
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

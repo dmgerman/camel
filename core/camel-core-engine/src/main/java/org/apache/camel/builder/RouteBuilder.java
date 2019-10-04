@@ -124,6 +124,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Ordered
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -420,6 +432,8 @@ extends|extends
 name|BuilderSupport
 implements|implements
 name|RoutesBuilder
+implements|,
+name|Ordered
 block|{
 DECL|field|log
 specifier|protected
@@ -523,6 +537,19 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Override this method to define ordering of {@link RouteBuilder} classes that are added to      * Camel from various runtimes such as camel-main, camel-spring-boot. This allows end users      * to control the ordering if some routes must be added and started before others.      *<p/>      * Use low numbers for higher priority. Normally the sorting will start from 0 and move upwards.      * So if you want to be last then use {@link Integer#MAX_VALUE} or eg {@link #LOWEST}.      */
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+return|return
+name|LOWEST
+return|;
 block|}
 comment|/**      * Add routes to a context using a lambda expression. It can be used as      * following:      *       *<pre>      * RouteBuilder.addRoutes(context, rb ->      *     rb.from("direct:inbound").bean(ProduceTemplateBean.class)));      *</pre>      *      * @param context the camel context to add routes      * @param rbc a lambda expression receiving the {@code RouteBuilder} to use      *            to create routes      * @throws Exception if an error occurs      */
 DECL|method|addRoutes (CamelContext context, ThrowingConsumer<RouteBuilder, Exception> rbc)
