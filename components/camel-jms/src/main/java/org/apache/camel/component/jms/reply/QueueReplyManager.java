@@ -778,7 +778,7 @@ name|warn
 argument_list|(
 literal|"{} is using a shared reply queue, which is not as fast as alternatives."
 operator|+
-literal|" See more detail at the section 'Request-reply over JMS' at http://camel.apache.org/jms"
+literal|" See more detail at the section 'Request-reply over JMS' in the JMS component documentation"
 argument_list|,
 name|endpoint
 argument_list|)
