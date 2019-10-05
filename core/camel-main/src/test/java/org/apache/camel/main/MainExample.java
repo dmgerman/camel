@@ -293,12 +293,12 @@ name|MainListenerSupport
 block|{
 annotation|@
 name|Override
-DECL|method|afterStart (MainSupport main)
+DECL|method|afterStart (BaseMainSupport main)
 specifier|public
 name|void
 name|afterStart
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 block|{
@@ -314,12 +314,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|beforeStop (MainSupport main)
+DECL|method|beforeStop (BaseMainSupport main)
 specifier|public
 name|void
 name|beforeStop
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 block|{

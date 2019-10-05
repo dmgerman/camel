@@ -48,38 +48,38 @@ name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Callback before the CamelContext is being created and started.      *      * @param main  the main instance      */
-DECL|method|beforeStart (MainSupport main)
+DECL|method|beforeStart (BaseMainSupport main)
 name|void
 name|beforeStart
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 function_decl|;
 comment|/**      * Callback after the CamelContext has been started.      *      * @param main  the main instance      */
-DECL|method|afterStart (MainSupport main)
+DECL|method|afterStart (BaseMainSupport main)
 name|void
 name|afterStart
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 function_decl|;
 comment|/**      * Callback before the CamelContext is being stopped.      *      * @param main  the main instance      */
-DECL|method|beforeStop (MainSupport main)
+DECL|method|beforeStop (BaseMainSupport main)
 name|void
 name|beforeStop
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 function_decl|;
 comment|/**      * Callback after the CamelContext has been stopped.      *      * @param main  the main instance      */
-DECL|method|afterStop (MainSupport main)
+DECL|method|afterStop (BaseMainSupport main)
 name|void
 name|afterStop
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 function_decl|;

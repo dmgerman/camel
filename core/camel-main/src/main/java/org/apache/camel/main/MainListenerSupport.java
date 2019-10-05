@@ -55,12 +55,12 @@ comment|// noop
 block|}
 annotation|@
 name|Override
-DECL|method|beforeStart (MainSupport main)
+DECL|method|beforeStart (BaseMainSupport main)
 specifier|public
 name|void
 name|beforeStart
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 block|{
@@ -68,12 +68,12 @@ comment|// noop
 block|}
 annotation|@
 name|Override
-DECL|method|afterStart (MainSupport main)
+DECL|method|afterStart (BaseMainSupport main)
 specifier|public
 name|void
 name|afterStart
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 block|{
@@ -81,12 +81,12 @@ comment|// noop
 block|}
 annotation|@
 name|Override
-DECL|method|beforeStop (MainSupport main)
+DECL|method|beforeStop (BaseMainSupport main)
 specifier|public
 name|void
 name|beforeStop
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 block|{
@@ -94,12 +94,12 @@ comment|// noop
 block|}
 annotation|@
 name|Override
-DECL|method|afterStop (MainSupport main)
+DECL|method|afterStop (BaseMainSupport main)
 specifier|public
 name|void
 name|afterStop
 parameter_list|(
-name|MainSupport
+name|BaseMainSupport
 name|main
 parameter_list|)
 block|{
