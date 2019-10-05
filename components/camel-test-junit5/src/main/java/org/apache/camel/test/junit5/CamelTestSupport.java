@@ -1375,6 +1375,18 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Gets the name of the current test being executed.      */
+DECL|method|getCurrentTestName ()
+specifier|public
+specifier|final
+name|String
+name|getCurrentTestName
+parameter_list|()
+block|{
+return|return
+name|currentTestName
+return|;
+block|}
 comment|/**      * Override to enable debugger      *<p/>      * Is default<tt>false</tt>      */
 DECL|method|isUseDebugger ()
 specifier|public

@@ -124,7 +124,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 import|;
 end_import
 
@@ -133,6 +137,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -217,7 +225,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertEquals
 argument_list|(
@@ -229,7 +237,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertFalse
 argument_list|(
@@ -311,7 +319,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertNotNull
 argument_list|(
@@ -354,7 +362,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertEquals
 argument_list|(
@@ -368,7 +376,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertTrue
 argument_list|(
@@ -472,7 +480,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertEquals
 argument_list|(
@@ -484,7 +492,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertFalse
 argument_list|(

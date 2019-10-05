@@ -98,7 +98,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 import|;
 end_import
 
@@ -108,7 +112,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Disabled
 import|;
 end_import
 
@@ -117,6 +125,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -187,7 +199,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertFalse
 argument_list|(
@@ -197,7 +209,7 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertFalse
 argument_list|(
@@ -207,7 +219,7 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertEquals
 argument_list|(
@@ -218,7 +230,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
+name|Disabled
 argument_list|(
 literal|"Disabled as it seems that nodes is always 0"
 argument_list|)
@@ -279,7 +291,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertFalse
 argument_list|(
@@ -289,7 +301,7 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertFalse
 argument_list|(
@@ -299,7 +311,7 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertEquals
 argument_list|(

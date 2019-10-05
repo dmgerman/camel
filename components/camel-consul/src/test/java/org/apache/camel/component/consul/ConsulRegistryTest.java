@@ -98,7 +98,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|AfterAll
 import|;
 end_import
 
@@ -108,7 +112,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|jupiter
+operator|.
+name|api
+operator|.
+name|BeforeAll
 import|;
 end_import
 
@@ -117,6 +125,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -140,7 +152,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertEquals
 import|;
@@ -152,7 +168,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertNotNull
 import|;
@@ -164,9 +184,29 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 operator|.
 name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -238,7 +278,7 @@ return|;
 block|}
 block|}
 annotation|@
-name|BeforeClass
+name|BeforeAll
 DECL|method|setUp ()
 specifier|public
 specifier|static
@@ -280,7 +320,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AfterClass
+name|AfterAll
 DECL|method|tearDown ()
 specifier|public
 specifier|static
@@ -912,24 +952,26 @@ parameter_list|()
 block|{      }
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|NoSuchBeanException
-operator|.
-name|class
-argument_list|)
 DECL|method|deleteNonExisting ()
 specifier|public
 name|void
 name|deleteNonExisting
 parameter_list|()
 block|{
+name|assertThrows
+argument_list|(
+name|NoSuchBeanException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|registry
 operator|.
 name|remove
 argument_list|(
 literal|"nonExisting"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
