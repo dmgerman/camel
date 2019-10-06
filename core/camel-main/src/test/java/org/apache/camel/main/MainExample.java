@@ -135,7 +135,7 @@ expr_stmt|;
 comment|// add routes
 name|main
 operator|.
-name|addRouteBuilder
+name|addRoutesBuilder
 argument_list|(
 operator|new
 name|MyRouteBuilder

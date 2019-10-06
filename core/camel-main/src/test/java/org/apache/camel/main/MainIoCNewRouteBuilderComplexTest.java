@@ -129,7 +129,7 @@ argument_list|()
 decl_stmt|;
 name|main
 operator|.
-name|addRouteBuilder
+name|addRoutesBuilder
 argument_list|(
 operator|new
 name|MyRouteBuilder

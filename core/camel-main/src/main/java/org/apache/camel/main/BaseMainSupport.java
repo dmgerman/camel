@@ -244,6 +244,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RoutesBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -709,7 +721,7 @@ DECL|field|routeBuilders
 specifier|protected
 name|List
 argument_list|<
-name|RouteBuilder
+name|RoutesBuilder
 argument_list|>
 name|routeBuilders
 init|=
@@ -1745,29 +1757,67 @@ return|return
 name|camelContext
 return|;
 block|}
+comment|/**      * @deprecated use {@link #getRoutesBuilders()}      */
+annotation|@
+name|Deprecated
 DECL|method|getRouteBuilders ()
 specifier|public
 name|List
 argument_list|<
-name|RouteBuilder
+name|RoutesBuilder
 argument_list|>
 name|getRouteBuilders
 parameter_list|()
 block|{
 return|return
-name|routeBuilders
+name|getRoutesBuilders
+argument_list|()
 return|;
 block|}
-DECL|method|setRouteBuilders (List<RouteBuilder> routeBuilders)
+comment|/**      * @deprecated use {@link #setRoutesBuilders(List)} ()}      */
+annotation|@
+name|Deprecated
+DECL|method|setRouteBuilders (List<RoutesBuilder> routeBuilders)
 specifier|public
 name|void
 name|setRouteBuilders
 parameter_list|(
 name|List
 argument_list|<
-name|RouteBuilder
+name|RoutesBuilder
 argument_list|>
 name|routeBuilders
+parameter_list|)
+block|{
+name|setRoutesBuilders
+argument_list|(
+name|routeBuilders
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getRoutesBuilders ()
+specifier|public
+name|List
+argument_list|<
+name|RoutesBuilder
+argument_list|>
+name|getRoutesBuilders
+parameter_list|()
+block|{
+return|return
+name|routeBuilders
+return|;
+block|}
+DECL|method|setRoutesBuilders (List<RoutesBuilder> routesBuilders)
+specifier|public
+name|void
+name|setRoutesBuilders
+parameter_list|(
+name|List
+argument_list|<
+name|RoutesBuilder
+argument_list|>
+name|routesBuilders
 parameter_list|)
 block|{
 name|this
@@ -1961,10 +2011,10 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|RouteBuilder
+name|RoutesBuilder
 name|routeBuilder
 range|:
-name|getRouteBuilders
+name|getRoutesBuilders
 argument_list|()
 control|)
 block|{
@@ -2062,7 +2112,7 @@ operator|instanceof
 name|RouteBuilder
 condition|)
 block|{
-name|getRouteBuilders
+name|getRoutesBuilders
 argument_list|()
 operator|.
 name|add
@@ -2711,7 +2761,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|RouteBuilder
+name|RoutesBuilder
 name|routeBuilder
 range|:
 name|routeBuilders
@@ -5758,16 +5808,37 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|addRouteBuilder (RouteBuilder routeBuilder)
+comment|/**      * @deprecated use {@link #addRoutesBuilder(RoutesBuilder)}      */
+annotation|@
+name|Deprecated
+DECL|method|addRouteBuilder (RoutesBuilder routeBuilder)
 specifier|public
 name|void
 name|addRouteBuilder
 parameter_list|(
-name|RouteBuilder
+name|RoutesBuilder
 name|routeBuilder
 parameter_list|)
 block|{
-name|getRouteBuilders
+name|getRoutesBuilders
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|routeBuilder
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|addRoutesBuilder (RoutesBuilder routeBuilder)
+specifier|public
+name|void
+name|addRoutesBuilder
+parameter_list|(
+name|RoutesBuilder
+name|routeBuilder
+parameter_list|)
+block|{
+name|getRoutesBuilders
 argument_list|()
 operator|.
 name|add
