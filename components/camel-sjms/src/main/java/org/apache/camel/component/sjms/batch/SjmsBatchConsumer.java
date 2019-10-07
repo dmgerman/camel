@@ -2037,9 +2037,22 @@ argument_list|(
 literal|"Completion batch due timeout"
 argument_list|)
 expr_stmt|;
+name|String
+name|completedBy
+init|=
+name|completionInterval
+operator|>
+literal|0
+condition|?
+literal|"interval"
+else|:
+literal|"timeout"
+decl_stmt|;
 name|completionBatch
 argument_list|(
 name|session
+argument_list|,
+name|completedBy
 argument_list|)
 expr_stmt|;
 name|reset
@@ -2069,6 +2082,8 @@ expr_stmt|;
 name|completionBatch
 argument_list|(
 name|session
+argument_list|,
+literal|"size"
 argument_list|)
 expr_stmt|;
 name|reset
@@ -2258,6 +2273,8 @@ expr_stmt|;
 name|completionBatch
 argument_list|(
 name|session
+argument_list|,
+literal|"predicate"
 argument_list|)
 expr_stmt|;
 name|reset
@@ -2395,7 +2412,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-DECL|method|completionBatch (final Session session)
+DECL|method|completionBatch (final Session session, String completedBy)
 specifier|private
 name|void
 name|completionBatch
@@ -2403,6 +2420,9 @@ parameter_list|(
 specifier|final
 name|Session
 name|session
+parameter_list|,
+name|String
+name|completedBy
 parameter_list|)
 block|{
 comment|// batch
@@ -2436,6 +2456,8 @@ argument_list|(
 name|aggregatedExchange
 argument_list|,
 name|session
+argument_list|,
+name|completedBy
 argument_list|)
 expr_stmt|;
 block|}
@@ -2599,7 +2621,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**          * Send an message with the batches messages.          */
-DECL|method|processBatch (Exchange exchange, Session session)
+DECL|method|processBatch (Exchange exchange, Session session, String completedBy)
 specifier|private
 name|void
 name|processBatch
@@ -2609,6 +2631,9 @@ name|exchange
 parameter_list|,
 name|Session
 name|session
+parameter_list|,
+name|String
+name|completedBy
 parameter_list|)
 block|{
 name|int
@@ -2671,6 +2696,49 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+literal|"timeout"
+operator|.
+name|equals
+argument_list|(
+name|completedBy
+argument_list|)
+condition|)
+block|{
+name|aggregationStrategy
+operator|.
+name|timeout
+argument_list|(
+name|exchange
+argument_list|,
+name|id
+argument_list|,
+name|batchSize
+argument_list|,
+name|completionTimeout
+argument_list|)
+expr_stmt|;
+block|}
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_COMPLETED_BY
+argument_list|,
+name|completedBy
+argument_list|)
+expr_stmt|;
+comment|// invoke the on completion callback
+name|aggregationStrategy
+operator|.
+name|onCompletion
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|SessionCompletion
 name|sessionCompletion
 init|=
