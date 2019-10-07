@@ -2429,6 +2429,22 @@ literal|"public "
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|method
+operator|.
+name|isProtected
+condition|)
+block|{
+name|sb2
+operator|.
+name|append
+argument_list|(
+literal|"protected "
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|method
@@ -2441,6 +2457,21 @@ operator|.
 name|append
 argument_list|(
 literal|"default "
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|method
+operator|.
+name|isStatic
+condition|)
+block|{
+name|sb2
+operator|.
+name|append
+argument_list|(
+literal|"static "
 argument_list|)
 expr_stmt|;
 block|}
