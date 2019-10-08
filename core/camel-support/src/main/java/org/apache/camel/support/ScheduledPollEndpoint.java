@@ -497,6 +497,28 @@ specifier|private
 name|int
 name|backoffErrorThreshold
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,scheduler"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once."
+operator|+
+literal|" If you set it to 5, it will only fire five times. A value of zero or negative means fire forever."
+argument_list|)
+DECL|field|repeatCount
+specifier|private
+name|long
+name|repeatCount
+decl_stmt|;
 DECL|method|ScheduledPollEndpoint (String endpointUri, Component component)
 specifier|protected
 name|ScheduledPollEndpoint
@@ -885,6 +907,13 @@ operator|.
 name|setBackoffMultiplier
 argument_list|(
 name|backoffMultiplier
+argument_list|)
+expr_stmt|;
+name|spc
+operator|.
+name|setRepeatCount
+argument_list|(
+name|repeatCount
 argument_list|)
 expr_stmt|;
 name|spc
@@ -1421,6 +1450,33 @@ operator|.
 name|backoffErrorThreshold
 operator|=
 name|backoffErrorThreshold
+expr_stmt|;
+block|}
+DECL|method|getRepeatCount ()
+specifier|public
+name|long
+name|getRepeatCount
+parameter_list|()
+block|{
+return|return
+name|repeatCount
+return|;
+block|}
+comment|/**      * Specifies a maximum limit of number of fires.      * So if you set it to 1, the scheduler will only fire once.      * If you set it to 5, it will only fire five times.      * A value of zero or negative means fire forever.      */
+DECL|method|setRepeatCount (long repeatCount)
+specifier|public
+name|void
+name|setRepeatCount
+parameter_list|(
+name|long
+name|repeatCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repeatCount
+operator|=
+name|repeatCount
 expr_stmt|;
 block|}
 block|}

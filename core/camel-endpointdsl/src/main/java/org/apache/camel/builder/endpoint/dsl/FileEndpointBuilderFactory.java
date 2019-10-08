@@ -2125,6 +2125,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Specifies a maximum limit of number of fires. So if you set it to 1,          * the scheduler will only fire once. If you set it to 5, it will only          * fire five times. A value of zero or negative means fire forever.          *           * The option is a:<code>long</code> type.          *           * Group: scheduler          */
+DECL|method|repeatCount (long repeatCount)
+specifier|default
+name|FileEndpointConsumerBuilder
+name|repeatCount
+parameter_list|(
+name|long
+name|repeatCount
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"repeatCount"
+argument_list|,
+name|repeatCount
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies a maximum limit of number of fires. So if you set it to 1,          * the scheduler will only fire once. If you set it to 5, it will only          * fire five times. A value of zero or negative means fire forever.          *           * The option will be converted to a<code>long</code> type.          *           * Group: scheduler          */
+DECL|method|repeatCount (String repeatCount)
+specifier|default
+name|FileEndpointConsumerBuilder
+name|repeatCount
+parameter_list|(
+name|String
+name|repeatCount
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"repeatCount"
+argument_list|,
+name|repeatCount
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The consumer logs a start/complete log line when it polls. This          * option allows you to configure the logging level for that.          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: scheduler          */
 DECL|method|runLoggingLevel ( LoggingLevel runLoggingLevel)
 specifier|default

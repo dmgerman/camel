@@ -62,6 +62,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -324,6 +338,11 @@ specifier|private
 name|int
 name|backoffErrorThreshold
 decl_stmt|;
+DECL|field|repeatCount
+specifier|private
+name|long
+name|repeatCount
+decl_stmt|;
 DECL|field|schedulerProperties
 specifier|private
 name|Map
@@ -358,6 +377,16 @@ specifier|private
 specifier|volatile
 name|long
 name|errorCounter
+decl_stmt|;
+DECL|field|counter
+specifier|private
+specifier|final
+name|AtomicLong
+name|counter
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 DECL|method|ScheduledPollConsumer (Endpoint endpoint, Processor processor)
 specifier|public
@@ -815,6 +844,49 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|long
+name|count
+init|=
+name|counter
+operator|.
+name|incrementAndGet
+argument_list|()
+decl_stmt|;
+name|boolean
+name|stopFire
+init|=
+name|repeatCount
+operator|>
+literal|0
+operator|&&
+name|count
+operator|>
+name|repeatCount
+decl_stmt|;
+if|if
+condition|(
+name|stopFire
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Cancelling {} scheduler as repeat count limit reached after {} counts."
+argument_list|,
+name|getEndpoint
+argument_list|()
+argument_list|,
+name|repeatCount
+argument_list|)
+expr_stmt|;
+name|scheduler
+operator|.
+name|unscheduleTask
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 name|int
 name|retryCounter
 init|=
@@ -1265,7 +1337,7 @@ return|;
 block|}
 comment|/**      * Whether polling is currently in progress      */
 DECL|method|isPolling ()
-specifier|protected
+specifier|public
 name|boolean
 name|isPolling
 parameter_list|()
@@ -1656,6 +1728,32 @@ operator|.
 name|backoffErrorThreshold
 operator|=
 name|backoffErrorThreshold
+expr_stmt|;
+block|}
+DECL|method|getRepeatCount ()
+specifier|public
+name|long
+name|getRepeatCount
+parameter_list|()
+block|{
+return|return
+name|repeatCount
+return|;
+block|}
+DECL|method|setRepeatCount (long repeatCount)
+specifier|public
+name|void
+name|setRepeatCount
+parameter_list|(
+name|long
+name|repeatCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repeatCount
+operator|=
+name|repeatCount
 expr_stmt|;
 block|}
 DECL|method|getScheduledExecutorService ()
@@ -2049,6 +2147,13 @@ name|errorCounter
 operator|=
 literal|0
 expr_stmt|;
+name|counter
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|doStop
@@ -2100,7 +2205,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// make sure the scheduler is starter
+comment|// make sure the scheduler is starting
 name|startScheduler
 operator|=
 literal|true

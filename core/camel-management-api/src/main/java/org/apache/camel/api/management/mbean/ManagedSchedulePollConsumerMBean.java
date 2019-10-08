@@ -173,6 +173,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Is the scheduler currently polling"
+argument_list|)
+DECL|method|isPolling ()
+name|boolean
+name|isPolling
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Is the scheduler started"
 argument_list|)
 DECL|method|isSchedulerStarted ()
@@ -250,6 +262,18 @@ argument_list|)
 DECL|method|getBackoffCounter ()
 name|int
 name|getBackoffCounter
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Repeat count"
+argument_list|)
+DECL|method|getRepeatCount ()
+name|long
+name|getRepeatCount
 parameter_list|()
 function_decl|;
 block|}

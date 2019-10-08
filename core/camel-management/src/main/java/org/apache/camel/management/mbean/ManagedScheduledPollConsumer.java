@@ -304,6 +304,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|isPolling ()
+specifier|public
+name|boolean
+name|isPolling
+parameter_list|()
+block|{
+return|return
+name|getConsumer
+argument_list|()
+operator|.
+name|isPolling
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|isSchedulerStarted ()
 specifier|public
 name|boolean
@@ -416,6 +432,22 @@ name|getConsumer
 argument_list|()
 operator|.
 name|getBackoffCounter
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getRepeatCount ()
+specifier|public
+name|long
+name|getRepeatCount
+parameter_list|()
+block|{
+return|return
+name|getConsumer
+argument_list|()
+operator|.
+name|getRepeatCount
 argument_list|()
 return|;
 block|}
