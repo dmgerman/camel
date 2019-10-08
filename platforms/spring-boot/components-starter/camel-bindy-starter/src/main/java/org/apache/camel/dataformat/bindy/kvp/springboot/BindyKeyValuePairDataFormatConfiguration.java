@@ -120,6 +120,14 @@ name|unwrapSingleInstance
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Whether to allow empty streams in the unmarshal process. If true, no      * exception will be thrown when a body without records is provided.      */
+DECL|field|allowEmptyStream
+specifier|private
+name|Boolean
+name|allowEmptyStream
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the data format should set the Content-Type header with the type      * from the data format if the data format is capable of doing so. For      * example application/xml for data formats marshalling to XML, or      * application/json for data formats marshalling to JSon etc.      */
 DECL|field|contentTypeHeader
 specifier|private
@@ -230,6 +238,32 @@ operator|.
 name|unwrapSingleInstance
 operator|=
 name|unwrapSingleInstance
+expr_stmt|;
+block|}
+DECL|method|getAllowEmptyStream ()
+specifier|public
+name|Boolean
+name|getAllowEmptyStream
+parameter_list|()
+block|{
+return|return
+name|allowEmptyStream
+return|;
+block|}
+DECL|method|setAllowEmptyStream (Boolean allowEmptyStream)
+specifier|public
+name|void
+name|setAllowEmptyStream
+parameter_list|(
+name|Boolean
+name|allowEmptyStream
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmptyStream
+operator|=
+name|allowEmptyStream
 expr_stmt|;
 block|}
 DECL|method|getContentTypeHeader ()

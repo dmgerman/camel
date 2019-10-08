@@ -381,6 +381,13 @@ name|unwrapSingleInstance
 init|=
 literal|true
 decl_stmt|;
+DECL|field|allowEmptyStream
+specifier|private
+name|boolean
+name|allowEmptyStream
+init|=
+literal|false
+decl_stmt|;
 DECL|method|BindyAbstractDataFormat ()
 specifier|public
 name|BindyAbstractDataFormat
@@ -486,6 +493,32 @@ operator|.
 name|unwrapSingleInstance
 operator|=
 name|unwrapSingleInstance
+expr_stmt|;
+block|}
+DECL|method|isAllowEmptyStream ()
+specifier|public
+name|boolean
+name|isAllowEmptyStream
+parameter_list|()
+block|{
+return|return
+name|allowEmptyStream
+return|;
+block|}
+DECL|method|setAllowEmptyStream (boolean allowEmptyStream)
+specifier|public
+name|void
+name|setAllowEmptyStream
+parameter_list|(
+name|boolean
+name|allowEmptyStream
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmptyStream
+operator|=
+name|allowEmptyStream
 expr_stmt|;
 block|}
 DECL|method|getFactory ()

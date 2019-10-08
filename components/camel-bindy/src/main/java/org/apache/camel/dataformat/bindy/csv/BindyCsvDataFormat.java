@@ -1089,10 +1089,12 @@ if|if
 condition|(
 name|models
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
+operator|&&
+operator|!
+name|isAllowEmptyStream
+argument_list|()
 condition|)
 block|{
 throw|throw

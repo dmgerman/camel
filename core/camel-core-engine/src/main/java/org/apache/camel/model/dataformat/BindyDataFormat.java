@@ -198,6 +198,20 @@ name|Boolean
 name|unwrapSingleInstance
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|allowEmptyStream
+specifier|private
+name|Boolean
+name|allowEmptyStream
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|clazz
 specifier|private
@@ -357,6 +371,33 @@ operator|.
 name|unwrapSingleInstance
 operator|=
 name|unwrapSingleInstance
+expr_stmt|;
+block|}
+DECL|method|getAllowEmptyStream ()
+specifier|public
+name|Boolean
+name|getAllowEmptyStream
+parameter_list|()
+block|{
+return|return
+name|allowEmptyStream
+return|;
+block|}
+comment|/**    * Whether to allow empty streams in the unmarshal process. If true, no    * exception will be thrown when a body without records is provided.    */
+DECL|method|setAllowEmptyStream (Boolean allowEmptyStream)
+specifier|public
+name|void
+name|setAllowEmptyStream
+parameter_list|(
+name|Boolean
+name|allowEmptyStream
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEmptyStream
+operator|=
+name|allowEmptyStream
 expr_stmt|;
 block|}
 block|}
