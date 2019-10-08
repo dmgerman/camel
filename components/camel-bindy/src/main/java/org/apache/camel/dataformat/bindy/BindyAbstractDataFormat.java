@@ -385,8 +385,6 @@ DECL|field|allowEmptyStream
 specifier|private
 name|boolean
 name|allowEmptyStream
-init|=
-literal|false
 decl_stmt|;
 DECL|method|BindyAbstractDataFormat ()
 specifier|public
