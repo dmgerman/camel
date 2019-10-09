@@ -1558,7 +1558,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"For expressions and predicates using the file/simple language"
+literal|"For expressions and predicates using the file/simple language."
 return|;
 block|}
 return|return
