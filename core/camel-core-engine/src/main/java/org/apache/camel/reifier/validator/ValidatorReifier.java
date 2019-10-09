@@ -254,6 +254,7 @@ name|T
 name|definition
 decl_stmt|;
 DECL|method|ValidatorReifier (T definition)
+specifier|public
 name|ValidatorReifier
 parameter_list|(
 name|T
@@ -265,6 +266,42 @@ operator|.
 name|definition
 operator|=
 name|definition
+expr_stmt|;
+block|}
+DECL|method|registerReifier (Class<?> processorClass, Function<ValidatorDefinition, ValidatorReifier<? extends ValidatorDefinition>> creator)
+specifier|public
+specifier|static
+name|void
+name|registerReifier
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|processorClass
+parameter_list|,
+name|Function
+argument_list|<
+name|ValidatorDefinition
+argument_list|,
+name|ValidatorReifier
+argument_list|<
+name|?
+extends|extends
+name|ValidatorDefinition
+argument_list|>
+argument_list|>
+name|creator
+parameter_list|)
+block|{
+name|VALIDATORS
+operator|.
+name|put
+argument_list|(
+name|processorClass
+argument_list|,
+name|creator
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|reifier (ValidatorDefinition definition)
