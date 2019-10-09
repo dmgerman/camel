@@ -312,10 +312,8 @@ name|getNumberOfConsumers
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|"default-producer"
-argument_list|,
 name|endpoint
 operator|.
 name|getPulsarConfiguration
