@@ -134,6 +134,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|BufferCaster
+operator|.
+name|cast
+import|;
+end_import
+
 begin_comment
 comment|/**  * Some core java.nio based  *<a href="http://camel.apache.org/type-converter.html">Type Converters</a>  */
 end_comment
@@ -525,7 +541,10 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|flip
 argument_list|()
@@ -563,7 +582,10 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|flip
 argument_list|()
@@ -601,7 +623,10 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|flip
 argument_list|()
@@ -639,7 +664,10 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|flip
 argument_list|()
@@ -677,7 +705,10 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|flip
 argument_list|()
