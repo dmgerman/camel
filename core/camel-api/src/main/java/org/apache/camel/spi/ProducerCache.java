@@ -160,7 +160,7 @@ name|ProducerCache
 extends|extends
 name|Service
 block|{
-comment|/**      * Acquires a pooled producer which you<b>must</b> release back again after usage using the      * {@link #releaseProducer(org.apache.camel.Endpoint, org.apache.camel.AsyncProducer)} method.      *      * @param endpoint the endpoint      * @return the producer      */
+comment|/**      * Acquires a pooled producer which you<b>must</b> release back again after usage using the      * {@link #releaseProducer(org.apache.camel.Endpoint, org.apache.camel.AsyncProducer)} method.      *<p/>      * If the producer is currently starting then the cache will wait at most 30 seconds for the producer      * to finish starting and be ready for use.      *      * @param endpoint the endpoint      * @return the producer      */
 DECL|method|acquireProducer (Endpoint endpoint)
 name|AsyncProducer
 name|acquireProducer
