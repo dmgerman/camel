@@ -395,11 +395,6 @@ name|MEMORY
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"Base directory used by file persistence. Will by default use current directory."
-argument_list|)
 DECL|field|filePersistenceDirectory
 specifier|private
 name|String
@@ -460,6 +455,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -1093,7 +1092,7 @@ return|return
 name|filePersistenceDirectory
 return|;
 block|}
-comment|/**      * Base directory used by the file persistence provider.      */
+comment|/**      * Base directory used by file persistence. Will by default use user directory.      */
 DECL|method|setFilePersistenceDirectory (String filePersistenceDirectory)
 specifier|public
 name|void

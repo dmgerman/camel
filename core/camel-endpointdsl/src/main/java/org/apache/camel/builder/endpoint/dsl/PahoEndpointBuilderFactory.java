@@ -262,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Base directory used by the file persistence provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Base directory used by file persistence. Will by default use user          * directory.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filePersistenceDirectory ( String filePersistenceDirectory)
 specifier|default
 name|PahoEndpointConsumerBuilder
@@ -361,48 +361,6 @@ argument_list|(
 literal|"qos"
 argument_list|,
 name|qos
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
-specifier|default
-name|PahoEndpointConsumerBuilder
-name|resolveMqttConnectOptions
-parameter_list|(
-name|boolean
-name|resolveMqttConnectOptions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"resolveMqttConnectOptions"
-argument_list|,
-name|resolveMqttConnectOptions
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
-specifier|default
-name|PahoEndpointConsumerBuilder
-name|resolveMqttConnectOptions
-parameter_list|(
-name|String
-name|resolveMqttConnectOptions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"resolveMqttConnectOptions"
-argument_list|,
-name|resolveMqttConnectOptions
 argument_list|)
 expr_stmt|;
 return|return
@@ -683,6 +641,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
+specifier|default
+name|AdvancedPahoEndpointConsumerBuilder
+name|resolveMqttConnectOptions
+parameter_list|(
+name|boolean
+name|resolveMqttConnectOptions
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resolveMqttConnectOptions"
+argument_list|,
+name|resolveMqttConnectOptions
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
+specifier|default
+name|AdvancedPahoEndpointConsumerBuilder
+name|resolveMqttConnectOptions
+parameter_list|(
+name|String
+name|resolveMqttConnectOptions
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resolveMqttConnectOptions"
+argument_list|,
+name|resolveMqttConnectOptions
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -873,7 +873,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Base directory used by the file persistence provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Base directory used by file persistence. Will by default use user          * directory.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filePersistenceDirectory ( String filePersistenceDirectory)
 specifier|default
 name|PahoEndpointProducerBuilder
@@ -972,48 +972,6 @@ argument_list|(
 literal|"qos"
 argument_list|,
 name|qos
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
-specifier|default
-name|PahoEndpointProducerBuilder
-name|resolveMqttConnectOptions
-parameter_list|(
-name|boolean
-name|resolveMqttConnectOptions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"resolveMqttConnectOptions"
-argument_list|,
-name|resolveMqttConnectOptions
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
-specifier|default
-name|PahoEndpointProducerBuilder
-name|resolveMqttConnectOptions
-parameter_list|(
-name|String
-name|resolveMqttConnectOptions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"resolveMqttConnectOptions"
-argument_list|,
-name|resolveMqttConnectOptions
 argument_list|)
 expr_stmt|;
 return|return
@@ -1204,6 +1162,48 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
+specifier|default
+name|AdvancedPahoEndpointProducerBuilder
+name|resolveMqttConnectOptions
+parameter_list|(
+name|boolean
+name|resolveMqttConnectOptions
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resolveMqttConnectOptions"
+argument_list|,
+name|resolveMqttConnectOptions
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
+specifier|default
+name|AdvancedPahoEndpointProducerBuilder
+name|resolveMqttConnectOptions
+parameter_list|(
+name|String
+name|resolveMqttConnectOptions
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resolveMqttConnectOptions"
+argument_list|,
+name|resolveMqttConnectOptions
 argument_list|)
 expr_stmt|;
 return|return
@@ -1402,7 +1402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Base directory used by the file persistence provider.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Base directory used by file persistence. Will by default use user          * directory.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|filePersistenceDirectory ( String filePersistenceDirectory)
 specifier|default
 name|PahoEndpointBuilder
@@ -1501,48 +1501,6 @@ argument_list|(
 literal|"qos"
 argument_list|,
 name|qos
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: common          */
-DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
-specifier|default
-name|PahoEndpointBuilder
-name|resolveMqttConnectOptions
-parameter_list|(
-name|boolean
-name|resolveMqttConnectOptions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"resolveMqttConnectOptions"
-argument_list|,
-name|resolveMqttConnectOptions
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: common          */
-DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
-specifier|default
-name|PahoEndpointBuilder
-name|resolveMqttConnectOptions
-parameter_list|(
-name|String
-name|resolveMqttConnectOptions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"resolveMqttConnectOptions"
-argument_list|,
-name|resolveMqttConnectOptions
 argument_list|)
 expr_stmt|;
 return|return
@@ -1693,6 +1651,48 @@ argument_list|(
 literal|"basicPropertyBinding"
 argument_list|,
 name|basicPropertyBinding
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|resolveMqttConnectOptions ( boolean resolveMqttConnectOptions)
+specifier|default
+name|AdvancedPahoEndpointBuilder
+name|resolveMqttConnectOptions
+parameter_list|(
+name|boolean
+name|resolveMqttConnectOptions
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resolveMqttConnectOptions"
+argument_list|,
+name|resolveMqttConnectOptions
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Define if you don't want to resolve the MQTT Connect Options from          * registry.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: advanced          */
+DECL|method|resolveMqttConnectOptions ( String resolveMqttConnectOptions)
+specifier|default
+name|AdvancedPahoEndpointBuilder
+name|resolveMqttConnectOptions
+parameter_list|(
+name|String
+name|resolveMqttConnectOptions
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resolveMqttConnectOptions"
+argument_list|,
+name|resolveMqttConnectOptions
 argument_list|)
 expr_stmt|;
 return|return

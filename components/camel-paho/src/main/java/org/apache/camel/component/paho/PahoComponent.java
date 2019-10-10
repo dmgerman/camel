@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component to integrate with the Eclispe Paho MQTT library.  */
+comment|/**  * Component to integrate with the Eclipse Paho MQTT library.  */
 end_comment
 
 begin_class
