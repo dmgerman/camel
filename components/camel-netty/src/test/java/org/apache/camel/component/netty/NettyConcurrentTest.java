@@ -250,6 +250,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testMediumConcurrentProducers ()
+specifier|public
+name|void
+name|testMediumConcurrentProducers
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|doSendMessages
+argument_list|(
+literal|10000
+argument_list|,
+literal|20
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 annotation|@
 name|Ignore
 DECL|method|testLargeConcurrentProducers ()
@@ -436,11 +454,11 @@ name|notify
 operator|.
 name|matches
 argument_list|(
-literal|2
+literal|60
 argument_list|,
 name|TimeUnit
 operator|.
-name|MINUTES
+name|SECONDS
 argument_list|)
 expr_stmt|;
 name|log
