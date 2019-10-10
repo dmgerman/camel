@@ -274,6 +274,22 @@ name|Pattern
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|BufferCaster
+operator|.
+name|cast
+import|;
+end_import
+
 begin_class
 DECL|class|Scanner
 specifier|public
@@ -645,7 +661,10 @@ argument_list|(
 name|BUFFER_SIZE
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|limit
 argument_list|(
@@ -897,7 +916,10 @@ operator|.
 name|position
 argument_list|()
 decl_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|position
 argument_list|(
@@ -907,7 +929,10 @@ name|limit
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|limit
 argument_list|(
@@ -978,7 +1003,10 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|limit
 argument_list|(
@@ -988,7 +1016,10 @@ name|position
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|position
 argument_list|(
@@ -1014,7 +1045,10 @@ name|position
 else|:
 name|savedPosition
 decl_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|position
 argument_list|(
@@ -1042,7 +1076,10 @@ name|position
 operator|-=
 name|offset
 expr_stmt|;
+name|cast
+argument_list|(
 name|buf
+argument_list|)
 operator|.
 name|flip
 argument_list|()
@@ -1077,7 +1114,10 @@ argument_list|(
 name|buf
 argument_list|)
 expr_stmt|;
+name|cast
+argument_list|(
 name|newBuf
+argument_list|)
 operator|.
 name|flip
 argument_list|()
