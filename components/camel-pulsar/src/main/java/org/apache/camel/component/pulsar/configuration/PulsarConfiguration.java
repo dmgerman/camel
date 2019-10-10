@@ -275,8 +275,6 @@ DECL|field|producerName
 specifier|private
 name|String
 name|producerName
-init|=
-literal|null
 decl_stmt|;
 annotation|@
 name|UriParam
