@@ -551,7 +551,7 @@ init|=
 operator|new
 name|NettyEndpoint
 argument_list|(
-name|remaining
+name|uri
 argument_list|,
 name|this
 argument_list|,
