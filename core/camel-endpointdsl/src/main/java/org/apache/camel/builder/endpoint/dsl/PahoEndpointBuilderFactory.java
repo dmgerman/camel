@@ -283,27 +283,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|password (String password)
-specifier|default
-name|PahoEndpointConsumerBuilder
-name|password
-parameter_list|(
-name|String
-name|password
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"password"
-argument_list|,
-name|password
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Client persistence to be used - memory or file.          *           * The option is a:          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence ( PahoPersistence persistence)
 specifier|default
@@ -472,27 +451,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|userName (String userName)
-specifier|default
-name|PahoEndpointConsumerBuilder
-name|userName
-parameter_list|(
-name|String
-name|userName
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"userName"
-argument_list|,
-name|userName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
 specifier|default
@@ -529,6 +487,48 @@ argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
 name|bridgeErrorHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|password (String password)
+specifier|default
+name|PahoEndpointConsumerBuilder
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"password"
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|userName (String userName)
+specifier|default
+name|PahoEndpointConsumerBuilder
+name|userName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"userName"
+argument_list|,
+name|userName
 argument_list|)
 expr_stmt|;
 return|return
@@ -894,27 +894,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|password (String password)
-specifier|default
-name|PahoEndpointProducerBuilder
-name|password
-parameter_list|(
-name|String
-name|password
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"password"
-argument_list|,
-name|password
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Client persistence to be used - memory or file.          *           * The option is a:          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence ( PahoPersistence persistence)
 specifier|default
@@ -1083,27 +1062,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|userName (String userName)
-specifier|default
-name|PahoEndpointProducerBuilder
-name|userName
-parameter_list|(
-name|String
-name|userName
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"userName"
-argument_list|,
-name|userName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|lazyStartProducer ( boolean lazyStartProducer)
 specifier|default
@@ -1140,6 +1098,48 @@ argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
 name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|password (String password)
+specifier|default
+name|PahoEndpointProducerBuilder
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"password"
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|userName (String userName)
+specifier|default
+name|PahoEndpointProducerBuilder
+name|userName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"userName"
+argument_list|,
+name|userName
 argument_list|)
 expr_stmt|;
 return|return
@@ -1423,27 +1423,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|password (String password)
-specifier|default
-name|PahoEndpointBuilder
-name|password
-parameter_list|(
-name|String
-name|password
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"password"
-argument_list|,
-name|password
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Client persistence to be used - memory or file.          *           * The option is a:          *<code>org.apache.camel.component.paho.PahoPersistence</code> type.          *           * Group: common          */
 DECL|method|persistence (PahoPersistence persistence)
 specifier|default
@@ -1612,7 +1591,28 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+comment|/**          * Password to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|password (String password)
+specifier|default
+name|PahoEndpointBuilder
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"password"
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Username to be used for authentication against the MQTT broker.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
 DECL|method|userName (String userName)
 specifier|default
 name|PahoEndpointBuilder

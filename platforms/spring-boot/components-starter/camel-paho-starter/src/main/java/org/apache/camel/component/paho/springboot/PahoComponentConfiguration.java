@@ -104,6 +104,18 @@ specifier|private
 name|String
 name|clientId
 decl_stmt|;
+comment|/**      * Username to be used for authentication against the MQTT broker      */
+DECL|field|userName
+specifier|private
+name|String
+name|userName
+decl_stmt|;
+comment|/**      * Password to be used for authentication against the MQTT broker      */
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
 comment|/**      * Client connection options. The option is a      * org.eclipse.paho.client.mqttv3.MqttConnectOptions type.      */
 DECL|field|connectOptions
 specifier|private
@@ -168,6 +180,58 @@ operator|.
 name|clientId
 operator|=
 name|clientId
+expr_stmt|;
+block|}
+DECL|method|getUserName ()
+specifier|public
+name|String
+name|getUserName
+parameter_list|()
+block|{
+return|return
+name|userName
+return|;
+block|}
+DECL|method|setUserName (String userName)
+specifier|public
+name|void
+name|setUserName
+parameter_list|(
+name|String
+name|userName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|userName
+operator|=
+name|userName
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
 expr_stmt|;
 block|}
 DECL|method|getConnectOptions ()

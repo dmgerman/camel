@@ -421,6 +421,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -435,6 +440,11 @@ name|userName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -1028,7 +1038,7 @@ return|return
 name|retained
 return|;
 block|}
-comment|/**      * Retain option      *      * @param retained true/false      */
+comment|/**      * Retain option      */
 DECL|method|setRetained (boolean retained)
 specifier|public
 name|void
@@ -1165,7 +1175,7 @@ return|return
 name|autoReconnect
 return|;
 block|}
-comment|/**      * Client will automatically attempt to reconnect to the server if the connection is lost      * @param autoReconnect      */
+comment|/**      * Client will automatically attempt to reconnect to the server if the connection is lost      */
 DECL|method|setAutoReconnect (boolean autoReconnect)
 specifier|public
 specifier|synchronized
@@ -1193,7 +1203,7 @@ return|return
 name|userName
 return|;
 block|}
-comment|/**      * Username to be used for authentication against the MQTT broker      * @param userName      */
+comment|/**      * Username to be used for authentication against the MQTT broker      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -1220,7 +1230,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * Password to be used for authentication against the MQTT broker      * @param password      */
+comment|/**      * Password to be used for authentication against the MQTT broker      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -1248,7 +1258,7 @@ return|return
 name|resolveMqttConnectOptions
 return|;
 block|}
-comment|/**      * Define if you don't want to resolve the MQTT Connect Options from registry      * @param resolveMqttConnectOptions      */
+comment|/**      * Define if you don't want to resolve the MQTT Connect Options from registry      */
 DECL|method|setResolveMqttConnectOptions (boolean resolveMqttConnectOptions)
 specifier|public
 specifier|synchronized
