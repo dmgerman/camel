@@ -739,7 +739,7 @@ return|return
 name|producerName
 return|;
 block|}
-comment|/**      * Name of the producer      */
+comment|/**      * Name of the producer. If unset, lets Pulsar select a unique identifier.      */
 DECL|method|setProducerName (String producerName)
 specifier|public
 name|void
