@@ -11006,7 +11006,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/META-INF/maven/org.apache.camel/camel-core/pom.properties"
+literal|"/META-INF/maven/org.apache.camel/camel-base/pom.properties"
 argument_list|)
 expr_stmt|;
 if|if
