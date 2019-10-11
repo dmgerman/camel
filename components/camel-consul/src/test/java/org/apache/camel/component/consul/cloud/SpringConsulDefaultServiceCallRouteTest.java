@@ -143,8 +143,6 @@ specifier|public
 name|void
 name|testServiceCallConfiguration
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|List
 argument_list|<

@@ -75,8 +75,6 @@ specifier|public
 name|void
 name|testPropertyPlaceholders
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 specifier|final
 name|GenericContainer

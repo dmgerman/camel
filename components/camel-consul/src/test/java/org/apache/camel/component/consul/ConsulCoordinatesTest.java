@@ -149,8 +149,6 @@ specifier|public
 name|void
 name|testDatacenters
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|List
 argument_list|<
@@ -241,8 +239,6 @@ specifier|public
 name|void
 name|testNodes
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|List
 argument_list|<
@@ -328,8 +324,6 @@ specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 operator|new

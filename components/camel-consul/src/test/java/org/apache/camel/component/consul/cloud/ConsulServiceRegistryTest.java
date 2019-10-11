@@ -175,8 +175,6 @@ specifier|public
 name|void
 name|testSimpleServiceRegistration
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|ConsulServiceRegistry
 name|registry

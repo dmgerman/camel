@@ -334,8 +334,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// context path is derived from the jetty endpoint.
 name|from
@@ -502,8 +500,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// context path is had coded so it should fail as it not exposed
 comment|// by jetty
