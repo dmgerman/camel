@@ -198,22 +198,6 @@ name|util
 operator|.
 name|ObjectHelper
 operator|.
-name|cast
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
 name|isNotEmpty
 import|;
 end_import
@@ -1995,6 +1979,29 @@ condition|(
 name|valid
 condition|)
 block|{
+comment|// GeneratedPropertyConfigurer works by invoking the methods directly but it does
+comment|// not resolve property placeholders eventually defined in the value before invoking
+comment|// the setter.
+if|if
+condition|(
+name|value
+operator|instanceof
+name|String
+condition|)
+block|{
+name|value
+operator|=
+name|camelContext
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+operator|(
+name|String
+operator|)
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|value
