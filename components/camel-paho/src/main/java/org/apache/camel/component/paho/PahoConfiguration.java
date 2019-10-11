@@ -136,13 +136,6 @@ DECL|field|clientId
 specifier|private
 name|String
 name|clientId
-init|=
-literal|"camel-"
-operator|+
-name|System
-operator|.
-name|nanoTime
-argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -466,7 +459,7 @@ return|return
 name|clientId
 return|;
 block|}
-comment|/**      * MQTT client identifier.      */
+comment|/**      * MQTT client identifier. The identifier must be unique.      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
