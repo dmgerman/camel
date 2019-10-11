@@ -307,18 +307,12 @@ name|unit
 condition|)
 block|{
 comment|// okay this is too fast so use a little more delay to avoid CPU burning cycles
+comment|// To avoid align with java 11 impl of
+comment|// "java.util.concurrent.locks.AbstractQueuedSynchronizer.SPIN_FOR_TIMEOUT_THRESHOLD", otherwise
+comment|// no sleep with very high CPU usage
 name|answer
 operator|=
-name|unit
-operator|.
-name|convert
-argument_list|(
-literal|1
-argument_list|,
-name|TimeUnit
-operator|.
-name|MICROSECONDS
-argument_list|)
+literal|1001L
 expr_stmt|;
 block|}
 else|else
