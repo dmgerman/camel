@@ -242,12 +242,12 @@ name|Boolean
 name|transferException
 parameter_list|)
 function_decl|;
-DECL|method|setMuteException (Boolean MuteException)
+DECL|method|setMuteException (Boolean muteException)
 name|void
 name|setMuteException
 parameter_list|(
 name|Boolean
-name|MuteException
+name|muteException
 parameter_list|)
 function_decl|;
 block|}
