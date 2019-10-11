@@ -328,6 +328,13 @@ name|getCookieHandler
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|cxfExchange
+operator|.
+name|getInMessage
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 try|try
@@ -604,6 +611,13 @@ condition|(
 name|endpoint
 operator|.
 name|getCookieHandler
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|cxfExchange
+operator|.
+name|getInMessage
 argument_list|()
 operator|!=
 literal|null
