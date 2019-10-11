@@ -560,6 +560,22 @@ specifier|private
 name|UndertowHostOptions
 name|hostOptions
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|muteException
+specifier|private
+name|boolean
+name|muteException
+decl_stmt|;
 DECL|method|UndertowComponent ()
 specifier|public
 name|UndertowComponent
@@ -698,6 +714,13 @@ operator|.
 name|setSslContextParameters
 argument_list|(
 name|sslParams
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setMuteException
+argument_list|(
+name|muteException
 argument_list|)
 expr_stmt|;
 comment|// Prefer endpoint configured over component configured
@@ -2313,6 +2336,33 @@ operator|.
 name|hostOptions
 operator|=
 name|hostOptions
+expr_stmt|;
+block|}
+DECL|method|isMuteException ()
+specifier|public
+name|boolean
+name|isMuteException
+parameter_list|()
+block|{
+return|return
+name|muteException
+return|;
+block|}
+comment|/**      * If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.      */
+DECL|method|setMuteException (boolean muteException)
+specifier|public
+name|void
+name|setMuteException
+parameter_list|(
+name|boolean
+name|muteException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|muteException
+operator|=
+name|muteException
 expr_stmt|;
 block|}
 DECL|method|getVerifier ()

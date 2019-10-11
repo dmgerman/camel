@@ -1326,7 +1326,7 @@ return|return
 name|muteException
 return|;
 block|}
-comment|/**      * If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.      *      */
+comment|/**      * If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.      */
 DECL|method|setMuteException (Boolean muteException)
 specifier|public
 name|void

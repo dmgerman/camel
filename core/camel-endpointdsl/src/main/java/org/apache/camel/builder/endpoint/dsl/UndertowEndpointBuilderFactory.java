@@ -359,13 +359,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: consumer          */
-DECL|method|muteException ( Boolean muteException)
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|muteException ( boolean muteException)
 specifier|default
 name|UndertowEndpointConsumerBuilder
 name|muteException
 parameter_list|(
-name|Boolean
+name|boolean
 name|muteException
 parameter_list|)
 block|{
@@ -380,7 +380,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option will be converted to a<code>java.lang.Boolean</code>          * type.          *           * Group: consumer          */
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|muteException ( String muteException)
 specifier|default
 name|UndertowEndpointConsumerBuilder
