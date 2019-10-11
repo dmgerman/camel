@@ -605,6 +605,9 @@ comment|/* MicroProfile -> */
 literal|"camel-microprofile-config"
 block|,
 comment|/* MicroProfile -> */
+literal|"camel-microprofile-health"
+block|,
+comment|/* MicroProfile -> */
 literal|"camel-microprofile-metrics"
 block|,
 comment|/* deprecated (and not working perfectly) -> */
