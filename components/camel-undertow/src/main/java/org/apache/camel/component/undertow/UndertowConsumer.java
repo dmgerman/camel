@@ -1132,6 +1132,20 @@ operator|==
 literal|null
 condition|)
 block|{
+name|String
+name|message
+init|=
+name|httpExchange
+operator|.
+name|getStatusCode
+argument_list|()
+operator|==
+literal|500
+condition|?
+literal|"Exception"
+else|:
+literal|"No response available"
+decl_stmt|;
 name|log
 operator|.
 name|trace
@@ -1169,7 +1183,7 @@ argument_list|()
 operator|.
 name|send
 argument_list|(
-literal|"No response available"
+name|message
 argument_list|)
 expr_stmt|;
 return|return;
