@@ -518,7 +518,7 @@ operator|.
 name|pipeline
 argument_list|()
 decl_stmt|;
-name|SslHandler
+name|ChannelHandler
 name|sslHandler
 init|=
 name|configureServerSSLOnDemand
@@ -533,6 +533,27 @@ condition|)
 block|{
 comment|//TODO must close on SSL exception
 comment|// sslHandler.setCloseOnSSLException(true);
+if|if
+condition|(
+name|sslHandler
+operator|instanceof
+name|ChannelHandlerFactory
+condition|)
+block|{
+comment|// use the factory to create a new instance of the channel as it may not be shareable
+name|sslHandler
+operator|=
+operator|(
+operator|(
+name|ChannelHandlerFactory
+operator|)
+name|sslHandler
+operator|)
+operator|.
+name|newChannelHandler
+argument_list|()
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|debug
