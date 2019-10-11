@@ -208,6 +208,9 @@ argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getQos
 argument_list|()
 argument_list|)
@@ -255,6 +258,9 @@ argument_list|(
 name|topic
 argument_list|,
 name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
 argument_list|()
 operator|.
 name|getQos

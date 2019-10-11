@@ -162,6 +162,9 @@ argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getQos
 argument_list|()
 argument_list|,
@@ -185,6 +188,9 @@ operator|.
 name|CAMEL_PAHO_MSG_RETAINED
 argument_list|,
 name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
 argument_list|()
 operator|.
 name|isRetained
