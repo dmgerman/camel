@@ -270,17 +270,11 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"default-producer"
 argument_list|)
 DECL|field|producerName
 specifier|private
 name|String
 name|producerName
-init|=
-literal|"default-producer"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -745,7 +739,7 @@ return|return
 name|producerName
 return|;
 block|}
-comment|/**      * Name of the producer      */
+comment|/**      * Name of the producer. If unset, lets Pulsar select a unique identifier.      */
 DECL|method|setProducerName (String producerName)
 specifier|public
 name|void

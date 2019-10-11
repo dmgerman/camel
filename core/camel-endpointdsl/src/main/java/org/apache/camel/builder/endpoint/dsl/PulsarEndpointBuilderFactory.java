@@ -1167,7 +1167,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Name of the producer.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+comment|/**          * Name of the producer. If unset, lets Pulsar select a unique          * identifier.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|producerName (String producerName)
 specifier|default
 name|PulsarEndpointProducerBuilder
