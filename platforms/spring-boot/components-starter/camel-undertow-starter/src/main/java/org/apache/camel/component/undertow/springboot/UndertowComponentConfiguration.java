@@ -118,6 +118,14 @@ specifier|private
 name|UndertowHostOptionsNestedConfiguration
 name|hostOptions
 decl_stmt|;
+comment|/**      * If enabled and an Exchange failed processing on the consumer side the      * response's body won't contain the exception's stack trace.      */
+DECL|field|muteException
+specifier|private
+name|Boolean
+name|muteException
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
 DECL|field|basicPropertyBinding
 specifier|private
@@ -228,6 +236,32 @@ operator|.
 name|hostOptions
 operator|=
 name|hostOptions
+expr_stmt|;
+block|}
+DECL|method|getMuteException ()
+specifier|public
+name|Boolean
+name|getMuteException
+parameter_list|()
+block|{
+return|return
+name|muteException
+return|;
+block|}
+DECL|method|setMuteException (Boolean muteException)
+specifier|public
+name|void
+name|setMuteException
+parameter_list|(
+name|Boolean
+name|muteException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|muteException
+operator|=
+name|muteException
 expr_stmt|;
 block|}
 DECL|method|getBasicPropertyBinding ()

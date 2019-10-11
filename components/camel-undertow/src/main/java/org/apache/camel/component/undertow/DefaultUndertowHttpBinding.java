@@ -380,20 +380,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|attachment
-operator|.
-name|DefaultAttachmentMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -565,6 +551,11 @@ specifier|private
 name|Boolean
 name|transferException
 decl_stmt|;
+DECL|field|muteException
+specifier|private
+name|Boolean
+name|muteException
+decl_stmt|;
 DECL|field|useStreaming
 specifier|private
 name|boolean
@@ -607,12 +598,20 @@ name|FALSE
 expr_stmt|;
 name|this
 operator|.
+name|muteException
+operator|=
+name|Boolean
+operator|.
+name|FALSE
+expr_stmt|;
+name|this
+operator|.
 name|useStreaming
 operator|=
 name|useStreaming
 expr_stmt|;
 block|}
-DECL|method|DefaultUndertowHttpBinding (HeaderFilterStrategy headerFilterStrategy, Boolean transferException)
+DECL|method|DefaultUndertowHttpBinding (HeaderFilterStrategy headerFilterStrategy, Boolean transferException, Boolean muteException)
 specifier|public
 name|DefaultUndertowHttpBinding
 parameter_list|(
@@ -621,6 +620,9 @@ name|headerFilterStrategy
 parameter_list|,
 name|Boolean
 name|transferException
+parameter_list|,
+name|Boolean
+name|muteException
 parameter_list|)
 block|{
 name|this
@@ -634,6 +636,12 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+name|this
+operator|.
+name|muteException
+operator|=
+name|muteException
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
@@ -690,6 +698,34 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+DECL|method|isMuteException ()
+specifier|public
+name|Boolean
+name|isMuteException
+parameter_list|()
+block|{
+return|return
+name|muteException
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setMuteException (Boolean muteException)
+specifier|public
+name|void
+name|setMuteException
+parameter_list|(
+name|Boolean
+name|muteException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|muteException
+operator|=
+name|muteException
 expr_stmt|;
 block|}
 annotation|@
@@ -2293,6 +2329,10 @@ condition|(
 name|exception
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|isMuteException
+argument_list|()
 condition|)
 block|{
 if|if
@@ -2421,6 +2461,29 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// and mark the exception as failure handled, as we handled it by returning it as the response
+name|ExchangeHelper
+operator|.
+name|setFailureHandled
+argument_list|(
+name|message
+operator|.
+name|getExchange
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|exception
+operator|!=
+literal|null
+operator|&&
+name|isMuteException
+argument_list|()
+condition|)
+block|{
+comment|// mark the exception as failure handled, as we handled it by actively muting it
 name|ExchangeHelper
 operator|.
 name|setFailureHandled

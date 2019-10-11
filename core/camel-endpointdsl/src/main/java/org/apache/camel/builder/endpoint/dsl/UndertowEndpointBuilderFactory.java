@@ -359,6 +359,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|muteException ( boolean muteException)
+specifier|default
+name|UndertowEndpointConsumerBuilder
+name|muteException
+parameter_list|(
+name|boolean
+name|muteException
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"muteException"
+argument_list|,
+name|muteException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|muteException ( String muteException)
+specifier|default
+name|UndertowEndpointConsumerBuilder
+name|muteException
+parameter_list|(
+name|String
+name|muteException
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"muteException"
+argument_list|,
+name|muteException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Specifies whether to enable HTTP OPTIONS for this Servlet consumer.          * By default OPTIONS is turned off.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|optionsEnabled ( boolean optionsEnabled)
 specifier|default
