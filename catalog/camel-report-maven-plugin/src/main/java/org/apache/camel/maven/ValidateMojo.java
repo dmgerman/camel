@@ -498,7 +498,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * Whether to fail if invalid Camel endpoints was found. By default the plugin logs the errors at WARN level      *      */
+comment|/**      * Whether to fail if invalid Camel endpoints was found. By default the plugin logs the errors at WARN level      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -515,7 +515,7 @@ specifier|private
 name|boolean
 name|failOnError
 decl_stmt|;
-comment|/**      * Whether to log endpoint URIs which was un-parsable and therefore not possible to validate      *      */
+comment|/**      * Whether to log endpoint URIs which was un-parsable and therefore not possible to validate      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -532,7 +532,7 @@ specifier|private
 name|boolean
 name|logUnparseable
 decl_stmt|;
-comment|/**      * Whether to include Java files to be validated for invalid Camel endpoints      *      */
+comment|/**      * Whether to include Java files to be validated for invalid Camel endpoints      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -549,7 +549,7 @@ specifier|private
 name|boolean
 name|includeJava
 decl_stmt|;
-comment|/**      * Whether to include XML files to be validated for invalid Camel endpoints      *      */
+comment|/**      * Whether to include XML files to be validated for invalid Camel endpoints      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -566,7 +566,7 @@ specifier|private
 name|boolean
 name|includeXml
 decl_stmt|;
-comment|/**      * Whether to include test source code      *      */
+comment|/**      * Whether to include test source code      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -609,7 +609,7 @@ specifier|private
 name|String
 name|excludes
 decl_stmt|;
-comment|/**      * Whether to ignore unknown components      *      */
+comment|/**      * Whether to ignore unknown components      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -626,7 +626,7 @@ specifier|private
 name|boolean
 name|ignoreUnknownComponent
 decl_stmt|;
-comment|/**      * Whether to ignore incapable of parsing the endpoint uri      *      */
+comment|/**      * Whether to ignore incapable of parsing the endpoint uri      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -643,7 +643,7 @@ specifier|private
 name|boolean
 name|ignoreIncapable
 decl_stmt|;
-comment|/**      * Whether to ignore deprecated options being used in the endpoint uri      *      */
+comment|/**      * Whether to ignore deprecated options being used in the endpoint uri      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -660,7 +660,7 @@ specifier|private
 name|boolean
 name|ignoreDeprecated
 decl_stmt|;
-comment|/**      * Whether to ignore components that uses lenient properties. When this is true, then the uri validation is stricter      * but would fail on properties that are not part of the component but in the uri because of using lenient properties.      * For example using the HTTP components to provide query parameters in the endpoint uri.      *      */
+comment|/**      * Whether to ignore components that uses lenient properties. When this is true, then the uri validation is stricter      * but would fail on properties that are not part of the component but in the uri because of using lenient properties.      * For example using the HTTP components to provide query parameters in the endpoint uri.      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -677,7 +677,7 @@ specifier|private
 name|boolean
 name|ignoreLenientProperties
 decl_stmt|;
-comment|/**      * Whether to show all endpoints and simple expressions (both invalid and valid).      *      */
+comment|/**      * Whether to show all endpoints and simple expressions (both invalid and valid).      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -694,7 +694,7 @@ specifier|private
 name|boolean
 name|showAll
 decl_stmt|;
-comment|/**      * Whether to allow downloading Camel catalog version from the internet. This is needed if the project      * uses a different Camel version than this plugin is using by default.      *      */
+comment|/**      * Whether to allow downloading Camel catalog version from the internet. This is needed if the project      * uses a different Camel version than this plugin is using by default.      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -711,7 +711,7 @@ specifier|private
 name|boolean
 name|downloadVersion
 decl_stmt|;
-comment|/**      * Whether to validate for duplicate route ids. Route ids should be unique and if there are duplicates      * then Camel will fail to startup.      *      */
+comment|/**      * Whether to validate for duplicate route ids. Route ids should be unique and if there are duplicates      * then Camel will fail to startup.      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -728,7 +728,7 @@ specifier|private
 name|boolean
 name|duplicateRouteId
 decl_stmt|;
-comment|/**      * Whether to validate direct/seda endpoints sending to non existing consumers.      *      */
+comment|/**      * Whether to validate direct/seda endpoints sending to non existing consumers.      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -1702,6 +1702,12 @@ name|result
 operator|.
 name|isSuccess
 argument_list|()
+operator|&&
+operator|!
+name|result
+operator|.
+name|hasWarnings
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2049,6 +2055,8 @@ argument_list|(
 literal|false
 argument_list|,
 name|ignoreDeprecated
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|sb

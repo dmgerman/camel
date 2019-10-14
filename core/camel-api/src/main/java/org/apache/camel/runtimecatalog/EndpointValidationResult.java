@@ -119,12 +119,18 @@ specifier|private
 name|int
 name|errors
 decl_stmt|;
-comment|// general
+DECL|field|warnings
+specifier|private
+name|int
+name|warnings
+decl_stmt|;
+comment|// general error
 DECL|field|syntaxError
 specifier|private
 name|String
 name|syntaxError
 decl_stmt|;
+comment|// general warnings
 DECL|field|unknownComponent
 specifier|private
 name|String
@@ -335,6 +341,28 @@ return|return
 name|errors
 return|;
 block|}
+DECL|method|hasWarnings ()
+specifier|public
+name|boolean
+name|hasWarnings
+parameter_list|()
+block|{
+return|return
+name|warnings
+operator|>
+literal|0
+return|;
+block|}
+DECL|method|getNumberOfWarnings ()
+specifier|public
+name|int
+name|getNumberOfWarnings
+parameter_list|()
+block|{
+return|return
+name|warnings
+return|;
+block|}
 DECL|method|isSuccess ()
 specifier|public
 name|boolean
@@ -345,14 +373,6 @@ name|boolean
 name|ok
 init|=
 name|syntaxError
-operator|==
-literal|null
-operator|&&
-name|unknownComponent
-operator|==
-literal|null
-operator|&&
-name|incapable
 operator|==
 literal|null
 operator|&&
@@ -450,7 +470,7 @@ name|incapable
 operator|=
 name|uri
 expr_stmt|;
-name|errors
+name|warnings
 operator|++
 expr_stmt|;
 block|}
@@ -469,7 +489,7 @@ name|unknownComponent
 operator|=
 name|name
 expr_stmt|;
-name|errors
+name|warnings
 operator|++
 expr_stmt|;
 block|}
@@ -1460,11 +1480,13 @@ argument_list|(
 name|includeHeader
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * A human readable summary of the validation errors.      *      * @param includeHeader    whether to include a header      * @param ignoreDeprecated whether to ignore deprecated options in use as an error or not      * @return the summary, or<tt>null</tt> if no validation errors      */
-DECL|method|summaryErrorMessage (boolean includeHeader, boolean ignoreDeprecated)
+comment|/**      * A human readable summary of the validation errors.      *      * @param includeHeader    whether to include a header      * @param ignoreDeprecated whether to ignore deprecated options in use as an error or not      * @param includeWarnings  whether to include warnings as an error or not      * @return the summary, or<tt>null</tt> if no validation errors      */
+DECL|method|summaryErrorMessage (boolean includeHeader, boolean ignoreDeprecated, boolean includeWarnings)
 specifier|public
 name|String
 name|summaryErrorMessage
@@ -1474,6 +1496,9 @@ name|includeHeader
 parameter_list|,
 name|boolean
 name|ignoreDeprecated
+parameter_list|,
+name|boolean
+name|includeWarnings
 parameter_list|)
 block|{
 name|boolean
@@ -1500,13 +1525,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ok
+name|includeWarnings
 condition|)
 block|{
-return|return
-literal|null
-return|;
-block|}
 if|if
 condition|(
 name|incapable
@@ -1546,6 +1567,16 @@ return|return
 literal|"\tUnknown component: "
 operator|+
 name|unknownComponent
+return|;
+block|}
+block|}
+if|if
+condition|(
+name|ok
+condition|)
+block|{
+return|return
+literal|null
 return|;
 block|}
 comment|// for each invalid option build a reason message
