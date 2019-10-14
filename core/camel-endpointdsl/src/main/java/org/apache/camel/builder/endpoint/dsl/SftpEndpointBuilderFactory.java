@@ -3703,48 +3703,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
-DECL|method|bufferSize (int bufferSize)
-specifier|default
-name|AdvancedSftpEndpointConsumerBuilder
-name|bufferSize
-parameter_list|(
-name|int
-name|bufferSize
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bufferSize"
-argument_list|,
-name|bufferSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
-DECL|method|bufferSize (String bufferSize)
-specifier|default
-name|AdvancedSftpEndpointConsumerBuilder
-name|bufferSize
-parameter_list|(
-name|String
-name|bufferSize
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bufferSize"
-argument_list|,
-name|bufferSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies how many requests may be outstanding at any one time.          * Increasing this value may slightly improve file transfer speed but          * will increase memory usage.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|bulkRequests ( Integer bulkRequests)
 specifier|default
@@ -5618,48 +5576,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
-DECL|method|bufferSize (int bufferSize)
-specifier|default
-name|AdvancedSftpEndpointProducerBuilder
-name|bufferSize
-parameter_list|(
-name|int
-name|bufferSize
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bufferSize"
-argument_list|,
-name|bufferSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
-DECL|method|bufferSize (String bufferSize)
-specifier|default
-name|AdvancedSftpEndpointProducerBuilder
-name|bufferSize
-parameter_list|(
-name|String
-name|bufferSize
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bufferSize"
-argument_list|,
-name|bufferSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Specifies how many requests may be outstanding at any one time.          * Increasing this value may slightly improve file transfer speed but          * will increase memory usage.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: advanced          */
 DECL|method|bulkRequests ( Integer bulkRequests)
 specifier|default
@@ -6985,48 +6901,6 @@ argument_list|(
 literal|"bindAddress"
 argument_list|,
 name|bindAddress
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
-DECL|method|bufferSize (int bufferSize)
-specifier|default
-name|AdvancedSftpEndpointBuilder
-name|bufferSize
-parameter_list|(
-name|int
-name|bufferSize
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bufferSize"
-argument_list|,
-name|bufferSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
-DECL|method|bufferSize (String bufferSize)
-specifier|default
-name|AdvancedSftpEndpointBuilder
-name|bufferSize
-parameter_list|(
-name|String
-name|bufferSize
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bufferSize"
-argument_list|,
-name|bufferSize
 argument_list|)
 expr_stmt|;
 return|return

@@ -3313,48 +3313,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The receive (download) buffer size Used only by FTPClient.          *           * The option is a:<code>int</code> type.          *           * Group: consumer (advanced)          */
-DECL|method|receiveBufferSize ( int receiveBufferSize)
-specifier|default
-name|AdvancedFtpEndpointConsumerBuilder
-name|receiveBufferSize
-parameter_list|(
-name|int
-name|receiveBufferSize
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"receiveBufferSize"
-argument_list|,
-name|receiveBufferSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The receive (download) buffer size Used only by FTPClient.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer (advanced)          */
-DECL|method|receiveBufferSize ( String receiveBufferSize)
-specifier|default
-name|AdvancedFtpEndpointConsumerBuilder
-name|receiveBufferSize
-parameter_list|(
-name|String
-name|receiveBufferSize
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"receiveBufferSize"
-argument_list|,
-name|receiveBufferSize
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Whether to allow using LIST command when downloading a file. Default          * is true. In some use cases you may want to download a specific file          * and are not allowed to use the LIST command, and therefore you can          * set this option to false. Notice when using this option, then the          * specific file to download does not include meta-data information such          * as file size, timestamp, permissions etc, because those information          * is only possible to retrieve when LIST command is in use.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|useList (boolean useList)
 specifier|default
@@ -3502,7 +3460,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -3523,7 +3481,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFtpEndpointConsumerBuilder
@@ -5257,7 +5215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -5278,7 +5236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFtpEndpointProducerBuilder
@@ -6470,7 +6428,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFtpEndpointBuilder
@@ -6491,7 +6449,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFtpEndpointBuilder

@@ -3715,7 +3715,7 @@ return|return
 name|bufferSize
 return|;
 block|}
-comment|/**      * Write buffer sized in bytes.      */
+comment|/**      * Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files).      */
 DECL|method|setBufferSize (int bufferSize)
 specifier|public
 name|void

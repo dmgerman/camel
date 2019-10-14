@@ -286,26 +286,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
-operator|=
-literal|"32768"
-argument_list|,
-name|label
-operator|=
-literal|"consumer,advanced"
-argument_list|)
-DECL|field|receiveBufferSize
-specifier|private
-name|int
-name|receiveBufferSize
-init|=
-literal|32
-operator|*
-literal|1024
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
 name|label
 operator|=
 literal|"advanced"
@@ -927,33 +907,6 @@ operator|.
 name|soTimeout
 operator|=
 name|soTimeout
-expr_stmt|;
-block|}
-DECL|method|getReceiveBufferSize ()
-specifier|public
-name|int
-name|getReceiveBufferSize
-parameter_list|()
-block|{
-return|return
-name|receiveBufferSize
-return|;
-block|}
-comment|/**      * The receive (download) buffer size      *<p/>      * Used only by FTPClient      */
-DECL|method|setReceiveBufferSize (int receiveBufferSize)
-specifier|public
-name|void
-name|setReceiveBufferSize
-parameter_list|(
-name|int
-name|receiveBufferSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|receiveBufferSize
-operator|=
-name|receiveBufferSize
 expr_stmt|;
 block|}
 DECL|method|isThrowExceptionOnConnectFailed ()

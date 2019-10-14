@@ -3145,7 +3145,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFileEndpointConsumerBuilder
@@ -3166,7 +3166,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFileEndpointConsumerBuilder
@@ -4071,7 +4071,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFileEndpointProducerBuilder
@@ -4092,7 +4092,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFileEndpointProducerBuilder
@@ -4455,7 +4455,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option is a:<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (int bufferSize)
 specifier|default
 name|AdvancedFileEndpointBuilder
@@ -4476,7 +4476,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Write buffer sized in bytes.          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
+comment|/**          * Buffer size in bytes used for writing files (or in case of FTP for          * downloading and uploading files).          *           * The option will be converted to a<code>int</code> type.          *           * Group: advanced          */
 DECL|method|bufferSize (String bufferSize)
 specifier|default
 name|AdvancedFileEndpointBuilder

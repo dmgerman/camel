@@ -156,7 +156,7 @@ literal|"file"
 argument_list|,
 name|excludeProperties
 operator|=
-literal|"appendChars,binary,passiveMode,receiveBufferSize,siteCommand"
+literal|"appendChars,binary,passiveMode,bufferSize,siteCommand"
 argument_list|)
 DECL|class|SftpEndpoint
 specifier|public
