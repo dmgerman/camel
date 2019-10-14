@@ -74,18 +74,6 @@ name|debezium
 operator|.
 name|config
 operator|.
-name|CommonConnectorConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|debezium
-operator|.
-name|config
-operator|.
 name|Field
 import|;
 end_import
@@ -121,14 +109,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|ConnectorConfigFieldFactory
+DECL|class|ConnectorConfigFieldsFactory
 specifier|public
 class|class
-name|ConnectorConfigFieldFactory
+name|ConnectorConfigFieldsFactory
 block|{
-DECL|method|ConnectorConfigFieldFactory ()
+DECL|method|ConnectorConfigFieldsFactory ()
 specifier|private
-name|ConnectorConfigFieldFactory
+name|ConnectorConfigFieldsFactory
 parameter_list|()
 block|{     }
 DECL|method|createConnectorFieldsAsMap (final ConfigDef configDef, final Class<?> configClass, final Set<String> requiredFields, final Map<String, Object> overridenDefaultValues)
@@ -360,14 +348,6 @@ argument_list|>
 name|configClass
 parameter_list|)
 block|{
-if|if
-condition|(
-name|isConfigClassValid
-argument_list|(
-name|configClass
-argument_list|)
-condition|)
-block|{
 return|return
 name|Stream
 operator|.
@@ -397,7 +377,7 @@ argument_list|)
 operator|.
 name|map
 argument_list|(
-name|ConnectorConfigFieldFactory
+name|ConnectorConfigFieldsFactory
 operator|::
 name|retrieveDbzFieldWithReflection
 argument_list|)
@@ -409,79 +389,6 @@ operator|.
 name|toSet
 argument_list|()
 argument_list|)
-return|;
-block|}
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Class '%s' is not valid Debezium configuration class"
-argument_list|,
-name|configClass
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-argument_list|)
-throw|;
-block|}
-DECL|method|isConfigClassValid (final Class<?> configClass)
-specifier|private
-specifier|static
-name|boolean
-name|isConfigClassValid
-parameter_list|(
-specifier|final
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|configClass
-parameter_list|)
-block|{
-comment|// config class should be a subtype of CommonConnectorConfig
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|clazz
-init|=
-name|configClass
-decl_stmt|;
-while|while
-condition|(
-name|clazz
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|clazz
-operator|==
-name|CommonConnectorConfig
-operator|.
-name|class
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-name|clazz
-operator|=
-name|clazz
-operator|.
-name|getSuperclass
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 DECL|method|retrieveDbzFieldWithReflection (final java.lang.reflect.Field reflectionField)
