@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|eclipse
@@ -38,22 +48,18 @@ name|SslContextFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
 begin_class
 DECL|class|SecurityUtils
 specifier|public
+specifier|final
 class|class
 name|SecurityUtils
 block|{
+DECL|method|SecurityUtils ()
+specifier|private
+name|SecurityUtils
+parameter_list|()
+block|{     }
 DECL|method|adaptToIBMCipherNames (final SslContextFactory sslContextFactory)
 specifier|public
 specifier|static
