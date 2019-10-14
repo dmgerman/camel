@@ -431,8 +431,6 @@ name|UpdateDocComponentListMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|// TODO: update template link
-comment|// xref:activemq-component.adoc
 comment|/**      * The maven project.      */
 annotation|@
 name|Parameter
@@ -1267,6 +1265,8 @@ argument_list|,
 name|count
 argument_list|,
 name|deprecated
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1346,6 +1346,8 @@ argument_list|,
 name|count
 argument_list|,
 name|deprecated
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|updated
@@ -1633,6 +1635,8 @@ argument_list|,
 name|count
 argument_list|,
 name|deprecated
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1712,6 +1716,8 @@ argument_list|,
 name|count
 argument_list|,
 name|deprecated
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|updated
@@ -2122,6 +2128,8 @@ argument_list|,
 name|count
 argument_list|,
 name|deprecated
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -2201,6 +2209,8 @@ argument_list|,
 name|count
 argument_list|,
 name|deprecated
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|updated
@@ -2574,6 +2584,8 @@ argument_list|,
 name|count
 argument_list|,
 name|deprecated
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -2653,6 +2665,8 @@ argument_list|,
 name|count
 argument_list|,
 name|deprecated
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|updated
@@ -2850,7 +2864,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateComponents (List<ComponentModel> models, int artifacts, long deprecated)
+DECL|method|templateComponents (List<ComponentModel> models, int artifacts, long deprecated, boolean website)
 specifier|private
 name|String
 name|templateComponents
@@ -2866,6 +2880,9 @@ name|artifacts
 parameter_list|,
 name|long
 name|deprecated
+parameter_list|,
+name|boolean
+name|website
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -2874,7 +2891,34 @@ try|try
 block|{
 name|String
 name|template
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|website
+condition|)
+block|{
+name|template
+operator|=
+name|loadText
+argument_list|(
+name|UpdateReadmeMojo
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"website-components-list.mvel"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|template
+operator|=
 name|loadText
 argument_list|(
 name|UpdateReadmeMojo
@@ -2889,7 +2933,8 @@ argument_list|(
 literal|"readme-components.mvel"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|Map
 argument_list|<
 name|String
@@ -2979,7 +3024,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateOthers (List<OtherModel> models, int artifacts, long deprecated)
+DECL|method|templateOthers (List<OtherModel> models, int artifacts, long deprecated, boolean website)
 specifier|private
 name|String
 name|templateOthers
@@ -2995,6 +3040,9 @@ name|artifacts
 parameter_list|,
 name|long
 name|deprecated
+parameter_list|,
+name|boolean
+name|website
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -3003,7 +3051,34 @@ try|try
 block|{
 name|String
 name|template
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|website
+condition|)
+block|{
+name|template
+operator|=
+name|loadText
+argument_list|(
+name|UpdateReadmeMojo
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"website-others-list.mvel"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|template
+operator|=
 name|loadText
 argument_list|(
 name|UpdateReadmeMojo
@@ -3018,7 +3093,8 @@ argument_list|(
 literal|"readme-others.mvel"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|Map
 argument_list|<
 name|String
@@ -3108,7 +3184,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateDataFormats (List<DataFormatModel> models, int artifacts, long deprecated)
+DECL|method|templateDataFormats (List<DataFormatModel> models, int artifacts, long deprecated, boolean website)
 specifier|private
 name|String
 name|templateDataFormats
@@ -3124,6 +3200,9 @@ name|artifacts
 parameter_list|,
 name|long
 name|deprecated
+parameter_list|,
+name|boolean
+name|website
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -3132,7 +3211,34 @@ try|try
 block|{
 name|String
 name|template
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|website
+condition|)
+block|{
+name|template
+operator|=
+name|loadText
+argument_list|(
+name|UpdateReadmeMojo
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"website-dataformats-list.mvel"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|template
+operator|=
 name|loadText
 argument_list|(
 name|UpdateReadmeMojo
@@ -3147,7 +3253,8 @@ argument_list|(
 literal|"readme-dataformats.mvel"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|Map
 argument_list|<
 name|String
@@ -3237,7 +3344,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|templateLanguages (List<LanguageModel> models, int artifacts, long deprecated)
+DECL|method|templateLanguages (List<LanguageModel> models, int artifacts, long deprecated, boolean website)
 specifier|private
 name|String
 name|templateLanguages
@@ -3253,6 +3360,9 @@ name|artifacts
 parameter_list|,
 name|long
 name|deprecated
+parameter_list|,
+name|boolean
+name|website
 parameter_list|)
 throws|throws
 name|MojoExecutionException
@@ -3261,7 +3371,34 @@ try|try
 block|{
 name|String
 name|template
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|website
+condition|)
+block|{
+name|template
+operator|=
+name|loadText
+argument_list|(
+name|UpdateReadmeMojo
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"website-languages-list.mvel"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|template
+operator|=
 name|loadText
 argument_list|(
 name|UpdateReadmeMojo
@@ -3276,7 +3413,8 @@ argument_list|(
 literal|"readme-languages.mvel"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|Map
 argument_list|<
 name|String
