@@ -6305,6 +6305,41 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|baseDir
+operator|!=
+literal|null
+operator|&&
+name|baseDir
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+name|File
+name|target
+init|=
+operator|new
+name|File
+argument_list|(
+name|baseDir
+argument_list|,
+literal|"src/main/docs"
+argument_list|)
+decl_stmt|;
+name|findAsciiDocFilesRecursive
+argument_list|(
+name|target
+argument_list|,
+name|adocFiles
+argument_list|,
+operator|new
+name|CamelAsciiDocFileFilter
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|getLog
 argument_list|()
 operator|.
@@ -7116,7 +7151,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"\tMissing .adoc component documentation  : "
+literal|"\tMissing .adoc component documentation: "
 operator|+
 name|missing
 operator|.
@@ -7222,7 +7257,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"\tMissing .adoc dataformat documentation  : "
+literal|"\tMissing .adoc dataformat documentation: "
 operator|+
 name|missing
 operator|.
@@ -7312,7 +7347,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"\tMissing .adoc language documentation  : "
+literal|"\tMissing .adoc language documentation: "
 operator|+
 name|missing
 operator|.
@@ -7400,7 +7435,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"\tMissing .adoc other documentation  : "
+literal|"\tMissing .adoc other documentation: "
 operator|+
 name|missing
 operator|.
