@@ -416,6 +416,16 @@ name|template
 argument_list|)
 return|;
 block|}
+DECL|method|getWrapperFactory ()
+specifier|protected
+name|CallableStatementWrapperFactory
+name|getWrapperFactory
+parameter_list|()
+block|{
+return|return
+name|wrapperFactory
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -695,28 +705,6 @@ name|function
 operator|=
 name|function
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-DECL|method|getWrapperFactory ()
-specifier|public
-name|CallableStatementWrapperFactory
-name|getWrapperFactory
-parameter_list|()
-block|{
-return|return
-name|wrapperFactory
-return|;
 block|}
 block|}
 end_class
