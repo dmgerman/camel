@@ -592,7 +592,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-fhir/camel-fhir-component/src/main/docs"
+literal|"camel-fhir/camel-fhir-component/src/main/docs/"
 return|;
 block|}
 if|if
@@ -608,9 +608,9 @@ block|{
 return|return
 name|coreOnly
 condition|?
-literal|"src/main/docs"
+literal|"src/main/docs/"
 else|:
-literal|"../core/camel-core-engine/src/main/docs"
+literal|"../core/camel-core-engine/src/main/docs/"
 return|;
 block|}
 else|else
@@ -618,7 +618,7 @@ block|{
 return|return
 name|artifactId
 operator|+
-literal|"/src/main/docs"
+literal|"/src/main/docs/"
 return|;
 block|}
 block|}

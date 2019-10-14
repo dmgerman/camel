@@ -475,7 +475,7 @@ block|{
 return|return
 name|artifactId
 operator|+
-literal|"/src/main/docs"
+literal|"/src/main/docs/"
 return|;
 block|}
 DECL|method|getFirstVersionShort ()

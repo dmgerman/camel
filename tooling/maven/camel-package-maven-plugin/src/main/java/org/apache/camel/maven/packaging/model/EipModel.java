@@ -405,7 +405,7 @@ parameter_list|()
 block|{
 comment|// lets store EIP docs in a sub-folder as we have many EIPs
 return|return
-literal|"src/main/docs/eips"
+literal|"src/main/docs/eips/"
 return|;
 block|}
 block|}

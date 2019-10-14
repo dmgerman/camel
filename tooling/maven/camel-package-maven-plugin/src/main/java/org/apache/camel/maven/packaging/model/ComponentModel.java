@@ -793,7 +793,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-as2/camel-as2-component/src/main/docs"
+literal|"camel-as2/camel-as2-component/src/main/docs/"
 return|;
 block|}
 elseif|else
@@ -808,7 +808,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-box/camel-box-component/src/main/docs"
+literal|"camel-box/camel-box-component/src/main/docs/"
 return|;
 block|}
 elseif|else
@@ -823,7 +823,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-fhir/camel-fhir-component/src/main/docs"
+literal|"camel-fhir/camel-fhir-component/src/main/docs/"
 return|;
 block|}
 elseif|else
@@ -838,7 +838,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-linkedin/camel-linkedin-component/src/main/docs"
+literal|"camel-linkedin/camel-linkedin-component/src/main/docs/"
 return|;
 block|}
 elseif|else
@@ -853,7 +853,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-olingo2/camel-olingo2-component/src/main/docs"
+literal|"camel-olingo2/camel-olingo2-component/src/main/docs/"
 return|;
 block|}
 elseif|else
@@ -868,7 +868,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-olingo4/camel-olingo4-component/src/main/docs"
+literal|"camel-olingo4/camel-olingo4-component/src/main/docs/"
 return|;
 block|}
 elseif|else
@@ -883,7 +883,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-salesforce/camel-salesforce-component/src/main/docs"
+literal|"camel-salesforce/camel-salesforce-component/src/main/docs/"
 return|;
 block|}
 elseif|else
@@ -898,7 +898,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"camel-servicenow/camel-servicenow-component/src/main/docs"
+literal|"camel-servicenow/camel-servicenow-component/src/main/docs/"
 return|;
 block|}
 if|if
@@ -914,9 +914,9 @@ block|{
 return|return
 name|coreOnly
 condition|?
-literal|"src/main/docs"
+literal|"src/main/docs/"
 else|:
-literal|"../core/camel-core-engine/src/main/docs"
+literal|"../core/camel-core-engine/src/main/docs/"
 return|;
 block|}
 else|else
@@ -924,7 +924,7 @@ block|{
 return|return
 name|artifactId
 operator|+
-literal|"/src/main/docs"
+literal|"/src/main/docs/"
 return|;
 block|}
 block|}
