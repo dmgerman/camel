@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|TestEmbeddedDebeziumConfiguration
 extends|extends
-name|EmbeddedDebeziumConfiguration
+name|MySqlConnectorEmbeddedDebeziumConfiguration
 block|{
 DECL|field|testField
 specifier|private

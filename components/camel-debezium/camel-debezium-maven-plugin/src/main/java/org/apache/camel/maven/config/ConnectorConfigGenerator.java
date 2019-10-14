@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.maven
+DECL|package|org.apache.camel.maven.config
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|camel
 operator|.
 name|maven
+operator|.
+name|config
 package|;
 end_package
 

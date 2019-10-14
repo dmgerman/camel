@@ -352,7 +352,7 @@ argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
-name|setDatabaseHistoryFileName
+name|setDatabaseHistoryFileFilename
 argument_list|(
 literal|"/database_history/file"
 argument_list|)
@@ -370,7 +370,7 @@ argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
-name|setDatabaseHostName
+name|setDatabaseHostname
 argument_list|(
 literal|"localhost"
 argument_list|)
@@ -426,7 +426,7 @@ argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
-name|setDatabaseHostName
+name|setDatabaseHostname
 argument_list|(
 literal|"localhost"
 argument_list|)
@@ -461,7 +461,7 @@ argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
-name|setDatabaseHistoryFileName
+name|setDatabaseHistoryFileFilename
 argument_list|(
 literal|"/database_history/file"
 argument_list|)
@@ -509,7 +509,7 @@ literal|"localhost"
 argument_list|,
 name|configuration
 operator|.
-name|getDatabaseHostName
+name|getDatabaseHostname
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -559,7 +559,7 @@ literal|"/database_history/file"
 argument_list|,
 name|configuration
 operator|.
-name|getDatabaseHistoryFileName
+name|getDatabaseHistoryFileFilename
 argument_list|()
 argument_list|)
 expr_stmt|;
