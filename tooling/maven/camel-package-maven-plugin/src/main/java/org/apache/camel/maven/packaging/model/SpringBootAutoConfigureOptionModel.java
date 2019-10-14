@@ -333,21 +333,6 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: dirty hack for AUTO_ACKNOWLEDGE which we should wrap
-if|if
-condition|(
-literal|"AUTO_ACKNOWLEDGE"
-operator|.
-name|equals
-argument_list|(
-name|text
-argument_list|)
-condition|)
-block|{
-return|return
-literal|"AUTO_ ACKNOWLEDGE"
-return|;
-block|}
 return|return
 name|text
 return|;
