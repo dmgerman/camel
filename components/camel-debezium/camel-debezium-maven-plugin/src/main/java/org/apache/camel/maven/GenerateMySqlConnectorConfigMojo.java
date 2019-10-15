@@ -170,10 +170,10 @@ name|LifecyclePhase
 operator|.
 name|GENERATE_SOURCES
 argument_list|)
-DECL|class|GenerateMySqlConnectorConfig
+DECL|class|GenerateMySqlConnectorConfigMojo
 specifier|public
 class|class
-name|GenerateMySqlConnectorConfig
+name|GenerateMySqlConnectorConfigMojo
 extends|extends
 name|AbstractGenerateConnectorConfig
 block|{

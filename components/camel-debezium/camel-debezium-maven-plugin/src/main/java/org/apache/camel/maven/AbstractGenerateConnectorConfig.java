@@ -323,6 +323,23 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|setGeneratedSrcDir (final File generatedSrcDir)
+specifier|public
+name|void
+name|setGeneratedSrcDir
+parameter_list|(
+specifier|final
+name|File
+name|generatedSrcDir
+parameter_list|)
+block|{
+name|this
+operator|.
+name|generatedSrcDir
+operator|=
+name|generatedSrcDir
+expr_stmt|;
+block|}
 DECL|method|getRequiredFields ()
 specifier|protected
 specifier|abstract

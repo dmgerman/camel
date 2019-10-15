@@ -156,10 +156,10 @@ name|LifecyclePhase
 operator|.
 name|GENERATE_SOURCES
 argument_list|)
-DECL|class|GeneratePostgresConnectorConfig
+DECL|class|GeneratePostgresConnectorConfigMojo
 specifier|public
 class|class
-name|GeneratePostgresConnectorConfig
+name|GeneratePostgresConnectorConfigMojo
 extends|extends
 name|AbstractGenerateConnectorConfig
 block|{

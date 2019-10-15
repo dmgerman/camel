@@ -741,7 +741,7 @@ name|printStreams
 operator|.
 name|println
 argument_list|(
-name|toString
+name|printClassAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -750,6 +750,21 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|printClassAsString ()
+specifier|public
+name|String
+name|printClassAsString
+parameter_list|()
+block|{
+return|return
+name|javaClass
+operator|.
+name|printClass
+argument_list|(
+literal|true
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
@@ -760,12 +775,8 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|javaClass
-operator|.
-name|printClass
-argument_list|(
-literal|true
-argument_list|)
+name|printClassAsString
+argument_list|()
 return|;
 block|}
 DECL|method|isConfigClassValid (final Class<?> configClass)
