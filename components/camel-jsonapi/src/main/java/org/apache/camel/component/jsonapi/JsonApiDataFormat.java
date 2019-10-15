@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JsonApi {@link org.apache.camel.spi.DataFormat} for marshal/unmarshal  */
+comment|/**  * JSonApi data format for marshal/unmarshal  */
 end_comment
 
 begin_class

@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * JsonApi data format is used for marshal and unmarshal Json API object.  */
+comment|/**  * JSonApi data format is used for marshal and unmarshal Json API object.  */
 end_comment
 
 begin_class
@@ -120,7 +120,7 @@ literal|"dataformat,transformation"
 argument_list|,
 name|title
 operator|=
-literal|"jsonApi"
+literal|"JSonApi"
 argument_list|)
 annotation|@
 name|XmlRootElement
