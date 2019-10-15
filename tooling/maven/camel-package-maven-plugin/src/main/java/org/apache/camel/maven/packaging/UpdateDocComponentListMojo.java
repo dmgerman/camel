@@ -549,7 +549,7 @@ name|Parameter
 argument_list|(
 name|defaultValue
 operator|=
-literal|"${project.directory}/../../../docs/components/modules/ROOT/nav.adoc"
+literal|"${project.directory}/../../../docs/components/modules/ROOT/pages/index.adoc"
 argument_list|)
 DECL|field|websiteDocFile
 specifier|protected
