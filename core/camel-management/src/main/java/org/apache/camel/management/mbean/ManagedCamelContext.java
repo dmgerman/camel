@@ -2378,6 +2378,18 @@ decl_stmt|;
 try|try
 block|{
 comment|// add will remove existing route first
+name|RoutesDefinition
+name|routes
+init|=
+name|ModelHelper
+operator|.
+name|loadRoutesDefinition
+argument_list|(
+name|context
+argument_list|,
+name|is
+argument_list|)
+decl_stmt|;
 name|context
 operator|.
 name|getExtension
@@ -2389,7 +2401,10 @@ argument_list|)
 operator|.
 name|addRouteDefinitions
 argument_list|(
-name|is
+name|routes
+operator|.
+name|getRoutes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
