@@ -364,27 +364,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of kerberos nodes (e.g.          * srv11.example.com:8021,srv12.example.com:8021) - see kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosNamedNodes ( String kerberosNamedNodes)
-specifier|default
-name|HdfsEndpointConsumerBuilder
-name|kerberosNamedNodes
-parameter_list|(
-name|String
-name|kerberosNamedNodes
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosNamedNodes"
-argument_list|,
-name|kerberosNamedNodes
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosUsername ( String kerberosUsername)
 specifier|default
@@ -442,6 +421,27 @@ argument_list|(
 literal|"keyType"
 argument_list|,
 name|keyType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * A comma separated list of named nodes (e.g.          * srv11.example.com:8020,srv12.example.com:8020).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|namedNodes (String namedNodes)
+specifier|default
+name|HdfsEndpointConsumerBuilder
+name|namedNodes
+parameter_list|(
+name|String
+name|namedNodes
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"namedNodes"
+argument_list|,
+name|namedNodes
 argument_list|)
 expr_stmt|;
 return|return
@@ -1967,27 +1967,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of kerberos nodes (e.g.          * srv11.example.com:8021,srv12.example.com:8021) - see kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosNamedNodes ( String kerberosNamedNodes)
-specifier|default
-name|HdfsEndpointProducerBuilder
-name|kerberosNamedNodes
-parameter_list|(
-name|String
-name|kerberosNamedNodes
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosNamedNodes"
-argument_list|,
-name|kerberosNamedNodes
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosUsername ( String kerberosUsername)
 specifier|default
@@ -2045,6 +2024,27 @@ argument_list|(
 literal|"keyType"
 argument_list|,
 name|keyType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * A comma separated list of named nodes (e.g.          * srv11.example.com:8020,srv12.example.com:8020).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|namedNodes (String namedNodes)
+specifier|default
+name|HdfsEndpointProducerBuilder
+name|namedNodes
+parameter_list|(
+name|String
+name|namedNodes
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"namedNodes"
+argument_list|,
+name|namedNodes
 argument_list|)
 expr_stmt|;
 return|return
@@ -2895,27 +2895,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * A comma separated list of kerberos nodes (e.g.          * srv11.example.com:8021,srv12.example.com:8021) - see kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosNamedNodes (String kerberosNamedNodes)
-specifier|default
-name|HdfsEndpointBuilder
-name|kerberosNamedNodes
-parameter_list|(
-name|String
-name|kerberosNamedNodes
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosNamedNodes"
-argument_list|,
-name|kerberosNamedNodes
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|kerberosUsername (String kerberosUsername)
 specifier|default
@@ -2973,6 +2952,27 @@ argument_list|(
 literal|"keyType"
 argument_list|,
 name|keyType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * A comma separated list of named nodes (e.g.          * srv11.example.com:8020,srv12.example.com:8020).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
+DECL|method|namedNodes (String namedNodes)
+specifier|default
+name|HdfsEndpointBuilder
+name|namedNodes
+parameter_list|(
+name|String
+name|namedNodes
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"namedNodes"
+argument_list|,
+name|namedNodes
 argument_list|)
 expr_stmt|;
 return|return

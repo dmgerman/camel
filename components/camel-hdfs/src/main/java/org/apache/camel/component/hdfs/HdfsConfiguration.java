@@ -633,18 +633,23 @@ name|owner
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|kerberosNamedNodes
+DECL|field|namedNodes
 specifier|private
 name|String
-name|kerberosNamedNodes
+name|namedNodes
 decl_stmt|;
-DECL|field|kerberosNamedNodeList
+DECL|field|namedNodeList
 specifier|private
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|kerberosNamedNodeList
+name|namedNodeList
+init|=
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1263,7 +1268,7 @@ name|hdfsSettings
 argument_list|,
 literal|"splitStrategy"
 argument_list|,
-name|kerberosNamedNodes
+name|splitStrategy
 argument_list|)
 expr_stmt|;
 if|if
@@ -1378,13 +1383,13 @@ return|return
 name|strategies
 return|;
 block|}
-DECL|method|getKerberosNamedNodeList (Map<String, Object> hdfsSettings)
+DECL|method|getNamedNodeList (Map<String, Object> hdfsSettings)
 specifier|private
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|getKerberosNamedNodeList
+name|getNamedNodeList
 parameter_list|(
 name|Map
 argument_list|<
@@ -1395,22 +1400,22 @@ argument_list|>
 name|hdfsSettings
 parameter_list|)
 block|{
-name|kerberosNamedNodes
+name|namedNodes
 operator|=
 name|getString
 argument_list|(
 name|hdfsSettings
 argument_list|,
-literal|"kerberosNamedNodes"
+literal|"namedNodes"
 argument_list|,
-name|kerberosNamedNodes
+name|namedNodes
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|isNotEmpty
 argument_list|(
-name|kerberosNamedNodes
+name|namedNodes
 argument_list|)
 condition|)
 block|{
@@ -1419,7 +1424,7 @@ name|Arrays
 operator|.
 name|stream
 argument_list|(
-name|kerberosNamedNodes
+name|namedNodes
 operator|.
 name|split
 argument_list|(
@@ -1780,9 +1785,9 @@ argument_list|(
 name|hdfsSettings
 argument_list|)
 expr_stmt|;
-name|kerberosNamedNodeList
+name|namedNodeList
 operator|=
-name|getKerberosNamedNodeList
+name|getNamedNodeList
 argument_list|(
 name|hdfsSettings
 argument_list|)
@@ -2484,44 +2489,44 @@ operator|=
 name|owner
 expr_stmt|;
 block|}
-DECL|method|getKerberosNamedNodes ()
+DECL|method|getNamedNodes ()
 specifier|public
 name|String
-name|getKerberosNamedNodes
+name|getNamedNodes
 parameter_list|()
 block|{
 return|return
-name|kerberosNamedNodes
+name|namedNodes
 return|;
 block|}
-comment|/**      * A comma separated list of kerberos nodes      * (e.g. srv11.example.com:8021,srv12.example.com:8021) - see kerb5.conf file (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html)      */
-DECL|method|setKerberosNamedNodes (String kerberosNamedNodes)
+comment|/**      * A comma separated list of named nodes (e.g. srv11.example.com:8020,srv12.example.com:8020)      */
+DECL|method|setNamedNodes (String namedNodes)
 specifier|public
 name|void
-name|setKerberosNamedNodes
+name|setNamedNodes
 parameter_list|(
 name|String
-name|kerberosNamedNodes
+name|namedNodes
 parameter_list|)
 block|{
 name|this
 operator|.
-name|kerberosNamedNodes
+name|namedNodes
 operator|=
-name|kerberosNamedNodes
+name|namedNodes
 expr_stmt|;
 block|}
-DECL|method|getKerberosNamedNodeList ()
+DECL|method|getNamedNodeList ()
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|getKerberosNamedNodeList
+name|getNamedNodeList
 parameter_list|()
 block|{
 return|return
-name|kerberosNamedNodeList
+name|namedNodeList
 return|;
 block|}
 DECL|method|getKerberosConfigFileLocation ()
@@ -2614,7 +2619,7 @@ block|{
 return|return
 name|isNotEmpty
 argument_list|(
-name|kerberosNamedNodes
+name|namedNodes
 argument_list|)
 operator|&&
 name|isNotEmpty

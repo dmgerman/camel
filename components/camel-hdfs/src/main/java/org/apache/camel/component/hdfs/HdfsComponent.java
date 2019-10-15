@@ -78,7 +78,7 @@ name|hdfs
 operator|.
 name|kerberos
 operator|.
-name|KerberosConfiguration
+name|KerberosConfigurationBuilder
 import|;
 end_import
 
@@ -174,15 +174,6 @@ name|HdfsComponent
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|KERBEROS_5_SYS_ENV
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|KERBEROS_5_SYS_ENV
-init|=
-literal|"java.security.krb5.conf"
 decl_stmt|;
 DECL|method|HdfsComponent ()
 specifier|public
@@ -411,7 +402,7 @@ name|String
 name|kerberosConfigFileLocation
 parameter_list|)
 block|{
-name|KerberosConfiguration
+name|KerberosConfigurationBuilder
 operator|.
 name|setKerberosConfigFile
 argument_list|(
