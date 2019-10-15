@@ -1123,8 +1123,6 @@ name|ecPrivateKey
 operator|.
 name|getParams
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ECPoint
