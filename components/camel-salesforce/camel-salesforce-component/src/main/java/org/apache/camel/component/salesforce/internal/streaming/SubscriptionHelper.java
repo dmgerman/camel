@@ -2516,7 +2516,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Aborting subscribe on interrupt!"
 argument_list|,
