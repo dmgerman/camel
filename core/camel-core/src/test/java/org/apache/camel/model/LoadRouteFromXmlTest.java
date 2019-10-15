@@ -164,11 +164,26 @@ argument_list|(
 literal|"barRoute.xml"
 argument_list|)
 decl_stmt|;
+name|RoutesDefinition
+name|routes
+init|=
+name|ModelHelper
+operator|.
+name|loadRoutesDefinition
+argument_list|(
+name|context
+argument_list|,
+name|is
+argument_list|)
+decl_stmt|;
 name|context
 operator|.
 name|addRouteDefinitions
 argument_list|(
-name|is
+name|routes
+operator|.
+name|getRoutes
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
