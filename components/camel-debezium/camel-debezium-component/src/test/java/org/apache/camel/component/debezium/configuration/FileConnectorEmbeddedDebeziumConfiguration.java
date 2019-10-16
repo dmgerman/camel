@@ -66,7 +66,7 @@ specifier|public
 class|class
 name|FileConnectorEmbeddedDebeziumConfiguration
 extends|extends
-name|MySqlConnectorEmbeddedDebeziumConfiguration
+name|EmbeddedDebeziumConfiguration
 block|{
 DECL|field|testFilePath
 specifier|private
