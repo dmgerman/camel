@@ -353,7 +353,7 @@ literal|200
 argument_list|,
 name|ret
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -372,7 +372,7 @@ literal|"test"
 argument_list|,
 name|ret
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -402,7 +402,7 @@ literal|200
 argument_list|,
 name|ret
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -421,7 +421,7 @@ literal|"test"
 argument_list|,
 name|ret
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -502,7 +502,7 @@ literal|404
 argument_list|,
 name|ret
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -521,7 +521,7 @@ literal|"No matching path found"
 argument_list|,
 name|ret
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -551,7 +551,7 @@ literal|200
 argument_list|,
 name|ret
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getHeader
@@ -570,7 +570,7 @@ literal|"test"
 argument_list|,
 name|ret
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|getBody
@@ -622,6 +622,14 @@ argument_list|(
 literal|"route-foo"
 argument_list|)
 operator|.
+name|setBody
+argument_list|()
+operator|.
+name|constant
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:foo"
@@ -635,6 +643,14 @@ operator|.
 name|id
 argument_list|(
 literal|"route-bar"
+argument_list|)
+operator|.
+name|setBody
+argument_list|()
+operator|.
+name|constant
+argument_list|(
+literal|"test"
 argument_list|)
 operator|.
 name|to
