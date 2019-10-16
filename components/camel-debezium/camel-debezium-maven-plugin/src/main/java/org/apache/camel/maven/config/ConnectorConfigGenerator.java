@@ -303,6 +303,15 @@ name|PARENT_TYPE
 init|=
 literal|"EmbeddedDebeziumConfiguration"
 decl_stmt|;
+DECL|field|CONNECTOR_SUFFIX
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CONNECTOR_SUFFIX
+init|=
+literal|"ConnectorConfig"
+decl_stmt|;
 DECL|field|connector
 specifier|private
 specifier|final
@@ -657,7 +666,7 @@ argument_list|()
 operator|.
 name|replace
 argument_list|(
-literal|"ConnectorConfig"
+name|CONNECTOR_SUFFIX
 argument_list|,
 literal|""
 argument_list|)
