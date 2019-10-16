@@ -507,6 +507,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|muteException ( boolean muteException)
+specifier|default
+name|AtmosphereWebsocketEndpointConsumerBuilder
+name|muteException
+parameter_list|(
+name|boolean
+name|muteException
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"muteException"
+argument_list|,
+name|muteException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|muteException ( String muteException)
+specifier|default
+name|AtmosphereWebsocketEndpointConsumerBuilder
+name|muteException
+parameter_list|(
+name|String
+name|muteException
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"muteException"
+argument_list|,
+name|muteException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * To use a custom buffer size on the javax.servlet.ServletResponse.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: consumer          */
 DECL|method|responseBufferSize ( Integer responseBufferSize)
 specifier|default
