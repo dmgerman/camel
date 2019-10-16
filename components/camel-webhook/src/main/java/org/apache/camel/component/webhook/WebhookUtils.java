@@ -107,8 +107,6 @@ literal|"netty-http"
 block|,
 literal|"jetty"
 block|,
-literal|"restlet"
-block|,
 literal|"servlet"
 block|,
 literal|"undertow"

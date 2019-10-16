@@ -299,7 +299,7 @@ return|return
 name|component
 return|;
 block|}
-comment|/**      * Sets the name of the Camel component to use as the REST consumer      *      * @param componentName the name of the component (such as restlet, spark-rest, etc.)      */
+comment|/**      * Sets the name of the Camel component to use as the REST consumer      *      * @param componentName the name of the component (such as netty-http, jetty, servlet, undertow, etc.)      */
 DECL|method|setComponent (String componentName)
 specifier|public
 name|void
@@ -355,7 +355,7 @@ return|return
 name|producerComponent
 return|;
 block|}
-comment|/**      * Sets the name of the Camel component to use as the REST producer      *      * @param componentName the name of the component (such as restlet, jetty, etc.)      */
+comment|/**      * Sets the name of the Camel component to use as the REST producer      *      * @param componentName the name of the component (such as http, netty-http, undertow, etc.)      */
 DECL|method|setProducerComponent (String componentName)
 specifier|public
 name|void

@@ -459,8 +459,6 @@ literal|"undertow"
 block|,
 literal|"jetty"
 block|,
-literal|"restlet"
-block|,
 literal|"netty-http"
 block|,
 literal|"spark-java"

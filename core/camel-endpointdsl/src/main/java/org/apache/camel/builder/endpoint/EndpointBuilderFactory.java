@@ -576,8 +576,6 @@ name|RestEndpointBuilderFactory
 extends|,
 name|RestSwaggerEndpointBuilderFactory
 extends|,
-name|RestletEndpointBuilderFactory
-extends|,
 name|RssEndpointBuilderFactory
 extends|,
 name|S3EndpointBuilderFactory
