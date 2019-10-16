@@ -144,6 +144,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|Any23DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|AvroDataFormat
 import|;
 end_import
@@ -771,7 +787,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.impl.transformer.DataFormatTransformer}  * which leverages {@link org.apache.camel.spi.DataFormat} to perform  * transformation. One of the DataFormat 'ref' or DataFormat 'type' needs to be  * specified. {@see TransformerDefinition} {@see DataFormatTransformer}  */
+comment|/**  * Represents a {@link org.apache.camel.impl.transformer.DataFormatTransformer}  * which leverages {@link org.apache.camel.spi.DataFormat} to perform  * transformation. One of the DataFormat 'ref' or DataFormat 'type' needs to be  * specified.  */
 end_comment
 
 begin_class
@@ -780,7 +796,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"transformation"
+literal|"dataformat,transformation"
 argument_list|)
 annotation|@
 name|XmlType
@@ -816,11 +832,11 @@ literal|false
 argument_list|,
 name|name
 operator|=
-literal|"asn1"
+literal|"any23"
 argument_list|,
 name|type
 operator|=
-name|ASN1DataFormat
+name|Any23DataFormat
 operator|.
 name|class
 argument_list|)
