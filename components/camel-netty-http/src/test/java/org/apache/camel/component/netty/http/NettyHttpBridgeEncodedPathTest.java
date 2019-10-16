@@ -539,6 +539,14 @@ argument_list|(
 literal|"Using NettyTestRouteD route: CamelHttpPath=[${header.CamelHttpPath}], CamelHttpUri=[${header.CamelHttpUri}]"
 argument_list|)
 operator|.
+name|setBody
+argument_list|(
+name|constant
+argument_list|(
+literal|"test"
+argument_list|)
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:encodedPath"
