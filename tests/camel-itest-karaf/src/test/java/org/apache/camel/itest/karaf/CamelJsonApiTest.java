@@ -99,7 +99,7 @@ name|testDataFormat
 argument_list|(
 name|COMPONENT
 argument_list|,
-literal|"json-api"
+literal|"jsonApi"
 argument_list|)
 expr_stmt|;
 block|}
