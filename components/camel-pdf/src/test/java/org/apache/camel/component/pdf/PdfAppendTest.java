@@ -442,7 +442,7 @@ argument_list|()
 expr_stmt|;
 name|contentStream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|20
 argument_list|,
@@ -451,7 +451,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 name|originalText
 argument_list|)
@@ -704,7 +704,7 @@ argument_list|()
 expr_stmt|;
 name|contentStream
 operator|.
-name|moveTextPositionByAmount
+name|newLineAtOffset
 argument_list|(
 literal|20
 argument_list|,
@@ -713,7 +713,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|drawString
+name|showText
 argument_list|(
 name|originalText
 argument_list|)

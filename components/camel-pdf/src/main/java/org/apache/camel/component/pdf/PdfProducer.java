@@ -439,7 +439,7 @@ block|}
 comment|// propagate headers
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setHeaders
@@ -456,7 +456,7 @@ expr_stmt|;
 comment|// and set result
 name|exchange
 operator|.
-name|getOut
+name|getMessage
 argument_list|()
 operator|.
 name|setBody
