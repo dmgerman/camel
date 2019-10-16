@@ -981,6 +981,23 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error closing streams. This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|cleanUpTempFile
@@ -1002,23 +1019,6 @@ operator|+
 name|tempFile
 operator|+
 literal|". This exception will be ignored."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Error closing streams. This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
