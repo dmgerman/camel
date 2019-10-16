@@ -424,6 +424,16 @@ name|isTransferException
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|binding
+operator|.
+name|setMuteException
+argument_list|(
+name|isMuteException
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getComponent

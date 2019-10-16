@@ -418,6 +418,21 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace."
+argument_list|)
+DECL|field|muteException
+name|boolean
+name|muteException
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer"
 argument_list|,
 name|defaultValue
@@ -1207,6 +1222,14 @@ name|isTransferException
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|httpBinding
+operator|.
+name|setMuteException
+argument_list|(
+name|isMuteException
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getComponent
@@ -1600,6 +1623,16 @@ return|return
 name|transferException
 return|;
 block|}
+DECL|method|isMuteException ()
+specifier|public
+name|boolean
+name|isMuteException
+parameter_list|()
+block|{
+return|return
+name|muteException
+return|;
+block|}
 DECL|method|isConnectionClose ()
 specifier|public
 name|boolean
@@ -1642,6 +1675,23 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+comment|/**      * If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.      */
+DECL|method|setMuteException (boolean muteException)
+specifier|public
+name|void
+name|setMuteException
+parameter_list|(
+name|boolean
+name|muteException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|muteException
+operator|=
+name|muteException
 expr_stmt|;
 block|}
 DECL|method|isTraceEnabled ()

@@ -206,6 +206,12 @@ name|boolean
 name|isTransferException
 parameter_list|()
 function_decl|;
+comment|/**      * If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.      */
+DECL|method|isMuteException ()
+name|boolean
+name|isMuteException
+parameter_list|()
+function_decl|;
 comment|/**      * Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      */
 DECL|method|isAllowJavaSerializedObject ()
 name|boolean
@@ -252,6 +258,15 @@ name|setTransferException
 parameter_list|(
 name|boolean
 name|transferException
+parameter_list|)
+function_decl|;
+comment|/**      * If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.      */
+DECL|method|setMuteException (boolean muteException)
+name|void
+name|setMuteException
+parameter_list|(
+name|boolean
+name|muteException
 parameter_list|)
 function_decl|;
 comment|/**      * Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      *      * @param allowJavaSerializedObject<tt>true</tt> to allow serializing java objects      */
