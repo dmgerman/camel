@@ -676,7 +676,9 @@ DECL|method|HdfsConfiguration ()
 specifier|public
 name|HdfsConfiguration
 parameter_list|()
-block|{     }
+block|{
+comment|// default constructor
+block|}
 DECL|method|getBoolean (Map<String, Object> hdfsSettings, String param, Boolean dflt)
 specifier|private
 name|Boolean
@@ -2529,6 +2531,21 @@ return|return
 name|namedNodeList
 return|;
 block|}
+DECL|method|hasClusterConfiguration ()
+specifier|public
+name|boolean
+name|hasClusterConfiguration
+parameter_list|()
+block|{
+return|return
+operator|!
+name|getNamedNodeList
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 DECL|method|getKerberosConfigFileLocation ()
 specifier|public
 name|String
@@ -2619,11 +2636,6 @@ block|{
 return|return
 name|isNotEmpty
 argument_list|(
-name|namedNodes
-argument_list|)
-operator|&&
-name|isNotEmpty
-argument_list|(
 name|kerberosConfigFileLocation
 argument_list|)
 operator|&&
@@ -2635,6 +2647,32 @@ operator|&&
 name|isNotEmpty
 argument_list|(
 name|kerberosKeytabLocation
+argument_list|)
+return|;
+block|}
+comment|/**      * Get the label of the hdfs file system like: HOST_NAME:PORT/PATH      *      * @param path      * @return HOST_NAME:PORT/PATH      */
+DECL|method|getFileSystemLabel (String path)
+name|String
+name|getFileSystemLabel
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%s:%s/%s"
+argument_list|,
+name|getHostName
+argument_list|()
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|,
+name|path
 argument_list|)
 return|;
 block|}

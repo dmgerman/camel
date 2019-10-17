@@ -190,8 +190,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -247,8 +246,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -442,8 +440,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -590,8 +587,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{

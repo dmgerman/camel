@@ -533,8 +533,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -588,8 +587,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -764,8 +762,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -775,11 +772,7 @@ specifier|final
 name|File
 name|rootdir
 init|=
-operator|new
-name|File
-argument_list|(
-literal|"."
-argument_list|)
+name|CWD
 decl_stmt|;
 specifier|final
 name|File
@@ -1081,8 +1074,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -1261,8 +1253,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -1475,8 +1466,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -1614,8 +1604,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -1935,8 +1924,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -2105,8 +2093,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -2299,8 +2286,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -2474,8 +2460,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -2649,8 +2634,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -2824,8 +2808,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -2999,8 +2982,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -3186,8 +3168,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -3361,8 +3342,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{
@@ -3559,8 +3539,7 @@ name|Exception
 block|{
 if|if
 condition|(
-operator|!
-name|canTest
+name|skipTest
 argument_list|()
 condition|)
 block|{

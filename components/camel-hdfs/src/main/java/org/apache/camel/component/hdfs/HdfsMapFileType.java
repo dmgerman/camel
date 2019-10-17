@@ -532,7 +532,7 @@ name|Writer
 argument_list|(
 name|hdfsInfo
 operator|.
-name|getConf
+name|getConfiguration
 argument_list|()
 argument_list|,
 operator|new
@@ -656,7 +656,7 @@ argument_list|)
 argument_list|,
 name|hdfsInfo
 operator|.
-name|getConf
+name|getConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;

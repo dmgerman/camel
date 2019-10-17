@@ -134,6 +134,11 @@ operator|new
 name|Configuration
 argument_list|()
 decl_stmt|;
+name|String
+name|haClusterName
+init|=
+literal|"haCluster"
+decl_stmt|;
 name|List
 argument_list|<
 name|String
@@ -160,6 +165,8 @@ operator|.
 name|withClusterConfiguration
 argument_list|(
 name|configuration
+argument_list|,
+name|haClusterName
 argument_list|,
 name|namedNodes
 argument_list|,
@@ -205,7 +212,7 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-literal|"hfdsNamedService"
+literal|"haCluster"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -215,7 +222,7 @@ name|configuration
 operator|.
 name|get
 argument_list|(
-literal|"dfs.ha.namenodes.hfdsNamedService"
+literal|"dfs.ha.namenodes.haCluster"
 argument_list|)
 argument_list|,
 name|is
@@ -230,7 +237,7 @@ name|configuration
 operator|.
 name|get
 argument_list|(
-literal|"dfs.namenode.rpc-address.hfdsNamedService.kerb_node_01_example_com"
+literal|"dfs.namenode.rpc-address.haCluster.kerb_node_01_example_com"
 argument_list|)
 argument_list|,
 name|is
@@ -245,7 +252,7 @@ name|configuration
 operator|.
 name|get
 argument_list|(
-literal|"dfs.namenode.rpc-address.hfdsNamedService.kerb_node_02_example_com"
+literal|"dfs.namenode.rpc-address.haCluster.kerb_node_02_example_com"
 argument_list|)
 argument_list|,
 name|is
@@ -260,7 +267,7 @@ name|configuration
 operator|.
 name|get
 argument_list|(
-literal|"dfs.client.failover.proxy.provider.hfdsNamedService"
+literal|"dfs.client.failover.proxy.provider.haCluster"
 argument_list|)
 argument_list|,
 name|is
@@ -280,7 +287,97 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-literal|"hdfs://hfdsNamedService"
+literal|"hdfs://haCluster"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|getSanitizedClusterNameWithNull ()
+specifier|public
+name|void
+name|getSanitizedClusterNameWithNull
+parameter_list|()
+block|{
+comment|// given
+name|String
+name|haClusterName
+init|=
+literal|null
+decl_stmt|;
+comment|// when
+name|String
+name|actual
+init|=
+name|HaConfigurationBuilder
+operator|.
+name|getSanitizedClusterName
+argument_list|(
+name|haClusterName
+argument_list|)
+decl_stmt|;
+comment|// then
+name|assertThat
+argument_list|(
+name|actual
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|actual
+argument_list|,
+name|is
+argument_list|(
+literal|"hfdsNamedService"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|getSanitizedClusterNameWithHostName ()
+specifier|public
+name|void
+name|getSanitizedClusterNameWithHostName
+parameter_list|()
+block|{
+comment|// given
+name|String
+name|haClusterName
+init|=
+literal|"this.is.a.cluster.host"
+decl_stmt|;
+comment|// when
+name|String
+name|actual
+init|=
+name|HaConfigurationBuilder
+operator|.
+name|getSanitizedClusterName
+argument_list|(
+name|haClusterName
+argument_list|)
+decl_stmt|;
+comment|// then
+name|assertThat
+argument_list|(
+name|actual
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|actual
+argument_list|,
+name|is
+argument_list|(
+literal|"this_is_a_cluster_host"
 argument_list|)
 argument_list|)
 expr_stmt|;

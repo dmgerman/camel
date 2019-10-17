@@ -492,7 +492,7 @@ name|createWriter
 argument_list|(
 name|hdfsInfo
 operator|.
-name|getConf
+name|getConfiguration
 argument_list|()
 argument_list|,
 name|SequenceFile
@@ -665,7 +665,7 @@ name|Reader
 argument_list|(
 name|hdfsInfo
 operator|.
-name|getConf
+name|getConfiguration
 argument_list|()
 argument_list|,
 name|SequenceFile

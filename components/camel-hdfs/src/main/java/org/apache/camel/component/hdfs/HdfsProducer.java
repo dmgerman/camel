@@ -166,26 +166,6 @@ name|StringHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|HdfsProducer
 specifier|public
@@ -194,22 +174,6 @@ name|HdfsProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HdfsProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|config
 specifier|private
 specifier|final
@@ -240,11 +204,11 @@ specifier|volatile
 name|ScheduledExecutorService
 name|scheduler
 decl_stmt|;
-DECL|field|ostream
+DECL|field|oStream
 specifier|private
 specifier|volatile
 name|HdfsOutputStream
-name|ostream
+name|oStream
 decl_stmt|;
 DECL|class|SplitStrategy
 specifier|public
@@ -512,7 +476,7 @@ name|isConnectOnStartup
 argument_list|()
 condition|)
 block|{
-name|ostream
+name|oStream
 operator|=
 name|setupHdfs
 argument_list|(
@@ -608,7 +572,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|warn
 argument_list|(
@@ -620,7 +584,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -662,13 +626,13 @@ name|IOException
 block|{
 if|if
 condition|(
-name|ostream
+name|oStream
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|ostream
+name|oStream
 return|;
 block|}
 name|StringBuilder
@@ -694,6 +658,19 @@ name|newFileName
 argument_list|()
 expr_stmt|;
 block|}
+name|String
+name|hdfsFsDescription
+init|=
+name|config
+operator|.
+name|getFileSystemLabel
+argument_list|(
+name|actualPath
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
 comment|// if we are starting up then log at info level, and if runtime then log at debug level to not flood the log
 if|if
 condition|(
@@ -704,52 +681,23 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Connecting to hdfs file-system {}:{}/{} (may take a while if connection is not available)"
+literal|"Connecting to hdfs file-system {} (may take a while if connection is not available)"
 argument_list|,
-name|config
-operator|.
-name|getHostName
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getPort
-argument_list|()
-argument_list|,
-name|actualPath
+name|hdfsFsDescription
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Connecting to hdfs file-system {}:{}/{} (may take a while if connection is not available)"
+literal|"Connecting to hdfs file-system {} (may take a while if connection is not available)"
 argument_list|,
-name|config
-operator|.
-name|getHostName
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getPort
-argument_list|()
-argument_list|,
-name|actualPath
+name|hdfsFsDescription
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|HdfsOutputStream
 name|answer
@@ -775,52 +723,23 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Connected to hdfs file-system {}:{}/{}"
+literal|"Connected to hdfs file-system {}"
 argument_list|,
-name|config
-operator|.
-name|getHostName
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getPort
-argument_list|()
-argument_list|,
-name|actualPath
+name|hdfsFsDescription
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Connected to hdfs file-system {}:{}/{}"
+literal|"Connected to hdfs file-system {}"
 argument_list|,
-name|config
-operator|.
-name|getHostName
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|getPort
-argument_list|()
-argument_list|,
-name|actualPath
+name|hdfsFsDescription
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|answer
@@ -920,7 +839,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ostream
+name|oStream
 operator|!=
 literal|null
 condition|)
@@ -929,14 +848,14 @@ name|IOHelper
 operator|.
 name|close
 argument_list|(
-name|ostream
+name|oStream
 argument_list|,
 literal|"output stream"
 argument_list|,
 name|log
 argument_list|)
 expr_stmt|;
-name|ostream
+name|oStream
 operator|=
 literal|null
 expr_stmt|;
@@ -1042,7 +961,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ostream
+name|oStream
 operator|!=
 literal|null
 condition|)
@@ -1051,7 +970,7 @@ name|IOHelper
 operator|.
 name|close
 argument_list|(
-name|ostream
+name|oStream
 argument_list|,
 literal|"output stream"
 argument_list|,
@@ -1067,7 +986,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|ostream
+name|oStream
 operator|=
 name|HdfsOutputStream
 operator|.
@@ -1085,13 +1004,13 @@ block|}
 elseif|else
 if|if
 condition|(
-name|ostream
+name|oStream
 operator|==
 literal|null
 condition|)
 block|{
-comment|// must have ostream
-name|ostream
+comment|// must have oStream
+name|oStream
 operator|=
 name|setupHdfs
 argument_list|(
@@ -1112,7 +1031,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ostream
+name|oStream
 operator|!=
 literal|null
 condition|)
@@ -1121,7 +1040,7 @@ name|IOHelper
 operator|.
 name|close
 argument_list|(
-name|ostream
+name|oStream
 argument_list|,
 literal|"output stream"
 argument_list|,
@@ -1135,7 +1054,7 @@ init|=
 name|newFileName
 argument_list|()
 decl_stmt|;
-name|ostream
+name|oStream
 operator|=
 name|HdfsOutputStream
 operator|.
@@ -1153,7 +1072,7 @@ block|}
 name|String
 name|path
 init|=
-name|ostream
+name|oStream
 operator|.
 name|getActualPath
 argument_list|()
@@ -1167,7 +1086,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-name|ostream
+name|oStream
 operator|.
 name|append
 argument_list|(
@@ -1250,12 +1169,12 @@ argument_list|(
 literal|"Closing stream"
 argument_list|)
 expr_stmt|;
-name|ostream
+name|oStream
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|ostream
+name|oStream
 operator|=
 literal|null
 expr_stmt|;
@@ -1279,7 +1198,7 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * helper method to construct the hdfsPath from the CamelFileName String or Expression      * @param exchange      * @return      */
+comment|/**      * helper method to construct the hdfsPath from the CamelFileName String or Expression      *      * @param exchange      * @return      */
 DECL|method|getHdfsPathUsingFileNameHeader (Exchange exchange)
 specifier|private
 name|StringBuilder
@@ -1417,7 +1336,7 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
-name|ostream
+name|oStream
 argument_list|,
 name|splitStrategy
 operator|.
@@ -1510,10 +1429,10 @@ name|void
 name|run
 parameter_list|()
 block|{
-comment|// only run if ostream has been created
+comment|// only run if oStream has been created
 if|if
 condition|(
-name|ostream
+name|oStream
 operator|==
 literal|null
 condition|)
@@ -1538,7 +1457,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 operator|-
-name|ostream
+name|oStream
 operator|.
 name|getLastAccess
 argument_list|()
@@ -1554,7 +1473,7 @@ name|get
 argument_list|()
 operator|&&
 operator|!
-name|ostream
+name|oStream
 operator|.
 name|isBusy
 argument_list|()
@@ -1583,7 +1502,7 @@ argument_list|(
 literal|"Closing stream as idle"
 argument_list|)
 expr_stmt|;
-name|ostream
+name|oStream
 operator|.
 name|close
 argument_list|()

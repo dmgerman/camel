@@ -36,6 +36,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|hdfs
+operator|.
+name|HdfsConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|hadoop
 operator|.
 name|conf
@@ -112,8 +128,8 @@ parameter_list|()
 block|{
 comment|// hidden
 block|}
-comment|/**      * Add all the kerberos specific settings needed for this authentication mode      *      * @param kerberosConfigFileLocation - The location of the kerberos config file (on the server)      */
-DECL|method|withKerberosConfiguration (Configuration configuration, String kerberosConfigFileLocation)
+comment|/**      * Add all the kerberos specific settings needed for this authentication mode      *      * @param endpointConfig - configuration with the HA settings configured on the endpoint      */
+DECL|method|withKerberosConfiguration (Configuration configuration, HdfsConfiguration endpointConfig)
 specifier|public
 specifier|static
 name|void
@@ -122,13 +138,16 @@ parameter_list|(
 name|Configuration
 name|configuration
 parameter_list|,
-name|String
-name|kerberosConfigFileLocation
+name|HdfsConfiguration
+name|endpointConfig
 parameter_list|)
 block|{
 name|setKerberosConfigFile
 argument_list|(
-name|kerberosConfigFileLocation
+name|endpointConfig
+operator|.
+name|getKerberosConfigFileLocation
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|configuration
