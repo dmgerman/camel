@@ -314,6 +314,22 @@ name|findMetric
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|eclipse
+operator|.
+name|microprofile
+operator|.
+name|metrics
+operator|.
+name|MetricRegistry
+operator|.
+name|Type
+import|;
+end_import
+
 begin_class
 DECL|class|MicroProfileMetricsTestSupport
 specifier|public
@@ -781,8 +797,12 @@ operator|new
 name|JsonExporter
 argument_list|()
 operator|.
-name|exportAllScopes
-argument_list|()
+name|exportOneScope
+argument_list|(
+name|Type
+operator|.
+name|APPLICATION
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
