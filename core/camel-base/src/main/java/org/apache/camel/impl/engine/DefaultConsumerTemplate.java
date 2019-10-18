@@ -486,8 +486,6 @@ parameter_list|)
 block|{
 name|Object
 name|answer
-init|=
-literal|null
 decl_stmt|;
 name|Exchange
 name|exchange
@@ -1194,6 +1192,28 @@ operator|.
 name|getBody
 argument_list|()
 expr_stmt|;
+comment|// in a very seldom situation then getBody can cause an exception to be set on the exchange
+comment|// rethrow if there was an exception during execution
+if|if
+condition|(
+name|result
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|wrapRuntimeCamelException
+argument_list|(
+name|result
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|answer

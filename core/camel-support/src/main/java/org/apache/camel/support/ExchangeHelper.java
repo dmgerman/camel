@@ -2519,6 +2519,32 @@ name|getBody
 argument_list|()
 expr_stmt|;
 block|}
+comment|// in a very seldom situation then getBody can cause an exception to be set on the exchange
+comment|// rethrow if there was an exception during execution
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|CamelExecutionException
+operator|.
+name|wrapCamelExecutionException
+argument_list|(
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|answer

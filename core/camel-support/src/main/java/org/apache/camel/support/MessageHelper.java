@@ -537,11 +537,26 @@ block|}
 name|Object
 name|body
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|body
+operator|=
 name|message
 operator|.
 name|getBody
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 if|if
 condition|(
 name|body
