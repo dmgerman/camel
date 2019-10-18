@@ -596,6 +596,10 @@ argument_list|,
 name|label
 operator|=
 literal|"messaging"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"bridgeErrorHandler"
 argument_list|)
 DECL|class|JmsEndpoint
 specifier|public
@@ -1743,6 +1747,20 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isBridgeErrorHandler
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"BridgeErrorHandler is not support on JMS endpoint"
+argument_list|)
+throw|;
+block|}
 name|String
 name|replyTo
 init|=

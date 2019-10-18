@@ -477,48 +477,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
-DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
-specifier|default
-name|ActiveMQEndpointConsumerBuilder
-name|bridgeErrorHandler
-parameter_list|(
-name|boolean
-name|bridgeErrorHandler
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bridgeErrorHandler"
-argument_list|,
-name|bridgeErrorHandler
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
-DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
-specifier|default
-name|ActiveMQEndpointConsumerBuilder
-name|bridgeErrorHandler
-parameter_list|(
-name|String
-name|bridgeErrorHandler
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"bridgeErrorHandler"
-argument_list|,
-name|bridgeErrorHandler
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the cache level by ID for the underlying JMS resources. See          * cacheLevelName option for more details.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|cacheLevel (int cacheLevel)
 specifier|default
