@@ -1642,6 +1642,36 @@ name|label
 operator|=
 literal|"consumer,advanced"
 argument_list|,
+name|defaultValue
+operator|=
+literal|"Poison JMS message due to ${exception.message}"
+argument_list|,
+name|description
+operator|=
+literal|"If eagerLoadingOfProperties is enabled and the JMS message payload (JMS body or JMS properties) is poison (cannot be read/mapped),"
+operator|+
+literal|" then set this text as the message body instead so the message can be processed"
+operator|+
+literal|" (the cause of the poison are already stored as exception on the Exchange)."
+operator|+
+literal|" This can be turned off by setting eagerPoisonBody=false."
+operator|+
+literal|" See also the option eagerLoadingOfProperties."
+argument_list|)
+DECL|field|eagerPoisonBody
+specifier|private
+name|String
+name|eagerPoisonBody
+init|=
+literal|"Poison JMS message payload: ${exception.message}"
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
 name|description
 operator|=
 literal|"Enables eager loading of JMS properties and payload as soon as a message is loaded"
@@ -1650,7 +1680,7 @@ literal|" which generally is inefficient as the JMS properties may not be requir
 operator|+
 literal|" but sometimes can catch early any issues with the underlying JMS provider"
 operator|+
-literal|" and the use of JMS properties"
+literal|" and the use of JMS properties. See also the option eagerPoisonBody."
 argument_list|)
 DECL|field|eagerLoadingOfProperties
 specifier|private
@@ -5100,6 +5130,33 @@ operator|=
 name|lazyCreating
 expr_stmt|;
 block|}
+DECL|method|getEagerPoisonBody ()
+specifier|public
+name|String
+name|getEagerPoisonBody
+parameter_list|()
+block|{
+return|return
+name|eagerPoisonBody
+return|;
+block|}
+comment|/**      * If eagerLoadingOfProperties is enabled and the JMS message payload (JMS body or JMS properties) (cannot be read/mapped),      * then set this text as the message body instead so the message can be processed      * (the cause of the poison are already stored as exception on the Exchange).      * This can be turned off by setting eagerPoisonBody=false.      * See also the option eagerLoadingOfProperties.      */
+DECL|method|setEagerPoisonBody (String eagerPoisonBody)
+specifier|public
+name|void
+name|setEagerPoisonBody
+parameter_list|(
+name|String
+name|eagerPoisonBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerPoisonBody
+operator|=
+name|eagerPoisonBody
+expr_stmt|;
+block|}
 DECL|method|isEagerLoadingOfProperties ()
 specifier|public
 name|boolean
@@ -5110,7 +5167,7 @@ return|return
 name|eagerLoadingOfProperties
 return|;
 block|}
-comment|/**      * Enables eager loading of JMS properties and payload as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      */
+comment|/**      * Enables eager loading of JMS properties and payload as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties. See also the option eagerPoisonBody.      */
 DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
 specifier|public
 name|void
@@ -5973,18 +6030,30 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isEagerLoadingOfProperties
-argument_list|()
+operator|!
+literal|"false"
+operator|.
+name|equals
+argument_list|(
+name|eagerPoisonBody
+argument_list|)
 condition|)
 block|{
 name|listener
 operator|.
-name|setEagerLoadingOfProperties
+name|setEagerPoisonBody
 argument_list|(
-literal|true
+name|eagerPoisonBody
 argument_list|)
 expr_stmt|;
 block|}
+name|listener
+operator|.
+name|setEagerLoadingOfProperties
+argument_list|(
+name|eagerLoadingOfProperties
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getReplyTo

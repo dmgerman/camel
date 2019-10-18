@@ -1213,7 +1213,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables eager loading of JMS properties and payload as soon as a          * message is loaded which generally is inefficient as the JMS          * properties may not be required but sometimes can catch early any          * issues with the underlying JMS provider and the use of JMS          * properties.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Enables eager loading of JMS properties and payload as soon as a          * message is loaded which generally is inefficient as the JMS          * properties may not be required but sometimes can catch early any          * issues with the underlying JMS provider and the use of JMS          * properties. See also the option eagerPoisonBody.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|eagerLoadingOfProperties ( boolean eagerLoadingOfProperties)
 specifier|default
 name|AdvancedActiveMQEndpointConsumerBuilder
@@ -1234,7 +1234,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables eager loading of JMS properties and payload as soon as a          * message is loaded which generally is inefficient as the JMS          * properties may not be required but sometimes can catch early any          * issues with the underlying JMS provider and the use of JMS          * properties.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
+comment|/**          * Enables eager loading of JMS properties and payload as soon as a          * message is loaded which generally is inefficient as the JMS          * properties may not be required but sometimes can catch early any          * issues with the underlying JMS provider and the use of JMS          * properties. See also the option eagerPoisonBody.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer (advanced)          */
 DECL|method|eagerLoadingOfProperties ( String eagerLoadingOfProperties)
 specifier|default
 name|AdvancedActiveMQEndpointConsumerBuilder
@@ -1249,6 +1249,27 @@ argument_list|(
 literal|"eagerLoadingOfProperties"
 argument_list|,
 name|eagerLoadingOfProperties
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If eagerLoadingOfProperties is enabled and the JMS message payload          * (JMS body or JMS properties) (cannot be read/mapped), then set this          * text as the message body instead so the message can be processed (the          * cause of the poison are already stored as exception on the Exchange).          * This can be turned off by setting eagerPoisonBody=false. See also the          * option eagerLoadingOfProperties.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|eagerPoisonBody ( String eagerPoisonBody)
+specifier|default
+name|AdvancedActiveMQEndpointConsumerBuilder
+name|eagerPoisonBody
+parameter_list|(
+name|String
+name|eagerPoisonBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"eagerPoisonBody"
+argument_list|,
+name|eagerPoisonBody
 argument_list|)
 expr_stmt|;
 return|return

@@ -955,7 +955,49 @@ name|consumerAcknowledgementMode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      */
+comment|/**      * If eagerLoadingOfProperties is enabled and the JMS message payload (JMS body or JMS properties) (cannot be read/mapped),      * then set this text as the message body instead so the message can be processed      * (the cause of the poison are already stored as exception on the Exchange).      + This can be turned off by setting eagerPoisonBody=false.      * See also the option eagerLoadingOfProperties.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"Poison JMS message due to ${exception.message}"
+argument_list|,
+name|description
+operator|=
+literal|"If eagerLoadingOfProperties is enabled and the JMS message payload (JMS body or JMS properties) is poison (cannot be read/mapped),"
+operator|+
+literal|" then set this text as the message body instead so the message can be processed"
+operator|+
+literal|" (the cause of the poison are already stored as exception on the Exchange)."
+operator|+
+literal|" This can be turned off by setting eagerPoisonBody=false."
+operator|+
+literal|" See also the option eagerLoadingOfProperties."
+argument_list|)
+DECL|method|setEagerPoisonBody (String eagerPoisonBody)
+specifier|public
+name|void
+name|setEagerPoisonBody
+parameter_list|(
+name|String
+name|eagerPoisonBody
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setEagerPoisonBody
+argument_list|(
+name|eagerPoisonBody
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties. See also the option eagerLoadingOfBody.      */
 annotation|@
 name|Metadata
 argument_list|(
@@ -971,7 +1013,7 @@ literal|" which generally is inefficient as the JMS properties may not be requir
 operator|+
 literal|" but sometimes can catch early any issues with the underlying JMS provider"
 operator|+
-literal|" and the use of JMS properties"
+literal|" and the use of JMS properties. See also the option eagerLoadingOfBody."
 argument_list|)
 DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
 specifier|public

@@ -3126,6 +3126,22 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|getEagerPoisonBody ()
+specifier|public
+name|String
+name|getEagerPoisonBody
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getEagerPoisonBody
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isEagerLoadingOfProperties ()
 specifier|public
 name|boolean
@@ -3653,6 +3669,26 @@ operator|.
 name|setDurableSubscriptionName
 argument_list|(
 name|durableSubscriptionName
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setEagerPoisonBody (String eagerPoisonBody)
+specifier|public
+name|void
+name|setEagerPoisonBody
+parameter_list|(
+name|String
+name|eagerPoisonBody
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setEagerPoisonBody
+argument_list|(
+name|eagerPoisonBody
 argument_list|)
 expr_stmt|;
 block|}
