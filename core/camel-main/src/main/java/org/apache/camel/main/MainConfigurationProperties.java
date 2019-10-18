@@ -90,6 +90,11 @@ name|hangupInterceptorEnabled
 init|=
 literal|true
 decl_stmt|;
+DECL|field|packageScanRouteBuilders
+specifier|private
+name|String
+name|packageScanRouteBuilders
+decl_stmt|;
 comment|// extended configuration
 DECL|field|hystrixConfigurationProperties
 specifier|private
@@ -357,6 +362,33 @@ operator|=
 name|hangupInterceptorEnabled
 expr_stmt|;
 block|}
+DECL|method|getPackageScanRouteBuilders ()
+specifier|public
+name|String
+name|getPackageScanRouteBuilders
+parameter_list|()
+block|{
+return|return
+name|packageScanRouteBuilders
+return|;
+block|}
+comment|/**      * Sets package names for scanning for {@link org.apache.camel.builder.RouteBuilder} classes as candidates to be included.      * If you are using Spring Boot then its instead recommended to use Spring Boots component scanning and annotate your route builder      * classes with `@Component`. In other words only use this for Camel Main in standalone mode.      */
+DECL|method|setPackageScanRouteBuilders (String packageScanRouteBuilders)
+specifier|public
+name|void
+name|setPackageScanRouteBuilders
+parameter_list|(
+name|String
+name|packageScanRouteBuilders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|packageScanRouteBuilders
+operator|=
+name|packageScanRouteBuilders
+expr_stmt|;
+block|}
 DECL|method|getDurationHitExitCode ()
 specifier|public
 name|int
@@ -561,6 +593,26 @@ operator|.
 name|durationHitExitCode
 operator|=
 name|durationHitExitCode
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets package names for scanning for {@link org.apache.camel.builder.RouteBuilder} classes as candidates to be included.      * If you are using Spring Boot then its instead recommended to use Spring Boots component scanning and annotate your route builder      * classes with `@Component`. In other words only use this for Camel Main in standalone mode.      */
+DECL|method|withPackageScanRouteBuilders (String packageScanRouteBuilders)
+specifier|public
+name|MainConfigurationProperties
+name|withPackageScanRouteBuilders
+parameter_list|(
+name|String
+name|packageScanRouteBuilders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|packageScanRouteBuilders
+operator|=
+name|packageScanRouteBuilders
 expr_stmt|;
 return|return
 name|this

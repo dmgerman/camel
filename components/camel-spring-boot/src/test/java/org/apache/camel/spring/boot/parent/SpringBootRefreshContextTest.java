@@ -58,7 +58,7 @@ name|spring
 operator|.
 name|boot
 operator|.
-name|RoutesCollector
+name|CamelSpringBootApplicationListener
 import|;
 end_import
 
@@ -227,14 +227,14 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|RoutesCollector
+name|CamelSpringBootApplicationListener
 name|collector
 init|=
 name|context
 operator|.
 name|getBean
 argument_list|(
-name|RoutesCollector
+name|CamelSpringBootApplicationListener
 operator|.
 name|class
 argument_list|)

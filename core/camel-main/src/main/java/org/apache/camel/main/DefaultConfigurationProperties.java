@@ -326,6 +326,37 @@ specifier|private
 name|LoggingLevel
 name|beanIntrospectionLoggingLevel
 decl_stmt|;
+DECL|field|routesCollectorEnabled
+specifier|private
+name|boolean
+name|routesCollectorEnabled
+init|=
+literal|true
+decl_stmt|;
+DECL|field|javaRoutesIncludePattern
+specifier|private
+name|String
+name|javaRoutesIncludePattern
+decl_stmt|;
+DECL|field|javaRoutesExcludePattern
+specifier|private
+name|String
+name|javaRoutesExcludePattern
+decl_stmt|;
+DECL|field|xmlRoutes
+specifier|private
+name|String
+name|xmlRoutes
+init|=
+literal|"classpath:camel/*.xml"
+decl_stmt|;
+DECL|field|xmlRests
+specifier|private
+name|String
+name|xmlRests
+init|=
+literal|"classpath:camel-rest/*.xml"
+decl_stmt|;
 comment|// getter and setters
 comment|// --------------------------------------------------------------
 DECL|method|getName ()
@@ -1570,6 +1601,141 @@ operator|=
 name|beanIntrospectionLoggingLevel
 expr_stmt|;
 block|}
+DECL|method|isRoutesCollectorEnabled ()
+specifier|public
+name|boolean
+name|isRoutesCollectorEnabled
+parameter_list|()
+block|{
+return|return
+name|routesCollectorEnabled
+return|;
+block|}
+comment|/**      * Whether the routes collector is enabled or not.      *       * When enabled Camel will auto-discover routes (RouteBuilder instances from the registry and      * also load additional XML routes from the file system.      *      * The routes collector is default enabled.      */
+DECL|method|setRoutesCollectorEnabled (boolean routesCollectorEnabled)
+specifier|public
+name|void
+name|setRoutesCollectorEnabled
+parameter_list|(
+name|boolean
+name|routesCollectorEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routesCollectorEnabled
+operator|=
+name|routesCollectorEnabled
+expr_stmt|;
+block|}
+DECL|method|getJavaRoutesIncludePattern ()
+specifier|public
+name|String
+name|getJavaRoutesIncludePattern
+parameter_list|()
+block|{
+return|return
+name|javaRoutesIncludePattern
+return|;
+block|}
+comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use:&#42;&#42;/Foo*      * To include all routes form a specific package use: com/mycompany/foo/&#42;      * To include all routes form a specific package and its sub-packages use double wildcards: com/mycompany/foo/&#42;&#42;      * And to include all routes from two specific packages use: com/mycompany/foo/&#42;,com/mycompany/stuff/&#42;      */
+DECL|method|setJavaRoutesIncludePattern (String javaRoutesIncludePattern)
+specifier|public
+name|void
+name|setJavaRoutesIncludePattern
+parameter_list|(
+name|String
+name|javaRoutesIncludePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|javaRoutesIncludePattern
+operator|=
+name|javaRoutesIncludePattern
+expr_stmt|;
+block|}
+DECL|method|getJavaRoutesExcludePattern ()
+specifier|public
+name|String
+name|getJavaRoutesExcludePattern
+parameter_list|()
+block|{
+return|return
+name|javaRoutesExcludePattern
+return|;
+block|}
+comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *      * For example to exclude all classes starting with Bar use:&#42;&#42;/Bar&#42;      * To exclude all routes form a specific package use: com/mycompany/bar/&#42;      * To exclude all routes form a specific package and its sub-packages use double wildcards: com/mycompany/bar/&#42;&#42;      * And to exclude all routes from two specific packages use: com/mycompany/bar/&#42;,com/mycompany/stuff/&#42;      */
+DECL|method|setJavaRoutesExcludePattern (String javaRoutesExcludePattern)
+specifier|public
+name|void
+name|setJavaRoutesExcludePattern
+parameter_list|(
+name|String
+name|javaRoutesExcludePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|javaRoutesExcludePattern
+operator|=
+name|javaRoutesExcludePattern
+expr_stmt|;
+block|}
+DECL|method|getXmlRoutes ()
+specifier|public
+name|String
+name|getXmlRoutes
+parameter_list|()
+block|{
+return|return
+name|xmlRoutes
+return|;
+block|}
+comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
+DECL|method|setXmlRoutes (String xmlRoutes)
+specifier|public
+name|void
+name|setXmlRoutes
+parameter_list|(
+name|String
+name|xmlRoutes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlRoutes
+operator|=
+name|xmlRoutes
+expr_stmt|;
+block|}
+DECL|method|getXmlRests ()
+specifier|public
+name|String
+name|getXmlRests
+parameter_list|()
+block|{
+return|return
+name|xmlRests
+return|;
+block|}
+comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
+DECL|method|setXmlRests (String xmlRests)
+specifier|public
+name|void
+name|setXmlRests
+parameter_list|(
+name|String
+name|xmlRests
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlRests
+operator|=
+name|xmlRests
+expr_stmt|;
+block|}
 comment|// fluent builders
 comment|// --------------------------------------------------------------
 comment|/**      * Sets the name of the CamelContext.      */
@@ -2576,6 +2742,167 @@ operator|.
 name|beanIntrospectionLoggingLevel
 operator|=
 name|beanIntrospectionLoggingLevel
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Tracing pattern to match which node EIPs to trace.      * For example to match all To EIP nodes, use to*.      * The pattern matches by node and route id's      * Multiple patterns can be separated by comma.      */
+DECL|method|withTracingPattern (String tracingPattern)
+specifier|public
+name|T
+name|withTracingPattern
+parameter_list|(
+name|String
+name|tracingPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tracingPattern
+operator|=
+name|tracingPattern
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Sets the pattern used for determine which custom MDC keys to propagate during message routing when      * the routing engine continues routing asynchronously for the given message. Setting this pattern to * will      * propagate all custom keys. Or setting the pattern to foo*,bar* will propagate any keys starting with      * either foo or bar.      * Notice that a set of standard Camel MDC keys are always propagated which starts with camel. as key name.      *      * The match rules are applied in this order (case insensitive):      *      * 1. exact match, returns true      * 2. wildcard match (pattern ends with a * and the name starts with the pattern), returns true      * 3. regular expression match, returns true      * 4. otherwise returns false      */
+DECL|method|withMdcLoggingKeysPattern (String mdcLoggingKeysPattern)
+specifier|public
+name|T
+name|withMdcLoggingKeysPattern
+parameter_list|(
+name|String
+name|mdcLoggingKeysPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mdcLoggingKeysPattern
+operator|=
+name|mdcLoggingKeysPattern
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Whether the routes collector is enabled or not.      *      * When enabled Camel will auto-discover routes (RouteBuilder instances from the registry and      * also load additional XML routes from the file system.      *      * The routes collector is default enabled.      */
+DECL|method|withRoutesCollectorEnabled (boolean routesCollectorEnabled)
+specifier|public
+name|T
+name|withRoutesCollectorEnabled
+parameter_list|(
+name|boolean
+name|routesCollectorEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routesCollectorEnabled
+operator|=
+name|routesCollectorEnabled
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Used for inclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      *      * Multiple patterns can be specified separated by comma.      * For example to include all classes starting with Foo use:&#42;&#42;/Foo*      * To include all routes form a specific package use: com/mycompany/foo/&#42;      * To include all routes form a specific package and its sub-packages use double wildcards: com/mycompany/foo/&#42;&#42;      * And to include all routes from two specific packages use: com/mycompany/foo/&#42;,com/mycompany/stuff/&#42;      */
+DECL|method|withJavaRoutesIncludePattern (String javaRoutesIncludePattern)
+specifier|public
+name|T
+name|withJavaRoutesIncludePattern
+parameter_list|(
+name|String
+name|javaRoutesIncludePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|javaRoutesIncludePattern
+operator|=
+name|javaRoutesIncludePattern
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Used for exclusive filtering component scanning of RouteBuilder classes with @Component annotation.      * The exclusive filtering takes precedence over inclusive filtering.      * The pattern is using Ant-path style pattern.      * Multiple patterns can be specified separated by comma.      *      * For example to exclude all classes starting with Bar use:&#42;&#42;/Bar&#42;      * To exclude all routes form a specific package use: com/mycompany/bar/&#42;      * To exclude all routes form a specific package and its sub-packages use double wildcards: com/mycompany/bar/&#42;&#42;      * And to exclude all routes from two specific packages use: com/mycompany/bar/&#42;,com/mycompany/stuff/&#42;      */
+DECL|method|withJavaRoutesExcludePattern (String javaRoutesExcludePattern)
+specifier|public
+name|T
+name|withJavaRoutesExcludePattern
+parameter_list|(
+name|String
+name|javaRoutesExcludePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|javaRoutesExcludePattern
+operator|=
+name|javaRoutesExcludePattern
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
+DECL|method|withXmlRoutes (String xmlRoutes)
+specifier|public
+name|T
+name|withXmlRoutes
+parameter_list|(
+name|String
+name|xmlRoutes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlRoutes
+operator|=
+name|xmlRoutes
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to false.      *      * Files can be loaded from either classpath or file by prefixing with classpath: or file:      * Wildcards is supported using a ANT pattern style paths, such as classpath:&#42;&#42;/&#42;camel&#42;.xml      *      * Multiple directories can be specified and separated by comma, such as:      * file:/myapp/mycamel/&#42;.xml,file:/myapp/myothercamel/&#42;.xml      */
+DECL|method|withXmlRests (String xmlRests)
+specifier|public
+name|T
+name|withXmlRests
+parameter_list|(
+name|String
+name|xmlRests
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlRests
+operator|=
+name|xmlRests
 expr_stmt|;
 return|return
 operator|(

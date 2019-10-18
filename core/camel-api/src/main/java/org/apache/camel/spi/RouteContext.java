@@ -142,20 +142,6 @@ name|RuntimeConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|meta
-operator|.
-name|Experimental
-import|;
-end_import
-
 begin_comment
 comment|/**  * The context used to activate new routing rules  */
 end_comment
@@ -458,30 +444,20 @@ name|error
 parameter_list|)
 block|{     }
 comment|/**      * Gets the  {@link RouteController} for this route.      *      * @return the route controller,      */
-annotation|@
-name|Experimental
 DECL|method|getRouteController ()
-specifier|default
 name|RouteController
 name|getRouteController
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
+function_decl|;
 comment|/**      * Sets the {@link RouteController} for this route.      *      * @param controller the RouteController      */
-annotation|@
-name|Experimental
 DECL|method|setRouteController (RouteController controller)
-specifier|default
 name|void
 name|setRouteController
 parameter_list|(
 name|RouteController
 name|controller
 parameter_list|)
-block|{     }
+function_decl|;
 DECL|method|getOnCompletion (String onCompletionId)
 name|Processor
 name|getOnCompletion
