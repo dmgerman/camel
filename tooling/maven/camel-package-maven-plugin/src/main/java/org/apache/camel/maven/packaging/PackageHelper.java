@@ -998,6 +998,13 @@ name|equals
 argument_list|(
 name|name
 argument_list|)
+operator|||
+literal|"camel-debezium"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
