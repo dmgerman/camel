@@ -234,7 +234,7 @@ expr_stmt|;
 comment|// add route
 name|main
 operator|.
-name|addRouteBuilder
+name|addRoutesBuilder
 argument_list|(
 operator|new
 name|RouteBuilder
@@ -254,7 +254,7 @@ literal|"debezium:mysql?name={{debezium.mysql.name}}"
 operator|+
 literal|"&databaseServerId={{debezium.mysql.databaseServerId}}"
 operator|+
-literal|"&databaseHostName={{debezium.mysql.databaseHostName}}"
+literal|"&databaseHostname={{debezium.mysql.databaseHostName}}"
 operator|+
 literal|"&databaseUser={{debezium.mysql.databaseUser}}"
 operator|+
@@ -262,7 +262,7 @@ literal|"&databasePassword={{debezium.mysql.databasePassword}}"
 operator|+
 literal|"&databaseServerName={{debezium.mysql.databaseServerName}}"
 operator|+
-literal|"&databaseHistoryFileName={{debezium.mysql.databaseHistoryFileName}}"
+literal|"&databaseHistoryFileFilename={{debezium.mysql.databaseHistoryFileName}}"
 operator|+
 literal|"&databaseWhitelist={{debezium.mysql.databaseWhitelist}}"
 operator|+

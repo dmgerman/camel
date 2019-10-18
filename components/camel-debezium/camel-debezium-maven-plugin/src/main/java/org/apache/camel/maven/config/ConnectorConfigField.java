@@ -447,14 +447,6 @@ operator|.
 name|TYPE
 return|;
 case|case
-name|LIST
-case|:
-return|return
-name|List
-operator|.
-name|class
-return|;
-case|case
 name|SHORT
 case|:
 return|return
@@ -478,6 +470,9 @@ name|PASSWORD
 case|:
 case|case
 name|CLASS
+case|:
+case|case
+name|LIST
 case|:
 return|return
 name|String
