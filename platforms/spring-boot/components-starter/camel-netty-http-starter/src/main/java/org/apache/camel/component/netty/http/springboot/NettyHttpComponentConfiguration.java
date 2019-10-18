@@ -507,6 +507,14 @@ name|transferException
 init|=
 literal|false
 decl_stmt|;
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          */
+DECL|field|muteException
+specifier|private
+name|Boolean
+name|muteException
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * If this option is enabled, then during binding from Netty to Camel          * Message then the header values will be URL decoded (eg %20 will be a          * space character. Notice this option is used by the default          * org.apache.camel.component.netty.http.NettyHttpBinding and therefore          * if you implement a custom          * org.apache.camel.component.netty.http.NettyHttpBinding then you would          * need to decode the headers accordingly to this option.          */
 DECL|field|urlDecodeHeaders
 specifier|private
@@ -747,6 +755,32 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+DECL|method|getMuteException ()
+specifier|public
+name|Boolean
+name|getMuteException
+parameter_list|()
+block|{
+return|return
+name|muteException
+return|;
+block|}
+DECL|method|setMuteException (Boolean muteException)
+specifier|public
+name|void
+name|setMuteException
+parameter_list|(
+name|Boolean
+name|muteException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|muteException
+operator|=
+name|muteException
 expr_stmt|;
 block|}
 DECL|method|getUrlDecodeHeaders ()

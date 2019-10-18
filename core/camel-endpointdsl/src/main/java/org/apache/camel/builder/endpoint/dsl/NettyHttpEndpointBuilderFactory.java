@@ -528,6 +528,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|muteException ( boolean muteException)
+specifier|default
+name|NettyHttpEndpointConsumerBuilder
+name|muteException
+parameter_list|(
+name|boolean
+name|muteException
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"muteException"
+argument_list|,
+name|muteException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If enabled and an Exchange failed processing on the consumer side the          * response's body won't contain the exception's stack trace.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|muteException ( String muteException)
+specifier|default
+name|NettyHttpEndpointConsumerBuilder
+name|muteException
+parameter_list|(
+name|String
+name|muteException
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"muteException"
+argument_list|,
+name|muteException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether to send back HTTP status code 503 when the consumer has been          * suspended. If the option is false then the Netty Acceptor is unbound          * when the consumer is suspended, so clients cannot connect anymore.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|send503whenSuspended ( boolean send503whenSuspended)
 specifier|default
