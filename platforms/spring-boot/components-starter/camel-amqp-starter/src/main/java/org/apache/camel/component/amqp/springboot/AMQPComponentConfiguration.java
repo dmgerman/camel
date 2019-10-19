@@ -180,7 +180,15 @@ specifier|private
 name|Integer
 name|acknowledgementMode
 decl_stmt|;
-comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      */
+comment|/**      * If eagerLoadingOfProperties is enabled and the JMS message payload (JMS      * body or JMS properties) (cannot be read/mapped), then set this text as      * the message body instead so the message can be processed (the cause of      * the poison are already stored as exception on the Exchange). This can be      * turned off by setting eagerPoisonBody=false. See also the option      * eagerLoadingOfProperties.      */
+DECL|field|eagerPoisonBody
+specifier|private
+name|String
+name|eagerPoisonBody
+init|=
+literal|"Poison JMS message due to ${exception.message}"
+decl_stmt|;
+comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties. See also the option eagerLoadingOfBody.      */
 DECL|field|eagerLoadingOfProperties
 specifier|private
 name|Boolean
@@ -833,6 +841,32 @@ operator|.
 name|acknowledgementMode
 operator|=
 name|acknowledgementMode
+expr_stmt|;
+block|}
+DECL|method|getEagerPoisonBody ()
+specifier|public
+name|String
+name|getEagerPoisonBody
+parameter_list|()
+block|{
+return|return
+name|eagerPoisonBody
+return|;
+block|}
+DECL|method|setEagerPoisonBody (String eagerPoisonBody)
+specifier|public
+name|void
+name|setEagerPoisonBody
+parameter_list|(
+name|String
+name|eagerPoisonBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerPoisonBody
+operator|=
+name|eagerPoisonBody
 expr_stmt|;
 block|}
 DECL|method|getEagerLoadingOfProperties ()
