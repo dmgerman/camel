@@ -2409,7 +2409,10 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-operator|||
+decl_stmt|;
+name|boolean
+name|special3
+init|=
 literal|"camel-debezium"
 operator|.
 name|equals
@@ -2425,6 +2428,8 @@ condition|(
 name|special
 operator|||
 name|special2
+operator|||
+name|special3
 condition|)
 block|{
 continue|continue;
