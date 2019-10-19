@@ -482,8 +482,6 @@ name|LumberjackEndpointBuilderFactory
 extends|,
 name|MQEndpointBuilderFactory
 extends|,
-name|MQTTEndpointBuilderFactory
-extends|,
 name|MSKEndpointBuilderFactory
 extends|,
 name|MailEndpointBuilderFactory
