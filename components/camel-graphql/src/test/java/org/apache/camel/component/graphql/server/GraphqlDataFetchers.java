@@ -63,17 +63,19 @@ end_import
 begin_class
 DECL|class|GraphqlDataFetchers
 specifier|public
+specifier|final
 class|class
 name|GraphqlDataFetchers
 block|{
-DECL|field|books
+DECL|field|BOOKS
 specifier|private
 specifier|static
+specifier|final
 name|List
 argument_list|<
 name|Book
 argument_list|>
-name|books
+name|BOOKS
 init|=
 name|Arrays
 operator|.
@@ -110,14 +112,15 @@ literal|"author-3"
 argument_list|)
 argument_list|)
 decl_stmt|;
-DECL|field|authors
+DECL|field|AUTHORS
 specifier|private
 specifier|static
+specifier|final
 name|List
 argument_list|<
 name|Author
 argument_list|>
-name|authors
+name|AUTHORS
 init|=
 name|Arrays
 operator|.
@@ -148,6 +151,11 @@ literal|"Anne Rice"
 argument_list|)
 argument_list|)
 decl_stmt|;
+DECL|method|GraphqlDataFetchers ()
+specifier|private
+name|GraphqlDataFetchers
+parameter_list|()
+block|{     }
 DECL|method|getBooksDataFetcher ()
 specifier|public
 specifier|static
@@ -164,7 +172,7 @@ block|{
 return|return
 name|dataFetchingEnvironment
 lambda|->
-name|books
+name|BOOKS
 return|;
 block|}
 DECL|method|getBookByIdDataFetcher ()
@@ -192,7 +200,7 @@ literal|"id"
 argument_list|)
 decl_stmt|;
 return|return
-name|books
+name|BOOKS
 operator|.
 name|stream
 argument_list|()
@@ -254,7 +262,7 @@ name|getAuthorId
 argument_list|()
 decl_stmt|;
 return|return
-name|authors
+name|AUTHORS
 operator|.
 name|stream
 argument_list|()
@@ -320,7 +328,7 @@ init|=
 literal|"book-"
 operator|+
 operator|(
-name|books
+name|BOOKS
 operator|.
 name|size
 argument_list|()

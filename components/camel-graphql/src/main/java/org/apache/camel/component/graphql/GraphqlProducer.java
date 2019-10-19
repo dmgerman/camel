@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -50,7 +62,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|DefaultProducer
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -170,10 +182,11 @@ end_import
 
 begin_class
 DECL|class|GraphqlProducer
+specifier|public
 class|class
 name|GraphqlProducer
 extends|extends
-name|DefaultProducer
+name|DefaultAsyncProducer
 block|{
 DECL|method|GraphqlProducer (GraphqlEndpoint endpoint)
 specifier|public
@@ -209,13 +222,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange)
+DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
 try|try
@@ -329,8 +345,6 @@ name|httpPost
 argument_list|,
 name|response
 lambda|->
-block|{
-return|return
 name|EntityUtils
 operator|.
 name|toString
@@ -340,8 +354,6 @@ operator|.
 name|getEntity
 argument_list|()
 argument_list|)
-return|;
-block|}
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -369,6 +381,16 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|buildRequestBody (String query, String operationName, JsonObject variables)
 specifier|protected

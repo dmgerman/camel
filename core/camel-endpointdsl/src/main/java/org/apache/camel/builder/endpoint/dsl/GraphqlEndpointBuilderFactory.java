@@ -110,27 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * The access token sent in the Authorization header.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|accessToken (String accessToken)
-specifier|default
-name|GraphqlEndpointBuilder
-name|accessToken
-parameter_list|(
-name|String
-name|accessToken
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"accessToken"
-argument_list|,
-name|accessToken
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The query or mutation name.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|operationName (String operationName)
 specifier|default
@@ -146,27 +125,6 @@ argument_list|(
 literal|"operationName"
 argument_list|,
 name|operationName
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The password for Basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|password (String password)
-specifier|default
-name|GraphqlEndpointBuilder
-name|password
-parameter_list|(
-name|String
-name|password
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"password"
-argument_list|,
-name|password
 argument_list|)
 expr_stmt|;
 return|return
@@ -236,27 +194,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The username for Basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
-DECL|method|username (String username)
-specifier|default
-name|GraphqlEndpointBuilder
-name|username
-parameter_list|(
-name|String
-name|username
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"username"
-argument_list|,
-name|username
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The JsonObject instance containing the operation variables.          *           * The option is a:<code>org.apache.camel.util.json.JsonObject</code>          * type.          *           * Group: producer          */
 DECL|method|variables (Object variables)
 specifier|default
@@ -293,6 +230,69 @@ argument_list|(
 literal|"variables"
 argument_list|,
 name|variables
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The access token sent in the Authorization header.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|accessToken (String accessToken)
+specifier|default
+name|GraphqlEndpointBuilder
+name|accessToken
+parameter_list|(
+name|String
+name|accessToken
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"accessToken"
+argument_list|,
+name|accessToken
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The password for Basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|password (String password)
+specifier|default
+name|GraphqlEndpointBuilder
+name|password
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"password"
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The username for Basic authentication.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|username (String username)
+specifier|default
+name|GraphqlEndpointBuilder
+name|username
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"username"
+argument_list|,
+name|username
 argument_list|)
 expr_stmt|;
 return|return
@@ -406,7 +406,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * GraphQL (camel-graphql)      * A Camel GraphQL Component      *       * Category: graphql      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-graphql      *       * Syntax:<code>graphql:httpUri?options</code>      *       * Path parameter: httpUri (required)      * The GraphQL server URI.      */
+comment|/**      * GraphQL (camel-graphql)      * A Camel GraphQL Component      *       * Category: api      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-graphql      *       * Syntax:<code>graphql:httpUri</code>      *       * Path parameter: httpUri (required)      * The GraphQL server URI.      */
 DECL|method|graphql (String path)
 specifier|default
 name|GraphqlEndpointBuilder
