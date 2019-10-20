@@ -1079,6 +1079,23 @@ argument_list|)
 operator|.
 name|setPrivate
 argument_list|()
+decl_stmt|;
+comment|// especial case for database.server.id, we don't set the default value, we let debezium do that
+if|if
+condition|(
+operator|!
+name|fieldConfig
+operator|.
+name|getRawName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"database.server.id"
+argument_list|)
+condition|)
+block|{
+name|field
 operator|.
 name|setLiteralInitializer
 argument_list|(
@@ -1087,7 +1104,8 @@ operator|.
 name|getDefaultValueAsString
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|String
 name|description
 init|=
@@ -1150,6 +1168,7 @@ argument_list|,
 literal|"LABEL_NAME"
 argument_list|)
 decl_stmt|;
+comment|// especial case for database.server.id, we don't set the default value, we let debezium do that
 if|if
 condition|(
 name|fieldConfig
@@ -1158,6 +1177,17 @@ name|getDefaultValue
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|fieldConfig
+operator|.
+name|getRawName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"database.server.id"
+argument_list|)
 condition|)
 block|{
 name|annotation
