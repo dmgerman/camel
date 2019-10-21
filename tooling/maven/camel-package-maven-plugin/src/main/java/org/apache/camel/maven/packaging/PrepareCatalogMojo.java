@@ -6227,7 +6227,7 @@ name|File
 argument_list|(
 name|dir
 argument_list|,
-literal|"camel-debezium-component/target/classes"
+literal|"camel-debezium-component/src/main/docs"
 argument_list|)
 expr_stmt|;
 block|}
