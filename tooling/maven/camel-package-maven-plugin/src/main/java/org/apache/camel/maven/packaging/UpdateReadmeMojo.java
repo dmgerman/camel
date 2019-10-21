@@ -2951,7 +2951,7 @@ name|isEmpty
 argument_list|()
 decl_stmt|;
 name|boolean
-name|availableFrom
+name|since
 init|=
 name|lines
 index|[
@@ -2963,20 +2963,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Available as of"
-argument_list|)
-operator|||
-name|lines
-index|[
-literal|3
-index|]
-operator|.
-name|trim
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"Available in"
+literal|"Since Camel"
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -2999,13 +2986,13 @@ name|title
 operator|&&
 name|empty
 operator|&&
-name|availableFrom
+name|since
 condition|)
 block|{
 name|String
 name|newLine
 init|=
-literal|"*Available as of Camel version "
+literal|"*Since Camel "
 operator|+
 name|version
 operator|+
@@ -3064,13 +3051,13 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|availableFrom
+name|since
 condition|)
 block|{
 name|String
 name|newLine
 init|=
-literal|"*Available as of Camel version "
+literal|"*Since Camel "
 operator|+
 name|version
 operator|+
@@ -3108,19 +3095,13 @@ comment|// build the new updated text
 name|String
 name|newText
 init|=
-name|newLines
+name|String
 operator|.
-name|stream
-argument_list|()
-operator|.
-name|collect
-argument_list|(
-name|Collectors
-operator|.
-name|joining
+name|join
 argument_list|(
 literal|"\n"
-argument_list|)
+argument_list|,
+name|newLines
 argument_list|)
 decl_stmt|;
 name|writeText
