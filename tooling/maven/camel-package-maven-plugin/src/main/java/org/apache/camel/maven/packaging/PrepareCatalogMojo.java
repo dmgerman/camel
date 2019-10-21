@@ -6347,28 +6347,6 @@ name|CamelAsciiDocFileFilter
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// also look in camel-jaxp
-name|target
-operator|=
-operator|new
-name|File
-argument_list|(
-name|coreDir
-argument_list|,
-literal|"../camel-jaxp/src/main/docs"
-argument_list|)
-expr_stmt|;
-name|findAsciiDocFilesRecursive
-argument_list|(
-name|target
-argument_list|,
-name|adocFiles
-argument_list|,
-operator|new
-name|CamelAsciiDocFileFilter
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -6410,7 +6388,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|baseDir
+name|coreDir
 argument_list|,
 literal|"../camel-jaxp/src/main/docs"
 argument_list|)
