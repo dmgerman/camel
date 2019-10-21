@@ -566,7 +566,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The project build directory      *      */
+comment|/**      * The project build directory      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -579,7 +579,7 @@ specifier|protected
 name|File
 name|buildDir
 decl_stmt|;
-comment|/**      * The documentation directory      *      */
+comment|/**      * The documentation directory      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -592,7 +592,7 @@ specifier|protected
 name|File
 name|docDir
 decl_stmt|;
-comment|/**      * The documentation directory      *      */
+comment|/**      * The documentation EIP directory      */
 annotation|@
 name|Parameter
 argument_list|(
@@ -3614,9 +3614,7 @@ name|component
 init|=
 operator|new
 name|ComponentModel
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|component
 operator|.

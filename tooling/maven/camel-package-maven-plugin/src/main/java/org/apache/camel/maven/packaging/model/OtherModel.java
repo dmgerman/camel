@@ -466,18 +466,6 @@ operator|=
 name|version
 expr_stmt|;
 block|}
-DECL|method|getDocLink ()
-specifier|public
-name|String
-name|getDocLink
-parameter_list|()
-block|{
-return|return
-name|artifactId
-operator|+
-literal|"/src/main/docs/"
-return|;
-block|}
 DECL|method|getFirstVersionShort ()
 specifier|public
 name|String

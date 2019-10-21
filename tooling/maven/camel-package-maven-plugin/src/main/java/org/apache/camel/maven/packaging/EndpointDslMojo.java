@@ -862,6 +862,7 @@ specifier|protected
 name|File
 name|baseDir
 decl_stmt|;
+comment|/**      * The output directory      */
 annotation|@
 name|Parameter
 DECL|field|outputDir
@@ -869,6 +870,7 @@ specifier|protected
 name|File
 name|outputDir
 decl_stmt|;
+comment|/**      * The package name      */
 annotation|@
 name|Parameter
 DECL|field|packageName
@@ -5726,9 +5728,7 @@ name|component
 init|=
 operator|new
 name|ComponentModel
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|component
 operator|.
