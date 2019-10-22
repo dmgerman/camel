@@ -310,18 +310,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|undertow
-operator|.
-name|util
-operator|.
-name|StatusCodes
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
