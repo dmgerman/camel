@@ -2453,7 +2453,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//message.setHeader(Exchange.HTTP_RESPONSE_CODE, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 name|doWriteResponse
 argument_list|(
 name|message
