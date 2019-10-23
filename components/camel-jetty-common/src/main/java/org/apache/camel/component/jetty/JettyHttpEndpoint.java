@@ -210,7 +210,7 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Whether Jetty org.eclipse.jetty.servlets.MultiPartFilter is enabled or not."
+literal|"Whether org.apache.camel.component.jetty.MultiPartFilter is enabled or not."
 operator|+
 literal|" You should set this value to false when bridging endpoints, to ensure multipart requests is proxied/bridged as well."
 argument_list|)
@@ -672,7 +672,7 @@ return|return
 name|enableMultipartFilter
 return|;
 block|}
-comment|/**      * Whether Jetty org.eclipse.jetty.servlets.MultiPartFilter is enabled or not.      * You should set this value to false when bridging endpoints, to ensure multipart requests is proxied/bridged as well.      */
+comment|/**      * Whether org.apache.camel.component.jetty.MultiPartFilter is enabled or not.      * You should set this value to false when bridging endpoints, to ensure multipart requests is proxied/bridged as well.      */
 DECL|method|setEnableMultipartFilter (boolean enableMultipartFilter)
 specifier|public
 name|void

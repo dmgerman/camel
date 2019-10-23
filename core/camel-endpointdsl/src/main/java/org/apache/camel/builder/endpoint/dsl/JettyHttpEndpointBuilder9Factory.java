@@ -250,7 +250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether Jetty org.eclipse.jetty.servlets.MultiPartFilter is enabled          * or not. You should set this value to false when bridging endpoints,          * to ensure multipart requests is proxied/bridged as well.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+comment|/**          * Whether org.apache.camel.component.jetty.MultiPartFilter is enabled          * or not. You should set this value to false when bridging endpoints,          * to ensure multipart requests is proxied/bridged as well.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|enableMultipartFilter ( boolean enableMultipartFilter)
 specifier|default
 name|JettyHttpEndpointBuilder9
@@ -271,7 +271,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether Jetty org.eclipse.jetty.servlets.MultiPartFilter is enabled          * or not. You should set this value to false when bridging endpoints,          * to ensure multipart requests is proxied/bridged as well.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
+comment|/**          * Whether org.apache.camel.component.jetty.MultiPartFilter is enabled          * or not. You should set this value to false when bridging endpoints,          * to ensure multipart requests is proxied/bridged as well.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
 DECL|method|enableMultipartFilter ( String enableMultipartFilter)
 specifier|default
 name|JettyHttpEndpointBuilder9
