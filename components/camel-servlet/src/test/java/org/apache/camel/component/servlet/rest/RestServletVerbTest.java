@@ -618,7 +618,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|200
+literal|204
 argument_list|,
 name|response
 operator|.
