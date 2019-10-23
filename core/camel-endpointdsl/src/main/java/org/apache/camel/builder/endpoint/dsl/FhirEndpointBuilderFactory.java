@@ -3854,6 +3854,9 @@ name|JSON
 block|,
 DECL|enumConstant|XML
 name|XML
+block|,
+DECL|enumConstant|RDF
+name|RDF
 block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.context.FhirVersionEnum</code> enum.      */
 DECL|enum|FhirVersionEnum
@@ -3874,6 +3877,9 @@ name|DSTU3
 block|,
 DECL|enumConstant|R4
 name|R4
+block|,
+DECL|enumConstant|R5
+name|R5
 block|;     }
 comment|/**      * Proxy enum for<code>ca.uhn.fhir.rest.api.SummaryEnum</code> enum.      */
 DECL|enum|SummaryEnum

@@ -60,6 +60,22 @@ name|uhn
 operator|.
 name|fhir
 operator|.
+name|interceptor
+operator|.
+name|api
+operator|.
+name|IInterceptorService
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|fhir
+operator|.
 name|model
 operator|.
 name|primitive
@@ -739,51 +755,6 @@ name|CustomClientFactory
 argument_list|()
 decl_stmt|;
 annotation|@
-name|Override
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-specifier|final
-name|CamelContext
-name|context
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|(
-name|createRegistry
-argument_list|()
-argument_list|)
-decl_stmt|;
-comment|// add FhirComponent to Camel context but don't set up componentConfiguration
-specifier|final
-name|FhirComponent
-name|component
-init|=
-operator|new
-name|FhirComponent
-argument_list|(
-name|context
-argument_list|)
-decl_stmt|;
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"fhir"
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
-return|return
-name|context
-return|;
-block|}
-annotation|@
 name|Test
 DECL|method|testConfigurationWithCustomClient ()
 specifier|public
@@ -1447,6 +1418,29 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getInterceptorService ()
+specifier|public
+name|IInterceptorService
+name|getInterceptorService
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setInterceptorService (IInterceptorService theInterceptorService)
+specifier|public
+name|void
+name|setInterceptorService
+parameter_list|(
+name|IInterceptorService
+name|theInterceptorService
+parameter_list|)
+block|{          }
+annotation|@
+name|Override
 DECL|method|fetchResourceFromUrl (Class<T> theResourceType, String theUrl)
 specifier|public
 parameter_list|<
@@ -1501,21 +1495,6 @@ DECL|method|getHttpClient ()
 specifier|public
 name|IHttpClient
 name|getHttpClient
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getInterceptors ()
-specifier|public
-name|List
-argument_list|<
-name|IClientInterceptor
-argument_list|>
-name|getInterceptors
 parameter_list|()
 block|{
 return|return
