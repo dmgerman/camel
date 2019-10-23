@@ -212,7 +212,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// we have access to the HttpServletRequest here and we can grab it if we need it
+comment|// we have access to the HttpServletRequest here and we can grab it
+comment|// if we need it
 name|HttpServletRequest
 name|req
 init|=

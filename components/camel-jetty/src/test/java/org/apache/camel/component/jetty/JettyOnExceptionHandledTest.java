@@ -153,7 +153,8 @@ name|from
 argument_list|(
 literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
-comment|// use onException to catch all exceptions and return a custom reply message
+comment|// use onException to catch all exceptions and return a
+comment|// custom reply message
 operator|.
 name|onException
 argument_list|(

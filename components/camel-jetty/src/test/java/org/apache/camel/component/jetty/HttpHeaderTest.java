@@ -480,7 +480,7 @@ literal|"Response!"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//The setting only effect on a new server endpoint
+comment|// The setting only effect on a new server endpoint
 name|from
 argument_list|(
 literal|"jetty:http://localhost:{{port2}}/server/mytest?sendServerVersion=false&sendDateHeader=true"

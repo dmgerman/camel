@@ -366,7 +366,8 @@ argument_list|(
 literal|"Donald Duck"
 argument_list|)
 expr_stmt|;
-comment|// must provide outType parameter to tell Camel to bind the output from the REST service from json to POJO
+comment|// must provide outType parameter to tell Camel to bind the output from
+comment|// the REST service from json to POJO
 name|CountryPojo
 name|pojo
 init|=

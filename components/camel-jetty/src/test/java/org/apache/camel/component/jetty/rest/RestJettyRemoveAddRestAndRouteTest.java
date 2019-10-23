@@ -331,8 +331,10 @@ name|context
 argument_list|)
 expr_stmt|;
 comment|// exception here since we have 2 rest configurations
-comment|// org.apache.camel.model.rest.RestDefinition.asRouteDefinition(CamelContext camelContext) line 607 will have 2 rest contexts
-comment|// and duplicate route definitions for the same route which will cause exception
+comment|// org.apache.camel.model.rest.RestDefinition.asRouteDefinition(CamelContext
+comment|// camelContext) line 607 will have 2 rest contexts
+comment|// and duplicate route definitions for the same route which will cause
+comment|// exception
 name|InputStream
 name|stream
 init|=

@@ -154,7 +154,8 @@ name|from
 argument_list|(
 literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
-comment|// turn the route to in only as we do not want jetty to wait for the response
+comment|// turn the route to in only as we do not want jetty to wait
+comment|// for the response
 comment|// we can do this using the wiretap EIP pattern
 operator|.
 name|wireTap
@@ -317,8 +318,10 @@ name|from
 argument_list|(
 literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
-comment|// turn the route to in only as we do not want jetty to wait for the response
-comment|// we can do this by changing the MEP and sending to a seda endpoint to spin off
+comment|// turn the route to in only as we do not want jetty to wait
+comment|// for the response
+comment|// we can do this by changing the MEP and sending to a seda
+comment|// endpoint to spin off
 comment|// a new thread continue doing the routing
 operator|.
 name|setExchangePattern

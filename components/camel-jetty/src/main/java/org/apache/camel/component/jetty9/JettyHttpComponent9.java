@@ -479,7 +479,7 @@ literal|null
 condition|)
 block|{
 comment|// Does not work
-comment|//httpConfig.setRequestBufferSize(requestBufferSize);
+comment|// httpConfig.setRequestBufferSize(requestBufferSize);
 block|}
 if|if
 condition|(
@@ -636,7 +636,8 @@ argument_list|(
 name|scf
 argument_list|)
 expr_stmt|;
-comment|// The protocol name can be "SSL" or "SSL-HTTP/1.1" depending on the version of Jetty
+comment|// The protocol name can be "SSL" or "SSL-HTTP/1.1" depending on
+comment|// the version of Jetty
 name|result
 operator|.
 name|setDefaultProtocol

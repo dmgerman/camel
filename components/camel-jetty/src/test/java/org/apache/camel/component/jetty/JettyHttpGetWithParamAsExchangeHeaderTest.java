@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that we can have URI options for external system (endpoint is lenient)  */
+comment|/**  * Unit test to verify that we can have URI options for external system  * (endpoint is lenient)  */
 end_comment
 
 begin_class

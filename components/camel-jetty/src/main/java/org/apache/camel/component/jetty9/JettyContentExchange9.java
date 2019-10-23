@@ -1658,7 +1658,8 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// In newer versions of Jetty the return type has been changed to Set.
+comment|// In newer versions of Jetty the return type has been changed
+comment|// to Set.
 comment|// This causes problems at byte-code level. Try recovering.
 name|Method
 name|reflGetFieldNamesCollection

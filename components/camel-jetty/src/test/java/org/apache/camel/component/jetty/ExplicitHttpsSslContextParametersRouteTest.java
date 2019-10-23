@@ -255,11 +255,13 @@ argument_list|(
 name|kmp
 argument_list|)
 expr_stmt|;
-comment|// From Camel 2.5.0 Camel-Jetty is using SslSelectChannelConnector instead of SslSocketConnector
-comment|//SslSelectChannelConnector sslSocketConnector = new SslSelectChannelConnector();
-comment|//sslSocketConnector.getSslContextFactory().setSslContext(sslContextParameters.createSSLContext());
-comment|//sslSocketConnector.setPort(port);
-comment|//return sslSocketConnector;
+comment|// From Camel 2.5.0 Camel-Jetty is using SslSelectChannelConnector
+comment|// instead of SslSocketConnector
+comment|// SslSelectChannelConnector sslSocketConnector = new
+comment|// SslSelectChannelConnector();
+comment|// sslSocketConnector.getSslContextFactory().setSslContext(sslContextParameters.createSSLContext());
+comment|// sslSocketConnector.setPort(port);
+comment|// return sslSocketConnector;
 return|return
 literal|null
 return|;

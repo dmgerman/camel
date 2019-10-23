@@ -146,7 +146,8 @@ argument_list|(
 literal|50
 argument_list|)
 expr_stmt|;
-comment|// send a request/reply and have future handle so we can shutdown while in progress
+comment|// send a request/reply and have future handle so we can shutdown while
+comment|// in progress
 name|Future
 argument_list|<
 name|String
@@ -170,7 +171,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// shutdown camel while in progress, wait 2 sec so the first req has been received in Camel route
+comment|// shutdown camel while in progress, wait 2 sec so the first req has
+comment|// been received in Camel route
 name|Executors
 operator|.
 name|newSingleThreadExecutor

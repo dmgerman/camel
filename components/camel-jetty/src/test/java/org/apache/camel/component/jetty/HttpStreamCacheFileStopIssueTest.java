@@ -230,7 +230,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// enable stream caching and use a low threshold so its forced to write to file
+comment|// enable stream caching and use a low threshold so its forced
+comment|// to write to file
 name|context
 operator|.
 name|getStreamCachingStrategy
@@ -318,7 +319,8 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-comment|// TODO: CAMEL-3839: need to convert the body to a String as the tmp file will be deleted
+comment|// TODO: CAMEL-3839: need to convert the body to a String as
+comment|// the tmp file will be deleted
 comment|// before the producer template can convert the result back
 operator|.
 name|convertBodyTo

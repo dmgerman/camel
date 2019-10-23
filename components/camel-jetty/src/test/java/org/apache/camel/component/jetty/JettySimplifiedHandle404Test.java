@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on end user on forum how to get the 404 error code in his enrich aggregator  */
+comment|/**  * Based on end user on forum how to get the 404 error code in his enrich  * aggregator  */
 end_comment
 
 begin_class
@@ -187,10 +187,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// START SNIPPET: e1
-comment|// We set throwExceptionOnFailure to false to let Camel return any response from the remove HTTP server without thrown
+comment|// We set throwExceptionOnFailure to false to let Camel return
+comment|// any response from the remove HTTP server without thrown
 comment|// HttpOperationFailedException in case of failures.
-comment|// This allows us to handle all responses in the aggregation strategy where we can check the HTTP response code
-comment|// and decide what to do. As this is based on an unit test we assert the code is 404
+comment|// This allows us to handle all responses in the aggregation
+comment|// strategy where we can check the HTTP response code
+comment|// and decide what to do. As this is based on an unit test we
+comment|// assert the code is 404
 name|from
 argument_list|(
 literal|"direct:start"

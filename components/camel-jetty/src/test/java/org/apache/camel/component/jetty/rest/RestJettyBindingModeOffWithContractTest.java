@@ -519,7 +519,8 @@ argument_list|)
 operator|.
 name|route
 argument_list|()
-comment|// contract advice converts betweeen JSON and UserPojoEx directly
+comment|// contract advice converts betweeen JSON and UserPojoEx
+comment|// directly
 operator|.
 name|inputType
 argument_list|(

@@ -480,7 +480,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//we populate the http request parameters without checking the request method
+comment|// we populate the http request parameters without checking the request
+comment|// method
 name|Map
 argument_list|<
 name|String
@@ -494,7 +495,7 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-comment|//remove Content-Encoding from request
+comment|// remove Content-Encoding from request
 if|if
 condition|(
 name|request

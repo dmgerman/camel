@@ -193,7 +193,8 @@ name|from
 argument_list|(
 literal|"jetty://http://localhost:{{port}}/test"
 argument_list|)
-comment|// add this node to make sure the convert can work within DefaultMessageImpl
+comment|// add this node to make sure the convert can work within
+comment|// DefaultMessageImpl
 operator|.
 name|convertBodyTo
 argument_list|(
@@ -398,7 +399,8 @@ argument_list|(
 name|sis
 argument_list|)
 expr_stmt|;
-comment|// The ServletInputStream should be cached and you can't read message here
+comment|// The ServletInputStream should be cached and you can't
+comment|// read message here
 name|assertTrue
 argument_list|(
 name|sis

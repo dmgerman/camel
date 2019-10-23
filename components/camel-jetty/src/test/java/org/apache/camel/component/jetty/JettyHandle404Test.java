@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Based on end user on forum how to get the 404 error code in his enrich aggregator  */
+comment|/**  * Based on end user on forum how to get the 404 error code in his enrich  * aggregator  */
 end_comment
 
 begin_class
@@ -352,8 +352,10 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|// use this sub route as indirection to handle the HttpOperationFailedException
-comment|// and set the data back as data on the exchange to not cause the exception to be thrown
+comment|// use this sub route as indirection to handle the
+comment|// HttpOperationFailedException
+comment|// and set the data back as data on the exchange to not cause
+comment|// the exception to be thrown
 name|from
 argument_list|(
 literal|"direct:tohttp"
@@ -389,8 +391,10 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// copy the caused exception values to the exchange as we want the response in the regular exchange
-comment|// instead as an exception that will get thrown and thus the route breaks
+comment|// copy the caused exception values to the exchange as
+comment|// we want the response in the regular exchange
+comment|// instead as an exception that will get thrown and thus
+comment|// the route breaks
 name|HttpOperationFailedException
 name|cause
 init|=

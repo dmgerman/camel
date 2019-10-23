@@ -217,8 +217,8 @@ throws|throws
 name|Exception
 block|{
 comment|// configure to use jetty on localhost with the given port
-comment|//ensure we don't extract key=value pairs from form bodies
-comment|//(application/x-www-form-urlencoded)
+comment|// ensure we don't extract key=value pairs from form bodies
+comment|// (application/x-www-form-urlencoded)
 name|restConfiguration
 argument_list|()
 operator|.

@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit testing demonstrating how to store incoming requests as files and serving a response back.  */
+comment|/**  * Unit testing demonstrating how to store incoming requests as files and  * serving a response back.  */
 end_comment
 
 begin_class
@@ -276,7 +276,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// put the incoming data on the seda queue and return a fixed response that we got the file
+comment|// put the incoming data on the seda queue and return a fixed
+comment|// response that we got the file
 name|from
 argument_list|(
 literal|"jetty:http://localhost:{{port}}/myworld"

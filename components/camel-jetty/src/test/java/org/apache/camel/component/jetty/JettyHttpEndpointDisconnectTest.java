@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test to verify that the Jetty HTTP connector is correctly disconnected on shutdown  */
+comment|/**  * Unit test to verify that the Jetty HTTP connector is correctly disconnected  * on shutdown  */
 end_comment
 
 begin_class

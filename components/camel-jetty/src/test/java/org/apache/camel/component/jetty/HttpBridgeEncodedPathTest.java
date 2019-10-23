@@ -341,7 +341,8 @@ operator|.
 name|isNull
 argument_list|()
 expr_stmt|;
-comment|// cannot use template as it automatically decodes some chars in the path
+comment|// cannot use template as it automatically decodes some chars in the
+comment|// path
 name|HttpClient
 name|httpClient
 init|=

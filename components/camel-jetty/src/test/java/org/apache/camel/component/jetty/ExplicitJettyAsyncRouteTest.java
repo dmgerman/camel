@@ -160,7 +160,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//async and continuation is not compatible!
+comment|// async and continuation is not compatible!
 name|from
 argument_list|(
 literal|"jetty:http://localhost:{{port}}/myapp/myservice?async=true&useContinuation=false"
@@ -213,7 +213,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// we have access to the HttpServletRequest here and we can grab it if we need it
+comment|// we have access to the HttpServletRequest here and we can grab it
+comment|// if we need it
 name|HttpServletRequest
 name|req
 init|=

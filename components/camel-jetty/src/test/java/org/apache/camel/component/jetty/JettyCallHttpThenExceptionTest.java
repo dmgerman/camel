@@ -237,7 +237,8 @@ name|to
 argument_list|(
 literal|"log:A"
 argument_list|)
-comment|// remove http headers before and after invoking http service
+comment|// remove http headers before and after invoking http
+comment|// service
 operator|.
 name|removeHeaders
 argument_list|(

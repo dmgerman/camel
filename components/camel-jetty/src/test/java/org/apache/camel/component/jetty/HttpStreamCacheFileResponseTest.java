@@ -230,7 +230,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// enable stream caching and use a low threshold so its forced to write to file
+comment|// enable stream caching and use a low threshold so its forced
+comment|// to write to file
 name|context
 operator|.
 name|getStreamCachingStrategy
@@ -262,7 +263,8 @@ name|from
 argument_list|(
 literal|"jetty://http://localhost:{{port}}/myserver"
 argument_list|)
-comment|// wrap the response in 2 input streams so it will force caching to disk
+comment|// wrap the response in 2 input streams so it will force
+comment|// caching to disk
 operator|.
 name|transform
 argument_list|()

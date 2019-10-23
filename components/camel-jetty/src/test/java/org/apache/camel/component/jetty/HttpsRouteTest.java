@@ -404,7 +404,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// ensure jsse clients can validate the self signed dummy localhost cert,
+comment|// ensure jsse clients can validate the self signed dummy localhost
+comment|// cert,
 comment|// use the server keystore as the trust store for these tests
 name|URL
 name|trustStoreUrl

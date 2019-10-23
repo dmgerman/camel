@@ -1491,8 +1491,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// As the request input stream is cached by DefaultHttpBinding,
-comment|// HttpServletRequest can't get the parameters of post message
+comment|// As the request input stream is cached by
+comment|// DefaultHttpBinding,
+comment|// HttpServletRequest can't get the parameters of post
+comment|// message
 name|String
 name|value
 init|=

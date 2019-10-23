@@ -389,7 +389,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// enable stream caching and use a low threshold so its forced to write to file
+comment|// enable stream caching and use a low threshold so its forced
+comment|// to write to file
 name|context
 operator|.
 name|getStreamCachingStrategy

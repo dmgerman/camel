@@ -169,7 +169,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// we do nothing here, so http producer will send a GET method request
+comment|// we do nothing here, so http producer will send a GET method
+comment|// request
 block|}
 block|}
 argument_list|)

@@ -537,7 +537,8 @@ argument_list|)
 expr_stmt|;
 comment|// The other form date can be get from the message
 comment|// header
-comment|// For binary attachment, header should also be populated by DataHandler but not payload
+comment|// For binary attachment, header should also be
+comment|// populated by DataHandler but not payload
 name|Object
 name|header
 init|=
