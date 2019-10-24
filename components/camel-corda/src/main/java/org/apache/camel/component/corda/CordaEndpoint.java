@@ -204,7 +204,7 @@ literal|"corda"
 argument_list|,
 name|title
 operator|=
-literal|"corda"
+literal|"Corda"
 argument_list|,
 name|syntax
 operator|=
