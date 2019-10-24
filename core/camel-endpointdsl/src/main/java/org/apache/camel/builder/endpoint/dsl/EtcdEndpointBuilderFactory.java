@@ -175,7 +175,7 @@ specifier|public
 interface|interface
 name|EtcdEndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint consumers for the etcd component.      */
+comment|/**      * Builder for endpoint consumers for the Etcd component.      */
 DECL|interface|EtcdEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -1105,7 +1105,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint consumers for the etcd component.      */
+comment|/**      * Advanced builder for endpoint consumers for the Etcd component.      */
 DECL|interface|AdvancedEtcdEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -1379,7 +1379,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint producers for the etcd component.      */
+comment|/**      * Builder for endpoint producers for the Etcd component.      */
 DECL|interface|EtcdEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -1695,7 +1695,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint producers for the etcd component.      */
+comment|/**      * Advanced builder for endpoint producers for the Etcd component.      */
 DECL|interface|AdvancedEtcdEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -1801,7 +1801,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint for the etcd component.      */
+comment|/**      * Builder for endpoint for the Etcd component.      */
 DECL|interface|EtcdEndpointBuilder
 specifier|public
 interface|interface
@@ -2035,7 +2035,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the etcd component.      */
+comment|/**      * Advanced builder for endpoint for the Etcd component.      */
 DECL|interface|AdvancedEtcdEndpointBuilder
 specifier|public
 interface|interface
@@ -2143,7 +2143,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * etcd (camel-etcd)      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store.      *       * Category: clustering,database      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-etcd      *       * Syntax:<code>etcd:namespace/path</code>      *       * Path parameter: namespace (required)      * The API namespace to use      * The value can be one of: keys, stats, watch      *       * Path parameter: path      * The path the endpoint refers to      */
+comment|/**      * Etcd (camel-etcd)      * The camel etcd component allows you to work with Etcd, a distributed      * reliable key-value store.      *       * Category: clustering,database      * Available as of version: 2.18      * Maven coordinates: org.apache.camel:camel-etcd      *       * Syntax:<code>etcd:namespace/path</code>      *       * Path parameter: namespace (required)      * The API namespace to use      * The value can be one of: keys, stats, watch      *       * Path parameter: path      * The path the endpoint refers to      */
 DECL|method|etcd (String path)
 specifier|default
 name|EtcdEndpointBuilder
