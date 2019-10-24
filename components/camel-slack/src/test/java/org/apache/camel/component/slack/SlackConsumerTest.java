@@ -334,7 +334,7 @@ name|Assume
 operator|.
 name|assumeThat
 argument_list|(
-literal|"You should specified access token"
+literal|"Please specify a Slack access token"
 argument_list|,
 name|token
 argument_list|,
@@ -348,7 +348,7 @@ name|Assume
 operator|.
 name|assumeThat
 argument_list|(
-literal|"You should specified slack application hook"
+literal|"Please specify a Slack application webhook URL"
 argument_list|,
 name|hook
 argument_list|,
@@ -428,6 +428,10 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
+name|HttpStatus
+operator|.
+name|SC_OK
+argument_list|,
 name|response
 operator|.
 name|getStatusLine
@@ -435,10 +439,6 @@ argument_list|()
 operator|.
 name|getStatusCode
 argument_list|()
-argument_list|,
-name|HttpStatus
-operator|.
-name|SC_OK
 argument_list|)
 expr_stmt|;
 block|}
