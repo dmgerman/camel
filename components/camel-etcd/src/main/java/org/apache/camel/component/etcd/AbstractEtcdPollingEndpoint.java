@@ -116,7 +116,7 @@ literal|"etcd"
 argument_list|,
 name|title
 operator|=
-literal|"etcd"
+literal|"Etcd"
 argument_list|,
 name|syntax
 operator|=
