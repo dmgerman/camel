@@ -115,7 +115,7 @@ specifier|public
 interface|interface
 name|CordaEndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint consumers for the corda component.      */
+comment|/**      * Builder for endpoint consumers for the Corda component.      */
 DECL|interface|CordaEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -179,7 +179,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint consumers for the corda component.      */
+comment|/**      * Advanced builder for endpoint consumers for the Corda component.      */
 DECL|interface|AdvancedCordaEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -369,7 +369,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint producers for the corda component.      */
+comment|/**      * Builder for endpoint producers for the Corda component.      */
 DECL|interface|CordaEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -433,7 +433,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint producers for the corda component.      */
+comment|/**      * Advanced builder for endpoint producers for the Corda component.      */
 DECL|interface|AdvancedCordaEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -539,7 +539,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint for the corda component.      */
+comment|/**      * Builder for endpoint for the Corda component.      */
 DECL|interface|CordaEndpointBuilder
 specifier|public
 interface|interface
@@ -563,7 +563,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the corda component.      */
+comment|/**      * Advanced builder for endpoint for the Corda component.      */
 DECL|interface|AdvancedCordaEndpointBuilder
 specifier|public
 interface|interface
@@ -671,7 +671,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * corda (camel-corda)      * The corda component uses the corda-rpc to interact with corda nodes.      *       * Category: corda,blockchain      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-corda      *       * Syntax:<code>corda:configuration</code>      *       * Path parameter: configuration (required)      * URL to the corda node      */
+comment|/**      * Corda (camel-corda)      * The corda component uses the corda-rpc to interact with corda nodes.      *       * Category: corda,blockchain      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-corda      *       * Syntax:<code>corda:configuration</code>      *       * Path parameter: configuration (required)      * URL to the corda node      */
 DECL|method|corda (String path)
 specifier|default
 name|CordaEndpointBuilder
