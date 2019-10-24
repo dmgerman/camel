@@ -176,7 +176,7 @@ literal|"flink"
 argument_list|,
 name|title
 operator|=
-literal|"Apache Flink"
+literal|"Flink"
 argument_list|,
 name|syntax
 operator|=
