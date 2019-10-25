@@ -186,7 +186,7 @@ literal|"2.24.0"
 argument_list|,
 name|title
 operator|=
-literal|"Apache Pulsar"
+literal|"Pulsar"
 argument_list|,
 name|syntax
 operator|=
