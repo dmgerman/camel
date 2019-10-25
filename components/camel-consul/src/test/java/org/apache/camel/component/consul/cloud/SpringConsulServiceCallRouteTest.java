@@ -216,6 +216,8 @@ name|testcontainers
 operator|.
 name|spring
 operator|.
+name|junit5
+operator|.
 name|ContainerAwareSpringTestSupport
 import|;
 end_import
@@ -226,7 +228,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|jupiter
+operator|.
+name|api
+operator|.
+name|Assertions
 import|;
 end_import
 
@@ -235,6 +241,10 @@ import|import
 name|org
 operator|.
 name|junit
+operator|.
+name|jupiter
+operator|.
+name|api
 operator|.
 name|Test
 import|;
@@ -663,13 +673,13 @@ argument_list|(
 literal|"scall"
 argument_list|)
 decl_stmt|;
-name|Assert
+name|Assertions
 operator|.
 name|assertNotNull
 argument_list|(
-literal|"ServiceCall Route should be present"
-argument_list|,
 name|route
+argument_list|,
+literal|"ServiceCall Route should be present"
 argument_list|)
 expr_stmt|;
 return|return
