@@ -208,7 +208,7 @@ literal|"spark"
 argument_list|,
 name|title
 operator|=
-literal|"Apache Spark"
+literal|"Spark"
 argument_list|,
 name|syntax
 operator|=
