@@ -146,6 +146,15 @@ name|NETTY_CHANNEL
 init|=
 literal|"CamelNettyChannel"
 decl_stmt|;
+DECL|field|NETTY_CLIENT_CONTINUE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NETTY_CLIENT_CONTINUE
+init|=
+literal|"CamelClientContinue"
+decl_stmt|;
 DECL|method|NettyConstants ()
 specifier|private
 name|NettyConstants

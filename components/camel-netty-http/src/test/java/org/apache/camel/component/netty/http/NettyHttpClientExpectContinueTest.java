@@ -66,26 +66,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"TODO Fix it, need to send the response back"
-argument_list|)
 DECL|class|NettyHttpClientExpectContinueTest
 specifier|public
 class|class
