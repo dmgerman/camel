@@ -115,7 +115,7 @@ specifier|public
 interface|interface
 name|PulsarEndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint consumers for the Apache Pulsar component.      */
+comment|/**      * Builder for endpoint consumers for the Pulsar component.      */
 DECL|interface|PulsarEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -494,7 +494,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint consumers for the Apache Pulsar component.      */
+comment|/**      * Advanced builder for endpoint consumers for the Pulsar component.      */
 DECL|interface|AdvancedPulsarEndpointConsumerBuilder
 specifier|public
 interface|interface
@@ -684,7 +684,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint producers for the Apache Pulsar component.      */
+comment|/**      * Builder for endpoint producers for the Pulsar component.      */
 DECL|interface|PulsarEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -1231,7 +1231,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint producers for the Apache Pulsar component.      */
+comment|/**      * Advanced builder for endpoint producers for the Pulsar component.      */
 DECL|interface|AdvancedPulsarEndpointProducerBuilder
 specifier|public
 interface|interface
@@ -1337,7 +1337,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Builder for endpoint for the Apache Pulsar component.      */
+comment|/**      * Builder for endpoint for the Pulsar component.      */
 DECL|interface|PulsarEndpointBuilder
 specifier|public
 interface|interface
@@ -1361,7 +1361,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the Apache Pulsar component.      */
+comment|/**      * Advanced builder for endpoint for the Pulsar component.      */
 DECL|interface|AdvancedPulsarEndpointBuilder
 specifier|public
 interface|interface
@@ -1517,7 +1517,7 @@ block|,
 DECL|enumConstant|CustomPartition
 name|CustomPartition
 block|;     }
-comment|/**      * Apache Pulsar (camel-pulsar)      * Camel Apache Pulsar Component      *       * Category: messaging      * Available as of version: 2.24      * Maven coordinates: org.apache.camel:camel-pulsar      *       * Syntax:<code>pulsar:persistence://tenant/namespace/topic</code>      *       * Path parameter: persistence (required)      * Whether the topic is persistent or non-persistent      * The value can be one of: persistent, non-persistent      *       * Path parameter: tenant (required)      * The tenant      *       * Path parameter: namespace (required)      * The namespace      *       * Path parameter: topic (required)      * The topic      */
+comment|/**      * Pulsar (camel-pulsar)      * Camel Apache Pulsar Component      *       * Category: messaging      * Available as of version: 2.24      * Maven coordinates: org.apache.camel:camel-pulsar      *       * Syntax:<code>pulsar:persistence://tenant/namespace/topic</code>      *       * Path parameter: persistence (required)      * Whether the topic is persistent or non-persistent      * The value can be one of: persistent, non-persistent      *       * Path parameter: tenant (required)      * The tenant      *       * Path parameter: namespace (required)      * The namespace      *       * Path parameter: topic (required)      * The topic      */
 DECL|method|pulsar (String path)
 specifier|default
 name|PulsarEndpointBuilder
