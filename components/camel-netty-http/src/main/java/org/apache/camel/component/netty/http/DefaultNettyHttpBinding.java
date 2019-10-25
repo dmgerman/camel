@@ -1882,6 +1882,9 @@ operator|)
 operator|.
 name|content
 argument_list|()
+operator|.
+name|retain
+argument_list|()
 decl_stmt|;
 try|try
 block|{
