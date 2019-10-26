@@ -118,6 +118,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|engine
+operator|.
+name|AbstractCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|Pipeline
@@ -362,7 +378,7 @@ throws|throws
 name|Exception
 block|{
 comment|// start with a clean slate
-name|DefaultCamelContext
+name|AbstractCamelContext
 operator|.
 name|setContextCounter
 argument_list|(

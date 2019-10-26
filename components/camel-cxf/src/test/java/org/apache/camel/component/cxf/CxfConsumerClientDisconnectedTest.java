@@ -309,7 +309,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 return|;
 block|}

@@ -89,9 +89,7 @@ name|arguments
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|addFileToArguments (File file, String flag)
@@ -295,9 +293,7 @@ name|addListToArguments
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.

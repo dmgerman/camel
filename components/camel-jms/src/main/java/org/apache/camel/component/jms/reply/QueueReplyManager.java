@@ -589,7 +589,6 @@ name|destination
 return|;
 block|}
 block|}
-empty_stmt|;
 annotation|@
 name|Override
 DECL|method|createListenerContainer ()

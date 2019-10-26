@@ -244,20 +244,6 @@ name|ResolutionScope
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|plexus
-operator|.
-name|util
-operator|.
-name|IOUtil
-import|;
-end_import
-
 begin_comment
 comment|/**  * Parses ApiMethod signatures from Javadoc.  */
 end_comment

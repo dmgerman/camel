@@ -140,6 +140,18 @@ name|xml
 operator|.
 name|stream
 operator|.
+name|XMLStreamConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|stream
+operator|.
 name|XMLStreamException
 import|;
 end_import
@@ -153,20 +165,6 @@ operator|.
 name|stream
 operator|.
 name|XMLStreamWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|stream
-operator|.
-name|events
-operator|.
-name|XMLEvent
 import|;
 end_import
 
@@ -315,7 +313,7 @@ name|TreeElement
 argument_list|(
 name|currentTreeElement
 argument_list|,
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|START_ELEMENT
 argument_list|,
@@ -645,7 +643,7 @@ name|TreeElement
 argument_list|(
 name|currentTreeElement
 argument_list|,
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|ATTRIBUTE
 argument_list|,
@@ -870,7 +868,7 @@ name|TreeElement
 argument_list|(
 literal|null
 argument_list|,
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|START_DOCUMENT
 argument_list|,
@@ -948,7 +946,7 @@ operator|.
 name|getXmlEvent
 argument_list|()
 operator|==
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|CHARACTERS
 condition|)
@@ -972,7 +970,7 @@ name|TreeElement
 argument_list|(
 name|currentTreeElement
 argument_list|,
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|CHARACTERS
 argument_list|,
@@ -1433,7 +1431,7 @@ if|if
 condition|(
 name|xmlEvent
 operator|==
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|START_ELEMENT
 condition|)
@@ -1527,7 +1525,7 @@ argument_list|)
 operator|.
 name|xmlEvent
 operator|==
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|CHARACTERS
 condition|)
@@ -2031,7 +2029,7 @@ name|element
 operator|.
 name|xmlEvent
 operator|==
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|CHARACTERS
 condition|)

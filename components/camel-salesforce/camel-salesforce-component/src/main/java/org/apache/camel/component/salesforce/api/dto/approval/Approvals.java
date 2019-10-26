@@ -474,7 +474,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-empty_stmt|;
 comment|/**      * Returns approvals by Salesforce object type. You might have approvals for      * "Account" and "Case" Salesforce objects, then the resulting map would      * hold a list of {@link Info} objects keyed by the object type, i.e.:      *      *<pre>      * Approvals approvals = ...;      * List<Info> accountApprovals = approvals.getApprovals("Account");      * List<Info> caseApprovals = approvals.getApprovals("Case");      *</pre>      *      * @return approval info by object type      */
 DECL|method|getApprovals ()
 specifier|public

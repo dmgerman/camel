@@ -38,9 +38,6 @@ interface|interface
 name|KeyValueProtocol
 block|{
 DECL|field|PROTOCOL
-specifier|public
-specifier|static
-specifier|final
 name|org
 operator|.
 name|apache
@@ -155,9 +152,6 @@ extends|extends
 name|KeyValueProtocol
 block|{
 DECL|field|PROTOCOL
-specifier|public
-specifier|static
-specifier|final
 name|org
 operator|.
 name|apache

@@ -320,7 +320,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeExchangeException
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -5531,7 +5531,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-name|RuntimeExchangeException
+name|RuntimeCamelException
 operator|.
 name|wrapRuntimeException
 argument_list|(

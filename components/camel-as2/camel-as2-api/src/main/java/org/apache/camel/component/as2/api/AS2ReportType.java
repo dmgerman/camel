@@ -28,9 +28,6 @@ name|AS2ReportType
 block|{
 comment|/**      * Disposition Notification Report Type      */
 DECL|field|DISPOSITION_NOTIFICATION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|DISPOSITION_NOTIFICATION
 init|=

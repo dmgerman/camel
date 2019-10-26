@@ -362,7 +362,7 @@ name|bundle
 operator|.
 name|getLink
 argument_list|(
-name|Bundle
+name|IBaseBundle
 operator|.
 name|LINK_NEXT
 argument_list|)
@@ -492,7 +492,7 @@ name|bundle
 operator|.
 name|getLink
 argument_list|(
-name|Bundle
+name|IBaseBundle
 operator|.
 name|LINK_NEXT
 argument_list|)
@@ -572,7 +572,7 @@ name|bundle
 operator|.
 name|getLink
 argument_list|(
-name|Bundle
+name|IBaseBundle
 operator|.
 name|LINK_NEXT
 argument_list|)
@@ -621,7 +621,7 @@ name|bundle
 operator|.
 name|getLink
 argument_list|(
-name|Bundle
+name|IBaseBundle
 operator|.
 name|LINK_PREV
 argument_list|)
@@ -701,7 +701,7 @@ name|bundle
 operator|.
 name|getLink
 argument_list|(
-name|Bundle
+name|IBaseBundle
 operator|.
 name|LINK_NEXT
 argument_list|)
@@ -750,7 +750,7 @@ name|bundle
 operator|.
 name|getLink
 argument_list|(
-name|Bundle
+name|IBaseBundle
 operator|.
 name|LINK_PREV
 argument_list|)

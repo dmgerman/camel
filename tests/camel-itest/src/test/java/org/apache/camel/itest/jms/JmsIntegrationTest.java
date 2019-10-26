@@ -54,16 +54,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -117,22 +107,6 @@ operator|.
 name|spi
 operator|.
 name|Registry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|jndi
-operator|.
-name|JndiContext
 import|;
 end_import
 

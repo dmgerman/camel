@@ -36,20 +36,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|ec2
-operator|.
-name|AmazonEC2Client
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache

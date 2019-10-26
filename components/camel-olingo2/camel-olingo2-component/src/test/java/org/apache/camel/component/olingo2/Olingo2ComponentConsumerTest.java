@@ -372,7 +372,6 @@ literal|"mock:consumer-alreadyseen"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -543,7 +542,6 @@ literal|"mock:consumer-alreadyseen"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -683,7 +681,6 @@ literal|"mock:consumer-splitresult-kp-manufacturer"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -869,7 +866,6 @@ literal|"mock:consumer-splitresult-kp-manufacturer"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -1027,7 +1023,6 @@ literal|"mock:consumer-value"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -1229,7 +1224,6 @@ literal|"mock:consumer-splitresult"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext

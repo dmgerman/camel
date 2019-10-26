@@ -751,9 +751,6 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-operator|(
-name|String
-operator|)
 name|parameters
 operator|.
 name|get
@@ -816,9 +813,7 @@ name|params
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BasicNameValuePair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|params

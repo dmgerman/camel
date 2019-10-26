@@ -40,16 +40,6 @@ name|io
 operator|.
 name|grpc
 operator|.
-name|Attributes
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|grpc
-operator|.
 name|CallCredentials
 import|;
 end_import
@@ -61,16 +51,6 @@ operator|.
 name|grpc
 operator|.
 name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|grpc
-operator|.
-name|MethodDescriptor
 import|;
 end_import
 

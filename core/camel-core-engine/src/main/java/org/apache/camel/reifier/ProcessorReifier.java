@@ -3533,20 +3533,13 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
-comment|// also resolve properties and constant fields on embedded
-comment|// expressions
+comment|// also resolve properties and constant fields on embedded expressions
 name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
 name|me
 init|=
-operator|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-operator|)
 name|output
 decl_stmt|;
 if|if

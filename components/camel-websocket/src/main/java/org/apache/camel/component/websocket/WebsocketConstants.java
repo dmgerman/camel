@@ -93,7 +93,6 @@ specifier|private
 name|WebsocketConstants
 parameter_list|()
 block|{     }
-empty_stmt|;
 block|}
 end_class
 

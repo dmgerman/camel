@@ -148,9 +148,6 @@ name|getName
 parameter_list|()
 block|{
 return|return
-operator|(
-name|String
-operator|)
 name|getPrefixPKValues
 argument_list|()
 index|[

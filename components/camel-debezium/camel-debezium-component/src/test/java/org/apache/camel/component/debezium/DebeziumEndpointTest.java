@@ -1879,7 +1879,7 @@ specifier|final
 name|Schema
 name|recordSchema
 init|=
-name|SchemaBuilder
+name|Schema
 operator|.
 name|STRING_SCHEMA
 decl_stmt|;

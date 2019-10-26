@@ -104,22 +104,6 @@ name|UriParams
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|paho
-operator|.
-name|client
-operator|.
-name|mqttv3
-operator|.
-name|MqttMessage
-import|;
-end_import
-
 begin_class
 annotation|@
 name|UriParams

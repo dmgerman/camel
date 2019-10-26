@@ -316,7 +316,6 @@ literal|"mock:consumer-query"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -482,7 +481,6 @@ literal|"mock:consumer-alreadyseen"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -658,7 +656,6 @@ literal|"mock:consumer-alreadyseen"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -804,7 +801,6 @@ literal|"mock:consumer-splitresult-kp-airport"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -996,7 +992,6 @@ literal|"mock:consumer-splitresult-kp-airport"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -1151,7 +1146,6 @@ literal|"mock:consumer-splitresult"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -1345,7 +1339,6 @@ literal|"mock:consumer-splitresult-value"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -1461,7 +1454,6 @@ literal|"mock:consumer-splitresult-collection-value"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext
@@ -1593,7 +1585,6 @@ literal|"mock:consumer-nosplitresult-colleciton-value"
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 decl_stmt|;
 name|addRouteAndStartContext

@@ -28,9 +28,6 @@ name|AS2MimeType
 block|{
 comment|/**      * Mime Type for Multipart Signed Data      */
 DECL|field|MULTIPART_SIGNED
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|MULTIPART_SIGNED
 init|=
@@ -38,9 +35,6 @@ literal|"multipart/signed"
 decl_stmt|;
 comment|/**      * Mime Type for Application PKCS7 Signature      */
 DECL|field|APPLICATION_PKCS7_SIGNATURE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_PKCS7_SIGNATURE
 init|=
@@ -48,9 +42,6 @@ literal|"application/pkcs7-signature"
 decl_stmt|;
 comment|/**      * Mime Type for Application PKCS7 Signature      */
 DECL|field|APPLICATION_PKCS7_MIME
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_PKCS7_MIME
 init|=
@@ -58,9 +49,6 @@ literal|"application/pkcs7-mime"
 decl_stmt|;
 comment|/**      * Mime Type for Text/Plain Data      */
 DECL|field|TEXT_PLAIN
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|TEXT_PLAIN
 init|=
@@ -68,9 +56,6 @@ literal|"text/plain"
 decl_stmt|;
 comment|/**      * Mime Type for Application/EDIFACT      */
 DECL|field|APPLICATION_EDIFACT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_EDIFACT
 init|=
@@ -78,9 +63,6 @@ literal|"application/edifact"
 decl_stmt|;
 comment|/**      * Mime Type for Application/EDI-X12      */
 DECL|field|APPLICATION_EDI_X12
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_EDI_X12
 init|=
@@ -88,9 +70,6 @@ literal|"application/edi-x12"
 decl_stmt|;
 comment|/**      * Mime Type for Application/EDI-consent      */
 DECL|field|APPLICATION_EDI_CONSENT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_EDI_CONSENT
 init|=
@@ -98,9 +77,6 @@ literal|"application/edi-consent"
 decl_stmt|;
 comment|/**      * Mime Type for Multipart/Report      */
 DECL|field|MULTIPART_REPORT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|MULTIPART_REPORT
 init|=
@@ -108,9 +84,6 @@ literal|"multipart/report"
 decl_stmt|;
 comment|/**      * Mime Type for Message/Disposition-Notification      */
 DECL|field|MESSAGE_DISPOSITION_NOTIFICATION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|MESSAGE_DISPOSITION_NOTIFICATION
 init|=

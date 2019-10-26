@@ -100,24 +100,6 @@ name|corda
 operator|.
 name|CordaConstants
 operator|.
-name|VAULT_TRACK
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|corda
-operator|.
-name|CordaConstants
-operator|.
 name|VAULT_TRACK_BY
 import|;
 end_import

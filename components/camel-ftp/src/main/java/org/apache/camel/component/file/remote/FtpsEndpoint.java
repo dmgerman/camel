@@ -1330,9 +1330,6 @@ name|getFtpsConfiguration
 parameter_list|()
 block|{
 return|return
-operator|(
-name|FtpsConfiguration
-operator|)
 name|getConfiguration
 argument_list|()
 return|;

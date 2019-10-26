@@ -102,26 +102,6 @@ name|UriEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The Kubernetes Configmaps component provides a producer to execute kubernetes  * configmap operations.  */
 end_comment

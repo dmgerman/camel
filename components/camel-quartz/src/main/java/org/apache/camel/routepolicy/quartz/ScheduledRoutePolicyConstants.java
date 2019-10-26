@@ -44,7 +44,6 @@ name|SUSPEND
 block|,
 name|RESUME
 block|}
-empty_stmt|;
 DECL|field|SCHEDULED_ROUTE
 name|String
 name|SCHEDULED_ROUTE

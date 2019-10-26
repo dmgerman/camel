@@ -3804,9 +3804,7 @@ block|{
 return|return
 operator|new
 name|CamelInternalProcessorAdviceWrapper
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|instrumentationProcessor
 argument_list|)

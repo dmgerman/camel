@@ -102,26 +102,6 @@ name|UriEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The Kubernetes Replication Controllers component provides a producer to  * execute kubernetes replication controller operations and a consumer to  * consume replication controller events.  */
 end_comment

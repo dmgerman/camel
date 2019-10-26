@@ -98,7 +98,7 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
+name|ArgumentMatchers
 import|;
 end_import
 
@@ -416,7 +416,7 @@ argument_list|)
 operator|.
 name|ensureNameSpaceAndTenant
 argument_list|(
-name|Matchers
+name|ArgumentMatchers
 operator|.
 name|anyString
 argument_list|()

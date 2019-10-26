@@ -351,11 +351,7 @@ name|map
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|5
 argument_list|)

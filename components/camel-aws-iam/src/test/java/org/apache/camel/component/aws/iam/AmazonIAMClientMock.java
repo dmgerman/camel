@@ -5645,9 +5645,7 @@ name|accessKeyMetadata
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AccessKeyMetadata
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|AccessKeyMetadata

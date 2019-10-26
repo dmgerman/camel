@@ -28,9 +28,6 @@ name|MDNField
 block|{
 comment|/**      * Field Name for Reporting UA      */
 DECL|field|REPORTING_UA
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|REPORTING_UA
 init|=
@@ -38,9 +35,6 @@ literal|"Reporting-UA"
 decl_stmt|;
 comment|/**      * Field Name for MDN Gateway      */
 DECL|field|MDN_GATEWAY
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|MDN_GATEWAY
 init|=
@@ -48,9 +42,6 @@ literal|"MDN-Gateway"
 decl_stmt|;
 comment|/**      * Field Name for Final Recipient      */
 DECL|field|FINAL_RECIPIENT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|FINAL_RECIPIENT
 init|=
@@ -58,9 +49,6 @@ literal|"Final-Recipient"
 decl_stmt|;
 comment|/**      * Field Name for Original Message IDX      */
 DECL|field|ORIGINAL_MESSAGE_ID
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|ORIGINAL_MESSAGE_ID
 init|=
@@ -68,9 +56,6 @@ literal|"Original-Message-ID"
 decl_stmt|;
 comment|/**      * Field Name for Disposition      */
 DECL|field|DISPOSITION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|DISPOSITION
 init|=
@@ -78,9 +63,6 @@ literal|"Disposition"
 decl_stmt|;
 comment|/**      * Field Name for Failure      */
 DECL|field|FAILURE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|FAILURE
 init|=
@@ -88,9 +70,6 @@ literal|"Failure"
 decl_stmt|;
 comment|/**      * Field Name for Error      */
 DECL|field|ERROR
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|ERROR
 init|=
@@ -98,9 +77,6 @@ literal|"Error"
 decl_stmt|;
 comment|/**      * Field Name for Warning      */
 DECL|field|WARNING
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|WARNING
 init|=
@@ -108,9 +84,6 @@ literal|"Warning"
 decl_stmt|;
 comment|/**      * Field Name for Received Content MIC      */
 DECL|field|RECEIVED_CONTENT_MIC
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|RECEIVED_CONTENT_MIC
 init|=

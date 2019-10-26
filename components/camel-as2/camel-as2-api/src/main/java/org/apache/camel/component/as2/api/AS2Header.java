@@ -42,9 +42,6 @@ name|AS2Header
 block|{
 comment|/**      * Message Header Name for MIME Version      */
 DECL|field|MIME_VERSION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|MIME_VERSION
 init|=
@@ -52,9 +49,6 @@ literal|"MIME-Version"
 decl_stmt|;
 comment|/**      * Message Header Name for AS2 From      */
 DECL|field|AS2_FROM
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|AS2_FROM
 init|=
@@ -62,9 +56,6 @@ literal|"AS2-From"
 decl_stmt|;
 comment|/**      * Message Header Name for AS2 Version      */
 DECL|field|AS2_VERSION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|AS2_VERSION
 init|=
@@ -72,9 +63,6 @@ literal|"AS2-Version"
 decl_stmt|;
 comment|/**      * Message Header Name for Content Type      */
 DECL|field|CONTENT_TYPE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|CONTENT_TYPE
 init|=
@@ -82,9 +70,6 @@ literal|"Content-Type"
 decl_stmt|;
 comment|/**      * Message Header Name for AS2 To      */
 DECL|field|AS2_TO
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|AS2_TO
 init|=
@@ -92,9 +77,6 @@ literal|"AS2-To"
 decl_stmt|;
 comment|/**      * Message Header Name for From      */
 DECL|field|FROM
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|FROM
 init|=
@@ -102,9 +84,6 @@ literal|"From"
 decl_stmt|;
 comment|/**      * Message Header Name for Subject      */
 DECL|field|SUBJECT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|SUBJECT
 init|=
@@ -112,9 +91,6 @@ literal|"Subject"
 decl_stmt|;
 comment|/**      * Message Header Name for Message ID      */
 DECL|field|MESSAGE_ID
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|MESSAGE_ID
 init|=
@@ -122,9 +98,6 @@ literal|"Message-Id"
 decl_stmt|;
 comment|/**      * Message Header Name for Target Host      */
 DECL|field|TARGET_HOST
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|TARGET_HOST
 init|=
@@ -134,9 +107,6 @@ name|TARGET_HOST
 decl_stmt|;
 comment|/**      * Message Header Name for User Agent      */
 DECL|field|USER_AGENT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|USER_AGENT
 init|=
@@ -146,9 +116,6 @@ name|USER_AGENT
 decl_stmt|;
 comment|/**      * Message Header Name for Server Name      */
 DECL|field|SERVER
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|SERVER
 init|=
@@ -158,9 +125,6 @@ name|SERVER_HEADER
 decl_stmt|;
 comment|/**      * Message Header Name for Date      */
 DECL|field|DATE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|DATE
 init|=
@@ -170,9 +134,6 @@ name|DATE_HEADER
 decl_stmt|;
 comment|/**      * Message Header Name for Content Length      */
 DECL|field|CONTENT_LENGTH
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|CONTENT_LENGTH
 init|=
@@ -182,9 +143,6 @@ name|CONTENT_LEN
 decl_stmt|;
 comment|/**      * Message Header Name for Connection      */
 DECL|field|CONNECTION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|CONNECTION
 init|=
@@ -194,9 +152,6 @@ name|CONN_DIRECTIVE
 decl_stmt|;
 comment|/**      * Message Header Name for Expect      */
 DECL|field|EXPECT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|EXPECT
 init|=
@@ -206,9 +161,6 @@ name|EXPECT_DIRECTIVE
 decl_stmt|;
 comment|/**      * Message Header name for Content Transfer Encoding      */
 DECL|field|CONTENT_TRANSFER_ENCODING
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|CONTENT_TRANSFER_ENCODING
 init|=
@@ -216,9 +168,6 @@ literal|"Content-Transfer-Encoding"
 decl_stmt|;
 comment|/**      * Message Header name for Content Disposition      */
 DECL|field|CONTENT_DISPOSITION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|CONTENT_DISPOSITION
 init|=
@@ -226,9 +175,6 @@ literal|"Content-Disposition"
 decl_stmt|;
 comment|/**      * Message Header name for Content Description      */
 DECL|field|CONTENT_DESCRIPTION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|CONTENT_DESCRIPTION
 init|=
@@ -236,9 +182,6 @@ literal|"Content-Description"
 decl_stmt|;
 comment|/**      * Message Header name for Disposition Type      */
 DECL|field|DISPOSITION_TYPE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|DISPOSITION_TYPE
 init|=
@@ -246,9 +189,6 @@ literal|"Disposition-Type"
 decl_stmt|;
 comment|/**      * Message Header name for Disposition Notification To      */
 DECL|field|DISPOSITION_NOTIFICATION_TO
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|DISPOSITION_NOTIFICATION_TO
 init|=
@@ -256,9 +196,6 @@ literal|"Disposition-Notification-To"
 decl_stmt|;
 comment|/**      * Message Header name for Receipt Delivery Option      */
 DECL|field|RECEIPT_DELIVERY_OPTION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|RECEIPT_DELIVERY_OPTION
 init|=
@@ -266,9 +203,6 @@ literal|"Receipt-Delivery-Option"
 decl_stmt|;
 comment|/**      * Message Header name for Receipt Address      */
 DECL|field|RECIPIENT_ADDRESS
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|RECIPIENT_ADDRESS
 init|=
@@ -276,9 +210,6 @@ literal|"Recipient-Address"
 decl_stmt|;
 comment|/**      * Message Header name for Disposition Notification Options      */
 DECL|field|DISPOSITION_NOTIFICATION_OPTIONS
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|DISPOSITION_NOTIFICATION_OPTIONS
 init|=

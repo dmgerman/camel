@@ -28,6 +28,18 @@ name|debezium
 operator|.
 name|config
 operator|.
+name|CommonConnectorConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|debezium
+operator|.
+name|config
+operator|.
 name|Configuration
 import|;
 end_import
@@ -217,7 +229,7 @@ name|dbzMysqlConfigurations
 operator|.
 name|getInteger
 argument_list|(
-name|MySqlConnectorConfig
+name|CommonConnectorConfig
 operator|.
 name|MAX_QUEUE_SIZE
 argument_list|)

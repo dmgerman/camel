@@ -3327,7 +3327,6 @@ name|defaultMarketPrice
 return|;
 block|}
 block|}
-empty_stmt|;
 block|}
 end_class
 

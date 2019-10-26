@@ -1365,7 +1365,7 @@ init|=
 operator|new
 name|RuntimeCamelException
 argument_list|(
-name|exchange
+name|Exchange
 operator|.
 name|EXCEPTION_CAUGHT
 argument_list|)

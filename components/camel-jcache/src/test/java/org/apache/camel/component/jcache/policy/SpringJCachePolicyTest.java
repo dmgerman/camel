@@ -32,18 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|hazelcast
-operator|.
-name|cache
-operator|.
-name|HazelcastCachingProvider
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -55,22 +43,6 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|SimpleExpression
 import|;
 end_import
 

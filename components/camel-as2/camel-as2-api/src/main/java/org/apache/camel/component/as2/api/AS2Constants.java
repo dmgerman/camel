@@ -46,9 +46,6 @@ name|AS2Constants
 block|{
 comment|/**      * The Value of User Agent Header used by AS2 Camel Component.      */
 DECL|field|HTTP_USER_AGENT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_USER_AGENT
 init|=
@@ -56,9 +53,6 @@ literal|"Camel AS2 Component"
 decl_stmt|;
 comment|/**      * The Value of Origin Server Header used by AS2 Camel Component.      */
 DECL|field|HTTP_ORIGIN_SERVER
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_ORIGIN_SERVER
 init|=
@@ -66,9 +60,6 @@ literal|"Camel AS2 Component"
 decl_stmt|;
 comment|/**      * Fully Qualified Domain Name used by AS2 Camel Component in Message ID Header.      */
 DECL|field|HTTP_MESSAGE_ID_FQDN
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_MESSAGE_ID_FQDN
 init|=
@@ -76,9 +67,6 @@ literal|"camel.apache.org"
 decl_stmt|;
 comment|/**      * The Value of User Agent Header used by AS2 Camel Component.      */
 DECL|field|MIME_VERSION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|MIME_VERSION
 init|=
@@ -89,9 +77,6 @@ comment|// HTTP Context Attribute Names
 comment|//
 comment|/**      * HTTP Context Attribute Name for HTTP Client Connection object stored in context.      */
 DECL|field|HTTP_CLIENT_CONNECTION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_CLIENT_CONNECTION
 init|=
@@ -101,9 +86,6 @@ name|HTTP_CONNECTION
 decl_stmt|;
 comment|/**      * HTTP Context Attribute Name for HTTP Client Processor object stored in context.      */
 DECL|field|HTTP_CLIENT_PROCESSOR
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_CLIENT_PROCESSOR
 init|=
@@ -111,9 +93,6 @@ literal|"http.processor"
 decl_stmt|;
 comment|/**      * HTTP Context Attribute Name for HTTP Client Fully Qualified Domain Name (FQDN) stored in context.      */
 DECL|field|HTTP_CLIENT_FQDN
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_CLIENT_FQDN
 init|=
@@ -121,9 +100,6 @@ literal|"client.fqdn"
 decl_stmt|;
 comment|/**      * HTTP Context Attribute Name for HTTP Server Connection object stored in context.      */
 DECL|field|HTTP_SERVER_CONNECTION
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_SERVER_CONNECTION
 init|=
@@ -131,9 +107,6 @@ literal|"http.server.connection"
 decl_stmt|;
 comment|/**      * HTTP Context Attribute Name for HTTP Server Processor object stored in context.      */
 DECL|field|HTTP_SERVER_PROCESSOR
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_SERVER_PROCESSOR
 init|=
@@ -141,9 +114,6 @@ literal|"http.server.processor"
 decl_stmt|;
 comment|/**      * HTTP Context Attribute Name for HTTP Server Service object stored in context.      */
 DECL|field|HTTP_SERVER_SERVICE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|HTTP_SERVER_SERVICE
 init|=
@@ -154,9 +124,6 @@ comment|// AS2 MIME Content Types
 comment|//
 comment|/**      * Application EDIFACT content type      */
 DECL|field|APPLICATION_EDIFACT_MIME_TYPE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_EDIFACT_MIME_TYPE
 init|=

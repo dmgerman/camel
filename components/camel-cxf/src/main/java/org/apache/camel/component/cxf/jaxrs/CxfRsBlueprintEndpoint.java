@@ -401,9 +401,6 @@ name|class
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|RsClientBlueprintBean
-operator|)
 name|newInstanceWithCommonProperties
 argument_list|()
 return|;

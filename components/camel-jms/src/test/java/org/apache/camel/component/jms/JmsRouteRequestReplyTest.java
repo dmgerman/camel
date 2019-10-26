@@ -293,20 +293,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jms
-operator|.
-name|core
-operator|.
-name|JmsTemplate
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -563,7 +549,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 DECL|class|SingleNodeRouteBuilder
 specifier|public
 specifier|static
@@ -644,7 +629,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 DECL|class|MultiNodeRouteBuilder
 specifier|public
 specifier|static
@@ -735,7 +719,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 DECL|class|MultiNodeReplyToRouteBuilder
 specifier|public
 specifier|static
@@ -859,7 +842,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 DECL|class|MultiNodeDiffCompRouteBuilder
 specifier|public
 specifier|static
@@ -950,7 +932,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 DECL|class|ContextBuilderMessageID
 specifier|public
 specifier|static
@@ -1016,7 +997,6 @@ name|context
 return|;
 block|}
 block|}
-empty_stmt|;
 DECL|method|init ()
 specifier|protected
 specifier|static

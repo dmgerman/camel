@@ -162,7 +162,6 @@ interface|interface
 name|AS2SignatureAlgorithmParams
 block|{
 DECL|field|SHA1ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA1ALGID
 init|=
@@ -179,7 +178,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA1ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA1ALGPARAMS
 init|=
@@ -212,7 +210,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|SHA224ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA224ALGID
 init|=
@@ -229,7 +226,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA224ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA224ALGPARAMS
 init|=
@@ -262,7 +258,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|SHA256ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA256ALGID
 init|=
@@ -279,7 +274,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA256ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA256ALGPARAMS
 init|=
@@ -312,7 +306,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|SHA384ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA384ALGID
 init|=
@@ -329,7 +322,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA384ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA384ALGPARAMS
 init|=
@@ -362,7 +354,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|SHA512ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA512ALGID
 init|=
@@ -379,7 +370,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA512ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA512ALGPARAMS
 init|=
@@ -412,7 +402,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|SHA3_224ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA3_224ALGID
 init|=
@@ -429,7 +418,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA3_224ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA3_224ALGPARAMS
 init|=
@@ -462,7 +450,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|SHA3_256ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA3_256ALGID
 init|=
@@ -479,7 +466,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA3_256ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA3_256ALGPARAMS
 init|=
@@ -512,7 +498,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|SHA3_384ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA3_384ALGID
 init|=
@@ -529,7 +514,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA3_384ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA3_384ALGPARAMS
 init|=
@@ -562,7 +546,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|SHA3_512ALGID
-specifier|static
 name|AlgorithmIdentifier
 name|SHA3_512ALGID
 init|=
@@ -579,7 +562,6 @@ name|INSTANCE
 argument_list|)
 decl_stmt|;
 DECL|field|SHA3_512ALGPARAMS
-specifier|static
 name|RSASSAPSSparams
 name|SHA3_512ALGPARAMS
 init|=

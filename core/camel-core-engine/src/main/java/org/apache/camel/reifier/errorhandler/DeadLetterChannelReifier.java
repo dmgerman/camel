@@ -145,9 +145,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|DeadLetterChannelBuilder
-operator|)
 name|definition
 argument_list|)
 expr_stmt|;

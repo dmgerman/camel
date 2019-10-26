@@ -85,7 +85,6 @@ specifier|private
 name|Order
 name|order
 decl_stmt|;
-empty_stmt|;
 DECL|method|NaturalSortComparator ()
 specifier|public
 name|NaturalSortComparator

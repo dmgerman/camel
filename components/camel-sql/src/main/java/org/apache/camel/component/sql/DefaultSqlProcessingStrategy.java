@@ -327,7 +327,6 @@ return|return
 literal|0
 return|;
 block|}
-empty_stmt|;
 block|}
 argument_list|)
 return|;
@@ -472,7 +471,6 @@ return|return
 name|updateCount
 return|;
 block|}
-empty_stmt|;
 block|}
 argument_list|)
 return|;

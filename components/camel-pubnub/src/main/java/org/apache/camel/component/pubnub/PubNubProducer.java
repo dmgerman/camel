@@ -998,7 +998,6 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
@@ -1261,7 +1260,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 argument_list|)
 expr_stmt|;

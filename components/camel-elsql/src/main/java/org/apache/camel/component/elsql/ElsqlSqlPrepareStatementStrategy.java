@@ -50,18 +50,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|opengamma
-operator|.
-name|elsql
-operator|.
-name|SpringSqlParams
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -85,22 +73,6 @@ operator|.
 name|sql
 operator|.
 name|SqlPrepareStatementStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jdbc
-operator|.
-name|core
-operator|.
-name|namedparam
-operator|.
-name|SqlParameterSource
 import|;
 end_import
 

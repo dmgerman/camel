@@ -102,26 +102,6 @@ name|UriEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The Kubernetes Persistent Volumes Claims component provides a producer to  * execute kubernetes persistent volume claim operations.  */
 end_comment

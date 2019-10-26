@@ -28,9 +28,6 @@ name|AS2MediaType
 block|{
 comment|/**      * Media Type for Multipart Signed Data      */
 DECL|field|MULTIPART_SIGNED
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|MULTIPART_SIGNED
 init|=
@@ -38,9 +35,6 @@ literal|"multipart/signed; protocol=\"application/pkcs7-signature\""
 decl_stmt|;
 comment|/**      * Media Type for Application PKCS7 Signature      */
 DECL|field|APPLICATION_PKCS7_SIGNATURE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_PKCS7_SIGNATURE
 init|=
@@ -48,9 +42,6 @@ literal|"application/pkcs7-signature; name=smime.p7s; smime-type=signed-data"
 decl_stmt|;
 comment|/**      * Media Type for Application PKCS7 Enveloped Data      */
 DECL|field|APPLICATION_PKCS7_MIME_ENVELOPED
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_PKCS7_MIME_ENVELOPED
 init|=
@@ -58,9 +49,6 @@ literal|"application/pkcs7-mime; smime-type=enveloped-data; name=smime.p7m"
 decl_stmt|;
 comment|/**      * Media Type for Application PKCS7 Compressed Data      */
 DECL|field|APPLICATION_PKCS7_MIME_COMPRESSED
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_PKCS7_MIME_COMPRESSED
 init|=
@@ -68,9 +56,6 @@ literal|"application/pkcs7-mime; smime-type=compressed-data; name=smime.p7z"
 decl_stmt|;
 comment|/**      * Media Type for Text/Plain Data      */
 DECL|field|TEXT_PLAIN
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|TEXT_PLAIN
 init|=
@@ -78,9 +63,6 @@ literal|"text/plain"
 decl_stmt|;
 comment|/**      * Media Type for Application/EDIFACT      */
 DECL|field|APPLICATION_EDIFACT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_EDIFACT
 init|=
@@ -88,9 +70,6 @@ literal|"application/edifact"
 decl_stmt|;
 comment|/**      * Media Type for Application/EDI-X12      */
 DECL|field|APPLICATION_EDI_X12
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_EDI_X12
 init|=
@@ -98,9 +77,6 @@ literal|"application/edi-x12"
 decl_stmt|;
 comment|/**      * Media Type for Application/EDI-consent      */
 DECL|field|APPLICATION_EDI_CONSENT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|APPLICATION_EDI_CONSENT
 init|=

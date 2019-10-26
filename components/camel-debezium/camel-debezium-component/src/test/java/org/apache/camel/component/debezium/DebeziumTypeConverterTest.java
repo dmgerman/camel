@@ -263,7 +263,7 @@ name|field
 argument_list|(
 literal|"id"
 argument_list|,
-name|SchemaBuilder
+name|Schema
 operator|.
 name|INT32_SCHEMA
 argument_list|)
@@ -272,7 +272,7 @@ name|field
 argument_list|(
 literal|"name"
 argument_list|,
-name|SchemaBuilder
+name|Schema
 operator|.
 name|STRING_SCHEMA
 argument_list|)
@@ -281,7 +281,7 @@ name|field
 argument_list|(
 literal|"valid"
 argument_list|,
-name|SchemaBuilder
+name|Schema
 operator|.
 name|BOOLEAN_SCHEMA
 argument_list|)
@@ -290,7 +290,7 @@ name|field
 argument_list|(
 literal|"extra"
 argument_list|,
-name|SchemaBuilder
+name|Schema
 operator|.
 name|STRING_SCHEMA
 argument_list|)

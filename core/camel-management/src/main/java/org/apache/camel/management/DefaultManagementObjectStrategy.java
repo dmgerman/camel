@@ -2569,9 +2569,6 @@ init|=
 operator|new
 name|ManagedRouteController
 argument_list|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|context
 argument_list|)
 decl_stmt|;
@@ -2619,9 +2616,6 @@ operator|=
 operator|new
 name|ManagedSuspendableRoute
 argument_list|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|context
 argument_list|,
 name|route
@@ -2635,9 +2629,6 @@ operator|=
 operator|new
 name|ManagedRoute
 argument_list|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|context
 argument_list|,
 name|route

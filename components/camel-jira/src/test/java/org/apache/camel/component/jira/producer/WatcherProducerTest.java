@@ -596,7 +596,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 annotation|@
 name|Override
 DECL|method|bindToRegistry (Registry registry)

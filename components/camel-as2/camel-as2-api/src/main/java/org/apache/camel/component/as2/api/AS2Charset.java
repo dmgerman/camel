@@ -28,9 +28,6 @@ name|AS2Charset
 block|{
 comment|/**      * Name of charset parameter in Content-Type header values.      */
 DECL|field|PARAM
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|PARAM
 init|=
@@ -38,9 +35,6 @@ literal|"charset"
 decl_stmt|;
 comment|/**      * Character Set Name for US ASCII      */
 DECL|field|US_ASCII
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|US_ASCII
 init|=

@@ -84,6 +84,18 @@ name|io
 operator|.
 name|debezium
 operator|.
+name|config
+operator|.
+name|CommonConnectorConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|debezium
+operator|.
 name|connector
 operator|.
 name|mysql
@@ -103,6 +115,18 @@ operator|.
 name|mysql
 operator|.
 name|MySqlConnectorConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|debezium
+operator|.
+name|relational
+operator|.
+name|RelationalDatabaseConnectorConfig
 import|;
 end_import
 
@@ -206,7 +230,7 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|MySqlConnectorConfig
+name|RelationalDatabaseConnectorConfig
 operator|.
 name|SERVER_NAME
 operator|.
@@ -249,7 +273,7 @@ name|overrideFields
 operator|.
 name|put
 argument_list|(
-name|MySqlConnectorConfig
+name|CommonConnectorConfig
 operator|.
 name|TOMBSTONES_ON_DELETE
 operator|.

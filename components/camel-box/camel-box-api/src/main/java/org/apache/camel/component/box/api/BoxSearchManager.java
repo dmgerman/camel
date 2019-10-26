@@ -26,16 +26,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -62,18 +52,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|box
@@ -93,18 +71,6 @@ operator|.
 name|sdk
 operator|.
 name|BoxAPIException
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|box
-operator|.
-name|sdk
-operator|.
-name|BoxFolder
 import|;
 end_import
 

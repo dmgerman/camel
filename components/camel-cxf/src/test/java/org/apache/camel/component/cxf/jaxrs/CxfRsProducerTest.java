@@ -2816,7 +2816,6 @@ block|{
 comment|//Do nothing
 block|}
 block|}
-empty_stmt|;
 annotation|@
 name|Test
 DECL|method|testProducerWithFeature ()

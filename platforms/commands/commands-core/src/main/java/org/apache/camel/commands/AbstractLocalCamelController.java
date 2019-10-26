@@ -4497,9 +4497,7 @@ name|transformers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Transformer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|context
 operator|.
@@ -4695,9 +4693,7 @@ name|validators
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Validator
-argument_list|>
+argument_list|<>
 argument_list|(
 name|context
 operator|.

@@ -239,7 +239,6 @@ argument_list|)
 expr_stmt|;
 block|}
 decl_stmt|;
-empty_stmt|;
 DECL|method|JSR356Consumer (final JSR356Endpoint jsr356Endpoint, final Processor processor, final int sessionCount)
 name|JSR356Consumer
 parameter_list|(

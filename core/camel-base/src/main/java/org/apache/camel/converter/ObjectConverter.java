@@ -436,9 +436,6 @@ argument_list|()
 operator|.
 name|resolveClass
 argument_list|(
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 return|;
@@ -458,9 +455,6 @@ name|ObjectHelper
 operator|.
 name|loadClass
 argument_list|(
-operator|(
-name|String
-operator|)
 name|value
 argument_list|)
 return|;

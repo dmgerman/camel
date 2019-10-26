@@ -5060,7 +5060,6 @@ operator|.
 name|nsContext
 return|;
 block|}
-empty_stmt|;
 DECL|method|getXmlCipherAlgorithm ()
 specifier|public
 name|String

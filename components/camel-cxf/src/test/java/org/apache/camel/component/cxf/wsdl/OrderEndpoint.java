@@ -108,7 +108,6 @@ operator|+
 name|order
 return|;
 block|}
-empty_stmt|;
 block|}
 end_class
 

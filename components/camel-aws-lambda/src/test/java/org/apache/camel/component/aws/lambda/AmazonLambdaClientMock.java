@@ -1951,9 +1951,7 @@ name|confList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|EventSourceMappingConfiguration
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|EventSourceMappingConfiguration

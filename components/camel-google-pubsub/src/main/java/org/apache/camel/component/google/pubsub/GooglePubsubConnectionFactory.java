@@ -484,7 +484,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-empty_stmt|;
 DECL|method|buildClient (HttpTransport httpTransport)
 specifier|private
 name|Pubsub

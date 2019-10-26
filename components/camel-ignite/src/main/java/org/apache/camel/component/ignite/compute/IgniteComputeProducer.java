@@ -1945,7 +1945,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-empty_stmt|;
 block|}
 end_class
 
