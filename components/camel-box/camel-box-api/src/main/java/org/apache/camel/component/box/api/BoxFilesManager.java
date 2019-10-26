@@ -506,7 +506,7 @@ throw|;
 block|}
 block|}
 comment|/**      * Upload a new file to parent folder.      *      * @param parentFolderId      *            - the id of parent folder.      * @param content      *            - a stream containing contents of the file to upload.      * @param fileName      *            the name to give the uploaded file.      * @param created      *            - the content created date that will be given to the uploaded      *            file.      * @param modified      *            - the content modified date that will be given to the uploaded      *            file.      * @param size      *            - the size of the file's content used for monitoring the      *            upload's progress.      * @param check      *            - if the file name is already used, call the uploadNewVersion instead.      * @param listener      *            - a listener for monitoring the upload's progress.      * @return The uploaded file.      */
-DECL|method|uploadFile (String parentFolderId, InputStream content, String fileName, Date created, Date modified, Long size, boolean check, ProgressListener listener)
+DECL|method|uploadFile (String parentFolderId, InputStream content, String fileName, Date created, Date modified, Long size, Boolean check, ProgressListener listener)
 specifier|public
 name|BoxFile
 name|uploadFile
@@ -529,7 +529,7 @@ parameter_list|,
 name|Long
 name|size
 parameter_list|,
-name|boolean
+name|Boolean
 name|check
 parameter_list|,
 name|ProgressListener
@@ -610,6 +610,10 @@ literal|true
 decl_stmt|;
 if|if
 condition|(
+name|check
+operator|!=
+literal|null
+operator|&&
 name|check
 condition|)
 block|{
