@@ -195,7 +195,7 @@ name|getCurrentCacheSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// test that we cache at most 50 producers to avoid it eating to much memory
+comment|// test that we cache at most 50 producers to avoid it eating too much memory
 for|for
 control|(
 name|int
@@ -238,14 +238,21 @@ name|cleanUp
 argument_list|()
 expr_stmt|;
 comment|// eviction may still run a bit
-name|assertTrue
-argument_list|(
-literal|"Size should be around 50"
-argument_list|,
+name|int
+name|currentCacheSize
+init|=
 name|template
 operator|.
 name|getCurrentCacheSize
 argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Size should be around 50, but was "
+operator|+
+name|currentCacheSize
+argument_list|,
+name|currentCacheSize
 operator|<=
 literal|51
 argument_list|)
