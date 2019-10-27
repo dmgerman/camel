@@ -155,31 +155,6 @@ argument_list|(
 name|resolver
 argument_list|)
 expr_stmt|;
-comment|// just check the accept schema
-name|assertTrue
-argument_list|(
-literal|"We should accept the test:!"
-argument_list|,
-name|resolver
-operator|.
-name|isAcceptableScheme
-argument_list|(
-literal|"test://test"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"We should accept the test2:!"
-argument_list|,
-name|resolver
-operator|.
-name|isAcceptableScheme
-argument_list|(
-literal|"test2://test"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

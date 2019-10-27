@@ -340,6 +340,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|PackageScanResourceResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ProcessorFactory
 import|;
 end_import
@@ -536,6 +550,21 @@ name|void
 name|setPackageScanClassResolver
 parameter_list|(
 name|PackageScanClassResolver
+name|resolver
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the package scanning resource resolver      *      * @return the resolver      */
+DECL|method|getPackageScanResourceResolver ()
+name|PackageScanResourceResolver
+name|getPackageScanResourceResolver
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the package scanning resource resolver to use      *      * @param resolver the resolver      */
+DECL|method|setPackageScanResourceResolver (PackageScanResourceResolver resolver)
+name|void
+name|setPackageScanResourceResolver
+parameter_list|(
+name|PackageScanResourceResolver
 name|resolver
 parameter_list|)
 function_decl|;

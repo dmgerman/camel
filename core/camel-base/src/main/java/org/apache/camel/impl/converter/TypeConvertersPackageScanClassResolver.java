@@ -370,6 +370,29 @@ comment|// noop
 block|}
 annotation|@
 name|Override
+DECL|method|setAcceptableSchemes (String schemes)
+specifier|public
+name|void
+name|setAcceptableSchemes
+parameter_list|(
+name|String
+name|schemes
+parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|clearCache ()
+specifier|public
+name|void
+name|clearCache
+parameter_list|()
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

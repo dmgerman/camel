@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Set
@@ -51,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A resolver that can find resources based on package scanning.  */
+comment|/**  * A resolver that can find classes based on package scanning.  *  * @see PackageScanResourceResolver  */
 end_comment
 
 begin_interface
@@ -189,6 +199,21 @@ parameter_list|(
 name|PackageScanFilter
 name|filter
 parameter_list|)
+function_decl|;
+comment|/**      * To specify a set of accepted schemas to use for loading resources as URL connections      * (besides http and https schemas)      */
+DECL|method|setAcceptableSchemes (String schemes)
+name|void
+name|setAcceptableSchemes
+parameter_list|(
+name|String
+name|schemes
+parameter_list|)
+function_decl|;
+comment|/**      * Clears the internal cache.      */
+DECL|method|clearCache ()
+name|void
+name|clearCache
+parameter_list|()
 function_decl|;
 block|}
 end_interface

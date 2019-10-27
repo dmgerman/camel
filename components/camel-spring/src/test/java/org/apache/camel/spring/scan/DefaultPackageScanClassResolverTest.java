@@ -272,58 +272,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAccepableSchema ()
-specifier|public
-name|void
-name|testAccepableSchema
-parameter_list|()
-block|{
-name|assertFalse
-argument_list|(
-literal|"We should not accept the test by default!"
-argument_list|,
-name|resolver
-operator|.
-name|isAcceptableScheme
-argument_list|(
-literal|"test://test"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|resolver
-operator|.
-name|setAcceptableSchemes
-argument_list|(
-literal|"test:;test2:"
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"We should accept the test:!"
-argument_list|,
-name|resolver
-operator|.
-name|isAcceptableScheme
-argument_list|(
-literal|"test://test"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"We should accept the test2:!"
-argument_list|,
-name|resolver
-operator|.
-name|isAcceptableScheme
-argument_list|(
-literal|"test2://test"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testFindByAnnotationWithoutExtraFilters ()
 specifier|public
 name|void
