@@ -2197,6 +2197,16 @@ argument_list|(
 name|registrationInfo
 argument_list|)
 expr_stmt|;
+comment|// if the route is not automatically started, then the undertow registry
+comment|// may not have any instance of UndertowHost associated to the given
+comment|// registrationInfo
+if|if
+condition|(
+name|host
+operator|!=
+literal|null
+condition|)
+block|{
 name|host
 operator|.
 name|unregisterHandler
@@ -2204,6 +2214,7 @@ argument_list|(
 name|registrationInfo
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|createUndertowHost (UndertowHostKey key)
 specifier|protected
