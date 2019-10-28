@@ -673,6 +673,8 @@ control|(
 name|ServiceConfiguration
 argument_list|<
 name|?
+argument_list|,
+name|?
 argument_list|>
 name|serviceConfig
 range|:
@@ -686,7 +688,7 @@ name|builder
 operator|=
 name|builder
 operator|.
-name|add
+name|withService
 argument_list|(
 name|serviceConfig
 argument_list|)

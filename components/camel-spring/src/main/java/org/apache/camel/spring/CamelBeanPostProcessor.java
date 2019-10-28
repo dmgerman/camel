@@ -550,6 +550,48 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+name|beanName
+operator|!=
+literal|null
+operator|&&
+name|beanName
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.springframework"
+argument_list|)
+condition|)
+block|{
+comment|// do not let camel post process spring beans
+comment|// (no point and there are some problems see CAMEL-14075)
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|bean
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getTypeName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.springframework"
+argument_list|)
+condition|)
+block|{
+comment|// do not let camel post process spring beans
+comment|// (no point and there are some problems see CAMEL-14075)
+return|return
+literal|false
+return|;
+block|}
 return|return
 name|super
 operator|.

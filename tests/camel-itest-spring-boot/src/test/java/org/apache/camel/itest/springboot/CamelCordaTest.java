@@ -164,6 +164,18 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+comment|// spring boot 2.2 now find artemis-server JAR and think it can do JMS so we need these extra JARs
+comment|// artemis-server is pulled in from corda as it has a dependency on that
+operator|.
+name|dependency
+argument_list|(
+literal|"org.apache.activemq:artemis-jms-server"
+argument_list|)
+operator|.
+name|dependency
+argument_list|(
+literal|"org.apache.geronimo.specs:geronimo-json_1.0_spec:jar:1.0-alpha-1"
+argument_list|)
 operator|.
 name|build
 argument_list|()
