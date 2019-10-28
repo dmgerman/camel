@@ -459,6 +459,12 @@ return|return
 name|bean
 return|;
 block|}
+if|if
+condition|(
+name|bindToRegistrySupported
+argument_list|()
+condition|)
+block|{
 name|injectClass
 argument_list|(
 name|bean
@@ -487,6 +493,7 @@ argument_list|,
 name|beanName
 argument_list|)
 expr_stmt|;
+block|}
 name|injectFields
 argument_list|(
 name|bean
@@ -709,6 +716,17 @@ return|return
 name|bean
 operator|!=
 literal|null
+return|;
+block|}
+comment|/**      * Whether support for the annotation {@link BindToRegistry} is supported.      * This is only intended for standalone runtimes such as camel-main, camel-quarkus, etc.      */
+DECL|method|bindToRegistrySupported ()
+specifier|protected
+name|boolean
+name|bindToRegistrySupported
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 DECL|method|canSetCamelContext (Object bean, String beanName)

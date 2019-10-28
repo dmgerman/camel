@@ -396,6 +396,13 @@ specifier|private
 name|String
 name|camelId
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|bindToRegistrySupported
+specifier|private
+name|boolean
+name|bindToRegistrySupported
+decl_stmt|;
 comment|// must use a delegate, as we cannot extend DefaultCamelBeanPostProcessor, as this will cause the
 comment|// XSD schema generator to include the DefaultCamelBeanPostProcessor as a type, which we do not want to
 annotation|@
@@ -550,48 +557,6 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|beanName
-operator|!=
-literal|null
-operator|&&
-name|beanName
-operator|.
-name|startsWith
-argument_list|(
-literal|"org.springframework"
-argument_list|)
-condition|)
-block|{
-comment|// do not let camel post process spring beans
-comment|// (no point and there are some problems see CAMEL-14075)
-return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|bean
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getTypeName
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"org.springframework"
-argument_list|)
-condition|)
-block|{
-comment|// do not let camel post process spring beans
-comment|// (no point and there are some problems see CAMEL-14075)
-return|return
-literal|false
-return|;
-block|}
 return|return
 name|super
 operator|.
@@ -601,6 +566,18 @@ name|bean
 argument_list|,
 name|beanName
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|bindToRegistrySupported
+parameter_list|()
+block|{
+comment|// do not support @BindToRegistry as spring and spring-boot has its own set of annotations for this
+return|return
+literal|false
 return|;
 block|}
 annotation|@
@@ -1024,6 +1001,32 @@ operator|.
 name|camelId
 operator|=
 name|camelId
+expr_stmt|;
+block|}
+DECL|method|isBindToRegistrySupported ()
+specifier|public
+name|boolean
+name|isBindToRegistrySupported
+parameter_list|()
+block|{
+return|return
+name|bindToRegistrySupported
+return|;
+block|}
+DECL|method|setBindToRegistrySupported (boolean bindToRegistrySupported)
+specifier|public
+name|void
+name|setBindToRegistrySupported
+parameter_list|(
+name|boolean
+name|bindToRegistrySupported
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindToRegistrySupported
+operator|=
+name|bindToRegistrySupported
 expr_stmt|;
 block|}
 block|}
