@@ -499,7 +499,12 @@ specifier|private
 name|TimeZone
 name|timezone
 decl_stmt|;
-comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Object}      */
+DECL|field|autoDiscoverObjectMapper
+specifier|private
+name|boolean
+name|autoDiscoverObjectMapper
+decl_stmt|;
+comment|/** 	 * Use the default Jackson {@link ObjectMapper} and {@link Object} 	 */
 DECL|method|JacksonDataFormat ()
 specifier|public
 name|JacksonDataFormat
@@ -513,7 +518,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use the default Jackson {@link ObjectMapper} and with a custom unmarshal      * type      *      * @param unmarshalType the custom unmarshal type      */
+comment|/** 	 * Use the default Jackson {@link ObjectMapper} and with a custom unmarshal type 	 * 	 * @param unmarshalType the custom unmarshal type 	 */
 DECL|method|JacksonDataFormat (Class<?> unmarshalType)
 specifier|public
 name|JacksonDataFormat
@@ -533,7 +538,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use the default Jackson {@link ObjectMapper} and with a custom unmarshal      * type and JSON view      *      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specify properties to be included during      *            marshalling. See also      *            http://wiki.fasterxml.com/JacksonJsonViews      */
+comment|/** 	 * Use the default Jackson {@link ObjectMapper} and with a custom unmarshal type 	 * and JSON view 	 * 	 * @param unmarshalType the custom unmarshal type 	 * @param jsonView      marker class to specify properties to be included during 	 *                      marshalling. See also 	 *                      http://wiki.fasterxml.com/JacksonJsonViews 	 */
 DECL|method|JacksonDataFormat (Class<?> unmarshalType, Class<?> jsonView)
 specifier|public
 name|JacksonDataFormat
@@ -561,7 +566,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use the default Jackson {@link ObjectMapper} and with a custom unmarshal      * type and JSON view      *      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specify properties to be included during      *            marshalling. See also      *            http://wiki.fasterxml.com/JacksonJsonViews      * @param enableJaxbAnnotationModule if it is true, will enable the      *            JaxbAnnotationModule.      */
+comment|/** 	 * Use the default Jackson {@link ObjectMapper} and with a custom unmarshal type 	 * and JSON view 	 * 	 * @param unmarshalType              the custom unmarshal type 	 * @param jsonView                   marker class to specify properties to be 	 *                                   included during marshalling. See also 	 *                                   http://wiki.fasterxml.com/JacksonJsonViews 	 * @param enableJaxbAnnotationModule if it is true, will enable the 	 *                                   JaxbAnnotationModule. 	 */
 DECL|method|JacksonDataFormat (Class<?> unmarshalType, Class<?> jsonView, boolean enableJaxbAnnotationModule)
 specifier|public
 name|JacksonDataFormat
@@ -601,7 +606,7 @@ operator|=
 name|enableJaxbAnnotationModule
 expr_stmt|;
 block|}
-comment|/**      * Use a custom Jackson mapper and and unmarshal type      *      * @param mapper the custom mapper      * @param unmarshalType the custom unmarshal type      */
+comment|/** 	 * Use a custom Jackson mapper and and unmarshal type 	 * 	 * @param mapper        the custom mapper 	 * @param unmarshalType the custom unmarshal type 	 */
 DECL|method|JacksonDataFormat (ObjectMapper mapper, Class<?> unmarshalType)
 specifier|public
 name|JacksonDataFormat
@@ -626,7 +631,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use a custom Jackson mapper, unmarshal type and JSON view      *      * @param mapper the custom mapper      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specify properties to be included during      *            marshalling. See also      *            http://wiki.fasterxml.com/JacksonJsonViews      */
+comment|/** 	 * Use a custom Jackson mapper, unmarshal type and JSON view 	 * 	 * @param mapper        the custom mapper 	 * @param unmarshalType the custom unmarshal type 	 * @param jsonView      marker class to specify properties to be included during 	 *                      marshalling. See also 	 *                      http://wiki.fasterxml.com/JacksonJsonViews 	 */
 DECL|method|JacksonDataFormat (ObjectMapper mapper, Class<?> unmarshalType, Class<?> jsonView)
 specifier|public
 name|JacksonDataFormat
@@ -1230,7 +1235,7 @@ return|return
 name|modules
 return|;
 block|}
-comment|/**      * To use custom Jackson {@link Module}s      */
+comment|/** 	 * To use custom Jackson {@link Module}s 	 */
 DECL|method|setModules (List<Module> modules)
 specifier|public
 name|void
@@ -1260,7 +1265,7 @@ return|return
 name|moduleClassNames
 return|;
 block|}
-comment|/**      * To use the custom Jackson module      */
+comment|/** 	 * To use the custom Jackson module 	 */
 DECL|method|addModule (Module module)
 specifier|public
 name|void
@@ -1299,7 +1304,7 @@ name|module
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To use custom Jackson {@link Module}s specified as a String with FQN      * class names. Multiple classes can be separated by comma.      */
+comment|/** 	 * To use custom Jackson {@link Module}s specified as a String with FQN class 	 * names. Multiple classes can be separated by comma. 	 */
 DECL|method|setModuleClassNames (String moduleClassNames)
 specifier|public
 name|void
@@ -1326,7 +1331,7 @@ return|return
 name|moduleRefs
 return|;
 block|}
-comment|/**      * To use custom Jackson modules referred from the Camel registry. Multiple      * modules can be separated by comma.      */
+comment|/** 	 * To use custom Jackson modules referred from the Camel registry. Multiple 	 * modules can be separated by comma. 	 */
 DECL|method|setModuleRefs (String moduleRefs)
 specifier|public
 name|void
@@ -1343,7 +1348,7 @@ operator|=
 name|moduleRefs
 expr_stmt|;
 block|}
-comment|/**      * Uses {@link java.util.ArrayList} when unmarshalling.      */
+comment|/** 	 * Uses {@link java.util.ArrayList} when unmarshalling. 	 */
 DECL|method|useList ()
 specifier|public
 name|void
@@ -1358,7 +1363,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Uses {@link java.util.HashMap} when unmarshalling.      */
+comment|/** 	 * Uses {@link java.util.HashMap} when unmarshalling. 	 */
 DECL|method|useMap ()
 specifier|public
 name|void
@@ -1378,7 +1383,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows jackson to use the<tt>JMSType</tt> header as an indicator what      * the classname is for unmarshaling json content to POJO      *<p/>      * By default this option is<tt>false</tt>.      */
+comment|/** 	 * Allows jackson to use the<tt>JMSType</tt> header as an indicator what the 	 * classname is for unmarshaling json content to POJO 	 *<p/> 	 * By default this option is<tt>false</tt>. 	 */
 DECL|method|setAllowJmsType (boolean allowJmsType)
 specifier|public
 name|void
@@ -1405,7 +1410,7 @@ return|return
 name|enableJacksonTypeConverter
 return|;
 block|}
-comment|/**      * If enabled then Jackson is allowed to attempt to be used during Camels      *<a href="https://camel.apache.org/type-converter.html">type converter</a>      * as a {@link org.apache.camel.FallbackConverter} that attempts to convert      * POJOs to/from {@link Map}/{@link List} types.      *<p/>      * This should only be enabled when desired to be used.      */
+comment|/** 	 * If enabled then Jackson is allowed to attempt to be used during Camels 	 *<a href="https://camel.apache.org/type-converter.html">type converter</a> as 	 * a {@link org.apache.camel.FallbackConverter} that attempts to convert POJOs 	 * to/from {@link Map}/{@link List} types. 	 *<p/> 	 * This should only be enabled when desired to be used. 	 */
 DECL|method|setEnableJacksonTypeConverter (boolean enableJacksonTypeConverter)
 specifier|public
 name|void
@@ -1432,7 +1437,7 @@ return|return
 name|allowUnmarshallType
 return|;
 block|}
-comment|/**      * If enabled then Jackson is allowed to attempt to use the      * CamelJacksonUnmarshalType header during the unmarshalling.      *<p/>      * This should only be enabled when desired to be used.      */
+comment|/** 	 * If enabled then Jackson is allowed to attempt to use the 	 * CamelJacksonUnmarshalType header during the unmarshalling. 	 *<p/> 	 * This should only be enabled when desired to be used. 	 */
 DECL|method|setAllowUnmarshallType (boolean allowJacksonUnmarshallType)
 specifier|public
 name|void
@@ -1459,7 +1464,7 @@ return|return
 name|contentTypeHeader
 return|;
 block|}
-comment|/**      * If enabled then Jackson will set the Content-Type header to      *<tt>application/json</tt> when marshalling.      */
+comment|/** 	 * If enabled then Jackson will set the Content-Type header to 	 *<tt>application/json</tt> when marshalling. 	 */
 DECL|method|setContentTypeHeader (boolean contentTypeHeader)
 specifier|public
 name|void
@@ -1486,7 +1491,7 @@ return|return
 name|timezone
 return|;
 block|}
-comment|/**      * If set then Jackson will use the Timezone when marshalling/unmarshalling.      */
+comment|/** 	 * If set then Jackson will use the Timezone when marshalling/unmarshalling. 	 */
 DECL|method|setTimezone (TimeZone timezone)
 specifier|public
 name|void
@@ -1503,6 +1508,33 @@ operator|=
 name|timezone
 expr_stmt|;
 block|}
+DECL|method|isAutoDiscoverObjectMapper ()
+specifier|public
+name|boolean
+name|isAutoDiscoverObjectMapper
+parameter_list|()
+block|{
+return|return
+name|autoDiscoverObjectMapper
+return|;
+block|}
+comment|/** 	 * If set to true then Jackson will lookup for an objectMapper into the registry 	 */
+DECL|method|setAutoDiscoverObjectMapper (boolean autoDiscoverObjectMapper)
+specifier|public
+name|void
+name|setAutoDiscoverObjectMapper
+parameter_list|(
+name|boolean
+name|autoDiscoverObjectMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoDiscoverObjectMapper
+operator|=
+name|autoDiscoverObjectMapper
+expr_stmt|;
+block|}
 DECL|method|getEnableFeatures ()
 specifier|public
 name|String
@@ -1513,7 +1545,7 @@ return|return
 name|enableFeatures
 return|;
 block|}
-comment|/**      * Set of features to enable on the Jackson {@link ObjectMapper}. The      * features should be a name that matches a enum from      * {@link SerializationFeature}, {@link DeserializationFeature}, or      * {@link MapperFeature}.      */
+comment|/** 	 * Set of features to enable on the Jackson {@link ObjectMapper}. The features 	 * should be a name that matches a enum from {@link SerializationFeature}, 	 * {@link DeserializationFeature}, or {@link MapperFeature}. 	 */
 DECL|method|setEnableFeatures (String enableFeatures)
 specifier|public
 name|void
@@ -1540,7 +1572,7 @@ return|return
 name|disableFeatures
 return|;
 block|}
-comment|/**      * Set of features to disable on the Jackson {@link ObjectMapper}. The      * features should be a name that matches a enum from      * {@link SerializationFeature}, {@link DeserializationFeature}, or      * {@link MapperFeature}.      */
+comment|/** 	 * Set of features to disable on the Jackson {@link ObjectMapper}. The features 	 * should be a name that matches a enum from {@link SerializationFeature}, 	 * {@link DeserializationFeature}, or {@link MapperFeature}. 	 */
 DECL|method|setDisableFeatures (String disableFeatures)
 specifier|public
 name|void
@@ -1789,6 +1821,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|boolean
+name|objectMapperFoundRegistry
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|objectMapper
@@ -1804,6 +1841,12 @@ operator|&&
 name|camelContext
 operator|!=
 literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|isAutoDiscoverObjectMapper
+argument_list|()
 condition|)
 block|{
 name|Set
@@ -1853,6 +1896,10 @@ argument_list|,
 name|objectMapper
 argument_list|)
 expr_stmt|;
+name|objectMapperFoundRegistry
+operator|=
+literal|true
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1875,6 +1922,17 @@ name|set
 operator|.
 name|size
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"The option autoDiscoverObjectMapper is set to false, Camel won't search in the registry"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1903,6 +1961,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|objectMapperFoundRegistry
+condition|)
+block|{
 if|if
 condition|(
 name|enableJaxbAnnotationModule
@@ -2556,6 +2620,7 @@ argument_list|(
 name|timezone
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@

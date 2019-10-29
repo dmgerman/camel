@@ -334,6 +334,13 @@ specifier|private
 name|String
 name|timezone
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|autoDiscoverObjectMapper
+specifier|private
+name|boolean
+name|autoDiscoverObjectMapper
+decl_stmt|;
 DECL|method|JsonDataFormat ()
 specifier|public
 name|JsonDataFormat
@@ -976,6 +983,33 @@ operator|.
 name|timezone
 operator|=
 name|timezone
+expr_stmt|;
+block|}
+DECL|method|isAutoDiscoverObjectMapper ()
+specifier|public
+name|boolean
+name|isAutoDiscoverObjectMapper
+parameter_list|()
+block|{
+return|return
+name|autoDiscoverObjectMapper
+return|;
+block|}
+comment|/** 	 * If set to true then Jackson will lookup for an objectMapper into the registry 	 */
+DECL|method|setAutoDiscoverObjectMapper (boolean autoDiscoverObjectMapper)
+specifier|public
+name|void
+name|setAutoDiscoverObjectMapper
+parameter_list|(
+name|boolean
+name|autoDiscoverObjectMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoDiscoverObjectMapper
+operator|=
+name|autoDiscoverObjectMapper
 expr_stmt|;
 block|}
 annotation|@
