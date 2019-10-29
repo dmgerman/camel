@@ -294,7 +294,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|12
+literal|14
 argument_list|,
 name|events
 operator|.
@@ -340,7 +340,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|12
+literal|14
 argument_list|,
 name|events
 operator|.

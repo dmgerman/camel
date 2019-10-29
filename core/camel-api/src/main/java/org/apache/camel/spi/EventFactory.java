@@ -146,6 +146,42 @@ name|CamelContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link CamelEvent} for Camel routes starting.      *      * @param context camel context      * @return the created event      */
+DECL|method|createCamelContextRoutesStartingEvent (CamelContext context)
+name|CamelEvent
+name|createCamelContextRoutesStartingEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link CamelEvent} for Camel routes started.      *      * @param context camel context      * @return the created event      */
+DECL|method|createCamelContextRoutesStartedEvent (CamelContext context)
+name|CamelEvent
+name|createCamelContextRoutesStartedEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link CamelEvent} for Camel routes stopping.      *      * @param context camel context      * @return the created event      */
+DECL|method|createCamelContextRoutesStoppingEvent (CamelContext context)
+name|CamelEvent
+name|createCamelContextRoutesStoppingEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link CamelEvent} for Camel routes stopped.      *      * @param context camel context      * @return the created event      */
+DECL|method|createCamelContextRoutesStoppedEvent (CamelContext context)
+name|CamelEvent
+name|createCamelContextRoutesStoppedEvent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+function_decl|;
 comment|/**      * Creates an {@link CamelEvent} for a Service failed to start cleanly      *      * @param context camel context      * @param service the service      * @param cause   the cause exception      * @return the created event      */
 DECL|method|createServiceStartupFailureEvent (CamelContext context, Object service, Throwable cause)
 name|CamelEvent

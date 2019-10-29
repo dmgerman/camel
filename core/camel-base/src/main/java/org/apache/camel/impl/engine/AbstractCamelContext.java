@@ -13022,6 +13022,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// invoke this logic to warmup the routes and if possible also start the routes
+name|EventHelper
+operator|.
+name|notifyCamelContextRoutesStarting
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|doStartOrResumeRoutes
 argument_list|(
 name|routeServices
@@ -13034,6 +13041,13 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|EventHelper
+operator|.
+name|notifyCamelContextRoutesStarted
+argument_list|(
+name|this
 argument_list|)
 expr_stmt|;
 name|long
@@ -13131,6 +13145,13 @@ expr_stmt|;
 name|EventHelper
 operator|.
 name|notifyCamelContextStopping
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|EventHelper
+operator|.
+name|notifyCamelContextRoutesStopping
 argument_list|(
 name|this
 argument_list|)
@@ -13336,6 +13357,13 @@ name|routeStartupOrder
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+name|EventHelper
+operator|.
+name|notifyCamelContextRoutesStopped
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 comment|// but clear any suspend routes
 name|suspendedRouteServices
