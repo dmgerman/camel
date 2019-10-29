@@ -113,7 +113,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Length of the data block if the record is set to a fixed length      */
+comment|/**      * Length of the data block (number of characters) if the record is set to a fixed length      */
 DECL|method|length ()
 name|int
 name|length

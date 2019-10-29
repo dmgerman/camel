@@ -107,7 +107,7 @@ parameter_list|()
 default|default
 literal|' '
 function_decl|;
-comment|/**      * The fixed length of the record. It means that the record will always be that long padded with {#paddingChar()}'s      * @return the length of the record.      */
+comment|/**      * The fixed length of the record (number of characters). It means that the record will always be that long padded with {#paddingChar()}'s      * @return the length of the record.      */
 DECL|method|length ()
 name|int
 name|length
