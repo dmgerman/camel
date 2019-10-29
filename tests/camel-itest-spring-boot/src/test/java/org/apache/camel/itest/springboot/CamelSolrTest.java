@@ -165,6 +165,16 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|dependency
+argument_list|(
+literal|"org.apache.zookeeper:zookeeper-jute:3.5.5"
+argument_list|)
+operator|.
+name|dependency
+argument_list|(
+literal|"org.apache.zookeeper:zookeeper:3.5.5"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
