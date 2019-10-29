@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Marker interface for component extensions.  *<p/>  * An extension is a feature provided by the component such as ComponentVerifier,  * ServiceMetaData.  */
+comment|/**  * Marker interface for component extensions.  *<p/>  * An extension is a feature provided by the component such as ComponentVerifier.  */
 end_comment
 
 begin_interface

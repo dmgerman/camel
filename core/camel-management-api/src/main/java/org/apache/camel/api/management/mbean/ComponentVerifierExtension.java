@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the interface used for validating component/endpoint parameters. The central method of this  * interface is {@link ManagedComponentMBean#verify(String, Map)} which takes a scope and a set of parameters which should be verified.  *<p/>  * The return value is a {@link ComponentVerifierExtension.Result} of the verification  *  */
+comment|/**  * Defines the interface used for validating component/endpoint parameters. The central method of this  * interface is {@link ManagedComponentMBean#verify(String, Map)} which takes a scope and a set of parameters which should be verified.  *<p/>  * The return value is a {@link ComponentVerifierExtension.Result} of the verification  */
 end_comment
 
 begin_class
@@ -586,7 +586,7 @@ argument_list|(
 literal|"UNSUPPORTED_SCOPE"
 argument_list|)
 decl_stmt|;
-comment|/**              * The requested {@link Component} is not supported              */
+comment|/**              * The requested Component is not supported              */
 DECL|field|UNSUPPORTED_COMPONENT
 name|StandardCode
 name|UNSUPPORTED_COMPONENT
