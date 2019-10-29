@@ -362,6 +362,24 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// Wait for the controller to start the routes
+name|await
+argument_list|()
+operator|.
+name|atMost
+argument_list|(
+literal|3
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+operator|.
+name|untilAsserted
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 name|Assert
 operator|.
 name|assertEquals
@@ -390,6 +408,9 @@ argument_list|()
 operator|.
 name|getSeconds
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 comment|// Route foo
