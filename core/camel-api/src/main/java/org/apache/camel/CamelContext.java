@@ -1154,6 +1154,8 @@ name|getRestConfiguration
 parameter_list|()
 function_decl|;
 comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
+annotation|@
+name|Deprecated
 DECL|method|addRestConfiguration (RestConfiguration restConfiguration)
 name|void
 name|addRestConfiguration
@@ -1175,6 +1177,8 @@ name|defaultIfNotFound
 parameter_list|)
 function_decl|;
 comment|/**      * Gets all the RestConfiguration's      */
+annotation|@
+name|Deprecated
 DECL|method|getRestConfigurations ()
 name|Collection
 argument_list|<
