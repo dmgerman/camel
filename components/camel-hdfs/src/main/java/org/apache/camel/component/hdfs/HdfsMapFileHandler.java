@@ -100,20 +100,6 @@ name|hadoop
 operator|.
 name|io
 operator|.
-name|BloomMapFile
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|hadoop
-operator|.
-name|io
-operator|.
 name|MapFile
 import|;
 end_import
@@ -161,21 +147,21 @@ import|;
 end_import
 
 begin_class
-DECL|class|HdfsBloommapFileType
+DECL|class|HdfsMapFileHandler
 class|class
-name|HdfsBloommapFileType
+name|HdfsMapFileHandler
 extends|extends
-name|DefaultHdfsFileType
+name|DefaultHdfsFile
 block|{
 annotation|@
 name|Override
-DECL|method|append (HdfsOutputStream hdfsostr, Object key, Object value, TypeConverter typeConverter)
+DECL|method|append (HdfsOutputStream hdfsOutputStream, Object key, Object value, TypeConverter typeConverter)
 specifier|public
 name|long
 name|append
 parameter_list|(
 name|HdfsOutputStream
-name|hdfsostr
+name|hdfsOutputStream
 parameter_list|,
 name|Object
 name|key
@@ -237,11 +223,11 @@ argument_list|)
 decl_stmt|;
 operator|(
 operator|(
-name|BloomMapFile
+name|MapFile
 operator|.
 name|Writer
 operator|)
-name|hdfsostr
+name|hdfsOutputStream
 operator|.
 name|getOut
 argument_list|()
@@ -292,13 +278,13 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|next (HdfsInputStream hdfsistr, Holder<Object> key, Holder<Object> value)
+DECL|method|next (HdfsInputStream hdfsInputStream, Holder<Object> key, Holder<Object> value)
 specifier|public
 name|long
 name|next
 parameter_list|(
 name|HdfsInputStream
-name|hdfsistr
+name|hdfsInputStream
 parameter_list|,
 name|Holder
 argument_list|<
@@ -321,11 +307,11 @@ name|Reader
 name|reader
 init|=
 operator|(
-name|BloomMapFile
+name|MapFile
 operator|.
 name|Reader
 operator|)
-name|hdfsistr
+name|hdfsInputStream
 operator|.
 name|getIn
 argument_list|()
@@ -470,13 +456,13 @@ throw|;
 block|}
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
 argument_list|)
-annotation|@
-name|Override
-DECL|method|createOutputStream (String hdfsPath, HdfsConfiguration configuration)
+DECL|method|createOutputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
 specifier|public
 name|Closeable
 name|createOutputStream
@@ -484,8 +470,8 @@ parameter_list|(
 name|String
 name|hdfsPath
 parameter_list|,
-name|HdfsConfiguration
-name|configuration
+name|HdfsInfoFactory
+name|hdfsInfoFactory
 parameter_list|)
 block|{
 try|try
@@ -496,14 +482,20 @@ decl_stmt|;
 name|HdfsInfo
 name|hdfsInfo
 init|=
-name|HdfsInfoFactory
+name|hdfsInfoFactory
 operator|.
 name|newHdfsInfo
 argument_list|(
 name|hdfsPath
-argument_list|,
-name|configuration
 argument_list|)
+decl_stmt|;
+name|HdfsConfiguration
+name|endpointConfig
+init|=
+name|hdfsInfoFactory
+operator|.
+name|getEndpointConfig
+argument_list|()
 decl_stmt|;
 name|Class
 argument_list|<
@@ -513,7 +505,7 @@ name|WritableComparable
 argument_list|>
 name|keyWritableClass
 init|=
-name|configuration
+name|endpointConfig
 operator|.
 name|getKeyType
 argument_list|()
@@ -529,7 +521,7 @@ name|WritableComparable
 argument_list|>
 name|valueWritableClass
 init|=
-name|configuration
+name|endpointConfig
 operator|.
 name|getValueType
 argument_list|()
@@ -540,7 +532,7 @@ decl_stmt|;
 name|rout
 operator|=
 operator|new
-name|BloomMapFile
+name|MapFile
 operator|.
 name|Writer
 argument_list|(
@@ -579,12 +571,12 @@ name|Writer
 operator|.
 name|compression
 argument_list|(
-name|configuration
+name|endpointConfig
 operator|.
 name|getCompressionType
 argument_list|()
 argument_list|,
-name|configuration
+name|endpointConfig
 operator|.
 name|getCompressionCodec
 argument_list|()
@@ -626,7 +618,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createInputStream (String hdfsPath, HdfsConfiguration configuration)
+DECL|method|createInputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
 specifier|public
 name|Closeable
 name|createInputStream
@@ -634,8 +626,8 @@ parameter_list|(
 name|String
 name|hdfsPath
 parameter_list|,
-name|HdfsConfiguration
-name|configuration
+name|HdfsInfoFactory
+name|hdfsInfoFactory
 parameter_list|)
 block|{
 try|try
@@ -646,19 +638,17 @@ decl_stmt|;
 name|HdfsInfo
 name|hdfsInfo
 init|=
-name|HdfsInfoFactory
+name|hdfsInfoFactory
 operator|.
 name|newHdfsInfo
 argument_list|(
 name|hdfsPath
-argument_list|,
-name|configuration
 argument_list|)
 decl_stmt|;
 name|rin
 operator|=
 operator|new
-name|BloomMapFile
+name|MapFile
 operator|.
 name|Reader
 argument_list|(

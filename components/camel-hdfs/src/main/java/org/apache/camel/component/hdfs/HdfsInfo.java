@@ -62,7 +62,6 @@ end_import
 
 begin_class
 DECL|class|HdfsInfo
-specifier|final
 class|class
 name|HdfsInfo
 block|{

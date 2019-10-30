@@ -193,8 +193,8 @@ specifier|protected
 name|HdfsInputStream
 parameter_list|()
 block|{     }
-comment|/**      *      * @param hdfsPath      * @param configuration      * @return      * @throws IOException      */
-DECL|method|createInputStream (String hdfsPath, HdfsConfiguration configuration)
+comment|/**      *      * @param hdfsPath      * @param hdfsInfoFactory      * @return      * @throws IOException      */
+DECL|method|createInputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
 specifier|public
 specifier|static
 name|HdfsInputStream
@@ -203,10 +203,18 @@ parameter_list|(
 name|String
 name|hdfsPath
 parameter_list|,
-name|HdfsConfiguration
-name|configuration
+name|HdfsInfoFactory
+name|hdfsInfoFactory
 parameter_list|)
 block|{
+name|HdfsConfiguration
+name|endpointConfig
+init|=
+name|hdfsInfoFactory
+operator|.
+name|getEndpointConfig
+argument_list|()
+decl_stmt|;
 name|HdfsInputStream
 name|iStream
 init|=
@@ -218,7 +226,7 @@ name|iStream
 operator|.
 name|fileType
 operator|=
-name|configuration
+name|endpointConfig
 operator|.
 name|getFileType
 argument_list|()
@@ -239,7 +247,7 @@ name|actualPath
 operator|+
 literal|'.'
 operator|+
-name|configuration
+name|endpointConfig
 operator|.
 name|getOpenedSuffix
 argument_list|()
@@ -254,7 +262,7 @@ name|actualPath
 operator|+
 literal|'.'
 operator|+
-name|configuration
+name|endpointConfig
 operator|.
 name|getReadSuffix
 argument_list|()
@@ -263,7 +271,7 @@ name|iStream
 operator|.
 name|chunkSize
 operator|=
-name|configuration
+name|endpointConfig
 operator|.
 name|getChunkSize
 argument_list|()
@@ -273,15 +281,13 @@ block|{
 name|HdfsInfo
 name|info
 init|=
-name|HdfsInfoFactory
+name|hdfsInfoFactory
 operator|.
 name|newHdfsInfo
 argument_list|(
 name|iStream
 operator|.
 name|actualPath
-argument_list|,
-name|configuration
 argument_list|)
 decl_stmt|;
 if|if
@@ -325,7 +331,7 @@ name|iStream
 operator|.
 name|suffixedPath
 argument_list|,
-name|configuration
+name|hdfsInfoFactory
 argument_list|)
 expr_stmt|;
 name|iStream
@@ -338,7 +344,7 @@ name|iStream
 operator|.
 name|config
 operator|=
-name|configuration
+name|endpointConfig
 expr_stmt|;
 block|}
 else|else
@@ -399,16 +405,23 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|HdfsInfoFactory
+name|hdfsInfoFactory
+init|=
+operator|new
+name|HdfsInfoFactory
+argument_list|(
+name|config
+argument_list|)
+decl_stmt|;
 name|HdfsInfo
 name|info
 init|=
-name|HdfsInfoFactory
+name|hdfsInfoFactory
 operator|.
 name|newHdfsInfo
 argument_list|(
 name|actualPath
-argument_list|,
-name|config
 argument_list|)
 decl_stmt|;
 name|info

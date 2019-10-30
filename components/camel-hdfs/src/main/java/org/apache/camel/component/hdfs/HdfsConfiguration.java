@@ -633,6 +633,24 @@ name|owner
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|streamDownload
+specifier|private
+name|boolean
+name|streamDownload
+init|=
+literal|false
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|namedNodes
 specifier|private
 name|String
@@ -2539,8 +2557,7 @@ parameter_list|()
 block|{
 return|return
 operator|!
-name|getNamedNodeList
-argument_list|()
+name|namedNodeList
 operator|.
 name|isEmpty
 argument_list|()
@@ -2650,6 +2667,33 @@ name|kerberosKeytabLocation
 argument_list|)
 return|;
 block|}
+DECL|method|isStreamDownload ()
+specifier|public
+name|boolean
+name|isStreamDownload
+parameter_list|()
+block|{
+return|return
+name|streamDownload
+return|;
+block|}
+comment|/**      * Sets the download method to use when not using a local working directory.  If set to true,      * the remote files are streamed to the route as they are read.  When set to false, the remote files      * are loaded into memory before being sent into the route.      */
+DECL|method|setStreamDownload (boolean streamDownload)
+specifier|public
+name|void
+name|setStreamDownload
+parameter_list|(
+name|boolean
+name|streamDownload
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamDownload
+operator|=
+name|streamDownload
+expr_stmt|;
+block|}
 comment|/**      * Get the label of the hdfs file system like: HOST_NAME:PORT/PATH      *      * @param path      * @return HOST_NAME:PORT/PATH      */
 DECL|method|getFileSystemLabel (String path)
 name|String
@@ -2658,6 +2702,28 @@ parameter_list|(
 name|String
 name|path
 parameter_list|)
+block|{
+if|if
+condition|(
+name|hasClusterConfiguration
+argument_list|()
+condition|)
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%s/%s"
+argument_list|,
+name|getHostName
+argument_list|()
+argument_list|,
+name|path
+argument_list|)
+return|;
+block|}
+else|else
 block|{
 return|return
 name|String
@@ -2675,6 +2741,7 @@ argument_list|,
 name|path
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 end_class

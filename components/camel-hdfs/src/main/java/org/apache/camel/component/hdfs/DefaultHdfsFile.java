@@ -255,10 +255,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DefaultHdfsFileType
+DECL|class|DefaultHdfsFile
 specifier|abstract
 class|class
-name|DefaultHdfsFileType
+name|DefaultHdfsFile
 implements|implements
 name|HdfsFile
 block|{

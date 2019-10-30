@@ -699,6 +699,15 @@ name|hdfsFsDescription
 argument_list|)
 expr_stmt|;
 block|}
+name|HdfsInfoFactory
+name|hdfsInfoFactory
+init|=
+operator|new
+name|HdfsInfoFactory
+argument_list|(
+name|config
+argument_list|)
+decl_stmt|;
 name|HdfsOutputStream
 name|answer
 init|=
@@ -711,7 +720,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|config
+name|hdfsInfoFactory
 argument_list|)
 decl_stmt|;
 if|if
@@ -941,6 +950,15 @@ name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|HdfsInfoFactory
+name|hdfsInfoFactory
+init|=
+operator|new
+name|HdfsInfoFactory
+argument_list|(
+name|config
+argument_list|)
+decl_stmt|;
 comment|// if an explicit filename is specified, close any existing stream and append the filename to the hdfsPath
 if|if
 condition|(
@@ -997,7 +1015,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|config
+name|hdfsInfoFactory
 argument_list|)
 expr_stmt|;
 block|}
@@ -1065,7 +1083,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|config
+name|hdfsInfoFactory
 argument_list|)
 expr_stmt|;
 block|}
@@ -1118,7 +1136,7 @@ name|scheduler
 operator|==
 literal|null
 decl_stmt|;
-comment|// but user may have a header to explict control the close
+comment|// but user may have a header to explicit control the close
 name|Boolean
 name|closeHeader
 init|=

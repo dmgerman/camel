@@ -118,19 +118,78 @@ end_import
 
 begin_class
 DECL|class|HdfsInfoFactory
-specifier|public
-specifier|final
 class|class
 name|HdfsInfoFactory
 block|{
-DECL|method|HdfsInfoFactory ()
+DECL|field|endpointConfig
 specifier|private
+specifier|final
+name|HdfsConfiguration
+name|endpointConfig
+decl_stmt|;
+DECL|method|HdfsInfoFactory (HdfsConfiguration endpointConfig)
 name|HdfsInfoFactory
+parameter_list|(
+name|HdfsConfiguration
+name|endpointConfig
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointConfig
+operator|=
+name|endpointConfig
+expr_stmt|;
+block|}
+DECL|method|newHdfsInfo (String hdfsPath)
+name|HdfsInfo
+name|newHdfsInfo
+parameter_list|(
+name|String
+name|hdfsPath
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|newHdfsInfo
+argument_list|(
+name|hdfsPath
+argument_list|,
+name|endpointConfig
+argument_list|)
+return|;
+block|}
+DECL|method|newHdfsInfoWithoutAuth (String hdfsPath)
+name|HdfsInfo
+name|newHdfsInfoWithoutAuth
+parameter_list|(
+name|String
+name|hdfsPath
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|newHdfsInfoWithoutAuth
+argument_list|(
+name|hdfsPath
+argument_list|,
+name|endpointConfig
+argument_list|)
+return|;
+block|}
+DECL|method|getEndpointConfig ()
+name|HdfsConfiguration
+name|getEndpointConfig
 parameter_list|()
 block|{
-comment|// hidden
+return|return
+name|endpointConfig
+return|;
 block|}
 DECL|method|newHdfsInfo (String hdfsPath, HdfsConfiguration endpointConfig)
+specifier|private
 specifier|static
 name|HdfsInfo
 name|newHdfsInfo
@@ -184,6 +243,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|newHdfsInfoWithoutAuth (String hdfsPath, HdfsConfiguration endpointConfig)
+specifier|private
 specifier|static
 name|HdfsInfo
 name|newHdfsInfoWithoutAuth

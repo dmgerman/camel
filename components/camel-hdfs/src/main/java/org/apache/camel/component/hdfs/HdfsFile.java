@@ -45,12 +45,23 @@ DECL|interface|HdfsFile
 interface|interface
 name|HdfsFile
 block|{
-DECL|method|append (HdfsOutputStream hdfsostr, Object key, Object value, TypeConverter typeConverter)
+DECL|method|createOutputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
+name|Closeable
+name|createOutputStream
+parameter_list|(
+name|String
+name|hdfsPath
+parameter_list|,
+name|HdfsInfoFactory
+name|hdfsInfoFactory
+parameter_list|)
+function_decl|;
+DECL|method|append (HdfsOutputStream hdfsOutputStream, Object key, Object value, TypeConverter typeConverter)
 name|long
 name|append
 parameter_list|(
 name|HdfsOutputStream
-name|hdfsostr
+name|hdfsOutputStream
 parameter_list|,
 name|Object
 name|key
@@ -60,6 +71,17 @@ name|value
 parameter_list|,
 name|TypeConverter
 name|typeConverter
+parameter_list|)
+function_decl|;
+DECL|method|createInputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
+name|Closeable
+name|createInputStream
+parameter_list|(
+name|String
+name|hdfsPath
+parameter_list|,
+name|HdfsInfoFactory
+name|hdfsInfoFactory
 parameter_list|)
 function_decl|;
 DECL|method|next (HdfsInputStream hdfsInputStream, Holder<Object> key, Holder<Object> value)
@@ -80,28 +102,6 @@ argument_list|<
 name|Object
 argument_list|>
 name|value
-parameter_list|)
-function_decl|;
-DECL|method|createOutputStream (String hdfsPath, HdfsConfiguration configuration)
-name|Closeable
-name|createOutputStream
-parameter_list|(
-name|String
-name|hdfsPath
-parameter_list|,
-name|HdfsConfiguration
-name|configuration
-parameter_list|)
-function_decl|;
-DECL|method|createInputStream (String hdfsPath, HdfsConfiguration configuration)
-name|Closeable
-name|createInputStream
-parameter_list|(
-name|String
-name|hdfsPath
-parameter_list|,
-name|HdfsConfiguration
-name|configuration
 parameter_list|)
 function_decl|;
 block|}

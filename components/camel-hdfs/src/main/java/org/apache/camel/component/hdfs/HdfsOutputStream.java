@@ -212,7 +212,7 @@ specifier|protected
 name|HdfsOutputStream
 parameter_list|()
 block|{     }
-DECL|method|createOutputStream (String hdfsPath, HdfsConfiguration configuration)
+DECL|method|createOutputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
 specifier|public
 specifier|static
 name|HdfsOutputStream
@@ -221,12 +221,20 @@ parameter_list|(
 name|String
 name|hdfsPath
 parameter_list|,
-name|HdfsConfiguration
-name|configuration
+name|HdfsInfoFactory
+name|hdfsInfoFactory
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|HdfsConfiguration
+name|endpointConfig
+init|=
+name|hdfsInfoFactory
+operator|.
+name|getEndpointConfig
+argument_list|()
+decl_stmt|;
 name|HdfsOutputStream
 name|oStream
 init|=
@@ -238,7 +246,7 @@ name|oStream
 operator|.
 name|fileType
 operator|=
-name|configuration
+name|endpointConfig
 operator|.
 name|getFileType
 argument_list|()
@@ -253,15 +261,13 @@ name|oStream
 operator|.
 name|info
 operator|=
-name|HdfsInfoFactory
+name|hdfsInfoFactory
 operator|.
 name|newHdfsInfoWithoutAuth
 argument_list|(
 name|oStream
 operator|.
 name|actualPath
-argument_list|,
-name|configuration
 argument_list|)
 expr_stmt|;
 name|oStream
@@ -274,7 +280,7 @@ name|actualPath
 operator|+
 literal|'.'
 operator|+
-name|configuration
+name|endpointConfig
 operator|.
 name|getOpenedSuffix
 argument_list|()
@@ -307,12 +313,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|configuration
+name|endpointConfig
 operator|.
 name|isWantAppend
 argument_list|()
 operator|||
-name|configuration
+name|endpointConfig
 operator|.
 name|isAppend
 argument_list|()
@@ -323,7 +329,7 @@ condition|(
 name|actualPathExists
 condition|)
 block|{
-name|configuration
+name|endpointConfig
 operator|.
 name|setAppend
 argument_list|(
@@ -334,15 +340,13 @@ name|oStream
 operator|.
 name|info
 operator|=
-name|HdfsInfoFactory
+name|hdfsInfoFactory
 operator|.
 name|newHdfsInfoWithoutAuth
 argument_list|(
 name|oStream
 operator|.
 name|suffixedPath
-argument_list|,
-name|configuration
 argument_list|)
 expr_stmt|;
 name|oStream
@@ -368,7 +372,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|configuration
+name|endpointConfig
 operator|.
 name|setAppend
 argument_list|(
@@ -399,7 +403,7 @@ block|{
 comment|// only check if not directory
 if|if
 condition|(
-name|configuration
+name|endpointConfig
 operator|.
 name|isOverwrite
 argument_list|()
@@ -426,7 +430,11 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"The file already exists"
+literal|"File ["
+operator|+
+name|actualPath
+operator|+
+literal|"] already exists"
 argument_list|)
 throw|;
 block|}
@@ -445,7 +453,7 @@ name|oStream
 operator|.
 name|suffixedPath
 argument_list|,
-name|configuration
+name|hdfsInfoFactory
 argument_list|)
 expr_stmt|;
 name|oStream

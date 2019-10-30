@@ -114,13 +114,15 @@ decl_stmt|;
 comment|// when
 name|underTest
 operator|=
+operator|new
 name|HdfsInfoFactory
+argument_list|(
+name|endpointConfig
+argument_list|)
 operator|.
 name|newHdfsInfoWithoutAuth
 argument_list|(
 name|hdfsPath
-argument_list|,
-name|endpointConfig
 argument_list|)
 expr_stmt|;
 comment|// then

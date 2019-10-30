@@ -616,6 +616,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the download method to use when not using a local working          * directory. If set to true, the remote files are streamed to the route          * as they are read. When set to false, the remote files are loaded into          * memory before being sent into the route.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|streamDownload ( boolean streamDownload)
+specifier|default
+name|HdfsEndpointConsumerBuilder
+name|streamDownload
+parameter_list|(
+name|boolean
+name|streamDownload
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"streamDownload"
+argument_list|,
+name|streamDownload
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the download method to use when not using a local working          * directory. If set to true, the remote files are streamed to the route          * as they are read. When set to false, the remote files are loaded into          * memory before being sent into the route.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|streamDownload (String streamDownload)
+specifier|default
+name|HdfsEndpointConsumerBuilder
+name|streamDownload
+parameter_list|(
+name|String
+name|streamDownload
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"streamDownload"
+argument_list|,
+name|streamDownload
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The number of subsequent error polls (failed due some error) that          * should happen before the backoffMultipler should kick-in.          *           * The option is a:<code>int</code> type.          *           * Group: scheduler          */
 DECL|method|backoffErrorThreshold ( int backoffErrorThreshold)
 specifier|default
