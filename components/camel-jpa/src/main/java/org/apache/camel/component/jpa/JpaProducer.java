@@ -1624,7 +1624,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**                  * Save the given entity end return the managed entity                  *                  * @return the managed entity                  */
+comment|/**                  * Save the given entity and return the managed entity                  *                  * @return the managed entity                  */
 specifier|private
 name|Object
 name|save
@@ -1675,7 +1675,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**                  * Remove the given entity end return the managed entity                  *                  * @return the managed entity                  */
+comment|/**                  * Remove the given entity and return the managed entity                  *                  * @return the managed entity                  */
 specifier|private
 name|Object
 name|remove
