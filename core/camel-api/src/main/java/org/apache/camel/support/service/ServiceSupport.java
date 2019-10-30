@@ -96,6 +96,15 @@ name|NEW
 init|=
 literal|0
 decl_stmt|;
+DECL|field|BUILDED
+specifier|protected
+specifier|static
+specifier|final
+name|int
+name|BUILDED
+init|=
+literal|1
+decl_stmt|;
 DECL|field|INITIALIZED
 specifier|protected
 specifier|static
@@ -103,7 +112,7 @@ specifier|final
 name|int
 name|INITIALIZED
 init|=
-literal|1
+literal|2
 decl_stmt|;
 DECL|field|STARTING
 specifier|protected
@@ -112,7 +121,7 @@ specifier|final
 name|int
 name|STARTING
 init|=
-literal|2
+literal|3
 decl_stmt|;
 DECL|field|STARTED
 specifier|protected
@@ -121,7 +130,7 @@ specifier|final
 name|int
 name|STARTED
 init|=
-literal|3
+literal|4
 decl_stmt|;
 DECL|field|SUSPENDING
 specifier|protected
@@ -130,7 +139,7 @@ specifier|final
 name|int
 name|SUSPENDING
 init|=
-literal|4
+literal|5
 decl_stmt|;
 DECL|field|SUSPENDED
 specifier|protected
@@ -139,7 +148,7 @@ specifier|final
 name|int
 name|SUSPENDED
 init|=
-literal|5
+literal|6
 decl_stmt|;
 DECL|field|STOPPING
 specifier|protected
@@ -148,7 +157,7 @@ specifier|final
 name|int
 name|STOPPING
 init|=
-literal|6
+literal|7
 decl_stmt|;
 DECL|field|STOPPED
 specifier|protected
@@ -157,7 +166,7 @@ specifier|final
 name|int
 name|STOPPED
 init|=
-literal|7
+literal|8
 decl_stmt|;
 DECL|field|SHUTTINGDOWN
 specifier|protected
@@ -166,7 +175,7 @@ specifier|final
 name|int
 name|SHUTTINGDOWN
 init|=
-literal|8
+literal|9
 decl_stmt|;
 DECL|field|SHUTDOWN
 specifier|protected
@@ -175,7 +184,7 @@ specifier|final
 name|int
 name|SHUTDOWN
 init|=
-literal|9
+literal|10
 decl_stmt|;
 DECL|field|FAILED
 specifier|protected
@@ -184,7 +193,7 @@ specifier|final
 name|int
 name|FAILED
 init|=
-literal|10
+literal|11
 decl_stmt|;
 DECL|field|log
 specifier|protected
@@ -220,10 +229,10 @@ name|NEW
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|init ()
+DECL|method|build ()
 specifier|public
 name|void
-name|init
+name|build
 parameter_list|()
 block|{
 if|if
@@ -243,6 +252,71 @@ condition|(
 name|status
 operator|==
 name|NEW
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Building service: {}"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|doBuild
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|RuntimeCamelException
+operator|.
+name|wrapRuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+name|status
+operator|=
+name|BUILDED
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|init ()
+specifier|public
+name|void
+name|init
+parameter_list|()
+block|{
+if|if
+condition|(
+name|status
+operator|<=
+name|BUILDED
+condition|)
+block|{
+synchronized|synchronized
+init|(
+name|lock
+init|)
+block|{
+if|if
+condition|(
+name|status
+operator|<=
+name|BUILDED
 condition|)
 block|{
 name|log
@@ -996,6 +1070,18 @@ operator|==
 name|NEW
 return|;
 block|}
+DECL|method|isBuild ()
+specifier|public
+name|boolean
+name|isBuild
+parameter_list|()
+block|{
+return|return
+name|status
+operator|==
+name|BUILDED
+return|;
+block|}
 DECL|method|isInit ()
 specifier|public
 name|boolean
@@ -1066,6 +1152,10 @@ operator|||
 name|status
 operator|==
 name|INITIALIZED
+operator|||
+name|status
+operator|==
+name|BUILDED
 operator|||
 name|status
 operator|==
@@ -1185,6 +1275,15 @@ name|isStarted
 argument_list|()
 return|;
 block|}
+comment|/**      * Optional build phase of the service.      * This method will only be called by frameworks which supports pre-building projects such as camel-quarkus.      */
+DECL|method|doBuild ()
+specifier|protected
+name|void
+name|doBuild
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 comment|/**      * Initialize the service.      * This method will only be called once before starting.      */
 DECL|method|doInit ()
 specifier|protected

@@ -36,6 +36,13 @@ name|Service
 extends|extends
 name|AutoCloseable
 block|{
+comment|/**      * Optional build phase which is executed by frameworks that supports pre-building projects (pre-compile)      * which allows special optimizations such as camel-quarkus.      *      * @throws RuntimeCamelException is thrown if build failed      */
+DECL|method|build ()
+specifier|default
+name|void
+name|build
+parameter_list|()
+block|{     }
 comment|/**      * Initialize the service      *      * @throws RuntimeCamelException is thrown if initialization failed      */
 DECL|method|init ()
 specifier|default
