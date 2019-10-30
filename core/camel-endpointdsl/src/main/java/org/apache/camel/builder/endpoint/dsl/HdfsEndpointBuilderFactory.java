@@ -322,69 +322,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of the kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosConfigFileLocation ( String kerberosConfigFileLocation)
-specifier|default
-name|HdfsEndpointConsumerBuilder
-name|kerberosConfigFileLocation
-parameter_list|(
-name|String
-name|kerberosConfigFileLocation
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosConfigFileLocation"
-argument_list|,
-name|kerberosConfigFileLocation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
-specifier|default
-name|HdfsEndpointConsumerBuilder
-name|kerberosKeytabLocation
-parameter_list|(
-name|String
-name|kerberosKeytabLocation
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosKeytabLocation"
-argument_list|,
-name|kerberosKeytabLocation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosUsername ( String kerberosUsername)
-specifier|default
-name|HdfsEndpointConsumerBuilder
-name|kerberosUsername
-parameter_list|(
-name|String
-name|kerberosUsername
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosUsername"
-argument_list|,
-name|kerberosUsername
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (WritableType keyType)
 specifier|default
@@ -1230,6 +1167,69 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * The location of the kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosConfigFileLocation ( String kerberosConfigFileLocation)
+specifier|default
+name|HdfsEndpointConsumerBuilder
+name|kerberosConfigFileLocation
+parameter_list|(
+name|String
+name|kerberosConfigFileLocation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosConfigFileLocation"
+argument_list|,
+name|kerberosConfigFileLocation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
+specifier|default
+name|HdfsEndpointConsumerBuilder
+name|kerberosKeytabLocation
+parameter_list|(
+name|String
+name|kerberosKeytabLocation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosKeytabLocation"
+argument_list|,
+name|kerberosKeytabLocation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosUsername ( String kerberosUsername)
+specifier|default
+name|HdfsEndpointConsumerBuilder
+name|kerberosUsername
+parameter_list|(
+name|String
+name|kerberosUsername
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosUsername"
+argument_list|,
+name|kerberosUsername
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint consumers for the HDFS component.      */
 DECL|interface|AdvancedHdfsEndpointConsumerBuilder
@@ -1967,69 +1967,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of the kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosConfigFileLocation ( String kerberosConfigFileLocation)
-specifier|default
-name|HdfsEndpointProducerBuilder
-name|kerberosConfigFileLocation
-parameter_list|(
-name|String
-name|kerberosConfigFileLocation
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosConfigFileLocation"
-argument_list|,
-name|kerberosConfigFileLocation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
-specifier|default
-name|HdfsEndpointProducerBuilder
-name|kerberosKeytabLocation
-parameter_list|(
-name|String
-name|kerberosKeytabLocation
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosKeytabLocation"
-argument_list|,
-name|kerberosKeytabLocation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosUsername ( String kerberosUsername)
-specifier|default
-name|HdfsEndpointProducerBuilder
-name|kerberosUsername
-parameter_list|(
-name|String
-name|kerberosUsername
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosUsername"
-argument_list|,
-name|kerberosUsername
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (WritableType keyType)
 specifier|default
@@ -2276,6 +2213,69 @@ argument_list|(
 literal|"overwrite"
 argument_list|,
 name|overwrite
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The location of the kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosConfigFileLocation ( String kerberosConfigFileLocation)
+specifier|default
+name|HdfsEndpointProducerBuilder
+name|kerberosConfigFileLocation
+parameter_list|(
+name|String
+name|kerberosConfigFileLocation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosConfigFileLocation"
+argument_list|,
+name|kerberosConfigFileLocation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
+specifier|default
+name|HdfsEndpointProducerBuilder
+name|kerberosKeytabLocation
+parameter_list|(
+name|String
+name|kerberosKeytabLocation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosKeytabLocation"
+argument_list|,
+name|kerberosKeytabLocation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosUsername ( String kerberosUsername)
+specifier|default
+name|HdfsEndpointProducerBuilder
+name|kerberosUsername
+parameter_list|(
+name|String
+name|kerberosUsername
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosUsername"
+argument_list|,
+name|kerberosUsername
 argument_list|)
 expr_stmt|;
 return|return
@@ -2895,69 +2895,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The location of the kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosConfigFileLocation ( String kerberosConfigFileLocation)
-specifier|default
-name|HdfsEndpointBuilder
-name|kerberosConfigFileLocation
-parameter_list|(
-name|String
-name|kerberosConfigFileLocation
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosConfigFileLocation"
-argument_list|,
-name|kerberosConfigFileLocation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
-specifier|default
-name|HdfsEndpointBuilder
-name|kerberosKeytabLocation
-parameter_list|(
-name|String
-name|kerberosKeytabLocation
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosKeytabLocation"
-argument_list|,
-name|kerberosKeytabLocation
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
-DECL|method|kerberosUsername (String kerberosUsername)
-specifier|default
-name|HdfsEndpointBuilder
-name|kerberosUsername
-parameter_list|(
-name|String
-name|kerberosUsername
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"kerberosUsername"
-argument_list|,
-name|kerberosUsername
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The type for the key in case of sequence or map files.          *           * The option is a:          *<code>org.apache.camel.component.hdfs.WritableType</code> type.          *           * Group: common          */
 DECL|method|keyType (WritableType keyType)
 specifier|default
@@ -3078,6 +3015,69 @@ argument_list|(
 literal|"valueType"
 argument_list|,
 name|valueType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The location of the kerb5.conf file          * (https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosConfigFileLocation ( String kerberosConfigFileLocation)
+specifier|default
+name|HdfsEndpointBuilder
+name|kerberosConfigFileLocation
+parameter_list|(
+name|String
+name|kerberosConfigFileLocation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosConfigFileLocation"
+argument_list|,
+name|kerberosConfigFileLocation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The location of the keytab file used to authenticate with the          * kerberos nodes (contains pairs of kerberos principals and encrypted          * keys (which are derived from the Kerberos password)).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosKeytabLocation ( String kerberosKeytabLocation)
+specifier|default
+name|HdfsEndpointBuilder
+name|kerberosKeytabLocation
+parameter_list|(
+name|String
+name|kerberosKeytabLocation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosKeytabLocation"
+argument_list|,
+name|kerberosKeytabLocation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The username used to authenticate with the kerberos nodes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|kerberosUsername (String kerberosUsername)
+specifier|default
+name|HdfsEndpointBuilder
+name|kerberosUsername
+parameter_list|(
+name|String
+name|kerberosUsername
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"kerberosUsername"
+argument_list|,
+name|kerberosUsername
 argument_list|)
 expr_stmt|;
 return|return

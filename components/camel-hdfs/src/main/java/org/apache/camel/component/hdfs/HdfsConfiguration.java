@@ -669,6 +669,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|kerberosConfigFileLocation
 specifier|private
 name|String
@@ -676,6 +681,11 @@ name|kerberosConfigFileLocation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|kerberosUsername
 specifier|private
 name|String
@@ -683,6 +693,11 @@ name|kerberosUsername
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|kerberosKeytabLocation
 specifier|private
 name|String
