@@ -141,7 +141,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// you can specify the pojo class type for unmarshal the jason file
+comment|// you can specify the pojo class type for unmarshal the jason
+comment|// file
 name|JacksonDataFormat
 name|format
 init|=

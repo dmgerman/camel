@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jackson {@link org.apache.camel.TypeConverter} that allows converting json to/from POJOs and other types.  *<br/>  * This implementation uses a fallback converter.  *<p/>  * The converter is disabled by default. To enable then set the property  * {@link JacksonConstants#ENABLE_TYPE_CONVERTER} to<tt>true</tt> on {@link CamelContext#getGlobalOptions()}.  *<br/>  * The option {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} can be used to allow converting to POJO types. By  * default the converter only attempts to convert to primitive types such as String and numbers. To convert to any kind, then  * enable this by setting {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} to<tt>true</tt> on {@link CamelContext#getGlobalOptions()}.  */
+comment|/**  * Jackson {@link org.apache.camel.TypeConverter} that allows converting json  * to/from POJOs and other types.<br/>  * This implementation uses a fallback converter.  *<p/>  * The converter is disabled by default. To enable then set the property  * {@link JacksonConstants#ENABLE_TYPE_CONVERTER} to<tt>true</tt> on  * {@link CamelContext#getGlobalOptions()}.<br/>  * The option {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} can be used to  * allow converting to POJO types. By default the converter only attempts to  * convert to primitive types such as String and numbers. To convert to any  * kind, then enable this by setting  * {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} to<tt>true</tt> on  * {@link CamelContext#getGlobalOptions()}.  */
 end_comment
 
 begin_class
@@ -220,7 +220,8 @@ operator|new
 name|ObjectMapper
 argument_list|()
 expr_stmt|;
-comment|// Enables JAXB processing so we can easily convert JAXB annotated pojos also
+comment|// Enables JAXB processing so we can easily convert JAXB annotated pojos
+comment|// also
 name|JaxbAnnotationModule
 name|module
 init|=
@@ -426,8 +427,10 @@ name|getRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// favor use write/read operations as they are higher level than the convertValue
-comment|// if we want to convert to a String or byte[] then use write operation
+comment|// favor use write/read operations as they are higher level than the
+comment|// convertValue
+comment|// if we want to convert to a String or byte[] then use write
+comment|// operation
 if|if
 condition|(
 name|String
@@ -514,7 +517,8 @@ name|type
 argument_list|)
 condition|)
 block|{
-comment|// if the source value type is readable by the mapper then use its read operation
+comment|// if the source value type is readable by the mapper then use
+comment|// its read operation
 if|if
 condition|(
 name|String
@@ -687,7 +691,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Whether the type is NOT a pojo type but only a set of simple types such as String and numbers.      */
+comment|/**      * Whether the type is NOT a pojo type but only a set of simple types such      * as String and numbers.      */
 DECL|method|isNotPojoType (Class<?> type)
 specifier|private
 specifier|static

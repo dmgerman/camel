@@ -114,7 +114,8 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-comment|// enable jackson type converter by setting this property on CamelContext
+comment|// enable jackson type converter by setting this property on
+comment|// CamelContext
 name|context
 operator|.
 name|getGlobalOptions

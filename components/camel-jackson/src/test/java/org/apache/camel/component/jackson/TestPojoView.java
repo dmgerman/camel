@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|TestPojoView
 block|{
-comment|//START SNIPPET: jsonview
+comment|// START SNIPPET: jsonview
 annotation|@
 name|JsonView
 argument_list|(
@@ -78,7 +78,7 @@ name|weight
 init|=
 literal|70
 decl_stmt|;
-comment|//END SNIPPET: jsonview
+comment|// END SNIPPET: jsonview
 DECL|method|getAge ()
 specifier|public
 name|int

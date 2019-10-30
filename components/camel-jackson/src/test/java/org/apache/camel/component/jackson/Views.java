@@ -32,12 +32,12 @@ DECL|class|Age
 specifier|static
 class|class
 name|Age
-block|{ }
+block|{     }
 DECL|class|Weight
 specifier|static
 class|class
 name|Weight
-block|{ }
+block|{     }
 block|}
 end_class
 

@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.component.jackson.JacksonDataFormat} that is using a list  */
+comment|/**  * A {@link org.apache.camel.component.jackson.JacksonDataFormat} that is using  * a list  */
 end_comment
 
 begin_class
