@@ -1002,7 +1002,7 @@ return|return
 name|autoDiscoverObjectMapper
 return|;
 block|}
-comment|/** 	 * If set to true then Jackson will lookup for an objectMapper into the registry 	 */
+comment|/**      * If set to true then Jackson will lookup for an objectMapper into the      * registry      */
 DECL|method|setAutoDiscoverObjectMapper (Boolean autoDiscoverObjectMapper)
 specifier|public
 name|void
