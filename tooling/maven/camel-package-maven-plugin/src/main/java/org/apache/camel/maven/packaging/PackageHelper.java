@@ -999,7 +999,7 @@ argument_list|(
 name|name
 argument_list|)
 operator|||
-literal|"camel-debezium"
+literal|"camel-debezium-common"
 operator|.
 name|equals
 argument_list|(

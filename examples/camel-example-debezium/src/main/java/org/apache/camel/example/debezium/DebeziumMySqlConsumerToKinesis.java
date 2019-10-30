@@ -234,9 +234,9 @@ comment|// first it will perform an initial snapshot using (select * from) in ca
 comment|// exists for the connector and then it will listens to MySQL binlogs for any DB events such as (UPDATE, INSERT and DELETE)
 name|from
 argument_list|(
-literal|"debezium:mysql?name={{debezium.mysql.name}}"
+literal|"debezium-mysql:{{debezium.mysql.name}}?"
 operator|+
-literal|"&databaseServerId={{debezium.mysql.databaseServerId}}"
+literal|"databaseServerId={{debezium.mysql.databaseServerId}}"
 operator|+
 literal|"&databaseHostname={{debezium.mysql.databaseHostName}}"
 operator|+
