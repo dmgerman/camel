@@ -646,8 +646,6 @@ DECL|field|streamDownload
 specifier|private
 name|boolean
 name|streamDownload
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -2694,7 +2692,7 @@ operator|=
 name|streamDownload
 expr_stmt|;
 block|}
-comment|/**      * Get the label of the hdfs file system like: HOST_NAME:PORT/PATH      *      * @param path      * @return HOST_NAME:PORT/PATH      */
+comment|/**      * Get the label of the hdfs file system like: HOST_NAME:PORT/PATH      *      * @param path the file path      * @return HOST_NAME:PORT/PATH      */
 DECL|method|getFileSystemLabel (String path)
 name|String
 name|getFileSystemLabel
