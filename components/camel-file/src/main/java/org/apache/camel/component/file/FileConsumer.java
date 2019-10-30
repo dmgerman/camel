@@ -405,18 +405,32 @@ return|return
 literal|true
 return|;
 block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Polling directory: {}"
+literal|"Polling directory: {}, absolute path: {}"
 argument_list|,
 name|directory
 operator|.
 name|getPath
 argument_list|()
+argument_list|,
+name|directory
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|File
 index|[]
 name|dirFiles
