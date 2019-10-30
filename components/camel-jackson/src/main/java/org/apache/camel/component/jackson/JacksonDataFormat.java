@@ -2622,6 +2622,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"The objectMapper was already found in the registry, no customizations will be applied"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
