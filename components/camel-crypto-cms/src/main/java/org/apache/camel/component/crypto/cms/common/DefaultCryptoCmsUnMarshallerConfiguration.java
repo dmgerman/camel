@@ -78,11 +78,7 @@ DECL|method|DefaultCryptoCmsUnMarshallerConfiguration ()
 specifier|public
 name|DefaultCryptoCmsUnMarshallerConfiguration
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|isFromBase64 ()

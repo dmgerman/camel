@@ -629,11 +629,7 @@ DECL|method|AmazonDDBClientMock ()
 specifier|public
 name|AmazonDDBClientMock
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|describeTable (DescribeTableRequest describeTableRequest)

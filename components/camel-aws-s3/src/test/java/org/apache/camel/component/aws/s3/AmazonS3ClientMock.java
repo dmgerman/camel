@@ -934,11 +934,7 @@ DECL|method|AmazonS3ClientMock ()
 specifier|public
 name|AmazonS3ClientMock
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|listNextBatchOfVersions (VersionListing previousVersionListing)

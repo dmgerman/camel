@@ -489,11 +489,7 @@ DECL|method|AmazonSQSClientMock ()
 specifier|public
 name|AmazonSQSClientMock
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|listQueues ()

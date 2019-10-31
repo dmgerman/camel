@@ -132,11 +132,7 @@ DECL|method|JsonObject ()
 specifier|public
 name|JsonObject
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Instantiate a new JsonObject by accepting a map's entries, which could      * lead to de/serialization issues of the resulting JsonObject since the      * entry values aren't validated as JSON values.      *       * @param map represents the mappings to produce the JsonObject with.      */
 DECL|method|JsonObject (final Map<String, ?> map)
 specifier|public

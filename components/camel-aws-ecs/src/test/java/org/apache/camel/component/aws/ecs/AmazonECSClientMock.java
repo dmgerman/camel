@@ -220,11 +220,7 @@ DECL|method|AmazonECSClientMock ()
 specifier|public
 name|AmazonECSClientMock
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createCluster (CreateClusterRequest request)

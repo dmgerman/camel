@@ -58,11 +58,7 @@ DECL|method|GoogleCalendarConstants ()
 specifier|private
 name|GoogleCalendarConstants
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

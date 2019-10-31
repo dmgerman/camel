@@ -226,11 +226,7 @@ DECL|method|AmazonEKSClientMock ()
 specifier|public
 name|AmazonEKSClientMock
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createCluster (CreateClusterRequest request)

@@ -102,11 +102,7 @@ DECL|method|ParseException ()
 specifier|public
 name|ParseException
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{   }
 comment|/** Constructor with message. */
 DECL|method|ParseException (String message)
 specifier|public

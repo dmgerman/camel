@@ -47,11 +47,7 @@ DECL|method|GoogleCalendarStreamConstants ()
 specifier|private
 name|GoogleCalendarStreamConstants
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

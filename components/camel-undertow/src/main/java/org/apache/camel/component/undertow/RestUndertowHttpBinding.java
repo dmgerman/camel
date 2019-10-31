@@ -64,11 +64,7 @@ DECL|method|RestUndertowHttpBinding ()
 specifier|public
 name|RestUndertowHttpBinding
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|RestUndertowHttpBinding (boolean useStreaming)
 specifier|public
 name|RestUndertowHttpBinding

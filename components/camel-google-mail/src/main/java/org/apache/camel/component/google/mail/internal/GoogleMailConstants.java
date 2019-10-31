@@ -58,11 +58,7 @@ DECL|method|GoogleMailConstants ()
 specifier|private
 name|GoogleMailConstants
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

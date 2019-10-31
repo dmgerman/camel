@@ -1025,9 +1025,6 @@ argument_list|>
 name|endpointClass
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|registerExtension
 argument_list|(
 name|HttpComponentVerifierExtension

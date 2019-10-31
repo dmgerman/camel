@@ -678,11 +678,7 @@ DECL|method|AmazonMQClientMock ()
 specifier|public
 name|AmazonMQClientMock
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createBroker (CreateBrokerRequest createBrokerRequest)

@@ -131,11 +131,7 @@ DECL|method|GoogleBigQuerySQLComponent ()
 specifier|public
 name|GoogleBigQuerySQLComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|GoogleBigQuerySQLComponent (CamelContext camelContext)
 specifier|public
 name|GoogleBigQuerySQLComponent

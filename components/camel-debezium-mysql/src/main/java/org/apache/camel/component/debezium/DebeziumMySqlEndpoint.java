@@ -149,11 +149,7 @@ DECL|method|DebeziumMySqlEndpoint ()
 specifier|public
 name|DebeziumMySqlEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getConfiguration ()

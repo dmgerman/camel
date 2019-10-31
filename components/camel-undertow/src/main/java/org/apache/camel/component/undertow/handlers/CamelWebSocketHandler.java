@@ -571,9 +571,6 @@ specifier|public
 name|CamelWebSocketHandler
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|receiveListener
@@ -1201,9 +1198,6 @@ name|Exchange
 name|camelExchange
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|camelCallback
@@ -1973,11 +1967,7 @@ DECL|method|UndertowWebSocketConnectionCallback ()
 specifier|public
 name|UndertowWebSocketConnectionCallback
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{         }
 annotation|@
 name|Override
 DECL|method|onConnect (WebSocketHttpExchange exchange, WebSocketChannel channel)

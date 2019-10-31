@@ -166,11 +166,7 @@ DECL|method|ProcessDefinitionResponse ()
 specifier|public
 name|ProcessDefinitionResponse
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|getId ()
 specifier|public
 name|String

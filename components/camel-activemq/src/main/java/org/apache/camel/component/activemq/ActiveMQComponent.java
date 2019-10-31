@@ -369,9 +369,6 @@ name|ActiveMQConfiguration
 name|configuration
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setConfiguration
 argument_list|(
 name|configuration

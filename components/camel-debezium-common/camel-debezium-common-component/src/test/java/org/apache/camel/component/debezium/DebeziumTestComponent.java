@@ -69,11 +69,7 @@ DECL|method|DebeziumTestComponent ()
 specifier|public
 name|DebeziumTestComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|DebeziumTestComponent (final CamelContext context)
 specifier|public
 name|DebeziumTestComponent

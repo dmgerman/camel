@@ -192,11 +192,7 @@ DECL|method|Jt400Component ()
 specifier|public
 name|Jt400Component
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> properties)

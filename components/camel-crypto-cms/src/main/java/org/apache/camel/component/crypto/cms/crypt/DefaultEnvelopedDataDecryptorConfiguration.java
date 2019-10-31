@@ -289,11 +289,7 @@ DECL|method|DefaultEnvelopedDataDecryptorConfiguration ()
 specifier|public
 name|DefaultEnvelopedDataDecryptorConfiguration
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Sets the password of the private keys. It is assumed that all private      * keys in the keystore have the same password. If not set then it is      * assumed that the password of the private keys is given by the keystore      * password given in the {@link KeyStoreParameters}.      */
 DECL|method|setPassword (char[] password)
 specifier|public

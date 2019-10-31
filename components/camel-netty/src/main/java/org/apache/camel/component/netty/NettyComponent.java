@@ -331,11 +331,7 @@ name|Endpoint
 argument_list|>
 name|endpointClass
 parameter_list|)
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|NettyComponent (CamelContext context)
 specifier|public
 name|NettyComponent

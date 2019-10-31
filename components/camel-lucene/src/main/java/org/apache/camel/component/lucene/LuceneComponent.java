@@ -136,9 +136,6 @@ specifier|public
 name|LuceneComponent
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|config
 operator|=
 operator|new

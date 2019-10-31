@@ -58,11 +58,7 @@ DECL|method|GoogleSheetsConstants ()
 specifier|private
 name|GoogleSheetsConstants
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

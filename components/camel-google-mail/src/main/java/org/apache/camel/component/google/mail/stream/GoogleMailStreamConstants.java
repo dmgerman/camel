@@ -92,11 +92,7 @@ DECL|method|GoogleMailStreamConstants ()
 specifier|private
 name|GoogleMailStreamConstants
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

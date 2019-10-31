@@ -90,11 +90,7 @@ DECL|method|DebeziumMySqlComponent ()
 specifier|public
 name|DebeziumMySqlComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|DebeziumMySqlComponent (final CamelContext context)
 specifier|public
 name|DebeziumMySqlComponent

@@ -113,11 +113,7 @@ DECL|method|GoogleSheetsStreamConstants ()
 specifier|private
 name|GoogleSheetsStreamConstants
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

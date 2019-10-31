@@ -924,11 +924,7 @@ DECL|method|AmazonS3EncryptionClientMock ()
 specifier|public
 name|AmazonS3EncryptionClientMock
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|listNextBatchOfVersions (VersionListing previousVersionListing)

@@ -1002,9 +1002,6 @@ DECL|method|ServerInitializer ()
 name|ServerInitializer
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 comment|// create the SSLContext that will be used to create SSLEngine

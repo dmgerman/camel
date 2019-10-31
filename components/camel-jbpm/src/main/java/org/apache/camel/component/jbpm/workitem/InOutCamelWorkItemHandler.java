@@ -445,11 +445,7 @@ DECL|method|InOutCamelWorkItemHandler ()
 specifier|public
 name|InOutCamelWorkItemHandler
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|InOutCamelWorkItemHandler (String camelEndpointId)
 specifier|public
 name|InOutCamelWorkItemHandler

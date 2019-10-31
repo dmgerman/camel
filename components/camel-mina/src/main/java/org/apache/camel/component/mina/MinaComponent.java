@@ -211,11 +211,7 @@ DECL|method|MinaComponent ()
 specifier|public
 name|MinaComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|MinaComponent (CamelContext context)
 specifier|public
 name|MinaComponent

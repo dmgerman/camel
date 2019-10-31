@@ -225,9 +225,6 @@ name|ApplicationContext
 name|applicationContext
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setApplicationContext
 argument_list|(
 name|applicationContext

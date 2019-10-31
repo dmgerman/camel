@@ -90,11 +90,7 @@ DECL|method|DebeziumPostgresComponent ()
 specifier|public
 name|DebeziumPostgresComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|DebeziumPostgresComponent (final CamelContext context)
 specifier|public
 name|DebeziumPostgresComponent

@@ -700,9 +700,6 @@ specifier|public
 name|PropertiesComponent
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 comment|// include out of the box functions
 name|addFunction
 argument_list|(

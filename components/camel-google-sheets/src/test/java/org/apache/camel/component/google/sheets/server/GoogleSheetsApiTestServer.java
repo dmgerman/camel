@@ -690,9 +690,6 @@ name|HttpServer
 name|httpServer
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|httpServer
@@ -1766,9 +1763,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|gzipStream
 operator|=
 operator|new

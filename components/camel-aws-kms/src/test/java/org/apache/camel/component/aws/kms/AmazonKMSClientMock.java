@@ -1250,11 +1250,7 @@ DECL|method|AmazonKMSClientMock ()
 specifier|public
 name|AmazonKMSClientMock
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|setEndpoint (String endpoint)

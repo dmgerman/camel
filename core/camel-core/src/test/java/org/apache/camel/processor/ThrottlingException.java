@@ -37,11 +37,7 @@ DECL|method|ThrottlingException ()
 specifier|public
 name|ThrottlingException
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ThrottlingException (String message)
 specifier|public
 name|ThrottlingException

@@ -130,11 +130,7 @@ DECL|method|JsonArray ()
 specifier|public
 name|JsonArray
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Instantiate a new JsonArray using ArrayList's constructor of the same      * type.      *       * @param collection represents the elements to produce the JsonArray with.      */
 DECL|method|JsonArray (final Collection<?> collection)
 specifier|public
