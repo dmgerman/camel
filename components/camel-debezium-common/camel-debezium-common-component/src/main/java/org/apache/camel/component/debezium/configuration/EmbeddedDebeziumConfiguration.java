@@ -1058,7 +1058,7 @@ operator|=
 name|offsetStorageReplicationFactor
 expr_stmt|;
 block|}
-comment|/**      * The name of the Java class of the commit policy. It defines when offsets      * commit has to be triggered based on the number of events processed and the      * time elapsed since the last commit. This class must implement the interface      *<â¦â>.OffsetCommitPolicy. The default is a periodic commit policy based upon      * time intervals.      */
+comment|/**      * The name of the Java class of the commit policy. It defines when offsets      * commit has to be triggered based on the number of events processed and the      * time elapsed since the last commit. This class must implement the interface      * 'OffsetCommitPolicy'. The default is a periodic commit policy based upon      * time intervals.      */
 DECL|method|getOffsetCommitPolicy ()
 specifier|public
 name|String
@@ -1139,7 +1139,7 @@ operator|=
 name|offsetCommitTimeoutMs
 expr_stmt|;
 block|}
-comment|/**      * The number of partitions used when creating the offset storage topic.      * Required when offset.storage is set to the<â¦â>.KafkaOffsetBackingStore.      */
+comment|/**      * The number of partitions used when creating the offset storage topic.      * Required when offset.storage is set to the 'KafkaOffsetBackingStore'.      */
 DECL|method|getOffsetStoragePartitions ()
 specifier|public
 name|int
