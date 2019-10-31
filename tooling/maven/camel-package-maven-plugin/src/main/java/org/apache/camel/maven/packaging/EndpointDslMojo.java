@@ -621,7 +621,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generate Spring Boot auto configuration files for Camel components and data  * formats.  */
+comment|/**  * Generate Endpoint DSL source files for Components.  */
 end_comment
 
 begin_class
