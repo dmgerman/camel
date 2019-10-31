@@ -2760,7 +2760,7 @@ name|camelContext
 argument_list|,
 name|mainConfigurationProperties
 operator|.
-name|isAutowireNonNullOnlyComponentProperties
+name|isAutowireComponentPropertiesNonNullOnly
 argument_list|()
 argument_list|,
 name|mainConfigurationProperties
