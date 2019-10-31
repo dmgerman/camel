@@ -1372,6 +1372,30 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|type
+operator|!=
+literal|null
+operator|&&
+name|CamelContext
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+comment|// the camel context is usually bound by other means so don't bind it to the target object
+comment|// and most important do not walk it down and re-configure it.
+comment|//
+comment|// In some cases, such as Camel Quarkus, the Registry and the Context itself are added to
+comment|// the IoC Container and an attempt to auto re-wire the Context may ends up in a circular
+comment|// reference and a subsequent stack overflow.
+continue|continue;
+block|}
+if|if
+condition|(
 name|isComplexUserType
 argument_list|(
 name|type
