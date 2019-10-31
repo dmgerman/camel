@@ -110,6 +110,174 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * The batch size.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
+DECL|method|batchSize (Integer batchSize)
+specifier|default
+name|IgniteIdGenEndpointBuilder
+name|batchSize
+parameter_list|(
+name|Integer
+name|batchSize
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"batchSize"
+argument_list|,
+name|batchSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The batch size.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
+DECL|method|batchSize (String batchSize)
+specifier|default
+name|IgniteIdGenEndpointBuilder
+name|batchSize
+parameter_list|(
+name|String
+name|batchSize
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"batchSize"
+argument_list|,
+name|batchSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The initial value.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
+DECL|method|initialValue (Long initialValue)
+specifier|default
+name|IgniteIdGenEndpointBuilder
+name|initialValue
+parameter_list|(
+name|Long
+name|initialValue
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"initialValue"
+argument_list|,
+name|initialValue
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The initial value.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
+DECL|method|initialValue (String initialValue)
+specifier|default
+name|IgniteIdGenEndpointBuilder
+name|initialValue
+parameter_list|(
+name|String
+name|initialValue
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"initialValue"
+argument_list|,
+name|initialValue
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( boolean lazyStartProducer)
+specifier|default
+name|IgniteIdGenEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( String lazyStartProducer)
+specifier|default
+name|IgniteIdGenEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The operation to invoke on the Ignite ID Generator. Superseded by the          * IgniteConstants.IGNITE_IDGEN_OPERATION header in the IN message.          * Possible values: ADD_AND_GET, GET, GET_AND_ADD, GET_AND_INCREMENT,          * INCREMENT_AND_GET.          *           * The option is a:          *<code>org.apache.camel.component.ignite.idgen.IgniteIdGenOperation</code> type.          *           * Group: producer          */
+DECL|method|operation ( IgniteIdGenOperation operation)
+specifier|default
+name|IgniteIdGenEndpointBuilder
+name|operation
+parameter_list|(
+name|IgniteIdGenOperation
+name|operation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"operation"
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The operation to invoke on the Ignite ID Generator. Superseded by the          * IgniteConstants.IGNITE_IDGEN_OPERATION header in the IN message.          * Possible values: ADD_AND_GET, GET, GET_AND_ADD, GET_AND_INCREMENT,          * INCREMENT_AND_GET.          *           * The option will be converted to a          *<code>org.apache.camel.component.ignite.idgen.IgniteIdGenOperation</code> type.          *           * Group: producer          */
+DECL|method|operation (String operation)
+specifier|default
+name|IgniteIdGenEndpointBuilder
+name|operation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"operation"
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
 specifier|default

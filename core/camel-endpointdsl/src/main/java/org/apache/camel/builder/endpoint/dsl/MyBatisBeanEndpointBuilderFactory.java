@@ -110,6 +110,132 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * The executor type to be used while executing statements. simple -          * executor does nothing special. reuse - executor reuses prepared          * statements. batch - executor reuses statements and batches updates.          *           * The option is a:<code>org.apache.ibatis.session.ExecutorType</code>          * type.          *           * Group: producer          */
+DECL|method|executorType ( ExecutorType executorType)
+specifier|default
+name|MyBatisBeanEndpointBuilder
+name|executorType
+parameter_list|(
+name|ExecutorType
+name|executorType
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"executorType"
+argument_list|,
+name|executorType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The executor type to be used while executing statements. simple -          * executor does nothing special. reuse - executor reuses prepared          * statements. batch - executor reuses statements and batches updates.          *           * The option will be converted to a          *<code>org.apache.ibatis.session.ExecutorType</code> type.          *           * Group: producer          */
+DECL|method|executorType (String executorType)
+specifier|default
+name|MyBatisBeanEndpointBuilder
+name|executorType
+parameter_list|(
+name|String
+name|executorType
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"executorType"
+argument_list|,
+name|executorType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * User the header value for input parameters instead of the message          * body. By default, inputHeader == null and the input parameters are          * taken from the message body. If outputHeader is set, the value is          * used and query parameters will be taken from the header instead of          * the body.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|inputHeader (String inputHeader)
+specifier|default
+name|MyBatisBeanEndpointBuilder
+name|inputHeader
+parameter_list|(
+name|String
+name|inputHeader
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"inputHeader"
+argument_list|,
+name|inputHeader
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( boolean lazyStartProducer)
+specifier|default
+name|MyBatisBeanEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( String lazyStartProducer)
+specifier|default
+name|MyBatisBeanEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Store the query result in a header instead of the message body. By          * default, outputHeader == null and the query result is stored in the          * message body, any existing content in the message body is discarded.          * If outputHeader is set, the value is used as the name of the header          * to store the query result and the original message body is preserved.          * Setting outputHeader will also omit populating the default          * CamelMyBatisResult header since it would be the same as outputHeader          * all the time.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|outputHeader (String outputHeader)
+specifier|default
+name|MyBatisBeanEndpointBuilder
+name|outputHeader
+parameter_list|(
+name|String
+name|outputHeader
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"outputHeader"
+argument_list|,
+name|outputHeader
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the MyBatis Bean component.      */
 DECL|interface|AdvancedMyBatisBeanEndpointBuilder

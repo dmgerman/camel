@@ -110,6 +110,132 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * The collection configuration. Default: empty configuration. You can          * also conveniently set inner properties by using configuration.xyz=123          * options.          *           * The option is a:          *<code>org.apache.ignite.configuration.CollectionConfiguration</code>          * type.          *           * Group: producer          */
+DECL|method|configuration (Object configuration)
+specifier|default
+name|IgniteSetEndpointBuilder
+name|configuration
+parameter_list|(
+name|Object
+name|configuration
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"configuration"
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The collection configuration. Default: empty configuration. You can          * also conveniently set inner properties by using configuration.xyz=123          * options.          *           * The option will be converted to a          *<code>org.apache.ignite.configuration.CollectionConfiguration</code>          * type.          *           * Group: producer          */
+DECL|method|configuration (String configuration)
+specifier|default
+name|IgniteSetEndpointBuilder
+name|configuration
+parameter_list|(
+name|String
+name|configuration
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"configuration"
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( boolean lazyStartProducer)
+specifier|default
+name|IgniteSetEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( String lazyStartProducer)
+specifier|default
+name|IgniteSetEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The operation to invoke on the Ignite Set. Superseded by the          * IgniteConstants.IGNITE_SETS_OPERATION header in the IN message.          * Possible values: CONTAINS, ADD, SIZE, REMOVE, ITERATOR, CLEAR,          * RETAIN_ALL, ARRAY.The set operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.ignite.set.IgniteSetOperation</code>          * type.          *           * Group: producer          */
+DECL|method|operation (IgniteSetOperation operation)
+specifier|default
+name|IgniteSetEndpointBuilder
+name|operation
+parameter_list|(
+name|IgniteSetOperation
+name|operation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"operation"
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The operation to invoke on the Ignite Set. Superseded by the          * IgniteConstants.IGNITE_SETS_OPERATION header in the IN message.          * Possible values: CONTAINS, ADD, SIZE, REMOVE, ITERATOR, CLEAR,          * RETAIN_ALL, ARRAY.The set operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.ignite.set.IgniteSetOperation</code>          * type.          *           * Group: producer          */
+DECL|method|operation (String operation)
+specifier|default
+name|IgniteSetEndpointBuilder
+name|operation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"operation"
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
 specifier|default

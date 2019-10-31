@@ -330,6 +330,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (boolean lazyStartProducer)
+specifier|default
+name|XJEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (String lazyStartProducer)
+specifier|default
+name|XJEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Option to specify which output type to use. Possible values are:          * string, bytes, DOM, file. The first three options are all in memory          * based, where as file is streamed directly to a java.io.File. For file          * you must specify the filename in the IN header with the key          * Exchange.XSLT_FILE_NAME which is also CamelXsltFileName. Also any          * paths leading to the filename must be created beforehand, otherwise          * an exception is thrown at runtime.          *           * The option is a:          *<code>org.apache.camel.component.xslt.XsltOutput</code> type.          *           * Group: producer          */
 DECL|method|output (XsltOutput output)
 specifier|default

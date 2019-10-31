@@ -110,6 +110,48 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( boolean lazyStartProducer)
+specifier|default
+name|LambdaEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (String lazyStartProducer)
+specifier|default
+name|LambdaEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The operation to perform. It can be listFunctions, getFunction,          * createFunction, deleteFunction or invokeFunction.          *           * The option is a:          *<code>org.apache.camel.component.aws.lambda.LambdaOperations</code>          * type.          *           * Required: true          * Group: producer          */
 DECL|method|operation (LambdaOperations operation)
 specifier|default
@@ -146,6 +188,27 @@ argument_list|(
 literal|"operation"
 argument_list|,
 name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Amazon AWS Region. When using this parameter, the configuration will          * expect the capitalized name of the region (for example AP_EAST_1)          * You'll need to use the name Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|region (String region)
+specifier|default
+name|LambdaEndpointBuilder
+name|region
+parameter_list|(
+name|String
+name|region
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"region"
+argument_list|,
+name|region
 argument_list|)
 expr_stmt|;
 return|return

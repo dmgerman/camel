@@ -110,6 +110,153 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * An expression that returns the Cluster Group for the IgniteCompute          * instance.          *           * The option is a:          *<code>org.apache.camel.component.ignite.ClusterGroupExpression</code>          * type.          *           * Group: producer          */
+DECL|method|clusterGroupExpression ( Object clusterGroupExpression)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|clusterGroupExpression
+parameter_list|(
+name|Object
+name|clusterGroupExpression
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clusterGroupExpression"
+argument_list|,
+name|clusterGroupExpression
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * An expression that returns the Cluster Group for the IgniteCompute          * instance.          *           * The option will be converted to a          *<code>org.apache.camel.component.ignite.ClusterGroupExpression</code>          * type.          *           * Group: producer          */
+DECL|method|clusterGroupExpression ( String clusterGroupExpression)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|clusterGroupExpression
+parameter_list|(
+name|String
+name|clusterGroupExpression
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clusterGroupExpression"
+argument_list|,
+name|clusterGroupExpression
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The name of the compute job, which will be set via          * IgniteCompute#withName(String).          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|computeName (String computeName)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|computeName
+parameter_list|(
+name|String
+name|computeName
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"computeName"
+argument_list|,
+name|computeName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The compute operation to perform. Possible values: CALL, BROADCAST,          * APPLY, EXECUTE, RUN, AFFINITY_CALL, AFFINITY_RUN. The component          * expects different payload types depending on the operation.          *           * The option is a:          *<code>org.apache.camel.component.ignite.compute.IgniteComputeExecutionType</code> type.          *           * Required: true          * Group: producer          */
+DECL|method|executionType ( IgniteComputeExecutionType executionType)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|executionType
+parameter_list|(
+name|IgniteComputeExecutionType
+name|executionType
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"executionType"
+argument_list|,
+name|executionType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The compute operation to perform. Possible values: CALL, BROADCAST,          * APPLY, EXECUTE, RUN, AFFINITY_CALL, AFFINITY_RUN. The component          * expects different payload types depending on the operation.          *           * The option will be converted to a          *<code>org.apache.camel.component.ignite.compute.IgniteComputeExecutionType</code> type.          *           * Required: true          * Group: producer          */
+DECL|method|executionType (String executionType)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|executionType
+parameter_list|(
+name|String
+name|executionType
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"executionType"
+argument_list|,
+name|executionType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( boolean lazyStartProducer)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( String lazyStartProducer)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
 specifier|default
@@ -146,6 +293,69 @@ argument_list|(
 literal|"propagateIncomingBodyIfNoReturnValue"
 argument_list|,
 name|propagateIncomingBodyIfNoReturnValue
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The task name, only applicable if using the          * IgniteComputeExecutionType#EXECUTE execution type.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|taskName (String taskName)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|taskName
+parameter_list|(
+name|String
+name|taskName
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"taskName"
+argument_list|,
+name|taskName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The timeout interval for triggered jobs, in milliseconds, which will          * be set via IgniteCompute#withTimeout(long).          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
+DECL|method|timeoutMillis (Long timeoutMillis)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|timeoutMillis
+parameter_list|(
+name|Long
+name|timeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"timeoutMillis"
+argument_list|,
+name|timeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The timeout interval for triggered jobs, in milliseconds, which will          * be set via IgniteCompute#withTimeout(long).          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
+DECL|method|timeoutMillis (String timeoutMillis)
+specifier|default
+name|IgniteComputeEndpointBuilder
+name|timeoutMillis
+parameter_list|(
+name|String
+name|timeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"timeoutMillis"
+argument_list|,
+name|timeoutMillis
 argument_list|)
 expr_stmt|;
 return|return

@@ -227,6 +227,132 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Flatten is used to flatten the file name path to strip any leading          * paths, so it's just the file name. This allows you to consume          * recursively into sub-directories, but when you eg write the files to          * another directory they will be written in a single directory. Setting          * this to true on the producer enforces that any file name in          * CamelFileName header will be stripped for any leading paths.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|flatten (boolean flatten)
+specifier|default
+name|ScpEndpointBuilder
+name|flatten
+parameter_list|(
+name|boolean
+name|flatten
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"flatten"
+argument_list|,
+name|flatten
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Flatten is used to flatten the file name path to strip any leading          * paths, so it's just the file name. This allows you to consume          * recursively into sub-directories, but when you eg write the files to          * another directory they will be written in a single directory. Setting          * this to true on the producer enforces that any file name in          * CamelFileName header will be stripped for any leading paths.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|flatten (String flatten)
+specifier|default
+name|ScpEndpointBuilder
+name|flatten
+parameter_list|(
+name|String
+name|flatten
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"flatten"
+argument_list|,
+name|flatten
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Used for jailing (restricting) writing files to the starting          * directory (and sub) only. This is enabled by default to not allow          * Camel to write files to outside directories (to be more secured out          * of the box). You can turn this off to allow writing files to          * directories outside the starting directory, such as parent or root          * folders.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|jailStartingDirectory ( boolean jailStartingDirectory)
+specifier|default
+name|ScpEndpointBuilder
+name|jailStartingDirectory
+parameter_list|(
+name|boolean
+name|jailStartingDirectory
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"jailStartingDirectory"
+argument_list|,
+name|jailStartingDirectory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Used for jailing (restricting) writing files to the starting          * directory (and sub) only. This is enabled by default to not allow          * Camel to write files to outside directories (to be more secured out          * of the box). You can turn this off to allow writing files to          * directories outside the starting directory, such as parent or root          * folders.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|jailStartingDirectory ( String jailStartingDirectory)
+specifier|default
+name|ScpEndpointBuilder
+name|jailStartingDirectory
+parameter_list|(
+name|String
+name|jailStartingDirectory
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"jailStartingDirectory"
+argument_list|,
+name|jailStartingDirectory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (boolean lazyStartProducer)
+specifier|default
+name|ScpEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (String lazyStartProducer)
+specifier|default
+name|ScpEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether to use strict host key checking. Possible values are:          * no, yes.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|strictHostKeyChecking ( String strictHostKeyChecking)
 specifier|default
@@ -478,6 +604,132 @@ return|return
 operator|(
 name|ScpEndpointBuilder
 operator|)
+name|this
+return|;
+block|}
+comment|/**          * Used to specify if a null body is allowed during file writing. If set          * to true then an empty file will be created, when set to false, and          * attempting to send a null body to the file component, a          * GenericFileWriteException of 'Cannot write null body to file.' will          * be thrown. If the fileExist option is set to 'Override', then the          * file will be truncated, and if set to append the file will remain          * unchanged.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|allowNullBody (boolean allowNullBody)
+specifier|default
+name|AdvancedScpEndpointBuilder
+name|allowNullBody
+parameter_list|(
+name|boolean
+name|allowNullBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"allowNullBody"
+argument_list|,
+name|allowNullBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Used to specify if a null body is allowed during file writing. If set          * to true then an empty file will be created, when set to false, and          * attempting to send a null body to the file component, a          * GenericFileWriteException of 'Cannot write null body to file.' will          * be thrown. If the fileExist option is set to 'Override', then the          * file will be truncated, and if set to append the file will remain          * unchanged.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|allowNullBody (String allowNullBody)
+specifier|default
+name|AdvancedScpEndpointBuilder
+name|allowNullBody
+parameter_list|(
+name|String
+name|allowNullBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"allowNullBody"
+argument_list|,
+name|allowNullBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether or not to disconnect from remote FTP server right after a          * Batch upload is complete. disconnectOnBatchComplete will only          * disconnect the current connection to the FTP server.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|disconnectOnBatchComplete ( boolean disconnectOnBatchComplete)
+specifier|default
+name|AdvancedScpEndpointBuilder
+name|disconnectOnBatchComplete
+parameter_list|(
+name|boolean
+name|disconnectOnBatchComplete
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"disconnectOnBatchComplete"
+argument_list|,
+name|disconnectOnBatchComplete
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether or not to disconnect from remote FTP server right after a          * Batch upload is complete. disconnectOnBatchComplete will only          * disconnect the current connection to the FTP server.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|disconnectOnBatchComplete ( String disconnectOnBatchComplete)
+specifier|default
+name|AdvancedScpEndpointBuilder
+name|disconnectOnBatchComplete
+parameter_list|(
+name|String
+name|disconnectOnBatchComplete
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"disconnectOnBatchComplete"
+argument_list|,
+name|disconnectOnBatchComplete
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Strategy (Custom Strategy) used to move file with special naming          * token to use when fileExist=Move is configured. By default, there is          * an implementation used if no custom strategy is provided.          *           * The option is a:          *<code>org.apache.camel.component.file.strategy.FileMoveExistingStrategy</code> type.          *           * Group: producer (advanced)          */
+DECL|method|moveExistingFileStrategy ( Object moveExistingFileStrategy)
+specifier|default
+name|AdvancedScpEndpointBuilder
+name|moveExistingFileStrategy
+parameter_list|(
+name|Object
+name|moveExistingFileStrategy
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"moveExistingFileStrategy"
+argument_list|,
+name|moveExistingFileStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Strategy (Custom Strategy) used to move file with special naming          * token to use when fileExist=Move is configured. By default, there is          * an implementation used if no custom strategy is provided.          *           * The option will be converted to a          *<code>org.apache.camel.component.file.strategy.FileMoveExistingStrategy</code> type.          *           * Group: producer (advanced)          */
+DECL|method|moveExistingFileStrategy ( String moveExistingFileStrategy)
+specifier|default
+name|AdvancedScpEndpointBuilder
+name|moveExistingFileStrategy
+parameter_list|(
+name|String
+name|moveExistingFileStrategy
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"moveExistingFileStrategy"
+argument_list|,
+name|moveExistingFileStrategy
+argument_list|)
+expr_stmt|;
+return|return
 name|this
 return|;
 block|}

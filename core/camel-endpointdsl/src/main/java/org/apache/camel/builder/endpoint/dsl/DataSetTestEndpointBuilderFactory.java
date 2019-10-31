@@ -257,6 +257,426 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets a grace period after which the mock endpoint will re-assert to          * ensure the preliminary assertion is still valid. This is used for          * example to assert that exactly a number of messages arrives. For          * example if expectedMessageCount(int) was set to 5, then the assertion          * is satisfied when 5 or more message arrives. To ensure that exactly 5          * messages arrives, then you would need to wait a little period to          * ensure no further message arrives. This is what you can use this          * method for. By default this period is disabled.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
+DECL|method|assertPeriod (long assertPeriod)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|assertPeriod
+parameter_list|(
+name|long
+name|assertPeriod
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"assertPeriod"
+argument_list|,
+name|assertPeriod
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets a grace period after which the mock endpoint will re-assert to          * ensure the preliminary assertion is still valid. This is used for          * example to assert that exactly a number of messages arrives. For          * example if expectedMessageCount(int) was set to 5, then the assertion          * is satisfied when 5 or more message arrives. To ensure that exactly 5          * messages arrives, then you would need to wait a little period to          * ensure no further message arrives. This is what you can use this          * method for. By default this period is disabled.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
+DECL|method|assertPeriod (String assertPeriod)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|assertPeriod
+parameter_list|(
+name|String
+name|assertPeriod
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"assertPeriod"
+argument_list|,
+name|assertPeriod
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies the expected number of message exchanges that should be          * received by this endpoint. Beware: If you want to expect that 0          * messages, then take extra care, as 0 matches when the tests starts,          * so you need to set a assert period time to let the test run for a          * while to make sure there are still no messages arrived; for that use          * setAssertPeriod(long). An alternative is to use NotifyBuilder, and          * use the notifier to know when Camel is done routing some messages,          * before you call the assertIsSatisfied() method on the mocks. This          * allows you to not use a fixed assert period, to speedup testing          * times. If you want to assert that exactly n'th message arrives to          * this mock endpoint, then see also the setAssertPeriod(long) method          * for further details.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|expectedCount (int expectedCount)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|expectedCount
+parameter_list|(
+name|int
+name|expectedCount
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"expectedCount"
+argument_list|,
+name|expectedCount
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies the expected number of message exchanges that should be          * received by this endpoint. Beware: If you want to expect that 0          * messages, then take extra care, as 0 matches when the tests starts,          * so you need to set a assert period time to let the test run for a          * while to make sure there are still no messages arrived; for that use          * setAssertPeriod(long). An alternative is to use NotifyBuilder, and          * use the notifier to know when Camel is done routing some messages,          * before you call the assertIsSatisfied() method on the mocks. This          * allows you to not use a fixed assert period, to speedup testing          * times. If you want to assert that exactly n'th message arrives to          * this mock endpoint, then see also the setAssertPeriod(long) method          * for further details.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|expectedCount (String expectedCount)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|expectedCount
+parameter_list|(
+name|String
+name|expectedCount
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"expectedCount"
+argument_list|,
+name|expectedCount
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets whether assertIsSatisfied() should fail fast at the first          * detected failed expectation while it may otherwise wait for all          * expected messages to arrive before performing expectations          * verifications. Is by default true. Set to false to use behavior as in          * Camel 2.x.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|failFast (boolean failFast)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|failFast
+parameter_list|(
+name|boolean
+name|failFast
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"failFast"
+argument_list|,
+name|failFast
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets whether assertIsSatisfied() should fail fast at the first          * detected failed expectation while it may otherwise wait for all          * expected messages to arrive before performing expectations          * verifications. Is by default true. Set to false to use behavior as in          * Camel 2.x.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|failFast (String failFast)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|failFast
+parameter_list|(
+name|String
+name|failFast
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"failFast"
+argument_list|,
+name|failFast
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( boolean lazyStartProducer)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( String lazyStartProducer)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * A number that is used to turn on throughput logging based on groups          * of the size.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|reportGroup (int reportGroup)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|reportGroup
+parameter_list|(
+name|int
+name|reportGroup
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"reportGroup"
+argument_list|,
+name|reportGroup
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * A number that is used to turn on throughput logging based on groups          * of the size.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|reportGroup (String reportGroup)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|reportGroup
+parameter_list|(
+name|String
+name|reportGroup
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"reportGroup"
+argument_list|,
+name|reportGroup
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the minimum expected amount of time (in millis) the          * assertIsSatisfied() will wait on a latch until it is satisfied.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
+DECL|method|resultMinimumWaitTime ( long resultMinimumWaitTime)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|resultMinimumWaitTime
+parameter_list|(
+name|long
+name|resultMinimumWaitTime
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resultMinimumWaitTime"
+argument_list|,
+name|resultMinimumWaitTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the minimum expected amount of time (in millis) the          * assertIsSatisfied() will wait on a latch until it is satisfied.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
+DECL|method|resultMinimumWaitTime ( String resultMinimumWaitTime)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|resultMinimumWaitTime
+parameter_list|(
+name|String
+name|resultMinimumWaitTime
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resultMinimumWaitTime"
+argument_list|,
+name|resultMinimumWaitTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the maximum amount of time (in millis) the assertIsSatisfied()          * will wait on a latch until it is satisfied.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
+DECL|method|resultWaitTime (long resultWaitTime)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|resultWaitTime
+parameter_list|(
+name|long
+name|resultWaitTime
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resultWaitTime"
+argument_list|,
+name|resultWaitTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the maximum amount of time (in millis) the assertIsSatisfied()          * will wait on a latch until it is satisfied.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
+DECL|method|resultWaitTime (String resultWaitTime)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|resultWaitTime
+parameter_list|(
+name|String
+name|resultWaitTime
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"resultWaitTime"
+argument_list|,
+name|resultWaitTime
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies to only retain the first n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the first 10 Exchanges, then the getReceivedCounter()          * will still return 5000 but there is only the first 10 Exchanges in          * the getExchanges() and getReceivedExchanges() methods. When using          * this method, then some of the other expectation methods is not          * supported, for example the expectedBodiesReceived(Object...) sets a          * expectation on the first number of bodies received. You can configure          * both setRetainFirst(int) and setRetainLast(int) methods, to limit          * both the first and last received.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|retainFirst (int retainFirst)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|retainFirst
+parameter_list|(
+name|int
+name|retainFirst
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"retainFirst"
+argument_list|,
+name|retainFirst
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies to only retain the first n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the first 10 Exchanges, then the getReceivedCounter()          * will still return 5000 but there is only the first 10 Exchanges in          * the getExchanges() and getReceivedExchanges() methods. When using          * this method, then some of the other expectation methods is not          * supported, for example the expectedBodiesReceived(Object...) sets a          * expectation on the first number of bodies received. You can configure          * both setRetainFirst(int) and setRetainLast(int) methods, to limit          * both the first and last received.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|retainFirst (String retainFirst)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|retainFirst
+parameter_list|(
+name|String
+name|retainFirst
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"retainFirst"
+argument_list|,
+name|retainFirst
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies to only retain the last n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the last 20 Exchanges, then the getReceivedCounter() will          * still return 5000 but there is only the last 20 Exchanges in the          * getExchanges() and getReceivedExchanges() methods. When using this          * method, then some of the other expectation methods is not supported,          * for example the expectedBodiesReceived(Object...) sets a expectation          * on the first number of bodies received. You can configure both          * setRetainFirst(int) and setRetainLast(int) methods, to limit both the          * first and last received.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|retainLast (int retainLast)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|retainLast
+parameter_list|(
+name|int
+name|retainLast
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"retainLast"
+argument_list|,
+name|retainLast
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies to only retain the last n'th number of received Exchanges.          * This is used when testing with big data, to reduce memory consumption          * by not storing copies of every Exchange this mock endpoint receives.          * Important: When using this limitation, then the getReceivedCounter()          * will still return the actual number of received Exchanges. For          * example if we have received 5000 Exchanges, and have configured to          * only retain the last 20 Exchanges, then the getReceivedCounter() will          * still return 5000 but there is only the last 20 Exchanges in the          * getExchanges() and getReceivedExchanges() methods. When using this          * method, then some of the other expectation methods is not supported,          * for example the expectedBodiesReceived(Object...) sets a expectation          * on the first number of bodies received. You can configure both          * setRetainFirst(int) and setRetainLast(int) methods, to limit both the          * first and last received.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|retainLast (String retainLast)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|retainLast
+parameter_list|(
+name|String
+name|retainLast
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"retainLast"
+argument_list|,
+name|retainLast
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Allows a sleep to be specified to wait to check that this endpoint          * really is empty when expectedMessageCount(int) is called with zero.          *           * The option is a:<code>long</code> type.          *           * Group: producer          */
+DECL|method|sleepForEmptyTest ( long sleepForEmptyTest)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|sleepForEmptyTest
+parameter_list|(
+name|long
+name|sleepForEmptyTest
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sleepForEmptyTest"
+argument_list|,
+name|sleepForEmptyTest
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Allows a sleep to be specified to wait to check that this endpoint          * really is empty when expectedMessageCount(int) is called with zero.          *           * The option will be converted to a<code>long</code> type.          *           * Group: producer          */
+DECL|method|sleepForEmptyTest ( String sleepForEmptyTest)
+specifier|default
+name|DataSetTestEndpointBuilder
+name|sleepForEmptyTest
+parameter_list|(
+name|String
+name|sleepForEmptyTest
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sleepForEmptyTest"
+argument_list|,
+name|sleepForEmptyTest
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the DataSet Test component.      */
 DECL|interface|AdvancedDataSetTestEndpointBuilder
@@ -276,6 +696,48 @@ return|return
 operator|(
 name|DataSetTestEndpointBuilder
 operator|)
+name|this
+return|;
+block|}
+comment|/**          * Sets whether to make a deep copy of the incoming Exchange when          * received at this mock endpoint. Is by default true.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|copyOnExchange ( boolean copyOnExchange)
+specifier|default
+name|AdvancedDataSetTestEndpointBuilder
+name|copyOnExchange
+parameter_list|(
+name|boolean
+name|copyOnExchange
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"copyOnExchange"
+argument_list|,
+name|copyOnExchange
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets whether to make a deep copy of the incoming Exchange when          * received at this mock endpoint. Is by default true.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|copyOnExchange ( String copyOnExchange)
+specifier|default
+name|AdvancedDataSetTestEndpointBuilder
+name|copyOnExchange
+parameter_list|(
+name|String
+name|copyOnExchange
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"copyOnExchange"
+argument_list|,
+name|copyOnExchange
+argument_list|)
+expr_stmt|;
+return|return
 name|this
 return|;
 block|}

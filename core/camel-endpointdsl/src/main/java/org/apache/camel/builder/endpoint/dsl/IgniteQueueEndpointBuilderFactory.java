@@ -110,6 +110,174 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * The queue capacity. Default: non-bounded.          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
+DECL|method|capacity (int capacity)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|capacity
+parameter_list|(
+name|int
+name|capacity
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"capacity"
+argument_list|,
+name|capacity
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The queue capacity. Default: non-bounded.          *           * The option will be converted to a<code>int</code> type.          *           * Group: producer          */
+DECL|method|capacity (String capacity)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|capacity
+parameter_list|(
+name|String
+name|capacity
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"capacity"
+argument_list|,
+name|capacity
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The collection configuration. Default: empty configuration. You can          * also conveniently set inner properties by using configuration.xyz=123          * options.          *           * The option is a:          *<code>org.apache.ignite.configuration.CollectionConfiguration</code>          * type.          *           * Group: producer          */
+DECL|method|configuration (Object configuration)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|configuration
+parameter_list|(
+name|Object
+name|configuration
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"configuration"
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The collection configuration. Default: empty configuration. You can          * also conveniently set inner properties by using configuration.xyz=123          * options.          *           * The option will be converted to a          *<code>org.apache.ignite.configuration.CollectionConfiguration</code>          * type.          *           * Group: producer          */
+DECL|method|configuration (String configuration)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|configuration
+parameter_list|(
+name|String
+name|configuration
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"configuration"
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( boolean lazyStartProducer)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer ( String lazyStartProducer)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The operation to invoke on the Ignite Queue. Superseded by the          * IgniteConstants.IGNITE_QUEUE_OPERATION header in the IN message.          * Possible values: CONTAINS, ADD, SIZE, REMOVE, ITERATOR, CLEAR,          * RETAIN_ALL, ARRAY, DRAIN, ELEMENT, PEEK, OFFER, POLL, TAKE, PUT.          *           * The option is a:          *<code>org.apache.camel.component.ignite.queue.IgniteQueueOperation</code> type.          *           * Group: producer          */
+DECL|method|operation ( IgniteQueueOperation operation)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|operation
+parameter_list|(
+name|IgniteQueueOperation
+name|operation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"operation"
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The operation to invoke on the Ignite Queue. Superseded by the          * IgniteConstants.IGNITE_QUEUE_OPERATION header in the IN message.          * Possible values: CONTAINS, ADD, SIZE, REMOVE, ITERATOR, CLEAR,          * RETAIN_ALL, ARRAY, DRAIN, ELEMENT, PEEK, OFFER, POLL, TAKE, PUT.          *           * The option will be converted to a          *<code>org.apache.camel.component.ignite.queue.IgniteQueueOperation</code> type.          *           * Group: producer          */
+DECL|method|operation (String operation)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|operation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"operation"
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether to propagate the incoming body if the return type of the          * underlying Ignite operation is void.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|propagateIncomingBodyIfNoReturnValue ( boolean propagateIncomingBodyIfNoReturnValue)
 specifier|default
@@ -146,6 +314,48 @@ argument_list|(
 literal|"propagateIncomingBodyIfNoReturnValue"
 argument_list|,
 name|propagateIncomingBodyIfNoReturnValue
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The queue timeout in milliseconds. Default: no timeout.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
+DECL|method|timeoutMillis (Long timeoutMillis)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|timeoutMillis
+parameter_list|(
+name|Long
+name|timeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"timeoutMillis"
+argument_list|,
+name|timeoutMillis
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The queue timeout in milliseconds. Default: no timeout.          *           * The option will be converted to a<code>java.lang.Long</code> type.          *           * Group: producer          */
+DECL|method|timeoutMillis (String timeoutMillis)
+specifier|default
+name|IgniteQueueEndpointBuilder
+name|timeoutMillis
+parameter_list|(
+name|String
+name|timeoutMillis
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"timeoutMillis"
+argument_list|,
+name|timeoutMillis
 argument_list|)
 expr_stmt|;
 return|return

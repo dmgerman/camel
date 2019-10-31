@@ -110,6 +110,216 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Amazon AWS Access Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|accessKey (String accessKey)
+specifier|default
+name|MSKEndpointBuilder
+name|accessKey
+parameter_list|(
+name|String
+name|accessKey
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"accessKey"
+argument_list|,
+name|accessKey
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (boolean lazyStartProducer)
+specifier|default
+name|MSKEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (String lazyStartProducer)
+specifier|default
+name|MSKEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a existing configured AWS MSK as client.          *           * The option is a:<code>com.amazonaws.services.kafka.AWSKafka</code>          * type.          *           * Group: producer          */
+DECL|method|mskClient (Object mskClient)
+specifier|default
+name|MSKEndpointBuilder
+name|mskClient
+parameter_list|(
+name|Object
+name|mskClient
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"mskClient"
+argument_list|,
+name|mskClient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a existing configured AWS MSK as client.          *           * The option will be converted to a          *<code>com.amazonaws.services.kafka.AWSKafka</code> type.          *           * Group: producer          */
+DECL|method|mskClient (String mskClient)
+specifier|default
+name|MSKEndpointBuilder
+name|mskClient
+parameter_list|(
+name|String
+name|mskClient
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"mskClient"
+argument_list|,
+name|mskClient
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The operation to perform.          *           * The option is a:          *<code>org.apache.camel.component.aws.msk.MSKOperations</code> type.          *           * Required: true          * Group: producer          */
+DECL|method|operation (MSKOperations operation)
+specifier|default
+name|MSKEndpointBuilder
+name|operation
+parameter_list|(
+name|MSKOperations
+name|operation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"operation"
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The operation to perform.          *           * The option will be converted to a          *<code>org.apache.camel.component.aws.msk.MSKOperations</code> type.          *           * Required: true          * Group: producer          */
+DECL|method|operation (String operation)
+specifier|default
+name|MSKEndpointBuilder
+name|operation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"operation"
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy host when instantiating the MSK client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|proxyHost (String proxyHost)
+specifier|default
+name|MSKEndpointBuilder
+name|proxyHost
+parameter_list|(
+name|String
+name|proxyHost
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyHost"
+argument_list|,
+name|proxyHost
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy port when instantiating the MSK client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
+DECL|method|proxyPort (Integer proxyPort)
+specifier|default
+name|MSKEndpointBuilder
+name|proxyPort
+parameter_list|(
+name|Integer
+name|proxyPort
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyPort"
+argument_list|,
+name|proxyPort
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy port when instantiating the MSK client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
+DECL|method|proxyPort (String proxyPort)
+specifier|default
+name|MSKEndpointBuilder
+name|proxyPort
+parameter_list|(
+name|String
+name|proxyPort
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyPort"
+argument_list|,
+name|proxyPort
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which MSK client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
@@ -125,6 +335,27 @@ argument_list|(
 literal|"region"
 argument_list|,
 name|region
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Amazon AWS Secret Key.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+DECL|method|secretKey (String secretKey)
+specifier|default
+name|MSKEndpointBuilder
+name|secretKey
+parameter_list|(
+name|String
+name|secretKey
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"secretKey"
+argument_list|,
+name|secretKey
 argument_list|)
 expr_stmt|;
 return|return

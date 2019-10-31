@@ -218,6 +218,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * If the option is true, HttpProducer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * option throwExceptionOnFailure to be false to let the HttpProducer          * send all the fault response back.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|bridgeEndpoint (boolean bridgeEndpoint)
+specifier|default
+name|HttpEndpointBuilder
+name|bridgeEndpoint
+parameter_list|(
+name|boolean
+name|bridgeEndpoint
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bridgeEndpoint"
+argument_list|,
+name|bridgeEndpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If the option is true, HttpProducer will ignore the Exchange.HTTP_URI          * header, and use the endpoint's URI for request. You may also set the          * option throwExceptionOnFailure to be false to let the HttpProducer          * send all the fault response back.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|bridgeEndpoint (String bridgeEndpoint)
+specifier|default
+name|HttpEndpointBuilder
+name|bridgeEndpoint
+parameter_list|(
+name|String
+name|bridgeEndpoint
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bridgeEndpoint"
+argument_list|,
+name|bridgeEndpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * If this option is false the Servlet will disable the HTTP streaming          * and set the content-length header on the response.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|chunked (boolean chunked)
 specifier|default
@@ -260,6 +302,342 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Whether to clear expired cookies before sending the HTTP request.          * This ensures the cookies store does not keep growing by adding new          * cookies which is newer removed when they are expired.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|clearExpiredCookies ( boolean clearExpiredCookies)
+specifier|default
+name|HttpEndpointBuilder
+name|clearExpiredCookies
+parameter_list|(
+name|boolean
+name|clearExpiredCookies
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clearExpiredCookies"
+argument_list|,
+name|clearExpiredCookies
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to clear expired cookies before sending the HTTP request.          * This ensures the cookies store does not keep growing by adding new          * cookies which is newer removed when they are expired.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|clearExpiredCookies ( String clearExpiredCookies)
+specifier|default
+name|HttpEndpointBuilder
+name|clearExpiredCookies
+parameter_list|(
+name|String
+name|clearExpiredCookies
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"clearExpiredCookies"
+argument_list|,
+name|clearExpiredCookies
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies whether a Connection Close header must be added to HTTP          * Request. By default connectionClose is false.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|connectionClose (boolean connectionClose)
+specifier|default
+name|HttpEndpointBuilder
+name|connectionClose
+parameter_list|(
+name|boolean
+name|connectionClose
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectionClose"
+argument_list|,
+name|connectionClose
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Specifies whether a Connection Close header must be added to HTTP          * Request. By default connectionClose is false.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|connectionClose (String connectionClose)
+specifier|default
+name|HttpEndpointBuilder
+name|connectionClose
+parameter_list|(
+name|String
+name|connectionClose
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectionClose"
+argument_list|,
+name|connectionClose
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If this option is true then IN exchange headers will be copied to OUT          * exchange headers according to copy strategy. Setting this to false,          * allows to only include the headers from the HTTP response (not          * propagating IN headers).          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|copyHeaders (boolean copyHeaders)
+specifier|default
+name|HttpEndpointBuilder
+name|copyHeaders
+parameter_list|(
+name|boolean
+name|copyHeaders
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"copyHeaders"
+argument_list|,
+name|copyHeaders
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If this option is true then IN exchange headers will be copied to OUT          * exchange headers according to copy strategy. Setting this to false,          * allows to only include the headers from the HTTP response (not          * propagating IN headers).          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|copyHeaders (String copyHeaders)
+specifier|default
+name|HttpEndpointBuilder
+name|copyHeaders
+parameter_list|(
+name|String
+name|copyHeaders
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"copyHeaders"
+argument_list|,
+name|copyHeaders
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure the HTTP method to use. The HttpMethod header cannot          * override this option if set.          *           * The option is a:          *<code>org.apache.camel.http.common.HttpMethods</code> type.          *           * Group: producer          */
+DECL|method|httpMethod (HttpMethods httpMethod)
+specifier|default
+name|HttpEndpointBuilder
+name|httpMethod
+parameter_list|(
+name|HttpMethods
+name|httpMethod
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"httpMethod"
+argument_list|,
+name|httpMethod
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure the HTTP method to use. The HttpMethod header cannot          * override this option if set.          *           * The option will be converted to a          *<code>org.apache.camel.http.common.HttpMethods</code> type.          *           * Group: producer          */
+DECL|method|httpMethod (String httpMethod)
+specifier|default
+name|HttpEndpointBuilder
+name|httpMethod
+parameter_list|(
+name|String
+name|httpMethod
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"httpMethod"
+argument_list|,
+name|httpMethod
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If this option is true, The http producer won't read response body          * and cache the input stream.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|ignoreResponseBody ( boolean ignoreResponseBody)
+specifier|default
+name|HttpEndpointBuilder
+name|ignoreResponseBody
+parameter_list|(
+name|boolean
+name|ignoreResponseBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"ignoreResponseBody"
+argument_list|,
+name|ignoreResponseBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If this option is true, The http producer won't read response body          * and cache the input stream.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|ignoreResponseBody (String ignoreResponseBody)
+specifier|default
+name|HttpEndpointBuilder
+name|ignoreResponseBody
+parameter_list|(
+name|String
+name|ignoreResponseBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"ignoreResponseBody"
+argument_list|,
+name|ignoreResponseBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (boolean lazyStartProducer)
+specifier|default
+name|HttpEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (String lazyStartProducer)
+specifier|default
+name|HttpEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If the option is true, HttpProducer will set the Host header to the          * value contained in the current exchange Host header, useful in          * reverse proxy applications where you want the Host header received by          * the downstream server to reflect the URL called by the upstream          * client, this allows applications which use the Host header to          * generate accurate URL's for a proxied service.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|preserveHostHeader ( boolean preserveHostHeader)
+specifier|default
+name|HttpEndpointBuilder
+name|preserveHostHeader
+parameter_list|(
+name|boolean
+name|preserveHostHeader
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"preserveHostHeader"
+argument_list|,
+name|preserveHostHeader
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If the option is true, HttpProducer will set the Host header to the          * value contained in the current exchange Host header, useful in          * reverse proxy applications where you want the Host header received by          * the downstream server to reflect the URL called by the upstream          * client, this allows applications which use the Host header to          * generate accurate URL's for a proxied service.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|preserveHostHeader (String preserveHostHeader)
+specifier|default
+name|HttpEndpointBuilder
+name|preserveHostHeader
+parameter_list|(
+name|String
+name|preserveHostHeader
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"preserveHostHeader"
+argument_list|,
+name|preserveHostHeader
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Option to disable throwing the HttpOperationFailedException in case          * of failed responses from the remote server. This allows you to get          * all responses regardless of the HTTP status code.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|throwExceptionOnFailure ( boolean throwExceptionOnFailure)
+specifier|default
+name|HttpEndpointBuilder
+name|throwExceptionOnFailure
+parameter_list|(
+name|boolean
+name|throwExceptionOnFailure
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"throwExceptionOnFailure"
+argument_list|,
+name|throwExceptionOnFailure
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Option to disable throwing the HttpOperationFailedException in case          * of failed responses from the remote server. This allows you to get          * all responses regardless of the HTTP status code.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|throwExceptionOnFailure ( String throwExceptionOnFailure)
+specifier|default
+name|HttpEndpointBuilder
+name|throwExceptionOnFailure
+parameter_list|(
+name|String
+name|throwExceptionOnFailure
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"throwExceptionOnFailure"
+argument_list|,
+name|throwExceptionOnFailure
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * If enabled and an Exchange failed processing on the consumer side,          * and if the caused Exception was send back serialized in the response          * as a application/x-java-serialized-object content type. On the          * producer side the exception will be deserialized and thrown as is,          * instead of the HttpOperationFailedException. The caused exception is          * required to be serialized. This is by default turned off. If you          * enable this then be aware that Java will deserialize the incoming          * data from the request to Java and that can be a potential security          * risk.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
 DECL|method|transferException (boolean transferException)
 specifier|default
@@ -296,6 +674,405 @@ argument_list|(
 literal|"transferException"
 argument_list|,
 name|transferException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy authentication domain to use with NTML.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
+DECL|method|proxyAuthDomain (String proxyAuthDomain)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyAuthDomain
+parameter_list|(
+name|String
+name|proxyAuthDomain
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyAuthDomain"
+argument_list|,
+name|proxyAuthDomain
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy authentication host.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
+DECL|method|proxyAuthHost (String proxyAuthHost)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyAuthHost
+parameter_list|(
+name|String
+name|proxyAuthHost
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyAuthHost"
+argument_list|,
+name|proxyAuthHost
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy authentication method to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
+DECL|method|proxyAuthMethod (String proxyAuthMethod)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyAuthMethod
+parameter_list|(
+name|String
+name|proxyAuthMethod
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyAuthMethod"
+argument_list|,
+name|proxyAuthMethod
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy authentication password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
+DECL|method|proxyAuthPassword (String proxyAuthPassword)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyAuthPassword
+parameter_list|(
+name|String
+name|proxyAuthPassword
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyAuthPassword"
+argument_list|,
+name|proxyAuthPassword
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy authentication port.          *           * The option is a:<code>int</code> type.          *           * Group: proxy          */
+DECL|method|proxyAuthPort (int proxyAuthPort)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyAuthPort
+parameter_list|(
+name|int
+name|proxyAuthPort
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyAuthPort"
+argument_list|,
+name|proxyAuthPort
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy authentication port.          *           * The option will be converted to a<code>int</code> type.          *           * Group: proxy          */
+DECL|method|proxyAuthPort (String proxyAuthPort)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyAuthPort
+parameter_list|(
+name|String
+name|proxyAuthPort
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyAuthPort"
+argument_list|,
+name|proxyAuthPort
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy authentication scheme to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
+DECL|method|proxyAuthScheme (String proxyAuthScheme)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyAuthScheme
+parameter_list|(
+name|String
+name|proxyAuthScheme
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyAuthScheme"
+argument_list|,
+name|proxyAuthScheme
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy authentication username.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
+DECL|method|proxyAuthUsername (String proxyAuthUsername)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyAuthUsername
+parameter_list|(
+name|String
+name|proxyAuthUsername
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyAuthUsername"
+argument_list|,
+name|proxyAuthUsername
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy hostname to use.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: proxy          */
+DECL|method|proxyHost (String proxyHost)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyHost
+parameter_list|(
+name|String
+name|proxyHost
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyHost"
+argument_list|,
+name|proxyHost
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy port to use.          *           * The option is a:<code>int</code> type.          *           * Group: proxy          */
+DECL|method|proxyPort (int proxyPort)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyPort
+parameter_list|(
+name|int
+name|proxyPort
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyPort"
+argument_list|,
+name|proxyPort
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Proxy port to use.          *           * The option will be converted to a<code>int</code> type.          *           * Group: proxy          */
+DECL|method|proxyPort (String proxyPort)
+specifier|default
+name|HttpEndpointBuilder
+name|proxyPort
+parameter_list|(
+name|String
+name|proxyPort
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyPort"
+argument_list|,
+name|proxyPort
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Authentication domain to use with NTML.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|authDomain (String authDomain)
+specifier|default
+name|HttpEndpointBuilder
+name|authDomain
+parameter_list|(
+name|String
+name|authDomain
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"authDomain"
+argument_list|,
+name|authDomain
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If this option is true, camel-http sends preemptive basic          * authentication to the server.          *           * The option is a:<code>boolean</code> type.          *           * Group: security          */
+DECL|method|authenticationPreemptive ( boolean authenticationPreemptive)
+specifier|default
+name|HttpEndpointBuilder
+name|authenticationPreemptive
+parameter_list|(
+name|boolean
+name|authenticationPreemptive
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"authenticationPreemptive"
+argument_list|,
+name|authenticationPreemptive
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If this option is true, camel-http sends preemptive basic          * authentication to the server.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: security          */
+DECL|method|authenticationPreemptive ( String authenticationPreemptive)
+specifier|default
+name|HttpEndpointBuilder
+name|authenticationPreemptive
+parameter_list|(
+name|String
+name|authenticationPreemptive
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"authenticationPreemptive"
+argument_list|,
+name|authenticationPreemptive
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Authentication host to use with NTML.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|authHost (String authHost)
+specifier|default
+name|HttpEndpointBuilder
+name|authHost
+parameter_list|(
+name|String
+name|authHost
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"authHost"
+argument_list|,
+name|authHost
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Authentication methods allowed to use as a comma separated list of          * values Basic, Digest or NTLM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|authMethod (String authMethod)
+specifier|default
+name|HttpEndpointBuilder
+name|authMethod
+parameter_list|(
+name|String
+name|authMethod
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"authMethod"
+argument_list|,
+name|authMethod
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Which authentication method to prioritize to use, either as Basic,          * Digest or NTLM.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|authMethodPriority (String authMethodPriority)
+specifier|default
+name|HttpEndpointBuilder
+name|authMethodPriority
+parameter_list|(
+name|String
+name|authMethodPriority
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"authMethodPriority"
+argument_list|,
+name|authMethodPriority
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Authentication password.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|authPassword (String authPassword)
+specifier|default
+name|HttpEndpointBuilder
+name|authPassword
+parameter_list|(
+name|String
+name|authPassword
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"authPassword"
+argument_list|,
+name|authPassword
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Authentication username.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: security          */
+DECL|method|authUsername (String authUsername)
+specifier|default
+name|HttpEndpointBuilder
+name|authUsername
+parameter_list|(
+name|String
+name|authUsername
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"authUsername"
+argument_list|,
+name|authUsername
 argument_list|)
 expr_stmt|;
 return|return
@@ -444,6 +1221,195 @@ argument_list|(
 literal|"httpBinding"
 argument_list|,
 name|httpBinding
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure a cookie handler to maintain a HTTP session.          *           * The option is a:          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          *           * Group: producer (advanced)          */
+DECL|method|cookieHandler (Object cookieHandler)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|cookieHandler
+parameter_list|(
+name|Object
+name|cookieHandler
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"cookieHandler"
+argument_list|,
+name|cookieHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure a cookie handler to maintain a HTTP session.          *           * The option will be converted to a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          *           * Group: producer (advanced)          */
+DECL|method|cookieHandler (String cookieHandler)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|cookieHandler
+parameter_list|(
+name|String
+name|cookieHandler
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"cookieHandler"
+argument_list|,
+name|cookieHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a custom CookieStore. By default the BasicCookieStore is used          * which is an in-memory only cookie store. Notice if          * bridgeEndpoint=true then the cookie store is forced to be a noop          * cookie store as cookie shouldn't be stored as we are just bridging          * (eg acting as a proxy). If a cookieHandler is set then the cookie          * store is also forced to be a noop cookie store as cookie handling is          * then performed by the cookieHandler.          *           * The option is a:<code>org.apache.http.client.CookieStore</code>          * type.          *           * Group: producer (advanced)          */
+DECL|method|cookieStore (Object cookieStore)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|cookieStore
+parameter_list|(
+name|Object
+name|cookieStore
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"cookieStore"
+argument_list|,
+name|cookieStore
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a custom CookieStore. By default the BasicCookieStore is used          * which is an in-memory only cookie store. Notice if          * bridgeEndpoint=true then the cookie store is forced to be a noop          * cookie store as cookie shouldn't be stored as we are just bridging          * (eg acting as a proxy). If a cookieHandler is set then the cookie          * store is also forced to be a noop cookie store as cookie handling is          * then performed by the cookieHandler.          *           * The option will be converted to a          *<code>org.apache.http.client.CookieStore</code> type.          *           * Group: producer (advanced)          */
+DECL|method|cookieStore (String cookieStore)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|cookieStore
+parameter_list|(
+name|String
+name|cookieStore
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"cookieStore"
+argument_list|,
+name|cookieStore
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the HTTP DELETE should include the message body or not. By          * default HTTP DELETE do not include any HTTP body. However in some          * rare cases users may need to be able to include the message body.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|deleteWithBody ( boolean deleteWithBody)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|deleteWithBody
+parameter_list|(
+name|boolean
+name|deleteWithBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"deleteWithBody"
+argument_list|,
+name|deleteWithBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the HTTP DELETE should include the message body or not. By          * default HTTP DELETE do not include any HTTP body. However in some          * rare cases users may need to be able to include the message body.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|deleteWithBody (String deleteWithBody)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|deleteWithBody
+parameter_list|(
+name|String
+name|deleteWithBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"deleteWithBody"
+argument_list|,
+name|deleteWithBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the HTTP GET should include the message body or not. By          * default HTTP GET do not include any HTTP body. However in some rare          * cases users may need to be able to include the message body.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|getWithBody (boolean getWithBody)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|getWithBody
+parameter_list|(
+name|boolean
+name|getWithBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"getWithBody"
+argument_list|,
+name|getWithBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the HTTP GET should include the message body or not. By          * default HTTP GET do not include any HTTP body. However in some rare          * cases users may need to be able to include the message body.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer (advanced)          */
+DECL|method|getWithBody (String getWithBody)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|getWithBody
+parameter_list|(
+name|String
+name|getWithBody
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"getWithBody"
+argument_list|,
+name|getWithBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The status codes which are considered a success response. The values          * are inclusive. Multiple ranges can be defined, separated by comma,          * e.g. 200-204,209,301-304. Each range must be a single number or          * from-to with the dash included.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer (advanced)          */
+DECL|method|okStatusCodeRange ( String okStatusCodeRange)
+specifier|default
+name|AdvancedHttpEndpointBuilder
+name|okStatusCodeRange
+parameter_list|(
+name|String
+name|okStatusCodeRange
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"okStatusCodeRange"
+argument_list|,
+name|okStatusCodeRange
 argument_list|)
 expr_stmt|;
 return|return

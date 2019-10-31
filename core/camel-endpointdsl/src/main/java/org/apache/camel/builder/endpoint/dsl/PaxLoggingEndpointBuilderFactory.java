@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|EndpointConsumerBuilder
@@ -71,6 +83,20 @@ operator|.
 name|endpoint
 operator|.
 name|AbstractEndpointBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ExceptionHandler
 import|;
 end_import
 
@@ -110,6 +136,48 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option is a:<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|bridgeErrorHandler ( boolean bridgeErrorHandler)
+specifier|default
+name|PaxLoggingEndpointBuilder
+name|bridgeErrorHandler
+parameter_list|(
+name|boolean
+name|bridgeErrorHandler
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bridgeErrorHandler"
+argument_list|,
+name|bridgeErrorHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Allows for bridging the consumer to the Camel routing Error Handler,          * which mean any exceptions occurred while the consumer is trying to          * pickup incoming messages, or the likes, will now be processed as a          * message and handled by the routing Error Handler. By default the          * consumer will use the org.apache.camel.spi.ExceptionHandler to deal          * with exceptions, that will be logged at WARN or ERROR level and          * ignored.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: consumer          */
+DECL|method|bridgeErrorHandler ( String bridgeErrorHandler)
+specifier|default
+name|PaxLoggingEndpointBuilder
+name|bridgeErrorHandler
+parameter_list|(
+name|String
+name|bridgeErrorHandler
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"bridgeErrorHandler"
+argument_list|,
+name|bridgeErrorHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 comment|/**      * Advanced builder for endpoint for the OSGi PAX Logging component.      */
 DECL|interface|AdvancedPaxLoggingEndpointBuilder
@@ -129,6 +197,90 @@ return|return
 operator|(
 name|PaxLoggingEndpointBuilder
 operator|)
+name|this
+return|;
+block|}
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option is a:<code>org.apache.camel.spi.ExceptionHandler</code>          * type.          *           * Group: consumer (advanced)          */
+DECL|method|exceptionHandler ( ExceptionHandler exceptionHandler)
+specifier|default
+name|AdvancedPaxLoggingEndpointBuilder
+name|exceptionHandler
+parameter_list|(
+name|ExceptionHandler
+name|exceptionHandler
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"exceptionHandler"
+argument_list|,
+name|exceptionHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To let the consumer use a custom ExceptionHandler. Notice if the          * option bridgeErrorHandler is enabled then this option is not in use.          * By default the consumer will deal with exceptions, that will be          * logged at WARN or ERROR level and ignored.          *           * The option will be converted to a          *<code>org.apache.camel.spi.ExceptionHandler</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|exceptionHandler ( String exceptionHandler)
+specifier|default
+name|AdvancedPaxLoggingEndpointBuilder
+name|exceptionHandler
+parameter_list|(
+name|String
+name|exceptionHandler
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"exceptionHandler"
+argument_list|,
+name|exceptionHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option is a:<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|exchangePattern ( ExchangePattern exchangePattern)
+specifier|default
+name|AdvancedPaxLoggingEndpointBuilder
+name|exchangePattern
+parameter_list|(
+name|ExchangePattern
+name|exchangePattern
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"exchangePattern"
+argument_list|,
+name|exchangePattern
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Sets the exchange pattern when the consumer creates an exchange.          *           * The option will be converted to a          *<code>org.apache.camel.ExchangePattern</code> type.          *           * Group: consumer (advanced)          */
+DECL|method|exchangePattern ( String exchangePattern)
+specifier|default
+name|AdvancedPaxLoggingEndpointBuilder
+name|exchangePattern
+parameter_list|(
+name|String
+name|exchangePattern
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"exchangePattern"
+argument_list|,
+name|exchangePattern
+argument_list|)
+expr_stmt|;
+return|return
 name|this
 return|;
 block|}

@@ -218,6 +218,90 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Define if the Connection Close header has to be added to HTTP          * Request. This parameter is false by default.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|connectionClose (boolean connectionClose)
+specifier|default
+name|AhcEndpointBuilder
+name|connectionClose
+parameter_list|(
+name|boolean
+name|connectionClose
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectionClose"
+argument_list|,
+name|connectionClose
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Define if the Connection Close header has to be added to HTTP          * Request. This parameter is false by default.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|connectionClose (String connectionClose)
+specifier|default
+name|AhcEndpointBuilder
+name|connectionClose
+parameter_list|(
+name|String
+name|connectionClose
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"connectionClose"
+argument_list|,
+name|connectionClose
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure a cookie handler to maintain a HTTP session.          *           * The option is a:          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          *           * Group: producer          */
+DECL|method|cookieHandler (Object cookieHandler)
+specifier|default
+name|AhcEndpointBuilder
+name|cookieHandler
+parameter_list|(
+name|Object
+name|cookieHandler
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"cookieHandler"
+argument_list|,
+name|cookieHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Configure a cookie handler to maintain a HTTP session.          *           * The option will be converted to a          *<code>org.apache.camel.http.common.cookie.CookieHandler</code> type.          *           * Group: producer          */
+DECL|method|cookieHandler (String cookieHandler)
+specifier|default
+name|AhcEndpointBuilder
+name|cookieHandler
+parameter_list|(
+name|String
+name|cookieHandler
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"cookieHandler"
+argument_list|,
+name|cookieHandler
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * To use a custom HeaderFilterStrategy to filter header to and from          * Camel message.          *           * The option is a:          *<code>org.apache.camel.spi.HeaderFilterStrategy</code> type.          *           * Group: producer          */
 DECL|method|headerFilterStrategy ( HeaderFilterStrategy headerFilterStrategy)
 specifier|default
@@ -254,6 +338,48 @@ argument_list|(
 literal|"headerFilterStrategy"
 argument_list|,
 name|headerFilterStrategy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (boolean lazyStartProducer)
+specifier|default
+name|AhcEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether the producer should be started lazy (on the first message).          * By starting lazy you can use this to allow CamelContext and routes to          * startup in situations where a producer may otherwise fail during          * starting and cause the route to fail being started. By deferring this          * startup to be lazy then the startup failure can be handled during          * routing messages via Camel's routing error handlers. Beware that when          * the first message is processed then creating and starting the          * producer may take a little time and prolong the total processing time          * of the processing.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|lazyStartProducer (String lazyStartProducer)
+specifier|default
+name|AhcEndpointBuilder
+name|lazyStartProducer
+parameter_list|(
+name|String
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"lazyStartProducer"
+argument_list|,
+name|lazyStartProducer
 argument_list|)
 expr_stmt|;
 return|return
