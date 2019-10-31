@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The jetty component provides HTTP-based endpoints for consuming and producing  * HTTP requests.  */
+comment|/**  * To use Jetty as a HTTP server as consumer for Camel routes.  */
 end_comment
 
 begin_class
