@@ -928,6 +928,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|indexRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only Map, String, byte[], XContentBuilder or IndexRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setBody
@@ -970,6 +985,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|updateRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only Map, String, byte[], XContentBuilder or UpdateRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setBody
@@ -1012,6 +1042,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|getRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only String or GetRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setBody
@@ -1051,6 +1096,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|bulkRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only List, Collection or BulkRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setBody
@@ -1093,6 +1153,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|bulkRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only List, Collection or BulkRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setBody
@@ -1135,6 +1210,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|deleteRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only String or DeleteRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setBody
@@ -1177,6 +1267,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|deleteIndexRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only String or DeleteIndexRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setBody
@@ -1346,6 +1451,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|searchRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only Map, String or SearchRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 comment|// is it a scroll request ?
 name|boolean
 name|useScroll
@@ -1461,6 +1581,21 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|searchRequest
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong body type. Only MultiSearchRequest is allowed as a type"
+argument_list|)
+throw|;
+block|}
 name|message
 operator|.
 name|setBody

@@ -884,6 +884,13 @@ operator|)
 name|document
 return|;
 block|}
+if|if
+condition|(
+name|document
+operator|instanceof
+name|String
+condition|)
+block|{
 return|return
 operator|new
 name|GetRequest
@@ -912,6 +919,10 @@ name|String
 operator|)
 name|document
 argument_list|)
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 annotation|@
@@ -983,16 +994,9 @@ name|document
 argument_list|)
 return|;
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Wrong body type. Only DeleteRequest or String is allowed as a type"
-argument_list|)
-throw|;
-block|}
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Converter
@@ -1057,16 +1061,9 @@ name|index
 argument_list|)
 return|;
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Wrong body type. Only DeleteIndexRequest or String is allowed as a type"
-argument_list|)
-throw|;
-block|}
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Converter
@@ -1439,16 +1436,9 @@ return|return
 name|request
 return|;
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Wrong body type. Only BulkRequest or List is allowed as a type"
-argument_list|)
-throw|;
-block|}
+return|return
+literal|null
+return|;
 block|}
 end_function
 
