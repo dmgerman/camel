@@ -124,8 +124,8 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-comment|/**      * Creates the HttpMethod to use to call the remote server, often either its GET or POST.      *      * @param exchange the exchange      * @return the created method      * @throws URISyntaxException      */
-DECL|method|createMethod (Exchange exchange, HttpEndpoint endpoint, boolean hasPayload)
+comment|/**      * Creates the HttpMethod to use to call the remote server, often either its GET or POST      */
+DECL|method|createMethod (Exchange exchange, HttpEndpoint endpoint)
 specifier|public
 specifier|static
 name|HttpMethods
@@ -136,9 +136,6 @@ name|exchange
 parameter_list|,
 name|HttpEndpoint
 name|endpoint
-parameter_list|,
-name|boolean
-name|hasPayload
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -359,7 +356,15 @@ block|{
 comment|// fallback to POST if we have payload, otherwise GET
 name|answer
 operator|=
-name|hasPayload
+name|exchange
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|!=
+literal|null
 condition|?
 name|HttpMethods
 operator|.

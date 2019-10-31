@@ -812,9 +812,27 @@ literal|"producer"
 argument_list|,
 name|description
 operator|=
+literal|"Whether the HTTP GET should include the message body or not."
+operator|+
+literal|" By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body."
+argument_list|)
+DECL|field|getWithBody
+specifier|private
+name|boolean
+name|getWithBody
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
 literal|"Whether the HTTP DELETE should include the message body or not."
 operator|+
-literal|" By default HTTP DELETE do not include any HTTP message. However in some rare cases users may need to be able to include the message body."
+literal|" By default HTTP DELETE do not include any HTTP body. However in some rare cases users may need to be able to include the message body."
 argument_list|)
 DECL|field|deleteWithBody
 specifier|private
@@ -1641,7 +1659,7 @@ return|return
 name|deleteWithBody
 return|;
 block|}
-comment|/**      * Whether the HTTP DELETE should include the message body or not.      *<p/>      * By default HTTP DELETE do not include any HTTP message. However in some rare cases users may need to be able to include the      * message body.      */
+comment|/**      * Whether the HTTP DELETE should include the message body or not.      *<p/>      * By default HTTP DELETE do not include any HTTP body. However in some rare cases users may need to be able to include the      * message body.      */
 DECL|method|setDeleteWithBody (boolean deleteWithBody)
 specifier|public
 name|void
@@ -1656,6 +1674,33 @@ operator|.
 name|deleteWithBody
 operator|=
 name|deleteWithBody
+expr_stmt|;
+block|}
+DECL|method|isGetWithBody ()
+specifier|public
+name|boolean
+name|isGetWithBody
+parameter_list|()
+block|{
+return|return
+name|getWithBody
+return|;
+block|}
+comment|/**      * Whether the HTTP GET should include the message body or not.      *<p/>      * By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the      * message body.      */
+DECL|method|setGetWithBody (boolean getWithBody)
+specifier|public
+name|void
+name|setGetWithBody
+parameter_list|(
+name|boolean
+name|getWithBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|getWithBody
+operator|=
+name|getWithBody
 expr_stmt|;
 block|}
 DECL|method|getCookieStore ()
