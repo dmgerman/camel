@@ -71,6 +71,11 @@ specifier|private
 name|boolean
 name|autowireComponentPropertiesDeep
 decl_stmt|;
+DECL|field|autowireNonNullOnlyComponentProperties
+specifier|private
+name|boolean
+name|autowireNonNullOnlyComponentProperties
+decl_stmt|;
 DECL|field|autowireComponentPropertiesAllowPrivateSetter
 specifier|private
 name|boolean
@@ -306,6 +311,33 @@ operator|.
 name|autowireComponentPropertiesDeep
 operator|=
 name|autowireComponentPropertiesDeep
+expr_stmt|;
+block|}
+DECL|method|isAutowireNonNullOnlyComponentProperties ()
+specifier|public
+name|boolean
+name|isAutowireNonNullOnlyComponentProperties
+parameter_list|()
+block|{
+return|return
+name|autowireNonNullOnlyComponentProperties
+return|;
+block|}
+comment|/**      * Whether to only autowire if the property has no default value or has not been configured explicit.      *<p/>      * This option is default disabled.      */
+DECL|method|setAutowireNonNullOnlyComponentProperties (boolean autowireNonNullOnlyComponentProperties)
+specifier|public
+name|void
+name|setAutowireNonNullOnlyComponentProperties
+parameter_list|(
+name|boolean
+name|autowireNonNullOnlyComponentProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autowireNonNullOnlyComponentProperties
+operator|=
+name|autowireNonNullOnlyComponentProperties
 expr_stmt|;
 block|}
 DECL|method|isAutowireComponentPropertiesAllowPrivateSetter ()

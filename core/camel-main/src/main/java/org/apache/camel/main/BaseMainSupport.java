@@ -2760,6 +2760,11 @@ name|camelContext
 argument_list|,
 name|mainConfigurationProperties
 operator|.
+name|isAutowireNonNullOnlyComponentProperties
+argument_list|()
+argument_list|,
+name|mainConfigurationProperties
+operator|.
 name|isAutowireComponentPropertiesDeep
 argument_list|()
 argument_list|)
@@ -5797,13 +5802,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|autowireConfigurationFromRegistry (CamelContext camelContext, boolean deepNesting)
+DECL|method|autowireConfigurationFromRegistry (CamelContext camelContext, boolean bindNullOnly, boolean deepNesting)
 specifier|protected
 name|void
 name|autowireConfigurationFromRegistry
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|boolean
+name|bindNullOnly
 parameter_list|,
 name|boolean
 name|deepNesting
@@ -5840,7 +5848,7 @@ name|camelContext
 argument_list|,
 name|component
 argument_list|,
-literal|false
+name|bindNullOnly
 argument_list|,
 name|deepNesting
 argument_list|,
