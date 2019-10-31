@@ -587,6 +587,7 @@ name|void
 name|clearCachedSchema
 parameter_list|()
 block|{
+comment|// will cause to reload the schema
 name|schemaReader
 operator|.
 name|setSchema
@@ -594,7 +595,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// will cause to reload the schema
 block|}
 annotation|@
 name|Override
