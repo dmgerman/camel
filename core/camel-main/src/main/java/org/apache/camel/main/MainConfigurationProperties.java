@@ -570,6 +570,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to only autowire if the property has no default value or has not been configured explicit.      *<p/>      * This option is default disabled.      */
+DECL|method|withAutowireComponentPropertiesNonNullOnly (boolean autowireComponentPropertiesNonNullOnly)
+specifier|public
+name|MainConfigurationProperties
+name|withAutowireComponentPropertiesNonNullOnly
+parameter_list|(
+name|boolean
+name|autowireComponentPropertiesNonNullOnly
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autowireComponentPropertiesNonNullOnly
+operator|=
+name|autowireComponentPropertiesNonNullOnly
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Whether autowiring components (with deep nesting by attempting to walk as deep down the object graph by creating new empty objects on the way if needed)      * with properties that are of same type, which has been added to the Camel registry, as a singleton instance.      * This is used for convention over configuration to inject DataSource, AmazonLogin instances to the components.      *<p/>      * This option is default enabled.      */
 DECL|method|withAutowireComponentPropertiesAllowPrivateSetter (boolean autowireComponentPropertiesAllowPrivateSetter)
 specifier|public
