@@ -261,10 +261,10 @@ name|context
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testIsMtomEnabled_EnabledThroughBeanSetter ()
+DECL|method|testIsMtomEnabledEnabledThroughBeanSetter ()
 specifier|public
 name|void
-name|testIsMtomEnabled_EnabledThroughBeanSetter
+name|testIsMtomEnabledEnabledThroughBeanSetter
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -316,10 +316,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testIsMtomEnabled_EnabledThroughBeanProperties ()
+DECL|method|testIsMtomEnabledEnabledThroughBeanProperties ()
 specifier|public
 name|void
-name|testIsMtomEnabled_EnabledThroughBeanProperties
+name|testIsMtomEnabledEnabledThroughBeanProperties
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -371,10 +371,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testIsMtomEnabled_EnabledThroughURIProperties ()
+DECL|method|testIsMtomEnabledEnabledThroughURIProperties ()
 specifier|public
 name|void
-name|testIsMtomEnabled_EnabledThroughURIProperties
+name|testIsMtomEnabledEnabledThroughURIProperties
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -426,10 +426,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testIsMtomEnabled_EnabledThroughQueryParameters ()
+DECL|method|testIsMtomEnabledEnabledThroughQueryParameters ()
 specifier|public
 name|void
-name|testIsMtomEnabled_EnabledThroughQueryParameters
+name|testIsMtomEnabledEnabledThroughQueryParameters
 parameter_list|()
 throws|throws
 name|InterruptedException
