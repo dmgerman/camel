@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Embedded single file store document DB with indexing and fulltext search capability.  */
+comment|/**  * Used for integrating Camel with Nitrite databases.  */
 end_comment
 
 begin_class
