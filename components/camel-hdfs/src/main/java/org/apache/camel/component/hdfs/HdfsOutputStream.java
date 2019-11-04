@@ -74,7 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
+name|Exchange
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -514,7 +514,7 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-DECL|method|append (Object key, Object value, TypeConverter typeConverter)
+DECL|method|append (Object key, Object value, Exchange exchange)
 specifier|public
 name|void
 name|append
@@ -525,8 +525,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|,
-name|TypeConverter
-name|typeConverter
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 try|try
@@ -551,7 +551,7 @@ name|key
 argument_list|,
 name|value
 argument_list|,
-name|typeConverter
+name|exchange
 argument_list|)
 decl_stmt|;
 name|numOfWrittenBytes

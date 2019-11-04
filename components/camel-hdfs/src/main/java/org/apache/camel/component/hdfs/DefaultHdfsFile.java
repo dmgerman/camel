@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -96,7 +106,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|Exchange
 import|;
 end_import
 
@@ -259,8 +269,26 @@ DECL|class|DefaultHdfsFile
 specifier|abstract
 class|class
 name|DefaultHdfsFile
+parameter_list|<
+name|T
+extends|extends
+name|Closeable
+parameter_list|,
+name|U
+extends|extends
+name|Closeable
+parameter_list|>
 implements|implements
 name|HdfsFile
+argument_list|<
+name|T
+argument_list|,
+name|U
+argument_list|,
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 block|{
 DECL|method|copyBytes (InputStream in, OutputStream out, int buffSize, boolean close)
 specifier|protected
@@ -401,7 +429,7 @@ return|return
 name|numBytes
 return|;
 block|}
-DECL|method|getWritable (Object obj, TypeConverter typeConverter, Holder<Integer> size)
+DECL|method|getWritable (Object obj, Exchange exchange, Holder<Integer> size)
 specifier|protected
 specifier|final
 name|Writable
@@ -410,8 +438,8 @@ parameter_list|(
 name|Object
 name|obj
 parameter_list|,
-name|TypeConverter
-name|typeConverter
+name|Exchange
+name|exchange
 parameter_list|,
 name|Holder
 argument_list|<
@@ -474,7 +502,13 @@ name|create
 argument_list|(
 name|obj
 argument_list|,
-name|typeConverter
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
 argument_list|,
 name|size
 argument_list|)

@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|Exchange
 import|;
 end_import
 
@@ -131,7 +131,7 @@ name|hdfsInfoFactory
 argument_list|)
 return|;
 block|}
-DECL|method|append (HdfsOutputStream hdfsOutputStream, Object key, Object value, TypeConverter typeConverter)
+DECL|method|append (HdfsOutputStream hdfsOutputStream, Object key, Object value, Exchange exchange)
 specifier|public
 name|long
 name|append
@@ -145,8 +145,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|,
-name|TypeConverter
-name|typeConverter
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 return|return
@@ -162,7 +162,7 @@ name|key
 argument_list|,
 name|value
 argument_list|,
-name|typeConverter
+name|exchange
 argument_list|)
 return|;
 block|}

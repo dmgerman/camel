@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|Exchange
 import|;
 end_import
 
@@ -44,9 +44,22 @@ begin_interface
 DECL|interface|HdfsFile
 interface|interface
 name|HdfsFile
+parameter_list|<
+name|T
+extends|extends
+name|Closeable
+parameter_list|,
+name|U
+extends|extends
+name|Closeable
+parameter_list|,
+name|K
+parameter_list|,
+name|V
+parameter_list|>
 block|{
 DECL|method|createOutputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
-name|Closeable
+name|T
 name|createOutputStream
 parameter_list|(
 name|String
@@ -56,25 +69,25 @@ name|HdfsInfoFactory
 name|hdfsInfoFactory
 parameter_list|)
 function_decl|;
-DECL|method|append (HdfsOutputStream hdfsOutputStream, Object key, Object value, TypeConverter typeConverter)
+DECL|method|append (HdfsOutputStream hdfsOutputStream, K key, V value, Exchange exchange)
 name|long
 name|append
 parameter_list|(
 name|HdfsOutputStream
 name|hdfsOutputStream
 parameter_list|,
-name|Object
+name|K
 name|key
 parameter_list|,
-name|Object
+name|V
 name|value
 parameter_list|,
-name|TypeConverter
-name|typeConverter
+name|Exchange
+name|exchange
 parameter_list|)
 function_decl|;
 DECL|method|createInputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
-name|Closeable
+name|U
 name|createInputStream
 parameter_list|(
 name|String
@@ -84,7 +97,7 @@ name|HdfsInfoFactory
 name|hdfsInfoFactory
 parameter_list|)
 function_decl|;
-DECL|method|next (HdfsInputStream hdfsInputStream, Holder<Object> key, Holder<Object> value)
+DECL|method|next (HdfsInputStream hdfsInputStream, Holder<K> key, Holder<V> value)
 name|long
 name|next
 parameter_list|(
@@ -93,13 +106,13 @@ name|hdfsInputStream
 parameter_list|,
 name|Holder
 argument_list|<
-name|Object
+name|K
 argument_list|>
 name|key
 parameter_list|,
 name|Holder
 argument_list|<
-name|Object
+name|V
 argument_list|>
 name|value
 parameter_list|)

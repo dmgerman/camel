@@ -58,6 +58,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|hadoop
 operator|.
 name|fs
@@ -129,6 +141,11 @@ specifier|private
 name|HdfsFileType
 name|fileType
 decl_stmt|;
+DECL|field|info
+specifier|private
+name|HdfsInfo
+name|info
+decl_stmt|;
 DECL|field|actualPath
 specifier|private
 name|String
@@ -183,17 +200,17 @@ argument_list|(
 literal|0L
 argument_list|)
 decl_stmt|;
-DECL|field|config
+DECL|field|streamDownload
 specifier|private
-name|HdfsConfiguration
-name|config
+name|boolean
+name|streamDownload
 decl_stmt|;
 DECL|method|HdfsInputStream ()
 specifier|protected
 name|HdfsInputStream
 parameter_list|()
 block|{     }
-comment|/**      *      * @param hdfsPath      * @param hdfsInfoFactory      * @return      * @throws IOException      */
+comment|/**      *      * @param hdfsPath      * @param hdfsInfoFactory      * @return      */
 DECL|method|createInputStream (String hdfsPath, HdfsInfoFactory hdfsInfoFactory)
 specifier|public
 specifier|static
@@ -276,11 +293,21 @@ operator|.
 name|getChunkSize
 argument_list|()
 expr_stmt|;
+name|iStream
+operator|.
+name|streamDownload
+operator|=
+name|endpointConfig
+operator|.
+name|isStreamDownload
+argument_list|()
+expr_stmt|;
 try|try
 block|{
-name|HdfsInfo
+name|iStream
+operator|.
 name|info
-init|=
+operator|=
 name|hdfsInfoFactory
 operator|.
 name|newHdfsInfo
@@ -289,9 +316,11 @@ name|iStream
 operator|.
 name|actualPath
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
+name|iStream
+operator|.
 name|info
 operator|.
 name|getFileSystem
@@ -340,12 +369,6 @@ name|opened
 operator|=
 literal|true
 expr_stmt|;
-name|iStream
-operator|.
-name|config
-operator|=
-name|endpointConfig
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -372,7 +395,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|RuntimeCamelException
 argument_list|(
 name|e
 argument_list|)
@@ -405,25 +428,6 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|HdfsInfoFactory
-name|hdfsInfoFactory
-init|=
-operator|new
-name|HdfsInfoFactory
-argument_list|(
-name|config
-argument_list|)
-decl_stmt|;
-name|HdfsInfo
-name|info
-init|=
-name|hdfsInfoFactory
-operator|.
-name|newHdfsInfo
-argument_list|(
-name|actualPath
-argument_list|)
-decl_stmt|;
 name|info
 operator|.
 name|getFileSystem
@@ -605,6 +609,16 @@ parameter_list|()
 block|{
 return|return
 name|opened
+return|;
+block|}
+DECL|method|isStreamDownload ()
+specifier|public
+name|boolean
+name|isStreamDownload
+parameter_list|()
+block|{
+return|return
+name|streamDownload
 return|;
 block|}
 block|}
