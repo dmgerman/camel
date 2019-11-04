@@ -1443,6 +1443,7 @@ name|getCharset
 argument_list|()
 decl_stmt|;
 comment|// we can optimize and use file based if no charset must be used, and the input body is a file
+comment|// however optimization cannot be applied when content should be appended to target file
 name|File
 name|source
 init|=
@@ -1458,9 +1459,18 @@ condition|(
 name|charset
 operator|==
 literal|null
+operator|&&
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|!=
+name|GenericFileExist
+operator|.
+name|Append
 condition|)
 block|{
-comment|// if no charset, then we can try using file directly (optimized)
+comment|// if no charset and not in appending mode, then we can try using file directly (optimized)
 name|Object
 name|body
 init|=
