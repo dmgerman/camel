@@ -421,6 +421,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|'.'
+argument_list|,
+literal|'_'
 argument_list|)
 return|;
 block|}

@@ -1208,20 +1208,20 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not to drop the logical replication slot when the          * connector finishes orderlyBy default the replication is kept so that          * on restart progress can resume from the last recorded location.          *           * The option is a:<code>boolean</code> type.          *           * Group: postgres          */
-DECL|method|slotDrop_on_stop ( boolean slotDrop_on_stop)
+DECL|method|slotDropOnStop ( boolean slotDropOnStop)
 specifier|default
 name|DebeziumPostgresEndpointBuilder
-name|slotDrop_on_stop
+name|slotDropOnStop
 parameter_list|(
 name|boolean
-name|slotDrop_on_stop
+name|slotDropOnStop
 parameter_list|)
 block|{
 name|doSetProperty
 argument_list|(
-literal|"slotDrop_on_stop"
+literal|"slotDropOnStop"
 argument_list|,
-name|slotDrop_on_stop
+name|slotDropOnStop
 argument_list|)
 expr_stmt|;
 return|return
@@ -1229,20 +1229,20 @@ name|this
 return|;
 block|}
 comment|/**          * Whether or not to drop the logical replication slot when the          * connector finishes orderlyBy default the replication is kept so that          * on restart progress can resume from the last recorded location.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: postgres          */
-DECL|method|slotDrop_on_stop ( String slotDrop_on_stop)
+DECL|method|slotDropOnStop ( String slotDropOnStop)
 specifier|default
 name|DebeziumPostgresEndpointBuilder
-name|slotDrop_on_stop
+name|slotDropOnStop
 parameter_list|(
 name|String
-name|slotDrop_on_stop
+name|slotDropOnStop
 parameter_list|)
 block|{
 name|doSetProperty
 argument_list|(
-literal|"slotDrop_on_stop"
+literal|"slotDropOnStop"
 argument_list|,
-name|slotDrop_on_stop
+name|slotDropOnStop
 argument_list|)
 expr_stmt|;
 return|return

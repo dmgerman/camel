@@ -265,6 +265,14 @@ name|topicSelectionStrategy
 init|=
 literal|"topic_per_table"
 decl_stmt|;
+comment|/**          * Whether or not to drop the logical replication slot when the          * connector finishes orderlyBy default the replication is kept so that          * on restart progress can resume from the last recorded location          */
+DECL|field|slotDropOnStop
+specifier|private
+name|Boolean
+name|slotDropOnStop
+init|=
+literal|false
+decl_stmt|;
 comment|/**          * Whether delete operations should be represented by a delete event and          * a subsquenttombstone event (true) or only by a delete event (false).          * Emitting the tombstone event (the default behavior) allows Kafka to          * completely delete all events pertaining to the given key once the          * source record got deleted.          */
 DECL|field|tombstonesOnDelete
 specifier|private
@@ -857,6 +865,32 @@ operator|.
 name|topicSelectionStrategy
 operator|=
 name|topicSelectionStrategy
+expr_stmt|;
+block|}
+DECL|method|getSlotDropOnStop ()
+specifier|public
+name|Boolean
+name|getSlotDropOnStop
+parameter_list|()
+block|{
+return|return
+name|slotDropOnStop
+return|;
+block|}
+DECL|method|setSlotDropOnStop (Boolean slotDropOnStop)
+specifier|public
+name|void
+name|setSlotDropOnStop
+parameter_list|(
+name|Boolean
+name|slotDropOnStop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|slotDropOnStop
+operator|=
+name|slotDropOnStop
 expr_stmt|;
 block|}
 DECL|method|getTombstonesOnDelete ()
