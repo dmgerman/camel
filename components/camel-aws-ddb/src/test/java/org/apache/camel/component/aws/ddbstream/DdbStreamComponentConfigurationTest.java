@@ -141,7 +141,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-ddb://myTable?accessKey=xxxxx&secretKey=yyyyy"
+literal|"aws-ddbstreams://myTable?accessKey=xxxxx&secretKey=yyyyy"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -227,7 +227,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-ddb://myTable"
+literal|"aws-ddbstreams://myTable"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -325,7 +325,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-ddb://myTable?accessKey=xxxxxx&secretKey=yyyyy&region=US_EAST_1"
+literal|"aws-ddbstreams://myTable?accessKey=xxxxxx&secretKey=yyyyy&region=US_EAST_1"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -436,7 +436,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-ddb://myTable?accessKey=xxxxxx&secretKey=yyyyy&region=US_EAST_1&proxyHost=localhost&proxyPort=9000&proxyProtocol=HTTP"
+literal|"aws-ddbstreams://myTable?accessKey=xxxxxx&secretKey=yyyyy&region=US_EAST_1&proxyHost=localhost&proxyPort=9000&proxyProtocol=HTTP"
 argument_list|)
 decl_stmt|;
 name|assertEquals
