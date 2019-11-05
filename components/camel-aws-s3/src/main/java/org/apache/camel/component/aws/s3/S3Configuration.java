@@ -327,6 +327,10 @@ DECL|field|proxyProtocol
 specifier|private
 name|Protocol
 name|proxyProtocol
+init|=
+name|Protocol
+operator|.
+name|HTTPS
 decl_stmt|;
 annotation|@
 name|UriParam
