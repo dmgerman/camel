@@ -367,7 +367,7 @@ specifier|private
 name|AmazonCloudWatch
 name|amazonCwClient
 decl_stmt|;
-comment|/**          * To define a proxy protocol when instantiating the SQS client          */
+comment|/**          * To define a proxy protocol when instantiating the CW client          */
 DECL|field|proxyProtocol
 specifier|private
 name|Protocol

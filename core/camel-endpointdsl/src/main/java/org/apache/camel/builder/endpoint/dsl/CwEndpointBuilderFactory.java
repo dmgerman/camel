@@ -288,7 +288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: producer          */
+comment|/**          * To define a proxy protocol when instantiating the CW client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: producer          */
 DECL|method|proxyProtocol (Protocol proxyProtocol)
 specifier|default
 name|CwEndpointBuilder
@@ -309,7 +309,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: producer          */
+comment|/**          * To define a proxy protocol when instantiating the CW client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: producer          */
 DECL|method|proxyProtocol (String proxyProtocol)
 specifier|default
 name|CwEndpointBuilder
