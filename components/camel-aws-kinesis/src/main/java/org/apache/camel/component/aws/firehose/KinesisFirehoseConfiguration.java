@@ -26,6 +26,16 @@ name|com
 operator|.
 name|amazonaws
 operator|.
+name|Protocol
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
 name|services
 operator|.
 name|kinesisfirehose
@@ -200,6 +210,30 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|enums
+operator|=
+literal|"HTTP,HTTPS"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"HTTPS"
+argument_list|,
+name|description
+operator|=
+literal|"To define a proxy protocol when instantiating the Kinesis Firehose client"
+argument_list|)
+DECL|field|proxyProtocol
+specifier|private
+name|Protocol
+name|proxyProtocol
+init|=
+name|Protocol
+operator|.
+name|HTTPS
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|description
 operator|=
 literal|"To define a proxy host when instantiating the DDBStreams client"
@@ -349,6 +383,32 @@ operator|.
 name|region
 operator|=
 name|region
+expr_stmt|;
+block|}
+DECL|method|getProxyProtocol ()
+specifier|public
+name|Protocol
+name|getProxyProtocol
+parameter_list|()
+block|{
+return|return
+name|proxyProtocol
+return|;
+block|}
+DECL|method|setProxyProtocol (Protocol proxyProtocol)
+specifier|public
+name|void
+name|setProxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyProtocol
+operator|=
+name|proxyProtocol
 expr_stmt|;
 block|}
 DECL|method|getProxyHost ()

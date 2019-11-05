@@ -38,6 +38,16 @@ name|com
 operator|.
 name|amazonaws
 operator|.
+name|Protocol
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
 name|services
 operator|.
 name|kinesis
@@ -403,6 +413,16 @@ specifier|private
 name|String
 name|region
 decl_stmt|;
+comment|/**          * To define a proxy protocol when instantiating the Kinesis client          */
+DECL|field|proxyProtocol
+specifier|private
+name|Protocol
+name|proxyProtocol
+init|=
+name|Protocol
+operator|.
+name|HTTPS
+decl_stmt|;
 comment|/**          * To define a proxy host when instantiating the DDBStreams client          */
 DECL|field|proxyHost
 specifier|private
@@ -673,6 +693,32 @@ operator|.
 name|region
 operator|=
 name|region
+expr_stmt|;
+block|}
+DECL|method|getProxyProtocol ()
+specifier|public
+name|Protocol
+name|getProxyProtocol
+parameter_list|()
+block|{
+return|return
+name|proxyProtocol
+return|;
+block|}
+DECL|method|setProxyProtocol (Protocol proxyProtocol)
+specifier|public
+name|void
+name|setProxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyProtocol
+operator|=
+name|proxyProtocol
 expr_stmt|;
 block|}
 DECL|method|getProxyHost ()

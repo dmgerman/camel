@@ -301,6 +301,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the Kinesis client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+DECL|method|proxyProtocol ( Protocol proxyProtocol)
+specifier|default
+name|KinesisEndpointConsumerBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the Kinesis client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+DECL|method|proxyProtocol ( String proxyProtocol)
+specifier|default
+name|KinesisEndpointConsumerBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which Kinesis client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1)You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
@@ -1547,6 +1589,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the Kinesis client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+DECL|method|proxyProtocol ( Protocol proxyProtocol)
+specifier|default
+name|KinesisEndpointProducerBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the Kinesis client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+DECL|method|proxyProtocol ( String proxyProtocol)
+specifier|default
+name|KinesisEndpointProducerBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which Kinesis client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1)You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
@@ -1887,6 +1971,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the Kinesis client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|KinesisEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the Kinesis client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|KinesisEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which Kinesis client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1)You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|region (String region)
 specifier|default
@@ -2059,6 +2185,17 @@ name|this
 return|;
 block|}
 block|}
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
+block|;     }
 comment|/**      * Proxy enum for      *<code>com.amazonaws.services.kinesis.model.ShardIteratorType</code> enum.      */
 DECL|enum|ShardIteratorType
 enum|enum

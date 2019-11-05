@@ -257,6 +257,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the Kinesis Firehose          * client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: producer          */
+DECL|method|proxyProtocol ( Protocol proxyProtocol)
+specifier|default
+name|KinesisFirehoseEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the Kinesis Firehose          * client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: producer          */
+DECL|method|proxyProtocol ( String proxyProtocol)
+specifier|default
+name|KinesisFirehoseEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which Kinesis client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1)You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
@@ -427,6 +469,17 @@ name|this
 return|;
 block|}
 block|}
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
+block|;     }
 comment|/**      * AWS Kinesis Firehose (camel-aws-kinesis)      * The aws-kinesis-firehose component is used for producing Amazon's Kinesis      * Firehose streams.      *       * Category: cloud,messaging      * Available as of version: 2.19      * Maven coordinates: org.apache.camel:camel-aws-kinesis      *       * Syntax:<code>aws-kinesis-firehose:streamName</code>      *       * Path parameter: streamName (required)      * Name of the stream      */
 DECL|method|awsKinesisFirehose (String path)
 specifier|default
