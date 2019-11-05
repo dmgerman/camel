@@ -1258,10 +1258,10 @@ name|sendServerVersion
 init|=
 literal|true
 decl_stmt|;
-DECL|field|_queuedThreadPool
+DECL|field|defaultThreadPool
 specifier|private
 name|QueuedThreadPool
-name|_queuedThreadPool
+name|defaultThreadPool
 decl_stmt|;
 DECL|method|JettyHttpComponent ()
 specifier|public
@@ -3308,14 +3308,14 @@ comment|//mbContainer.removeBean(connectorRef.connector);
 block|}
 if|if
 condition|(
-name|_queuedThreadPool
+name|defaultThreadPool
 operator|!=
 literal|null
 condition|)
 block|{
 try|try
 block|{
-name|_queuedThreadPool
+name|defaultThreadPool
 operator|.
 name|stop
 argument_list|()
@@ -3327,7 +3327,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|_queuedThreadPool
+name|defaultThreadPool
 operator|.
 name|destroy
 argument_list|()
@@ -3335,7 +3335,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|_queuedThreadPool
+name|defaultThreadPool
 operator|=
 literal|null
 expr_stmt|;
@@ -7098,11 +7098,10 @@ name|tp
 init|=
 name|threadPool
 decl_stmt|;
-name|QueuedThreadPool
-name|qtp
-init|=
+name|defaultThreadPool
+operator|=
 literal|null
-decl_stmt|;
+expr_stmt|;
 comment|// configure thread pool if min/max given
 if|if
 condition|(
@@ -7133,7 +7132,7 @@ name|this
 argument_list|)
 throw|;
 block|}
-name|qtp
+name|defaultThreadPool
 operator|=
 operator|new
 name|QueuedThreadPool
@@ -7146,7 +7145,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|qtp
+name|defaultThreadPool
 operator|.
 name|setMinThreads
 argument_list|(
@@ -7164,7 +7163,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|qtp
+name|defaultThreadPool
 operator|.
 name|setMaxThreads
 argument_list|(
@@ -7177,11 +7176,7 @@ expr_stmt|;
 block|}
 name|tp
 operator|=
-name|qtp
-expr_stmt|;
-name|_queuedThreadPool
-operator|=
-name|qtp
+name|defaultThreadPool
 expr_stmt|;
 block|}
 if|if
@@ -7293,13 +7288,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|qtp
+name|defaultThreadPool
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// let the thread names indicate they are from the server
-name|qtp
+name|defaultThreadPool
 operator|.
 name|setName
 argument_list|(
@@ -7317,7 +7312,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|qtp
+name|defaultThreadPool
 operator|.
 name|start
 argument_list|()
@@ -7335,7 +7330,7 @@ name|RuntimeCamelException
 argument_list|(
 literal|"Error starting JettyServer thread pool: "
 operator|+
-name|qtp
+name|defaultThreadPool
 argument_list|,
 name|e
 argument_list|)
