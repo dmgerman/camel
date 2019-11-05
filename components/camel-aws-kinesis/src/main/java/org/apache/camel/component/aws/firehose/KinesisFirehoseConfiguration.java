@@ -236,7 +236,7 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"To define a proxy host when instantiating the DDBStreams client"
+literal|"To define a proxy host when instantiating the Kinesis Firehose client"
 argument_list|)
 DECL|field|proxyHost
 specifier|private
@@ -248,7 +248,7 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"To define a proxy port when instantiating the DDBStreams client"
+literal|"To define a proxy port when instantiating the Kinesis Firehose client"
 argument_list|)
 DECL|field|proxyPort
 specifier|private

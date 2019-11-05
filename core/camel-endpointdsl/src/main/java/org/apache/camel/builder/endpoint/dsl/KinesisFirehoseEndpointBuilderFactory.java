@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy host when instantiating the DDBStreams client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
+comment|/**          * To define a proxy host when instantiating the Kinesis Firehose          * client.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|proxyHost (String proxyHost)
 specifier|default
 name|KinesisFirehoseEndpointBuilder
@@ -215,7 +215,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the DDBStreams client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
+comment|/**          * To define a proxy port when instantiating the Kinesis Firehose          * client.          *           * The option is a:<code>java.lang.Integer</code> type.          *           * Group: producer          */
 DECL|method|proxyPort (Integer proxyPort)
 specifier|default
 name|KinesisFirehoseEndpointBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy port when instantiating the DDBStreams client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
+comment|/**          * To define a proxy port when instantiating the Kinesis Firehose          * client.          *           * The option will be converted to a<code>java.lang.Integer</code>          * type.          *           * Group: producer          */
 DECL|method|proxyPort (String proxyPort)
 specifier|default
 name|KinesisFirehoseEndpointBuilder
