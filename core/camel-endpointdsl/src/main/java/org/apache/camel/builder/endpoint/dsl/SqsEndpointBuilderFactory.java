@@ -378,6 +378,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|SqsEndpointConsumerBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|SqsEndpointConsumerBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Specify the queue owner aws account id when you need to connect the          * queue with different account owner.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|queueOwnerAWSAccountId ( String queueOwnerAWSAccountId)
 specifier|default
@@ -2317,6 +2359,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|SqsEndpointProducerBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|SqsEndpointProducerBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Specify the queue owner aws account id when you need to connect the          * queue with different account owner.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|queueOwnerAWSAccountId ( String queueOwnerAWSAccountId)
 specifier|default
@@ -3203,6 +3287,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|SqsEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|SqsEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Specify the queue owner aws account id when you need to connect the          * queue with different account owner.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: common          */
 DECL|method|queueOwnerAWSAccountId ( String queueOwnerAWSAccountId)
 specifier|default
@@ -3690,6 +3816,17 @@ name|this
 return|;
 block|}
 block|}
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
+block|;     }
 comment|/**      * Proxy enum for      *<code>org.apache.camel.component.aws.sqs.SqsOperations</code> enum.      */
 DECL|enum|SqsOperations
 enum|enum
