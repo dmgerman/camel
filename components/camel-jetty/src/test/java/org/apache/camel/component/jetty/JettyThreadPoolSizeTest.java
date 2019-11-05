@@ -76,12 +76,12 @@ name|JettyThreadPoolSizeTest
 extends|extends
 name|BaseJettyTest
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
@@ -106,7 +106,7 @@ init|=
 name|countJettyThread
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -126,7 +126,7 @@ init|=
 name|countJettyThread
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
@@ -173,7 +173,7 @@ init|=
 name|countJettyThread
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|info
 argument_list|(
