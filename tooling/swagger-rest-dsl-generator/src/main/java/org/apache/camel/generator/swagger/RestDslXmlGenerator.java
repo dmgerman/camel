@@ -372,6 +372,15 @@ argument_list|)
 expr_stmt|;
 name|builderFactory
 operator|.
+name|setFeature
+argument_list|(
+literal|"http://apache.org/xml/features/disallow-doctype-decl"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|builderFactory
+operator|.
 name|setNamespaceAware
 argument_list|(
 literal|true

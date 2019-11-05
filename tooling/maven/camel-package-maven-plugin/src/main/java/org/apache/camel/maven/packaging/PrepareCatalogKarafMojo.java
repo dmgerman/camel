@@ -3991,6 +3991,15 @@ argument_list|()
 decl_stmt|;
 name|dbf
 operator|.
+name|setFeature
+argument_list|(
+literal|"http://apache.org/xml/features/disallow-doctype-decl"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|dbf
+operator|.
 name|setIgnoringComments
 argument_list|(
 literal|true
