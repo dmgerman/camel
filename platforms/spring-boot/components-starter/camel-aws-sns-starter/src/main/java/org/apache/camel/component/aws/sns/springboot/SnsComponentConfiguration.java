@@ -38,6 +38,16 @@ name|com
 operator|.
 name|amazonaws
 operator|.
+name|Protocol
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
 name|services
 operator|.
 name|sns
@@ -361,6 +371,16 @@ specifier|private
 name|String
 name|messageStructure
 decl_stmt|;
+comment|/**          * To define a proxy protocol when instantiating the SNS client          */
+DECL|field|proxyProtocol
+specifier|private
+name|Protocol
+name|proxyProtocol
+init|=
+name|Protocol
+operator|.
+name|HTTPS
+decl_stmt|;
 comment|/**          * To define a proxy host when instantiating the SNS client          */
 DECL|field|proxyHost
 specifier|private
@@ -627,6 +647,32 @@ operator|.
 name|messageStructure
 operator|=
 name|messageStructure
+expr_stmt|;
+block|}
+DECL|method|getProxyProtocol ()
+specifier|public
+name|Protocol
+name|getProxyProtocol
+parameter_list|()
+block|{
+return|return
+name|proxyProtocol
+return|;
+block|}
+DECL|method|setProxyProtocol (Protocol proxyProtocol)
+specifier|public
+name|void
+name|setProxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyProtocol
+operator|=
+name|proxyProtocol
 expr_stmt|;
 block|}
 DECL|method|getProxyHost ()

@@ -460,6 +460,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the SNS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: producer          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|SnsEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the SNS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: producer          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|SnsEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The queueUrl to subscribe to.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|queueUrl (String queueUrl)
 specifier|default
@@ -756,6 +798,17 @@ name|this
 return|;
 block|}
 block|}
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
+block|;     }
 comment|/**      * AWS Simple Notification System (camel-aws-sns)      * The aws-sns component is used for sending messages to an Amazon Simple      * Notification Topic.      *       * Category: cloud,mobile,messaging      * Available as of version: 2.8      * Maven coordinates: org.apache.camel:camel-aws-sns      *       * Syntax:<code>aws-sns:topicNameOrArn</code>      *       * Path parameter: topicNameOrArn (required)      * Topic name or ARN      */
 DECL|method|awsSns (String path)
 specifier|default

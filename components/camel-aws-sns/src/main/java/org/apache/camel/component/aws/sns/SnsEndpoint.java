@@ -1167,6 +1167,16 @@ argument_list|()
 expr_stmt|;
 name|clientConfiguration
 operator|.
+name|setProxyProtocol
+argument_list|(
+name|configuration
+operator|.
+name|getProxyProtocol
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|clientConfiguration
+operator|.
 name|setProxyHost
 argument_list|(
 name|configuration
