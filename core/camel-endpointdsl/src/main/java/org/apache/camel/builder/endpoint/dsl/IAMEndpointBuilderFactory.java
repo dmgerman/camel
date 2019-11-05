@@ -320,6 +320,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the IAM client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: producer          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|IAMEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the IAM client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: producer          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|IAMEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which IAM client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
@@ -512,6 +554,17 @@ name|addUserToGroup
 block|,
 DECL|enumConstant|removeUserFromGroup
 name|removeUserFromGroup
+block|;     }
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
 block|;     }
 comment|/**      * AWS IAM (camel-aws-iam)      * The aws-iam is used for managing Amazon IAM      *       * Category: cloud,management      * Available as of version: 2.23      * Maven coordinates: org.apache.camel:camel-aws-iam      *       * Syntax:<code>aws-iam:label</code>      *       * Path parameter: label (required)      * Logical name      */
 DECL|method|awsIam (String path)
