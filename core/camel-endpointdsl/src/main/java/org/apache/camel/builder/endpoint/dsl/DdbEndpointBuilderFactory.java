@@ -383,6 +383,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the DDB client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: producer          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|DdbEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the DDB client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: producer          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|DdbEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The provisioned throughput to reserve for reading resources from your          * table.          *           * The option is a:<code>java.lang.Long</code> type.          *           * Group: producer          */
 DECL|method|readCapacity (Long readCapacity)
 specifier|default
@@ -671,6 +713,17 @@ name|UpdateItem
 block|,
 DECL|enumConstant|UpdateTable
 name|UpdateTable
+block|;     }
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
 block|;     }
 comment|/**      * AWS DynamoDB (camel-aws-ddb)      * The aws-ddb component is used for storing and retrieving data from      * Amazon's DynamoDB service.      *       * Category: cloud,database,nosql      * Available as of version: 2.10      * Maven coordinates: org.apache.camel:camel-aws-ddb      *       * Syntax:<code>aws-ddb:tableName</code>      *       * Path parameter: tableName (required)      * The name of the table currently worked with.      */
 DECL|method|awsDdb (String path)

@@ -427,6 +427,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the DDBStreams client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: consumer          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|DdbStreamEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the DDBStreams client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: consumer          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|DdbStreamEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which DDBStreams client needs to work.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: consumer          */
 DECL|method|region (String region)
 specifier|default
@@ -1395,6 +1437,17 @@ name|AT_SEQUENCE_NUMBER
 block|,
 DECL|enumConstant|AFTER_SEQUENCE_NUMBER
 name|AFTER_SEQUENCE_NUMBER
+block|;     }
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
 block|;     }
 comment|/**      * AWS DynamoDB Streams (camel-aws-ddb)      * The aws-ddbstream component is used for working with Amazon DynamoDB      * Streams.      *       * Category: cloud,messaging,streams      * Available as of version: 2.17      * Maven coordinates: org.apache.camel:camel-aws-ddb      *       * Syntax:<code>aws-ddbstream:tableName</code>      *       * Path parameter: tableName (required)      * Name of the dynamodb table      */
 DECL|method|awsDdbstream (String path)
