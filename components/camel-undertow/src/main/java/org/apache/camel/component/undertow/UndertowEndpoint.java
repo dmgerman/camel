@@ -883,7 +883,11 @@ literal|"true"
 argument_list|,
 name|description
 operator|=
-literal|"If the option is true, UndertowProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service"
+literal|"If the option is true, UndertowProducer will set the Host header to the value contained in the current exchange Host header,"
+operator|+
+literal|" useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client,"
+operator|+
+literal|" this allows applications which use the Host header to generate accurate URL's for a proxied service."
 argument_list|)
 DECL|field|preserveHostHeader
 specifier|private
