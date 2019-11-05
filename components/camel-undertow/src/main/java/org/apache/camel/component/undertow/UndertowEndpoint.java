@@ -870,6 +870,28 @@ specifier|private
 name|String
 name|handlers
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"If the option is true, UndertowProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service"
+argument_list|)
+DECL|field|preserveHostHeader
+specifier|private
+name|boolean
+name|preserveHostHeader
+init|=
+literal|true
+decl_stmt|;
 DECL|method|UndertowEndpoint (String uri, UndertowComponent component)
 specifier|public
 name|UndertowEndpoint
@@ -1690,6 +1712,32 @@ name|fireWebSocketChannelEvents
 operator|=
 name|fireWebSocketChannelEvents
 expr_stmt|;
+block|}
+DECL|method|setPreserveHostHeader (boolean preserveHostHeader)
+specifier|public
+name|void
+name|setPreserveHostHeader
+parameter_list|(
+name|boolean
+name|preserveHostHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preserveHostHeader
+operator|=
+name|preserveHostHeader
+expr_stmt|;
+block|}
+DECL|method|isPreserveHostHeader ()
+specifier|public
+name|boolean
+name|isPreserveHostHeader
+parameter_list|()
+block|{
+return|return
+name|preserveHostHeader
+return|;
 block|}
 annotation|@
 name|Override
