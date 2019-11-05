@@ -320,6 +320,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the EC2 client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: producer          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|EC2EndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the EC2 client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: producer          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|EC2EndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which EC2 client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
@@ -506,6 +548,17 @@ name|createTags
 block|,
 DECL|enumConstant|deleteTags
 name|deleteTags
+block|;     }
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
 block|;     }
 comment|/**      * AWS EC2 (camel-aws-ec2)      * The aws-ec2 is used for managing Amazon EC2 instances.      *       * Category: cloud,management      * Available as of version: 2.16      * Maven coordinates: org.apache.camel:camel-aws-ec2      *       * Syntax:<code>aws-ec2:label</code>      *       * Path parameter: label (required)      * Logical name      */
 DECL|method|awsEc2 (String path)
