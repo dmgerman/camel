@@ -288,6 +288,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: producer          */
+DECL|method|proxyProtocol (Protocol proxyProtocol)
+specifier|default
+name|CwEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|Protocol
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: producer          */
+DECL|method|proxyProtocol (String proxyProtocol)
+specifier|default
+name|CwEndpointBuilder
+name|proxyProtocol
+parameter_list|(
+name|String
+name|proxyProtocol
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"proxyProtocol"
+argument_list|,
+name|proxyProtocol
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The region in which CW client needs to work. When using this          * parameter, the configuration will expect the capitalized name of the          * region (for example AP_EAST_1) You'll need to use the name          * Regions.EU_WEST_1.name().          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|region (String region)
 specifier|default
@@ -563,6 +605,17 @@ name|this
 return|;
 block|}
 block|}
+comment|/**      * Proxy enum for<code>com.amazonaws.Protocol</code> enum.      */
+DECL|enum|Protocol
+enum|enum
+name|Protocol
+block|{
+DECL|enumConstant|http
+name|http
+block|,
+DECL|enumConstant|https
+name|https
+block|;     }
 comment|/**      * AWS CloudWatch (camel-aws-cw)      * The aws-cw component is used for sending metrics to an Amazon CloudWatch.      *       * Category: cloud,monitoring      * Available as of version: 2.11      * Maven coordinates: org.apache.camel:camel-aws-cw      *       * Syntax:<code>aws-cw:namespace</code>      *       * Path parameter: namespace (required)      * The metric namespace      */
 DECL|method|awsCw (String path)
 specifier|default
