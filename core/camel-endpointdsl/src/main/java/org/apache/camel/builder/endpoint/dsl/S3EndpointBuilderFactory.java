@@ -406,7 +406,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+comment|/**          * To define a proxy protocol when instantiating the S3 client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
 DECL|method|proxyProtocol (Protocol proxyProtocol)
 specifier|default
 name|S3EndpointConsumerBuilder
@@ -427,7 +427,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+comment|/**          * To define a proxy protocol when instantiating the S3 client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
 DECL|method|proxyProtocol (String proxyProtocol)
 specifier|default
 name|S3EndpointConsumerBuilder
@@ -2240,7 +2240,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+comment|/**          * To define a proxy protocol when instantiating the S3 client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
 DECL|method|proxyProtocol (Protocol proxyProtocol)
 specifier|default
 name|S3EndpointProducerBuilder
@@ -2261,7 +2261,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+comment|/**          * To define a proxy protocol when instantiating the S3 client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
 DECL|method|proxyProtocol (String proxyProtocol)
 specifier|default
 name|S3EndpointProducerBuilder
@@ -3357,7 +3357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
+comment|/**          * To define a proxy protocol when instantiating the S3 client.          *           * The option is a:<code>com.amazonaws.Protocol</code> type.          *           * Group: common          */
 DECL|method|proxyProtocol (Protocol proxyProtocol)
 specifier|default
 name|S3EndpointBuilder
@@ -3378,7 +3378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * To define a proxy protocol when instantiating the SQS client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
+comment|/**          * To define a proxy protocol when instantiating the S3 client.          *           * The option will be converted to a<code>com.amazonaws.Protocol</code>          * type.          *           * Group: common          */
 DECL|method|proxyProtocol (String proxyProtocol)
 specifier|default
 name|S3EndpointBuilder

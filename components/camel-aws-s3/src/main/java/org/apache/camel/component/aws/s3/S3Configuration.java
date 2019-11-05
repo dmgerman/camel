@@ -1025,7 +1025,7 @@ return|return
 name|proxyProtocol
 return|;
 block|}
-comment|/**      * To define a proxy protocol when instantiating the SQS client      */
+comment|/**      * To define a proxy protocol when instantiating the S3 client      */
 DECL|method|setProxyProtocol (Protocol proxyProtocol)
 specifier|public
 name|void

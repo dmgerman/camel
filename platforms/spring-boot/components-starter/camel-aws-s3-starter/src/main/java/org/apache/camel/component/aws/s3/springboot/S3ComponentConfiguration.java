@@ -449,7 +449,7 @@ specifier|private
 name|String
 name|serverSideEncryption
 decl_stmt|;
-comment|/**          * To define a proxy protocol when instantiating the SQS client          */
+comment|/**          * To define a proxy protocol when instantiating the S3 client          */
 DECL|field|proxyProtocol
 specifier|private
 name|Protocol
