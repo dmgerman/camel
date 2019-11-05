@@ -1081,6 +1081,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * A semicolon-separated list of expressions that match fully-qualified          * tables and column(s) to be used as message key. Each expression must          * match the pattern ':',where the table names could be defined as          * (DB_NAME.TABLE_NAME) or (SCHEMA_NAME.TABLE_NAME), depending on the          * specific connector,and the key columns are a comma-separated list of          * columns representing the custom key. For any table without an          * explicit key configuration the table's primary key column(s) will be          * used as message key.Example:          * dbserver1.inventory.orderlines:orderId,orderLineId;dbserver1.inventory.orders:id.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
+DECL|method|messageKeyColumns ( String messageKeyColumns)
+specifier|default
+name|DebeziumPostgresEndpointBuilder
+name|messageKeyColumns
+parameter_list|(
+name|String
+name|messageKeyColumns
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"messageKeyColumns"
+argument_list|,
+name|messageKeyColumns
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The name of the Postgres logical decoding plugin installed on the          * server. Supported values are 'decoderbufs' and 'wal2json'. Defaults          * to 'decoderbufs'.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
 DECL|method|pluginName (String pluginName)
 specifier|default
@@ -1144,7 +1165,28 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Description is not available here, please check Debezium website for          * corresponding key 'schema.blacklist' description.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
+comment|/**          * The name of the Postgres 10 publication used for streaming changes          * from a plugin.Defaults to 'dbz_publication'.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
+DECL|method|publicationName ( String publicationName)
+specifier|default
+name|DebeziumPostgresEndpointBuilder
+name|publicationName
+parameter_list|(
+name|String
+name|publicationName
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"publicationName"
+argument_list|,
+name|publicationName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The schemas for which events must not be captured.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
 DECL|method|schemaBlacklist ( String schemaBlacklist)
 specifier|default
 name|DebeziumPostgresEndpointBuilder
@@ -1249,6 +1291,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * How many times to retry connecting to a replication slot when an          * attempt fails.          *           * The option is a:<code>int</code> type.          *           * Group: postgres          */
+DECL|method|slotMaxRetries ( int slotMaxRetries)
+specifier|default
+name|DebeziumPostgresEndpointBuilder
+name|slotMaxRetries
+parameter_list|(
+name|int
+name|slotMaxRetries
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"slotMaxRetries"
+argument_list|,
+name|slotMaxRetries
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * How many times to retry connecting to a replication slot when an          * attempt fails.          *           * The option will be converted to a<code>int</code> type.          *           * Group: postgres          */
+DECL|method|slotMaxRetries ( String slotMaxRetries)
+specifier|default
+name|DebeziumPostgresEndpointBuilder
+name|slotMaxRetries
+parameter_list|(
+name|String
+name|slotMaxRetries
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"slotMaxRetries"
+argument_list|,
+name|slotMaxRetries
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * The name of the Postgres logical decoding slot created for streaming          * changes from a plugin.Defaults to 'debezium.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
 DECL|method|slotName (String slotName)
 specifier|default
@@ -1264,6 +1348,48 @@ argument_list|(
 literal|"slotName"
 argument_list|,
 name|slotName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The number of milli-seconds to wait between retry attempts when the          * connector fails to connect to a replication slot.          *           * The option is a:<code>long</code> type.          *           * Group: postgres          */
+DECL|method|slotRetryDelayMs ( long slotRetryDelayMs)
+specifier|default
+name|DebeziumPostgresEndpointBuilder
+name|slotRetryDelayMs
+parameter_list|(
+name|long
+name|slotRetryDelayMs
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"slotRetryDelayMs"
+argument_list|,
+name|slotRetryDelayMs
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The number of milli-seconds to wait between retry attempts when the          * connector fails to connect to a replication slot.          *           * The option will be converted to a<code>long</code> type.          *           * Group: postgres          */
+DECL|method|slotRetryDelayMs ( String slotRetryDelayMs)
+specifier|default
+name|DebeziumPostgresEndpointBuilder
+name|slotRetryDelayMs
+parameter_list|(
+name|String
+name|slotRetryDelayMs
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"slotRetryDelayMs"
+argument_list|,
+name|slotRetryDelayMs
 argument_list|)
 expr_stmt|;
 return|return
@@ -1438,7 +1564,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * The criteria for running a snapshot upon startup of the connector.          * Options include: 'always' to specify that the connector run a          * snapshot each time it starts up; 'initial' (the default) to specify          * the connector can run a snapshot only when no offsets are available          * for the logical server name; 'initial_only' same as 'initial' except          * the connector should stop after completing the snapshot and before it          * would normally start emitting changes;'never' to specify the          * connector should never run a snapshot and that upon first startup the          * connector should read from the last position (LSN) recorded by the          * server; and'custom' to specify a custom class with          * 'snapshot.custom_class' which will be loaded and used to determine          * the snapshot, see docs for more details.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
+comment|/**          * The criteria for running a snapshot upon startup of the connector.          * Options include: 'always' to specify that the connector run a          * snapshot each time it starts up; 'initial' (the default) to specify          * the connector can run a snapshot only when no offsets are available          * for the logical server name; 'initial_only' same as 'initial' except          * the connector should stop after completing the snapshot and before it          * would normally start emitting changes;'never' to specify the          * connector should never run a snapshot and that upon first startup the          * connector should read from the last position (LSN) recorded by the          * server; and'exported' to specify the connector should run a snapshot          * based on the position when the replication slot was created; 'custom'          * to specify a custom class with 'snapshot.custom_class' which will be          * loaded and used to determine the snapshot, see docs for more details.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
 DECL|method|snapshotMode (String snapshotMode)
 specifier|default
 name|DebeziumPostgresEndpointBuilder
@@ -1459,7 +1585,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * This property contains a comma-separated list of fully-qualified          * tables (DB_NAME.TABLE_NAME). Select statements for the individual          * tables are specified in further configuration properties, one for          * each table, identified by the id          * 'snapshot.select.statement.overrides.DB_NAME.TABLE_NAME'. The value          * of those properties is the select statement to use when retrieving          * data from the specific table during snapshotting. A possible use case          * for large append-only tables is setting a specific point where to          * start (resume) snapshotting, in case a previous snapshotting was          * interrupted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
+comment|/**          * This property contains a comma-separated list of fully-qualified          * tables (DB_NAME.TABLE_NAME) or (SCHEMA_NAME.TABLE_NAME), depending on          * thespecific connectors . Select statements for the individual tables          * are specified in further configuration properties, one for each          * table, identified by the id          * 'snapshot.select.statement.overrides.DB_NAME.TABLE_NAME' or          * 'snapshot.select.statement.overrides.SCHEMA_NAME.TABLE_NAME',          * respectively. The value of those properties is the select statement          * to use when retrieving data from the specific table during          * snapshotting. A possible use case for large append-only tables is          * setting a specific point where to start (resume) snapshotting, in          * case a previous snapshotting was interrupted.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
 DECL|method|snapshotSelectStatementOverrides ( String snapshotSelectStatementOverrides)
 specifier|default
 name|DebeziumPostgresEndpointBuilder
@@ -1474,6 +1600,27 @@ argument_list|(
 literal|"snapshotSelectStatementOverrides"
 argument_list|,
 name|snapshotSelectStatementOverrides
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * A version of the format of the publicly visible source part in the          * message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
+DECL|method|sourceStructVersion ( String sourceStructVersion)
+specifier|default
+name|DebeziumPostgresEndpointBuilder
+name|sourceStructVersion
+parameter_list|(
+name|String
+name|sourceStructVersion
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sourceStructVersion"
+argument_list|,
+name|sourceStructVersion
 argument_list|)
 expr_stmt|;
 return|return
@@ -1585,6 +1732,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Specify the constant that will be provided by Debezium to indicate          * that the original value is a toasted value not provided by the          * database.If starts with 'hex:' prefix it is expected that the rest of          * the string repesents hexadecimally encoded octets.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
+DECL|method|toastedValuePlaceholder ( String toastedValuePlaceholder)
+specifier|default
+name|DebeziumPostgresEndpointBuilder
+name|toastedValuePlaceholder
+parameter_list|(
+name|String
+name|toastedValuePlaceholder
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"toastedValuePlaceholder"
+argument_list|,
+name|toastedValuePlaceholder
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Whether delete operations should be represented by a delete event and          * a subsquenttombstone event (true) or only by a delete event (false).          * Emitting the tombstone event (the default behavior) allows Kafka to          * completely delete all events pertaining to the given key once the          * source record got deleted.          *           * The option is a:<code>boolean</code> type.          *           * Group: postgres          */
 DECL|method|tombstonesOnDelete ( boolean tombstonesOnDelete)
 specifier|default
@@ -1621,27 +1789,6 @@ argument_list|(
 literal|"tombstonesOnDelete"
 argument_list|,
 name|tombstonesOnDelete
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * How events received from the DB should be placed on topics. Options          * include'table' (the default) each DB table will have a separate Kafka          * topic; 'schema' there will be one Kafka topic per DB schema; events          * from multiple topics belonging to the same schema will be placed on          * the same topic.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: postgres          */
-DECL|method|topicSelectionStrategy ( String topicSelectionStrategy)
-specifier|default
-name|DebeziumPostgresEndpointBuilder
-name|topicSelectionStrategy
-parameter_list|(
-name|String
-name|topicSelectionStrategy
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"topicSelectionStrategy"
-argument_list|,
-name|topicSelectionStrategy
 argument_list|)
 expr_stmt|;
 return|return

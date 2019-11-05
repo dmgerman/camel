@@ -187,35 +187,19 @@ name|PostgresConnectorEmbeddedDebeziumConfiguration
 operator|.
 name|class
 decl_stmt|;
-comment|/**          * When 'snapshot.mode' is set as custom, this setting must be set to          * specify a fully qualified class name to load (via the default class          * loader).This class must implement the 'Snapshotter' interface and is          * called on each app boot to determine whether to do a snapshot and how          * to build queries.          */
-DECL|field|snapshotCustomClass
+comment|/**          * A semicolon-separated list of expressions that match fully-qualified          * tables and column(s) to be used as message key. Each expression must          * match the pattern '<fully-qualified table name>:<key columns>',where          * the table names could be defined as (DB_NAME.TABLE_NAME) or          * (SCHEMA_NAME.TABLE_NAME), depending on the specific connector,and the          * key columns are a comma-separated list of columns representing the          * custom key. For any table without an explicit key configuration the          * table's primary key column(s) will be used as message key.Example:          * dbserver1.inventory.orderlines:orderId,orderLineId;dbserver1.inventory.orders:id          */
+DECL|field|messageKeyColumns
 specifier|private
 name|String
-name|snapshotCustomClass
+name|messageKeyColumns
 decl_stmt|;
-comment|/**          * Maximum size of the queue for change events read from the database          * log but not yet recorded or forwarded. Defaults to 8192, and should          * always be larger than the maximum batch size.          */
-DECL|field|maxQueueSize
-specifier|private
-name|Integer
-name|maxQueueSize
-init|=
-literal|8192
-decl_stmt|;
-comment|/**          * The name of the Postgres logical decoding slot created for streaming          * changes from a plugin.Defaults to 'debezium          */
-DECL|field|slotName
+comment|/**          * The name of the Postgres 10+ publication used for streaming changes          * from a plugin.Defaults to 'dbz_publication'          */
+DECL|field|publicationName
 specifier|private
 name|String
-name|slotName
+name|publicationName
 init|=
-literal|"debezium"
-decl_stmt|;
-comment|/**          * Specify how HSTORE columns should be represented in change events,          * including:'json' represents values as json string'map' (default)          * represents values using java.util.Map          */
-DECL|field|hstoreHandlingMode
-specifier|private
-name|String
-name|hstoreHandlingMode
-init|=
-literal|"json"
+literal|"dbz_publication"
 decl_stmt|;
 comment|/**          * Description is not available here, please check Debezium website for          * corresponding key 'column.blacklist' description.          */
 DECL|field|columnBlacklist
@@ -223,15 +207,7 @@ specifier|private
 name|String
 name|columnBlacklist
 decl_stmt|;
-comment|/**          * The number of milliseconds to delay before a snapshot will begin.          */
-DECL|field|snapshotDelayMs
-specifier|private
-name|Long
-name|snapshotDelayMs
-init|=
-literal|0L
-decl_stmt|;
-comment|/**          * Description is not available here, please check Debezium website for          * corresponding key 'schema.blacklist' description.          */
+comment|/**          * The schemas for which events must not be captured          */
 DECL|field|schemaBlacklist
 specifier|private
 name|String
@@ -243,6 +219,14 @@ specifier|private
 name|String
 name|tableBlacklist
 decl_stmt|;
+comment|/**          * How many times to retry connecting to a replication slot when an          * attempt fails.          */
+DECL|field|slotMaxRetries
+specifier|private
+name|Integer
+name|slotMaxRetries
+init|=
+literal|6
+decl_stmt|;
 comment|/**          * Specify the conditions that trigger a refresh of the in-memory schema          * for a table. 'columns_diff' (the default) is the safest mode,          * ensuring the in-memory schema stays in-sync with the database table's          * schema at all times. 'columns_diff_exclude_unchanged_toast' instructs          * the connector to refresh the in-memory schema cache if there is a          * discrepancy between it and the schema derived from the incoming          * message, unless unchanged TOASTable data fully accounts for the          * discrepancy. This setting can improve connector performance          * significantly if there are frequently-updated tables that have          * TOASTed data that are rarely part of these updates. However, it is          * possible for the in-memory schema to become outdated if TOASTable          * columns are dropped from the table.          */
 DECL|field|schemaRefreshMode
 specifier|private
@@ -251,33 +235,11 @@ name|schemaRefreshMode
 init|=
 literal|"columns_diff"
 decl_stmt|;
-comment|/**          * The tables for which changes are to be captured          */
-DECL|field|tableWhitelist
-specifier|private
-name|String
-name|tableWhitelist
-decl_stmt|;
-comment|/**          * How events received from the DB should be placed on topics. Options          * include'table' (the default) each DB table will have a separate Kafka          * topic; 'schema' there will be one Kafka topic per DB schema; events          * from multiple topics belonging to the same schema will be placed on          * the same topic          */
-DECL|field|topicSelectionStrategy
-specifier|private
-name|String
-name|topicSelectionStrategy
-init|=
-literal|"topic_per_table"
-decl_stmt|;
 comment|/**          * Whether or not to drop the logical replication slot when the          * connector finishes orderlyBy default the replication is kept so that          * on restart progress can resume from the last recorded location          */
 DECL|field|slotDropOnStop
 specifier|private
 name|Boolean
 name|slotDropOnStop
-init|=
-literal|false
-decl_stmt|;
-comment|/**          * Whether delete operations should be represented by a delete event and          * a subsquenttombstone event (true) or only by a delete event (false).          * Emitting the tombstone event (the default behavior) allows Kafka to          * completely delete all events pertaining to the given key once the          * source record got deleted.          */
-DECL|field|tombstonesOnDelete
-specifier|private
-name|Boolean
-name|tombstonesOnDelete
 init|=
 literal|false
 decl_stmt|;
@@ -288,14 +250,6 @@ name|String
 name|databaseSslmode
 init|=
 literal|"disable"
-decl_stmt|;
-comment|/**          * Specify how DECIMAL and NUMERIC columns should be represented in          * change events, including:'precise' (the default) uses          * java.math.BigDecimal to represent values, which are encoded in the          * change events using a binary representation and Kafka Connect's          * 'org.apache.kafka.connect.data.Decimal' type; 'string' uses string to          * represent values; 'double' represents values using Java's 'double',          * which may not offer the precision but will be far easier to use in          * consumers.          */
-DECL|field|decimalHandlingMode
-specifier|private
-name|String
-name|decimalHandlingMode
-init|=
-literal|"precise"
 decl_stmt|;
 comment|/**          * File containing the SSL Certificate for the client. See the Postgres          * SSL docs for further information          */
 DECL|field|databaseSslcert
@@ -353,20 +307,6 @@ name|snapshotLockTimeoutMs
 init|=
 literal|10000L
 decl_stmt|;
-comment|/**          * Enable or disable TCP keep-alive probe to avoid dropping TCP          * connection          */
-DECL|field|databaseTcpkeepalive
-specifier|private
-name|Boolean
-name|databaseTcpkeepalive
-init|=
-literal|true
-decl_stmt|;
-comment|/**          * The path to the file that will be used to record the database history          */
-DECL|field|databaseHistoryFileFilename
-specifier|private
-name|String
-name|databaseHistoryFileFilename
-decl_stmt|;
 comment|/**          * The name of the database the connector should be monitoring          */
 DECL|field|databaseDbname
 specifier|private
@@ -385,11 +325,165 @@ specifier|private
 name|String
 name|databaseSslkey
 decl_stmt|;
-comment|/**          * This property contains a comma-separated list of fully-qualified          * tables (DB_NAME.TABLE_NAME). Select statements for the individual          * tables are specified in further configuration properties, one for          * each table, identified by the id          * 'snapshot.select.statement.overrides.[DB_NAME].[TABLE_NAME]'. The          * value of those properties is the select statement to use when          * retrieving data from the specific table during snapshotting. A          * possible use case for large append-only tables is setting a specific          * point where to start (resume) snapshotting, in case a previous          * snapshotting was interrupted.          */
+comment|/**          * This property contains a comma-separated list of fully-qualified          * tables (DB_NAME.TABLE_NAME) or (SCHEMA_NAME.TABLE_NAME), depending on          * thespecific connectors . Select statements for the individual tables          * are specified in further configuration properties, one for each          * table, identified by the id          * 'snapshot.select.statement.overrides.[DB_NAME].[TABLE_NAME]' or          * 'snapshot.select.statement.overrides.[SCHEMA_NAME].[TABLE_NAME]',          * respectively. The value of those properties is the select statement          * to use when retrieving data from the specific table during          * snapshotting. A possible use case for large append-only tables is          * setting a specific point where to start (resume) snapshotting, in          * case a previous snapshotting was interrupted.          */
 DECL|field|snapshotSelectStatementOverrides
 specifier|private
 name|String
 name|snapshotSelectStatementOverrides
+decl_stmt|;
+comment|/**          * Length of an interval in milli-seconds in in which the connector          * periodically sends heartbeat messages to a heartbeat topic. Use 0 to          * disable heartbeat messages. Disabled by default.          */
+DECL|field|heartbeatIntervalMs
+specifier|private
+name|Integer
+name|heartbeatIntervalMs
+init|=
+literal|0
+decl_stmt|;
+comment|/**          * A version of the format of the publicly visible source part in the          * message          */
+DECL|field|sourceStructVersion
+specifier|private
+name|String
+name|sourceStructVersion
+init|=
+literal|"v2"
+decl_stmt|;
+comment|/**          * The name of the Postgres logical decoding plugin installed on the          * server. Supported values are 'decoderbufs' and 'wal2json'. Defaults          * to 'decoderbufs'.          */
+DECL|field|pluginName
+specifier|private
+name|String
+name|pluginName
+init|=
+literal|"decoderbufs"
+decl_stmt|;
+comment|/**          * Password to access the client private key from the file specified by          * 'database.sslkey'. See the Postgres SSL docs for further information          */
+DECL|field|databaseSslpassword
+specifier|private
+name|String
+name|databaseSslpassword
+decl_stmt|;
+comment|/**          * Specify the constant that will be provided by Debezium to indicate          * that the original value is a toasted value not provided by the          * database.If starts with 'hex:' prefix it is expected that the rest of          * the string repesents hexadecimally encoded octets.          */
+DECL|field|toastedValuePlaceholder
+specifier|private
+name|String
+name|toastedValuePlaceholder
+init|=
+literal|"__debezium_unavailable_value"
+decl_stmt|;
+comment|/**          * The schemas for which events should be captured          */
+DECL|field|schemaWhitelist
+specifier|private
+name|String
+name|schemaWhitelist
+decl_stmt|;
+comment|/**          * Password of the Postgres database user to be used when connecting to          * the database.          */
+DECL|field|databasePassword
+specifier|private
+name|String
+name|databasePassword
+decl_stmt|;
+comment|/**          * File containing the root certificate(s) against which the server is          * validated. See the Postgres JDBC SSL docs for further information          */
+DECL|field|databaseSslrootcert
+specifier|private
+name|String
+name|databaseSslrootcert
+decl_stmt|;
+comment|/**          * Maximum size of each batch of source records. Defaults to 2048.          */
+DECL|field|maxBatchSize
+specifier|private
+name|Integer
+name|maxBatchSize
+init|=
+literal|2048
+decl_stmt|;
+comment|/**          * The criteria for running a snapshot upon startup of the connector.          * Options include: 'always' to specify that the connector run a          * snapshot each time it starts up; 'initial' (the default) to specify          * the connector can run a snapshot only when no offsets are available          * for the logical server name; 'initial_only' same as 'initial' except          * the connector should stop after completing the snapshot and before it          * would normally start emitting changes;'never' to specify the          * connector should never run a snapshot and that upon first startup the          * connector should read from the last position (LSN) recorded by the          * server; and'exported' to specify the connector should run a snapshot          * based on the position when the replication slot was created; 'custom'          * to specify a custom class with 'snapshot.custom_class' which will be          * loaded and used to determine the snapshot, see docs for more details.          */
+DECL|field|snapshotMode
+specifier|private
+name|String
+name|snapshotMode
+init|=
+literal|"initial"
+decl_stmt|;
+comment|/**          * Maximum size of the queue for change events read from the database          * log but not yet recorded or forwarded. Defaults to 8192, and should          * always be larger than the maximum batch size.          */
+DECL|field|maxQueueSize
+specifier|private
+name|Integer
+name|maxQueueSize
+init|=
+literal|8192
+decl_stmt|;
+comment|/**          * When 'snapshot.mode' is set as custom, this setting must be set to          * specify a fully qualified class name to load (via the default class          * loader).This class must implement the 'Snapshotter' interface and is          * called on each app boot to determine whether to do a snapshot and how          * to build queries.          */
+DECL|field|snapshotCustomClass
+specifier|private
+name|String
+name|snapshotCustomClass
+decl_stmt|;
+comment|/**          * The name of the Postgres logical decoding slot created for streaming          * changes from a plugin.Defaults to 'debezium          */
+DECL|field|slotName
+specifier|private
+name|String
+name|slotName
+init|=
+literal|"debezium"
+decl_stmt|;
+comment|/**          * Specify how HSTORE columns should be represented in change events,          * including:'json' represents values as json string'map' (default)          * represents values using java.util.Map          */
+DECL|field|hstoreHandlingMode
+specifier|private
+name|String
+name|hstoreHandlingMode
+init|=
+literal|"json"
+decl_stmt|;
+comment|/**          * The number of milliseconds to delay before a snapshot will begin.          */
+DECL|field|snapshotDelayMs
+specifier|private
+name|Long
+name|snapshotDelayMs
+init|=
+literal|0L
+decl_stmt|;
+comment|/**          * The tables for which changes are to be captured          */
+DECL|field|tableWhitelist
+specifier|private
+name|String
+name|tableWhitelist
+decl_stmt|;
+comment|/**          * Whether delete operations should be represented by a delete event and          * a subsquenttombstone event (true) or only by a delete event (false).          * Emitting the tombstone event (the default behavior) allows Kafka to          * completely delete all events pertaining to the given key once the          * source record got deleted.          */
+DECL|field|tombstonesOnDelete
+specifier|private
+name|Boolean
+name|tombstonesOnDelete
+init|=
+literal|false
+decl_stmt|;
+comment|/**          * The number of milli-seconds to wait between retry attempts when the          * connector fails to connect to a replication slot.          */
+DECL|field|slotRetryDelayMs
+specifier|private
+name|Long
+name|slotRetryDelayMs
+init|=
+literal|10000L
+decl_stmt|;
+comment|/**          * Specify how DECIMAL and NUMERIC columns should be represented in          * change events, including:'precise' (the default) uses          * java.math.BigDecimal to represent values, which are encoded in the          * change events using a binary representation and Kafka Connect's          * 'org.apache.kafka.connect.data.Decimal' type; 'string' uses string to          * represent values; 'double' represents values using Java's 'double',          * which may not offer the precision but will be far easier to use in          * consumers.          */
+DECL|field|decimalHandlingMode
+specifier|private
+name|String
+name|decimalHandlingMode
+init|=
+literal|"precise"
+decl_stmt|;
+comment|/**          * Enable or disable TCP keep-alive probe to avoid dropping TCP          * connection          */
+DECL|field|databaseTcpkeepalive
+specifier|private
+name|Boolean
+name|databaseTcpkeepalive
+init|=
+literal|true
+decl_stmt|;
+comment|/**          * The path to the file that will be used to record the database history          */
+DECL|field|databaseHistoryFileFilename
+specifier|private
+name|String
+name|databaseHistoryFileFilename
 decl_stmt|;
 comment|/**          * Specify how often (in ms) the xmin will be fetched from the          * replication slot. This xmin value is exposed by the slot which gives          * a lower bound of where a new replication slot could start from. The          * lower the value, the more likely this value is to be the current          * 'true' value, but the bigger the performance cost. The bigger the          * value, the less likely this value is to be the current 'true' value,          * but the lower the performance penalty. The default is set to 0 ms,          * which disables tracking xmin.          */
 DECL|field|xminFetchIntervalMs
@@ -413,22 +507,6 @@ specifier|private
 name|String
 name|databaseServerName
 decl_stmt|;
-comment|/**          * Length of an interval in milli-seconds in in which the connector          * periodically sends heartbeat messages to a heartbeat topic. Use 0 to          * disable heartbeat messages. Disabled by default.          */
-DECL|field|heartbeatIntervalMs
-specifier|private
-name|Integer
-name|heartbeatIntervalMs
-init|=
-literal|0
-decl_stmt|;
-comment|/**          * The name of the Postgres logical decoding plugin installed on the          * server. Supported values are 'decoderbufs' and 'wal2json'. Defaults          * to 'decoderbufs'.          */
-DECL|field|pluginName
-specifier|private
-name|String
-name|pluginName
-init|=
-literal|"decoderbufs"
-decl_stmt|;
 comment|/**          * Port of the Postgres database server.          */
 DECL|field|databasePort
 specifier|private
@@ -436,18 +514,6 @@ name|Integer
 name|databasePort
 init|=
 literal|5432
-decl_stmt|;
-comment|/**          * Password to access the client private key from the file specified by          * 'database.sslkey'. See the Postgres SSL docs for further information          */
-DECL|field|databaseSslpassword
-specifier|private
-name|String
-name|databaseSslpassword
-decl_stmt|;
-comment|/**          * The schemas for which events should be captured          */
-DECL|field|schemaWhitelist
-specifier|private
-name|String
-name|schemaWhitelist
 decl_stmt|;
 comment|/**          * Specify whether the fields of data type not supported by Debezium          * should be processed:'false' (the default) omits the fields; 'true'          * converts the field into an implementation dependent binary          * representation.          */
 DECL|field|includeUnknownDatatypes
@@ -462,34 +528,6 @@ DECL|field|databaseHostname
 specifier|private
 name|String
 name|databaseHostname
-decl_stmt|;
-comment|/**          * Password of the Postgres database user to be used when connecting to          * the database.          */
-DECL|field|databasePassword
-specifier|private
-name|String
-name|databasePassword
-decl_stmt|;
-comment|/**          * File containing the root certificate(s) against which the server is          * validated. See the Postgres JDBC SSL docs for further information          */
-DECL|field|databaseSslrootcert
-specifier|private
-name|String
-name|databaseSslrootcert
-decl_stmt|;
-comment|/**          * Maximum size of each batch of source records. Defaults to 2048.          */
-DECL|field|maxBatchSize
-specifier|private
-name|Integer
-name|maxBatchSize
-init|=
-literal|2048
-decl_stmt|;
-comment|/**          * The criteria for running a snapshot upon startup of the connector.          * Options include: 'always' to specify that the connector run a          * snapshot each time it starts up; 'initial' (the default) to specify          * the connector can run a snapshot only when no offsets are available          * for the logical server name; 'initial_only' same as 'initial' except          * the connector should stop after completing the snapshot and before it          * would normally start emitting changes;'never' to specify the          * connector should never run a snapshot and that upon first startup the          * connector should read from the last position (LSN) recorded by the          * server; and'custom' to specify a custom class with          * 'snapshot.custom_class' which will be loaded and used to determine          * the snapshot, see docs for more details.          */
-DECL|field|snapshotMode
-specifier|private
-name|String
-name|snapshotMode
-init|=
-literal|"initial"
 decl_stmt|;
 comment|/**          * Any optional parameters used by logical decoding plugin. Semi-colon          * separated. E.g.          * 'add-tables=public.table,public.table2;include-lsn=true'          */
 DECL|field|slotStreamParams
@@ -581,108 +619,56 @@ name|internalValueConverter
 init|=
 literal|"org.apache.kafka.connect.json.JsonConverter"
 decl_stmt|;
-DECL|method|getSnapshotCustomClass ()
+DECL|method|getMessageKeyColumns ()
 specifier|public
 name|String
-name|getSnapshotCustomClass
+name|getMessageKeyColumns
 parameter_list|()
 block|{
 return|return
-name|snapshotCustomClass
+name|messageKeyColumns
 return|;
 block|}
-DECL|method|setSnapshotCustomClass (String snapshotCustomClass)
+DECL|method|setMessageKeyColumns (String messageKeyColumns)
 specifier|public
 name|void
-name|setSnapshotCustomClass
+name|setMessageKeyColumns
 parameter_list|(
 name|String
-name|snapshotCustomClass
+name|messageKeyColumns
 parameter_list|)
 block|{
 name|this
 operator|.
-name|snapshotCustomClass
+name|messageKeyColumns
 operator|=
-name|snapshotCustomClass
+name|messageKeyColumns
 expr_stmt|;
 block|}
-DECL|method|getMaxQueueSize ()
+DECL|method|getPublicationName ()
 specifier|public
-name|Integer
-name|getMaxQueueSize
+name|String
+name|getPublicationName
 parameter_list|()
 block|{
 return|return
-name|maxQueueSize
+name|publicationName
 return|;
 block|}
-DECL|method|setMaxQueueSize (Integer maxQueueSize)
+DECL|method|setPublicationName (String publicationName)
 specifier|public
 name|void
-name|setMaxQueueSize
+name|setPublicationName
 parameter_list|(
-name|Integer
-name|maxQueueSize
+name|String
+name|publicationName
 parameter_list|)
 block|{
 name|this
 operator|.
-name|maxQueueSize
+name|publicationName
 operator|=
-name|maxQueueSize
-expr_stmt|;
-block|}
-DECL|method|getSlotName ()
-specifier|public
-name|String
-name|getSlotName
-parameter_list|()
-block|{
-return|return
-name|slotName
-return|;
-block|}
-DECL|method|setSlotName (String slotName)
-specifier|public
-name|void
-name|setSlotName
-parameter_list|(
-name|String
-name|slotName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|slotName
-operator|=
-name|slotName
-expr_stmt|;
-block|}
-DECL|method|getHstoreHandlingMode ()
-specifier|public
-name|String
-name|getHstoreHandlingMode
-parameter_list|()
-block|{
-return|return
-name|hstoreHandlingMode
-return|;
-block|}
-DECL|method|setHstoreHandlingMode (String hstoreHandlingMode)
-specifier|public
-name|void
-name|setHstoreHandlingMode
-parameter_list|(
-name|String
-name|hstoreHandlingMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|hstoreHandlingMode
-operator|=
-name|hstoreHandlingMode
+name|publicationName
 expr_stmt|;
 block|}
 DECL|method|getColumnBlacklist ()
@@ -709,32 +695,6 @@ operator|.
 name|columnBlacklist
 operator|=
 name|columnBlacklist
-expr_stmt|;
-block|}
-DECL|method|getSnapshotDelayMs ()
-specifier|public
-name|Long
-name|getSnapshotDelayMs
-parameter_list|()
-block|{
-return|return
-name|snapshotDelayMs
-return|;
-block|}
-DECL|method|setSnapshotDelayMs (Long snapshotDelayMs)
-specifier|public
-name|void
-name|setSnapshotDelayMs
-parameter_list|(
-name|Long
-name|snapshotDelayMs
-parameter_list|)
-block|{
-name|this
-operator|.
-name|snapshotDelayMs
-operator|=
-name|snapshotDelayMs
 expr_stmt|;
 block|}
 DECL|method|getSchemaBlacklist ()
@@ -789,6 +749,32 @@ operator|=
 name|tableBlacklist
 expr_stmt|;
 block|}
+DECL|method|getSlotMaxRetries ()
+specifier|public
+name|Integer
+name|getSlotMaxRetries
+parameter_list|()
+block|{
+return|return
+name|slotMaxRetries
+return|;
+block|}
+DECL|method|setSlotMaxRetries (Integer slotMaxRetries)
+specifier|public
+name|void
+name|setSlotMaxRetries
+parameter_list|(
+name|Integer
+name|slotMaxRetries
+parameter_list|)
+block|{
+name|this
+operator|.
+name|slotMaxRetries
+operator|=
+name|slotMaxRetries
+expr_stmt|;
+block|}
 DECL|method|getSchemaRefreshMode ()
 specifier|public
 name|String
@@ -813,58 +799,6 @@ operator|.
 name|schemaRefreshMode
 operator|=
 name|schemaRefreshMode
-expr_stmt|;
-block|}
-DECL|method|getTableWhitelist ()
-specifier|public
-name|String
-name|getTableWhitelist
-parameter_list|()
-block|{
-return|return
-name|tableWhitelist
-return|;
-block|}
-DECL|method|setTableWhitelist (String tableWhitelist)
-specifier|public
-name|void
-name|setTableWhitelist
-parameter_list|(
-name|String
-name|tableWhitelist
-parameter_list|)
-block|{
-name|this
-operator|.
-name|tableWhitelist
-operator|=
-name|tableWhitelist
-expr_stmt|;
-block|}
-DECL|method|getTopicSelectionStrategy ()
-specifier|public
-name|String
-name|getTopicSelectionStrategy
-parameter_list|()
-block|{
-return|return
-name|topicSelectionStrategy
-return|;
-block|}
-DECL|method|setTopicSelectionStrategy (String topicSelectionStrategy)
-specifier|public
-name|void
-name|setTopicSelectionStrategy
-parameter_list|(
-name|String
-name|topicSelectionStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|topicSelectionStrategy
-operator|=
-name|topicSelectionStrategy
 expr_stmt|;
 block|}
 DECL|method|getSlotDropOnStop ()
@@ -893,32 +827,6 @@ operator|=
 name|slotDropOnStop
 expr_stmt|;
 block|}
-DECL|method|getTombstonesOnDelete ()
-specifier|public
-name|Boolean
-name|getTombstonesOnDelete
-parameter_list|()
-block|{
-return|return
-name|tombstonesOnDelete
-return|;
-block|}
-DECL|method|setTombstonesOnDelete (Boolean tombstonesOnDelete)
-specifier|public
-name|void
-name|setTombstonesOnDelete
-parameter_list|(
-name|Boolean
-name|tombstonesOnDelete
-parameter_list|)
-block|{
-name|this
-operator|.
-name|tombstonesOnDelete
-operator|=
-name|tombstonesOnDelete
-expr_stmt|;
-block|}
 DECL|method|getDatabaseSslmode ()
 specifier|public
 name|String
@@ -943,32 +851,6 @@ operator|.
 name|databaseSslmode
 operator|=
 name|databaseSslmode
-expr_stmt|;
-block|}
-DECL|method|getDecimalHandlingMode ()
-specifier|public
-name|String
-name|getDecimalHandlingMode
-parameter_list|()
-block|{
-return|return
-name|decimalHandlingMode
-return|;
-block|}
-DECL|method|setDecimalHandlingMode (String decimalHandlingMode)
-specifier|public
-name|void
-name|setDecimalHandlingMode
-parameter_list|(
-name|String
-name|decimalHandlingMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|decimalHandlingMode
-operator|=
-name|decimalHandlingMode
 expr_stmt|;
 block|}
 DECL|method|getDatabaseSslcert ()
@@ -1179,58 +1061,6 @@ operator|=
 name|snapshotLockTimeoutMs
 expr_stmt|;
 block|}
-DECL|method|getDatabaseTcpkeepalive ()
-specifier|public
-name|Boolean
-name|getDatabaseTcpkeepalive
-parameter_list|()
-block|{
-return|return
-name|databaseTcpkeepalive
-return|;
-block|}
-DECL|method|setDatabaseTcpkeepalive (Boolean databaseTcpkeepalive)
-specifier|public
-name|void
-name|setDatabaseTcpkeepalive
-parameter_list|(
-name|Boolean
-name|databaseTcpkeepalive
-parameter_list|)
-block|{
-name|this
-operator|.
-name|databaseTcpkeepalive
-operator|=
-name|databaseTcpkeepalive
-expr_stmt|;
-block|}
-DECL|method|getDatabaseHistoryFileFilename ()
-specifier|public
-name|String
-name|getDatabaseHistoryFileFilename
-parameter_list|()
-block|{
-return|return
-name|databaseHistoryFileFilename
-return|;
-block|}
-DECL|method|setDatabaseHistoryFileFilename ( String databaseHistoryFileFilename)
-specifier|public
-name|void
-name|setDatabaseHistoryFileFilename
-parameter_list|(
-name|String
-name|databaseHistoryFileFilename
-parameter_list|)
-block|{
-name|this
-operator|.
-name|databaseHistoryFileFilename
-operator|=
-name|databaseHistoryFileFilename
-expr_stmt|;
-block|}
 DECL|method|getDatabaseDbname ()
 specifier|public
 name|String
@@ -1335,84 +1165,6 @@ operator|=
 name|snapshotSelectStatementOverrides
 expr_stmt|;
 block|}
-DECL|method|getXminFetchIntervalMs ()
-specifier|public
-name|Long
-name|getXminFetchIntervalMs
-parameter_list|()
-block|{
-return|return
-name|xminFetchIntervalMs
-return|;
-block|}
-DECL|method|setXminFetchIntervalMs (Long xminFetchIntervalMs)
-specifier|public
-name|void
-name|setXminFetchIntervalMs
-parameter_list|(
-name|Long
-name|xminFetchIntervalMs
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xminFetchIntervalMs
-operator|=
-name|xminFetchIntervalMs
-expr_stmt|;
-block|}
-DECL|method|getTimePrecisionMode ()
-specifier|public
-name|String
-name|getTimePrecisionMode
-parameter_list|()
-block|{
-return|return
-name|timePrecisionMode
-return|;
-block|}
-DECL|method|setTimePrecisionMode (String timePrecisionMode)
-specifier|public
-name|void
-name|setTimePrecisionMode
-parameter_list|(
-name|String
-name|timePrecisionMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timePrecisionMode
-operator|=
-name|timePrecisionMode
-expr_stmt|;
-block|}
-DECL|method|getDatabaseServerName ()
-specifier|public
-name|String
-name|getDatabaseServerName
-parameter_list|()
-block|{
-return|return
-name|databaseServerName
-return|;
-block|}
-DECL|method|setDatabaseServerName (String databaseServerName)
-specifier|public
-name|void
-name|setDatabaseServerName
-parameter_list|(
-name|String
-name|databaseServerName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|databaseServerName
-operator|=
-name|databaseServerName
-expr_stmt|;
-block|}
 DECL|method|getHeartbeatIntervalMs ()
 specifier|public
 name|Integer
@@ -1437,6 +1189,32 @@ operator|.
 name|heartbeatIntervalMs
 operator|=
 name|heartbeatIntervalMs
+expr_stmt|;
+block|}
+DECL|method|getSourceStructVersion ()
+specifier|public
+name|String
+name|getSourceStructVersion
+parameter_list|()
+block|{
+return|return
+name|sourceStructVersion
+return|;
+block|}
+DECL|method|setSourceStructVersion (String sourceStructVersion)
+specifier|public
+name|void
+name|setSourceStructVersion
+parameter_list|(
+name|String
+name|sourceStructVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sourceStructVersion
+operator|=
+name|sourceStructVersion
 expr_stmt|;
 block|}
 DECL|method|getPluginName ()
@@ -1465,32 +1243,6 @@ operator|=
 name|pluginName
 expr_stmt|;
 block|}
-DECL|method|getDatabasePort ()
-specifier|public
-name|Integer
-name|getDatabasePort
-parameter_list|()
-block|{
-return|return
-name|databasePort
-return|;
-block|}
-DECL|method|setDatabasePort (Integer databasePort)
-specifier|public
-name|void
-name|setDatabasePort
-parameter_list|(
-name|Integer
-name|databasePort
-parameter_list|)
-block|{
-name|this
-operator|.
-name|databasePort
-operator|=
-name|databasePort
-expr_stmt|;
-block|}
 DECL|method|getDatabaseSslpassword ()
 specifier|public
 name|String
@@ -1517,6 +1269,32 @@ operator|=
 name|databaseSslpassword
 expr_stmt|;
 block|}
+DECL|method|getToastedValuePlaceholder ()
+specifier|public
+name|String
+name|getToastedValuePlaceholder
+parameter_list|()
+block|{
+return|return
+name|toastedValuePlaceholder
+return|;
+block|}
+DECL|method|setToastedValuePlaceholder (String toastedValuePlaceholder)
+specifier|public
+name|void
+name|setToastedValuePlaceholder
+parameter_list|(
+name|String
+name|toastedValuePlaceholder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|toastedValuePlaceholder
+operator|=
+name|toastedValuePlaceholder
+expr_stmt|;
+block|}
 DECL|method|getSchemaWhitelist ()
 specifier|public
 name|String
@@ -1541,58 +1319,6 @@ operator|.
 name|schemaWhitelist
 operator|=
 name|schemaWhitelist
-expr_stmt|;
-block|}
-DECL|method|getIncludeUnknownDatatypes ()
-specifier|public
-name|Boolean
-name|getIncludeUnknownDatatypes
-parameter_list|()
-block|{
-return|return
-name|includeUnknownDatatypes
-return|;
-block|}
-DECL|method|setIncludeUnknownDatatypes (Boolean includeUnknownDatatypes)
-specifier|public
-name|void
-name|setIncludeUnknownDatatypes
-parameter_list|(
-name|Boolean
-name|includeUnknownDatatypes
-parameter_list|)
-block|{
-name|this
-operator|.
-name|includeUnknownDatatypes
-operator|=
-name|includeUnknownDatatypes
-expr_stmt|;
-block|}
-DECL|method|getDatabaseHostname ()
-specifier|public
-name|String
-name|getDatabaseHostname
-parameter_list|()
-block|{
-return|return
-name|databaseHostname
-return|;
-block|}
-DECL|method|setDatabaseHostname (String databaseHostname)
-specifier|public
-name|void
-name|setDatabaseHostname
-parameter_list|(
-name|String
-name|databaseHostname
-parameter_list|)
-block|{
-name|this
-operator|.
-name|databaseHostname
-operator|=
-name|databaseHostname
 expr_stmt|;
 block|}
 DECL|method|getDatabasePassword ()
@@ -1697,6 +1423,448 @@ operator|.
 name|snapshotMode
 operator|=
 name|snapshotMode
+expr_stmt|;
+block|}
+DECL|method|getMaxQueueSize ()
+specifier|public
+name|Integer
+name|getMaxQueueSize
+parameter_list|()
+block|{
+return|return
+name|maxQueueSize
+return|;
+block|}
+DECL|method|setMaxQueueSize (Integer maxQueueSize)
+specifier|public
+name|void
+name|setMaxQueueSize
+parameter_list|(
+name|Integer
+name|maxQueueSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxQueueSize
+operator|=
+name|maxQueueSize
+expr_stmt|;
+block|}
+DECL|method|getSnapshotCustomClass ()
+specifier|public
+name|String
+name|getSnapshotCustomClass
+parameter_list|()
+block|{
+return|return
+name|snapshotCustomClass
+return|;
+block|}
+DECL|method|setSnapshotCustomClass (String snapshotCustomClass)
+specifier|public
+name|void
+name|setSnapshotCustomClass
+parameter_list|(
+name|String
+name|snapshotCustomClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|snapshotCustomClass
+operator|=
+name|snapshotCustomClass
+expr_stmt|;
+block|}
+DECL|method|getSlotName ()
+specifier|public
+name|String
+name|getSlotName
+parameter_list|()
+block|{
+return|return
+name|slotName
+return|;
+block|}
+DECL|method|setSlotName (String slotName)
+specifier|public
+name|void
+name|setSlotName
+parameter_list|(
+name|String
+name|slotName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|slotName
+operator|=
+name|slotName
+expr_stmt|;
+block|}
+DECL|method|getHstoreHandlingMode ()
+specifier|public
+name|String
+name|getHstoreHandlingMode
+parameter_list|()
+block|{
+return|return
+name|hstoreHandlingMode
+return|;
+block|}
+DECL|method|setHstoreHandlingMode (String hstoreHandlingMode)
+specifier|public
+name|void
+name|setHstoreHandlingMode
+parameter_list|(
+name|String
+name|hstoreHandlingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hstoreHandlingMode
+operator|=
+name|hstoreHandlingMode
+expr_stmt|;
+block|}
+DECL|method|getSnapshotDelayMs ()
+specifier|public
+name|Long
+name|getSnapshotDelayMs
+parameter_list|()
+block|{
+return|return
+name|snapshotDelayMs
+return|;
+block|}
+DECL|method|setSnapshotDelayMs (Long snapshotDelayMs)
+specifier|public
+name|void
+name|setSnapshotDelayMs
+parameter_list|(
+name|Long
+name|snapshotDelayMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|snapshotDelayMs
+operator|=
+name|snapshotDelayMs
+expr_stmt|;
+block|}
+DECL|method|getTableWhitelist ()
+specifier|public
+name|String
+name|getTableWhitelist
+parameter_list|()
+block|{
+return|return
+name|tableWhitelist
+return|;
+block|}
+DECL|method|setTableWhitelist (String tableWhitelist)
+specifier|public
+name|void
+name|setTableWhitelist
+parameter_list|(
+name|String
+name|tableWhitelist
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tableWhitelist
+operator|=
+name|tableWhitelist
+expr_stmt|;
+block|}
+DECL|method|getTombstonesOnDelete ()
+specifier|public
+name|Boolean
+name|getTombstonesOnDelete
+parameter_list|()
+block|{
+return|return
+name|tombstonesOnDelete
+return|;
+block|}
+DECL|method|setTombstonesOnDelete (Boolean tombstonesOnDelete)
+specifier|public
+name|void
+name|setTombstonesOnDelete
+parameter_list|(
+name|Boolean
+name|tombstonesOnDelete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tombstonesOnDelete
+operator|=
+name|tombstonesOnDelete
+expr_stmt|;
+block|}
+DECL|method|getSlotRetryDelayMs ()
+specifier|public
+name|Long
+name|getSlotRetryDelayMs
+parameter_list|()
+block|{
+return|return
+name|slotRetryDelayMs
+return|;
+block|}
+DECL|method|setSlotRetryDelayMs (Long slotRetryDelayMs)
+specifier|public
+name|void
+name|setSlotRetryDelayMs
+parameter_list|(
+name|Long
+name|slotRetryDelayMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|slotRetryDelayMs
+operator|=
+name|slotRetryDelayMs
+expr_stmt|;
+block|}
+DECL|method|getDecimalHandlingMode ()
+specifier|public
+name|String
+name|getDecimalHandlingMode
+parameter_list|()
+block|{
+return|return
+name|decimalHandlingMode
+return|;
+block|}
+DECL|method|setDecimalHandlingMode (String decimalHandlingMode)
+specifier|public
+name|void
+name|setDecimalHandlingMode
+parameter_list|(
+name|String
+name|decimalHandlingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|decimalHandlingMode
+operator|=
+name|decimalHandlingMode
+expr_stmt|;
+block|}
+DECL|method|getDatabaseTcpkeepalive ()
+specifier|public
+name|Boolean
+name|getDatabaseTcpkeepalive
+parameter_list|()
+block|{
+return|return
+name|databaseTcpkeepalive
+return|;
+block|}
+DECL|method|setDatabaseTcpkeepalive (Boolean databaseTcpkeepalive)
+specifier|public
+name|void
+name|setDatabaseTcpkeepalive
+parameter_list|(
+name|Boolean
+name|databaseTcpkeepalive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|databaseTcpkeepalive
+operator|=
+name|databaseTcpkeepalive
+expr_stmt|;
+block|}
+DECL|method|getDatabaseHistoryFileFilename ()
+specifier|public
+name|String
+name|getDatabaseHistoryFileFilename
+parameter_list|()
+block|{
+return|return
+name|databaseHistoryFileFilename
+return|;
+block|}
+DECL|method|setDatabaseHistoryFileFilename ( String databaseHistoryFileFilename)
+specifier|public
+name|void
+name|setDatabaseHistoryFileFilename
+parameter_list|(
+name|String
+name|databaseHistoryFileFilename
+parameter_list|)
+block|{
+name|this
+operator|.
+name|databaseHistoryFileFilename
+operator|=
+name|databaseHistoryFileFilename
+expr_stmt|;
+block|}
+DECL|method|getXminFetchIntervalMs ()
+specifier|public
+name|Long
+name|getXminFetchIntervalMs
+parameter_list|()
+block|{
+return|return
+name|xminFetchIntervalMs
+return|;
+block|}
+DECL|method|setXminFetchIntervalMs (Long xminFetchIntervalMs)
+specifier|public
+name|void
+name|setXminFetchIntervalMs
+parameter_list|(
+name|Long
+name|xminFetchIntervalMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xminFetchIntervalMs
+operator|=
+name|xminFetchIntervalMs
+expr_stmt|;
+block|}
+DECL|method|getTimePrecisionMode ()
+specifier|public
+name|String
+name|getTimePrecisionMode
+parameter_list|()
+block|{
+return|return
+name|timePrecisionMode
+return|;
+block|}
+DECL|method|setTimePrecisionMode (String timePrecisionMode)
+specifier|public
+name|void
+name|setTimePrecisionMode
+parameter_list|(
+name|String
+name|timePrecisionMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timePrecisionMode
+operator|=
+name|timePrecisionMode
+expr_stmt|;
+block|}
+DECL|method|getDatabaseServerName ()
+specifier|public
+name|String
+name|getDatabaseServerName
+parameter_list|()
+block|{
+return|return
+name|databaseServerName
+return|;
+block|}
+DECL|method|setDatabaseServerName (String databaseServerName)
+specifier|public
+name|void
+name|setDatabaseServerName
+parameter_list|(
+name|String
+name|databaseServerName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|databaseServerName
+operator|=
+name|databaseServerName
+expr_stmt|;
+block|}
+DECL|method|getDatabasePort ()
+specifier|public
+name|Integer
+name|getDatabasePort
+parameter_list|()
+block|{
+return|return
+name|databasePort
+return|;
+block|}
+DECL|method|setDatabasePort (Integer databasePort)
+specifier|public
+name|void
+name|setDatabasePort
+parameter_list|(
+name|Integer
+name|databasePort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|databasePort
+operator|=
+name|databasePort
+expr_stmt|;
+block|}
+DECL|method|getIncludeUnknownDatatypes ()
+specifier|public
+name|Boolean
+name|getIncludeUnknownDatatypes
+parameter_list|()
+block|{
+return|return
+name|includeUnknownDatatypes
+return|;
+block|}
+DECL|method|setIncludeUnknownDatatypes (Boolean includeUnknownDatatypes)
+specifier|public
+name|void
+name|setIncludeUnknownDatatypes
+parameter_list|(
+name|Boolean
+name|includeUnknownDatatypes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeUnknownDatatypes
+operator|=
+name|includeUnknownDatatypes
+expr_stmt|;
+block|}
+DECL|method|getDatabaseHostname ()
+specifier|public
+name|String
+name|getDatabaseHostname
+parameter_list|()
+block|{
+return|return
+name|databaseHostname
+return|;
+block|}
+DECL|method|setDatabaseHostname (String databaseHostname)
+specifier|public
+name|void
+name|setDatabaseHostname
+parameter_list|(
+name|String
+name|databaseHostname
+parameter_list|)
+block|{
+name|this
+operator|.
+name|databaseHostname
+operator|=
+name|databaseHostname
 expr_stmt|;
 block|}
 DECL|method|getSlotStreamParams ()

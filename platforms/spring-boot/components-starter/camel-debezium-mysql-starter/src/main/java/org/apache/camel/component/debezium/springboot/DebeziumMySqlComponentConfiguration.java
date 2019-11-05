@@ -195,6 +195,12 @@ name|snapshotLockingMode
 init|=
 literal|"minimal"
 decl_stmt|;
+comment|/**          * A semicolon-separated list of expressions that match fully-qualified          * tables and column(s) to be used as message key. Each expression must          * match the pattern '<fully-qualified table name>:<key columns>',where          * the table names could be defined as (DB_NAME.TABLE_NAME) or          * (SCHEMA_NAME.TABLE_NAME), depending on the specific connector,and the          * key columns are a comma-separated list of columns representing the          * custom key. For any table without an explicit key configuration the          * table's primary key column(s) will be used as message key.Example:          * dbserver1.inventory.orderlines:orderId,orderLineId;dbserver1.inventory.orders:id          */
+DECL|field|messageKeyColumns
+specifier|private
+name|String
+name|messageKeyColumns
+decl_stmt|;
 comment|/**          * Description is not available here, please check Debezium website for          * corresponding key 'column.blacklist' description.          */
 DECL|field|columnBlacklist
 specifier|private
@@ -285,6 +291,12 @@ specifier|private
 name|String
 name|gtidSourceExcludes
 decl_stmt|;
+comment|/**          * This property contains a comma-separated list of fully-qualified          * tables (DB_NAME.TABLE_NAME) or (SCHEMA_NAME.TABLE_NAME), depending on          * thespecific connectors . Select statements for the individual tables          * are specified in further configuration properties, one for each          * table, identified by the id          * 'snapshot.select.statement.overrides.[DB_NAME].[TABLE_NAME]' or          * 'snapshot.select.statement.overrides.[SCHEMA_NAME].[TABLE_NAME]',          * respectively. The value of those properties is the select statement          * to use when retrieving data from the specific table during          * snapshotting. A possible use case for large append-only tables is          * setting a specific point where to start (resume) snapshotting, in          * case a previous snapshotting was interrupted.          */
+DECL|field|snapshotSelectStatementOverrides
+specifier|private
+name|String
+name|snapshotSelectStatementOverrides
+decl_stmt|;
 comment|/**          * A list of host/port pairs that the connector will use for          * establishing the initial connection to the Kafka cluster for          * retrieving database schema history previously stored by the          * connector. This should point to the same Kafka cluster used by the          * Kafka Connect process.          */
 DECL|field|databaseHistoryKafkaBootstrapServers
 specifier|private
@@ -304,6 +316,14 @@ name|Integer
 name|heartbeatIntervalMs
 init|=
 literal|0
+decl_stmt|;
+comment|/**          * A version of the format of the publicly visible source part in the          * message          */
+DECL|field|sourceStructVersion
+specifier|private
+name|String
+name|sourceStructVersion
+init|=
+literal|"v2"
 decl_stmt|;
 comment|/**          * Password to unlock the keystore file (store password) specified by          * 'ssl.trustore' configuration property or the          * 'javax.net.ssl.trustStore' system or JVM property.          */
 DECL|field|databaseSslTruststorePassword
@@ -334,14 +354,6 @@ name|String
 name|gtidNewChannelPosition
 init|=
 literal|"latest"
-decl_stmt|;
-comment|/**          * MySQL DDL statements can be parsed in different ways:'legacy' parsing          * is creating a TokenStream and comparing token by token with an          * expected values.The decisions are made by matched token          * values.'antlr' (the default) uses generated parser from MySQL grammar          * using ANTLR v4 tool which use ALL(*) algorithm for parsing.This          * parser creates a parsing tree for DDL statement, then walks trough it          * and apply changes by node types in parsed tree.          */
-DECL|field|ddlParserMode
-specifier|private
-name|String
-name|ddlParserMode
-init|=
-literal|"antlr"
 decl_stmt|;
 comment|/**          * Password of the MySQL database user to be used when connecting to the          * database.          */
 DECL|field|databasePassword
@@ -521,7 +533,7 @@ name|eventDeserializationFailureHandlingMode
 init|=
 literal|"fail"
 decl_stmt|;
-comment|/**          * Time, date, and timestamps can be represented with different kinds of          * precisions, including:'adaptive_time_microseconds' (the default) like          * 'adaptive' mode, but TIME fields always use microseconds          * precision;'adaptive' (deprecated) bases the precision of time, date,          * and timestamp values on the database column's precision; 'connect'          * always represents time, date, and timestamp values using Kafka          * Connect's built-in representations for Time, Date, and Timestamp,          * which uses millisecond precision regardless of the database columns'          * precision.          */
+comment|/**          * Time, date and timestamps can be represented with different kinds of          * precisions, including:'adaptive_time_microseconds': the precision of          * date and timestamp values is based the database column's precision;          * but time fields always use microseconds precision;'connect': always          * represents time, date and timestamp values using Kafka Connect's          * built-in representations for Time, Date, and Timestamp, which uses          * millisecond precision regardless of the database columns' precision.          */
 DECL|field|timePrecisionMode
 specifier|private
 name|String
@@ -701,6 +713,32 @@ operator|.
 name|snapshotLockingMode
 operator|=
 name|snapshotLockingMode
+expr_stmt|;
+block|}
+DECL|method|getMessageKeyColumns ()
+specifier|public
+name|String
+name|getMessageKeyColumns
+parameter_list|()
+block|{
+return|return
+name|messageKeyColumns
+return|;
+block|}
+DECL|method|setMessageKeyColumns (String messageKeyColumns)
+specifier|public
+name|void
+name|setMessageKeyColumns
+parameter_list|(
+name|String
+name|messageKeyColumns
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageKeyColumns
+operator|=
+name|messageKeyColumns
 expr_stmt|;
 block|}
 DECL|method|getColumnBlacklist ()
@@ -1041,6 +1079,32 @@ operator|=
 name|gtidSourceExcludes
 expr_stmt|;
 block|}
+DECL|method|getSnapshotSelectStatementOverrides ()
+specifier|public
+name|String
+name|getSnapshotSelectStatementOverrides
+parameter_list|()
+block|{
+return|return
+name|snapshotSelectStatementOverrides
+return|;
+block|}
+DECL|method|setSnapshotSelectStatementOverrides ( String snapshotSelectStatementOverrides)
+specifier|public
+name|void
+name|setSnapshotSelectStatementOverrides
+parameter_list|(
+name|String
+name|snapshotSelectStatementOverrides
+parameter_list|)
+block|{
+name|this
+operator|.
+name|snapshotSelectStatementOverrides
+operator|=
+name|snapshotSelectStatementOverrides
+expr_stmt|;
+block|}
 DECL|method|getDatabaseHistoryKafkaBootstrapServers ()
 specifier|public
 name|String
@@ -1117,6 +1181,32 @@ operator|.
 name|heartbeatIntervalMs
 operator|=
 name|heartbeatIntervalMs
+expr_stmt|;
+block|}
+DECL|method|getSourceStructVersion ()
+specifier|public
+name|String
+name|getSourceStructVersion
+parameter_list|()
+block|{
+return|return
+name|sourceStructVersion
+return|;
+block|}
+DECL|method|setSourceStructVersion (String sourceStructVersion)
+specifier|public
+name|void
+name|setSourceStructVersion
+parameter_list|(
+name|String
+name|sourceStructVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sourceStructVersion
+operator|=
+name|sourceStructVersion
 expr_stmt|;
 block|}
 DECL|method|getDatabaseSslTruststorePassword ()
@@ -1221,32 +1311,6 @@ operator|.
 name|gtidNewChannelPosition
 operator|=
 name|gtidNewChannelPosition
-expr_stmt|;
-block|}
-DECL|method|getDdlParserMode ()
-specifier|public
-name|String
-name|getDdlParserMode
-parameter_list|()
-block|{
-return|return
-name|ddlParserMode
-return|;
-block|}
-DECL|method|setDdlParserMode (String ddlParserMode)
-specifier|public
-name|void
-name|setDdlParserMode
-parameter_list|(
-name|String
-name|ddlParserMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ddlParserMode
-operator|=
-name|ddlParserMode
 expr_stmt|;
 block|}
 DECL|method|getDatabasePassword ()

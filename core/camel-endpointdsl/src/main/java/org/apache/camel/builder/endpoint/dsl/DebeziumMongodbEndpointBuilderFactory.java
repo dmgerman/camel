@@ -745,6 +745,69 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Length of an interval in milli-seconds in in which the connector          * periodically sends heartbeat messages to a heartbeat topic. Use 0 to          * disable heartbeat messages. Disabled by default.          *           * The option is a:<code>int</code> type.          *           * Group: mongodb          */
+DECL|method|heartbeatIntervalMs ( int heartbeatIntervalMs)
+specifier|default
+name|DebeziumMongodbEndpointBuilder
+name|heartbeatIntervalMs
+parameter_list|(
+name|int
+name|heartbeatIntervalMs
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"heartbeatIntervalMs"
+argument_list|,
+name|heartbeatIntervalMs
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Length of an interval in milli-seconds in in which the connector          * periodically sends heartbeat messages to a heartbeat topic. Use 0 to          * disable heartbeat messages. Disabled by default.          *           * The option will be converted to a<code>int</code> type.          *           * Group: mongodb          */
+DECL|method|heartbeatIntervalMs ( String heartbeatIntervalMs)
+specifier|default
+name|DebeziumMongodbEndpointBuilder
+name|heartbeatIntervalMs
+parameter_list|(
+name|String
+name|heartbeatIntervalMs
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"heartbeatIntervalMs"
+argument_list|,
+name|heartbeatIntervalMs
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * The prefix that is used to name heartbeat topics.Defaults to          * __debezium-heartbeat.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: mongodb          */
+DECL|method|heartbeatTopicsPrefix ( String heartbeatTopicsPrefix)
+specifier|default
+name|DebeziumMongodbEndpointBuilder
+name|heartbeatTopicsPrefix
+parameter_list|(
+name|String
+name|heartbeatTopicsPrefix
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"heartbeatTopicsPrefix"
+argument_list|,
+name|heartbeatTopicsPrefix
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Maximum number of threads used to perform an intial sync of the          * collections in a replica set. Defaults to 1.          *           * The option is a:<code>int</code> type.          *           * Group: mongodb          */
 DECL|method|initialSyncMaxThreads ( int initialSyncMaxThreads)
 specifier|default
@@ -1222,6 +1285,27 @@ argument_list|(
 literal|"snapshotMode"
 argument_list|,
 name|snapshotMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * A version of the format of the publicly visible source part in the          * message.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: mongodb          */
+DECL|method|sourceStructVersion ( String sourceStructVersion)
+specifier|default
+name|DebeziumMongodbEndpointBuilder
+name|sourceStructVersion
+parameter_list|(
+name|String
+name|sourceStructVersion
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"sourceStructVersion"
+argument_list|,
+name|sourceStructVersion
 argument_list|)
 expr_stmt|;
 return|return

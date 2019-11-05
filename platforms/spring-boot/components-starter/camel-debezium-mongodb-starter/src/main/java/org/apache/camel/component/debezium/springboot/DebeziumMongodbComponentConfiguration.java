@@ -267,6 +267,14 @@ name|pollIntervalMs
 init|=
 literal|500L
 decl_stmt|;
+comment|/**          * The prefix that is used to name heartbeat topics.Defaults to          * __debezium-heartbeat.          */
+DECL|field|heartbeatTopicsPrefix
+specifier|private
+name|String
+name|heartbeatTopicsPrefix
+init|=
+literal|"__debezium-heartbeat"
+decl_stmt|;
 comment|/**          * The databases for which changes are to be captured          */
 DECL|field|databaseWhitelist
 specifier|private
@@ -318,6 +326,22 @@ DECL|field|fieldBlacklist
 specifier|private
 name|String
 name|fieldBlacklist
+decl_stmt|;
+comment|/**          * A version of the format of the publicly visible source part in the          * message          */
+DECL|field|sourceStructVersion
+specifier|private
+name|String
+name|sourceStructVersion
+init|=
+literal|"v2"
+decl_stmt|;
+comment|/**          * Length of an interval in milli-seconds in in which the connector          * periodically sends heartbeat messages to a heartbeat topic. Use 0 to          * disable heartbeat messages. Disabled by default.          */
+DECL|field|heartbeatIntervalMs
+specifier|private
+name|Integer
+name|heartbeatIntervalMs
+init|=
+literal|0
 decl_stmt|;
 comment|/**          * Unique name that identifies the MongoDB replica set or cluster and          * all recorded offsets, andthat is used as a prefix for all schemas and          * topics. Each distinct MongoDB installation should have a separate          * namespace and monitored by at most one Debezium connector.          */
 DECL|field|mongodbName
@@ -733,6 +757,32 @@ operator|=
 name|pollIntervalMs
 expr_stmt|;
 block|}
+DECL|method|getHeartbeatTopicsPrefix ()
+specifier|public
+name|String
+name|getHeartbeatTopicsPrefix
+parameter_list|()
+block|{
+return|return
+name|heartbeatTopicsPrefix
+return|;
+block|}
+DECL|method|setHeartbeatTopicsPrefix (String heartbeatTopicsPrefix)
+specifier|public
+name|void
+name|setHeartbeatTopicsPrefix
+parameter_list|(
+name|String
+name|heartbeatTopicsPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|heartbeatTopicsPrefix
+operator|=
+name|heartbeatTopicsPrefix
+expr_stmt|;
+block|}
 DECL|method|getDatabaseWhitelist ()
 specifier|public
 name|String
@@ -939,6 +989,58 @@ operator|.
 name|fieldBlacklist
 operator|=
 name|fieldBlacklist
+expr_stmt|;
+block|}
+DECL|method|getSourceStructVersion ()
+specifier|public
+name|String
+name|getSourceStructVersion
+parameter_list|()
+block|{
+return|return
+name|sourceStructVersion
+return|;
+block|}
+DECL|method|setSourceStructVersion (String sourceStructVersion)
+specifier|public
+name|void
+name|setSourceStructVersion
+parameter_list|(
+name|String
+name|sourceStructVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sourceStructVersion
+operator|=
+name|sourceStructVersion
+expr_stmt|;
+block|}
+DECL|method|getHeartbeatIntervalMs ()
+specifier|public
+name|Integer
+name|getHeartbeatIntervalMs
+parameter_list|()
+block|{
+return|return
+name|heartbeatIntervalMs
+return|;
+block|}
+DECL|method|setHeartbeatIntervalMs (Integer heartbeatIntervalMs)
+specifier|public
+name|void
+name|setHeartbeatIntervalMs
+parameter_list|(
+name|Integer
+name|heartbeatIntervalMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|heartbeatIntervalMs
+operator|=
+name|heartbeatIntervalMs
 expr_stmt|;
 block|}
 DECL|method|getMongodbName ()
