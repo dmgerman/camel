@@ -1125,6 +1125,48 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * If the option is true, UndertowProducer will set the Host header to          * the value contained in the current exchange Host header, useful in          * reverse proxy applications where you want the Host header received by          * the downstream server to reflect the URL called by the upstream          * client, this allows applications which use the Host header to          * generate accurate URL's for a proxied service.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|preserveHostHeader ( boolean preserveHostHeader)
+specifier|default
+name|UndertowEndpointProducerBuilder
+name|preserveHostHeader
+parameter_list|(
+name|boolean
+name|preserveHostHeader
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"preserveHostHeader"
+argument_list|,
+name|preserveHostHeader
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * If the option is true, UndertowProducer will set the Host header to          * the value contained in the current exchange Host header, useful in          * reverse proxy applications where you want the Host header received by          * the downstream server to reflect the URL called by the upstream          * client, this allows applications which use the Host header to          * generate accurate URL's for a proxied service.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|preserveHostHeader ( String preserveHostHeader)
+specifier|default
+name|UndertowEndpointProducerBuilder
+name|preserveHostHeader
+parameter_list|(
+name|String
+name|preserveHostHeader
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"preserveHostHeader"
+argument_list|,
+name|preserveHostHeader
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Setting to facilitate socket multiplexing.          *           * The option is a:<code>java.lang.Boolean</code> type.          *           * Group: producer          */
 DECL|method|reuseAddresses ( Boolean reuseAddresses)
 specifier|default
