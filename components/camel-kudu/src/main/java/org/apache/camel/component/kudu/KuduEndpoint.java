@@ -186,7 +186,7 @@ literal|"kudu"
 argument_list|,
 name|title
 operator|=
-literal|"Apache Kudu"
+literal|"Kudu"
 argument_list|,
 name|syntax
 operator|=
