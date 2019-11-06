@@ -89,7 +89,7 @@ specifier|public
 interface|interface
 name|KuduEndpointBuilderFactory
 block|{
-comment|/**      * Builder for endpoint for the Apache Kudu component.      */
+comment|/**      * Builder for endpoint for the Kudu component.      */
 DECL|interface|KuduEndpointBuilder
 specifier|public
 interface|interface
@@ -195,7 +195,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/**      * Advanced builder for endpoint for the Apache Kudu component.      */
+comment|/**      * Advanced builder for endpoint for the Kudu component.      */
 DECL|interface|AdvancedKuduEndpointBuilder
 specifier|public
 interface|interface
@@ -315,7 +315,7 @@ block|,
 DECL|enumConstant|SCAN
 name|SCAN
 block|;     }
-comment|/**      * Apache Kudu (camel-kudu)      * Represents a Kudu endpoint. A kudu endpoint allows you to interact with      * Apache Kudu, a free and open source column-oriented data store of the      * Apache Hadoop ecosystem.      *       * Category: cloud,database,iot      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-kudu      *       * Syntax:<code>kudu:host:port/tableName</code>      *       * Path parameter: host      * Kudu master to connect to      *       * Path parameter: port      * Port where kudu service is listening      *       * Path parameter: tableName      * The name of the table where the rows are stored      */
+comment|/**      * Kudu (camel-kudu)      * Represents a Kudu endpoint. A kudu endpoint allows you to interact with      * Apache Kudu, a free and open source column-oriented data store of the      * Apache Hadoop ecosystem.      *       * Category: cloud,database,iot      * Available as of version: 3.0      * Maven coordinates: org.apache.camel:camel-kudu      *       * Syntax:<code>kudu:host:port/tableName</code>      *       * Path parameter: host      * Kudu master to connect to      *       * Path parameter: port      * Port where kudu service is listening      *       * Path parameter: tableName      * The name of the table where the rows are stored      */
 DECL|method|kudu (String path)
 specifier|default
 name|KuduEndpointBuilder
