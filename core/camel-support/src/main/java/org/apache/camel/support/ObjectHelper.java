@@ -120,6 +120,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|stream
 operator|.
 name|Stream
@@ -249,6 +261,25 @@ specifier|final
 class|class
 name|ObjectHelper
 block|{
+static|static
+block|{
+name|DEFAULT_PATTERN
+operator|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|",(?!(?:[^\\(,]|[^\\)],[^\\)])+\\))"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|field|DEFAULT_PATTERN
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|DEFAULT_PATTERN
+decl_stmt|;
 DECL|field|DEFAULT_DELIMITER
 specifier|private
 specifier|static
@@ -1575,9 +1606,6 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|String
-name|del
-decl_stmt|;
 if|if
 condition|(
 name|DEFAULT_DELIMITER
@@ -1598,17 +1626,17 @@ comment|// then the regexp will split that into two:
 comment|// -> bean=foo?method=killer(a,b)
 comment|// -> bean=bar?method=great(a,b)
 comment|// http://stackoverflow.com/questions/1516090/splitting-a-title-into-separate-parts
-name|del
-operator|=
-literal|",(?!(?:[^\\(,]|[^\\)],[^\\)])+\\))"
-expr_stmt|;
-block|}
-else|else
-block|{
-name|del
-operator|=
-name|delimiter
-expr_stmt|;
+return|return
+parameter_list|()
+lambda|->
+operator|new
+name|Scanner
+argument_list|(
+name|value
+argument_list|,
+name|DEFAULT_PATTERN
+argument_list|)
+return|;
 block|}
 return|return
 parameter_list|()
@@ -1618,7 +1646,7 @@ name|Scanner
 argument_list|(
 name|value
 argument_list|,
-name|del
+name|delimiter
 argument_list|)
 return|;
 block|}
@@ -2272,9 +2300,6 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|String
-name|del
-decl_stmt|;
 if|if
 condition|(
 name|DEFAULT_DELIMITER
@@ -2295,17 +2320,23 @@ comment|// then the regexp will split that into two:
 comment|// -> bean=foo?method=killer(a,b)
 comment|// -> bean=bar?method=great(a,b)
 comment|// http://stackoverflow.com/questions/1516090/splitting-a-title-into-separate-parts
-name|del
-operator|=
-literal|",(?!(?:[^\\(,]|[^\\)],[^\\)])+\\))"
-expr_stmt|;
-block|}
-else|else
-block|{
-name|del
-operator|=
-name|delimiter
-expr_stmt|;
+return|return
+call|(
+name|Iterable
+argument_list|<
+name|String
+argument_list|>
+call|)
+argument_list|()
+operator|->
+operator|new
+name|Scanner
+argument_list|(
+name|s
+argument_list|,
+name|DEFAULT_PATTERN
+argument_list|)
+return|;
 block|}
 return|return
 call|(
@@ -2321,7 +2352,7 @@ name|Scanner
 argument_list|(
 name|s
 argument_list|,
-name|del
+name|delimiter
 argument_list|)
 return|;
 block|}
