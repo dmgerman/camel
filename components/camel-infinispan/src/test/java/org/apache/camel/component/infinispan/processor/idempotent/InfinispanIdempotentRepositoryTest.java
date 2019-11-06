@@ -182,20 +182,6 @@ specifier|public
 class|class
 name|InfinispanIdempotentRepositoryTest
 block|{
-DECL|field|GLOBAL_CONFIGURATION
-specifier|public
-specifier|static
-specifier|final
-name|GlobalConfiguration
-name|GLOBAL_CONFIGURATION
-init|=
-operator|new
-name|GlobalConfigurationBuilder
-argument_list|()
-operator|.
-name|build
-argument_list|()
-decl_stmt|;
 DECL|field|basicCacheContainer
 specifier|protected
 name|BasicCacheContainer
@@ -220,8 +206,6 @@ specifier|public
 name|void
 name|setUp
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|GlobalConfiguration
 name|global
@@ -229,6 +213,11 @@ init|=
 operator|new
 name|GlobalConfigurationBuilder
 argument_list|()
+operator|.
+name|defaultCacheName
+argument_list|(
+literal|"default"
+argument_list|)
 operator|.
 name|globalJmxStatistics
 argument_list|()
@@ -285,8 +274,6 @@ specifier|public
 name|void
 name|tearDown
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|basicCacheContainer
 operator|.
@@ -301,8 +288,6 @@ specifier|public
 name|void
 name|addsNewKeysToCache
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertTrue
 argument_list|(
@@ -354,8 +339,6 @@ specifier|public
 name|void
 name|skipsAddingSecondTimeTheSameKey
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertTrue
 argument_list|(
@@ -385,8 +368,6 @@ specifier|public
 name|void
 name|containsPreviouslyAddedKey
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertFalse
 argument_list|(
@@ -423,8 +404,6 @@ specifier|public
 name|void
 name|removesAnExistingKey
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|idempotentRepository
 operator|.
@@ -461,8 +440,6 @@ specifier|public
 name|void
 name|doesntRemoveMissingKey
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertFalse
 argument_list|(
@@ -482,8 +459,6 @@ specifier|public
 name|void
 name|clearCache
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertTrue
 argument_list|(

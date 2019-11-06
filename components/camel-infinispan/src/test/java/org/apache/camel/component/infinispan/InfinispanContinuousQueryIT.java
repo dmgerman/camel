@@ -142,6 +142,20 @@ name|hotrod
 operator|.
 name|marshall
 operator|.
+name|MarshallerUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|infinispan
+operator|.
+name|commons
+operator|.
+name|marshall
+operator|.
 name|ProtoStreamMarshaller
 import|;
 end_import
@@ -270,7 +284,7 @@ name|remote
 operator|.
 name|client
 operator|.
-name|MarshallerRegistration
+name|ProtobufMetadataManagerConstants
 import|;
 end_import
 
@@ -286,7 +300,9 @@ name|remote
 operator|.
 name|client
 operator|.
-name|ProtobufMetadataManagerConstants
+name|impl
+operator|.
+name|MarshallerRegistration
 import|;
 end_import
 
@@ -617,9 +633,9 @@ argument_list|)
 expr_stmt|;
 name|MarshallerRegistration
 operator|.
-name|registerMarshallers
+name|init
 argument_list|(
-name|ProtoStreamMarshaller
+name|MarshallerUtil
 operator|.
 name|getSerializationContext
 argument_list|(
@@ -630,7 +646,7 @@ expr_stmt|;
 name|SerializationContext
 name|serCtx
 init|=
-name|ProtoStreamMarshaller
+name|MarshallerUtil
 operator|.
 name|getSerializationContext
 argument_list|(
@@ -672,9 +688,17 @@ name|cache
 operator|=
 name|manager
 operator|.
-name|getCache
+name|administration
+argument_list|()
+operator|.
+name|getOrCreateCache
 argument_list|(
 literal|"remote_query"
+argument_list|,
+operator|(
+name|String
+operator|)
+literal|null
 argument_list|)
 expr_stmt|;
 name|cache
