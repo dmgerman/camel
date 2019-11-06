@@ -51,6 +51,11 @@ specifier|private
 name|String
 name|username
 decl_stmt|;
+DECL|field|user
+specifier|private
+name|String
+name|user
+decl_stmt|;
 DECL|field|iconUrl
 specifier|private
 name|String
@@ -145,6 +150,32 @@ operator|.
 name|username
 operator|=
 name|username
+expr_stmt|;
+block|}
+DECL|method|getUser ()
+specifier|public
+name|String
+name|getUser
+parameter_list|()
+block|{
+return|return
+name|user
+return|;
+block|}
+DECL|method|setUser (String user)
+specifier|public
+name|void
+name|setUser
+parameter_list|(
+name|String
+name|user
+parameter_list|)
+block|{
+name|this
+operator|.
+name|user
+operator|=
+name|user
 expr_stmt|;
 block|}
 DECL|method|getIconUrl ()

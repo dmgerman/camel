@@ -760,13 +760,13 @@ literal|"text"
 argument_list|)
 decl_stmt|;
 name|String
-name|username
+name|user
 init|=
 name|object
 operator|.
 name|getString
 argument_list|(
-literal|"username"
+literal|"user"
 argument_list|)
 decl_stmt|;
 name|slackMessage
@@ -778,9 +778,9 @@ argument_list|)
 expr_stmt|;
 name|slackMessage
 operator|.
-name|setUsername
+name|setUser
 argument_list|(
-name|username
+name|user
 argument_list|)
 expr_stmt|;
 if|if
