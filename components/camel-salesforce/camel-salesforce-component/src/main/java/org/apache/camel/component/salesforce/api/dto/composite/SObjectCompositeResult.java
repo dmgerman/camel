@@ -165,7 +165,7 @@ name|referenceId
 decl_stmt|;
 annotation|@
 name|JsonCreator
-DECL|method|SObjectCompositeResult (@sonPropertyR) final Object body, @JsonProperty(R) final Map<String, String> headers, @JsonProperty(R) final int httpStatusCode, @JsonProperty(R) final String referenceId)
+DECL|method|SObjectCompositeResult (@sonPropertyR) final Object body, @JsonProperty(R) final Map<String, String> httpHeaders, @JsonProperty(R) final int httpStatusCode, @JsonProperty(R) final String referenceId)
 specifier|public
 name|SObjectCompositeResult
 parameter_list|(
@@ -181,7 +181,7 @@ parameter_list|,
 annotation|@
 name|JsonProperty
 argument_list|(
-literal|"headers"
+literal|"httpHeaders"
 argument_list|)
 specifier|final
 name|Map
@@ -190,7 +190,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|headers
+name|httpHeaders
 parameter_list|,
 annotation|@
 name|JsonProperty
@@ -217,9 +217,11 @@ name|body
 operator|=
 name|body
 expr_stmt|;
+name|this
+operator|.
 name|httpHeaders
 operator|=
-name|headers
+name|httpHeaders
 expr_stmt|;
 name|this
 operator|.
