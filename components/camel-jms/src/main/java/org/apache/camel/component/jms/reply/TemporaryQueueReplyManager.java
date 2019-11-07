@@ -1111,14 +1111,17 @@ literal|null
 operator|||
 name|refreshWanted
 operator|.
-name|compareAndSet
-argument_list|(
-literal|true
-argument_list|,
-literal|false
-argument_list|)
+name|get
+argument_list|()
 condition|)
 block|{
+name|refreshWanted
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|queue
 operator|=
 name|session
@@ -1198,6 +1201,15 @@ init|(
 name|refreshWanted
 init|)
 block|{
+comment|//check if requestWanted is still true
+if|if
+condition|(
+name|refreshWanted
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -1210,6 +1222,7 @@ operator|.
 name|wait
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
