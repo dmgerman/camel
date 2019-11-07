@@ -92,21 +92,21 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The cipher algorithm to be used for encryption/decryption of the XML      * message content. The available choices are: XMLCipher.TRIPLEDES      * XMLCipher.AES_128 XMLCipher.AES_128_GCM XMLCipher.AES_192      * XMLCipher.AES_192_GCM XMLCipher.AES_256 XMLCipher.AES_256_GCM      * XMLCipher.SEED_128 XMLCipher.CAMELLIA_128 XMLCipher.CAMELLIA_192      * XMLCipher.CAMELLIA_256 The default value is MLCipher.TRIPLEDES      */
+comment|/**      * The cipher algorithm to be used for encryption/decryption of the XML      * message content. The available choices are: XMLCipher.TRIPLEDES      * XMLCipher.AES_128 XMLCipher.AES_128_GCM XMLCipher.AES_192      * XMLCipher.AES_192_GCM XMLCipher.AES_256 XMLCipher.AES_256_GCM      * XMLCipher.SEED_128 XMLCipher.CAMELLIA_128 XMLCipher.CAMELLIA_192      * XMLCipher.CAMELLIA_256 The default value is XMLCipher.AES_256_GCM      */
 DECL|field|xmlCipherAlgorithm
 specifier|private
 name|String
 name|xmlCipherAlgorithm
 init|=
-literal|"TRIPLEDES"
+literal|"AES-256-GCM"
 decl_stmt|;
-comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. If no passPhrase is specified, a default passPhrase      * is used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a Only another 24 Byte key      */
+comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. The passPhrase needs to be put together in      * conjunction with the appropriate encryption algorithm. For example using      * TRIPLEDES the passPhase can be a Only another 24 Byte key      */
 DECL|field|passPhrase
 specifier|private
 name|String
 name|passPhrase
 decl_stmt|;
-comment|/**      * A byte used as passPhrase to encrypt/decrypt content. The passPhrase has      * to be provided. If no passPhrase is specified, a default passPhrase is      * used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a Only another 24 Byte key      */
+comment|/**      * A byte used as passPhrase to encrypt/decrypt content. The passPhrase has      * to be provided. The passPhrase needs to be put together in conjunction      * with the appropriate encryption algorithm. For example using TRIPLEDES      * the passPhase can be a Only another 24 Byte key      */
 DECL|field|passPhraseByte
 specifier|private
 name|byte

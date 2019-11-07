@@ -639,15 +639,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|DEFAULT_KEY
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_KEY
-init|=
-literal|"Just another 24 Byte key"
-decl_stmt|;
 DECL|field|xmlCipherAlgorithm
 specifier|private
 name|String
@@ -758,17 +749,7 @@ name|xmlCipherAlgorithm
 operator|=
 name|XMLCipher
 operator|.
-name|TRIPLEDES
-expr_stmt|;
-comment|// set a default pass phrase as its required
-name|this
-operator|.
-name|passPhrase
-operator|=
-name|DEFAULT_KEY
-operator|.
-name|getBytes
-argument_list|()
+name|AES_256_GCM
 expr_stmt|;
 name|this
 operator|.
@@ -2154,7 +2135,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Configure the public key for the asymmetric key wrap algorithm, create the key cipher, and delegate      * to common encryption method.      *       * The method first checks the exchange for a declared key alias, and will fall back to the      * statically-defined instance variable if no value is found in the exchange. This allows different      * aliases / keys to be used for multiple-recipient messaging integration patterns such as CBR      * or recipient list.      */
+comment|/**      * Configure the public key for the asymmetric key wrap algorithm, create the key cipher, and delegate      * to common encryption method.      *      * The method first checks the exchange for a declared key alias, and will fall back to the      * statically-defined instance variable if no value is found in the exchange. This allows different      * aliases / keys to be used for multiple-recipient messaging integration patterns such as CBR      * or recipient list.      */
 DECL|method|encryptAsymmetric (Exchange exchange, Document document, OutputStream stream)
 specifier|private
 name|void
@@ -2827,6 +2808,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+try|try
+init|(
 name|XPathBuilder
 name|xpathBuilder
 init|=
@@ -2835,7 +2818,8 @@ name|XPathBuilder
 argument_list|(
 name|secureTag
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|xpathBuilder
 operator|.
 name|setNamespaceContext
@@ -2947,6 +2931,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 try|try
@@ -3603,6 +3588,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+try|try
+init|(
 name|XPathBuilder
 name|xpathBuilder
 init|=
@@ -3611,7 +3598,8 @@ name|XPathBuilder
 argument_list|(
 name|secureTag
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|xpathBuilder
 operator|.
 name|setNamespaceContext
@@ -3820,6 +3808,7 @@ block|}
 block|}
 block|}
 block|}
+block|}
 name|ByteArrayOutputStream
 name|bos
 init|=
@@ -3899,6 +3888,28 @@ name|NoSuchAlgorithmException
 throws|,
 name|InvalidKeySpecException
 block|{
+if|if
+condition|(
+name|passPhrase
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"A passphrase must be specified for encryption"
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|InvalidKeyException
+argument_list|(
+literal|"A passphrase must be specified for encryption"
+argument_list|)
+throw|;
+block|}
 name|DESedeKeySpec
 name|keySpec
 decl_stmt|;
@@ -3999,29 +4010,6 @@ argument_list|(
 name|passPhrase
 argument_list|,
 literal|"AES"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|Arrays
-operator|.
-name|equals
-argument_list|(
-name|passPhrase
-argument_list|,
-name|DEFAULT_KEY
-operator|.
-name|getBytes
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Using the default encryption key is not secure"
 argument_list|)
 expr_stmt|;
 block|}

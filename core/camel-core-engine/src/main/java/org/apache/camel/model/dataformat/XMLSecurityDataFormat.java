@@ -216,7 +216,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"TRIPLEDES"
+literal|"AES-256-GCM"
 argument_list|)
 DECL|field|xmlCipherAlgorithm
 specifier|private
@@ -369,7 +369,7 @@ return|return
 name|xmlCipherAlgorithm
 return|;
 block|}
-comment|/**      * The cipher algorithm to be used for encryption/decryption of the XML      * message content. The available choices are:      *<ul>      *<li>XMLCipher.TRIPLEDES</li>      *<li>XMLCipher.AES_128</li>      *<li>XMLCipher.AES_128_GCM</li>      *<li>XMLCipher.AES_192</li>      *<li>XMLCipher.AES_192_GCM</li>      *<li>XMLCipher.AES_256</li>      *<li>XMLCipher.AES_256_GCM</li>      *<li>XMLCipher.SEED_128</li>      *<li>XMLCipher.CAMELLIA_128</li>      *<li>XMLCipher.CAMELLIA_192</li>      *<li>XMLCipher.CAMELLIA_256</li>      *</ul>      * The default value is MLCipher.TRIPLEDES      */
+comment|/**      * The cipher algorithm to be used for encryption/decryption of the XML      * message content. The available choices are:      *<ul>      *<li>XMLCipher.TRIPLEDES</li>      *<li>XMLCipher.AES_128</li>      *<li>XMLCipher.AES_128_GCM</li>      *<li>XMLCipher.AES_192</li>      *<li>XMLCipher.AES_192_GCM</li>      *<li>XMLCipher.AES_256</li>      *<li>XMLCipher.AES_256_GCM</li>      *<li>XMLCipher.SEED_128</li>      *<li>XMLCipher.CAMELLIA_128</li>      *<li>XMLCipher.CAMELLIA_192</li>      *<li>XMLCipher.CAMELLIA_256</li>      *</ul>      * The default value is XMLCipher.AES_256_GCM      */
 DECL|method|setXmlCipherAlgorithm (String xmlCipherAlgorithm)
 specifier|public
 name|void
@@ -396,7 +396,7 @@ return|return
 name|passPhrase
 return|;
 block|}
-comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. If no passPhrase is specified, a default passPhrase      * is used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a "Only another 24 Byte key"      */
+comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a "Only another 24 Byte key"      */
 DECL|method|setPassPhrase (String passPhrase)
 specifier|public
 name|void
@@ -424,7 +424,7 @@ return|return
 name|passPhraseByte
 return|;
 block|}
-comment|/**      * A byte[] used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. If no passPhrase is specified, a default passPhrase      * is used. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a "Only another 24 Byte key"      */
+comment|/**      * A byte[] used as passPhrase to encrypt/decrypt content. The passPhrase      * has to be provided. The passPhrase needs to be put together in conjunction with the      * appropriate encryption algorithm. For example using TRIPLEDES the      * passPhase can be a "Only another 24 Byte key"      */
 DECL|method|setPassPhraseByte (byte[] passPhraseByte)
 specifier|public
 name|void
