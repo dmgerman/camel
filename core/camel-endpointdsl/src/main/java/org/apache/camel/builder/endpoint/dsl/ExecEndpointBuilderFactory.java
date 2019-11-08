@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|EndpointConsumerBuilder
@@ -209,6 +221,48 @@ argument_list|(
 literal|"commandExecutor"
 argument_list|,
 name|commandExecutor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Logging level to be used for commands during execution. The default          * value is DEBUG. Possible values are TRACE, DEBUG, INFO, WARN, ERROR          * or OFF. (Values of ExecCommandLogLevelType enum).          *           * The option is a:<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: producer          */
+DECL|method|commandLogLevel (LoggingLevel commandLogLevel)
+specifier|default
+name|ExecEndpointBuilder
+name|commandLogLevel
+parameter_list|(
+name|LoggingLevel
+name|commandLogLevel
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"commandLogLevel"
+argument_list|,
+name|commandLogLevel
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Logging level to be used for commands during execution. The default          * value is DEBUG. Possible values are TRACE, DEBUG, INFO, WARN, ERROR          * or OFF. (Values of ExecCommandLogLevelType enum).          *           * The option will be converted to a          *<code>org.apache.camel.LoggingLevel</code> type.          *           * Group: producer          */
+DECL|method|commandLogLevel (String commandLogLevel)
+specifier|default
+name|ExecEndpointBuilder
+name|commandLogLevel
+parameter_list|(
+name|String
+name|commandLogLevel
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"commandLogLevel"
+argument_list|,
+name|commandLogLevel
 argument_list|)
 expr_stmt|;
 return|return
