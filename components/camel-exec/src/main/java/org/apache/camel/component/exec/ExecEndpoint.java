@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -283,6 +295,22 @@ DECL|field|useStderrOnEmptyStdout
 specifier|private
 name|boolean
 name|useStderrOnEmptyStdout
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"DEBUG"
+argument_list|)
+DECL|field|commandLogLevel
+specifier|private
+name|LoggingLevel
+name|commandLogLevel
+init|=
+name|LoggingLevel
+operator|.
+name|DEBUG
 decl_stmt|;
 DECL|method|ExecEndpoint (String uri, ExecComponent component)
 specifier|public
@@ -621,6 +649,33 @@ operator|.
 name|useStderrOnEmptyStdout
 operator|=
 name|useStderrOnEmptyStdout
+expr_stmt|;
+block|}
+DECL|method|getCommandLogLevel ()
+specifier|public
+name|LoggingLevel
+name|getCommandLogLevel
+parameter_list|()
+block|{
+return|return
+name|commandLogLevel
+return|;
+block|}
+comment|/**      * Logging level to be used for commands during execution. The default value is DEBUG.      * Possible values are TRACE, DEBUG, INFO, WARN, ERROR or OFF. (Values of ExecCommandLogLevelType enum)      */
+DECL|method|setCommandLogLevel (LoggingLevel commandLogLevel)
+specifier|public
+name|void
+name|setCommandLogLevel
+parameter_list|(
+name|LoggingLevel
+name|commandLogLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|commandLogLevel
+operator|=
+name|commandLogLevel
 expr_stmt|;
 block|}
 block|}

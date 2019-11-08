@@ -79,6 +79,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -160,13 +172,20 @@ specifier|final
 name|InputStream
 name|input
 decl_stmt|;
+comment|/**      * Log level for commands during execution      */
+DECL|field|commandLogLevel
+specifier|private
+specifier|final
+name|LoggingLevel
+name|commandLogLevel
+decl_stmt|;
 DECL|field|useStderrOnEmptyStdout
 specifier|private
 specifier|final
 name|boolean
 name|useStderrOnEmptyStdout
 decl_stmt|;
-DECL|method|ExecCommand (String executable, List<String> args, String workingDir, Long timeout, InputStream input, File outFile, boolean useStderrOnEmptyStdout)
+DECL|method|ExecCommand (String executable, List<String> args, String workingDir, Long timeout, InputStream input, File outFile, boolean useStderrOnEmptyStdout, LoggingLevel commandLogLevel)
 specifier|public
 name|ExecCommand
 parameter_list|(
@@ -193,6 +212,9 @@ name|outFile
 parameter_list|,
 name|boolean
 name|useStderrOnEmptyStdout
+parameter_list|,
+name|LoggingLevel
+name|commandLogLevel
 parameter_list|)
 block|{
 name|notNull
@@ -246,6 +268,12 @@ operator|.
 name|useStderrOnEmptyStdout
 operator|=
 name|useStderrOnEmptyStdout
+expr_stmt|;
+name|this
+operator|.
+name|commandLogLevel
+operator|=
+name|commandLogLevel
 expr_stmt|;
 block|}
 DECL|method|getArgs ()
@@ -321,6 +349,16 @@ return|return
 name|useStderrOnEmptyStdout
 return|;
 block|}
+DECL|method|getCommandLogLevel ()
+specifier|public
+name|LoggingLevel
+name|getCommandLogLevel
+parameter_list|()
+block|{
+return|return
+name|commandLogLevel
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -374,6 +412,10 @@ operator|+
 literal|", workingDir="
 operator|+
 name|dirToPrint
+operator|+
+literal|", commandLogLevel="
+operator|+
+name|commandLogLevel
 operator|+
 literal|", useStderrOnEmptyStdout="
 operator|+

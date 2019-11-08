@@ -106,6 +106,13 @@ name|EXEC_USE_STDERR_ON_EMPTY_STDOUT
 init|=
 literal|"CamelExecUseStderrOnEmptyStdout"
 decl_stmt|;
+comment|/**      * The value of this header define logging level to be used for commands during execution. The default value is INFO.      * Possible values are TRACE, DEBUG, INFO, WARN, ERROR or OFF. (Values of LoggingLevel enum)      */
+DECL|field|EXEC_COMMAND_LOG_LEVEL
+name|String
+name|EXEC_COMMAND_LOG_LEVEL
+init|=
+literal|"CamelExecCommandLogLevel"
+decl_stmt|;
 comment|/**      * Creates a {@link ExecCommand} from the headers in the      *<code>exchange</code> and the settings of the<code>endpoint</code>.      *       * @param exchange a Camel {@link Exchange}      * @param endpoint an {@link ExecEndpoint} instance      * @return an {@link ExecCommand} object      * @see ExecCommandExecutor      */
 DECL|method|readInput (Exchange exchange, ExecEndpoint endpoint)
 name|ExecCommand
