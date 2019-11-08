@@ -405,7 +405,7 @@ specifier|private
 name|String
 name|signatureAlgorithm
 init|=
-literal|"http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+literal|"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
 decl_stmt|;
 comment|/**          * Digest algorithm URI. Optional parameter. This digest algorithm is          * used for calculating the digest of the input message. If this digest          * algorithm is not specified then the digest algorithm is calculated          * from the signature algorithm. Example:          * "http://www.w3.org/2001/04/xmlenc#sha256"          */
 DECL|field|digestAlgorithm

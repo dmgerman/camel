@@ -381,14 +381,14 @@ literal|"sign"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+literal|"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
 argument_list|)
 DECL|field|signatureAlgorithm
 specifier|private
 name|String
 name|signatureAlgorithm
 init|=
-literal|"http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+literal|"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1036,7 +1036,7 @@ return|return
 name|prefixForXmlSignatureNamespace
 return|;
 block|}
-comment|/**      * Namespace prefix for the XML signature namespace      * "http://www.w3.org/2000/09/xmldsig#". Default value is "ds".      *       * If<code>null</code> or an empty value is set then no prefix is used for      * the XML signature namespace.      *<p>      * See best practice      * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-      * without-namespaces      *       * @param prefixForXmlSignatureNamespace      *            prefix      */
+comment|/**      * Namespace prefix for the XML signature namespace      * "http://www.w3.org/2000/09/xmldsig#". Default value is "ds".      *      * If<code>null</code> or an empty value is set then no prefix is used for      * the XML signature namespace.      *<p>      * See best practice      * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-      * without-namespaces      *      * @param prefixForXmlSignatureNamespace      *            prefix      */
 DECL|method|setPrefixForXmlSignatureNamespace (String prefixForXmlSignatureNamespace)
 specifier|public
 name|void
@@ -1063,7 +1063,7 @@ return|return
 name|parentLocalName
 return|;
 block|}
-comment|/**      * Local name of the parent element to which the XML signature element will      * be added. Only relevant for enveloped XML signature. Alternatively you can       * also use {@link #setParentXpath(XPathFilterParameterSpec)}.      *       *<p> Default value is      *<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * This parameter or the parameter {@link #setParentXpath(XPathFilterParameterSpec)}      * for enveloped signature and the parameter {@link #setXpathsToIdAttributes(List)}       * for detached signature must not be set in the same configuration.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *       * @param parentLocalName      *            local name      */
+comment|/**      * Local name of the parent element to which the XML signature element will      * be added. Only relevant for enveloped XML signature. Alternatively you can      * also use {@link #setParentXpath(XPathFilterParameterSpec)}.      *      *<p> Default value is      *<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * This parameter or the parameter {@link #setParentXpath(XPathFilterParameterSpec)}      * for enveloped signature and the parameter {@link #setXpathsToIdAttributes(List)}      * for detached signature must not be set in the same configuration.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *      * @param parentLocalName      *            local name      */
 DECL|method|setParentLocalName (String parentLocalName)
 specifier|public
 name|void
@@ -1558,7 +1558,7 @@ return|return
 name|parentXpath
 return|;
 block|}
-comment|/**      * Sets the XPath to find the parent node in the enveloped case.      * Either you specify the parent node via this method or the local name and namespace of the parent       * with the methods {@link #setParentLocalName(String)} and {@link #setParentNamespace(String)}.       *<p>      * Default value is<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *       * @param parentXpath xpath to the parent node, if the xpath returns several values then the first Element node is used      */
+comment|/**      * Sets the XPath to find the parent node in the enveloped case.      * Either you specify the parent node via this method or the local name and namespace of the parent      * with the methods {@link #setParentLocalName(String)} and {@link #setParentNamespace(String)}.      *<p>      * Default value is<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *      * @param parentXpath xpath to the parent node, if the xpath returns several values then the first Element node is used      */
 DECL|method|setParentXpath (XPathFilterParameterSpec parentXpath)
 specifier|public
 name|void
