@@ -351,8 +351,6 @@ DECL|field|algorithm
 specifier|private
 name|String
 name|algorithm
-init|=
-literal|"DES/CBC/PKCS5Padding"
 decl_stmt|;
 DECL|field|cryptoProvider
 specifier|private

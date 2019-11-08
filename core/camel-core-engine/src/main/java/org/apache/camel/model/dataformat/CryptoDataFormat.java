@@ -145,13 +145,6 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"DES/CBC/PKCS5Padding"
-argument_list|)
 DECL|field|algorithm
 specifier|private
 name|String
@@ -243,7 +236,7 @@ return|return
 name|algorithm
 return|;
 block|}
-comment|/**      * The JCE algorithm name indicating the cryptographic algorithm that will      * be used.      *<p/>      * Is by default DES/CBC/PKCS5Padding.      */
+comment|/**      * The JCE algorithm name indicating the cryptographic algorithm that will      * be used.      *<p/>      */
 DECL|method|setAlgorithm (String algorithm)
 specifier|public
 name|void

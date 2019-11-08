@@ -92,13 +92,11 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
-comment|/**      * The JCE algorithm name indicating the cryptographic algorithm that will      * be used. Is by default DES/CBC/PKCS5Padding.      */
+comment|/**      * The JCE algorithm name indicating the cryptographic algorithm that will      * be used.      */
 DECL|field|algorithm
 specifier|private
 name|String
 name|algorithm
-init|=
-literal|"DES/CBC/PKCS5Padding"
 decl_stmt|;
 comment|/**      * The name of the JCE Security Provider that should be used.      */
 DECL|field|cryptoProvider
