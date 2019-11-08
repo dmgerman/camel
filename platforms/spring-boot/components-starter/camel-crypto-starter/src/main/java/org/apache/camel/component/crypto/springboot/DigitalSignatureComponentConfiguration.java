@@ -281,7 +281,7 @@ specifier|private
 name|String
 name|algorithm
 init|=
-literal|"SHA1WithDSA"
+literal|"SHA256withRSA"
 decl_stmt|;
 comment|/**          * Sets the alias used to query the KeyStore for keys and {@link          * java.security.cert.Certificate Certificates} to be used in signing          * and verifying exchanges. This value can be provided at runtime via          * the message header {@link          * org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS}          */
 DECL|field|alias

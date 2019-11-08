@@ -353,6 +353,11 @@ specifier|private
 name|KeyPair
 name|keyPair
 decl_stmt|;
+DECL|field|dsaKeyPair
+specifier|private
+name|KeyPair
+name|dsaKeyPair
+decl_stmt|;
 DECL|field|payload
 specifier|private
 name|String
@@ -727,9 +732,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"crypto:sign:provider?privateKey=#myPrivateKey&provider=SUN"
+literal|"crypto:sign:provider?algorithm=SHA1withDSA&privateKey=#myDSAPrivateKey&provider=SUN"
 argument_list|,
-literal|"crypto:verify:provider?publicKey=#myPublicKey&provider=SUN"
+literal|"crypto:verify:provider?algorithm=SHA1withDSA&publicKey=#myDSAPublicKey&provider=SUN"
 argument_list|,
 literal|"mock:result"
 argument_list|)
@@ -1560,7 +1565,7 @@ name|pair
 init|=
 name|getKeyPair
 argument_list|(
-literal|"DSA"
+literal|"RSA"
 argument_list|)
 decl_stmt|;
 comment|// sign with the private key
@@ -2071,9 +2076,7 @@ throws|throws
 name|Exception
 block|{
 name|setUpKeys
-argument_list|(
-literal|"DSA"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|disableJMX
 argument_list|()
@@ -2087,14 +2090,11 @@ block|}
 end_function
 
 begin_function
-DECL|method|setUpKeys (String algorithm)
+DECL|method|setUpKeys ()
 specifier|public
 name|void
 name|setUpKeys
-parameter_list|(
-name|String
-name|algorithm
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -2102,7 +2102,14 @@ name|keyPair
 operator|=
 name|getKeyPair
 argument_list|(
-name|algorithm
+literal|"RSA"
+argument_list|)
+expr_stmt|;
+name|dsaKeyPair
+operator|=
+name|getKeyPair
+argument_list|(
+literal|"DSA"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2277,6 +2284,29 @@ begin_function
 annotation|@
 name|BindToRegistry
 argument_list|(
+literal|"myDSAPublicKey"
+argument_list|)
+DECL|method|getDSAPublicKey ()
+specifier|public
+name|PublicKey
+name|getDSAPublicKey
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|dsaKeyPair
+operator|.
+name|getPublic
+argument_list|()
+return|;
+block|}
+end_function
+
+begin_function
+annotation|@
+name|BindToRegistry
+argument_list|(
 literal|"myPrivateKey"
 argument_list|)
 DECL|method|getKeyFromKeystore ()
@@ -2303,6 +2333,29 @@ operator|.
 name|toCharArray
 argument_list|()
 argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+annotation|@
+name|BindToRegistry
+argument_list|(
+literal|"myDSAPrivateKey"
+argument_list|)
+DECL|method|getDSAPrivateKey ()
+specifier|public
+name|PrivateKey
+name|getDSAPrivateKey
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|dsaKeyPair
+operator|.
+name|getPrivate
+argument_list|()
 return|;
 block|}
 end_function

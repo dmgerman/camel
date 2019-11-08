@@ -285,14 +285,14 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"SHA1WithDSA"
+literal|"SHA256withRSA"
 argument_list|)
 DECL|field|algorithm
 specifier|private
 name|String
 name|algorithm
 init|=
-literal|"SHA1WithDSA"
+literal|"SHA256withRSA"
 decl_stmt|;
 annotation|@
 name|UriParam

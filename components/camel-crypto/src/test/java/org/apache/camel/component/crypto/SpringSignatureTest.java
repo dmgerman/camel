@@ -148,6 +148,12 @@ specifier|static
 name|KeyPair
 name|rsaPair
 decl_stmt|;
+DECL|field|dsaPair
+specifier|private
+specifier|static
+name|KeyPair
+name|dsaPair
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -163,6 +169,13 @@ operator|=
 name|getKeyPair
 argument_list|(
 literal|"RSA"
+argument_list|)
+expr_stmt|;
+name|dsaPair
+operator|=
+name|getKeyPair
+argument_list|(
+literal|"DSA"
 argument_list|)
 expr_stmt|;
 return|return
@@ -316,6 +329,22 @@ name|getPrivate
 argument_list|()
 return|;
 block|}
+DECL|method|privateDSAKey ()
+specifier|public
+specifier|static
+name|PrivateKey
+name|privateDSAKey
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|dsaPair
+operator|.
+name|getPrivate
+argument_list|()
+return|;
+block|}
 DECL|method|publicRSAKey ()
 specifier|public
 specifier|static
@@ -327,6 +356,22 @@ name|Exception
 block|{
 return|return
 name|rsaPair
+operator|.
+name|getPublic
+argument_list|()
+return|;
+block|}
+DECL|method|publicDSAKey ()
+specifier|public
+specifier|static
+name|PublicKey
+name|publicDSAKey
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|dsaPair
 operator|.
 name|getPublic
 argument_list|()
