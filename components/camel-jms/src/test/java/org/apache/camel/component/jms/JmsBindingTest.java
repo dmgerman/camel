@@ -94,9 +94,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
+name|Exchange
 import|;
 end_import
 
@@ -110,7 +108,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExchange
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -355,14 +353,18 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-name|DefaultExchange
+name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
 name|camelContext
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"jms:queue:foo"
 argument_list|)
+operator|.
+name|createExchange
+argument_list|()
 decl_stmt|;
 name|exchange
 operator|.
