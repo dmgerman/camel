@@ -80,9 +80,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|security
 operator|.
-name|Random
+name|SecureRandom
 import|;
 end_import
 
@@ -364,11 +364,11 @@ decl_stmt|;
 DECL|field|generator
 specifier|private
 specifier|static
-name|Random
+name|SecureRandom
 name|generator
 init|=
 operator|new
-name|Random
+name|SecureRandom
 argument_list|()
 decl_stmt|;
 DECL|method|AS2Utils ()
