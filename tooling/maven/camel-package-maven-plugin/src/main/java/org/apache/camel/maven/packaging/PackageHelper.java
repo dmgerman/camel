@@ -971,13 +971,6 @@ argument_list|(
 name|name
 argument_list|)
 operator|||
-literal|"camel-linkedin"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-operator|||
 literal|"camel-olingo2"
 operator|.
 name|equals
