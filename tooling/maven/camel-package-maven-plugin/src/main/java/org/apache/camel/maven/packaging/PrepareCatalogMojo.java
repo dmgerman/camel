@@ -7050,6 +7050,7 @@ argument_list|(
 name|name
 argument_list|)
 operator|&&
+operator|(
 operator|!
 name|component
 operator|.
@@ -7065,8 +7066,8 @@ name|equalsIgnoreCase
 argument_list|(
 literal|"servicenow"
 argument_list|)
+operator|)
 condition|)
-block|)
 block|{
 name|missing
 operator|.
@@ -7130,8 +7131,8 @@ block|}
 name|missing
 operator|.
 name|clear
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -7236,8 +7237,8 @@ block|}
 name|missing
 operator|.
 name|clear
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -7326,8 +7327,8 @@ block|}
 name|missing
 operator|.
 name|clear
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -7414,8 +7415,8 @@ block|}
 name|missing
 operator|.
 name|clear
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
 name|getLog
 argument_list|()
 operator|.
@@ -7433,9 +7434,6 @@ literal|"=======================================================================
 argument_list|)
 expr_stmt|;
 block|}
-end_class
-
-begin_function
 DECL|method|printModelsReport (Set<File> json, Set<File> duplicate, Set<File> missingLabels, Map<String, Set<String>> usedLabels, Set<File> missingJavaDoc)
 specifier|private
 name|void
@@ -7810,9 +7808,6 @@ literal|"=======================================================================
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|printComponentsReport (Set<File> json, Set<File> duplicate, Set<File> missing, Map<String, Set<String>> usedComponentLabels, Set<String> usedOptionsLabels, Set<String> unusedLabels, Set<File> missingFirstVersions)
 specifier|private
 name|void
@@ -8303,9 +8298,6 @@ literal|"=======================================================================
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|printDataFormatsReport (Set<File> json, Set<File> duplicate, Map<String, Set<String>> usedLabels, Set<File> missingFirstVersions)
 specifier|private
 name|void
@@ -8621,9 +8613,6 @@ literal|"=======================================================================
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|printLanguagesReport (Set<File> json, Set<File> duplicate, Map<String, Set<String>> usedLabels, Set<File> missingFirstVersions)
 specifier|private
 name|void
@@ -8939,9 +8928,6 @@ literal|"=======================================================================
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|printOthersReport (Set<File> json, Set<File> duplicate, Map<String, Set<String>> usedLabels, Set<File> missingFirstVersions)
 specifier|private
 name|void
@@ -9257,9 +9243,6 @@ literal|"=======================================================================
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|printDocumentsReport (Set<File> docs, Set<File> duplicate, Set<File> missing)
 specifier|private
 name|void
@@ -9482,9 +9465,6 @@ literal|"=======================================================================
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|asComponentName (File file)
 specifier|private
 specifier|static
@@ -9540,9 +9520,6 @@ return|return
 name|name
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|findComponentFilesRecursive (File dir, Set<File> found, Set<File> components, FileFilter filter)
 specifier|private
 name|void
@@ -9710,9 +9687,6 @@ block|}
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|findDataFormatFilesRecursive (File dir, Set<File> found, Set<File> dataFormats, FileFilter filter)
 specifier|private
 name|void
@@ -9880,9 +9854,6 @@ block|}
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|findLanguageFilesRecursive (File dir, Set<File> found, Set<File> languages, FileFilter filter)
 specifier|private
 name|void
@@ -10050,9 +10021,6 @@ block|}
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|findOtherFilesRecursive (File dir, Set<File> found, Set<File> others, FileFilter filter)
 specifier|private
 name|void
@@ -10219,9 +10187,6 @@ block|}
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|findAsciiDocFilesRecursive (File dir, Set<File> found, FileFilter filter)
 specifier|private
 name|void
@@ -10346,9 +10311,6 @@ block|}
 block|}
 block|}
 block|}
-end_function
-
-begin_class
 DECL|class|CamelComponentsFileFilter
 specifier|private
 class|class
@@ -10470,9 +10432,6 @@ operator|)
 return|;
 block|}
 block|}
-end_class
-
-begin_class
 DECL|class|CamelDataFormatsFileFilter
 specifier|private
 class|class
@@ -10594,9 +10553,6 @@ operator|)
 return|;
 block|}
 block|}
-end_class
-
-begin_class
 DECL|class|CamelLanguagesFileFilter
 specifier|private
 class|class
@@ -10718,9 +10674,6 @@ operator|)
 return|;
 block|}
 block|}
-end_class
-
-begin_class
 DECL|class|CamelOthersFileFilter
 specifier|private
 class|class
@@ -10819,9 +10772,6 @@ operator|)
 return|;
 block|}
 block|}
-end_class
-
-begin_class
 DECL|class|CamelAsciiDocFileFilter
 specifier|private
 class|class
@@ -10858,9 +10808,6 @@ argument_list|)
 return|;
 block|}
 block|}
-end_class
-
-begin_function
 DECL|method|copyFile (File from, File to)
 specifier|public
 specifier|static
@@ -10989,9 +10936,6 @@ block|}
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|excludeDocumentDir (String name)
 specifier|private
 specifier|static
@@ -11029,8 +10973,8 @@ return|return
 literal|false
 return|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 

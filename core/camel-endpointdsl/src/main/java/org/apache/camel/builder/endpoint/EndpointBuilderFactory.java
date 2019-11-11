@@ -472,8 +472,6 @@ name|LdapEndpointBuilderFactory
 extends|,
 name|LdifEndpointBuilderFactory
 extends|,
-name|LinkedInEndpointBuilderFactory
-extends|,
 name|LogEndpointBuilderFactory
 extends|,
 name|LuceneEndpointBuilderFactory
