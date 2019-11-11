@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The stream: component provides access to the system-in, system-out and system-err streams as well as allowing streaming of file and URL.  */
+comment|/**  * The stream: component provides access to the system-in, system-out and system-err streams as well as allowing streaming of file.  */
 end_comment
 
 begin_class
@@ -216,7 +216,7 @@ name|UriPath
 argument_list|(
 name|enums
 operator|=
-literal|"in,out,err,header,file,url"
+literal|"in,out,err,header,file"
 argument_list|)
 annotation|@
 name|Metadata
@@ -229,13 +229,6 @@ DECL|field|kind
 specifier|private
 name|String
 name|kind
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|url
-specifier|private
-name|String
-name|url
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -404,43 +397,6 @@ init|=
 operator|new
 name|DefaultGroupStrategy
 argument_list|()
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|,
-name|prefix
-operator|=
-literal|"httpHeaders."
-argument_list|,
-name|multiValue
-operator|=
-literal|true
-argument_list|)
-DECL|field|httpHeaders
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|httpHeaders
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
-DECL|field|connectTimeout
-specifier|private
-name|int
-name|connectTimeout
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -672,33 +628,6 @@ operator|.
 name|fileName
 operator|=
 name|fileName
-expr_stmt|;
-block|}
-DECL|method|getUrl ()
-specifier|public
-name|String
-name|getUrl
-parameter_list|()
-block|{
-return|return
-name|url
-return|;
-block|}
-comment|/**      * When using the stream:url URI format, this option specifies the URL to stream to/from.      * The input/output stream will be opened using the JDK URLConnection facility.      */
-DECL|method|setUrl (String url)
-specifier|public
-name|void
-name|setUrl
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-name|this
-operator|.
-name|url
-operator|=
-name|url
 expr_stmt|;
 block|}
 DECL|method|getDelay ()
@@ -1061,70 +990,6 @@ block|{
 return|return
 name|charset
 return|;
-block|}
-DECL|method|getHttpHeaders ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|getHttpHeaders
-parameter_list|()
-block|{
-return|return
-name|httpHeaders
-return|;
-block|}
-comment|/**      * Optional http headers to use in request when using HTTP URL.      */
-DECL|method|setHttpHeaders (Map<String, Object> httpHeaders)
-specifier|public
-name|void
-name|setHttpHeaders
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|httpHeaders
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpHeaders
-operator|=
-name|httpHeaders
-expr_stmt|;
-block|}
-DECL|method|getConnectTimeout ()
-specifier|public
-name|int
-name|getConnectTimeout
-parameter_list|()
-block|{
-return|return
-name|connectTimeout
-return|;
-block|}
-comment|/**      * Sets a specified timeout value, in milliseconds, to be used      * when opening a communications link to the resource referenced      * by this URLConnection.  If the timeout expires before the      * connection can be established, a      * java.net.SocketTimeoutException is raised. A timeout of zero is      * interpreted as an infinite timeout.      */
-DECL|method|setConnectTimeout (int connectTimeout)
-specifier|public
-name|void
-name|setConnectTimeout
-parameter_list|(
-name|int
-name|connectTimeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|connectTimeout
-operator|=
-name|connectTimeout
-expr_stmt|;
 block|}
 DECL|method|getReadTimeout ()
 specifier|public
