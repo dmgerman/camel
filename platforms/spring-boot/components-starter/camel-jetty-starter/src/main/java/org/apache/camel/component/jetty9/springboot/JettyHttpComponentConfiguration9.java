@@ -162,18 +162,6 @@ name|Connector
 argument_list|>
 name|socketConnectors
 decl_stmt|;
-comment|/**      * To set a value for minimum number of threads in HttpClient thread pool.      * Notice that both a min and max size must be configured.      */
-DECL|field|httpClientMinThreads
-specifier|private
-name|Integer
-name|httpClientMinThreads
-decl_stmt|;
-comment|/**      * To set a value for maximum number of threads in HttpClient thread pool.      * Notice that both a min and max size must be configured.      */
-DECL|field|httpClientMaxThreads
-specifier|private
-name|Integer
-name|httpClientMaxThreads
-decl_stmt|;
 comment|/**      * To set a value for minimum number of threads in server thread pool.      * Notice that both a min and max size must be configured.      */
 DECL|field|minThreads
 specifier|private
@@ -524,58 +512,6 @@ operator|.
 name|socketConnectors
 operator|=
 name|socketConnectors
-expr_stmt|;
-block|}
-DECL|method|getHttpClientMinThreads ()
-specifier|public
-name|Integer
-name|getHttpClientMinThreads
-parameter_list|()
-block|{
-return|return
-name|httpClientMinThreads
-return|;
-block|}
-DECL|method|setHttpClientMinThreads (Integer httpClientMinThreads)
-specifier|public
-name|void
-name|setHttpClientMinThreads
-parameter_list|(
-name|Integer
-name|httpClientMinThreads
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpClientMinThreads
-operator|=
-name|httpClientMinThreads
-expr_stmt|;
-block|}
-DECL|method|getHttpClientMaxThreads ()
-specifier|public
-name|Integer
-name|getHttpClientMaxThreads
-parameter_list|()
-block|{
-return|return
-name|httpClientMaxThreads
-return|;
-block|}
-DECL|method|setHttpClientMaxThreads (Integer httpClientMaxThreads)
-specifier|public
-name|void
-name|setHttpClientMaxThreads
-parameter_list|(
-name|Integer
-name|httpClientMaxThreads
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpClientMaxThreads
-operator|=
-name|httpClientMaxThreads
 expr_stmt|;
 block|}
 DECL|method|getMinThreads ()
