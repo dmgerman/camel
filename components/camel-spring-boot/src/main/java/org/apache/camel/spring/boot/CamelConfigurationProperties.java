@@ -92,6 +92,18 @@ argument_list|>
 block|{
 comment|// Spring Boot only Properties
 comment|// ---------------------------
+comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while      * the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and      * handled by the routing Error Handler.      *<p/>      * By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,      * that will be logged at WARN/ERROR level and ignored.      *      * The default value is false.      */
+DECL|field|endpointBridgeErrorHandler
+specifier|public
+name|boolean
+name|endpointBridgeErrorHandler
+decl_stmt|;
+comment|/**      * Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      *      * The default value is false.      */
+DECL|field|endpointBasicPropertyBinding
+specifier|public
+name|boolean
+name|endpointBasicPropertyBinding
+decl_stmt|;
 comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      * You typically only need this if you run Spring-Boot standalone.      * If you run Spring-Boot with spring-boot-starter-web then the web container keeps the JVM running.      */
 DECL|field|mainRunController
 specifier|private
@@ -359,18 +371,6 @@ DECL|field|endpointLazyStartProducer
 specifier|private
 name|boolean
 name|endpointLazyStartProducer
-decl_stmt|;
-comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while      * the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and      * handled by the routing Error Handler.      *<p/>      * By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,      * that will be logged at WARN/ERROR level and ignored.      *      * The default value is false.      */
-DECL|field|endpointBridgeErrorHandler
-specifier|public
-name|boolean
-name|endpointBridgeErrorHandler
-decl_stmt|;
-comment|/**      * Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      *      * The default value is false.      */
-DECL|field|endpointBasicPropertyBinding
-specifier|public
-name|boolean
-name|endpointBasicPropertyBinding
 decl_stmt|;
 comment|/**      * Whether to enable using data type on Camel messages.      *      * Data type are automatic turned on if one ore more routes has been explicit configured with input and output types.      * Otherwise data type is default off.      */
 DECL|field|useDataType
