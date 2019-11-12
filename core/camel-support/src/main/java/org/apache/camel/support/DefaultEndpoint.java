@@ -342,10 +342,6 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|,
-name|optionalPrefix
-operator|=
-literal|"consumer."
-argument_list|,
 name|description
 operator|=
 literal|"Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while"
@@ -1136,7 +1132,7 @@ return|return
 name|exceptionHandler
 return|;
 block|}
-comment|/**      * To let the consumer use a custom ExceptionHandler.      + Notice if the option bridgeErrorHandler is enabled then this options is not in use.      + By default the consumer will deal with exceptions, that will be logged at WARN/ERROR level and ignored.      */
+comment|/**      * To let the consumer use a custom ExceptionHandler.      * Notice if the option bridgeErrorHandler is enabled then this options is not in use.      * By default the consumer will deal with exceptions, that will be logged at WARN/ERROR level and ignored.      */
 DECL|method|setExceptionHandler (ExceptionHandler exceptionHandler)
 specifier|public
 name|void

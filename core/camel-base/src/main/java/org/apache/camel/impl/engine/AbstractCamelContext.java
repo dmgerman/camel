@@ -438,6 +438,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|GlobalEndpointConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|IsSingleton
 import|;
 end_import
@@ -1904,6 +1916,16 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
+argument_list|()
+decl_stmt|;
+DECL|field|globalEndpointConfiguration
+specifier|private
+specifier|final
+name|GlobalEndpointConfiguration
+name|globalEndpointConfiguration
+init|=
+operator|new
+name|DefaultGlobalEndpointConfiguration
 argument_list|()
 decl_stmt|;
 DECL|field|components
@@ -5897,6 +5919,18 @@ name|uri
 argument_list|)
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getGlobalEndpointConfiguration ()
+specifier|public
+name|GlobalEndpointConfiguration
+name|getGlobalEndpointConfiguration
+parameter_list|()
+block|{
+return|return
+name|globalEndpointConfiguration
+return|;
 block|}
 comment|// Route Management Methods
 comment|// -----------------------------------------------------------------------

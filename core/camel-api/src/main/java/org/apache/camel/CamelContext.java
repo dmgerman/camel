@@ -1032,6 +1032,12 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Gets the global endpoint configuration, where you can configure common endpoint options.      */
+DECL|method|getGlobalEndpointConfiguration ()
+name|GlobalEndpointConfiguration
+name|getGlobalEndpointConfiguration
+parameter_list|()
+function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Sets a custom {@link RouteController} to use      *      * @param routeController the route controller      */
