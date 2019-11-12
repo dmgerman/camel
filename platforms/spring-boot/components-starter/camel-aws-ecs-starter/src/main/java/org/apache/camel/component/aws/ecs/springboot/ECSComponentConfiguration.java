@@ -168,6 +168,22 @@ name|basicPropertyBinding
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Whether the producer should be started lazy (on the first message). By      * starting lazy you can use this to allow CamelContext and routes to      * startup in situations where a producer may otherwise fail during starting      * and cause the route to fail being started. By deferring this startup to      * be lazy then the startup failure can be handled during routing messages      * via Camel's routing error handlers. Beware that when the first message is      * processed then creating and starting the producer may take a little time      * and prolong the total processing time of the processing.      */
+DECL|field|lazyStartProducer
+specifier|private
+name|Boolean
+name|lazyStartProducer
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler,      * which mean any exceptions occurred while the consumer is trying to pickup      * incoming messages, or the likes, will now be processed as a message and      * handled by the routing Error Handler. By default the consumer will use      * the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that      * will be logged at WARN or ERROR level and ignored.      */
+DECL|field|bridgeErrorHandler
+specifier|private
+name|Boolean
+name|bridgeErrorHandler
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
 name|ECSConfigurationNestedConfiguration
@@ -296,6 +312,58 @@ operator|.
 name|basicPropertyBinding
 operator|=
 name|basicPropertyBinding
+expr_stmt|;
+block|}
+DECL|method|getLazyStartProducer ()
+specifier|public
+name|Boolean
+name|getLazyStartProducer
+parameter_list|()
+block|{
+return|return
+name|lazyStartProducer
+return|;
+block|}
+DECL|method|setLazyStartProducer (Boolean lazyStartProducer)
+specifier|public
+name|void
+name|setLazyStartProducer
+parameter_list|(
+name|Boolean
+name|lazyStartProducer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lazyStartProducer
+operator|=
+name|lazyStartProducer
+expr_stmt|;
+block|}
+DECL|method|getBridgeErrorHandler ()
+specifier|public
+name|Boolean
+name|getBridgeErrorHandler
+parameter_list|()
+block|{
+return|return
+name|bridgeErrorHandler
+return|;
+block|}
+DECL|method|setBridgeErrorHandler (Boolean bridgeErrorHandler)
+specifier|public
+name|void
+name|setBridgeErrorHandler
+parameter_list|(
+name|Boolean
+name|bridgeErrorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bridgeErrorHandler
+operator|=
+name|bridgeErrorHandler
 expr_stmt|;
 block|}
 DECL|class|ECSConfigurationNestedConfiguration
