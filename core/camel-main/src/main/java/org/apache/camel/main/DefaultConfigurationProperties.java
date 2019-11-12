@@ -260,6 +260,21 @@ specifier|private
 name|boolean
 name|endpointRuntimeStatisticsEnabled
 decl_stmt|;
+DECL|field|endpointLazyStartProducer
+specifier|private
+name|boolean
+name|endpointLazyStartProducer
+decl_stmt|;
+DECL|field|endpointBridgeErrorHandler
+specifier|private
+name|boolean
+name|endpointBridgeErrorHandler
+decl_stmt|;
+DECL|field|endpointBasicPropertyBinding
+specifier|private
+name|boolean
+name|endpointBasicPropertyBinding
+decl_stmt|;
 DECL|field|useDataType
 specifier|private
 name|boolean
@@ -1275,6 +1290,87 @@ operator|.
 name|endpointRuntimeStatisticsEnabled
 operator|=
 name|endpointRuntimeStatisticsEnabled
+expr_stmt|;
+block|}
+DECL|method|isEndpointLazyStartProducer ()
+specifier|public
+name|boolean
+name|isEndpointLazyStartProducer
+parameter_list|()
+block|{
+return|return
+name|endpointLazyStartProducer
+return|;
+block|}
+comment|/**      * Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup      * in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then      * the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed      * then creating and starting the producer may take a little time and prolong the total processing time of the processing.      *      * The default value is false.      */
+DECL|method|setEndpointLazyStartProducer (boolean endpointLazyStartProducer)
+specifier|public
+name|void
+name|setEndpointLazyStartProducer
+parameter_list|(
+name|boolean
+name|endpointLazyStartProducer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointLazyStartProducer
+operator|=
+name|endpointLazyStartProducer
+expr_stmt|;
+block|}
+DECL|method|isEndpointBridgeErrorHandler ()
+specifier|public
+name|boolean
+name|isEndpointBridgeErrorHandler
+parameter_list|()
+block|{
+return|return
+name|endpointBridgeErrorHandler
+return|;
+block|}
+comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while      * the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and      * handled by the routing Error Handler.      *<p/>      * By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,      * that will be logged at WARN/ERROR level and ignored.      *      * The default value is false.      */
+DECL|method|setEndpointBridgeErrorHandler (boolean endpointBridgeErrorHandler)
+specifier|public
+name|void
+name|setEndpointBridgeErrorHandler
+parameter_list|(
+name|boolean
+name|endpointBridgeErrorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointBridgeErrorHandler
+operator|=
+name|endpointBridgeErrorHandler
+expr_stmt|;
+block|}
+DECL|method|isEndpointBasicPropertyBinding ()
+specifier|public
+name|boolean
+name|isEndpointBasicPropertyBinding
+parameter_list|()
+block|{
+return|return
+name|endpointBasicPropertyBinding
+return|;
+block|}
+comment|/**      * Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      *      * The default value is false.      */
+DECL|method|setEndpointBasicPropertyBinding (boolean endpointBasicPropertyBinding)
+specifier|public
+name|void
+name|setEndpointBasicPropertyBinding
+parameter_list|(
+name|boolean
+name|endpointBasicPropertyBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointBasicPropertyBinding
+operator|=
+name|endpointBasicPropertyBinding
 expr_stmt|;
 block|}
 DECL|method|isUseDataType ()
@@ -2489,6 +2585,75 @@ operator|.
 name|endpointRuntimeStatisticsEnabled
 operator|=
 name|endpointRuntimeStatisticsEnabled
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup      * in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then      * the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed      * then creating and starting the producer may take a little time and prolong the total processing time of the processing.      *      * The default value is false.      */
+DECL|method|withEndpointLazyStartProducer (boolean endpointLazyStartProducer)
+specifier|public
+name|T
+name|withEndpointLazyStartProducer
+parameter_list|(
+name|boolean
+name|endpointLazyStartProducer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointLazyStartProducer
+operator|=
+name|endpointLazyStartProducer
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while      * the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and      * handled by the routing Error Handler.      *<p/>      * By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,      * that will be logged at WARN/ERROR level and ignored.      *      * The default value is false.      */
+DECL|method|withEndpointBridgeErrorHandler (boolean endpointBridgeErrorHandler)
+specifier|public
+name|T
+name|withEndpointBridgeErrorHandler
+parameter_list|(
+name|boolean
+name|endpointBridgeErrorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointBridgeErrorHandler
+operator|=
+name|endpointBridgeErrorHandler
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
+comment|/**      * Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities.      *      * The default value is false.      */
+DECL|method|withEndpointBasicPropertyBinding (boolean endpointBasicPropertyBinding)
+specifier|public
+name|T
+name|withEndpointBasicPropertyBinding
+parameter_list|(
+name|boolean
+name|endpointBasicPropertyBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointBasicPropertyBinding
+operator|=
+name|endpointBasicPropertyBinding
 expr_stmt|;
 return|return
 operator|(
