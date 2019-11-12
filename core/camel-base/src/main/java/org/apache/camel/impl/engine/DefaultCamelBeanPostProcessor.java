@@ -712,6 +712,26 @@ name|String
 name|beanName
 parameter_list|)
 block|{
+if|if
+condition|(
+name|beanName
+operator|!=
+literal|null
+operator|&&
+literal|"properties"
+operator|.
+name|equals
+argument_list|(
+name|beanName
+argument_list|)
+condition|)
+block|{
+comment|// we cannot process the properties component
+comment|// its instantiated very eager during creation of camel context
+return|return
+literal|false
+return|;
+block|}
 return|return
 name|bean
 operator|!=
