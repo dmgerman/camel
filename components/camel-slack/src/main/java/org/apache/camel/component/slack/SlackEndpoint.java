@@ -756,7 +756,9 @@ name|object
 operator|.
 name|getString
 argument_list|(
-literal|"text"
+name|SlackConstants
+operator|.
+name|SLACK_TEXT_FIELD
 argument_list|)
 decl_stmt|;
 name|String

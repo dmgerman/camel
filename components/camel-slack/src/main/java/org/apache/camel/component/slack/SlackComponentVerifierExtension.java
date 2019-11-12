@@ -1041,7 +1041,9 @@ name|jsonMap
 operator|.
 name|put
 argument_list|(
-literal|"text"
+name|SlackConstants
+operator|.
+name|SLACK_TEXT_FIELD
 argument_list|,
 name|message
 operator|.

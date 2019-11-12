@@ -454,7 +454,9 @@ argument_list|(
 operator|new
 name|BasicNameValuePair
 argument_list|(
-literal|"channel"
+name|SlackConstants
+operator|.
+name|SLACK_CHANNEL_FIELD
 argument_list|,
 name|channelId
 argument_list|)
