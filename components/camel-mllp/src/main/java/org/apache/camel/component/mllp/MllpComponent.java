@@ -272,7 +272,14 @@ DECL|method|MllpComponent ()
 specifier|public
 name|MllpComponent
 parameter_list|()
-block|{     }
+block|{
+comment|// bridge error handler by default
+name|setBridgeErrorHandler
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|MllpComponent (CamelContext context)
 specifier|public
 name|MllpComponent
@@ -284,6 +291,12 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+comment|// bridge error handler by default
+name|setBridgeErrorHandler
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
