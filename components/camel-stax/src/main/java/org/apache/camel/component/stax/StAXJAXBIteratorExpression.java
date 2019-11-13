@@ -228,6 +228,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -511,6 +525,11 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|InputStream
+name|inputStream
+init|=
+literal|null
+decl_stmt|;
 name|XMLEventReader
 name|reader
 init|=
@@ -546,9 +565,8 @@ operator|==
 literal|null
 condition|)
 block|{
-name|InputStream
 name|inputStream
-init|=
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -560,7 +578,7 @@ name|InputStream
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|XMLInputFactory
 name|xmlInputFactory
 init|=
@@ -637,6 +655,8 @@ argument_list|(
 name|reader
 argument_list|,
 name|clazz
+argument_list|,
+name|inputStream
 argument_list|)
 return|;
 block|}
@@ -709,7 +729,7 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|createIterator (XMLEventReader reader, Class<T> clazz)
+DECL|method|createIterator (XMLEventReader reader, Class<T> clazz, InputStream inputStream)
 specifier|private
 name|Iterator
 argument_list|<
@@ -725,6 +745,9 @@ argument_list|<
 name|T
 argument_list|>
 name|clazz
+parameter_list|,
+name|InputStream
+name|inputStream
 parameter_list|)
 throws|throws
 name|JAXBException
@@ -737,6 +760,8 @@ argument_list|(
 name|clazz
 argument_list|,
 name|reader
+argument_list|,
+name|inputStream
 argument_list|)
 return|;
 block|}
@@ -761,6 +786,12 @@ specifier|private
 specifier|final
 name|XMLEventReader
 name|reader
+decl_stmt|;
+DECL|field|inputStream
+specifier|private
+specifier|final
+name|InputStream
+name|inputStream
 decl_stmt|;
 DECL|field|clazz
 specifier|private
@@ -788,7 +819,7 @@ specifier|private
 name|T
 name|element
 decl_stmt|;
-DECL|method|StAXJAXBIterator (Class<T> clazz, XMLEventReader reader)
+DECL|method|StAXJAXBIterator (Class<T> clazz, XMLEventReader reader, InputStream inputStream)
 name|StAXJAXBIterator
 parameter_list|(
 name|Class
@@ -799,6 +830,9 @@ name|clazz
 parameter_list|,
 name|XMLEventReader
 name|reader
+parameter_list|,
+name|InputStream
+name|inputStream
 parameter_list|)
 throws|throws
 name|JAXBException
@@ -814,6 +848,12 @@ operator|.
 name|reader
 operator|=
 name|reader
+expr_stmt|;
+name|this
+operator|.
+name|inputStream
+operator|=
+name|inputStream
 expr_stmt|;
 name|name
 operator|=
@@ -1055,6 +1095,21 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inputStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|inputStream
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|reader
