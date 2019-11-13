@@ -2518,8 +2518,9 @@ if|if
 condition|(
 name|getLoggingSizeLimit
 argument_list|()
-operator|>
-literal|0
+operator|>=
+operator|-
+literal|1
 condition|)
 block|{
 name|loggingFeature
@@ -3559,8 +3560,9 @@ if|if
 condition|(
 name|getLoggingSizeLimit
 argument_list|()
-operator|>
-literal|0
+operator|>=
+operator|-
+literal|1
 condition|)
 block|{
 name|loggingFeature
