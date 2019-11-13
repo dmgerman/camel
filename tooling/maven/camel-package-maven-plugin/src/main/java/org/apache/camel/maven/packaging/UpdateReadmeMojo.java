@@ -3082,7 +3082,7 @@ name|producerOnly
 condition|)
 block|{
 return|return
-literal|"*Only Producer is supported*"
+literal|"*Only producer is supported*"
 return|;
 block|}
 comment|// if we have only consumer support
@@ -3095,11 +3095,11 @@ name|producerOnly
 condition|)
 block|{
 return|return
-literal|"*Only Consumer is supported*"
+literal|"*Only consumer is supported*"
 return|;
 block|}
 return|return
-literal|"*Both Producer and Consumer are supported*"
+literal|"*Both producer and consumer is supported*"
 return|;
 block|}
 DECL|method|updateAvailableFrom (final File file, final String firstVersion)
