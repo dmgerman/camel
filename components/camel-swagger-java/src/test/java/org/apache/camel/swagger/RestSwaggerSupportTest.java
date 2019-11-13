@@ -196,18 +196,6 @@ name|verifyNoMoreInteractions
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|verifyZeroInteractions
-import|;
-end_import
-
 begin_class
 DECL|class|RestSwaggerSupportTest
 specifier|public
@@ -559,7 +547,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|verifyZeroInteractions
+name|verifyNoMoreInteractions
 argument_list|(
 name|swagger
 argument_list|)
