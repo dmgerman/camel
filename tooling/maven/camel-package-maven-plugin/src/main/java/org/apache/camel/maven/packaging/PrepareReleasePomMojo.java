@@ -399,6 +399,8 @@ name|updatePomAndCommonBin
 argument_list|(
 name|componentsDir
 argument_list|,
+literal|"org.apache.camel"
+argument_list|,
 literal|"camel components"
 argument_list|)
 expr_stmt|;
@@ -406,17 +408,22 @@ name|updatePomAndCommonBin
 argument_list|(
 name|startersDir
 argument_list|,
+literal|"org.apache.camel.springboot"
+argument_list|,
 literal|"camel starters"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|updatePomAndCommonBin (File dir, String token)
+DECL|method|updatePomAndCommonBin (File dir, String groupId, String token)
 specifier|protected
 name|void
 name|updatePomAndCommonBin
 parameter_list|(
 name|File
 name|dir
+parameter_list|,
+name|String
+name|groupId
 parameter_list|,
 name|String
 name|token
@@ -549,7 +556,11 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"<groupId>org.apache.camel</groupId>\n"
+literal|"<groupId>"
+operator|+
+name|groupId
+operator|+
+literal|"</groupId>\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -663,7 +674,11 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"<include>org.apache.camel:"
+literal|"<include>"
+operator|+
+name|groupId
+operator|+
+literal|":"
 operator|+
 name|aid
 operator|+

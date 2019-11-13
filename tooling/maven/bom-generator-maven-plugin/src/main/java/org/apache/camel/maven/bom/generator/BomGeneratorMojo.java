@@ -916,10 +916,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-name|project
-operator|.
-name|getGroupId
-argument_list|()
+literal|"org.apache.camel"
 argument_list|)
 operator|&&
 name|project

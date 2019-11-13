@@ -384,6 +384,8 @@ name|MojoFailureException
 block|{
 name|updateParentPom
 argument_list|(
+literal|"org.apache.camel"
+argument_list|,
 name|componentsDir
 argument_list|,
 literal|"camel components"
@@ -391,17 +393,22 @@ argument_list|)
 expr_stmt|;
 name|updateParentPom
 argument_list|(
+literal|"org.apache.camel.springboot"
+argument_list|,
 name|startersDir
 argument_list|,
 literal|"camel starters"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|updateParentPom (File dir, String token)
+DECL|method|updateParentPom (String groupId, File dir, String token)
 specifier|protected
 name|void
 name|updateParentPom
 parameter_list|(
+name|String
+name|groupId
+parameter_list|,
 name|File
 name|dir
 parameter_list|,
@@ -534,7 +541,11 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"<groupId>org.apache.camel</groupId>\n"
+literal|"<groupId>"
+operator|+
+name|groupId
+operator|+
+literal|"</groupId>\n"
 argument_list|)
 expr_stmt|;
 name|sb
