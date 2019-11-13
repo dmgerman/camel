@@ -721,7 +721,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
+comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Gets the maximum number of messages as a limit to poll at          * each polling. The default value is 10. Use 0 or a negative number to          * set it as unlimited.          *           * The option is a:<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxMessagesPerPoll ( int maxMessagesPerPoll)
 specifier|default
 name|S3EndpointConsumerBuilder
@@ -742,7 +742,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Is default unlimited, but use 0 or negative number to          * disable it as unlimited.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
+comment|/**          * Gets the maximum number of messages as a limit to poll at each          * polling. Gets the maximum number of messages as a limit to poll at          * each polling. The default value is 10. Use 0 or a negative number to          * set it as unlimited.          *           * The option will be converted to a<code>int</code> type.          *           * Group: consumer          */
 DECL|method|maxMessagesPerPoll ( String maxMessagesPerPoll)
 specifier|default
 name|S3EndpointConsumerBuilder

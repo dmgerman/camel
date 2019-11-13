@@ -664,7 +664,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|0
+name|maxMessagesPerPoll
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1330,7 +1330,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
-comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Is default unlimited, but use 0 or negative number to disable it as      * unlimited.      */
+comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Gets the maximum number of messages as a limit to poll at each polling. The      * default value is 10. Use 0 or a negative number to set it as unlimited.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
