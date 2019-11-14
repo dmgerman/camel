@@ -118,7 +118,7 @@ specifier|private
 name|ValidatorFactories
 parameter_list|()
 block|{     }
-DECL|method|buildValidatorFactory (boolean osgi, ValidationProviderResolver validationProviderResolver, MessageInterpolator messageInterpolator, TraversableResolver traversableResolver, ConstraintValidatorFactory constraintValidatorFactory)
+DECL|method|buildValidatorFactory (boolean osgi, boolean ignoreXml, ValidationProviderResolver validationProviderResolver, MessageInterpolator messageInterpolator, TraversableResolver traversableResolver, ConstraintValidatorFactory constraintValidatorFactory)
 specifier|public
 specifier|static
 name|ValidatorFactory
@@ -126,6 +126,9 @@ name|buildValidatorFactory
 parameter_list|(
 name|boolean
 name|osgi
+parameter_list|,
+name|boolean
+name|ignoreXml
 parameter_list|,
 name|ValidationProviderResolver
 name|validationProviderResolver
@@ -227,6 +230,17 @@ name|constraintValidatorFactory
 argument_list|(
 name|constraintValidatorFactory
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ignoreXml
+condition|)
+block|{
+name|configuration
+operator|.
+name|ignoreXmlConfiguration
+argument_list|()
 expr_stmt|;
 block|}
 return|return

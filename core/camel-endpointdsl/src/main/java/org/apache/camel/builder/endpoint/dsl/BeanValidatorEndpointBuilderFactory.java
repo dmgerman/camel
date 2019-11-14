@@ -110,48 +110,6 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * To use a custom ConstraintValidatorFactory.          *           * The option is a:          *<code>javax.validation.ConstraintValidatorFactory</code> type.          *           * Group: producer          */
-DECL|method|constraintValidatorFactory ( Object constraintValidatorFactory)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|constraintValidatorFactory
-parameter_list|(
-name|Object
-name|constraintValidatorFactory
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"constraintValidatorFactory"
-argument_list|,
-name|constraintValidatorFactory
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom ConstraintValidatorFactory.          *           * The option will be converted to a          *<code>javax.validation.ConstraintValidatorFactory</code> type.          *           * Group: producer          */
-DECL|method|constraintValidatorFactory ( String constraintValidatorFactory)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|constraintValidatorFactory
-parameter_list|(
-name|String
-name|constraintValidatorFactory
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"constraintValidatorFactory"
-argument_list|,
-name|constraintValidatorFactory
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * To use a custom validation group.          *           * The option is a:<code>java.lang.String</code> type.          *           * Group: producer          */
 DECL|method|group (String group)
 specifier|default
@@ -167,6 +125,48 @@ argument_list|(
 literal|"group"
 argument_list|,
 name|group
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to ignore data from the META-INF/validation.xml file.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|ignoreXmlConfiguration ( boolean ignoreXmlConfiguration)
+specifier|default
+name|BeanValidatorEndpointBuilder
+name|ignoreXmlConfiguration
+parameter_list|(
+name|boolean
+name|ignoreXmlConfiguration
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"ignoreXmlConfiguration"
+argument_list|,
+name|ignoreXmlConfiguration
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Whether to ignore data from the META-INF/validation.xml file.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
+DECL|method|ignoreXmlConfiguration ( String ignoreXmlConfiguration)
+specifier|default
+name|BeanValidatorEndpointBuilder
+name|ignoreXmlConfiguration
+parameter_list|(
+name|String
+name|ignoreXmlConfiguration
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"ignoreXmlConfiguration"
+argument_list|,
+name|ignoreXmlConfiguration
 argument_list|)
 expr_stmt|;
 return|return
@@ -209,132 +209,6 @@ argument_list|(
 literal|"lazyStartProducer"
 argument_list|,
 name|lazyStartProducer
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom MessageInterpolator.          *           * The option is a:<code>javax.validation.MessageInterpolator</code>          * type.          *           * Group: producer          */
-DECL|method|messageInterpolator ( Object messageInterpolator)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|messageInterpolator
-parameter_list|(
-name|Object
-name|messageInterpolator
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"messageInterpolator"
-argument_list|,
-name|messageInterpolator
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom MessageInterpolator.          *           * The option will be converted to a          *<code>javax.validation.MessageInterpolator</code> type.          *           * Group: producer          */
-DECL|method|messageInterpolator ( String messageInterpolator)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|messageInterpolator
-parameter_list|(
-name|String
-name|messageInterpolator
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"messageInterpolator"
-argument_list|,
-name|messageInterpolator
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom TraversableResolver.          *           * The option is a:<code>javax.validation.TraversableResolver</code>          * type.          *           * Group: producer          */
-DECL|method|traversableResolver ( Object traversableResolver)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|traversableResolver
-parameter_list|(
-name|Object
-name|traversableResolver
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"traversableResolver"
-argument_list|,
-name|traversableResolver
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom TraversableResolver.          *           * The option will be converted to a          *<code>javax.validation.TraversableResolver</code> type.          *           * Group: producer          */
-DECL|method|traversableResolver ( String traversableResolver)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|traversableResolver
-parameter_list|(
-name|String
-name|traversableResolver
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"traversableResolver"
-argument_list|,
-name|traversableResolver
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a a custom ValidationProviderResolver.          *           * The option is a:          *<code>javax.validation.ValidationProviderResolver</code> type.          *           * Group: producer          */
-DECL|method|validationProviderResolver ( Object validationProviderResolver)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|validationProviderResolver
-parameter_list|(
-name|Object
-name|validationProviderResolver
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"validationProviderResolver"
-argument_list|,
-name|validationProviderResolver
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a a custom ValidationProviderResolver.          *           * The option will be converted to a          *<code>javax.validation.ValidationProviderResolver</code> type.          *           * Group: producer          */
-DECL|method|validationProviderResolver ( String validationProviderResolver)
-specifier|default
-name|BeanValidatorEndpointBuilder
-name|validationProviderResolver
-parameter_list|(
-name|String
-name|validationProviderResolver
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"validationProviderResolver"
-argument_list|,
-name|validationProviderResolver
 argument_list|)
 expr_stmt|;
 return|return
@@ -405,6 +279,90 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * To use a custom ConstraintValidatorFactory.          *           * The option is a:          *<code>javax.validation.ConstraintValidatorFactory</code> type.          *           * Group: advanced          */
+DECL|method|constraintValidatorFactory ( Object constraintValidatorFactory)
+specifier|default
+name|AdvancedBeanValidatorEndpointBuilder
+name|constraintValidatorFactory
+parameter_list|(
+name|Object
+name|constraintValidatorFactory
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"constraintValidatorFactory"
+argument_list|,
+name|constraintValidatorFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a custom ConstraintValidatorFactory.          *           * The option will be converted to a          *<code>javax.validation.ConstraintValidatorFactory</code> type.          *           * Group: advanced          */
+DECL|method|constraintValidatorFactory ( String constraintValidatorFactory)
+specifier|default
+name|AdvancedBeanValidatorEndpointBuilder
+name|constraintValidatorFactory
+parameter_list|(
+name|String
+name|constraintValidatorFactory
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"constraintValidatorFactory"
+argument_list|,
+name|constraintValidatorFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a custom MessageInterpolator.          *           * The option is a:<code>javax.validation.MessageInterpolator</code>          * type.          *           * Group: advanced          */
+DECL|method|messageInterpolator ( Object messageInterpolator)
+specifier|default
+name|AdvancedBeanValidatorEndpointBuilder
+name|messageInterpolator
+parameter_list|(
+name|Object
+name|messageInterpolator
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"messageInterpolator"
+argument_list|,
+name|messageInterpolator
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a custom MessageInterpolator.          *           * The option will be converted to a          *<code>javax.validation.MessageInterpolator</code> type.          *           * Group: advanced          */
+DECL|method|messageInterpolator ( String messageInterpolator)
+specifier|default
+name|AdvancedBeanValidatorEndpointBuilder
+name|messageInterpolator
+parameter_list|(
+name|String
+name|messageInterpolator
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"messageInterpolator"
+argument_list|,
+name|messageInterpolator
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Sets whether synchronous processing should be strictly used, or Camel          * is allowed to use asynchronous processing (if supported).          *           * The option is a:<code>boolean</code> type.          *           * Group: advanced          */
 DECL|method|synchronous ( boolean synchronous)
 specifier|default
@@ -441,6 +399,90 @@ argument_list|(
 literal|"synchronous"
 argument_list|,
 name|synchronous
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a custom TraversableResolver.          *           * The option is a:<code>javax.validation.TraversableResolver</code>          * type.          *           * Group: advanced          */
+DECL|method|traversableResolver ( Object traversableResolver)
+specifier|default
+name|AdvancedBeanValidatorEndpointBuilder
+name|traversableResolver
+parameter_list|(
+name|Object
+name|traversableResolver
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"traversableResolver"
+argument_list|,
+name|traversableResolver
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a custom TraversableResolver.          *           * The option will be converted to a          *<code>javax.validation.TraversableResolver</code> type.          *           * Group: advanced          */
+DECL|method|traversableResolver ( String traversableResolver)
+specifier|default
+name|AdvancedBeanValidatorEndpointBuilder
+name|traversableResolver
+parameter_list|(
+name|String
+name|traversableResolver
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"traversableResolver"
+argument_list|,
+name|traversableResolver
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a a custom ValidationProviderResolver.          *           * The option is a:          *<code>javax.validation.ValidationProviderResolver</code> type.          *           * Group: advanced          */
+DECL|method|validationProviderResolver ( Object validationProviderResolver)
+specifier|default
+name|AdvancedBeanValidatorEndpointBuilder
+name|validationProviderResolver
+parameter_list|(
+name|Object
+name|validationProviderResolver
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"validationProviderResolver"
+argument_list|,
+name|validationProviderResolver
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a a custom ValidationProviderResolver.          *           * The option will be converted to a          *<code>javax.validation.ValidationProviderResolver</code> type.          *           * Group: advanced          */
+DECL|method|validationProviderResolver ( String validationProviderResolver)
+specifier|default
+name|AdvancedBeanValidatorEndpointBuilder
+name|validationProviderResolver
+parameter_list|(
+name|String
+name|validationProviderResolver
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"validationProviderResolver"
+argument_list|,
+name|validationProviderResolver
 argument_list|)
 expr_stmt|;
 return|return

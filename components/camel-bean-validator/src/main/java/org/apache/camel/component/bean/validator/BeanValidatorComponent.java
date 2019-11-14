@@ -52,6 +52,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|annotations
 operator|.
 name|Component
@@ -89,6 +103,13 @@ name|BeanValidatorComponent
 extends|extends
 name|DefaultComponent
 block|{
+annotation|@
+name|Metadata
+DECL|field|ignoreXmlConfiguration
+specifier|private
+name|boolean
+name|ignoreXmlConfiguration
+decl_stmt|;
 DECL|method|BeanValidatorComponent ()
 specifier|public
 name|BeanValidatorComponent
@@ -136,6 +157,13 @@ argument_list|(
 name|remaining
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|setIgnoreXmlConfiguration
+argument_list|(
+name|ignoreXmlConfiguration
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -146,6 +174,33 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+DECL|method|isIgnoreXmlConfiguration ()
+specifier|public
+name|boolean
+name|isIgnoreXmlConfiguration
+parameter_list|()
+block|{
+return|return
+name|ignoreXmlConfiguration
+return|;
+block|}
+comment|/**      * Whether to ignore data from the META-INF/validation.xml file.      */
+DECL|method|setIgnoreXmlConfiguration (boolean ignoreXmlConfiguration)
+specifier|public
+name|void
+name|setIgnoreXmlConfiguration
+parameter_list|(
+name|boolean
+name|ignoreXmlConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreXmlConfiguration
+operator|=
+name|ignoreXmlConfiguration
+expr_stmt|;
 block|}
 block|}
 end_class

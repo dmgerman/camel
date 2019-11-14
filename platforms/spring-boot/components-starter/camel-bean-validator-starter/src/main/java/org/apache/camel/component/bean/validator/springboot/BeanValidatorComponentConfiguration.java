@@ -94,6 +94,14 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * Whether to ignore data from the META-INF/validation.xml file.      */
+DECL|field|ignoreXmlConfiguration
+specifier|private
+name|Boolean
+name|ignoreXmlConfiguration
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
 DECL|field|basicPropertyBinding
 specifier|private
@@ -118,6 +126,32 @@ name|bridgeErrorHandler
 init|=
 literal|false
 decl_stmt|;
+DECL|method|getIgnoreXmlConfiguration ()
+specifier|public
+name|Boolean
+name|getIgnoreXmlConfiguration
+parameter_list|()
+block|{
+return|return
+name|ignoreXmlConfiguration
+return|;
+block|}
+DECL|method|setIgnoreXmlConfiguration (Boolean ignoreXmlConfiguration)
+specifier|public
+name|void
+name|setIgnoreXmlConfiguration
+parameter_list|(
+name|Boolean
+name|ignoreXmlConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreXmlConfiguration
+operator|=
+name|ignoreXmlConfiguration
+expr_stmt|;
+block|}
 DECL|method|getBasicPropertyBinding ()
 specifier|public
 name|Boolean

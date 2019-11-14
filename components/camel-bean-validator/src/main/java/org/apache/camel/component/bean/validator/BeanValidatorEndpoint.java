@@ -294,6 +294,18 @@ name|group
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|ignoreXmlConfiguration
+specifier|private
+name|boolean
+name|ignoreXmlConfiguration
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|validationProviderResolver
 specifier|private
 name|ValidationProviderResolver
@@ -301,6 +313,11 @@ name|validationProviderResolver
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|messageInterpolator
 specifier|private
 name|MessageInterpolator
@@ -308,6 +325,11 @@ name|messageInterpolator
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|traversableResolver
 specifier|private
 name|TraversableResolver
@@ -315,6 +337,11 @@ name|traversableResolver
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|constraintValidatorFactory
 specifier|private
 name|ConstraintValidatorFactory
@@ -388,6 +415,9 @@ init|=
 name|buildValidatorFactory
 argument_list|(
 name|isOsgiContext
+argument_list|()
+argument_list|,
+name|isIgnoreXmlConfiguration
 argument_list|()
 argument_list|,
 name|validationProviderResolver
@@ -499,6 +529,33 @@ operator|.
 name|group
 operator|=
 name|group
+expr_stmt|;
+block|}
+DECL|method|isIgnoreXmlConfiguration ()
+specifier|public
+name|boolean
+name|isIgnoreXmlConfiguration
+parameter_list|()
+block|{
+return|return
+name|ignoreXmlConfiguration
+return|;
+block|}
+comment|/**      * Whether to ignore data from the META-INF/validation.xml file.      */
+DECL|method|setIgnoreXmlConfiguration (boolean ignoreXmlConfiguration)
+specifier|public
+name|void
+name|setIgnoreXmlConfiguration
+parameter_list|(
+name|boolean
+name|ignoreXmlConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreXmlConfiguration
+operator|=
+name|ignoreXmlConfiguration
 expr_stmt|;
 block|}
 DECL|method|getValidationProviderResolver ()
