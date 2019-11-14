@@ -286,7 +286,7 @@ literal|"The FHIR Version to use"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"DSTU3"
+literal|"R4"
 argument_list|,
 name|javaType
 operator|=
@@ -299,7 +299,7 @@ name|fhirVersion
 init|=
 name|FhirVersionEnum
 operator|.
-name|DSTU3
+name|R4
 decl_stmt|;
 annotation|@
 name|UriParam
