@@ -106,7 +106,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/transform.xsl"
+literal|"xslt-saxon:org/apache/camel/component/xslt/transform.xsl"
 argument_list|)
 expr_stmt|;
 block|}

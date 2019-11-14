@@ -212,7 +212,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/transform_text_imported.xsl"
+literal|"xslt-saxon:org/apache/camel/component/xslt/transform_text_imported.xsl"
 argument_list|)
 operator|.
 name|to
@@ -227,7 +227,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/transform_text.xsl"
+literal|"xslt-saxon:org/apache/camel/component/xslt/transform_text.xsl"
 argument_list|)
 operator|.
 name|to

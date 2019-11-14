@@ -272,6 +272,20 @@ end_import
 
 begin_import
 import|import
+name|net
+operator|.
+name|sf
+operator|.
+name|saxon
+operator|.
+name|om
+operator|.
+name|TreeInfo
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|w3c
@@ -2673,8 +2687,6 @@ else|else
 block|{
 name|Object
 name|body
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -2816,12 +2828,12 @@ name|class
 argument_list|)
 throw|;
 block|}
-name|DocumentInfo
+name|TreeInfo
 name|doc
 init|=
 name|config
 operator|.
-name|buildDocument
+name|buildDocumentTree
 argument_list|(
 name|source
 argument_list|)
@@ -2831,6 +2843,9 @@ operator|.
 name|setContextItem
 argument_list|(
 name|doc
+operator|.
+name|getRootNode
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

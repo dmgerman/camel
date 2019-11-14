@@ -232,7 +232,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:xslt/common/copy.xsl?allowStAX=false&output=string&entityResolver=#customEntityResolver"
+literal|"xslt:xslt/common/copy.xsl?output=string&entityResolver=#customEntityResolver"
 argument_list|)
 operator|.
 name|to

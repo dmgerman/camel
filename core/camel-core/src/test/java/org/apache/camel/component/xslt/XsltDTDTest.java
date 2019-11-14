@@ -460,7 +460,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/transform_dtd.xsl?allowStAX=false"
+literal|"xslt:org/apache/camel/component/xslt/transform_dtd.xsl"
 argument_list|)
 operator|.
 name|to

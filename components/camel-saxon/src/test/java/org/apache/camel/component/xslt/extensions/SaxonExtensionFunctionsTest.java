@@ -205,7 +205,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"xslt:%s?saxonExtensionFunctions=#function1,#function2"
+literal|"xslt-saxon:%s?saxonExtensionFunctions=#function1,#function2"
 argument_list|,
 name|XSLT_PATH
 argument_list|)

@@ -170,7 +170,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/transform_includes_data.xsl"
+literal|"xslt-saxon:org/apache/camel/component/xslt/transform_includes_data.xsl"
 argument_list|)
 operator|.
 name|to

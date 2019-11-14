@@ -198,7 +198,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/notfound.xsl?transformerFactoryClass=net.sf.saxon.TransformerFactoryImpl"
+literal|"xslt-saxon:org/apache/camel/component/xslt/notfound.xsl?transformerFactoryClass=net.sf.saxon.TransformerFactoryImpl"
 argument_list|)
 expr_stmt|;
 block|}

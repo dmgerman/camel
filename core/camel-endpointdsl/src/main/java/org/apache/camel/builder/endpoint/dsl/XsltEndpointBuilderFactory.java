@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -117,48 +107,6 @@ return|return
 operator|(
 name|AdvancedXsltEndpointBuilder
 operator|)
-name|this
-return|;
-block|}
-comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source. You          * can enable this if the XSLT library supports StAX such as the Saxon          * library (camel-saxon). The Xalan library (default in JVM) does not          * support StAXSource.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|allowStAX (boolean allowStAX)
-specifier|default
-name|XsltEndpointBuilder
-name|allowStAX
-parameter_list|(
-name|boolean
-name|allowStAX
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"allowStAX"
-argument_list|,
-name|allowStAX
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to allow using StAX as the javax.xml.transform.Source. You          * can enable this if the XSLT library supports StAX such as the Saxon          * library (camel-saxon). The Xalan library (default in JVM) does not          * support StAXSource.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|allowStAX (String allowStAX)
-specifier|default
-name|XsltEndpointBuilder
-name|allowStAX
-parameter_list|(
-name|String
-name|allowStAX
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"allowStAX"
-argument_list|,
-name|allowStAX
-argument_list|)
-expr_stmt|;
-return|return
 name|this
 return|;
 block|}
@@ -366,48 +314,6 @@ argument_list|(
 literal|"output"
 argument_list|,
 name|output
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Saxon as the transformerFactoryClass. If enabled then          * the class net.sf.saxon.TransformerFactoryImpl. You would need to add          * Saxon to the classpath.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|saxon (boolean saxon)
-specifier|default
-name|XsltEndpointBuilder
-name|saxon
-parameter_list|(
-name|boolean
-name|saxon
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxon"
-argument_list|,
-name|saxon
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Saxon as the transformerFactoryClass. If enabled then          * the class net.sf.saxon.TransformerFactoryImpl. You would need to add          * Saxon to the classpath.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|saxon (String saxon)
-specifier|default
-name|XsltEndpointBuilder
-name|saxon
-parameter_list|(
-name|String
-name|saxon
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxon"
-argument_list|,
-name|saxon
 argument_list|)
 expr_stmt|;
 return|return
@@ -640,93 +546,6 @@ argument_list|(
 literal|"resultHandlerFactory"
 argument_list|,
 name|resultHandlerFactory
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom Saxon configuration.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|saxonConfiguration ( Object saxonConfiguration)
-specifier|default
-name|AdvancedXsltEndpointBuilder
-name|saxonConfiguration
-parameter_list|(
-name|Object
-name|saxonConfiguration
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxonConfiguration"
-argument_list|,
-name|saxonConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom Saxon configuration.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|saxonConfiguration ( String saxonConfiguration)
-specifier|default
-name|AdvancedXsltEndpointBuilder
-name|saxonConfiguration
-parameter_list|(
-name|String
-name|saxonConfiguration
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxonConfiguration"
-argument_list|,
-name|saxonConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          *           * The option is a:<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
-DECL|method|saxonExtensionFunctions ( List<Object> saxonExtensionFunctions)
-specifier|default
-name|AdvancedXsltEndpointBuilder
-name|saxonExtensionFunctions
-parameter_list|(
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|saxonExtensionFunctions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxonExtensionFunctions"
-argument_list|,
-name|saxonExtensionFunctions
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
-DECL|method|saxonExtensionFunctions ( String saxonExtensionFunctions)
-specifier|default
-name|AdvancedXsltEndpointBuilder
-name|saxonExtensionFunctions
-parameter_list|(
-name|String
-name|saxonExtensionFunctions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxonExtensionFunctions"
-argument_list|,
-name|saxonExtensionFunctions
 argument_list|)
 expr_stmt|;
 return|return

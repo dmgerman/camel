@@ -230,20 +230,6 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|stax
-operator|.
-name|StAXSource
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
 name|stream
 operator|.
 name|StreamSource
@@ -323,24 +309,6 @@ operator|.
 name|support
 operator|.
 name|SynchronizationAdapter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|StAX2SAXSource
 import|;
 end_import
 
@@ -439,7 +407,7 @@ implements|implements
 name|Processor
 block|{
 DECL|field|LOG
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|Logger
@@ -527,13 +495,6 @@ DECL|field|errorListener
 specifier|private
 name|ErrorListener
 name|errorListener
-decl_stmt|;
-DECL|field|allowStAX
-specifier|private
-name|boolean
-name|allowStAX
-init|=
-literal|true
 decl_stmt|;
 DECL|field|entityResolver
 specifier|private
@@ -713,40 +674,13 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|isAllowStAX
-argument_list|()
-operator|&&
-name|source
-operator|instanceof
-name|StAXSource
-condition|)
-block|{
-comment|// Always convert StAXSource to SAXSource.
-comment|// * Xalan and Saxon-B don't support StAXSource.
-comment|// * The JDK default implementation (XSLTC) doesn't handle CDATA events
-comment|//   (see com.sun.org.apache.xalan.internal.xsltc.trax.StAXStream2SAX).
-comment|// * Saxon-HE/PE/EE seem to support StAXSource, but don't advertise this
-comment|//   officially (via TransformerFactory.getFeature(StAXSource.FEATURE))
 name|source
 operator|=
-operator|new
-name|StAX2SAXSource
+name|prepareSource
 argument_list|(
-operator|(
-operator|(
-name|StAXSource
-operator|)
 name|source
-operator|)
-operator|.
-name|getXMLStreamReader
-argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|source
@@ -814,6 +748,20 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Allows to prepare the source before transforming.      */
+DECL|method|prepareSource (Source source)
+specifier|protected
+name|Source
+name|prepareSource
+parameter_list|(
+name|Source
+name|source
+parameter_list|)
+block|{
+return|return
+name|source
+return|;
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
@@ -1103,22 +1051,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables to allow using StAX.      *<p/>      * When enabled StAX is preferred as the first choice as {@link Source}.      */
-DECL|method|allowStAX ()
-specifier|public
-name|XsltBuilder
-name|allowStAX
-parameter_list|()
-block|{
-name|setAllowStAX
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Used for caching {@link Transformer}s.      *<p/>      * By default no caching is in use.      *      * @param numberToCache  the maximum number of transformers to cache      */
 DECL|method|transformerCacheSize (int numberToCache)
 specifier|public
@@ -1314,8 +1246,7 @@ specifier|final
 name|XmlSourceHandlerFactoryImpl
 name|xmlSourceHandlerFactory
 init|=
-operator|new
-name|XmlSourceHandlerFactoryImpl
+name|createXmlSourceHandlerFactoryImpl
 argument_list|()
 decl_stmt|;
 name|xmlSourceHandlerFactory
@@ -1323,14 +1254,6 @@ operator|.
 name|setFailOnNullBody
 argument_list|(
 name|isFailOnNullBody
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|xmlSourceHandlerFactory
-operator|.
-name|setAllowStax
-argument_list|(
-name|isAllowStAX
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1347,6 +1270,18 @@ return|return
 name|this
 operator|.
 name|sourceHandlerFactory
+return|;
+block|}
+DECL|method|createXmlSourceHandlerFactoryImpl ()
+specifier|protected
+name|XmlSourceHandlerFactoryImpl
+name|createXmlSourceHandlerFactoryImpl
+parameter_list|()
+block|{
+return|return
+operator|new
+name|XmlSourceHandlerFactoryImpl
+argument_list|()
 return|;
 block|}
 DECL|method|setSourceHandlerFactory (SourceHandlerFactory sourceHandlerFactory)
@@ -1389,32 +1324,6 @@ operator|.
 name|resultHandlerFactory
 operator|=
 name|resultHandlerFactory
-expr_stmt|;
-block|}
-DECL|method|isAllowStAX ()
-specifier|public
-name|boolean
-name|isAllowStAX
-parameter_list|()
-block|{
-return|return
-name|allowStAX
-return|;
-block|}
-DECL|method|setAllowStAX (boolean allowStAX)
-specifier|public
-name|void
-name|setAllowStAX
-parameter_list|(
-name|boolean
-name|allowStAX
-parameter_list|)
-block|{
-name|this
-operator|.
-name|allowStAX
-operator|=
-name|allowStAX
 expr_stmt|;
 block|}
 comment|/**      * Sets the XSLT transformer from a Source      *      * @param source  the source      * @throws TransformerConfigurationException is thrown if creating a XSLT transformer failed.      */

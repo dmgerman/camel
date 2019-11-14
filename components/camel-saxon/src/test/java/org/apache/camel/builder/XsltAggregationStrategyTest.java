@@ -44,7 +44,9 @@ name|component
 operator|.
 name|xslt
 operator|.
-name|XsltAggregationStrategy
+name|saxon
+operator|.
+name|XsltSaxonAggregationStrategy
 import|;
 end_import
 
@@ -75,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the {@link XsltAggregationStrategy}.  *<p>  * Need to use Saxon to get a predictable result: We cannot rely on the JDK's XSLT processor as it can vary across  * platforms and JDK versions. Also, Xalan does not handle node-set properties well.  */
+comment|/**  * Unit test for the {@link XsltSaxonAggregationStrategy}.  *<p>  * Need to use Saxon to get a predictable result: We cannot rely on the JDK's XSLT processor as it can vary across  * platforms and JDK versions. Also, Xalan does not handle node-set properties well.  */
 end_comment
 
 begin_class
@@ -218,13 +220,10 @@ operator|.
 name|aggregate
 argument_list|(
 operator|new
-name|XsltAggregationStrategy
+name|XsltSaxonAggregationStrategy
 argument_list|(
 literal|"org/apache/camel/util/toolbox/aggregate.xsl"
 argument_list|)
-operator|.
-name|withSaxon
-argument_list|()
 argument_list|)
 operator|.
 name|constant
@@ -261,13 +260,10 @@ operator|.
 name|aggregate
 argument_list|(
 operator|new
-name|XsltAggregationStrategy
+name|XsltSaxonAggregationStrategy
 argument_list|(
 literal|"org/apache/camel/util/toolbox/aggregate-user-property.xsl"
 argument_list|)
-operator|.
-name|withSaxon
-argument_list|()
 operator|.
 name|withPropertyName
 argument_list|(

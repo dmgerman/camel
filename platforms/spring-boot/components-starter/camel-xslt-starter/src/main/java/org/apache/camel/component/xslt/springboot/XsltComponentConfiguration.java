@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|annotation
@@ -121,37 +111,6 @@ name|Boolean
 name|contentCache
 init|=
 literal|true
-decl_stmt|;
-comment|/**      * Whether to use Saxon as the transformerFactoryClass. If enabled then the      * class net.sf.saxon.TransformerFactoryImpl. You would need to add Saxon to      * the classpath.      */
-DECL|field|saxon
-specifier|private
-name|Boolean
-name|saxon
-init|=
-literal|false
-decl_stmt|;
-comment|/**      * Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition.      * You would need to add camel-saxon to the classpath. The function is      * looked up in the registry, where you can comma to separate multiple      * values to lookup.      */
-DECL|field|saxonExtensionFunctions
-specifier|private
-name|String
-name|saxonExtensionFunctions
-decl_stmt|;
-comment|/**      * To use a custom Saxon configuration. The option is a java.lang.Object      * type.      */
-DECL|field|saxonConfiguration
-specifier|private
-name|String
-name|saxonConfiguration
-decl_stmt|;
-comment|/**      * To set custom Saxon configuration properties      */
-DECL|field|saxonConfigurationProperties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|saxonConfigurationProperties
 decl_stmt|;
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
 DECL|field|basicPropertyBinding
@@ -253,120 +212,6 @@ operator|.
 name|contentCache
 operator|=
 name|contentCache
-expr_stmt|;
-block|}
-DECL|method|getSaxon ()
-specifier|public
-name|Boolean
-name|getSaxon
-parameter_list|()
-block|{
-return|return
-name|saxon
-return|;
-block|}
-DECL|method|setSaxon (Boolean saxon)
-specifier|public
-name|void
-name|setSaxon
-parameter_list|(
-name|Boolean
-name|saxon
-parameter_list|)
-block|{
-name|this
-operator|.
-name|saxon
-operator|=
-name|saxon
-expr_stmt|;
-block|}
-DECL|method|getSaxonExtensionFunctions ()
-specifier|public
-name|String
-name|getSaxonExtensionFunctions
-parameter_list|()
-block|{
-return|return
-name|saxonExtensionFunctions
-return|;
-block|}
-DECL|method|setSaxonExtensionFunctions (String saxonExtensionFunctions)
-specifier|public
-name|void
-name|setSaxonExtensionFunctions
-parameter_list|(
-name|String
-name|saxonExtensionFunctions
-parameter_list|)
-block|{
-name|this
-operator|.
-name|saxonExtensionFunctions
-operator|=
-name|saxonExtensionFunctions
-expr_stmt|;
-block|}
-DECL|method|getSaxonConfiguration ()
-specifier|public
-name|String
-name|getSaxonConfiguration
-parameter_list|()
-block|{
-return|return
-name|saxonConfiguration
-return|;
-block|}
-DECL|method|setSaxonConfiguration (String saxonConfiguration)
-specifier|public
-name|void
-name|setSaxonConfiguration
-parameter_list|(
-name|String
-name|saxonConfiguration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|saxonConfiguration
-operator|=
-name|saxonConfiguration
-expr_stmt|;
-block|}
-DECL|method|getSaxonConfigurationProperties ()
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|getSaxonConfigurationProperties
-parameter_list|()
-block|{
-return|return
-name|saxonConfigurationProperties
-return|;
-block|}
-DECL|method|setSaxonConfigurationProperties ( Map<String, Object> saxonConfigurationProperties)
-specifier|public
-name|void
-name|setSaxonConfigurationProperties
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|saxonConfigurationProperties
-parameter_list|)
-block|{
-name|this
-operator|.
-name|saxonConfigurationProperties
-operator|=
-name|saxonConfigurationProperties
 expr_stmt|;
 block|}
 DECL|method|getBasicPropertyBinding ()

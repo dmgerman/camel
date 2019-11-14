@@ -259,7 +259,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/terminate.xsl?saxon=true"
+literal|"xslt-saxon:org/apache/camel/component/xslt/terminate.xsl"
 argument_list|)
 operator|.
 name|to

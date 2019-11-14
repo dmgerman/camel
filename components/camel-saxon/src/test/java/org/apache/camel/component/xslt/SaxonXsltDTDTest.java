@@ -306,6 +306,25 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// reset stream before trying again
+if|if
+condition|(
+name|message
+operator|instanceof
+name|InputStream
+condition|)
+block|{
+operator|(
+operator|(
+name|InputStream
+operator|)
+name|message
+operator|)
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 try|try
 block|{
 name|template
@@ -368,6 +387,11 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
+name|ex
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 comment|// expect an exception here
 name|assertTrue
 argument_list|(
@@ -424,7 +448,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/transform_dtd.xsl"
+literal|"xslt-saxon:org/apache/camel/component/xslt/transform_dtd.xsl"
 argument_list|)
 operator|.
 name|to
@@ -439,7 +463,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/transform_dtd.xsl?allowStAX=false"
+literal|"xslt-saxon:org/apache/camel/component/xslt/transform_dtd.xsl?allowStAX=false"
 argument_list|)
 operator|.
 name|to

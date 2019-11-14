@@ -100,20 +100,6 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|stax
-operator|.
-name|StAXSource
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
 name|stream
 operator|.
 name|StreamSource
@@ -226,13 +212,6 @@ name|isFailOnNullBody
 init|=
 literal|true
 decl_stmt|;
-DECL|field|allowStax
-specifier|private
-name|boolean
-name|allowStax
-init|=
-literal|true
-decl_stmt|;
 comment|/**      * Returns true if we fail when the body is null.      */
 DECL|method|isFailOnNullBody ()
 specifier|public
@@ -244,7 +223,7 @@ return|return
 name|isFailOnNullBody
 return|;
 block|}
-comment|/**      * Set if we should fail when the body is null      *      * @param failOnNullBody      */
+comment|/**      * Set if we should fail when the body is null      */
 DECL|method|setFailOnNullBody (boolean failOnNullBody)
 specifier|public
 name|void
@@ -259,35 +238,6 @@ operator|=
 name|failOnNullBody
 expr_stmt|;
 block|}
-comment|/**      * Returns true if Stax is allowed      *      * @return      */
-DECL|method|isAllowStax ()
-specifier|public
-name|boolean
-name|isAllowStax
-parameter_list|()
-block|{
-return|return
-name|allowStax
-return|;
-block|}
-comment|/**      * Sets if a {@link StAXSource} is allowed to read the document      *      * @param allowStax      */
-DECL|method|setAllowStax (boolean allowStax)
-specifier|public
-name|void
-name|setAllowStax
-parameter_list|(
-name|boolean
-name|allowStax
-parameter_list|)
-block|{
-name|this
-operator|.
-name|allowStax
-operator|=
-name|allowStax
-expr_stmt|;
-block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|getSource (Exchange exchange)
@@ -525,42 +475,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|isAllowStax
-argument_list|()
-condition|)
-block|{
-comment|// try StAX if enabled
-name|source
-operator|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|tryConvertTo
-argument_list|(
-name|StAXSource
-operator|.
-name|class
-argument_list|,
-name|exchange
-argument_list|,
-name|body
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|source
-operator|==
-literal|null
-condition|)
-block|{
 comment|// then try SAX
 name|source
 operator|=
@@ -583,7 +497,6 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|source
