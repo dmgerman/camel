@@ -102,6 +102,30 @@ name|ignoreXmlConfiguration
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * To use a a custom ValidationProviderResolver. The option is a      * javax.validation.ValidationProviderResolver type.      */
+DECL|field|validationProviderResolver
+specifier|private
+name|String
+name|validationProviderResolver
+decl_stmt|;
+comment|/**      * To use a custom MessageInterpolator. The option is a      * javax.validation.MessageInterpolator type.      */
+DECL|field|messageInterpolator
+specifier|private
+name|String
+name|messageInterpolator
+decl_stmt|;
+comment|/**      * To use a custom TraversableResolver. The option is a      * javax.validation.TraversableResolver type.      */
+DECL|field|traversableResolver
+specifier|private
+name|String
+name|traversableResolver
+decl_stmt|;
+comment|/**      * To use a custom ConstraintValidatorFactory. The option is a      * javax.validation.ConstraintValidatorFactory type.      */
+DECL|field|constraintValidatorFactory
+specifier|private
+name|String
+name|constraintValidatorFactory
+decl_stmt|;
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
 DECL|field|basicPropertyBinding
 specifier|private
@@ -150,6 +174,110 @@ operator|.
 name|ignoreXmlConfiguration
 operator|=
 name|ignoreXmlConfiguration
+expr_stmt|;
+block|}
+DECL|method|getValidationProviderResolver ()
+specifier|public
+name|String
+name|getValidationProviderResolver
+parameter_list|()
+block|{
+return|return
+name|validationProviderResolver
+return|;
+block|}
+DECL|method|setValidationProviderResolver (String validationProviderResolver)
+specifier|public
+name|void
+name|setValidationProviderResolver
+parameter_list|(
+name|String
+name|validationProviderResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validationProviderResolver
+operator|=
+name|validationProviderResolver
+expr_stmt|;
+block|}
+DECL|method|getMessageInterpolator ()
+specifier|public
+name|String
+name|getMessageInterpolator
+parameter_list|()
+block|{
+return|return
+name|messageInterpolator
+return|;
+block|}
+DECL|method|setMessageInterpolator (String messageInterpolator)
+specifier|public
+name|void
+name|setMessageInterpolator
+parameter_list|(
+name|String
+name|messageInterpolator
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageInterpolator
+operator|=
+name|messageInterpolator
+expr_stmt|;
+block|}
+DECL|method|getTraversableResolver ()
+specifier|public
+name|String
+name|getTraversableResolver
+parameter_list|()
+block|{
+return|return
+name|traversableResolver
+return|;
+block|}
+DECL|method|setTraversableResolver (String traversableResolver)
+specifier|public
+name|void
+name|setTraversableResolver
+parameter_list|(
+name|String
+name|traversableResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traversableResolver
+operator|=
+name|traversableResolver
+expr_stmt|;
+block|}
+DECL|method|getConstraintValidatorFactory ()
+specifier|public
+name|String
+name|getConstraintValidatorFactory
+parameter_list|()
+block|{
+return|return
+name|constraintValidatorFactory
+return|;
+block|}
+DECL|method|setConstraintValidatorFactory (String constraintValidatorFactory)
+specifier|public
+name|void
+name|setConstraintValidatorFactory
+parameter_list|(
+name|String
+name|constraintValidatorFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|constraintValidatorFactory
+operator|=
+name|constraintValidatorFactory
 expr_stmt|;
 block|}
 DECL|method|getBasicPropertyBinding ()
