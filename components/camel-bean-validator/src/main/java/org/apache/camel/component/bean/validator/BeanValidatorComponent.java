@@ -72,6 +72,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|validation
+operator|.
+name|ValidatorFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -198,6 +208,18 @@ specifier|private
 name|ConstraintValidatorFactory
 name|constraintValidatorFactory
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|validatorFactory
+specifier|private
+name|ValidatorFactory
+name|validatorFactory
+decl_stmt|;
 DECL|method|BeanValidatorComponent ()
 specifier|public
 name|BeanValidatorComponent
@@ -278,6 +300,13 @@ operator|.
 name|setConstraintValidatorFactory
 argument_list|(
 name|constraintValidatorFactory
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setValidatorFactory
+argument_list|(
+name|validatorFactory
 argument_list|)
 expr_stmt|;
 name|setProperties

@@ -347,6 +347,18 @@ specifier|private
 name|ConstraintValidatorFactory
 name|constraintValidatorFactory
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|validatorFactory
+specifier|private
+name|ValidatorFactory
+name|validatorFactory
+decl_stmt|;
 DECL|method|BeanValidatorEndpoint (String endpointUri, Component component)
 specifier|public
 name|BeanValidatorEndpoint
@@ -412,6 +424,19 @@ block|}
 name|ValidatorFactory
 name|validatorFactory
 init|=
+name|this
+operator|.
+name|validatorFactory
+decl_stmt|;
+if|if
+condition|(
+name|validatorFactory
+operator|==
+literal|null
+condition|)
+block|{
+name|validatorFactory
+operator|=
 name|buildValidatorFactory
 argument_list|(
 name|isOsgiContext
@@ -428,7 +453,8 @@ name|traversableResolver
 argument_list|,
 name|constraintValidatorFactory
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|producer
 operator|.
 name|setValidatorFactory
@@ -664,6 +690,33 @@ operator|.
 name|constraintValidatorFactory
 operator|=
 name|constraintValidatorFactory
+expr_stmt|;
+block|}
+DECL|method|getValidatorFactory ()
+specifier|public
+name|ValidatorFactory
+name|getValidatorFactory
+parameter_list|()
+block|{
+return|return
+name|validatorFactory
+return|;
+block|}
+comment|/**      * To use a custom {@link ValidatorFactory}      */
+DECL|method|setValidatorFactory (ValidatorFactory validatorFactory)
+specifier|public
+name|void
+name|setValidatorFactory
+parameter_list|(
+name|ValidatorFactory
+name|validatorFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validatorFactory
+operator|=
+name|validatorFactory
 expr_stmt|;
 block|}
 block|}
