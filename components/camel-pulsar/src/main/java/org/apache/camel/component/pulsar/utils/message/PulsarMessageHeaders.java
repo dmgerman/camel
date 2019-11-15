@@ -88,6 +88,24 @@ name|MESSAGE_RECEIPT
 init|=
 literal|"message_receipt"
 decl_stmt|;
+DECL|field|KEY_OUT
+name|String
+name|KEY_OUT
+init|=
+literal|"CamelPulsarProducerMessageKey"
+decl_stmt|;
+DECL|field|PROPERTIES_OUT
+name|String
+name|PROPERTIES_OUT
+init|=
+literal|"CamelPulsarProducerMessageProperties"
+decl_stmt|;
+DECL|field|EVENT_TIME_OUT
+name|String
+name|EVENT_TIME_OUT
+init|=
+literal|"CamelPulsarProducerMessageEventTime"
+decl_stmt|;
 block|}
 end_interface
 
