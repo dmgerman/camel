@@ -530,7 +530,7 @@ name|connectionFactory
 parameter_list|)
 block|{
 name|JmsConfiguration
-name|template
+name|configuration
 init|=
 operator|new
 name|JmsConfiguration
@@ -538,7 +538,7 @@ argument_list|(
 name|connectionFactory
 argument_list|)
 decl_stmt|;
-name|template
+name|configuration
 operator|.
 name|setAcknowledgementMode
 argument_list|(
@@ -550,7 +550,7 @@ expr_stmt|;
 return|return
 name|jmsComponent
 argument_list|(
-name|template
+name|configuration
 argument_list|)
 return|;
 block|}
@@ -566,7 +566,7 @@ name|connectionFactory
 parameter_list|)
 block|{
 name|JmsConfiguration
-name|template
+name|configuration
 init|=
 operator|new
 name|JmsConfiguration
@@ -574,7 +574,7 @@ argument_list|(
 name|connectionFactory
 argument_list|)
 decl_stmt|;
-name|template
+name|configuration
 operator|.
 name|setAcknowledgementMode
 argument_list|(
@@ -586,7 +586,7 @@ expr_stmt|;
 return|return
 name|jmsComponent
 argument_list|(
-name|template
+name|configuration
 argument_list|)
 return|;
 block|}
@@ -637,7 +637,7 @@ name|transactionManager
 parameter_list|)
 block|{
 name|JmsConfiguration
-name|template
+name|configuration
 init|=
 operator|new
 name|JmsConfiguration
@@ -645,14 +645,14 @@ argument_list|(
 name|connectionFactory
 argument_list|)
 decl_stmt|;
-name|template
+name|configuration
 operator|.
 name|setTransactionManager
 argument_list|(
 name|transactionManager
 argument_list|)
 expr_stmt|;
-name|template
+name|configuration
 operator|.
 name|setTransacted
 argument_list|(
@@ -662,7 +662,7 @@ expr_stmt|;
 return|return
 name|jmsComponent
 argument_list|(
-name|template
+name|configuration
 argument_list|)
 return|;
 block|}
