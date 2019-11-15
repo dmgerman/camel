@@ -825,7 +825,7 @@ name|names
 operator|.
 name|contains
 argument_list|(
-literal|"hystrix"
+literal|"circuitBreaker"
 argument_list|)
 argument_list|)
 expr_stmt|;
