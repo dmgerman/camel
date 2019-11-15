@@ -45,18 +45,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-operator|.
-name|requireNonNull
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -225,6 +213,18 @@ operator|.
 name|structured
 operator|.
 name|CallMethodResult
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+operator|.
+name|requireNonNull
 import|;
 end_import
 

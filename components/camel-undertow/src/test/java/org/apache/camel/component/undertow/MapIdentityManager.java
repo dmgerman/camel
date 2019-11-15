@@ -89,20 +89,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-operator|.
-name|UTF_8
-import|;
-end_import
-
-begin_import
 import|import
 name|io
 operator|.
@@ -181,6 +167,20 @@ operator|.
 name|util
 operator|.
 name|HexConverter
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+operator|.
+name|UTF_8
 import|;
 end_import
 

@@ -850,9 +850,7 @@ argument_list|()
 operator|.
 name|anyMatch
 argument_list|(
-parameter_list|(
 name|f
-parameter_list|)
 lambda|->
 name|f
 operator|.
@@ -902,9 +900,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-parameter_list|(
 name|f
-parameter_list|)
 lambda|->
 operator|!
 name|f
@@ -1750,9 +1746,7 @@ name|arr
 operator|.
 name|forEach
 argument_list|(
-parameter_list|(
 name|e
-parameter_list|)
 lambda|->
 block|{
 name|JsonObject

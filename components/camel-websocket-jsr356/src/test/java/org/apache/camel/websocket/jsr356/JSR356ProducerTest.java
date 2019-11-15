@@ -51,18 +51,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|singletonList
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -235,6 +223,18 @@ operator|.
 name|rules
 operator|.
 name|TestName
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonList
 import|;
 end_import
 

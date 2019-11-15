@@ -55,6 +55,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Qualifier
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -121,16 +131,6 @@ operator|.
 name|RetentionPolicy
 operator|.
 name|RUNTIME
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Qualifier
 import|;
 end_import
 

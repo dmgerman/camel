@@ -428,7 +428,7 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
-comment|/** 	 * Constructs a new instance of the<code>StaxStreamXmlReader</code> that reads from the given 	 *<code>XMLStreamReader</code>.  The supplied stream reader must be in<code>XMLStreamConstants.START_DOCUMENT</code> 	 * or<code>XMLStreamConstants.START_ELEMENT</code> state. 	 * 	 * @param reader the<code>XMLEventReader</code> to read from 	 * @throws IllegalStateException if the reader is not at the start of a document or element 	 */
+comment|/**    * Constructs a new instance of the<code>StaxStreamXmlReader</code> that reads from the given    *<code>XMLStreamReader</code>.  The supplied stream reader must be in<code>XMLStreamConstants.START_DOCUMENT</code>    * or<code>XMLStreamConstants.START_ELEMENT</code> state.    *    * @param reader the<code>XMLEventReader</code> to read from    * @throws IllegalStateException if the reader is not at the start of a document or element    */
 DECL|method|StaxStreamXMLReader (XMLStreamReader reader)
 name|StaxStreamXMLReader
 parameter_list|(
@@ -1917,7 +1917,7 @@ operator|=
 name|standalone
 expr_stmt|;
 block|}
-comment|/** 	 * Indicates whether the SAX feature<code>http://xml.org/sax/features/namespaces</code> is turned on. 	 */
+comment|/**    * Indicates whether the SAX feature<code>http://xml.org/sax/features/namespaces</code> is turned on.    */
 DECL|method|hasNamespacesFeature ()
 specifier|protected
 name|boolean
@@ -1930,7 +1930,7 @@ operator|.
 name|namespacesFeature
 return|;
 block|}
-comment|/** 	 * Indicates whether the SAX feature<code>http://xml.org/sax/features/namespaces-prefixes</code> is turned on. 	 */
+comment|/**    * Indicates whether the SAX feature<code>http://xml.org/sax/features/namespaces-prefixes</code> is turned on.    */
 DECL|method|hasNamespacePrefixesFeature ()
 specifier|protected
 name|boolean
@@ -1943,7 +1943,7 @@ operator|.
 name|namespacePrefixesFeature
 return|;
 block|}
-comment|/** 	 * Convert a<code>QName</code> to a qualified name, as used by DOM and SAX. 	 * The returned string has a format of<code>prefix:localName</code> if the 	 * prefix is set, or just<code>localName</code> if not. 	 * @param qName the<code>QName</code> 	 * @return the qualified name 	 */
+comment|/**    * Convert a<code>QName</code> to a qualified name, as used by DOM and SAX.    * The returned string has a format of<code>prefix:localName</code> if the    * prefix is set, or just<code>localName</code> if not.    * @param qName the<code>QName</code>    * @return the qualified name    */
 DECL|method|toQualifiedName (QName qName)
 specifier|protected
 name|String
@@ -1993,7 +1993,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/** 	 * Parse the StAX XML reader passed at construction-time. 	 *<p><b>NOTE:</b>: The given<code>InputSource</code> is not read, but ignored. 	 * @param ignored is ignored 	 * @throws SAXException a SAX exception, possibly wrapping a<code>XMLStreamException</code> 	 */
+comment|/**    * Parse the StAX XML reader passed at construction-time.    *<p><b>NOTE:</b>: The given<code>InputSource</code> is not read, but ignored.    * @param ignored is ignored    * @throws SAXException a SAX exception, possibly wrapping a<code>XMLStreamException</code>    */
 annotation|@
 name|Override
 DECL|method|parse (InputSource ignored)
@@ -2012,7 +2012,7 @@ name|parse
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Parse the StAX XML reader passed at construction-time. 	 *<p><b>NOTE:</b>: The given system identifier is not read, but ignored. 	 * @param ignored is ignored 	 * @throws SAXException A SAX exception, possibly wrapping a<code>XMLStreamException</code> 	 */
+comment|/**    * Parse the StAX XML reader passed at construction-time.    *<p><b>NOTE:</b>: The given system identifier is not read, but ignored.    * @param ignored is ignored    * @throws SAXException A SAX exception, possibly wrapping a<code>XMLStreamException</code>    */
 annotation|@
 name|Override
 DECL|method|parse (String ignored)
@@ -2119,7 +2119,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/** 	 * Starts the prefix mapping for the given prefix. 	 * @see org.xml.sax.ContentHandler#startPrefixMapping(String, String) 	 */
+comment|/**    * Starts the prefix mapping for the given prefix.    * @see org.xml.sax.ContentHandler#startPrefixMapping(String, String)    */
 DECL|method|startPrefixMapping (String prefix, String namespace)
 specifier|protected
 name|void
@@ -2205,7 +2205,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Ends the prefix mapping for the given prefix. 	 * @see org.xml.sax.ContentHandler#endPrefixMapping(String) 	 */
+comment|/**    * Ends the prefix mapping for the given prefix.    * @see org.xml.sax.ContentHandler#endPrefixMapping(String)    */
 DECL|method|endPrefixMapping (String prefix)
 specifier|protected
 name|void
@@ -2253,7 +2253,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** 	 * Implementation of the<code>Locator</code> interface that is based on a StAX<code>Location</code>. 	 * @see Locator 	 * @see Location 	 */
+comment|/**    * Implementation of the<code>Locator</code> interface that is based on a StAX<code>Location</code>.    * @see Locator    * @see Location    */
 DECL|class|StaxLocator
 specifier|private
 specifier|static
@@ -2474,7 +2474,7 @@ return|return
 name|lexicalHandler
 return|;
 block|}
-comment|/** 	 * Throws a<code>SAXNotRecognizedException</code> exception when the given property does not signify a lexical 	 * handler. The property name for a lexical handler is<code>http://xml.org/sax/properties/lexical-handler</code>. 	 */
+comment|/**    * Throws a<code>SAXNotRecognizedException</code> exception when the given property does not signify a lexical    * handler. The property name for a lexical handler is<code>http://xml.org/sax/properties/lexical-handler</code>.    */
 annotation|@
 name|Override
 DECL|method|getProperty (String name)
@@ -2515,7 +2515,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** 	 * Throws a<code>SAXNotRecognizedException</code> exception when the given property does not signify a lexical 	 * handler. The property name for a lexical handler is<code>http://xml.org/sax/properties/lexical-handler</code>. 	 */
+comment|/**    * Throws a<code>SAXNotRecognizedException</code> exception when the given property does not signify a lexical    * handler. The property name for a lexical handler is<code>http://xml.org/sax/properties/lexical-handler</code>.    */
 annotation|@
 name|Override
 DECL|method|setProperty (String name, Object value)

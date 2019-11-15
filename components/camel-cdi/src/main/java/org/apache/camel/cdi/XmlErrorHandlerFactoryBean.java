@@ -29,30 +29,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-operator|.
-name|nonNull
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -203,6 +179,30 @@ operator|.
 name|errorhandler
 operator|.
 name|RedeliveryPolicy
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+operator|.
+name|nonNull
 import|;
 end_import
 

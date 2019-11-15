@@ -237,7 +237,7 @@ parameter_list|()
 default|default
 literal|"CEILING"
 function_decl|;
-comment|/**       * Method name to call to apply such customization       * on DataField. This must be the method on the datafield       * itself or you must provide static fully qualified name of       * the class's method e.g: see unit test        * org.apache.camel.dataformat.bindy.csv.BindySimpleCsvFunctionWithExternalMethodTest.replaceToBar       */
+comment|/**      * Method name to call to apply such customization      * on DataField. This must be the method on the datafield      * itself or you must provide static fully qualified name of      * the class's method e.g: see unit test       * org.apache.camel.dataformat.bindy.csv.BindySimpleCsvFunctionWithExternalMethodTest.replaceToBar      */
 DECL|method|method ()
 name|String
 name|method

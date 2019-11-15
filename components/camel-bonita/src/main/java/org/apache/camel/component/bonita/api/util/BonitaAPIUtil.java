@@ -163,22 +163,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|client
-operator|.
-name|Entity
-operator|.
-name|entity
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
@@ -345,6 +329,22 @@ operator|.
 name|multipart
 operator|.
 name|ContentDisposition
+import|;
+end_import
+
+begin_import
+import|import static
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|client
+operator|.
+name|Entity
+operator|.
+name|entity
 import|;
 end_import
 

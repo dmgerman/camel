@@ -173,9 +173,7 @@ argument_list|)
 operator|.
 name|toArray
 argument_list|(
-parameter_list|(
 name|length
-parameter_list|)
 lambda|->
 operator|new
 name|String

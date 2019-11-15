@@ -200,9 +200,7 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-parameter_list|(
 name|e
-parameter_list|)
 lambda|->
 name|options
 operator|.

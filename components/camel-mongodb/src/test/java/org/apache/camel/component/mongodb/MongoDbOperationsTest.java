@@ -59,18 +59,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-operator|.
-name|asList
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
@@ -329,6 +317,18 @@ operator|.
 name|Updates
 operator|.
 name|set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+operator|.
+name|asList
 import|;
 end_import
 

@@ -119,20 +119,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-operator|.
-name|joining
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -279,6 +265,20 @@ operator|.
 name|support
 operator|.
 name|DefaultEndpoint
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|joining
 import|;
 end_import
 

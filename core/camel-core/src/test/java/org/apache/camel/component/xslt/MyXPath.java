@@ -19,7 +19,11 @@ package|;
 end_package
 
 begin_comment
-comment|//START SNIPPET: example
+comment|// START SNIPPET: example
+end_comment
+
+begin_comment
+comment|// START SNIPPET: example
 end_comment
 
 begin_import

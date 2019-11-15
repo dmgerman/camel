@@ -69,18 +69,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-operator|.
-name|ofNullable
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -377,6 +365,18 @@ operator|.
 name|support
 operator|.
 name|JmsUtils
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+operator|.
+name|ofNullable
 import|;
 end_import
 

@@ -41,18 +41,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-operator|.
-name|hash
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -85,6 +73,18 @@ operator|.
 name|MoreObjects
 operator|.
 name|toStringHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+operator|.
+name|hash
 import|;
 end_import
 

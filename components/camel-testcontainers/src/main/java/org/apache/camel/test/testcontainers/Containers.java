@@ -53,20 +53,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-operator|.
-name|joining
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -135,6 +121,20 @@ operator|.
 name|output
 operator|.
 name|Slf4jLogConsumer
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|joining
 import|;
 end_import
 

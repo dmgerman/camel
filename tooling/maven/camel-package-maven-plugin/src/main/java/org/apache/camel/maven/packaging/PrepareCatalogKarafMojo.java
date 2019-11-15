@@ -209,20 +209,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
-operator|.
-name|ELEMENT_NODE
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -355,6 +341,20 @@ operator|.
 name|PackageHelper
 operator|.
 name|loadText
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+operator|.
+name|ELEMENT_NODE
 import|;
 end_import
 

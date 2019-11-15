@@ -372,9 +372,7 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-parameter_list|(
 name|s
-parameter_list|)
 lambda|->
 name|cacheManager
 operator|.

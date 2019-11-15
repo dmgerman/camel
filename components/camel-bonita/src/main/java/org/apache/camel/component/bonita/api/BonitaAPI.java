@@ -93,22 +93,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|client
-operator|.
-name|Entity
-operator|.
-name|entity
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -199,6 +183,22 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import static
+name|javax
+operator|.
+name|ws
+operator|.
+name|rs
+operator|.
+name|client
+operator|.
+name|Entity
+operator|.
+name|entity
 import|;
 end_import
 

@@ -217,9 +217,7 @@ literal|"test"
 argument_list|,
 literal|"testconsumer"
 argument_list|,
-parameter_list|(
 name|message
-parameter_list|)
 lambda|->
 block|{
 name|counter
@@ -377,9 +375,7 @@ literal|"test"
 argument_list|,
 literal|"testconsumer"
 argument_list|,
-parameter_list|(
 name|message
-parameter_list|)
 lambda|->
 block|{
 name|counter

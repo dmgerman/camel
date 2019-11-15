@@ -63,20 +63,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-operator|.
-name|toList
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -607,6 +593,20 @@ operator|.
 name|structured
 operator|.
 name|WriteValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|toList
 import|;
 end_import
 

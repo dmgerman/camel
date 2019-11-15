@@ -3204,9 +3204,7 @@ name|onCompletion
 parameter_list|)
 block|{
 return|return
-parameter_list|(
 name|answer
-parameter_list|)
 lambda|->
 block|{
 comment|// invoke callback before returning answer

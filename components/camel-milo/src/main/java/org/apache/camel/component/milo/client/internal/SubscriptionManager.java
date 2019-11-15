@@ -211,20 +211,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CompletableFuture
-operator|.
-name|completedFuture
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
@@ -961,6 +947,20 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CompletableFuture
+operator|.
+name|completedFuture
 import|;
 end_import
 

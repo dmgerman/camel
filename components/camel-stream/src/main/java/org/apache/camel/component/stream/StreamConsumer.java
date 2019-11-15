@@ -453,9 +453,7 @@ name|FileWatcherStrategy
 argument_list|(
 name|dir
 argument_list|,
-parameter_list|(
 name|file
-parameter_list|)
 lambda|->
 block|{
 name|String

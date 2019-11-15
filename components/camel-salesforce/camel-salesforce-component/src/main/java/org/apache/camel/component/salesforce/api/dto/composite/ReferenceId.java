@@ -55,42 +55,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyList
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableList
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-operator|.
-name|ofNullable
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
@@ -163,6 +127,42 @@ operator|.
 name|dto
 operator|.
 name|RestError
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableList
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+operator|.
+name|ofNullable
 import|;
 end_import
 

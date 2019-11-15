@@ -63,18 +63,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-operator|.
-name|ofNullable
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -247,6 +235,18 @@ operator|.
 name|ssl
 operator|.
 name|SslContextFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+operator|.
+name|ofNullable
 import|;
 end_import
 

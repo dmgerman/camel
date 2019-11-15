@@ -2603,9 +2603,7 @@ name|HttpRequestBase
 argument_list|>
 name|deleteFunction
 init|=
-parameter_list|(
 name|request
-parameter_list|)
 lambda|->
 block|{
 name|execute

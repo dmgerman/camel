@@ -236,9 +236,7 @@ name|mock
 operator|.
 name|whenAnyExchangeReceived
 argument_list|(
-parameter_list|(
 name|e
-parameter_list|)
 lambda|->
 name|e
 operator|.

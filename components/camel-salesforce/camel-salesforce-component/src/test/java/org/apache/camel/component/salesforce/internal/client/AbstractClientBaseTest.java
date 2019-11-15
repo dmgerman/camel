@@ -53,30 +53,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-operator|.
-name|asList
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|singletonList
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -327,6 +303,30 @@ operator|.
 name|mockito
 operator|.
 name|ArgumentCaptor
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+operator|.
+name|asList
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonList
 import|;
 end_import
 

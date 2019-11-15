@@ -65,20 +65,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|StandardCopyOption
-operator|.
-name|REPLACE_EXISTING
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -201,6 +187,20 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|StandardCopyOption
+operator|.
+name|REPLACE_EXISTING
 import|;
 end_import
 

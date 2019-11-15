@@ -51,20 +51,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
-operator|.
-name|identity
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -167,6 +153,20 @@ operator|.
 name|context
 operator|.
 name|ApplicationContext
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+operator|.
+name|identity
 import|;
 end_import
 

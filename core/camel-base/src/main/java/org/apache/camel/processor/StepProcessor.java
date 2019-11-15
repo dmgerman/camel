@@ -267,9 +267,7 @@ name|process
 argument_list|(
 name|exchange
 argument_list|,
-parameter_list|(
 name|sync
-parameter_list|)
 lambda|->
 block|{
 comment|// then fire event to signal the step is done

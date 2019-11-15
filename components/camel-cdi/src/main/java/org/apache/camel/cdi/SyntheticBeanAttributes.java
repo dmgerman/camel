@@ -51,32 +51,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptySet
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-operator|.
-name|toSet
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -109,6 +83,32 @@ operator|.
 name|inject
 operator|.
 name|Named
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|toSet
 import|;
 end_import
 

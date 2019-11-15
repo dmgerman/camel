@@ -199,9 +199,7 @@ name|AbstractNitriteOperation
 argument_list|>
 name|operationValidator
 init|=
-parameter_list|(
 name|noop
-parameter_list|)
 lambda|->
 block|{ }
 decl_stmt|;

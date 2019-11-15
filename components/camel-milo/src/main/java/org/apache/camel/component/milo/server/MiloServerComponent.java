@@ -215,18 +215,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|singletonList
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -647,6 +635,18 @@ operator|.
 name|structured
 operator|.
 name|UserTokenPolicy
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonList
 import|;
 end_import
 

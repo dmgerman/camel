@@ -305,9 +305,7 @@ argument_list|)
 operator|.
 name|thenAnswer
 argument_list|(
-parameter_list|(
 name|i
-parameter_list|)
 lambda|->
 name|defaultRes
 argument_list|)

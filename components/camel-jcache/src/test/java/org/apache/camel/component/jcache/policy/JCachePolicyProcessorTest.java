@@ -746,9 +746,7 @@ name|mock
 operator|.
 name|whenAnyExchangeReceived
 argument_list|(
-parameter_list|(
 name|e
-parameter_list|)
 lambda|->
 name|e
 operator|.
@@ -1206,9 +1204,7 @@ name|request
 argument_list|(
 literal|"direct:cached-invalidkey"
 argument_list|,
-parameter_list|(
 name|e
-parameter_list|)
 lambda|->
 name|e
 operator|.
@@ -1401,9 +1397,7 @@ name|mock
 operator|.
 name|whenAnyExchangeReceived
 argument_list|(
-parameter_list|(
 name|e
-parameter_list|)
 lambda|->
 block|{
 throw|throw
@@ -1437,9 +1431,7 @@ name|request
 argument_list|(
 literal|"direct:cached-exception"
 argument_list|,
-parameter_list|(
 name|e
-parameter_list|)
 lambda|->
 name|e
 operator|.

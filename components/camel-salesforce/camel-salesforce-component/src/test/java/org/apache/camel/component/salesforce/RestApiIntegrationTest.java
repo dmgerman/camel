@@ -968,13 +968,11 @@ literal|"salesforce:deleteSObject?sObjectName=Merchandise__c&sObjectId="
 operator|+
 name|merchandiseId
 argument_list|,
-call|(
+operator|(
 name|Processor
-call|)
-argument_list|(
+operator|)
 name|e
-argument_list|)
-operator|->
+lambda|->
 block|{
 comment|// NOOP
 block|}
@@ -986,13 +984,11 @@ name|request
 argument_list|(
 literal|"direct:deleteLineItems"
 argument_list|,
-call|(
+operator|(
 name|Processor
-call|)
-argument_list|(
+operator|)
 name|e
-argument_list|)
-operator|->
+lambda|->
 block|{
 comment|// NOOP
 block|}
@@ -1215,13 +1211,11 @@ literal|"salesforce:deleteSObject?sObjectName=Account&sObjectId="
 operator|+
 name|accountId
 argument_list|,
-call|(
+operator|(
 name|Processor
-call|)
-argument_list|(
+operator|)
 name|e
-argument_list|)
-operator|->
+lambda|->
 block|{
 comment|// NOOP
 block|}
@@ -1243,13 +1237,11 @@ literal|"salesforce:deleteSObject?sObjectName=Contact&sObjectId="
 operator|+
 name|contactId
 argument_list|,
-call|(
+operator|(
 name|Processor
-call|)
-argument_list|(
+operator|)
 name|e
-argument_list|)
-operator|->
+lambda|->
 block|{
 comment|// NOOP
 block|}

@@ -361,9 +361,7 @@ name|this
 operator|.
 name|classNameGenerator
 operator|=
-parameter_list|(
 name|s
-parameter_list|)
 lambda|->
 name|className
 expr_stmt|;
@@ -442,9 +440,7 @@ name|this
 operator|.
 name|packageNameGenerator
 operator|=
-parameter_list|(
 name|s
-parameter_list|)
 lambda|->
 name|packageName
 expr_stmt|;

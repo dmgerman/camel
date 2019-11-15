@@ -49,30 +49,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|Boolean
-operator|.
-name|parseBoolean
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-operator|.
-name|asList
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
@@ -257,6 +233,30 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Boolean
+operator|.
+name|parseBoolean
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+operator|.
+name|asList
 import|;
 end_import
 

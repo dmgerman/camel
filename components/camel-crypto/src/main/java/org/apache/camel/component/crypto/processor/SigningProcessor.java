@@ -61,18 +61,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -141,6 +129,18 @@ operator|.
 name|binary
 operator|.
 name|Base64
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
 import|;
 end_import
 

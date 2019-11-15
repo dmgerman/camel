@@ -2125,9 +2125,7 @@ name|super
 argument_list|(
 name|restClient
 argument_list|,
-parameter_list|(
 name|client
-parameter_list|)
 lambda|->
 block|{ }
 argument_list|,

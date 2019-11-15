@@ -29,18 +29,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -107,6 +95,18 @@ operator|.
 name|annotation
 operator|.
 name|Configuration
+import|;
+end_import
+
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|assertNotNull
 import|;
 end_import
 

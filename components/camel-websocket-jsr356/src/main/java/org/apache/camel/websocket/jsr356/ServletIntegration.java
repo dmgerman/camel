@@ -29,18 +29,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-operator|.
-name|ofNullable
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -89,6 +77,18 @@ operator|.
 name|server
 operator|.
 name|ServerContainer
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+operator|.
+name|ofNullable
 import|;
 end_import
 

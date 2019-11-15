@@ -827,9 +827,7 @@ argument_list|()
 operator|.
 name|filter
 argument_list|(
-parameter_list|(
 name|m
-parameter_list|)
 lambda|->
 name|isHttpMethodAllowed
 argument_list|(

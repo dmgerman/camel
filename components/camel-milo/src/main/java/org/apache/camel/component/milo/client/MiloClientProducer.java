@@ -33,18 +33,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|Boolean
-operator|.
-name|TRUE
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -113,6 +101,18 @@ operator|.
 name|builtin
 operator|.
 name|ExpandedNodeId
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Boolean
+operator|.
+name|TRUE
 import|;
 end_import
 

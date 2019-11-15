@@ -97,20 +97,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-operator|.
-name|joining
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
@@ -741,6 +727,20 @@ operator|.
 name|engine
 operator|.
 name|DefaultPackageScanClassResolver
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|joining
 import|;
 end_import
 

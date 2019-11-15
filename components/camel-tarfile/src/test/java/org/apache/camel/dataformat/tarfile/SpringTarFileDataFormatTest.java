@@ -41,32 +41,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-operator|.
-name|UTF_8
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|singletonList
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -155,6 +129,32 @@ operator|.
 name|support
 operator|.
 name|ClassPathXmlApplicationContext
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+operator|.
+name|UTF_8
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonList
 import|;
 end_import
 

@@ -71,6 +71,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|inject
+operator|.
+name|spi
+operator|.
+name|Annotated
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -105,20 +119,6 @@ operator|.
 name|Collectors
 operator|.
 name|toSet
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|enterprise
-operator|.
-name|inject
-operator|.
-name|spi
-operator|.
-name|Annotated
 import|;
 end_import
 

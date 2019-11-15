@@ -740,9 +740,7 @@ name|String
 argument_list|>
 name|i
 init|=
-parameter_list|(
 name|s
-parameter_list|)
 lambda|->
 name|s
 operator|.

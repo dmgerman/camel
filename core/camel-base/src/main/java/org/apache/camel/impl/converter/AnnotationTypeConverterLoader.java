@@ -153,48 +153,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-operator|.
-name|isAbstract
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-operator|.
-name|isPublic
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-operator|.
-name|isStatic
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -357,6 +315,48 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
+operator|.
+name|isAbstract
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
+operator|.
+name|isPublic
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
+operator|.
+name|isStatic
 import|;
 end_import
 

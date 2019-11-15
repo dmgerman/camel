@@ -1116,9 +1116,7 @@ name|Entry
 operator|::
 name|getKey
 argument_list|,
-parameter_list|(
 name|entry
-parameter_list|)
 lambda|->
 name|entry
 operator|.

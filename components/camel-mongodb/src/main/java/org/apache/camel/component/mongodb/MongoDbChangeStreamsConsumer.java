@@ -41,18 +41,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|singletonList
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -99,6 +87,18 @@ operator|.
 name|bson
 operator|.
 name|BsonDocument
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonList
 import|;
 end_import
 

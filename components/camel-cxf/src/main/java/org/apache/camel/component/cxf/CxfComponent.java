@@ -156,20 +156,6 @@ name|PropertiesHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|message
-operator|.
-name|Message
-import|;
-end_import
-
 begin_comment
 comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Component</a>  */
 end_comment
