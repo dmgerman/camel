@@ -102,6 +102,29 @@ specifier|private
 name|Boolean
 name|enabled
 decl_stmt|;
+comment|/**      * Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition.      * You would need to add camel-saxon to the classpath. The function is      * looked up in the registry, where you can comma to separate multiple      * values to lookup.      */
+DECL|field|saxonExtensionFunctions
+specifier|private
+name|String
+name|saxonExtensionFunctions
+decl_stmt|;
+comment|/**      * To use a custom Saxon configuration. The option is a      * net.sf.saxon.Configuration type.      */
+DECL|field|saxonConfiguration
+specifier|private
+name|String
+name|saxonConfiguration
+decl_stmt|;
+comment|/**      * To set custom Saxon configuration properties      */
+DECL|field|saxonConfigurationProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|saxonConfigurationProperties
+decl_stmt|;
 comment|/**      * To use a custom UriResolver which depends on a dynamic endpoint resource      * URI. Should not be used together with the option 'uriResolver'. The      * option is a org.apache.camel.component.xslt.XsltUriResolverFactory type.      */
 DECL|field|uriResolverFactory
 specifier|private
@@ -121,37 +144,6 @@ name|Boolean
 name|contentCache
 init|=
 literal|true
-decl_stmt|;
-comment|/**      * Whether to use Saxon as the transformerFactoryClass. If enabled then the      * class net.sf.saxon.TransformerFactoryImpl. You would need to add Saxon to      * the classpath.      */
-DECL|field|saxon
-specifier|private
-name|Boolean
-name|saxon
-init|=
-literal|false
-decl_stmt|;
-comment|/**      * Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition.      * You would need to add camel-saxon to the classpath. The function is      * looked up in the registry, where you can comma to separate multiple      * values to lookup.      */
-DECL|field|saxonExtensionFunctions
-specifier|private
-name|String
-name|saxonExtensionFunctions
-decl_stmt|;
-comment|/**      * To use a custom Saxon configuration. The option is a java.lang.Object      * type.      */
-DECL|field|saxonConfiguration
-specifier|private
-name|String
-name|saxonConfiguration
-decl_stmt|;
-comment|/**      * To set custom Saxon configuration properties      */
-DECL|field|saxonConfigurationProperties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|saxonConfigurationProperties
 decl_stmt|;
 comment|/**      * Whether the component should use basic property binding (Camel 2.x) or      * the newer property binding with additional capabilities      */
 DECL|field|basicPropertyBinding
@@ -177,110 +169,6 @@ name|bridgeErrorHandler
 init|=
 literal|false
 decl_stmt|;
-DECL|method|getUriResolverFactory ()
-specifier|public
-name|String
-name|getUriResolverFactory
-parameter_list|()
-block|{
-return|return
-name|uriResolverFactory
-return|;
-block|}
-DECL|method|setUriResolverFactory (String uriResolverFactory)
-specifier|public
-name|void
-name|setUriResolverFactory
-parameter_list|(
-name|String
-name|uriResolverFactory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|uriResolverFactory
-operator|=
-name|uriResolverFactory
-expr_stmt|;
-block|}
-DECL|method|getUriResolver ()
-specifier|public
-name|String
-name|getUriResolver
-parameter_list|()
-block|{
-return|return
-name|uriResolver
-return|;
-block|}
-DECL|method|setUriResolver (String uriResolver)
-specifier|public
-name|void
-name|setUriResolver
-parameter_list|(
-name|String
-name|uriResolver
-parameter_list|)
-block|{
-name|this
-operator|.
-name|uriResolver
-operator|=
-name|uriResolver
-expr_stmt|;
-block|}
-DECL|method|getContentCache ()
-specifier|public
-name|Boolean
-name|getContentCache
-parameter_list|()
-block|{
-return|return
-name|contentCache
-return|;
-block|}
-DECL|method|setContentCache (Boolean contentCache)
-specifier|public
-name|void
-name|setContentCache
-parameter_list|(
-name|Boolean
-name|contentCache
-parameter_list|)
-block|{
-name|this
-operator|.
-name|contentCache
-operator|=
-name|contentCache
-expr_stmt|;
-block|}
-DECL|method|getSaxon ()
-specifier|public
-name|Boolean
-name|getSaxon
-parameter_list|()
-block|{
-return|return
-name|saxon
-return|;
-block|}
-DECL|method|setSaxon (Boolean saxon)
-specifier|public
-name|void
-name|setSaxon
-parameter_list|(
-name|Boolean
-name|saxon
-parameter_list|)
-block|{
-name|this
-operator|.
-name|saxon
-operator|=
-name|saxon
-expr_stmt|;
-block|}
 DECL|method|getSaxonExtensionFunctions ()
 specifier|public
 name|String
@@ -367,6 +255,84 @@ operator|.
 name|saxonConfigurationProperties
 operator|=
 name|saxonConfigurationProperties
+expr_stmt|;
+block|}
+DECL|method|getUriResolverFactory ()
+specifier|public
+name|String
+name|getUriResolverFactory
+parameter_list|()
+block|{
+return|return
+name|uriResolverFactory
+return|;
+block|}
+DECL|method|setUriResolverFactory (String uriResolverFactory)
+specifier|public
+name|void
+name|setUriResolverFactory
+parameter_list|(
+name|String
+name|uriResolverFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriResolverFactory
+operator|=
+name|uriResolverFactory
+expr_stmt|;
+block|}
+DECL|method|getUriResolver ()
+specifier|public
+name|String
+name|getUriResolver
+parameter_list|()
+block|{
+return|return
+name|uriResolver
+return|;
+block|}
+DECL|method|setUriResolver (String uriResolver)
+specifier|public
+name|void
+name|setUriResolver
+parameter_list|(
+name|String
+name|uriResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriResolver
+operator|=
+name|uriResolver
+expr_stmt|;
+block|}
+DECL|method|getContentCache ()
+specifier|public
+name|Boolean
+name|getContentCache
+parameter_list|()
+block|{
+return|return
+name|contentCache
+return|;
+block|}
+DECL|method|setContentCache (Boolean contentCache)
+specifier|public
+name|void
+name|setContentCache
+parameter_list|(
+name|Boolean
+name|contentCache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentCache
+operator|=
+name|contentCache
 expr_stmt|;
 block|}
 DECL|method|getBasicPropertyBinding ()

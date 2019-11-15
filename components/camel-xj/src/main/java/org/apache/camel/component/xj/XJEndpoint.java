@@ -104,7 +104,27 @@ name|component
 operator|.
 name|xslt
 operator|.
-name|XsltEndpoint
+name|saxon
+operator|.
+name|XsltSaxonBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|xslt
+operator|.
+name|saxon
+operator|.
+name|XsltSaxonEndpoint
 import|;
 end_import
 
@@ -208,7 +228,7 @@ specifier|public
 class|class
 name|XJEndpoint
 extends|extends
-name|XsltEndpoint
+name|XsltSaxonEndpoint
 block|{
 DECL|field|jsonFactory
 specifier|private
@@ -330,14 +350,14 @@ annotation|@
 name|Override
 DECL|method|createXsltBuilder ()
 specifier|protected
-name|XsltBuilder
+name|XsltSaxonBuilder
 name|createXsltBuilder
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 specifier|final
-name|XsltBuilder
+name|XsltSaxonBuilder
 name|xsltBuilder
 init|=
 name|super

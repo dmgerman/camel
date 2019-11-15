@@ -414,48 +414,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Whether to use Saxon as the transformerFactoryClass. If enabled then          * the class net.sf.saxon.TransformerFactoryImpl. You would need to add          * Saxon to the classpath.          *           * The option is a:<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|saxon (boolean saxon)
-specifier|default
-name|XJEndpointBuilder
-name|saxon
-parameter_list|(
-name|boolean
-name|saxon
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxon"
-argument_list|,
-name|saxon
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Whether to use Saxon as the transformerFactoryClass. If enabled then          * the class net.sf.saxon.TransformerFactoryImpl. You would need to add          * Saxon to the classpath.          *           * The option will be converted to a<code>boolean</code> type.          *           * Group: producer          */
-DECL|method|saxon (String saxon)
-specifier|default
-name|XJEndpointBuilder
-name|saxon
-parameter_list|(
-name|String
-name|saxon
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxon"
-argument_list|,
-name|saxon
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * The number of javax.xml.transform.Transformer object that are cached          * for reuse to avoid calls to Template.newTransformer().          *           * The option is a:<code>int</code> type.          *           * Group: producer          */
 DECL|method|transformerCacheSize (int transformerCacheSize)
 specifier|default
@@ -517,6 +475,93 @@ return|return
 operator|(
 name|XJEndpointBuilder
 operator|)
+name|this
+return|;
+block|}
+comment|/**          * To use a custom Saxon configuration.          *           * The option is a:<code>net.sf.saxon.Configuration</code> type.          *           * Group: advanced          */
+DECL|method|saxonConfiguration ( Object saxonConfiguration)
+specifier|default
+name|AdvancedXJEndpointBuilder
+name|saxonConfiguration
+parameter_list|(
+name|Object
+name|saxonConfiguration
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"saxonConfiguration"
+argument_list|,
+name|saxonConfiguration
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * To use a custom Saxon configuration.          *           * The option will be converted to a          *<code>net.sf.saxon.Configuration</code> type.          *           * Group: advanced          */
+DECL|method|saxonConfiguration ( String saxonConfiguration)
+specifier|default
+name|AdvancedXJEndpointBuilder
+name|saxonConfiguration
+parameter_list|(
+name|String
+name|saxonConfiguration
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"saxonConfiguration"
+argument_list|,
+name|saxonConfiguration
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          *           * The option is a:<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
+DECL|method|saxonExtensionFunctions ( List<Object> saxonExtensionFunctions)
+specifier|default
+name|AdvancedXJEndpointBuilder
+name|saxonExtensionFunctions
+parameter_list|(
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|saxonExtensionFunctions
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"saxonExtensionFunctions"
+argument_list|,
+name|saxonExtensionFunctions
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
+DECL|method|saxonExtensionFunctions ( String saxonExtensionFunctions)
+specifier|default
+name|AdvancedXJEndpointBuilder
+name|saxonExtensionFunctions
+parameter_list|(
+name|String
+name|saxonExtensionFunctions
+parameter_list|)
+block|{
+name|doSetProperty
+argument_list|(
+literal|"saxonExtensionFunctions"
+argument_list|,
+name|saxonExtensionFunctions
+argument_list|)
+expr_stmt|;
+return|return
 name|this
 return|;
 block|}
@@ -682,93 +727,6 @@ argument_list|(
 literal|"resultHandlerFactory"
 argument_list|,
 name|resultHandlerFactory
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom Saxon configuration.          *           * The option is a:<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|saxonConfiguration ( Object saxonConfiguration)
-specifier|default
-name|AdvancedXJEndpointBuilder
-name|saxonConfiguration
-parameter_list|(
-name|Object
-name|saxonConfiguration
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxonConfiguration"
-argument_list|,
-name|saxonConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * To use a custom Saxon configuration.          *           * The option will be converted to a<code>java.lang.Object</code> type.          *           * Group: advanced          */
-DECL|method|saxonConfiguration ( String saxonConfiguration)
-specifier|default
-name|AdvancedXJEndpointBuilder
-name|saxonConfiguration
-parameter_list|(
-name|String
-name|saxonConfiguration
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxonConfiguration"
-argument_list|,
-name|saxonConfiguration
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          *           * The option is a:<code>java.util.List&lt;java.lang.Object&gt;</code>          * type.          *           * Group: advanced          */
-DECL|method|saxonExtensionFunctions ( List<Object> saxonExtensionFunctions)
-specifier|default
-name|AdvancedXJEndpointBuilder
-name|saxonExtensionFunctions
-parameter_list|(
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|saxonExtensionFunctions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxonExtensionFunctions"
-argument_list|,
-name|saxonExtensionFunctions
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**          * Allows you to use a custom          * net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add          * camel-saxon to the classpath. The function is looked up in the          * registry, where you can comma to separate multiple values to lookup.          *           * The option will be converted to a          *<code>java.util.List&lt;java.lang.Object&gt;</code> type.          *           * Group: advanced          */
-DECL|method|saxonExtensionFunctions ( String saxonExtensionFunctions)
-specifier|default
-name|AdvancedXJEndpointBuilder
-name|saxonExtensionFunctions
-parameter_list|(
-name|String
-name|saxonExtensionFunctions
-parameter_list|)
-block|{
-name|doSetProperty
-argument_list|(
-literal|"saxonExtensionFunctions"
-argument_list|,
-name|saxonExtensionFunctions
 argument_list|)
 expr_stmt|;
 return|return
