@@ -568,9 +568,14 @@ argument_list|()
 operator|.
 name|withFlags
 argument_list|(
+operator|new
+name|Flag
+index|[]
+block|{
 name|Flag
 operator|.
 name|IGNORE_RETURN_VALUES
+block|}
 argument_list|)
 return|;
 block|}
